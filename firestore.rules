@@ -1,0 +1,152 @@
+rules_version = '2';
+
+// Syllab / PadhAI Firestore Rules (v2)
+//
+// Invariants from security_spec.md that remain enforced:
+//   • Owner-only read/write on user data
+//   • Monotonic score/xp (no regression)
+//   • Immutable createdAt
+//   • Strict schema on shape-critical collections (contacts, mistakes)
+//   • Size limits on user-supplied strings
+//   • Server-assigned timestamps
+//
+// Changes vs v1 to match the actual app code:
+//   • Users: allow real stat fields (streak, level, badges, city, state)
+//   • Ranks: accept 'Beginner' for back-compat with existing profiles
+//   • Mistakes: schema matches the blueprint + lib/firebase.ts
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- USERS ----------
+    match /users/{userId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+
+      function allowedKeys() {
+        return [
+          'score', 'xp', 'rank',
+          'streak', 'level', 'badges',
+          'displayName', 'email',
+          'city', 'state',
+          'createdAt', 'updatedAt', 'lastActive'
+        ];
+      }
+
+      function requiredKeys() {
+        return ['score', 'xp', 'rank', 'createdAt', 'updatedAt'];
+      }
+
+      function validShape(d) {
+        return d.keys().hasOnly(allowedKeys())
+            && d.keys().hasAll(requiredKeys())
+            && d.score is number && d.score >= 0
+            && d.xp is number && d.xp >= 0
+            && d.rank is string
+            && d.rank in [
+                 'Beginner', 'Initiate', 'Scholar', 'Adept',
+                 'Expert', 'Master', 'Grandmaster'
+               ]
+            && (!('streak' in d.keys()) || (d.streak is number && d.streak >= 0))
+            && (!('level' in d.keys())  || (d.level is number && d.level >= 1))
+            && (!('badges' in d.keys()) || (d.badges is list && d.badges.size() <= 100))
+            && (!('displayName' in d.keys()) || (d.displayName is string && d.displayName.size() <= 60))
+            && (!('email' in d.keys())       || (d.email is string && d.email.size() <= 200))
+            && (!('city' in d.keys())        || (d.city is string && d.city.size() <= 60))
+            && (!('state' in d.keys())       || (d.state is string && d.state.size() <= 60));
+      }
+
+      allow read: if isOwner();
+
+      allow create: if isOwner()
+        && validShape(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      allow update: if isOwner()
+        && validShape(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && (!('email' in resource.data.keys())
+            || request.resource.data.email == resource.data.email)
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.score >= resource.data.score
+        && request.resource.data.xp >= resource.data.xp;
+
+      allow delete: if false;
+    }
+
+    // ---------- PROGRESS ----------
+    match /progress/{userId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+      allow read: if isOwner();
+      allow create, update: if isOwner() && request.resource.data.size() < 200;
+      allow delete: if false;
+    }
+
+    // ---------- MISTAKES (immutable audit records) ----------
+    match /mistakes/{docId} {
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+             'userId', 'questionId', 'chapterId', 'subject',
+             'questionText', 'selectedOption', 'correctOption', 'timestamp'
+           ])
+        && request.resource.data.keys().hasAll([
+             'userId', 'questionId', 'questionText', 'timestamp'
+           ])
+        && request.resource.data.questionText is string
+        && request.resource.data.questionText.size() <= 5000
+        && request.resource.data.timestamp == request.time;
+
+      allow read: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+
+      allow update, delete: if false;
+    }
+
+    // ---------- QUIZ SESSIONS ----------
+    match /quizSessions/{userId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+      allow read: if isOwner();
+      allow create, update: if isOwner()
+        && request.resource.data.userId == userId;
+      allow delete: if false;
+    }
+
+    // ---------- CONTACTS ----------
+    // Auth NOT required — prospects use contact forms before signup.
+    // Tight schema + size limits are the only defense against spam here.
+    // If you want auth-only, add `request.auth != null &&` to the condition.
+    match /contacts/{contactId} {
+      allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'message', 'createdAt'])
+        && request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 100
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 200
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 5000
+        && request.resource.data.createdAt == request.time;
+
+      allow read, update, delete: if false;
+    }
+
+    // ---------- AI CACHE ----------
+    // Backend Admin SDK writes only. Clients must never touch this.
+    match /aiCache/{docId} {
+      allow read, write: if false;
+    }
+
+    // ---------- DEFAULT DENY ----------
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

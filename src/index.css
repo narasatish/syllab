@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Playfair Display", serif;
+  
+  --color-primary: #10B981;
+  --color-primary-dark: #059669;
+  --color-primary-light: #34D399;
+  --color-secondary: #0F172A;
+  --color-accent: #F97316;
+  --color-bg-beige: #F8F5F0;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-beige text-secondary font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, .font-heading {
+    @apply font-heading tracking-tight;
+  }
+
+  .italic-serif {
+    @apply font-heading italic;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-primary text-white rounded-2xl font-black text-sm uppercase tracking-widest 
+           hover:bg-primary-dark hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30 
+           active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2;
+  }
+
+  .card {
+    @apply bg-white rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/20 p-8 
+           hover:shadow-2xl hover:shadow-slate-200/40 transition-all duration-500;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-2xl;
+  }
+
+  /* Markdown Styles for AI responses */
+  .markdown-body {
+    @apply space-y-4 leading-relaxed;
+  }
+
+  .markdown-body p {
+    @apply mb-4 text-slate-700;
+  }
+
+  .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    @apply mt-6 mb-3 font-heading font-black text-slate-900;
+  }
+
+  .markdown-body ul, .markdown-body ol {
+    @apply my-4 ml-6 space-y-2;
+  }
+
+  .markdown-body ul {
+    @apply list-disc;
+  }
+
+  .markdown-body ol {
+    @apply list-decimal;
+  }
+
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 rounded-full hover:bg-slate-300;
+  }
+}

@@ -1,0 +1,468 @@
+import { Chapter, ClassLevel, Subject } from "../types";
+
+type JuniorBook = {
+  classLevel: ClassLevel;
+  subject: Subject;
+  sourceBook: string;
+  ncertCode: string;
+  title: string;
+  chapters: string[];
+  difficulty?: Chapter["difficulty"];
+};
+
+const STOP_WORDS = new Set([
+  "and",
+  "the",
+  "with",
+  "from",
+  "into",
+  "that",
+  "this",
+  "your",
+  "our",
+  "their",
+  "through",
+  "using",
+  "around",
+  "about",
+  "part",
+]);
+
+const subjectOverview: Record<Subject, { explanation: string; example: string; examInsight: string }> = {
+  Mathematics: {
+    explanation:
+      "A CBSE NCERT mathematics chapter focused on patterns, reasoning, problem solving, and daily-life applications.",
+    example:
+      "Students connect the idea to measurements, games, maps, shopping, travel, classroom data, or everyday calculations.",
+    examInsight:
+      "Practice NCERT examples first, then solve mixed word problems to build speed and confidence.",
+  },
+  Science: {
+    explanation:
+      "A CBSE NCERT science chapter built around observation, activities, evidence, and real-world investigation.",
+    example:
+      "Students can verify many ideas through simple home or classroom observations before moving to formal definitions.",
+    examInsight:
+      "Focus on keywords, diagrams, activity conclusions, and cause-effect explanations from the NCERT chapter.",
+  },
+  English: {
+    explanation:
+      "A CBSE NCERT English lesson for reading comprehension, vocabulary, grammar-in-context, speaking, and writing practice.",
+    example:
+      "Students strengthen expression by retelling the lesson, finding new words, and writing short responses in their own voice.",
+    examInsight:
+      "Read for theme, characters, tone, vocabulary, and evidence-based answers instead of memorising paragraphs.",
+  },
+  "The World Around Us": {
+    explanation:
+      "A CBSE NCERT preparatory-stage chapter that connects environment, health, society, geography, culture, and inquiry.",
+    example:
+      "Students use local observations, family interviews, maps, journals, and small projects to understand the topic.",
+    examInsight:
+      "Make short notes from activities, pictures, maps, and reflection questions; these are the heart of the chapter.",
+  },
+  Physics: {
+    explanation: "",
+    example: "",
+    examInsight: "",
+  },
+  Chemistry: {
+    explanation: "",
+    example: "",
+    examInsight: "",
+  },
+  Biology: {
+    explanation: "",
+    example: "",
+    examInsight: "",
+  },
+};
+
+const toSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const subjectSlug: Record<Subject, string> = {
+  Mathematics: "math",
+  Science: "sci",
+  English: "eng",
+  "The World Around Us": "world",
+  Physics: "phy",
+  Chemistry: "chem",
+  Biology: "bio",
+};
+
+const buildTopics = (chapterTitle: string, subject: Subject, sourceBook: string) => {
+  const keywords = chapterTitle
+    .replace(/[^A-Za-z0-9 ]+/g, " ")
+    .split(/\s+/)
+    .filter((word) => word.length > 3 && !STOP_WORDS.has(word.toLowerCase()))
+    .slice(0, 5);
+
+  return Array.from(new Set([chapterTitle, ...keywords, subject, sourceBook])).slice(0, 8);
+};
+
+const makeChapters = (book: JuniorBook): Chapter[] => {
+  const overview = subjectOverview[book.subject];
+  const ncertUrl = `https://ncert.nic.in/textbook.php?${book.ncertCode}=0-${book.chapters.length}`;
+
+  return book.chapters.map((title, index) => ({
+    id: `${book.classLevel}-${subjectSlug[book.subject]}-${index + 1}-${toSlug(title).slice(0, 24)}`,
+    title,
+    subject: book.subject,
+    classLevel: book.classLevel,
+    topics: buildTopics(title, book.subject, book.sourceBook),
+    ncertUrl,
+    sourceBook: book.sourceBook,
+    explanation: `${overview.explanation} This entry follows the current NCERT ${book.sourceBook} book for Class ${book.classLevel}.`,
+    realWorldExample: overview.example,
+    examInsight: overview.examInsight,
+    difficulty: book.difficulty ?? "Easy",
+    concepts: [],
+  }));
+};
+
+const JUNIOR_BOOKS: JuniorBook[] = [
+  {
+    classLevel: "5",
+    subject: "Mathematics",
+    sourceBook: "Maths Mela",
+    ncertCode: "eemm1",
+    difficulty: "Easy",
+    title: "Class 5 Mathematics",
+    chapters: [
+      "We the Travellers - I",
+      "Fractions",
+      "Angles as Turns",
+      "We the Travellers - II",
+      "Far and Near",
+      "The Dairy Farm",
+      "Shapes and Patterns",
+      "Weight and Capacity",
+      "Coconut Farm",
+      "Symmetrical Designs",
+      "Grandmother's Quilt",
+      "Racing Seconds",
+      "Animal Jumps",
+      "Maps and Locations",
+      "Data Through Pictures",
+    ],
+  },
+  {
+    classLevel: "5",
+    subject: "English",
+    sourceBook: "Santoor",
+    ncertCode: "eesa1",
+    title: "Class 5 English",
+    chapters: [
+      "Papa's Spectacles",
+      "Gone with the Scooter",
+      "The Rainbow",
+      "The Wise Parrot",
+      "The Frog",
+      "What a Tank!",
+      "Gilli Danda",
+      "The Decision of the Panchayat",
+      "Vocation",
+      "Glass Bangles",
+    ],
+  },
+  {
+    classLevel: "5",
+    subject: "The World Around Us",
+    sourceBook: "Our Wondrous World",
+    ncertCode: "eeev1",
+    title: "Class 5 The World Around Us",
+    chapters: [
+      "Water - The Essence of Life",
+      "Journey of a River",
+      "The Mystery of Food",
+      "Our School - A Happy Place",
+      "Our Vibrant Country",
+      "Some Unique Places",
+      "Energy - How Things Work",
+      "Clothes - How Things are Made",
+      "Rhythms of Nature",
+      "Earth - Our Shared Home",
+    ],
+  },
+  {
+    classLevel: "6",
+    subject: "Mathematics",
+    sourceBook: "Ganita Prakash",
+    ncertCode: "fegp1",
+    difficulty: "Easy",
+    title: "Class 6 Mathematics",
+    chapters: [
+      "Patterns in Mathematics",
+      "Lines and Angles",
+      "Number Play",
+      "Data Handling and Presentation",
+      "Prime Time",
+      "Perimeter and Area",
+      "Fractions",
+      "Playing with Constructions",
+      "Symmetry",
+      "The Other Side of Zero",
+    ],
+  },
+  {
+    classLevel: "6",
+    subject: "Science",
+    sourceBook: "Curiosity",
+    ncertCode: "fecu1",
+    title: "Class 6 Science",
+    chapters: [
+      "The Wonderful World of Science",
+      "Diversity in the Living World",
+      "Mindful Eating: A Path to a Healthy Body",
+      "Exploring Magnets",
+      "Measurement of Length and Motion",
+      "Materials Around Us",
+      "Temperature and its Measurement",
+      "A Journey through States of Water",
+      "Methods of Separation in Everyday Life",
+      "Living Creatures: Exploring their Characteristics",
+      "Nature's Treasures",
+      "Beyond Earth",
+    ],
+  },
+  {
+    classLevel: "6",
+    subject: "English",
+    sourceBook: "Poorvi",
+    ncertCode: "fepr1",
+    title: "Class 6 English",
+    chapters: [
+      "A Bottle of Dew",
+      "The Raven and the Fox",
+      "Rama to the Rescue",
+      "The Unlikely Best Friends",
+      "A Friend's Prayer",
+      "The Chair",
+      "Neem Baba",
+      "What a Bird Thought",
+      "Spices that Heal Us",
+      "Change of Heart",
+      "The Winner",
+      "Yoga - A Way of Life",
+      "Hamara Bharat - Incredible India!",
+      "The Kites",
+      "Ila Sachani: Embroidering Dreams with her Feet",
+      "National War Memorial",
+    ],
+  },
+  {
+    classLevel: "7",
+    subject: "Mathematics",
+    sourceBook: "Ganita Prakash Parts I and II",
+    ncertCode: "gegp1",
+    difficulty: "Medium",
+    title: "Class 7 Mathematics",
+    chapters: [
+      "Large Numbers Around Us",
+      "Arithmetic Expressions",
+      "A Peek Beyond the Point",
+      "Expressions using Letter-Numbers",
+      "Parallel and Intersecting Lines",
+      "Number Play",
+      "A Tale of Three Intersecting Lines",
+      "Working with Fractions",
+      "Geometric Twins",
+      "Operations with Integers",
+      "Finding Common Ground",
+      "Another Peek Beyond the Point",
+      "Connecting the Dots...",
+      "Constructions and Tilings",
+      "Finding the Unknown",
+    ],
+  },
+  {
+    classLevel: "7",
+    subject: "Science",
+    sourceBook: "Curiosity",
+    ncertCode: "gecu1",
+    difficulty: "Medium",
+    title: "Class 7 Science",
+    chapters: [
+      "The Ever-Evolving World of Science",
+      "Exploring Substances: Acidic, Basic, and Neutral",
+      "Electricity: Circuits and their Components",
+      "The World of Metals and Non-metals",
+      "Changes Around Us: Physical and Chemical",
+      "Adolescence: A Stage of Growth and Change",
+      "Heat Transfer in Nature",
+      "Measurement of Time and Motion",
+      "Life Processes in Animals",
+      "Life Processes in Plants",
+      "Light: Shadows and Reflections",
+      "Earth, Moon, and the Sun",
+    ],
+  },
+  {
+    classLevel: "7",
+    subject: "English",
+    sourceBook: "Poorvi",
+    ncertCode: "gepr1",
+    title: "Class 7 English",
+    chapters: [
+      "The Day the River Spoke",
+      "Try Again",
+      "Three Days to See",
+      "Animals, Birds, and Dr. Dolittle",
+      "A Funny Man",
+      "Say the Right Thing",
+      "My Brother's Great Invention",
+      "Paper Boats",
+      "North, South, East, West",
+      "The Tunnel",
+      "Travel",
+      "Conquering the Summit",
+      "A Homage to Our Brave Soldiers",
+      "My Dear Soldiers",
+      "Rani Abbakka",
+    ],
+  },
+  {
+    classLevel: "8",
+    subject: "Mathematics",
+    sourceBook: "Ganita Prakash Parts I and II",
+    ncertCode: "hegp1",
+    difficulty: "Medium",
+    title: "Class 8 Mathematics",
+    chapters: [
+      "A Square and A Cube",
+      "Power Play",
+      "A Story of Numbers",
+      "Quadrilaterals",
+      "Number Play",
+      "We Distribute, Yet Things Multiply",
+      "Proportional Reasoning-1",
+      "Fractions in Disguise",
+      "The Baudhayana-Pythagoras Theorem",
+      "Proportional Reasoning-2",
+      "Exploring Some Geometric Themes",
+      "Tales by Dots and Lines",
+      "Algebra Play",
+      "Area",
+    ],
+  },
+  {
+    classLevel: "8",
+    subject: "Science",
+    sourceBook: "Curiosity",
+    ncertCode: "hecu1",
+    difficulty: "Medium",
+    title: "Class 8 Science",
+    chapters: [
+      "Exploring the Investigative World of Science",
+      "The Invisible Living World: Beyond Our Naked Eye",
+      "Health: The Ultimate Treasure",
+      "Electricity: Magnetic and Heating Effects",
+      "Exploring Forces",
+      "Pressure, Winds, Storms, and Cyclones",
+      "Particulate Nature of Matter",
+      "Nature of Matter: Elements, Compounds, and Mixtures",
+      "The Amazing World of Solutes, Solvents, and Solutions",
+      "Light: Mirrors and Lenses",
+      "Keeping Time with the Skies",
+      "How Nature Works in Harmony",
+      "Our Home: Earth, a Unique Life Sustaining Planet",
+    ],
+  },
+  {
+    classLevel: "8",
+    subject: "English",
+    sourceBook: "Poorvi",
+    ncertCode: "hepr1",
+    title: "Class 8 English",
+    chapters: [
+      "The Wit that Won Hearts",
+      "A Concrete Example",
+      "Wisdom Paves the Way",
+      "A Tale of Valour: Major Somnath Sharma and the Battle of Badgam",
+      "Somebody's Mother",
+      "Verghese Kurien - I Too Had a Dream",
+      "The Case of the Fifth Word",
+      "The Magic Brush of Dreams",
+      "Spectacular Wonders",
+      "The Cherry Tree",
+      "Harvest Hymn",
+      "Waiting for the Rain",
+      "Feathered Friend",
+      "Magnifying Glass",
+      "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+    ],
+  },
+  {
+    classLevel: "9",
+    subject: "Mathematics",
+    sourceBook: "Ganita Manjari",
+    ncertCode: "iemh1",
+    difficulty: "Hard",
+    title: "Class 9 Mathematics",
+    chapters: [
+      "Orienting Yourself: The Use of Coordinates",
+      "Introduction to Linear Polynomials",
+      "The World of Numbers",
+      "Exploring Algebraic Identities",
+      "I am Up and Down, and Round and Round",
+      "Measuring Space: Perimeter and Area",
+      "The Mathematics of Maybe: Introduction to Probability",
+      "Predicting What Comes Next: Exploring Sequences and Progressions",
+    ],
+  },
+  {
+    classLevel: "9",
+    subject: "Science",
+    sourceBook: "Exploration",
+    ncertCode: "iesc1",
+    difficulty: "Hard",
+    title: "Class 9 Science",
+    chapters: [
+      "Exploration: Entering the World of Secondary Science",
+      "Cell: The Building Block of Life",
+      "Tissues in Action",
+      "Describing Motion Around Us",
+      "Exploring Mixtures and their Separation",
+      "How Forces Affect Motion",
+      "Work, Energy, and Simple Machines",
+      "Journey Inside the Atom",
+      "Atomic Foundations of Matter",
+      "Sound Waves: Characteristics and Applications",
+      "Reproduction: How Life Continues",
+      "Patterns in Life: Diversity and Classification",
+      "Earth as a System: Energy, Matter, and Life",
+    ],
+  },
+  {
+    classLevel: "9",
+    subject: "English",
+    sourceBook: "Kaveri",
+    ncertCode: "iebe1",
+    difficulty: "Medium",
+    title: "Class 9 English",
+    chapters: [
+      "How I Taught My Grandmother to Read",
+      "Bharat Our Land",
+      "The Pot Maker",
+      "Gifts of Grace: Honouring Our Vocations",
+      "Winds of Change",
+      "Canvas of Soil",
+      "Vitamin-M",
+      "I Cannot Remember My Mother",
+      "The World of Limitless Possibilities",
+      "Nine Gold Medals",
+      "Twin Melodies",
+      "A Friend Found in Music",
+      "Carrier of Words",
+      "Words",
+      "Follow That Dream",
+      "Believe in Yourself",
+    ],
+  },
+];
+
+export const JUNIOR_SYLLABUS: Chapter[] = JUNIOR_BOOKS.flatMap(makeChapters);

@@ -1,0 +1,100 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores student stats and profile information.",
+      "type": "object",
+      "properties": {
+        "score": { "type": "number", "description": "Mastery points earned." },
+        "xp": { "type": "number", "description": "Experience points." },
+        "rank": { "type": "string", "description": "Academic tier (Beginner, Apprentice, Explorer, Scholar)." },
+        "streak": { "type": "number", "description": "Days of consecutive activity." },
+        "level": { "type": "number", "description": "Gamified progress level." },
+        "badges": { "type": "array", "items": { "type": "string" }, "description": "Unlocked achievements." },
+        "displayName": { "type": "string", "description": "User's public name." },
+        "email": { "type": "string", "format": "email", "description": "User's email." },
+        "city": { "type": "string", "description": "User location for local rankings." },
+        "state": { "type": "string", "description": "User location for state rankings." },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "lastActive": { "type": "string", "format": "date-time" }
+      },
+      "required": ["score", "xp", "rank", "streak", "level"]
+    },
+    "UserProgress": {
+      "title": "User Academic Progress",
+      "description": "Tracks completed chapters and active learning state.",
+      "type": "object",
+      "properties": {
+        "completedChapters": { "type": "array", "items": { "type": "string" } },
+        "lastChapter": { "type": "string" },
+        "conceptProgress": { "type": "object", "description": "Map of conceptId to boolean completion status." },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "QuizSession": {
+      "title": "Quiz Session State",
+      "description": "Active or paused practice session data for persistence.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "questions": { "type": "array", "items": { "type": "object" } },
+        "currentIndex": { "type": "number" },
+        "score": { "type": "number" },
+        "config": { "type": "object" },
+        "active": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "questions", "currentIndex", "score", "active"]
+    },
+    "Mistake": {
+      "title": "Mistake Record",
+      "description": "Tracks incorrect answers for AI mentoring.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "questionId": { "type": "string" },
+        "chapterId": { "type": "string" },
+        "questionText": { "type": "string" },
+        "selectedOption": { "type": "string" },
+        "correctOption": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "questionId", "questionText", "timestamp"]
+    },
+    "Contact": {
+      "title": "Contact Enquiry",
+      "description": "User messages and support requests.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Individual student profile and stats."
+    },
+    "/progress/{userId}": {
+      "schema": "UserProgress",
+      "description": "Academic progress tracking."
+    },
+    "/quizSessions/{userId}": {
+      "schema": "QuizSession",
+      "description": "Ephemeral or saved practice session state."
+    },
+    "/mistakes/{mistakeId}": {
+      "schema": "Mistake",
+      "description": "Records of failed attempts for personalized review."
+    },
+    "/contacts/{contactId}": {
+      "schema": "Contact",
+      "description": "Support form submissions."
+    }
+  }
+}
