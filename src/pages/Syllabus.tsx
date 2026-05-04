@@ -16,7 +16,7 @@ import { BookOpen, ChevronLeft, AlertCircle, Loader2, Sparkles } from "lucide-re
 
 // ------------------------- API base (Vite-safe) ------------------------------
 const API_BASE: string =
-  (import.meta as any)?.env?.VITE_API_URL || "https://syllab.onrender.com";
+  (import.meta as any)?.env?.VITE_API_URL || "https://syllab-backend.onrender.com";
 
 // ------------------------- Types ---------------------------------------------
 interface Chapter {
@@ -43,7 +43,7 @@ const Syllabus: React.FC = () => {
   const classNum = useMemo(() => {
     const p = new URLSearchParams(location.search);
     const n = parseInt(p.get("class") || "10", 10);
-    return Number.isFinite(n) && n >= 1 && n <= 12 ? n : 10;
+    return Number.isFinite(n) && n >= 5 && n <= 12 ? n : 10;
   }, [location.search]);
 
   // 2. State
@@ -156,7 +156,7 @@ const Syllabus: React.FC = () => {
 
         {/* Class switcher row — keeps deep linking to other classes one click away */}
         <div className="mx-auto flex max-w-6xl flex-wrap gap-2 px-6 pb-5">
-          {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
+          {Array.from({ length: 8 }, (_, i) => i + 5).map((n) => (
             <Link
               key={n}
               to={`/syllabus?class=${n}`}
