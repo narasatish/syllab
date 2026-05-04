@@ -16,7 +16,7 @@ import { BookOpen, ChevronLeft, AlertCircle, Loader2, Sparkles } from "lucide-re
 
 // ------------------------- API base (Vite-safe) ------------------------------
 const API_BASE: string =
-  (import.meta as any)?.env?.VITE_API_URL || "https://syllab-backend.onrender.com";
+  (import.meta as any)?.env?.VITE_API_URL || "https://syllab.onrender.com";
 
 // ------------------------- Types ---------------------------------------------
 interface Chapter {

@@ -3,13 +3,7 @@
 // Centralised API base URL.
 // Reads VITE_API_URL / VITE_API_BASE_URL / VITE_API_BASE from .env.
 // Falls back to the production Render backend, NEVER to localhost in prod.
-const RAW_API_URL =
-  (import.meta.env.VITE_API_URL as string | undefined) ||
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ||
-  (import.meta.env.VITE_API_BASE as string | undefined) ||
-  "https://syllab-backend.onrender.com";
-
-const API_URL = RAW_API_URL.replace(/\/+$/, "");
+const API_URL = "https://syllab.onrender.com";
 
 // One-time log so production console shows what URL we're hitting.
 if (typeof window !== "undefined") {

@@ -18,8 +18,7 @@ import {
 } from "lucide-react";
 
 // Generate classes dynamically — fixes the "static class buttons" bug
-const CLASSES: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
-
+const CLASSES = Array.from({ length: 8 }, (_, i) => i + 5);
 const FEATURES = [
   {
     icon: Bot,
