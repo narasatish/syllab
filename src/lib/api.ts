@@ -1,33 +1,23 @@
 // src/lib/api.ts
-//
-// Centralised API base URL.
-// Reads VITE_API_URL / VITE_API_BASE_URL / VITE_API_BASE from .env.
-// Falls back to the production Render backend, NEVER to localhost in prod.
-const RAW_API_URL =
-  (import.meta.env.VITE_API_URL as string | undefined) ||
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ||
-  (import.meta.env.VITE_API_BASE as string | undefined) ||
-  "https://syllab-backend.onrender.com";
+// Single source of truth for ALL backend calls.
+// Production URL only. No localhost. No fallbacks.
 
-const API_URL = RAW_API_URL.replace(/\/+$/, "");
+export const API_URL = "https://syllab-backend.onrender.com";
 
-// One-time log so production console shows what URL we're hitting.
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line no-console
-  console.log("[api] API_URL:", API_URL);
-}
+console.log("[api] API_URL:", API_URL);
 
-/* ============================================================
-   Shared types
-   ============================================================ */
+/* ───────────── Types ───────────── */
+
 export interface ChatTurn {
   role: "user" | "model";
   parts: { text: string }[];
 }
 
-export interface Concept {
-  title: string;
-  detail: string;
+export interface MCQ {
+  question: string;
+  options: string[];
+  correct: number;
+  explanation: string;
 }
 
 export interface Flashcard {
@@ -35,173 +25,125 @@ export interface Flashcard {
   answer: string;
 }
 
-export interface MCQ {
-  question: string;
-  options: string[];
-  correct: number; // 0-based index of the correct option
-  explanation: string;
+export interface ConceptCard {
+  title: string;
+  detail: string;
 }
 
 export interface StudyMaterial {
-  concepts: Concept[];
+  concepts: ConceptCard[];
   flashcards: Flashcard[];
   mcqs: MCQ[];
 }
 
-// Backwards-compatible alias
-export type StudyConcepts = StudyMaterial;
+export interface UserStats {
+  xp: number;
+  level: number;
+  accuracy: number;
+  streak: number;
+  rank: string;
+}
 
-/* ============================================================
-   Study Arena
-   ============================================================ */
+/* ───────────── fetch wrapper ───────────── */
 
-/** Initial study kit generation: POST /api/study  { text } */
-export async function extractStudyConcepts(text: string): Promise<StudyMaterial> {
-  const res = await fetch(`${API_URL}/api/study`, {
+async function post<T = any>(path: string, body: any): Promise<T> {
+  const res = await fetch(`${API_URL}${path}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`Study API failed: ${res.status}`);
-  const data = await res.json();
+  if (!res.ok) {
+    const errText = await res.text().catch(() => "");
+    throw new Error(`API ${path} ${res.status}: ${errText.slice(0, 200)}`);
+  }
+  return res.json();
+}
+
+async function get<T = any>(path: string): Promise<T> {
+  const res = await fetch(`${API_URL}${path}`);
+  if (!res.ok) {
+    const errText = await res.text().catch(() => "");
+    throw new Error(`API ${path} ${res.status}: ${errText.slice(0, 200)}`);
+  }
+  return res.json();
+}
+
+/* ───────────── Tutor ───────────── */
+
+export async function askTutor(prompt: string, history: ChatTurn[] = []): Promise<string> {
+  const data = await post<{ text: string }>("/api/tutor", { prompt, history });
+  return data.text || "";
+}
+
+/* ───────────── Practice Arena ───────────── */
+
+export interface GenerateQuestionsArgs {
+  classLevel: string | number;
+  subject: string;
+  chapter: string;
+  chapterId?: string;
+  difficulty: string;
+  count: number;
+}
+
+export async function generateQuestions(args: GenerateQuestionsArgs): Promise<{ questions: MCQ[] }> {
+  return post<{ questions: MCQ[] }>("/api/questions/batch", args);
+}
+
+/* ───────────── Scan & Solve ───────────── */
+
+export async function scanAndSolve(fileDataUrl: string): Promise<string> {
+  const data = await post<{ response: string }>("/api/ai", { file: fileDataUrl });
+  return data.response || "";
+}
+
+/* ───────────── Study Arena ───────────── */
+
+export async function extractStudyConcepts(text: string): Promise<StudyMaterial> {
+  const data = await post<{ concepts: ConceptCard[]; flashcards: Flashcard[]; mcqs: MCQ[] }>(
+    "/api/study",
+    { text }
+  );
   return {
-    concepts: data.concepts ?? [],
-    flashcards: data.flashcards ?? [],
-    mcqs: data.mcqs ?? [],
+    concepts: data.concepts || [],
+    flashcards: data.flashcards || [],
+    mcqs: data.mcqs || [],
   };
 }
 
-/** Generate additional concepts that don't repeat existing titles */
-export async function generateMoreConcepts(
-  text: string,
-  existingTitles: string[]
-): Promise<Concept[]> {
-  const res = await fetch(`${API_URL}/api/study/more-concepts`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text, existingTitles }),
-  });
-  if (!res.ok) throw new Error(`More concepts API failed: ${res.status}`);
-  const data = await res.json();
-  return data.concepts ?? [];
+export async function generateMoreMCQs(text: string, existingQuestions: string[]): Promise<MCQ[]> {
+  const data = await post<{ mcqs: MCQ[] }>("/api/study/more-mcqs", { text, existingQuestions });
+  return data.mcqs || [];
 }
 
-/** Lazy-load the initial flashcards: POST /api/study/flashcards */
-export async function generateFlashcards(text: string): Promise<Flashcard[]> {
-  const res = await fetch(`${API_URL}/api/study/flashcards`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text }),
-  });
-  if (!res.ok) throw new Error(`Flashcards API failed: ${res.status}`);
-  const data = await res.json();
-  return data.flashcards ?? [];
-}
-
-/** Generate additional flashcards that don't repeat existing ones */
 export async function generateMoreFlashcards(
   text: string,
   existingQuestions: string[]
 ): Promise<Flashcard[]> {
-  const res = await fetch(`${API_URL}/api/study/more-flashcards`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text, existingQuestions }),
+  const data = await post<{ flashcards: Flashcard[] }>("/api/study/more-flashcards", {
+    text,
+    existingQuestions,
   });
-  if (!res.ok) throw new Error(`More flashcards API failed: ${res.status}`);
-  const data = await res.json();
-  return data.flashcards ?? [];
+  return data.flashcards || [];
 }
 
-/** Lazy-load the initial MCQs: POST /api/study/mcqs */
-export async function generateMCQs(text: string): Promise<MCQ[]> {
-  const res = await fetch(`${API_URL}/api/study/mcqs`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text }),
-  });
-  if (!res.ok) throw new Error(`MCQs API failed: ${res.status}`);
-  const data = await res.json();
-  return data.mcqs ?? [];
+/* ───────────── Concepts (Syllabus Learn button) ───────────── */
+
+export interface LoadConceptArgs {
+  classLevel: string | number;
+  subject: string;
+  chapterTitle: string;
+  chapterId: string;
 }
 
-/** Generate additional MCQs that don't repeat existing ones */
-export async function generateMoreMCQs(
-  text: string,
-  existingQuestions: string[]
-): Promise<MCQ[]> {
-  const res = await fetch(`${API_URL}/api/study/more-mcqs`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text, existingQuestions }),
-  });
-  if (!res.ok) throw new Error(`More MCQs API failed: ${res.status}`);
-  const data = await res.json();
-  return data.mcqs ?? [];
+export async function loadConcept(args: LoadConceptArgs): Promise<any> {
+  const data = await post<{ concept: any }>("/api/concept", args);
+  if (!data.concept) throw new Error("No concept returned");
+  return data.concept;
 }
 
-/* ============================================================
-   Chat / Tutor / Scan
-   ============================================================ */
+/* ───────────── Dashboard stats ───────────── */
 
-/** General AI Chat — POST /api/chat */
-export async function chatWithAI(message: string): Promise<string> {
-  const res = await fetch(`${API_URL}/api/chat`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message }),
-  });
-  if (!res.ok) throw new Error(`Chat API failed: ${res.status}`);
-  const data = await res.json();
-  return data.text;
-}
-
-/** Syllab AI Tutor — POST /api/tutor */
-export async function askTutor(
-  prompt: string,
-  history: ChatTurn[] = []
-): Promise<string> {
-  const res = await fetch(`${API_URL}/api/tutor`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt, history }),
-  });
-
-  if (!res.ok) {
-    const errorData = await res.json().catch(() => ({}));
-    throw new Error(errorData.error || `Tutor API failed: ${res.status}`);
-  }
-
-  const data = await res.json();
-  return data.text;
-}
-
-/** Scan & Solve image / PDF — POST /api/ai */
-export async function scanAndSolve(fileBase64: string): Promise<string> {
-  const res = await fetch(`${API_URL}/api/ai`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ file: fileBase64 }),
-  });
-  if (!res.ok) throw new Error(`Scan API failed: ${res.status}`);
-  const data = await res.json();
-  return data.response;
-}
-
-/* ============================================================
-   Auth helpers
-   ============================================================ */
-
-/** Send branded password-reset email — POST /api/auth/send-reset-email */
-export async function sendResetEmail(email: string): Promise<{ success: boolean; message: string }> {
-  const res = await fetch(`${API_URL}/api/auth/send-reset-email`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email }),
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || `Reset email failed: ${res.status}`);
-  }
-  return res.json();
+export async function getUserStats(uid: string): Promise<UserStats> {
+  return get<UserStats>(`/api/user/stats/${uid}`);
 }

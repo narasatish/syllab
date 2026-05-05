@@ -5,6 +5,7 @@ import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { CONCEPTS } from '../data/concepts';
 import SEO from '../components/SEO';
+import { loadConcept } from '../lib/api';
 
 interface SyllabusPageProps {
   setTab: (tab: string) => void;
@@ -276,31 +277,13 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
     // 3. Fetch from AI backend
     setConceptLoading(true);
     try {
-      const API_BASE: string = (() => {
-        if (typeof window !== 'undefined' && (window as any).__PADHAI_API__) return (window as any).__PADHAI_API__;
-        try {
-          // @ts-ignore - Vite
-          const v = import.meta?.env?.VITE_API_BASE;
-          if (v) return v;
-        } catch { /* not Vite */ }
-        return 'http://localhost:5000';
-      })();
+      const concept = await loadConcept({
+        classLevel: chapter.classLevel,
+        subject: chapter.subject,
+        chapterTitle: chapter.title,
+        chapterId: chapter.id,
+      }) as Concept;
 
-      const res = await fetch(`${API_BASE}/api/concept`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          classLevel: chapter.classLevel,
-          subject: chapter.subject,
-          chapterTitle: chapter.title,
-          chapterId: chapter.id,
-        }),
-      });
-      if (!res.ok) throw new Error(`Server returned ${res.status}`);
-      const data = await res.json();
-      if (!data.concept) throw new Error('No concept returned');
-
-      const concept: Concept = data.concept;
       // Cache for next time
       try { localStorage.setItem(cacheKey, JSON.stringify(concept)); } catch { /* quota */ }
       setActiveConcept(concept);

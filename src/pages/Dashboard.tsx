@@ -8,6 +8,7 @@ import { getMistakes, getPausedSession, MistakeRecord, QuizSession } from '../li
 import { SYLLABUS } from '../data/syllabus';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
+import { getUserStats } from '../lib/api';
 
 interface DashboardPageProps {
   currentUser: FirebaseUser | null;
@@ -25,7 +26,6 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
   const [pausedSession, setPausedSession] = useState<QuizSession | null>(null);
   const [leaderboardTab, setLeaderboardTab] = useState<'stats' | 'leaderboard'>('stats');
 
-  // ✅ Default stats (for guest users)
   const defaultStats = {
     xp: 0,
     level: 1,
@@ -40,17 +40,20 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        // 👤 NOT LOGGED IN → show default stats
         if (!currentUser) {
           setStats(defaultStats);
           setLoading(false);
           return;
         }
 
-        // 🔥 Fetch real stats
-        const res = await fetch(`http://localhost:5000/api/user/stats/${currentUser.uid}`);
-        const statsData = await res.json();
-        setStats(statsData);
+        // ✅ Use central API (was: fetch("http://localhost:5000/..."))
+        try {
+          const statsData = await getUserStats(currentUser.uid);
+          setStats(statsData);
+        } catch (err) {
+          console.warn("Stats fetch failed, using defaults:", err);
+          setStats(defaultStats);
+        }
 
         const [mistakesData, sessionData] = await Promise.all([
           getMistakes(currentUser.uid),
@@ -102,7 +105,6 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
   return (
     <div className="space-y-8 pb-12">
 
-      {/* HEADER */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <h2 className="text-3xl font-black text-slate-900">
@@ -114,7 +116,6 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
         </div>
       </div>
 
-      {/* ⚠️ LOGIN MESSAGE */}
       {!currentUser && (
         <div className="bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded-xl text-sm">
           ⚠️ Login to track your performance, XP, accuracy, and streak over time.
@@ -125,7 +126,6 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
         {leaderboardTab === 'stats' ? (
           <motion.div key="stats" className="space-y-8">
 
-            {/* STATS GRID */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
               {[
                 { label: 'Global Rank', value: stats.rank, icon: Trophy },
@@ -142,13 +142,10 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
               ))}
             </div>
 
-            {/* MAIN CONTENT */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-              {/* LEFT */}
               <div className="lg:col-span-2 space-y-6">
 
-                {/* PAUSED SESSION */}
                 {pausedSession && (
                   <div className="bg-black text-white p-6 rounded-2xl flex justify-between items-center">
                     <div>
@@ -163,7 +160,6 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
                   </div>
                 )}
 
-                {/* FOCUS AREAS */}
                 <div className="bg-white p-6 rounded-2xl">
                   <h3 className="font-bold mb-4 flex items-center gap-2">
                     <AlertCircle size={18} /> Focus Areas
@@ -184,7 +180,6 @@ export default function DashboardPage({ currentUser, setTab }: DashboardPageProp
                 </div>
               </div>
 
-              {/* RIGHT */}
               <div className="bg-white p-6 rounded-2xl flex flex-col justify-between">
                 <div>
                   <h3 className="font-bold mb-4 flex items-center gap-2">
