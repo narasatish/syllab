@@ -432,6 +432,7 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
               {chapter.title}
             </h3>
 
+            {/* ✅ Single Concept Summary block (duplicate removed) */}
             <div className="space-y-4 flex-1 mb-8">
               {chapter.explanation && (
                 <div className="space-y-1">
@@ -439,17 +440,6 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
                   <p className="text-sm text-slate-500 font-medium leading-relaxed">{chapter.explanation}</p>
                 </div>
               )}
-              
-              {<div className="space-y-4 flex-1 mb-8">
-  {chapter.explanation && (
-    <div className="space-y-1">
-      <p className="text-sm font-bold text-slate-800">Concept Summary</p>
-      <p className="text-sm text-slate-500 font-medium leading-relaxed">
-        {chapter.explanation}
-      </p>
-    </div>
-  )}
-</div>}
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-3">

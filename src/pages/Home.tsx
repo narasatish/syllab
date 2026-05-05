@@ -21,7 +21,8 @@ import SEO from '../components/SEO';
  *  - Soft, kid-friendly palette: cream + emerald accents.
  */
 
-const CLASSES = Array.from({ length: 12 }, (_, i) => i + 1);
+// ✅ Only classes we actually have syllabus data for
+const CLASSES = [5, 6, 7, 8, 9, 10, 11, 12];
 
 const FEATURES = [
   {
@@ -53,9 +54,9 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="AI Learning App for Class 1 to 12 CBSE | NCERT, JEE, NEET"
-        description="Syllab is India's AI-powered learning platform. NCERT-aligned content for Class 1 to 12 covering Maths, Science, English, Hindi. Plus JEE and NEET prep. Free to start."
-        keywords="AI learning India, NCERT solutions, CBSE Class 1 to 12, Class 10 Maths, Class 9 Science, JEE preparation, NEET preparation, online tuition India"
+        title="AI Learning App for Class 5 to 12 CBSE | NCERT, JEE, NEET"
+        description="Syllab is India's AI-powered learning platform. NCERT-aligned content for Class 5 to 12 covering Maths, Science, English, Hindi. Plus JEE and NEET prep. Free to start."
+        keywords="AI learning India, NCERT solutions, CBSE Class 5 to 12, Class 10 Maths, Class 9 Science, JEE preparation, NEET preparation, online tuition India"
       />
 
       {/* Pure-CSS animations — no library needed */}
@@ -139,7 +140,7 @@ export default function HomePage() {
           </h1>
 
           <p className="anim-fade-up anim-delay-2 text-base sm:text-lg text-slate-600 font-medium mb-8 max-w-xl mx-auto leading-relaxed">
-            NCERT-aligned learning for Class 1 to 12. Maths, Science, English, and competitive exam prep — all in one place.
+            NCERT-aligned learning for Class 5 to 12. Maths, Science, English, and competitive exam prep — all in one place.
           </p>
 
           <div className="anim-fade-up anim-delay-3 flex gap-3 justify-center flex-wrap">
@@ -166,11 +167,12 @@ export default function HomePage() {
             Pick your class.
           </h2>
           <p className="text-slate-500 font-medium">
-            Personalized content for every grade — Class 1 to 12.
+            Personalized content for every grade — Class 5 to 12.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
+        {/* ✅ 8 classes laid out cleanly: 2 cols on mobile, 4 cols on tablet+ */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-3xl mx-auto">
           {CLASSES.map((classNum) => (
             <Link
               key={classNum}
