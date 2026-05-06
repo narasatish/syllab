@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Crown, Bot, Target, Pin } from 'lucide-react';
 import { Chapter, Subject, ClassLevel, Concept } from '../types';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { CONCEPTS } from '../data/concepts';
+import { getChapterSummary } from '../data/chapterSummaries';
 import SEO from '../components/SEO';
 import { loadConcept } from '../lib/api';
 
@@ -200,6 +202,7 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
 }
 
 export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: SyllabusPageProps) {
+  const [searchParams] = useSearchParams();
   const [search, setSearch] = useState('');
   const [selectedSubject, setSelectedSubject] = useState<Subject | 'All'>('All');
   const [selectedClass, setSelectedClass] = useState<ClassLevel | 'All'>('All');
@@ -208,6 +211,19 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
     const saved = localStorage.getItem('syllab_pinned_chapters');
     return saved ? JSON.parse(saved) : [];
   });
+
+  // ✅ On mount: read class from sessionStorage (set by Home page) or URL ?class=N
+  React.useEffect(() => {
+    const validClasses: ClassLevel[] = ['5', '6', '7', '8', '9', '10', '11', '12'];
+    const fromStorage = sessionStorage.getItem('syllab_class_filter');
+    const fromUrl = searchParams.get('class');
+    const candidate = fromStorage || fromUrl;
+    if (candidate && validClasses.includes(candidate as ClassLevel)) {
+      setSelectedClass(candidate as ClassLevel);
+      setSelectedSubject('All'); // always default subject to All when coming from Home
+      sessionStorage.removeItem('syllab_class_filter'); // consume once
+    }
+  }, [searchParams]);
 
   const togglePin = (chapterId: string) => {
     setPinnedChapters(prev => {
@@ -219,8 +235,6 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
     });
   };
 
-  // Subjects derived dynamically from syllabus — handles Class 5–9 subjects
-  // like English, EVS, World Around Us etc. without needing hardcoded list
   const subjects: (Subject | 'All')[] = React.useMemo(() => {
     const pool = selectedClass === 'All'
       ? syllabus
@@ -230,7 +244,6 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
   }, [syllabus, selectedClass]);
   const classes: (ClassLevel | 'All')[] = ['All', '5', '6', '7', '8', '9', '10', '11', '12'];
 
-  // If selected subject is no longer valid for the selected class, reset it
   React.useEffect(() => {
     if (!subjects.includes(selectedSubject)) {
       setSelectedSubject('All');
@@ -257,14 +270,12 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
   const [conceptLoading, setConceptLoading] = useState(false);
 
   const handleConcept = async (chapter: Chapter) => {
-    // 1. Check static CONCEPTS data first (don't change existing content)
     const staticConcept = CONCEPTS.find(c => c.chapterId === chapter.id);
     if (staticConcept) {
       setActiveConcept(staticConcept);
       return;
     }
 
-    // 2. Check localStorage cache for previously AI-generated concepts
     const cacheKey = `padhai:concept:${chapter.id}`;
     try {
       const cached = localStorage.getItem(cacheKey);
@@ -274,7 +285,6 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
       }
     } catch { /* ignore */ }
 
-    // 3. Fetch from AI backend
     setConceptLoading(true);
     try {
       const concept = await loadConcept({
@@ -284,7 +294,6 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
         chapterId: chapter.id,
       }) as Concept;
 
-      // Cache for next time
       try { localStorage.setItem(cacheKey, JSON.stringify(concept)); } catch { /* quota */ }
       setActiveConcept(concept);
     } catch (err) {
@@ -398,10 +407,10 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
         </div>
       </div>
 
+      {/* ✅ Plain divs (no motion.div layout) — massive perf gain when 100+ chapters render */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredChapters.map((chapter) => (
-          <motion.div 
-            layout
+          <div
             key={chapter.id} 
             className="card group flex flex-col h-full translate-y-0 border-none shadow-xl shadow-emerald-500/[0.02] p-8 hover:shadow-2xl transition-all bg-white rounded-[2.5rem]"
           >
@@ -432,14 +441,14 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
               {chapter.title}
             </h3>
 
-            {/* ✅ Single Concept Summary block (duplicate removed) */}
+            {/* Concept Summary — uses chapter-specific lookup, falls back to chapter.explanation */}
             <div className="space-y-4 flex-1 mb-8">
-              {chapter.explanation && (
-                <div className="space-y-1">
-                  <p className="text-sm font-bold text-slate-800">Concept Summary</p>
-                  <p className="text-sm text-slate-500 font-medium leading-relaxed">{chapter.explanation}</p>
-                </div>
-              )}
+              <div className="space-y-1">
+                <p className="text-sm font-bold text-slate-800">Concept Summary</p>
+                <p className="text-sm text-slate-500 font-medium leading-relaxed">
+                  {getChapterSummary(chapter.title, chapter.explanation)}
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-3">
@@ -466,7 +475,7 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
               <Target size={16} fill="currentColor" />
               Practice Concepts
             </button>
-          </motion.div>
+          </div>
         ))}
       </div>
 

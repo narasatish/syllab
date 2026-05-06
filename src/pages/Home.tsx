@@ -11,17 +11,19 @@ import {
 import SEO from '../components/SEO';
 
 /**
- * Syllab Homepage — clean, mobile-first, no animation library dependency.
+ * Syllab Homepage
  *
- * Design choices:
- *  - All animations are pure CSS keyframes (defined inline below).
- *    No framer-motion = no risk of blank screen if a package breaks.
- *  - Mobile-first: every section reads cleanly on a 360px screen.
- *  - All buttons are 44px+ tall (Apple/Google touch target guidelines).
- *  - Soft, kid-friendly palette: cream + emerald accents.
+ * Class buttons + "Start Learning Free" + "Open Syllabus" CTAs all use setTab
+ * (your internal tab state) to switch to the Syllabus tab. They also write the
+ * selected class number to sessionStorage so the Syllabus page can pre-filter.
+ *
+ * Pass setTab from App.tsx: <HomePage setTab={setTab} />
  */
 
-// ✅ Only classes we actually have syllabus data for
+interface HomePageProps {
+  setTab?: (tab: string) => void;
+}
+
 const CLASSES = [5, 6, 7, 8, 9, 10, 11, 12];
 
 const FEATURES = [
@@ -50,7 +52,25 @@ const SUBJECTS = [
   'Social Science', 'Physics', 'Chemistry', 'Biology',
 ];
 
-export default function HomePage() {
+export default function HomePage({ setTab }: HomePageProps) {
+  // Click a class number → store class in sessionStorage and switch to Syllabus tab
+  const handleClassClick = (classNum: number) => {
+    sessionStorage.setItem('syllab_class_filter', String(classNum));
+    if (setTab) {
+      setTab('syllabus');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // "Start Learning Free" / "Open Syllabus" → switch to Syllabus tab (no class pre-filter)
+  const goToSyllabus = () => {
+    sessionStorage.removeItem('syllab_class_filter');
+    if (setTab) {
+      setTab('syllabus');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <SEO
@@ -88,7 +108,6 @@ export default function HomePage() {
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-rose-50 to-sky-50 mx-3 sm:mx-4 mt-4 rounded-[2rem] sm:rounded-[3rem]">
-        {/* Floating decorative shapes */}
         <div
           className="anim-float-slow absolute top-8 left-6 sm:left-12 w-16 h-16 sm:w-24 sm:h-24 rounded-full"
           style={{
@@ -144,12 +163,12 @@ export default function HomePage() {
           </p>
 
           <div className="anim-fade-up anim-delay-3 flex gap-3 justify-center flex-wrap">
-            <Link
-              to="/syllabus"
+            <button
+              onClick={goToSyllabus}
               className="bg-slate-900 text-white px-6 py-4 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center gap-2 shadow-lg active:scale-95 transition-transform"
             >
               Start Learning Free <ArrowRight size={16} />
-            </Link>
+            </button>
             <Link
               to="/about"
               className="bg-white border-2 border-slate-200 text-slate-900 px-6 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-transform"
@@ -171,12 +190,12 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* ✅ 8 classes laid out cleanly: 2 cols on mobile, 4 cols on tablet+ */}
+        {/* ✅ Each class button switches to the Syllabus tab and pre-filters */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-3xl mx-auto">
           {CLASSES.map((classNum) => (
-            <Link
+            <button
               key={classNum}
-              to={`/class-${classNum}`}
+              onClick={() => handleClassClick(classNum)}
               className="group p-4 sm:p-6 bg-white border-2 border-slate-100 rounded-2xl text-center hover:border-emerald-500 active:scale-95 transition-all"
             >
               <div className="text-[9px] font-black uppercase tracking-widest text-slate-400">
@@ -185,7 +204,7 @@ export default function HomePage() {
               <div className="text-2xl sm:text-3xl font-black text-slate-900 group-hover:text-emerald-600 transition-colors">
                 {classNum}
               </div>
-            </Link>
+            </button>
           ))}
         </div>
       </section>
@@ -284,12 +303,12 @@ export default function HomePage() {
         <p className="text-slate-500 font-medium mb-8 max-w-md mx-auto">
           Free forever for the basics. No card. No spam.
         </p>
-        <Link
-          to="/syllabus"
+        <button
+          onClick={goToSyllabus}
           className="bg-emerald-500 text-white px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest inline-flex items-center gap-2 shadow-xl active:scale-95 transition-transform"
         >
           Open Syllabus <ArrowRight size={16} />
-        </Link>
+        </button>
       </section>
     </>
   );
