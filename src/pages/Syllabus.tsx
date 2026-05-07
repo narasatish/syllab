@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Crown, Bot, Target, Pin } from 'lucide-react';
 import { Chapter, Subject, ClassLevel, Concept } from '../types';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { CONCEPTS } from '../data/concepts';
-import { getChapterSummary } from '../data/chapterSummaries';
+import { getChapterSummary, ensureChapterSummary } from '../data/chapterSummaries';
+import { usePinnedChapters } from '../lib/pinnedChapters';
 import SEO from '../components/SEO';
 import { loadConcept } from '../lib/api';
 
@@ -15,21 +16,87 @@ interface SyllabusPageProps {
   setPracticeConfig: (config: Record<string, unknown>) => void;
 }
 
+/**
+ * Per-card summary component.
+ * - Renders the hardcoded / fallback summary instantly.
+ * - When the card scrolls near the viewport, it asks the backend for the
+ *   real per-chapter summary (which the backend caches in Firestore so
+ *   the next user gets it instantly).
+ */
+function ChapterSummary({ chapter }: { chapter: Chapter }) {
+  const [summary, setSummary] = useState<string>(() =>
+    getChapterSummary(chapter.title, chapter.explanation || ''),
+  );
+  const ref = useRef<HTMLParagraphElement | null>(null);
+
+  useEffect(() => {
+    // If a hardcoded summary exists, no need to fetch.
+    const hardcoded = getChapterSummary(chapter.title);
+    if (hardcoded) {
+      setSummary(hardcoded);
+      return;
+    }
+
+    let cancelled = false;
+    let observer: IntersectionObserver | null = null;
+    const node = ref.current;
+
+    const triggerFetch = () => {
+      ensureChapterSummary({
+        classLevel: chapter.classLevel,
+        subject: chapter.subject,
+        chapterTitle: chapter.title,
+        chapterId: chapter.id,
+        fallback: chapter.explanation || '',
+      })
+        .then((s) => { if (!cancelled && s) setSummary(s); })
+        .catch(() => { /* ignore — fallback already showing */ });
+    };
+
+    if (node && typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            triggerFetch();
+            observer?.disconnect();
+          }
+        },
+        { rootMargin: '300px' },
+      );
+      observer.observe(node);
+    } else {
+      // No IntersectionObserver — just fetch immediately.
+      triggerFetch();
+    }
+
+    return () => {
+      cancelled = true;
+      observer?.disconnect();
+    };
+  }, [chapter.id, chapter.title, chapter.classLevel, chapter.subject, chapter.explanation]);
+
+  return (
+    <p ref={ref} className="text-sm text-slate-500 font-medium leading-relaxed">
+      {summary || 'Preparing summary...'}
+    </p>
+  );
+}
+
 function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: () => void; onNext?: () => void }) {
   const [activeTab, setActiveTab] = useState<'visuals' | 'examples' | 'technical'>('visuals');
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-8"
     >
-      <div 
-        className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" 
+      <div
+        className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
         onClick={onClose}
       />
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 100, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 100, scale: 0.9 }}
@@ -37,7 +104,7 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
       >
         {/* Sidebar Nav */}
         <div className="w-full md:w-24 bg-slate-900 flex flex-row md:flex-col items-center justify-center py-4 md:py-12 gap-6 md:gap-8 shrink-0">
-          <button 
+          <button
             onClick={() => setActiveTab('visuals')}
             title="Visual Intuition"
             className={cn(
@@ -47,7 +114,7 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
           >
             <Sparkles size={24} />
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab('technical')}
             title="Formulas & Hacks"
             className={cn(
@@ -57,7 +124,7 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
           >
             <Zap size={24} />
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab('examples')}
             title="Real World"
             className={cn(
@@ -68,7 +135,7 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
             <Lightbulb size={24} />
           </button>
           <div className="hidden md:block flex-1" />
-          <button 
+          <button
             onClick={onClose}
             className="w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-2xl flex items-center justify-center transition-all"
           >
@@ -94,9 +161,9 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
                    <span className="text-[10px] font-black text-slate-400">33% Mastered</span>
                 </div>
               </div>
-              
+
               {onNext && (
-                <button 
+                <button
                   onClick={onNext}
                   className="btn-primary group flex items-center gap-3 px-8 py-4 text-xs font-black uppercase tracking-widest"
                 >
@@ -108,7 +175,7 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
             {activeTab === 'visuals' && (
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {concept.visuals.map((v, i) => (
+                  {(concept.visuals || []).map((v, i) => (
                     <div key={i} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:-translate-y-1 transition-all">
                       <div className="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block p-4 bg-slate-50 rounded-2xl">{v.icon}</div>
                       <h4 className="text-lg font-black text-slate-900 mb-2">{v.title}</h4>
@@ -117,16 +184,18 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
                   ))}
                 </div>
 
-                <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden group aspect-video shadow-2xl">
-                   <div className="absolute inset-0 opacity-40">
-                     <video src={concept.videoUrl} autoPlay loop muted className="w-full h-full object-cover" />
-                   </div>
-                   <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
-                      <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-primary shadow-2xl group-hover:scale-110 transition-transform cursor-pointer">
-                        <PlayCircle size={48} fill="currentColor" />
-                      </div>
-                   </div>
-                </div>
+                {concept.videoUrl ? (
+                  <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden group aspect-video shadow-2xl">
+                     <div className="absolute inset-0 opacity-40">
+                       <video src={concept.videoUrl} autoPlay loop muted className="w-full h-full object-cover" />
+                     </div>
+                     <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
+                        <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-primary shadow-2xl group-hover:scale-110 transition-transform cursor-pointer">
+                          <PlayCircle size={48} fill="currentColor" />
+                        </div>
+                     </div>
+                  </div>
+                ) : null}
               </motion.div>
             )}
 
@@ -179,7 +248,7 @@ function ConceptView({ concept, onClose, onNext }: { concept: Concept; onClose: 
             {activeTab === 'examples' && (
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {concept.examples.map((ex, i) => (
+                  {(concept.examples || []).map((ex, i) => (
                     <div key={i} className="flex flex-col p-10 bg-white rounded-[2.5rem] border border-slate-200 shadow-sm group hover:border-emerald-500/30 transition-all">
                       <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-emerald-500 group-hover:text-white transition-all">
                         <Zap size={28} fill="currentColor" />
@@ -207,12 +276,22 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
   const [selectedSubject, setSelectedSubject] = useState<Subject | 'All'>('All');
   const [selectedClass, setSelectedClass] = useState<ClassLevel | 'All'>('All');
   const [activeConcept, setActiveConcept] = useState<Concept | null>(null);
-  const [pinnedChapters, setPinnedChapters] = useState<string[]>(() => {
-    const saved = localStorage.getItem('syllab_pinned_chapters');
-    return saved ? JSON.parse(saved) : [];
-  });
+
+  // Pinned chapters now live in Firestore (cloud-synced across devices).
+  // Guests see an empty list and a soft prompt when they try to pin.
+  const { pins: pinnedChapters, togglePin: togglePinCloud, isAuthed: pinsAuthed } = usePinnedChapters();
+  const [pinHint, setPinHint] = useState<string | null>(null);
+
+  const togglePin = (chapterId: string) => {
+    const ok = togglePinCloud(chapterId);
+    if (!ok) {
+      setPinHint('Sign in to keep your pinned chapters across devices.');
+      window.setTimeout(() => setPinHint(null), 3500);
+    }
+  };
 
   // ✅ On mount: read class from sessionStorage (set by Home page) or URL ?class=N
+  // sessionStorage is fine — it's per-tab and only used for cross-page navigation.
   React.useEffect(() => {
     const validClasses: ClassLevel[] = ['5', '6', '7', '8', '9', '10', '11', '12'];
     const fromStorage = sessionStorage.getItem('syllab_class_filter');
@@ -224,16 +303,6 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
       sessionStorage.removeItem('syllab_class_filter'); // consume once
     }
   }, [searchParams]);
-
-  const togglePin = (chapterId: string) => {
-    setPinnedChapters(prev => {
-      const next = prev.includes(chapterId) 
-        ? prev.filter(id => id !== chapterId)
-        : [...prev, chapterId];
-      localStorage.setItem('syllab_pinned_chapters', JSON.stringify(next));
-      return next;
-    });
-  };
 
   const subjects: (Subject | 'All')[] = React.useMemo(() => {
     const pool = selectedClass === 'All'
@@ -251,8 +320,8 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
   }, [subjects, selectedSubject]);
 
   const filteredChapters = syllabus.filter(chapter => {
-    const matchesSearch = chapter.title.toLowerCase().includes(search.toLowerCase()) || 
-                         chapter.topics.some(t => t.toLowerCase().includes(search.toLowerCase()));
+    const matchesSearch = chapter.title.toLowerCase().includes(search.toLowerCase()) ||
+                         (chapter.topics || []).some(t => t.toLowerCase().includes(search.toLowerCase()));
     const matchesSubject = selectedSubject === 'All' || chapter.subject === selectedSubject;
     const matchesClass = selectedClass === 'All' || chapter.classLevel === selectedClass;
     return matchesSearch && matchesSubject && matchesClass;
@@ -269,21 +338,15 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
 
   const [conceptLoading, setConceptLoading] = useState(false);
 
+  // Concepts are cached on the backend in Firestore — frontend just calls
+  // /api/concept and the backend handles read-through caching. No more
+  // localStorage cache, so concepts are shared across all users/devices.
   const handleConcept = async (chapter: Chapter) => {
     const staticConcept = CONCEPTS.find(c => c.chapterId === chapter.id);
     if (staticConcept) {
       setActiveConcept(staticConcept);
       return;
     }
-
-    const cacheKey = `padhai:concept:${chapter.id}`;
-    try {
-      const cached = localStorage.getItem(cacheKey);
-      if (cached) {
-        setActiveConcept(JSON.parse(cached) as Concept);
-        return;
-      }
-    } catch { /* ignore */ }
 
     setConceptLoading(true);
     try {
@@ -294,11 +357,10 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
         chapterId: chapter.id,
       }) as Concept;
 
-      try { localStorage.setItem(cacheKey, JSON.stringify(concept)); } catch { /* quota */ }
       setActiveConcept(concept);
     } catch (err) {
       console.error('[handleConcept]', err);
-      alert(`Could not load concept for "${chapter.title}". Please check your backend connection.`);
+      alert(`Could not load concept for "${chapter.title}". Please check your connection.`);
     } finally {
       setConceptLoading(false);
     }
@@ -319,8 +381,8 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
 
   return (
     <div className="space-y-8 pb-12">
-      <SEO 
-        title={activeConcept ? `${activeConcept.title} | Concept Learning` : "Explore Detailed Syllabus for JEE/NEET"} 
+      <SEO
+        title={activeConcept ? `${activeConcept.title} | Concept Learning` : "Explore Detailed Syllabus for JEE/NEET"}
         description={activeConcept ? activeConcept.summary : "Browse through a highly enriched syllabus for Class 10, 11, and 12 subjects including Physics, Chemistry, Biology, and Mathematics with real-world examples."}
       />
       <AnimatePresence>
@@ -346,13 +408,19 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
 
       <AnimatePresence>
         {activeConcept && (
-          <ConceptView 
-            concept={activeConcept} 
-            onClose={() => setActiveConcept(null)} 
+          <ConceptView
+            concept={activeConcept}
+            onClose={() => setActiveConcept(null)}
             onNext={handleNextConcept}
           />
         )}
       </AnimatePresence>
+
+      {pinHint && (
+        <div className="fixed bottom-6 right-6 z-[80] rounded-2xl bg-slate-900 text-white px-5 py-3 shadow-2xl text-xs font-bold">
+          {pinHint}
+        </div>
+      )}
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
@@ -361,12 +429,12 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
             Deep dive into concepts and practice with <span className="text-primary font-black">{totalQuestions.toLocaleString()}+</span> questions.
           </p>
         </div>
-        
+
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 shrink-0" size={18} />
-          <input 
-            type="text" 
-            placeholder="Search curricula..." 
+          <input
+            type="text"
+            placeholder="Search curricula..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all w-64 text-sm"
@@ -411,17 +479,18 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredChapters.map((chapter) => (
           <div
-            key={chapter.id} 
+            key={chapter.id}
             className="card group flex flex-col h-full translate-y-0 border-none shadow-xl shadow-emerald-500/[0.02] p-8 hover:shadow-2xl transition-all bg-white rounded-[2.5rem]"
           >
             <div className="flex items-start justify-between mb-6">
               <div className="flex flex-wrap gap-2">
-                <button 
+                <button
                   onClick={() => togglePin(chapter.id)}
                   className={cn(
                     "p-1.5 rounded-lg transition-all",
                     pinnedChapters.includes(chapter.id) ? "text-primary bg-primary/10" : "text-slate-300 hover:text-slate-400"
                   )}
+                  title={pinsAuthed ? 'Pin/unpin chapter' : 'Sign in to pin chapters'}
                 >
                   <Pin size={14} fill={pinnedChapters.includes(chapter.id) ? "currentColor" : "none"} />
                 </button>
@@ -436,30 +505,28 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
                 </span>
               </div>
             </div>
-            
+
             <h3 className="text-2xl font-black mb-4 group-hover:text-primary transition-colors text-slate-900 tracking-tight leading-tight">
               {chapter.title}
             </h3>
 
-            {/* Concept Summary — uses chapter-specific lookup, falls back to chapter.explanation */}
+            {/* Concept Summary — hardcoded → cloud-cached AI summary on demand */}
             <div className="space-y-4 flex-1 mb-8">
               <div className="space-y-1">
                 <p className="text-sm font-bold text-slate-800">Concept Summary</p>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">
-                  {getChapterSummary(chapter.title, chapter.explanation)}
-                </p>
+                <ChapterSummary chapter={chapter} />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-3">
-              <button 
+              <button
                 onClick={() => void handleConcept(chapter)}
                 className="flex items-center justify-center gap-2 py-3.5 bg-slate-50 hover:bg-white hover:text-primary border border-slate-100 hover:border-primary/20 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest text-slate-500 shadow-sm"
               >
                 <BookOpen size={14} />
                 Learn
               </button>
-              <button 
+              <button
                 onClick={() => setTab('tutor')}
                 className="flex items-center justify-center gap-2 py-3.5 bg-slate-50 hover:bg-white hover:text-primary border border-slate-100 hover:border-primary/20 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest text-slate-500 shadow-sm"
               >
@@ -468,7 +535,7 @@ export default function SyllabusPage({ setTab, syllabus, setPracticeConfig }: Sy
               </button>
             </div>
 
-            <button 
+            <button
               onClick={() => handlePractice(chapter)}
               className="flex items-center justify-center gap-2 py-4 bg-primary text-white rounded-2xl transition-all font-black text-[11px] uppercase tracking-[0.2em] shadow-lg shadow-emerald-500/20 hover:-translate-y-0.5 active:scale-95 group/btn w-full"
             >

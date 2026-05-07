@@ -242,8 +242,8 @@ function LoginModal({
           {error ? (
             <div className={cn(
               "rounded-2xl border px-4 py-3 text-sm font-semibold",
-              error.startsWith('success:') 
-                ? "border-emerald-100 bg-emerald-50 text-emerald-600" 
+              error.startsWith('success:')
+                ? "border-emerald-100 bg-emerald-50 text-emerald-600"
                 : "border-rose-100 bg-rose-50 text-rose-600"
             )}>
               {error.replace('success:', '')}
@@ -285,7 +285,7 @@ function LoginModal({
                       Password
                     </label>
                     {mode === 'signin' && (
-                      <button 
+                      <button
                         type="button"
                         onClick={() => {
                           setMode('reset');
@@ -387,14 +387,26 @@ export default function App() {
 
           setStats(resolvedStats ?? DEFAULT_USER_STATS);
           setProgress(resolvedProgress ?? DEFAULT_USER_PROGRESS);
+          // Successful sign-in: clear any stale "couldn't load account" banner
+          setAppError(null);
         } else {
+          // Signed-out / guest. This is a normal, valid state — never an error.
           setCurrentUser(null);
           setStats(DEFAULT_USER_STATS);
           setProgress(DEFAULT_USER_PROGRESS);
+          // Critical: clear stale account-load error so logged-out users don't
+          // see "Unable to load your account data right now" forever.
+          setAppError((prev) =>
+            prev === 'Unable to load your account data right now.' ? null : prev,
+          );
         }
       } catch (error) {
         console.error('Auth state initialization failed.', error);
-        setAppError('Unable to load your account data right now.');
+        // Only show this banner when the user is actually signed in. For
+        // guests we silently swallow it — they don't have an "account" to load.
+        if (user) {
+          setAppError('Unable to load your account data right now.');
+        }
       } finally {
         setAuthLoading(false);
       }
@@ -466,7 +478,7 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
       <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-8 backdrop-blur-xl">
-        <button 
+        <button
           onClick={() => setActiveTab('home')}
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
         >
@@ -569,9 +581,16 @@ export default function App() {
 
       <main className="flex-1 overflow-y-auto bg-slate-50/50 px-6 pb-12 pt-24">
         <div className="mx-auto max-w-7xl">
-          {appError ? (
-            <div className="mb-6 rounded-2xl border border-amber-100 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-700">
-              {appError}
+          {appError && currentUser ? (
+            <div className="mb-6 rounded-2xl border border-amber-100 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-700 flex items-center justify-between gap-4">
+              <span>{appError}</span>
+              <button
+                type="button"
+                onClick={() => setAppError(null)}
+                className="text-amber-700 hover:text-amber-900 text-xs font-black uppercase tracking-widest"
+              >
+                Dismiss
+              </button>
             </div>
           ) : null}
 
@@ -629,7 +648,7 @@ export default function App() {
       <footer className="bg-secondary text-white border-t border-slate-800 py-24 px-8 mt-24">
         <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-16">
           <div className="space-y-8">
-            <button 
+            <button
               onClick={() => setActiveTab('home')}
               className="flex items-center gap-3 transition-opacity hover:opacity-80"
             >

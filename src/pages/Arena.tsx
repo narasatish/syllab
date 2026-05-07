@@ -18,6 +18,7 @@ import { cn } from '../lib/utils';
 import { SYLLABUS } from '../data/syllabus';
 import { Difficulty, Question } from '../types';
 import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
+import { usePinnedChapters } from '../lib/pinnedChapters';
 import ReactMarkdown from 'react-markdown';
 import LoginRequiredModal from '../components/LoginRequiredModal';
 
@@ -30,65 +31,67 @@ const API_BASE: string = (() => {
   }
   try {
     // @ts-ignore - Vite import.meta.env
-    const viteUrl = import.meta?.env?.VITE_API_BASE;
+    const viteUrl = import.meta?.env?.VITE_API_BASE_URL || import.meta?.env?.VITE_API_BASE;
     if (viteUrl) return viteUrl;
   } catch { /* not Vite */ }
-  return 'http://localhost:5000';
+  return 'https://syllab-backend.onrender.com';
 })();
 
 // =====================================================================
-// LocalStorage question bank — 50 per difficulty per chapter
+// Question normalization. The backend already returns normalized shapes,
+// but we double-check defensively so a malformed item never crashes the
+// render with `Cannot read properties of undefined (reading 'map')`.
 // =====================================================================
-type Diff = 'easy' | 'medium' | 'hard';
-type Bank = { easy: Question[]; medium: Question[]; hard: Question[] };
-const TARGET_PER_DIFF = 50;
-const bankKey = (chapterId: string) => `padhai:bank:${chapterId}`;
-
-function loadBank(chapterId: string): Bank {
-  try {
-    const raw = localStorage.getItem(bankKey(chapterId));
-    if (!raw) return { easy: [], medium: [], hard: [] };
-    const parsed = JSON.parse(raw);
-    return {
-      easy: Array.isArray(parsed.easy) ? parsed.easy : [],
-      medium: Array.isArray(parsed.medium) ? parsed.medium : [],
-      hard: Array.isArray(parsed.hard) ? parsed.hard : [],
-    };
-  } catch {
-    return { easy: [], medium: [], hard: [] };
-  }
+function isValidQuestion(q: any): q is Question {
+  return (
+    q &&
+    typeof q === 'object' &&
+    typeof q.question_text === 'string' &&
+    q.question_text.length > 0 &&
+    Array.isArray(q.options) &&
+    q.options.length === 4 &&
+    q.options.every((o: any) => typeof o === 'string' && o.length > 0)
+  );
 }
 
-function saveBank(chapterId: string, bank: Bank) {
-  try {
-    localStorage.setItem(bankKey(chapterId), JSON.stringify(bank));
-  } catch (e) {
-    console.warn('localStorage quota hit, bank not persisted', e);
-  }
-}
-
-function bankCounts(bank: Bank) {
+function normalizeQuestion(q: any, chapterId: string, fallbackDifficulty: Difficulty): Question | null {
+  if (!q || typeof q !== 'object') return null;
+  const question_text = String(q.question_text ?? q.question ?? '').trim();
+  const options = Array.isArray(q.options) ? q.options.map((o: any) => String(o ?? '')).filter(Boolean) : [];
+  if (!question_text || options.length !== 4) return null;
+  let correct_index =
+    typeof q.correct_index === 'number' ? q.correct_index :
+    typeof q.correct === 'number' ? q.correct : 0;
+  if (correct_index < 0 || correct_index >= 4) correct_index = 0;
   return {
-    easy: bank.easy.length,
-    medium: bank.medium.length,
-    hard: bank.hard.length,
-    total: bank.easy.length + bank.medium.length + bank.hard.length,
-  };
+    ...q,
+    question_text,
+    options,
+    correct_index,
+    explanation: typeof q.explanation === 'string' ? q.explanation : '',
+    difficulty: q.difficulty || fallbackDifficulty,
+    chapter_id: q.chapter_id || chapterId,
+    source: q.source || 'AI Generated',
+  } as Question;
 }
 
 // =====================================================================
-// Parallel AI fetch — splits into chunks of 10, fires concurrently
+// Backend call — backend reads/writes the shared question bank in
+// Firestore, so we never touch localStorage. All users share the same
+// generated content.
 // =====================================================================
-async function fetchAIBatch(
+async function fetchQuestionsFromBackend(
   classLevel: string,
   subject: string,
   chapterTitle: string,
   chapterId: string,
-  difficulty: Difficulty | Diff,
+  difficulty: Difficulty,
   count: number,
-  onProgress?: (done: number, total: number) => void,
 ): Promise<Question[]> {
-  const CHUNK = 10;
+  // The backend caps at 50 per call, so split larger requests into chunks
+  // and fire them in parallel. Each chunk fills the shared cache, so
+  // subsequent calls (even from other users) skip generation entirely.
+  const CHUNK = 20;
   const chunks: number[] = [];
   let remaining = count;
   while (remaining > 0) {
@@ -96,7 +99,6 @@ async function fetchAIBatch(
     remaining -= CHUNK;
   }
 
-  let done = 0;
   const results = await Promise.all(
     chunks.map(async (size) => {
       try {
@@ -109,13 +111,12 @@ async function fetchAIBatch(
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        done++;
-        onProgress?.(done, chunks.length);
-        return Array.isArray(data.questions) ? data.questions : [];
+        const raw = Array.isArray(data.questions) ? data.questions : [];
+        return raw
+          .map((q: any) => normalizeQuestion(q, chapterId, difficulty))
+          .filter(Boolean) as Question[];
       } catch (err) {
-        done++;
-        onProgress?.(done, chunks.length);
-        console.error('Chunk failed:', err);
+        console.error('Question chunk failed:', err);
         return [];
       }
     }),
@@ -155,7 +156,6 @@ export default function ArenaPage({
   const [isSubmittingResult, setIsSubmittingResult] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [loadProgress, setLoadProgress] = useState({ done: 0, total: 0 });
-  const [isPrefilling, setIsPrefilling] = useState(false);
 
   const [isTimerEnabled, setIsTimerEnabled] = useState(true);
   const [timePerQuestion, setTimePerQuestion] = useState(1);
@@ -168,31 +168,26 @@ export default function ArenaPage({
   const [selCount, setSelCount] = useState('10');
   const [pausedSession, setPausedSession] = useState<QuizSession | null>(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [pinnedChapters] = useState<string[]>(() => {
-    const saved = localStorage.getItem('syllab_pinned_chapters');
-    return saved ? JSON.parse(saved) : [];
-  });
 
-  // Bank state — drives the "X/50 easy" status display
-  const [bank, setBank] = useState<Bank>({ easy: [], medium: [], hard: [] });
-  const counts = bankCounts(bank);
-
-  // Reload bank whenever selected chapter / class / subject changes
-  useEffect(() => {
-    if (selChapter) {
-      setBank(loadBank(selChapter));
-    } else {
-      const first = SYLLABUS.find((c) => c.classLevel === selClass && c.subject === selSubject);
-      setBank(first ? loadBank(first.id) : { easy: [], medium: [], hard: [] });
-    }
-  }, [selChapter, selClass, selSubject]);
+  // Pinned chapters now come from cloud (Firestore) via the hook —
+  // no localStorage. Guests see an empty list.
+  const { pins: pinnedChapters } = usePinnedChapters();
 
   useEffect(() => {
     const checkPaused = async () => {
       if (currentUser) {
-        const session = await getPausedSession(currentUser.uid);
-        if (session && (session as Record<string, unknown>).active !== false) {
-          setPausedSession(session);
+        try {
+          const session = await getPausedSession(currentUser.uid);
+          if (session && (session as Record<string, unknown>).active !== false) {
+            const valid = Array.isArray(session.questions)
+              ? session.questions.filter(isValidQuestion)
+              : [];
+            if (valid.length > 0) {
+              setPausedSession({ ...session, questions: valid });
+            }
+          }
+        } catch (e) {
+          console.error('paused session fetch failed', e);
         }
       }
     };
@@ -255,57 +250,7 @@ export default function ArenaPage({
     return SYLLABUS.find((c) => c.classLevel === selClass && c.subject === selSubject);
   };
 
-  // Build a session: cache first, AI fills the deficit
-  const buildSession = async (
-    requestedDifficulty: Difficulty,
-    requestedCount: number,
-  ): Promise<Question[]> => {
-    const chapter = resolveChapter();
-    if (!chapter) throw new Error('No valid chapter selected.');
-
-    const currentBank = loadBank(chapter.id);
-
-    let pool: Question[] = [];
-    if (requestedDifficulty === 'mixed') {
-      pool = [...currentBank.easy, ...currentBank.medium, ...currentBank.hard];
-    } else {
-      pool = [...currentBank[requestedDifficulty as Diff]];
-    }
-    pool = pool.sort(() => 0.5 - Math.random());
-
-    // Cache hit ⚡
-    if (pool.length >= requestedCount) {
-      return pool.slice(0, requestedCount);
-    }
-
-    // Fill deficit
-    const deficit = requestedCount - pool.length;
-    setLoadProgress({ done: 0, total: Math.ceil(deficit / 10) });
-
-    const fetched = await fetchAIBatch(
-      chapter.classLevel,
-      chapter.subject,
-      chapter.title,
-      chapter.id,
-      requestedDifficulty,
-      deficit,
-      (done, total) => setLoadProgress({ done, total }),
-    );
-
-    // Persist new questions to bank (capped at TARGET_PER_DIFF per bucket)
-    const updated: Bank = { ...currentBank };
-    fetched.forEach((q) => {
-      const d = ((q.difficulty || 'easy').toLowerCase() as Diff);
-      const bucket = updated[d] || updated.easy;
-      if (bucket.length < TARGET_PER_DIFF) bucket.push(q);
-    });
-    saveBank(chapter.id, updated);
-    setBank(updated);
-
-    return [...pool, ...fetched].slice(0, requestedCount);
-  };
-
-  const startQuiz = async (overrideCount?: number, overrideDifficulty?: Difficulty) => {
+  const startQuiz = async () => {
     setLoadError(null);
 
     const chapter = resolveChapter();
@@ -314,21 +259,26 @@ export default function ArenaPage({
       return;
     }
 
-    const wantCount = overrideCount ?? parseInt(selCount, 10);
-    const wantDiff = overrideDifficulty ?? selectedDifficulty;
+    const wantCount = parseInt(selCount, 10);
+    const wantDiff = selectedDifficulty;
 
-    // Skip loading screen if cache already has enough
-    const currentBank = loadBank(chapter.id);
-    const cachedFor =
-      wantDiff === 'mixed'
-        ? currentBank.easy.length + currentBank.medium.length + currentBank.hard.length
-        : currentBank[wantDiff as Diff].length;
-
-    if (cachedFor < wantCount) setMode('loading');
+    setMode('loading');
+    setLoadProgress({ done: 0, total: Math.ceil(wantCount / 20) });
 
     try {
-      const session = await buildSession(wantDiff, wantCount);
-      if (session.length === 0) throw new Error('Could not generate any questions. Check backend.');
+      const fetched = await fetchQuestionsFromBackend(
+        chapter.classLevel,
+        chapter.subject,
+        chapter.title,
+        chapter.id,
+        wantDiff,
+        wantCount,
+      );
+
+      const session = fetched.filter(isValidQuestion).slice(0, wantCount);
+      if (session.length === 0) {
+        throw new Error('Could not generate any questions. Please try again in a moment.');
+      }
 
       setQuizQuestions(session);
       setCurrentIndex(0);
@@ -345,62 +295,20 @@ export default function ArenaPage({
     }
   };
 
-  // Build the full 150-question bank for current chapter (background)
-  const prefillBank = async () => {
-    const chapter = resolveChapter();
-    if (!chapter || isPrefilling) return;
-
-    setIsPrefilling(true);
-    setLoadError(null);
-    try {
-      const currentBank = loadBank(chapter.id);
-      const tasks: Array<{ d: Diff; n: number }> = [];
-      (['easy', 'medium', 'hard'] as Diff[]).forEach((d) => {
-        const need = TARGET_PER_DIFF - currentBank[d].length;
-        if (need > 0) tasks.push({ d, n: need });
-      });
-
-      if (tasks.length === 0) {
-        setIsPrefilling(false);
-        return;
-      }
-
-      const results = await Promise.all(
-        tasks.map((t) =>
-          fetchAIBatch(chapter.classLevel, chapter.subject, chapter.title, chapter.id, t.d, t.n)
-            .then((arr) => ({ d: t.d, arr })),
-        ),
-      );
-
-      const updated = loadBank(chapter.id);
-      results.forEach(({ d, arr }) => {
-        arr.forEach((q) => {
-          if (updated[d].length < TARGET_PER_DIFF) updated[d].push(q);
-        });
-      });
-      saveBank(chapter.id, updated);
-      setBank(updated);
-    } catch (e) {
-      console.error('prefill failed', e);
-      setLoadError((e as Error).message);
-    } finally {
-      setIsPrefilling(false);
-    }
-  };
-
   const handleAnswer = async (optionIndex: number) => {
     if (isAnswered) return;
     if (timerRef.current) clearInterval(timerRef.current);
     setSelectedAnswer(optionIndex);
     setIsAnswered(true);
-    const cq = quizQuestions[currentIndex];
-    if (optionIndex === cq.correct_index) {
+    const q = quizQuestions[currentIndex];
+    if (!q) return;
+    if (optionIndex === q.correct_index) {
       setScore((p) => p + 1);
       return;
     }
     if (currentUser && optionIndex >= 0) {
       try {
-        await recordMistake(currentUser.uid, cq, cq.options[optionIndex] ?? '');
+        await recordMistake(currentUser.uid, q, q.options[optionIndex] ?? '');
       } catch (e) { console.error(e); }
     }
   };
@@ -444,6 +352,10 @@ export default function ArenaPage({
   const filteredChapters = SYLLABUS.filter(
     (c) => c.classLevel === selClass && c.subject === selSubject,
   );
+
+  // Defensive selector for current question — never read fields off undefined
+  const cq: Question | undefined = quizQuestions[currentIndex];
+  const cqHasOptions = !!(cq && Array.isArray(cq.options) && cq.options.length === 4);
 
   return (
     <div className="space-y-8 pb-20">
@@ -501,9 +413,15 @@ export default function ArenaPage({
       {mode === 'config' ? (
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-12">
           <section className="relative mb-12 overflow-hidden rounded-[3rem] bg-gradient-to-br from-primary via-primary-light to-primary p-12 text-white shadow-2xl md:p-20">
-            <div className="absolute inset-0 z-0 opacity-10">
-              <img src="https://picsum.photos/seed/tactical/1200/600?blur=4" alt="Arena background" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-            </div>
+            {/* Pure-CSS pattern (no external image — much faster on mobile) */}
+            <div
+              className="absolute inset-0 z-0 opacity-10"
+              aria-hidden="true"
+              style={{
+                backgroundImage:
+                  'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.6) 0, transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.4) 0, transparent 45%)',
+              }}
+            />
             <div className="relative z-10 max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/20 px-4 py-2 text-[10px] font-black uppercase tracking-widest backdrop-blur-md">
                 <Target size={14} fill="currentColor" /> Strategic Command
@@ -658,7 +576,7 @@ export default function ArenaPage({
       ) : null}
 
       {/* ============== QUIZ ============== */}
-      {mode === 'quiz' && quizQuestions[currentIndex] ? (
+      {mode === 'quiz' && cq && cqHasOptions ? (
         <div className="mx-auto max-w-4xl py-8">
           <div className="mb-8 flex items-center justify-between">
             <div className="flex gap-4">
@@ -689,29 +607,29 @@ export default function ArenaPage({
             <div className="relative overflow-hidden rounded-[3rem] border-none bg-white p-10 md:p-14 shadow-2xl shadow-emerald-500/5">
               <div className="absolute left-10 top-10 flex gap-2">
                 <span className="rounded-full bg-primary/5 border border-primary/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary">
-                  {(quizQuestions[currentIndex] as any).source || 'AI Generated'}
+                  {(cq as any).source || 'AI Generated'}
                 </span>
               </div>
               <div className="absolute right-10 top-10 flex gap-2">
                 <div className="flex items-center gap-2 rounded-full border border-slate-100 bg-slate-50/50 px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                  <Zap size={12} className="text-amber-500" fill="currentColor" /> {quizQuestions[currentIndex].difficulty}
+                  <Zap size={12} className="text-amber-500" fill="currentColor" /> {cq.difficulty}
                 </div>
               </div>
 
               <div className="mt-12">
                 <h2 className="mb-12 text-2xl font-black leading-snug md:text-4xl text-slate-900 tracking-tight">
-                  {quizQuestions[currentIndex].question_text}
+                  {cq.question_text}
                 </h2>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  {quizQuestions[currentIndex].options.map((option, index) => (
+                  {cq.options.map((option, index) => (
                     <button key={`${currentIndex}-${index}`} type="button" disabled={isAnswered}
                       onClick={() => void handleAnswer(index)}
                       className={cn(
                         'group flex h-full w-full items-center justify-between rounded-3xl border-2 p-6 text-left transition-all relative overflow-hidden',
                         !isAnswered && 'border-slate-50 bg-slate-50/30 hover:border-primary hover:bg-white hover:shadow-xl hover:shadow-emerald-500/5',
-                        isAnswered && index === quizQuestions[currentIndex].correct_index && 'border-emerald-500 bg-emerald-50 text-emerald-900 shadow-lg shadow-emerald-500/10',
-                        isAnswered && selectedAnswer === index && index !== quizQuestions[currentIndex].correct_index && 'border-rose-500 bg-rose-50 text-rose-900 shadow-lg shadow-rose-500/10',
-                        isAnswered && index !== quizQuestions[currentIndex].correct_index && selectedAnswer !== index && 'border-slate-50 opacity-40',
+                        isAnswered && index === cq.correct_index && 'border-emerald-500 bg-emerald-50 text-emerald-900 shadow-lg shadow-emerald-500/10',
+                        isAnswered && selectedAnswer === index && index !== cq.correct_index && 'border-rose-500 bg-rose-50 text-rose-900 shadow-lg shadow-rose-500/10',
+                        isAnswered && index !== cq.correct_index && selectedAnswer !== index && 'border-slate-50 opacity-40',
                       )}>
                       <div className="flex items-center gap-5 relative z-10">
                         <div className={cn('flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xs font-black transition-all',
@@ -721,8 +639,8 @@ export default function ArenaPage({
                         <span className="font-bold text-sm md:text-base leading-relaxed">{option}</span>
                       </div>
                       <div className="relative z-10">
-                        {isAnswered && index === quizQuestions[currentIndex].correct_index ? <CheckCircle2 className="text-emerald-500" size={28} fill="white" /> : null}
-                        {isAnswered && selectedAnswer === index && index !== quizQuestions[currentIndex].correct_index ? <XCircle className="text-rose-500" size={28} fill="white" /> : null}
+                        {isAnswered && index === cq.correct_index ? <CheckCircle2 className="text-emerald-500" size={28} fill="white" /> : null}
+                        {isAnswered && selectedAnswer === index && index !== cq.correct_index ? <XCircle className="text-rose-500" size={28} fill="white" /> : null}
                       </div>
                     </button>
                   ))}
@@ -754,7 +672,7 @@ export default function ArenaPage({
                         <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60">Step-by-step Solution</p>
                         <div className="prose prose-invert prose-emerald max-w-none">
                           <div className="text-lg font-medium leading-relaxed text-slate-200">
-                            <ReactMarkdown>{quizQuestions[currentIndex].explanation}</ReactMarkdown>
+                            <ReactMarkdown>{cq.explanation || 'No explanation available for this question.'}</ReactMarkdown>
                           </div>
                         </div>
                       </div>
@@ -771,6 +689,18 @@ export default function ArenaPage({
               ) : null}
             </AnimatePresence>
           </div>
+        </div>
+      ) : null}
+
+      {/* If we entered quiz mode but the question is malformed, recover gracefully */}
+      {mode === 'quiz' && (!cq || !cqHasOptions) ? (
+        <div className="mx-auto max-w-2xl py-24 text-center">
+          <h2 className="mb-4 text-3xl font-black tracking-tight">Hmm, that question didn't load right.</h2>
+          <p className="mb-8 font-medium text-slate-500">Let's grab a fresh batch.</p>
+          <button type="button" onClick={() => { setMode('config'); }}
+            className="rounded-3xl bg-primary px-10 py-4 font-black uppercase tracking-widest text-white shadow-xl">
+            Back to Setup
+          </button>
         </div>
       ) : null}
 

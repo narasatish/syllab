@@ -259,6 +259,44 @@ export const saveUserProgress = async (userId: string, progress: UserProgress) =
   );
 };
 
+// ========== USER PREFS (pinned chapters etc.) ==========
+// Stored in Firestore under userPrefs/{uid}, so a user's pins follow them
+// across devices instead of living only in localStorage on one browser.
+export interface UserPrefs {
+  pinnedChapters?: string[];
+}
+
+export const getUserPrefs = async (userId: string): Promise<UserPrefs> => {
+  try {
+    const snap = await getDoc(doc(db, 'userPrefs', userId));
+    if (!snap.exists()) return { pinnedChapters: [] };
+    const data = snap.data() as UserPrefs;
+    return {
+      pinnedChapters: Array.isArray(data?.pinnedChapters) ? data.pinnedChapters : [],
+    };
+  } catch (e) {
+    console.error('getUserPrefs failed', e);
+    return { pinnedChapters: [] };
+  }
+};
+
+export const getPinnedChapters = async (userId: string): Promise<string[]> => {
+  const prefs = await getUserPrefs(userId);
+  return prefs.pinnedChapters || [];
+};
+
+export const savePinnedChapters = async (userId: string, pinnedChapters: string[]) => {
+  try {
+    await setDoc(
+      doc(db, 'userPrefs', userId),
+      { pinnedChapters, updatedAt: serverTimestamp() },
+      { merge: true },
+    );
+  } catch (e) {
+    console.error('savePinnedChapters failed', e);
+  }
+};
+
 // ========== MISTAKES ==========
 // Schema MUST match firestore.rules:
 //   required: userId, questionId, questionText, timestamp
