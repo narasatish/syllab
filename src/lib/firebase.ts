@@ -41,16 +41,14 @@ for (const [k, v] of Object.entries(firebaseConfig)) {
   if (!v) console.error(`Missing Firebase env var for: ${k} (set VITE_FIREBASE_*)`);
 }
 
-const firestoreDatabaseId = import.meta.env.VITE_FIREBASE_DATABASE_ID;
+
 
 // Backend API base URL — used for the branded password reset email
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://syllab-backend.onrender.com';
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = firestoreDatabaseId
-  ? getFirestore(app, firestoreDatabaseId)
-  : getFirestore(app);
+export const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
 const authPersistenceReady = setPersistence(auth, browserLocalPersistence).catch((error) => {
