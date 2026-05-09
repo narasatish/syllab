@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, MessageSquare, Send, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { submitEnquiry } from '../lib/firebase';
+import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -15,6 +16,12 @@ export default function ContactPage() {
     
     setLoading(true);
     setError(null);
+
+    if (!FIRESTORE_FEATURES_ENABLED) {
+      setError('Contact storage is not configured yet. Please email support@syllab.in.');
+      setLoading(false);
+      return;
+    }
     
     try {
       await submitEnquiry(form.name, form.email, form.message);

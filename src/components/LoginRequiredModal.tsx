@@ -24,7 +24,7 @@ export default function LoginRequiredModal({ isOpen, onClose, message }: LoginRe
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-[3rem] p-10 z-[101] shadow-2xl border border-white/20 overflow-hidden"
+            className="fixed left-1/2 top-1/2 z-[101] max-h-[calc(100dvh-1.5rem)] w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[2rem] border border-white/20 bg-white p-6 shadow-2xl sm:rounded-[3rem] sm:p-10"
           >
             <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
             

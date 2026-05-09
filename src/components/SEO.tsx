@@ -6,55 +6,54 @@ interface SEOProps {
   keywords?: string;
   image?: string;
   url?: string;
+  type?: string;
 }
 
-export default function SEO({ title, description, keywords, image, url }: SEOProps) {
-  React.useEffect(() => {
-// Only append "Syllab" if the title doesn't already include it
-document.title = title.toLowerCase().includes('syllab') 
-  ? title 
-  : `${title} | Syllab`;    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = description;
-      document.head.appendChild(meta);
-    }
+const DEFAULT_IMAGE = 'https://syllab.in/manifest-icon-512.png';
+const DEFAULT_URL = 'https://syllab.in/';
 
-    if (keywords) {
-      const metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (metaKeywords) {
-        metaKeywords.setAttribute('content', keywords);
-      } else {
-        const meta = document.createElement('meta');
-        meta.name = 'keywords';
-        meta.content = keywords;
-        document.head.appendChild(meta);
-      }
-    }
-    
-    // OpenGraph
-    const setOgTag = (property: string, content: string) => {
-      let tag = document.querySelector(`meta[property="${property}"]`);
-      if (tag) {
-        tag.setAttribute('content', content);
-      } else {
+export default function SEO({ title, description, keywords, image = DEFAULT_IMAGE, url = DEFAULT_URL, type = 'website' }: SEOProps) {
+  React.useEffect(() => {
+    const finalTitle = title.toLowerCase().includes('syllab') ? title : `${title} | Syllab`;
+    document.title = finalTitle;
+
+    const setMeta = (selector: string, attrs: Record<string, string>) => {
+      let tag = document.querySelector(selector);
+      if (!tag) {
         tag = document.createElement('meta');
-        tag.setAttribute('property', property);
-        tag.setAttribute('content', content);
+        Object.entries(attrs).forEach(([key, value]) => tag?.setAttribute(key, value));
         document.head.appendChild(tag);
+        return;
       }
+      Object.entries(attrs).forEach(([key, value]) => tag?.setAttribute(key, value));
     };
 
-    setOgTag('og:title', title);
-    setOgTag('og:description', description);
-    if (image) setOgTag('og:image', image);
-    if (url) setOgTag('og:url', url);
+    setMeta('meta[name="description"]', { name: 'description', content: description });
+    setMeta('meta[name="robots"]', { name: 'robots', content: 'index,follow,max-image-preview:large' });
 
-  }, [title, description, keywords, image, url]);
+    if (keywords) {
+      setMeta('meta[name="keywords"]', { name: 'keywords', content: keywords });
+    }
+
+    setMeta('meta[property="og:title"]', { property: 'og:title', content: finalTitle });
+    setMeta('meta[property="og:description"]', { property: 'og:description', content: description });
+    setMeta('meta[property="og:type"]', { property: 'og:type', content: type });
+    setMeta('meta[property="og:image"]', { property: 'og:image', content: image });
+    setMeta('meta[property="og:url"]', { property: 'og:url', content: url });
+    setMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
+    setMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: finalTitle });
+    setMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description });
+    setMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: image });
+
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = url;
+
+  }, [title, description, keywords, image, url, type]);
 
   return null;
 }

@@ -24,6 +24,7 @@ export interface Chapter {
   topics: string[];
   ncertUrl?: string;
   sourceBook?: string;
+  concepts?: unknown[];
   // Enriched fields
   explanation?: string;
   realWorldExample?: string;
@@ -72,7 +73,7 @@ export interface Question {
 export interface UserStats {
   score: number;
   xp: number;
-  rank: string;
+  rank: string | number;
   streak: number;
   lastActive?: unknown;
   level: number;
@@ -105,10 +106,10 @@ export interface LeaderboardEntry {
   displayName: string;
   email?: string;
   score: number;
-  xp: number;
-  level: number;
-  rank: string;
-  streak: number;
+  xp?: number;
+  level?: number;
+  rank: string | number;
+  streak?: number;
   city?: string;
   state?: string;
   avatar?: string;

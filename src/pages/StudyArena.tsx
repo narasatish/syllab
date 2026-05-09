@@ -14,7 +14,6 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
 import * as pdfjs from 'pdfjs-dist';
-// @ts-expect-error - Vite specific import for worker URL
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
 import {
   extractStudyConcepts,
