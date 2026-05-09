@@ -118,6 +118,62 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // ---------- DAILY CHALLENGES ----------
+    match /dailyChallengeProfiles/{userId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+      allow read: if isOwner();
+      allow create, update: if isOwner()
+        && request.resource.data.userId == userId
+        && request.resource.data.keys().hasOnly([
+          'userId', 'attempts', 'bestScore', 'totalScore',
+          'participation', 'updatedAt'
+        ])
+        && request.resource.data.bestScore is number
+        && request.resource.data.totalScore is number
+        && request.resource.data.participation is number
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+    }
+
+    match /dailyChallengeLeaderboard/{entryId} {
+      allow read: if true;
+      allow create, update: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+          'userId', 'displayName', 'category', 'classLevel',
+          'score', 'total', 'secondsLeft', 'date', 'points', 'updatedAt'
+        ])
+        && request.resource.data.score is number
+        && request.resource.data.total is number
+        && request.resource.data.secondsLeft is number
+        && request.resource.data.points is number
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+    }
+
+    match /chapterDiscussions/{postId} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+          'chapterId', 'chapterTitle', 'author', 'userId',
+          'body', 'likes', 'replies', 'createdAt'
+        ])
+        && request.resource.data.body is string
+        && request.resource.data.body.size() > 0
+        && request.resource.data.body.size() <= 1200
+        && request.resource.data.likes == 0
+        && request.resource.data.createdAt == request.time;
+      allow update: if request.auth != null
+        && request.resource.data.keys().hasOnly([
+          'chapterId', 'chapterTitle', 'author', 'userId',
+          'body', 'likes', 'replies', 'createdAt'
+        ]);
+      allow delete: if false;
+    }
+
     // ---------- CONTACTS ----------
     // Auth NOT required — prospects use contact forms before signup.
     // Tight schema + size limits are the only defense against spam here.

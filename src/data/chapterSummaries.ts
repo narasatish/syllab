@@ -1,4 +1,5 @@
 // src/data/chapterSummaries.ts
+import { API_URL } from '../lib/api';
 //
 // Hardcoded chapter-specific summaries.
 // Keys are lowercase, trimmed chapter titles for forgiving matching.
@@ -151,12 +152,17 @@ function resolveApiBase(): string {
   if (typeof window !== 'undefined' && (window as any).__PADHAI_API__) {
     return (window as any).__PADHAI_API__;
   }
-  try {
-    // @ts-ignore - Vite import.meta.env
-    const viteUrl = import.meta?.env?.VITE_API_BASE_URL || import.meta?.env?.VITE_API_BASE;
-    if (viteUrl) return viteUrl;
-  } catch { /* not Vite */ }
-  return 'https://syllab-backend.onrender.com';
+  return API_URL;
+}
+
+function summaryKey(title: string): string {
+  return title
+    .trim()
+    .toLowerCase()
+    .replace(/^[\s\d.()\-–—]+/, '')
+    .replace(/[“”"]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**
@@ -171,7 +177,7 @@ function resolveApiBase(): string {
  */
 export function getChapterSummary(title: string, fallback?: string): string {
   if (!title) return fallback || '';
-  const key = title.trim().toLowerCase();
+  const key = summaryKey(title);
   if (CHAPTER_SUMMARIES[key]) return CHAPTER_SUMMARIES[key];
   const cached = _memCache.get(key);
   if (cached) return cached;
@@ -196,7 +202,7 @@ export async function ensureChapterSummary(args: {
   const { chapterTitle, classLevel, subject, chapterId, fallback } = args;
   if (!chapterTitle) return fallback || '';
 
-  const key = chapterTitle.trim().toLowerCase();
+  const key = summaryKey(chapterTitle);
 
   // 1. hardcoded
   if (CHAPTER_SUMMARIES[key]) return CHAPTER_SUMMARIES[key];

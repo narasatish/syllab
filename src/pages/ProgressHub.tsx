@@ -1,0 +1,73 @@
+import React from 'react';
+import { Activity, Trophy } from 'lucide-react';
+import { User as FirebaseUser } from 'firebase/auth';
+import SEO from '../components/SEO';
+import { cn } from '../lib/utils';
+
+type ProgressMode = 'analytics' | 'standing';
+
+const AnalyticsPage = React.lazy(() => import('./Analytics'));
+const DashboardPage = React.lazy(() => import('./Dashboard'));
+
+interface ProgressHubPageProps {
+  currentUser: FirebaseUser | null;
+  setTab: (tab: string) => void;
+}
+
+export default function ProgressHubPage({ currentUser, setTab }: ProgressHubPageProps) {
+  const [mode, setMode] = React.useState<ProgressMode>('analytics');
+
+  return (
+    <main className="space-y-8 pb-12">
+      <SEO
+        title="Progress Hub with Analytics and Rankings"
+        description="Track student analytics, weak topics, XP, leaderboard standing, paused quizzes, and learning progress in one dashboard."
+        keywords="student progress dashboard, learning analytics, leaderboard, rankings, weak topic finder"
+        url="https://syllab.in/progress"
+      />
+
+      <section className="rounded-[2rem] bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-primary">
+              <Activity size={14} />
+              Progress and standing
+            </div>
+            <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">Progress Hub</h1>
+            <p className="mt-3 max-w-2xl text-sm font-medium leading-relaxed text-slate-500">
+              Review performance insights and leaderboard standing from one place.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 rounded-2xl bg-slate-100 p-1">
+            {[
+              { id: 'analytics' as const, label: 'Analytics', icon: Activity },
+              { id: 'standing' as const, label: 'Standing', icon: Trophy },
+            ].map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setMode(item.id)}
+                className={cn(
+                  'flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest transition-all',
+                  mode === item.id ? 'bg-white text-primary shadow-sm' : 'text-slate-500 hover:text-slate-800',
+                )}
+              >
+                <item.icon size={15} />
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <React.Suspense fallback={<div className="rounded-2xl bg-white p-8 text-center text-sm font-bold text-slate-400">Loading progress...</div>}>
+        {mode === 'analytics' ? (
+          <AnalyticsPage currentUser={currentUser} setTab={setTab} />
+        ) : (
+          <DashboardPage currentUser={currentUser} setTab={setTab} />
+        )}
+      </React.Suspense>
+    </main>
+  );
+}

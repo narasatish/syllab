@@ -7,22 +7,25 @@ import React, { Suspense, useEffect, useState } from 'react';
 import {
   BookOpen,
   Bot,
-  Camera,
+  CalendarDays,
+  ChartNoAxesCombined,
+  MessageCircle,
   Home,
   LogIn,
   LogOut,
   Menu,
   Sparkles,
   Target,
-  Trophy,
   User,
+  UserRound,
   X,
   Zap,
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { cn } from './lib/utils';
-import { generateQuestions } from './data/questions';
+import SEO from './components/SEO';
+import { FIREBASE_AUTH_ENABLED, FIRESTORE_FEATURES_ENABLED } from './lib/cloudFeatures';
 import { SYLLABUS } from './data/syllabus';
 import {
   auth,
@@ -39,16 +42,19 @@ import {
   signInWithGoogle,
   signUpWithEmail,
 } from './lib/firebase';
-import { AuthFormState, Question, UserProgress, UserStats } from './types';
+import { AuthFormState, UserProgress, UserStats } from './types';
 
 // Lazy load pages for performance
 const HomePage = React.lazy(() => import('./pages/Home'));
 const SyllabusPage = React.lazy(() => import('./pages/Syllabus'));
 const ArenaPage = React.lazy(() => import('./pages/Arena'));
 const TutorPage = React.lazy(() => import('./pages/Tutor'));
-const DashboardPage = React.lazy(() => import('./pages/Dashboard'));
-const ScanPage = React.lazy(() => import('./pages/Scan'));
-const StudyArenaPage = React.lazy(() => import('./pages/StudyArena'));
+const LearningLabPage = React.lazy(() => import('./pages/LearningLab'));
+const DailyChallengesPage = React.lazy(() => import('./pages/DailyChallenges'));
+const ProgressHubPage = React.lazy(() => import('./pages/ProgressHub'));
+const CommunityPage = React.lazy(() => import('./pages/Community'));
+const PrepHubPage = React.lazy(() => import('./pages/PrepHub'));
+const StudentProfilePage = React.lazy(() => import('./pages/StudentProfile'));
 const AboutPage = React.lazy(() => import('./pages/About'));
 const ContactPage = React.lazy(() => import('./pages/Contact'));
 const SitemapPage = React.lazy(() => import('./pages/Sitemap'));
@@ -74,6 +80,93 @@ const getRankFromXp = (xp: number) => {
   if (xp >= 750) return 'Explorer';
   if (xp >= 250) return 'Apprentice';
   return 'Beginner';
+};
+
+const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string }> = {
+  home: {
+    title: 'Syllab AI Learning App for CBSE, NCERT, JEE and NEET',
+    description: 'Syllab helps Indian students learn NCERT chapters, practice quizzes, solve doubts with AI, and prepare for CBSE, JEE, NEET and EAMCET.',
+    keywords: 'Syllab, AI learning app, NCERT, CBSE, JEE, NEET, EAMCET, online practice',
+    url: 'https://syllab.in/',
+  },
+  syllabus: {
+    title: 'NCERT Syllabus Explorer for Classes 5 to 12',
+    description: 'Explore class-wise and subject-wise NCERT chapters with summaries, concepts, AI tutor support, and practice questions.',
+    keywords: 'NCERT syllabus, CBSE chapters, class 5 to 12 syllabus, chapter summary',
+    url: 'https://syllab.in/syllabus',
+  },
+  arena: {
+    title: 'Practice Arena with Chapter Wise MCQs',
+    description: 'Practice timed NCERT-aligned MCQs for every chapter with scoring, explanations, and mistake tracking.',
+    keywords: 'practice MCQ, CBSE quiz, NCERT questions, chapter wise practice',
+    url: 'https://syllab.in/practice',
+  },
+  daily: {
+    title: 'Daily Challenges for EAMCET, IIT JEE, NEET and Classes 5-10',
+    description: 'Solve daily timed quiz challenges for EAMCET, IIT JEE, NEET, and school aptitude with score rankings.',
+    keywords: 'daily challenges, EAMCET quiz, IIT JEE practice, NEET questions, aptitude quiz',
+    url: 'https://syllab.in/daily-challenges',
+  },
+  progress: {
+    title: 'Progress Hub with Analytics and Rankings',
+    description: 'Track analytics, weak topics, XP, ranking, paused quizzes, and learning progress in one student dashboard.',
+    keywords: 'student analytics, leaderboard, progress dashboard, AI weakness finder',
+    url: 'https://syllab.in/progress',
+  },
+  community: {
+    title: 'Student Community and Chapter Discussions',
+    description: 'Ask chapter doubts, reply to classmates, and discuss NCERT, JEE, NEET and EAMCET topics.',
+    keywords: 'student forum, chapter discussions, doubt solving community',
+    url: 'https://syllab.in/community',
+  },
+  prep_hub: {
+    title: 'JEE NEET EAMCET and Board Exam Preparation Hub',
+    description: 'Read exam strategies, chapter-wise weightage guides, JEE syllabus notes, NEET preparation tips and EAMCET practice plans.',
+    keywords: 'JEE syllabus, NEET preparation, EAMCET practice, board exam strategy',
+    url: 'https://syllab.in/preparation',
+  },
+  profile: {
+    title: 'Student Profile Stats Referrals and Badges',
+    description: 'View XP, streaks, badges, share achievements and invite friends to Syllab.',
+    keywords: 'student profile, learning streak, referral, badges',
+    url: 'https://syllab.in/profile',
+  },
+  learning_lab: {
+    title: 'Learning Lab for Study Notes and Scan Solve',
+    description: 'Upload study material to generate concepts, flashcards, and MCQs, or scan homework problems for step-by-step solutions.',
+    keywords: 'learning lab, study arena, scan solve, AI notes, MCQ generator, homework solver',
+    url: 'https://syllab.in/learning-lab',
+  },
+  tutor: {
+    title: 'AI Tutor for NCERT Doubts and Exam Prep',
+    description: 'Ask doubts and get step-by-step AI tutoring for school chapters, JEE, NEET, and competitive exam preparation.',
+    keywords: 'AI tutor, NCERT doubt solving, JEE tutor, NEET tutor',
+    url: 'https://syllab.in/ai-tutor',
+  },
+  about: {
+    title: 'About Syllab',
+    description: 'Learn about Syllab and its mission to make high-quality AI learning accessible for Indian students.',
+    keywords: 'about Syllab, AI education India',
+    url: 'https://syllab.in/about',
+  },
+  contact: {
+    title: 'Contact Syllab Support',
+    description: 'Contact Syllab for learning support, platform help, partnerships, and academic questions.',
+    keywords: 'contact Syllab, student support',
+    url: 'https://syllab.in/contact',
+  },
+  sitemap: {
+    title: 'Syllab Sitemap',
+    description: 'Browse the Syllab platform sitemap with pages, subjects, classes, and learning modules.',
+    keywords: 'Syllab sitemap, learning pages',
+    url: 'https://syllab.in/sitemap',
+  },
+  admin_pipeline: {
+    title: 'Syllab Admin Pipeline',
+    description: 'Admin tooling for reviewing learning content and generation workflows.',
+    keywords: 'Syllab admin',
+    url: 'https://syllab.in/admin',
+  },
 };
 
 function PageFallback() {
@@ -102,7 +195,6 @@ function LoginModal({
 
   useEffect(() => {
     if (!isOpen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMethod('google');
       setMode('signin');
       setForm(EMPTY_AUTH_FORM);
@@ -124,6 +216,10 @@ function LoginModal({
 
   const handleEmailAuth = async () => {
     if (loading) {
+      return;
+    }
+    if (!FIREBASE_AUTH_ENABLED) {
+      setError('Authentication is not configured yet. Set a valid Firebase Web API key and VITE_FIREBASE_AUTH_ENABLED=true.');
       return;
     }
 
@@ -149,6 +245,10 @@ function LoginModal({
     if (loading) {
       return;
     }
+    if (!FIREBASE_AUTH_ENABLED) {
+      setError('Google sign-in is not configured yet. Set a valid Firebase Web API key and VITE_FIREBASE_AUTH_ENABLED=true.');
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -165,6 +265,10 @@ function LoginModal({
 
   const handleResetPassword = async () => {
     if (loading) return;
+    if (!FIREBASE_AUTH_ENABLED) {
+      setError('Password reset is not configured yet. Set a valid Firebase Web API key and VITE_FIREBASE_AUTH_ENABLED=true.');
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
@@ -178,7 +282,7 @@ function LoginModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[60] flex items-end justify-center overflow-y-auto p-3 sm:items-center sm:p-4">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -188,27 +292,27 @@ function LoginModal({
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 16 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="relative w-full max-w-md rounded-[2.5rem] bg-white p-10 shadow-2xl"
+        className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-md overflow-y-auto rounded-[1.75rem] bg-white p-5 shadow-2xl sm:max-h-[calc(100dvh-2rem)] sm:rounded-[2.5rem] sm:p-8 md:p-10"
       >
         <button
           type="button"
           onClick={onClose}
           disabled={loading}
-          className="absolute right-6 top-6 text-slate-400 transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+          className="absolute right-4 top-4 rounded-full p-2 text-slate-400 transition-colors hover:bg-slate-50 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50 sm:right-6 sm:top-6"
           aria-label="Close authentication modal"
         >
           <X size={22} />
         </button>
 
-        <div className="space-y-6">
+        <div className="space-y-5 sm:space-y-6">
           <div className="text-center">
-            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-white shadow-xl shadow-emerald-500/20">
-              <User size={28} />
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-xl shadow-emerald-500/20 sm:mb-4 sm:h-16 sm:w-16">
+              <User size={24} />
             </div>
-            <h2 className="text-2xl font-black tracking-tight text-slate-900">
+            <h2 className="text-xl font-black tracking-tight text-slate-900 sm:text-2xl">
               {mode === 'signin' ? 'Welcome Back' : mode === 'reset' ? 'Reset Password' : 'Create Your Account'}
             </h2>
-            <p className="mt-2 text-sm font-medium text-slate-500">
+            <p className="mt-2 text-sm font-medium leading-relaxed text-slate-500">
               {mode === 'signin'
                 ? 'Sign in to continue your learning progress.'
                 : mode === 'reset'
@@ -229,7 +333,7 @@ function LoginModal({
                   }}
                   disabled={loading}
                   className={cn(
-                    'flex-1 rounded-xl py-3 text-[10px] font-black uppercase tracking-widest transition-all',
+                    'min-w-0 flex-1 rounded-xl py-3 text-[10px] font-black uppercase tracking-widest transition-all',
                     method === value ? 'bg-white text-primary shadow-sm' : 'text-slate-400 hover:text-slate-600',
                   )}
                 >
@@ -255,7 +359,7 @@ function LoginModal({
               type="button"
               onClick={handleGoogleAuth}
               disabled={loading}
-              className="flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-slate-100 bg-white px-5 py-5 text-sm font-black transition-all hover:border-primary disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-slate-100 bg-white px-4 py-4 text-sm font-black transition-all hover:border-primary disabled:cursor-not-allowed disabled:opacity-60 sm:px-5 sm:py-5"
             >
               {loading ? <Zap size={18} className="animate-spin" /> : <LogIn size={18} />}
               <span>{loading ? 'Please wait...' : 'Continue with Google'}</span>
@@ -274,7 +378,7 @@ function LoginModal({
                   onChange={(event) => updateField('email', event.target.value)}
                   placeholder="name@example.com"
                   disabled={loading}
-                  className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-4 font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-3.5 text-base font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60 sm:p-4"
                 />
               </div>
 
@@ -303,7 +407,7 @@ function LoginModal({
                     onChange={(event) => updateField('password', event.target.value)}
                     placeholder="Enter your password"
                     disabled={loading}
-                    className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-4 font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+                    className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-3.5 text-base font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60 sm:p-4"
                   />
                 </div>
               ) : null}
@@ -312,7 +416,7 @@ function LoginModal({
                 type="button"
                 onClick={mode === 'reset' ? handleResetPassword : handleEmailAuth}
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-primary py-5 text-lg font-black text-white shadow-lg shadow-violet-500/20 transition-all hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-primary py-4 text-base font-black text-white shadow-lg shadow-emerald-500/20 transition-all hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-60 sm:py-5 sm:text-lg"
               >
                 {loading ? <Zap className="animate-spin" size={20} /> : <LogIn size={20} />}
                 {loading ? 'Sending...' : mode === 'reset' ? 'Send Reset Link' : mode === 'signin' ? 'Login' : 'Sign Up'}
@@ -363,7 +467,6 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
   const [stats, setStats] = useState<UserStats>(DEFAULT_USER_STATS);
   const [progress, setProgress] = useState<UserProgress>(DEFAULT_USER_PROGRESS);
-  const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [authLoading, setAuthLoading] = useState(true);
   const [appError, setAppError] = useState<string | null>(null);
@@ -376,6 +479,13 @@ export default function App() {
       try {
         if (user) {
           setCurrentUser(user);
+
+          if (!FIRESTORE_FEATURES_ENABLED) {
+            setStats(DEFAULT_USER_STATS);
+            setProgress(DEFAULT_USER_PROGRESS);
+            setAppError(null);
+            return;
+          }
 
           // Use the robust utility to ensure all docs exist
           await ensureUserDocuments(user);
@@ -404,7 +514,7 @@ export default function App() {
         console.error('Auth state initialization failed.', error);
         // Only show this banner when the user is actually signed in. For
         // guests we silently swallow it — they don't have an "account" to load.
-        if (user) {
+        if (user && FIRESTORE_FEATURES_ENABLED) {
           setAppError('Unable to load your account data right now.');
         }
       } finally {
@@ -416,19 +526,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const initApp = async () => {
-      try {
-        const allQuestions = generateQuestions(SYLLABUS);
-        setQuestions(allQuestions);
-      } catch (error) {
-        console.error('Application initialization error', error);
-        setAppError('Unable to initialize the study database.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    initApp();
+    setLoading(false);
   }, []);
 
   const handleSessionComplete = async (summary: SessionSummary) => {
@@ -443,12 +541,13 @@ export default function App() {
     const nextProgress: UserProgress = {
       completedChapters: Array.from(new Set([...progress.completedChapters, ...summary.completedChapters])),
       lastChapter: summary.lastChapter,
+      conceptProgress: progress.conceptProgress || {},
     };
 
     setStats(nextStats);
     setProgress(nextProgress);
 
-    if (!currentUser) {
+    if (!currentUser || !FIRESTORE_FEATURES_ENABLED) {
       return;
     }
 
@@ -467,17 +566,21 @@ export default function App() {
     { id: 'home', label: 'Home', icon: Home },
     { id: 'syllabus', label: 'Syllabus', icon: BookOpen },
     { id: 'arena', label: 'Practice Arena', icon: Target },
-    { id: 'study_arena', label: 'Study Arena', icon: Sparkles },
+    { id: 'daily', label: 'Daily Dose', icon: CalendarDays },
+    { id: 'progress', label: 'Progress Hub', icon: ChartNoAxesCombined },
+    { id: 'learning_lab', label: 'Learning Lab', icon: Sparkles },
     { id: 'tutor', label: 'AI Tutor', icon: Bot },
-    { id: 'scan', label: 'Scan & Solve', icon: Camera },
-    { id: 'standing', label: 'Standing', icon: Trophy },
+    { id: 'community', label: 'Community', icon: MessageCircle },
+    { id: 'profile', label: 'Profile', icon: UserRound },
   ];
 
   const isInitializing = loading || authLoading;
+  const seo = PAGE_SEO[activeTab] || PAGE_SEO.home;
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
-      <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-8 backdrop-blur-xl">
+      <SEO {...seo} />
+      <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
         <button
           onClick={() => setActiveTab('home')}
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
@@ -579,7 +682,7 @@ export default function App() {
 
       <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
 
-      <main className="flex-1 overflow-y-auto bg-slate-50/50 px-6 pb-12 pt-24">
+      <main className="flex-1 overflow-y-auto bg-slate-50/50 px-4 pb-12 pt-24 sm:px-6">
         <div className="mx-auto max-w-7xl">
           {appError && currentUser ? (
             <div className="mb-6 rounded-2xl border border-amber-100 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-700 flex items-center justify-between gap-4">
@@ -611,7 +714,7 @@ export default function App() {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {activeTab === 'home' ? <HomePage setTab={setActiveTab} currentUser={currentUser} /> : null}
+                  {activeTab === 'home' ? <HomePage setTab={setActiveTab} /> : null}
                   {activeTab === 'syllabus' ? (
                     <SyllabusPage
                       setTab={setActiveTab}
@@ -621,19 +724,19 @@ export default function App() {
                   ) : null}
                   {activeTab === 'arena' ? (
                     <ArenaPage
-                      questions={questions}
                       practiceConfig={practiceConfig}
                       clearConfig={() => setPracticeConfig(null)}
                       currentUser={currentUser}
                       onSessionComplete={handleSessionComplete}
                     />
                   ) : null}
-                  {activeTab === 'study_arena' ? <StudyArenaPage /> : null}
+                  {activeTab === 'daily' ? <DailyChallengesPage currentUser={currentUser} /> : null}
+                  {['progress', 'analytics', 'standing'].includes(activeTab) ? <ProgressHubPage currentUser={currentUser} setTab={setActiveTab} /> : null}
+                  {['learning_lab', 'study_arena', 'scan'].includes(activeTab) ? <LearningLabPage /> : null}
                   {activeTab === 'tutor' ? <TutorPage currentUser={currentUser} /> : null}
-                  {activeTab === 'scan' ? <ScanPage /> : null}
-                  {activeTab === 'standing' ? (
-                    <DashboardPage stats={stats} currentUser={currentUser} setTab={setActiveTab} />
-                  ) : null}
+                  {activeTab === 'community' ? <CommunityPage currentUser={currentUser} /> : null}
+                  {activeTab === 'prep_hub' ? <PrepHubPage setTab={setActiveTab} /> : null}
+                  {activeTab === 'profile' ? <StudentProfilePage currentUser={currentUser} stats={stats} setTab={setActiveTab} /> : null}
                   {activeTab === 'about' ? <AboutPage /> : null}
                   {activeTab === 'contact' ? <ContactPage /> : null}
                   {activeTab === 'sitemap' ? <SitemapPage setTab={setActiveTab} /> : null}
@@ -667,7 +770,12 @@ export default function App() {
             <ul className="space-y-4">
               <li><button onClick={() => setActiveTab('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus Explorer</button></li>
               <li><button onClick={() => setActiveTab('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice Arena</button></li>
+              <li><button onClick={() => setActiveTab('daily')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenges</button></li>
+              <li><button onClick={() => setActiveTab('progress')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Progress Hub</button></li>
+              <li><button onClick={() => setActiveTab('learning_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Learning Lab</button></li>
               <li><button onClick={() => setActiveTab('tutor')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
+              <li><button onClick={() => setActiveTab('community')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Community</button></li>
+              <li><button onClick={() => setActiveTab('prep_hub')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
               <li><button onClick={() => setActiveTab('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
           </div>

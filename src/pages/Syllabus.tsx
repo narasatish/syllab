@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Crown, Bot, Target, Pin } from 'lucide-react';
+import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Bot, Target, Pin } from 'lucide-react';
 import { Chapter, Subject, ClassLevel, Concept } from '../types';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
@@ -27,6 +27,9 @@ function ChapterSummary({ chapter }: { chapter: Chapter }) {
   const [summary, setSummary] = useState<string>(() =>
     getChapterSummary(chapter.title, chapter.explanation || ''),
   );
+  const [status, setStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>(() =>
+    getChapterSummary(chapter.title) ? 'ready' : 'idle',
+  );
   const ref = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
@@ -34,6 +37,7 @@ function ChapterSummary({ chapter }: { chapter: Chapter }) {
     const hardcoded = getChapterSummary(chapter.title);
     if (hardcoded) {
       setSummary(hardcoded);
+      setStatus('ready');
       return;
     }
 
@@ -42,6 +46,12 @@ function ChapterSummary({ chapter }: { chapter: Chapter }) {
     const node = ref.current;
 
     const triggerFetch = () => {
+      setStatus('loading');
+      window.setTimeout(() => {
+        if (!cancelled) {
+          setStatus((current) => (current === 'loading' ? 'ready' : current));
+        }
+      }, 12000);
       ensureChapterSummary({
         classLevel: chapter.classLevel,
         subject: chapter.subject,
@@ -49,7 +59,14 @@ function ChapterSummary({ chapter }: { chapter: Chapter }) {
         chapterId: chapter.id,
         fallback: chapter.explanation || '',
       })
-        .then((s) => { if (!cancelled && s) setSummary(s); })
+        .then((s) => {
+          if (!cancelled && s) {
+            setSummary(s);
+            setStatus('ready');
+          } else if (!cancelled) {
+            setStatus('error');
+          }
+        })
         .catch(() => { /* ignore — fallback already showing */ });
     };
 
@@ -76,9 +93,44 @@ function ChapterSummary({ chapter }: { chapter: Chapter }) {
   }, [chapter.id, chapter.title, chapter.classLevel, chapter.subject, chapter.explanation]);
 
   return (
-    <p ref={ref} className="text-sm text-slate-500 font-medium leading-relaxed">
-      {summary || 'Preparing summary...'}
-    </p>
+    <div className="space-y-2">
+      <p ref={ref} className="text-sm text-slate-500 font-medium leading-relaxed">
+        {summary || 'Preparing summary...'}
+      </p>
+      {status === 'loading' ? (
+        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+          Generating summary
+        </div>
+      ) : null}
+      {status === 'error' ? (
+        <button
+          type="button"
+          onClick={() => {
+            setStatus('loading');
+            ensureChapterSummary({
+              classLevel: chapter.classLevel,
+              subject: chapter.subject,
+              chapterTitle: chapter.title,
+              chapterId: chapter.id,
+              fallback: chapter.explanation || '',
+            })
+              .then((s) => {
+                if (s) {
+                  setSummary(s);
+                  setStatus('ready');
+                } else {
+                  setStatus('error');
+                }
+              })
+              .catch(() => setStatus('error'));
+          }}
+          className="text-left text-[10px] font-black uppercase tracking-widest text-rose-500 hover:text-rose-700"
+        >
+          Could not refresh summary. Retry
+        </button>
+      ) : null}
+    </div>
   );
 }
 

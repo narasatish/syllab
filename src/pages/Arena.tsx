@@ -16,9 +16,10 @@ import { AnimatePresence, motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
 import { SYLLABUS } from '../data/syllabus';
-import { Difficulty, Question } from '../types';
+import { ClassLevel, Difficulty, Question, Subject } from '../types';
 import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
 import { usePinnedChapters } from '../lib/pinnedChapters';
+import { recordPracticeAttempt } from '../lib/practiceAnalytics';
 import ReactMarkdown from 'react-markdown';
 import LoginRequiredModal from '../components/LoginRequiredModal';
 
@@ -30,7 +31,6 @@ const API_BASE: string = (() => {
     return (window as any).__PADHAI_API__;
   }
   try {
-    // @ts-ignore - Vite import.meta.env
     const viteUrl = import.meta?.env?.VITE_API_BASE_URL || import.meta?.env?.VITE_API_BASE;
     if (viteUrl) return viteUrl;
   } catch { /* not Vite */ }
@@ -125,7 +125,6 @@ async function fetchQuestionsFromBackend(
 }
 
 interface ArenaPageProps {
-  questions: Question[];
   practiceConfig: Record<string, unknown> | null;
   clearConfig: () => void;
   currentUser: FirebaseUser | null;
@@ -140,7 +139,6 @@ interface ArenaPageProps {
 type GameMode = 'config' | 'loading' | 'quiz' | 'result';
 
 export default function ArenaPage({
-  questions,
   practiceConfig,
   clearConfig,
   currentUser,
@@ -161,9 +159,10 @@ export default function ArenaPage({
   const [timePerQuestion, setTimePerQuestion] = useState(1);
   const [timeLeft, setTimeLeft] = useState(60);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const quizStartedAtRef = useRef<number | null>(null);
 
-  const [selClass, setSelClass] = useState('5');
-  const [selSubject, setSelSubject] = useState('Mathematics');
+  const [selClass, setSelClass] = useState<ClassLevel>('5');
+  const [selSubject, setSelSubject] = useState<Subject>('Mathematics');
   const [selChapter, setSelChapter] = useState('');
   const [selCount, setSelCount] = useState('10');
   const [pausedSession, setPausedSession] = useState<QuizSession | null>(null);
@@ -178,7 +177,7 @@ export default function ArenaPage({
       if (currentUser) {
         try {
           const session = await getPausedSession(currentUser.uid);
-          if (session && (session as Record<string, unknown>).active !== false) {
+          if (session && (session as unknown as Record<string, unknown>).active !== false) {
             const valid = Array.isArray(session.questions)
               ? session.questions.filter(isValidQuestion)
               : [];
@@ -197,6 +196,7 @@ export default function ArenaPage({
   const resumeSession = () => {
     if (!pausedSession) return;
     setQuizQuestions(pausedSession.questions);
+    quizStartedAtRef.current = Date.now();
     setCurrentIndex(pausedSession.currentIndex);
     setScore(pausedSession.score);
     setIsTimerEnabled(pausedSession.config.isTimerEnabled as boolean);
@@ -207,8 +207,8 @@ export default function ArenaPage({
 
   useEffect(() => {
     if (practiceConfig) {
-      if (practiceConfig.classLevel) setSelClass(practiceConfig.classLevel as string);
-      if (practiceConfig.subject) setSelSubject(practiceConfig.subject as string);
+      if (practiceConfig.classLevel) setSelClass(practiceConfig.classLevel as ClassLevel);
+      if (practiceConfig.subject) setSelSubject(practiceConfig.subject as Subject);
       if (practiceConfig.chapterId) setSelChapter(practiceConfig.chapterId as string);
       setSelectedDifficulty('mixed');
       setSelCount('150');
@@ -232,6 +232,10 @@ export default function ArenaPage({
       setIsSubmittingResult(true);
       const completedChapters = Array.from(new Set(quizQuestions.map((q) => q.chapter_id)));
       const lastChapter = quizQuestions[quizQuestions.length - 1]?.chapter_id ?? '';
+      const elapsedSeconds = quizStartedAtRef.current
+        ? (Date.now() - quizStartedAtRef.current) / 1000
+        : quizQuestions.length * timePerQuestion * 60;
+      recordPracticeAttempt(currentUser?.uid || null, quizQuestions, score, elapsedSeconds);
       await onSessionComplete({
         completedChapters,
         lastChapter,
@@ -281,6 +285,7 @@ export default function ArenaPage({
       }
 
       setQuizQuestions(session);
+      quizStartedAtRef.current = Date.now();
       setCurrentIndex(0);
       setScore(0);
       setMode('quiz');
@@ -456,7 +461,7 @@ export default function ArenaPage({
               {/* Subject */}
               <div className="space-y-3">
                 <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Subject Arena</label>
-                <select value={selSubject} onChange={(e) => { setSelSubject(e.target.value); setSelChapter(''); }}
+                <select value={selSubject} onChange={(e) => { setSelSubject(e.target.value as Subject); setSelChapter(''); }}
                   className="w-full cursor-pointer appearance-none rounded-2xl border border-slate-100 bg-slate-50 px-6 py-4 font-bold text-primary outline-none transition-all focus:ring-2 focus:ring-primary/20">
                   {availableSubjects.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>

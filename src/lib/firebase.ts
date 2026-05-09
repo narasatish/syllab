@@ -24,6 +24,7 @@ import {
   where,
 } from 'firebase/firestore';
 import { Question, UserProgress, UserStats } from '../types';
+import { FIRESTORE_FEATURES_ENABLED } from './cloudFeatures';
 
 // All Firebase config comes from env vars. These are PUBLIC identifiers —
 // safe in the client bundle. No JSON-file fallback: the old
@@ -77,9 +78,13 @@ export const mapError = (code?: string) => {
   switch (code) {
     case 'auth/email-already-in-use': return 'Email already registered';
     case 'auth/wrong-password':
+    case 'auth/invalid-login-credentials':
     case 'auth/invalid-credential':   return 'Incorrect password';
     case 'auth/user-not-found':       return 'User not found';
     case 'auth/invalid-email':        return 'Enter a valid email address';
+    case 'auth/invalid-api-key':      return 'Firebase API key is invalid. Check VITE_FIREBASE_API_KEY.';
+    case 'auth/api-key-not-valid':    return 'Firebase API key is invalid. Check VITE_FIREBASE_API_KEY.';
+    case 'auth/app-not-authorized':   return 'This app domain is not authorized in Firebase Console';
     case 'auth/popup-closed-by-user': return 'Google sign-in was cancelled';
     case 'auth/network-request-failed': return 'Network error. Check your connection';
     case 'auth/unauthorized-domain':  return 'This domain is not authorized in Firebase Console';
@@ -106,6 +111,9 @@ const normalizeAuthError = (error: unknown) => {
     return error;
   }
   const code = typeof error === 'object' && error && 'code' in error ? String(error.code) : undefined;
+  if (import.meta.env.DEV && code) {
+    console.warn('[firebase-auth]', code, error);
+  }
   return new Error(mapError(code));
 };
 
@@ -146,7 +154,9 @@ export const signInWithGoogle = async () => {
   await authPersistenceReady;
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    await ensureUserDocuments(result.user);
+    if (FIRESTORE_FEATURES_ENABLED) {
+      await ensureUserDocuments(result.user);
+    }
     return result.user;
   } catch (error) {
     throw normalizeAuthError(error);
@@ -159,7 +169,9 @@ export const signUpWithEmail = async (email: string, password: string) => {
     const normalizedEmail = validateEmail(email);
     validatePassword(password);
     const result = await createUserWithEmailAndPassword(auth, normalizedEmail, password);
-    await ensureUserDocuments(result.user);
+    if (FIRESTORE_FEATURES_ENABLED) {
+      await ensureUserDocuments(result.user);
+    }
     return result.user;
   } catch (error) {
     throw normalizeAuthError(error);
@@ -172,7 +184,9 @@ export const signInWithEmail = async (email: string, password: string) => {
     const normalizedEmail = validateEmail(email);
     validatePassword(password);
     const result = await signInWithEmailAndPassword(auth, normalizedEmail, password);
-    await ensureUserDocuments(result.user);
+    if (FIRESTORE_FEATURES_ENABLED) {
+      await ensureUserDocuments(result.user);
+    }
     return result.user;
   } catch (error) {
     throw normalizeAuthError(error);
@@ -202,7 +216,7 @@ export const resetPassword = async (email: string) => {
     }
   } catch (error) {
     if (error instanceof Error) throw error;
-    throw new Error('Could not send reset email. Please try again.');
+    throw new Error('Could not send reset email. Please try again.', { cause: error });
   }
 };
 
