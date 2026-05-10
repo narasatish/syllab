@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight, BookOpen, HelpCircle, MapPinned, SearchCheck } from 'lucide-react';
+import { BookOpen, HelpCircle, MapPinned, SearchCheck } from 'lucide-react';
 import SEO from '../components/SEO';
+import StructuredData from '../seo/StructuredData';
 import { FAQ_SCHEMA, PREP_ARTICLES } from '../lib/seoData';
 
 interface PrepHubProps {
@@ -14,9 +15,9 @@ export default function PrepHubPage({ setTab }: PrepHubProps) {
         title="JEE, NEET, EAMCET and Board Exam Preparation Hub"
         description="Read preparation strategies, chapter-wise weightage guides, JEE syllabus notes, EAMCET practice plans, NEET Biology chapters, and board exam study tips."
         keywords="JEE syllabus, EAMCET practice, NEET preparation, chapter wise weightage, board exam preparation, study strategies"
-        url="https://syllab.in/preparation"
+        url="https://YOUR_DOMAIN_HERE/preparation"
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
+      <StructuredData data={FAQ_SCHEMA} />
 
       <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
         <div className="max-w-3xl">
@@ -76,8 +77,8 @@ export default function PrepHubPage({ setTab }: PrepHubProps) {
               </details>
             ))}
           </div>
-          <button onClick={() => setTab('community')} className="mt-5 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary">
-            Ask the community <ArrowRight size={14} />
+          <button onClick={() => setTab('daily')} className="mt-5 text-xs font-black uppercase tracking-widest text-primary">
+            Practice daily questions
           </button>
         </div>
       </section>

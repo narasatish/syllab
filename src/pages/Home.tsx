@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   Sparkles,
   Bot,
@@ -9,6 +8,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import StructuredData from '../seo/StructuredData';
 
 /**
  * Syllab Homepage
@@ -71,12 +71,29 @@ export default function HomePage({ setTab }: HomePageProps) {
     }
   };
 
+  const goToAbout = () => {
+    if (setTab) {
+      setTab('about');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <SEO
         title="AI Learning App for Class 5 to 12 CBSE | NCERT, JEE, NEET"
         description="Syllab is India's AI-powered learning platform. NCERT-aligned content for Class 5 to 12 covering Maths, Science, English, Hindi. Plus JEE and NEET prep. Free to start."
         keywords="AI learning India, NCERT solutions, CBSE Class 5 to 12, Class 10 Maths, Class 9 Science, JEE preparation, NEET preparation, online tuition India"
+        url="https://YOUR_DOMAIN_HERE/"
+      />
+      <StructuredData
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Syllab',
+          url: 'https://YOUR_DOMAIN_HERE',
+          description: 'Practice JEE, EAMCET, and class-wise mock tests with daily challenges and explanations.',
+        }}
       />
 
       {/* Pure-CSS animations — no library needed */}
@@ -169,12 +186,13 @@ export default function HomePage({ setTab }: HomePageProps) {
             >
               Start Learning Free <ArrowRight size={16} />
             </button>
-            <Link
-              to="/about"
+            <button
+              type="button"
+              onClick={goToAbout}
               className="bg-white border-2 border-slate-200 text-slate-900 px-6 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-transform"
             >
               For Parents
-            </Link>
+            </button>
           </div>
         </div>
       </section>

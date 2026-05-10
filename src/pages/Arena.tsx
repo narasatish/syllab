@@ -236,15 +236,18 @@ export default function ArenaPage({
         ? (Date.now() - quizStartedAtRef.current) / 1000
         : quizQuestions.length * timePerQuestion * 60;
       recordPracticeAttempt(currentUser?.uid || null, quizQuestions, score, elapsedSeconds);
+      const accuracy = quizQuestions.length ? score / quizQuestions.length : 0;
+      const bonusXp = accuracy >= 0.9 ? 50 : accuracy >= 0.8 ? 30 : 0;
+      const xpGained = score * 10 + bonusXp;
       await onSessionComplete({
         completedChapters,
         lastChapter,
         scoreGained: score * 10,
-        xpGained: score * 10,
+        xpGained,
       });
     };
     void submitSession();
-  }, [isSubmittingResult, mode, onSessionComplete, quizQuestions, score]);
+  }, [currentUser?.uid, isSubmittingResult, mode, onSessionComplete, quizQuestions, score, timePerQuestion]);
 
   // =====================================================================
   // Helpers
@@ -728,7 +731,9 @@ export default function ArenaPage({
             </div>
             <div className="rounded-3xl border border-slate-50 bg-white p-6 shadow-lg">
               <div className="mb-2 text-xs font-black uppercase tracking-widest text-slate-400">XP Gained</div>
-              <div className="text-4xl font-black text-emerald-500">+{score * 10}</div>
+              <div className="text-4xl font-black text-emerald-500">
+                +{score * 10 + ((quizQuestions.length ? score / quizQuestions.length : 0) >= 0.9 ? 50 : (quizQuestions.length ? score / quizQuestions.length : 0) >= 0.8 ? 30 : 0)}
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">

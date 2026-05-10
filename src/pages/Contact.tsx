@@ -3,6 +3,7 @@ import { Mail, MessageSquare, Send, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { submitEnquiry } from '../lib/firebase';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
+import SEO from '../components/SEO';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -36,6 +37,11 @@ export default function ContactPage() {
 
   return (
     <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 pb-20">
+      <SEO
+        title="Contact Syllab Support"
+        description="Contact Syllab for student support, platform help, academic questions, and preparation guidance."
+        url="https://YOUR_DOMAIN_HERE/contact"
+      />
       <div className="space-y-8">
         <header className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">
@@ -62,8 +68,8 @@ export default function ContactPage() {
               <MessageSquare size={24} />
             </div>
             <div>
-              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Community</div>
-              <div className="font-bold text-slate-900">Join our Discord</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Support</div>
+              <div className="font-bold text-slate-900">Academic and platform help</div>
             </div>
           </div>
         </div>
