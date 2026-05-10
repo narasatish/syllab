@@ -70,7 +70,15 @@ describe('firebase auth helpers', () => {
   it('login maps firebase errors to user-friendly messages', async () => {
     signInWithEmailAndPasswordMock.mockRejectedValueOnce({ code: 'auth/user-not-found' });
     const { signInWithEmail } = await import('./firebase');
-    await expect(signInWithEmail('student@example.com', '123456')).rejects.toThrow('User not found');
+    await expect(signInWithEmail('student@example.com', '123456')).rejects.toThrow('No account exists');
+  });
+
+  it('signup still succeeds if Firestore profile initialization fails', async () => {
+    createUserWithEmailAndPasswordMock.mockResolvedValueOnce({ user: { uid: 'user-setup-fails' } });
+    setDocMock.mockRejectedValueOnce({ code: 'permission-denied' });
+
+    const { signUpWithEmail } = await import('./firebase');
+    await expect(signUpWithEmail('student@example.com', '123456')).resolves.toEqual({ uid: 'user-setup-fails' });
   });
 
   it('initializeUser writes the default user profile with both server timestamps', async () => {

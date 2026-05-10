@@ -1,10 +1,16 @@
 import React from 'react';
 import { ShieldCheck, Target, Users, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
+import SEO from '../components/SEO';
 
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-16 pb-20">
+      <SEO
+        title="About Syllab"
+        description="Learn how Syllab helps Indian students practice NCERT chapters, prepare for JEE and NEET, and use AI-powered learning tools."
+        url="https://YOUR_DOMAIN_HERE/about"
+      />
       <section className="text-center space-y-6">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +47,7 @@ Syllab was created to make high-quality education accessible to every student in
       </section>
 
       <section className="space-y-8">
-        <h3 className="text-2xl font-black text-slate-900 text-center">Why Students Choose Syllab</h3>
+        <h2 className="text-2xl font-black text-slate-900 text-center">Why Students Choose Syllab</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
             { icon: Users, label: "Community Driven", desc: "Built by former IITians and educators." },
@@ -60,7 +66,7 @@ Syllab was created to make high-quality education accessible to every student in
       </section>
 
       <section className="bg-slate-900 rounded-[3rem] p-12 text-center text-white">
-        <h3 className="text-3xl font-black mb-4">Ready to reach your potential?</h3>
+        <h2 className="text-3xl font-black mb-4">Ready to reach your potential?</h2>
         <p className="text-slate-400 font-medium mb-8">Join thousands of students preparing for JEE & NEET 2025.</p>
         <button className="btn-primary py-4 px-10 text-sm font-black uppercase tracking-widest">
            Start Your Journey

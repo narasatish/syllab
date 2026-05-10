@@ -7,7 +7,7 @@ import { User as FirebaseUser } from 'firebase/auth';
 import { getMistakes, getPausedSession, MistakeRecord, QuizSession } from '../lib/firebase';
 import { SYLLABUS } from '../data/syllabus';
 import { motion, AnimatePresence } from 'motion/react';
-import { getUserStats } from '../lib/api';
+import { getUserStats, UserStats } from '../lib/api';
 
 interface DashboardPageProps {
   currentUser: FirebaseUser | null;
@@ -20,38 +20,37 @@ function chapterNameFor(chapterId: string | undefined): string {
   return chapter?.title || chapterId;
 }
 
+const DEFAULT_DASHBOARD_STATS: UserStats = {
+  xp: 0,
+  level: 1,
+  accuracy: 0,
+  streak: 0,
+  rank: 'Beginner',
+};
+
 export default function DashboardPage({ currentUser, setTab }: DashboardPageProps) {
   const [mistakes, setMistakes] = useState<MistakeRecord[]>([]);
   const [pausedSession, setPausedSession] = useState<QuizSession | null>(null);
   const [leaderboardTab] = useState<'stats' | 'leaderboard'>('stats');
 
-  const defaultStats = {
-    xp: 0,
-    level: 1,
-    accuracy: 0,
-    streak: 0,
-    rank: "Beginner",
-  };
-
-  const [stats, setStats] = useState<any>(defaultStats);
+  const [stats, setStats] = useState<UserStats>(DEFAULT_DASHBOARD_STATS);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAll = async () => {
       try {
         if (!currentUser) {
-          setStats(defaultStats);
+          setStats(DEFAULT_DASHBOARD_STATS);
           setLoading(false);
           return;
         }
 
-        // ✅ Use central API (was: fetch("http://localhost:5000/..."))
         try {
           const statsData = await getUserStats(currentUser.uid);
           setStats(statsData);
         } catch (err) {
           console.warn("Stats fetch failed, using defaults:", err);
-          setStats(defaultStats);
+          setStats(DEFAULT_DASHBOARD_STATS);
         }
 
         const [mistakesData, sessionData] = await Promise.all([

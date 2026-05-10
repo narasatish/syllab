@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Bot, User, Loader2 } from 'lucide-react';
+import { Bot, User, Loader2, Send, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { cn } from '../lib/utils';
 import Markdown from 'react-markdown';
@@ -14,9 +14,11 @@ interface Message {
 
 interface TutorPageProps {
   currentUser: FirebaseUser | null;
+  floating?: boolean;
+  onClose?: () => void;
 }
 
-export default function TutorPage({ currentUser }: TutorPageProps) {
+export default function TutorPage({ currentUser, floating = false, onClose }: TutorPageProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'model',
@@ -61,20 +63,35 @@ export default function TutorPage({ currentUser }: TutorPageProps) {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-140px)] bg-white rounded-[2.5rem] shadow-xl border overflow-hidden mt-4">
-      <div className="p-6 border-b flex items-center justify-between bg-slate-50">
+    <div className={cn(
+      'flex flex-col bg-white shadow-xl border overflow-hidden',
+      floating
+        ? 'h-full rounded-3xl'
+        : 'h-[calc(100vh-140px)] rounded-[2.5rem] mt-4',
+    )}>
+      <div className={cn('border-b flex items-center justify-between bg-slate-50', floating ? 'p-4' : 'p-6')}>
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-white">
-            <Bot size={24} />
+          <div className={cn('bg-primary rounded-2xl flex items-center justify-center text-white', floating ? 'h-10 w-10' : 'w-12 h-12')}>
+            <Bot size={floating ? 20 : 24} />
           </div>
           <div>
-            <h2 className="text-xl font-black text-slate-800">Syllab Mentor</h2>
+            <h2 className={cn('font-black text-slate-800', floating ? 'text-base' : 'text-xl')}>Syllab Mentor</h2>
             <p className="text-xs text-slate-400">Online & Ready</p>
           </div>
         </div>
+        {floating && onClose ? (
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-xl p-2 text-slate-400 transition-colors hover:bg-white hover:text-slate-800"
+            aria-label="Close AI tutor"
+          >
+            <X size={18} />
+          </button>
+        ) : null}
       </div>
 
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6">
+      <div ref={scrollRef} className={cn('flex-1 overflow-y-auto space-y-6', floating ? 'p-4' : 'p-6')}>
         <div className="max-w-3xl mx-auto space-y-6">
           {messages.map((message, i) => (
             <motion.div
@@ -88,7 +105,7 @@ export default function TutorPage({ currentUser }: TutorPageProps) {
             >
               <div
                 className={cn(
-                  'w-10 h-10 rounded-xl flex items-center justify-center text-white',
+                  'h-10 w-10 shrink-0 rounded-xl flex items-center justify-center text-white',
                   message.role === 'user' ? 'bg-emerald-600' : 'bg-slate-800',
                 )}
               >
@@ -98,7 +115,8 @@ export default function TutorPage({ currentUser }: TutorPageProps) {
               <div className="max-w-[85%]">
                 <div
                   className={cn(
-                    'p-4 rounded-xl border',
+                    'rounded-xl border text-sm leading-relaxed',
+                    floating ? 'p-3' : 'p-4',
                     message.role === 'user' ? 'bg-primary text-white' : 'bg-white text-slate-700',
                   )}
                 >
@@ -122,22 +140,23 @@ export default function TutorPage({ currentUser }: TutorPageProps) {
         </div>
       </div>
 
-      <div className="p-6 border-t bg-slate-50">
+      <div className={cn('border-t bg-slate-50', floating ? 'p-4' : 'p-6')}>
         <div className="max-w-3xl mx-auto relative">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Ask anything..."
-            className="w-full border rounded-xl py-3 pl-4 pr-20"
+            className="w-full border rounded-xl py-3 pl-4 pr-14 text-sm outline-none focus:border-primary"
           />
 
           <button
             onClick={handleSend}
             disabled={!input.trim() || isTyping}
-            className="absolute right-2 top-2 px-4 py-2 bg-primary text-white rounded-lg disabled:opacity-50"
+            className="absolute right-2 top-2 flex h-8 w-10 items-center justify-center rounded-lg bg-primary text-white disabled:opacity-50"
+            aria-label="Send message"
           >
-            Send
+            <Send size={16} />
           </button>
         </div>
       </div>

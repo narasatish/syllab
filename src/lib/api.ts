@@ -8,8 +8,6 @@ const rawApiUrl =
 
 export const API_URL = String(rawApiUrl).replace(/\/+$/, "");
 
-console.log("[api] API_URL:", API_URL);
-
 /* ───────────── Types ───────────── */
 
 export interface ChatTurn {

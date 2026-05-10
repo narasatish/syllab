@@ -9,7 +9,7 @@ import {
   Bot,
   CalendarDays,
   ChartNoAxesCombined,
-  MessageCircle,
+  ClipboardList,
   Home,
   LogIn,
   LogOut,
@@ -31,7 +31,6 @@ import {
   auth,
   DEFAULT_USER_PROGRESS,
   DEFAULT_USER_STATS,
-  ensureUserDocuments,
   getUserProgress,
   getUserStats,
   logout,
@@ -41,6 +40,7 @@ import {
   signInWithEmail,
   signInWithGoogle,
   signUpWithEmail,
+  tryEnsureUserDocuments,
 } from './lib/firebase';
 import { AuthFormState, UserProgress, UserStats } from './types';
 
@@ -52,7 +52,7 @@ const TutorPage = React.lazy(() => import('./pages/Tutor'));
 const LearningLabPage = React.lazy(() => import('./pages/LearningLab'));
 const DailyChallengesPage = React.lazy(() => import('./pages/DailyChallenges'));
 const ProgressHubPage = React.lazy(() => import('./pages/ProgressHub'));
-const CommunityPage = React.lazy(() => import('./pages/Community'));
+const MockTestsPage = React.lazy(() => import('./pages/MockTests'));
 const PrepHubPage = React.lazy(() => import('./pages/PrepHub'));
 const StudentProfilePage = React.lazy(() => import('./pages/StudentProfile'));
 const AboutPage = React.lazy(() => import('./pages/About'));
@@ -66,6 +66,11 @@ type AuthMode = 'signin' | 'signup' | 'reset';
 type SessionSummary = {
   completedChapters: string[];
   lastChapter: string;
+  scoreGained: number;
+  xpGained: number;
+};
+
+type RewardSummary = {
   scoreGained: number;
   xpGained: number;
 };
@@ -87,85 +92,79 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     title: 'Syllab AI Learning App for CBSE, NCERT, JEE and NEET',
     description: 'Syllab helps Indian students learn NCERT chapters, practice quizzes, solve doubts with AI, and prepare for CBSE, JEE, NEET and EAMCET.',
     keywords: 'Syllab, AI learning app, NCERT, CBSE, JEE, NEET, EAMCET, online practice',
-    url: 'https://syllab.in/',
+    url: 'https://YOUR_DOMAIN_HERE/',
   },
   syllabus: {
     title: 'NCERT Syllabus Explorer for Classes 5 to 12',
     description: 'Explore class-wise and subject-wise NCERT chapters with summaries, concepts, AI tutor support, and practice questions.',
     keywords: 'NCERT syllabus, CBSE chapters, class 5 to 12 syllabus, chapter summary',
-    url: 'https://syllab.in/syllabus',
+    url: 'https://YOUR_DOMAIN_HERE/syllabus',
   },
   arena: {
     title: 'Practice Arena with Chapter Wise MCQs',
     description: 'Practice timed NCERT-aligned MCQs for every chapter with scoring, explanations, and mistake tracking.',
     keywords: 'practice MCQ, CBSE quiz, NCERT questions, chapter wise practice',
-    url: 'https://syllab.in/practice',
+    url: 'https://YOUR_DOMAIN_HERE/practice',
   },
   daily: {
     title: 'Daily Challenges for EAMCET, IIT JEE, NEET and Classes 5-10',
     description: 'Solve daily timed quiz challenges for EAMCET, IIT JEE, NEET, and school aptitude with score rankings.',
     keywords: 'daily challenges, EAMCET quiz, IIT JEE practice, NEET questions, aptitude quiz',
-    url: 'https://syllab.in/daily-challenges',
+    url: 'https://YOUR_DOMAIN_HERE/daily-challenges',
   },
   progress: {
-    title: 'Progress Hub with Analytics and Rankings',
-    description: 'Track analytics, weak topics, XP, ranking, paused quizzes, and learning progress in one student dashboard.',
-    keywords: 'student analytics, leaderboard, progress dashboard, AI weakness finder',
-    url: 'https://syllab.in/progress',
+    title: 'Progress Hub with Analytics',
+    description: 'Track analytics, weak topics, XP, paused quizzes, and learning progress in one student dashboard.',
+    keywords: 'student analytics, progress dashboard, AI weakness finder',
+    url: 'https://YOUR_DOMAIN_HERE/progress',
   },
-  community: {
-    title: 'Student Community and Chapter Discussions',
-    description: 'Ask chapter doubts, reply to classmates, and discuss NCERT, JEE, NEET and EAMCET topics.',
-    keywords: 'student forum, chapter discussions, doubt solving community',
-    url: 'https://syllab.in/community',
+  mock_tests: {
+    title: 'JEE NEET EAMCET Mock Tests',
+    description: 'Attempt exam-style mock tests for JEE, NEET and EAMCET with timed questions and instant scoring.',
+    keywords: 'JEE mock test, NEET mock test, EAMCET mock test, online exam practice',
+    url: 'https://YOUR_DOMAIN_HERE/mock-tests',
   },
   prep_hub: {
     title: 'JEE NEET EAMCET and Board Exam Preparation Hub',
     description: 'Read exam strategies, chapter-wise weightage guides, JEE syllabus notes, NEET preparation tips and EAMCET practice plans.',
     keywords: 'JEE syllabus, NEET preparation, EAMCET practice, board exam strategy',
-    url: 'https://syllab.in/preparation',
+    url: 'https://YOUR_DOMAIN_HERE/preparation',
   },
   profile: {
     title: 'Student Profile Stats Referrals and Badges',
     description: 'View XP, streaks, badges, share achievements and invite friends to Syllab.',
     keywords: 'student profile, learning streak, referral, badges',
-    url: 'https://syllab.in/profile',
+    url: 'https://YOUR_DOMAIN_HERE/profile',
   },
   learning_lab: {
     title: 'Learning Lab for Study Notes and Scan Solve',
     description: 'Upload study material to generate concepts, flashcards, and MCQs, or scan homework problems for step-by-step solutions.',
     keywords: 'learning lab, study arena, scan solve, AI notes, MCQ generator, homework solver',
-    url: 'https://syllab.in/learning-lab',
-  },
-  tutor: {
-    title: 'AI Tutor for NCERT Doubts and Exam Prep',
-    description: 'Ask doubts and get step-by-step AI tutoring for school chapters, JEE, NEET, and competitive exam preparation.',
-    keywords: 'AI tutor, NCERT doubt solving, JEE tutor, NEET tutor',
-    url: 'https://syllab.in/ai-tutor',
+    url: 'https://YOUR_DOMAIN_HERE/learning-lab',
   },
   about: {
     title: 'About Syllab',
     description: 'Learn about Syllab and its mission to make high-quality AI learning accessible for Indian students.',
     keywords: 'about Syllab, AI education India',
-    url: 'https://syllab.in/about',
+    url: 'https://YOUR_DOMAIN_HERE/about',
   },
   contact: {
     title: 'Contact Syllab Support',
     description: 'Contact Syllab for learning support, platform help, partnerships, and academic questions.',
     keywords: 'contact Syllab, student support',
-    url: 'https://syllab.in/contact',
+    url: 'https://YOUR_DOMAIN_HERE/contact',
   },
   sitemap: {
     title: 'Syllab Sitemap',
     description: 'Browse the Syllab platform sitemap with pages, subjects, classes, and learning modules.',
     keywords: 'Syllab sitemap, learning pages',
-    url: 'https://syllab.in/sitemap',
+    url: 'https://YOUR_DOMAIN_HERE/sitemap',
   },
   admin_pipeline: {
     title: 'Syllab Admin Pipeline',
     description: 'Admin tooling for reviewing learning content and generation workflows.',
     keywords: 'Syllab admin',
-    url: 'https://syllab.in/admin',
+    url: 'https://YOUR_DOMAIN_HERE/admin',
   },
 };
 
@@ -235,7 +234,11 @@ function LoginModal({
 
       onClose();
     } catch (authError) {
-      setError(authError instanceof Error ? authError.message : 'Something went wrong');
+      const message = authError instanceof Error ? authError.message : 'Something went wrong';
+      if (mode === 'signup' && message.includes('already registered')) {
+        setMode('signin');
+      }
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -473,9 +476,12 @@ export default function App() {
   const [practiceConfig, setPracticeConfig] = useState<Record<string, unknown> | null>(null);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isTutorOpen, setTutorOpen] = useState(false);
+  const [isMockExamMode, setMockExamMode] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setAuthLoading(false);
       try {
         if (user) {
           setCurrentUser(user);
@@ -487,8 +493,7 @@ export default function App() {
             return;
           }
 
-          // Use the robust utility to ensure all docs exist
-          await ensureUserDocuments(user);
+          const profileReady = await tryEnsureUserDocuments(user);
 
           const [resolvedStats, resolvedProgress] = await Promise.all([
             getUserStats(user.uid),
@@ -498,7 +503,7 @@ export default function App() {
           setStats(resolvedStats ?? DEFAULT_USER_STATS);
           setProgress(resolvedProgress ?? DEFAULT_USER_PROGRESS);
           // Successful sign-in: clear any stale "couldn't load account" banner
-          setAppError(null);
+          setAppError(profileReady ? null : 'Signed in, but cloud profile sync is not ready. Local features still work.');
         } else {
           // Signed-out / guest. This is a normal, valid state — never an error.
           setCurrentUser(null);
@@ -515,10 +520,10 @@ export default function App() {
         // Only show this banner when the user is actually signed in. For
         // guests we silently swallow it — they don't have an "account" to load.
         if (user && FIRESTORE_FEATURES_ENABLED) {
-          setAppError('Unable to load your account data right now.');
+          setStats(DEFAULT_USER_STATS);
+          setProgress(DEFAULT_USER_PROGRESS);
+          setAppError('Signed in, but cloud account data could not be loaded. Check Firestore rules/env.');
         }
-      } finally {
-        setAuthLoading(false);
       }
     });
 
@@ -562,15 +567,38 @@ export default function App() {
     }
   };
 
+  const handleRewardComplete = async (summary: RewardSummary) => {
+    if (summary.scoreGained <= 0 && summary.xpGained <= 0) return;
+    const nextXp = stats.xp + summary.xpGained;
+    const nextStats: UserStats = {
+      ...stats,
+      score: stats.score + summary.scoreGained,
+      xp: nextXp,
+      rank: getRankFromXp(nextXp),
+    };
+
+    setStats(nextStats);
+
+    if (!currentUser || !FIRESTORE_FEATURES_ENABLED) {
+      return;
+    }
+
+    try {
+      await saveUserStats(currentUser.uid, nextStats);
+    } catch (error) {
+      console.error('Failed to save XP reward.', error);
+      setAppError('XP could not be saved. Please try again.');
+    }
+  };
+
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'syllabus', label: 'Syllabus', icon: BookOpen },
     { id: 'arena', label: 'Practice Arena', icon: Target },
     { id: 'daily', label: 'Daily Dose', icon: CalendarDays },
+    { id: 'mock_tests', label: 'Mock Tests', icon: ClipboardList },
     { id: 'progress', label: 'Progress Hub', icon: ChartNoAxesCombined },
     { id: 'learning_lab', label: 'Learning Lab', icon: Sparkles },
-    { id: 'tutor', label: 'AI Tutor', icon: Bot },
-    { id: 'community', label: 'Community', icon: MessageCircle },
     { id: 'profile', label: 'Profile', icon: UserRound },
   ];
 
@@ -580,6 +608,7 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
       <SEO {...seo} />
+      {!isMockExamMode ? (
       <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
         <button
           onClick={() => setActiveTab('home')}
@@ -613,11 +642,16 @@ export default function App() {
           <div className="hidden items-center gap-3 border-r border-slate-200 pr-6 md:flex">
             {currentUser ? (
               <div className="flex items-center gap-3">
+                <div className="rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-2 text-sm font-black text-emerald-700 shadow-sm">
+                  {stats.xp.toLocaleString()} XP
+                </div>
                 <div className="text-right">
                   <div className="max-w-[180px] truncate text-[10px] font-black text-slate-900">
                     {currentUser.email || 'Student'}
                   </div>
-                  <div className="text-[8px] font-black uppercase tracking-widest text-primary">{stats.rank}</div>
+                  <div className="flex items-center justify-end gap-2 text-[8px] font-black uppercase tracking-widest text-primary">
+                    <span>{stats.rank}</span>
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -648,6 +682,7 @@ export default function App() {
           </button>
         </div>
       </header>
+      ) : null}
 
       <AnimatePresence>
         {isMobileMenuOpen ? (
@@ -682,8 +717,11 @@ export default function App() {
 
       <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
 
-      <main className="flex-1 overflow-y-auto bg-slate-50/50 px-4 pb-12 pt-24 sm:px-6">
-        <div className="mx-auto max-w-7xl">
+      <main className={cn(
+        'flex-1 overflow-y-auto bg-slate-50/50',
+        isMockExamMode ? 'px-0 pb-0 pt-0' : 'px-4 pb-12 pt-24 sm:px-6',
+      )}>
+        <div className={cn(isMockExamMode ? 'mx-0 max-w-none' : 'mx-auto max-w-7xl')}>
           {appError && currentUser ? (
             <div className="mb-6 rounded-2xl border border-amber-100 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-700 flex items-center justify-between gap-4">
               <span>{appError}</span>
@@ -718,6 +756,7 @@ export default function App() {
                   {activeTab === 'syllabus' ? (
                     <SyllabusPage
                       setTab={setActiveTab}
+                      openTutor={() => setTutorOpen(true)}
                       syllabus={SYLLABUS}
                       setPracticeConfig={setPracticeConfig}
                     />
@@ -730,11 +769,19 @@ export default function App() {
                       onSessionComplete={handleSessionComplete}
                     />
                   ) : null}
-                  {activeTab === 'daily' ? <DailyChallengesPage currentUser={currentUser} /> : null}
-                  {['progress', 'analytics', 'standing'].includes(activeTab) ? <ProgressHubPage currentUser={currentUser} setTab={setActiveTab} /> : null}
+                  {activeTab === 'daily' ? (
+                    <DailyChallengesPage currentUser={currentUser} onReward={handleRewardComplete} />
+                  ) : null}
+                  {activeTab === 'mock_tests' ? (
+                    <MockTestsPage
+                      currentUser={currentUser}
+                      setTab={setActiveTab}
+                      onExamModeChange={setMockExamMode}
+                      onReward={handleRewardComplete}
+                    />
+                  ) : null}
+                  {['progress', 'analytics'].includes(activeTab) ? <ProgressHubPage currentUser={currentUser} setTab={setActiveTab} /> : null}
                   {['learning_lab', 'study_arena', 'scan'].includes(activeTab) ? <LearningLabPage /> : null}
-                  {activeTab === 'tutor' ? <TutorPage currentUser={currentUser} /> : null}
-                  {activeTab === 'community' ? <CommunityPage currentUser={currentUser} /> : null}
                   {activeTab === 'prep_hub' ? <PrepHubPage setTab={setActiveTab} /> : null}
                   {activeTab === 'profile' ? <StudentProfilePage currentUser={currentUser} stats={stats} setTab={setActiveTab} /> : null}
                   {activeTab === 'about' ? <AboutPage /> : null}
@@ -748,6 +795,35 @@ export default function App() {
         </div>
       </main>
 
+      {!isMockExamMode ? (
+      <div className="fixed bottom-5 right-5 z-[55] flex flex-col items-end gap-3">
+        <AnimatePresence>
+          {isTutorOpen ? (
+            <motion.div
+              initial={{ opacity: 0, y: 18, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 18, scale: 0.96 }}
+              className="h-[min(680px,calc(100dvh-7rem))] w-[min(420px,calc(100vw-2rem))]"
+            >
+              <Suspense fallback={<div className="h-full rounded-3xl bg-white p-8 text-center text-sm font-bold text-slate-400 shadow-2xl">Loading tutor...</div>}>
+                <TutorPage currentUser={currentUser} floating onClose={() => setTutorOpen(false)} />
+              </Suspense>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+        <button
+          type="button"
+          onClick={() => setTutorOpen((open) => !open)}
+          className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-2xl shadow-emerald-500/30 transition-transform hover:-translate-y-0.5"
+          aria-label={isTutorOpen ? 'Close AI tutor' : 'Open AI tutor'}
+          title="AI Tutor"
+        >
+          <Bot size={24} />
+        </button>
+      </div>
+      ) : null}
+
+      {!isMockExamMode ? (
       <footer className="bg-secondary text-white border-t border-slate-800 py-24 px-8 mt-24">
         <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-16">
           <div className="space-y-8">
@@ -771,10 +847,10 @@ export default function App() {
               <li><button onClick={() => setActiveTab('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus Explorer</button></li>
               <li><button onClick={() => setActiveTab('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice Arena</button></li>
               <li><button onClick={() => setActiveTab('daily')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenges</button></li>
+              <li><button onClick={() => setActiveTab('mock_tests')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
               <li><button onClick={() => setActiveTab('progress')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Progress Hub</button></li>
               <li><button onClick={() => setActiveTab('learning_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Learning Lab</button></li>
-              <li><button onClick={() => setActiveTab('tutor')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
-              <li><button onClick={() => setActiveTab('community')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Community</button></li>
+              <li><button onClick={() => setTutorOpen(true)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
               <li><button onClick={() => setActiveTab('prep_hub')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
               <li><button onClick={() => setActiveTab('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
@@ -785,7 +861,7 @@ export default function App() {
             <ul className="space-y-4">
               <li><button onClick={() => setActiveTab('about')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Our Mission</button></li>
               <li><button onClick={() => setActiveTab('contact')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Contact Support</button></li>
-              <li><a href="https://syllab.in/sitemap.xml" target="_blank" rel="noreferrer" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Sitemap</a></li>
+              <li><a href="https://YOUR_DOMAIN_HERE/sitemap.xml" target="_blank" rel="noreferrer" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Sitemap</a></li>
             </ul>
           </div>
 
@@ -805,6 +881,7 @@ export default function App() {
           </div>
         </div>
       </footer>
+      ) : null}
     </div>
   );
 }

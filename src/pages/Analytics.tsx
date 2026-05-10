@@ -4,6 +4,7 @@ import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Too
 import { User as FirebaseUser } from 'firebase/auth';
 import SEO from '../components/SEO';
 import { getPracticeAttempts, PracticeAttempt } from '../lib/practiceAnalytics';
+import { getMockAttempts, MockAttempt } from '../lib/mockTestAnalytics';
 import { SYLLABUS } from '../data/syllabus';
 
 interface AnalyticsPageProps {
@@ -17,10 +18,13 @@ function chapterNameFor(chapterId?: string) {
 
 export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProps) {
   const [attempts, setAttempts] = React.useState<PracticeAttempt[]>([]);
+  const [mockAttempts, setMockAttempts] = React.useState<MockAttempt[]>([]);
+  const [reviewAttempt, setReviewAttempt] = React.useState<MockAttempt | null>(null);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     setAttempts(getPracticeAttempts(currentUser?.uid || null));
+    setMockAttempts(getMockAttempts(currentUser?.uid || null));
     setLoading(false);
   }, [currentUser]);
 
@@ -108,7 +112,7 @@ export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProp
         title="Student Performance Analytics and Weakness Finder"
         description="Track subject-wise accuracy, weak topics, speed versus accuracy, weekly progress, and AI-powered learning recommendations."
         keywords="student analytics, weak topic finder, subject wise accuracy, learning dashboard"
-        url="https://syllab.in/analytics"
+        url="https://YOUR_DOMAIN_HERE/analytics"
       />
 
       <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
@@ -141,6 +145,10 @@ export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProp
         </div>
       ) : null}
 
+      {reviewAttempt ? (
+        <MockReviewModal attempt={reviewAttempt} onClose={() => setReviewAttempt(null)} />
+      ) : null}
+
       <section className="grid grid-cols-1 gap-4 md:grid-cols-4">
         {[
           { label: 'Tracked Attempts', value: attempts.length, icon: Target },
@@ -154,6 +162,52 @@ export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProp
             <div className="mt-1 text-2xl font-black text-slate-900">{item.value}</div>
           </div>
         ))}
+      </section>
+
+      <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50">
+        <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-xl font-black text-slate-900">Mock Test Analysis</h2>
+            <p className="mt-1 text-sm font-medium text-slate-500">
+              Submitted full mocks are saved here with answers and solutions.
+            </p>
+          </div>
+          <button onClick={() => setTab('mock_tests')} className="rounded-2xl bg-slate-900 px-5 py-3 text-xs font-black uppercase tracking-widest text-white">
+            Open Mock Tests
+          </button>
+        </div>
+        {mockAttempts.length > 0 ? (
+          <div className="space-y-3">
+            {mockAttempts.slice(0, 5).map((attempt) => {
+              const accuracy = Math.round((attempt.correct / Math.max(1, attempt.questions.length)) * 100);
+              return (
+                <div key={attempt.id} className="flex flex-col gap-3 rounded-2xl bg-slate-50 p-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="font-black text-slate-900">{attempt.title}</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                      {new Date(attempt.completedAt).toLocaleString()} · {attempt.exam}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="text-sm font-black text-primary">{attempt.score}/{attempt.maxScore}</div>
+                    <div className="text-sm font-black text-slate-600">{accuracy}% accuracy</div>
+                    <button
+                      type="button"
+                      onClick={() => setReviewAttempt(attempt)}
+                      className="rounded-xl bg-white px-4 py-2 text-xs font-black uppercase tracking-widest text-slate-700 shadow-sm"
+                    >
+                      Review
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="rounded-2xl bg-slate-50 p-5 text-sm font-bold text-slate-500">
+            No mock test attempts yet. Submit the JEE mock once and this section will show score, accuracy, and full solution review.
+          </div>
+        )}
       </section>
 
       <section className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -228,4 +282,96 @@ export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProp
 
 function BarChartIcon() {
   return <Activity size={18} className="text-primary" />;
+}
+
+function MockReviewModal({ attempt, onClose }: { attempt: MockAttempt; onClose: () => void }) {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const question = attempt.questions[activeIndex];
+  const selected = attempt.answers[question.id];
+
+  return (
+    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative flex max-h-[90dvh] w-full max-w-6xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+        <div className="flex flex-col gap-3 border-b border-slate-100 p-5 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-xl font-black text-slate-900">{attempt.title}</h2>
+            <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Score {attempt.score}/{attempt.maxScore} · Correct {attempt.correct} · Incorrect {attempt.incorrect}
+            </p>
+          </div>
+          <button onClick={onClose} className="rounded-2xl bg-slate-100 px-4 py-3 text-xs font-black uppercase tracking-widest text-slate-600">
+            Close
+          </button>
+        </div>
+
+        <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[1fr_280px]">
+          <div className="overflow-y-auto p-5 sm:p-7">
+            <div className="mb-4 flex flex-wrap gap-2">
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary">
+                {question.subject}
+              </span>
+              {question.chapter ? (
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                  {question.chapter}
+                </span>
+              ) : null}
+            </div>
+            <h3 className="text-[17px] font-semibold leading-7 text-slate-900">
+              {activeIndex + 1}. {question.question}
+            </h3>
+            <div className="mt-5 grid gap-3">
+              {question.options.map((option, optionIndex) => {
+                const correct = question.correctAnswer === optionIndex;
+                const wrong = selected === optionIndex && !correct;
+                return (
+                  <div
+                    key={`${question.id}-${optionIndex}`}
+                    className={[
+                      'rounded-2xl border p-4 text-sm font-medium leading-6',
+                      correct ? 'border-emerald-500 bg-emerald-50 text-emerald-800' : '',
+                      wrong ? 'border-rose-500 bg-rose-50 text-rose-700' : '',
+                      !correct && !wrong ? 'border-slate-100 bg-slate-50 text-slate-600' : '',
+                    ].join(' ')}
+                  >
+                    {String.fromCharCode(65 + optionIndex)}. {option}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-5 rounded-2xl bg-slate-50 p-5 text-sm font-medium leading-7 text-slate-600">
+              <div className="mb-2 font-black text-slate-900">
+                Your answer: {selected === undefined ? 'Not answered' : String.fromCharCode(65 + selected)} · Correct answer: {String.fromCharCode(65 + question.correctAnswer)}
+              </div>
+              {question.explanation}
+            </div>
+          </div>
+
+          <aside className="border-t border-slate-100 p-5 lg:border-l lg:border-t-0">
+            <div className="mb-3 text-[10px] font-black uppercase tracking-widest text-slate-400">Question Review</div>
+            <div className="grid max-h-[60dvh] grid-cols-5 gap-2 overflow-y-auto pr-1">
+              {attempt.questions.map((item, index) => {
+                const isCorrect = attempt.answers[item.id] === item.correctAnswer;
+                const isAnswered = attempt.answers[item.id] !== undefined;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    className={[
+                      'flex aspect-square items-center justify-center rounded-xl text-xs font-black',
+                      !isAnswered ? 'bg-slate-100 text-slate-500' : isCorrect ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white',
+                      activeIndex === index ? 'ring-2 ring-slate-900 ring-offset-2' : '',
+                    ].join(' ')}
+                  >
+                    {index + 1}
+                  </button>
+                );
+              })}
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  );
 }

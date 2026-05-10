@@ -11,7 +11,7 @@ interface StudentProfileProps {
 }
 
 export default function StudentProfilePage({ currentUser, stats, setTab }: StudentProfileProps) {
-  const inviteUrl = `https://syllab.in/?ref=${currentUser?.uid || 'student'}`;
+  const inviteUrl = `https://YOUR_DOMAIN_HERE/?ref=${currentUser?.uid || 'student'}`;
   const shareText = `I am learning on Syllab with ${stats.xp} XP and a ${stats.streak}-day streak. Join me: ${inviteUrl}`;
   const [copied, setCopied] = React.useState(false);
 
@@ -35,7 +35,7 @@ export default function StudentProfilePage({ currentUser, stats, setTab }: Stude
         title="Student Profile, Referrals and Learning Stats"
         description="View student profile stats, XP, streaks, badges, referrals, and share learning achievements from Syllab."
         keywords="student profile, learning stats, referral system, streak achievements"
-        url="https://syllab.in/profile"
+        url="https://YOUR_DOMAIN_HERE/profile"
       />
 
       <section className="rounded-[2rem] bg-slate-900 p-6 text-white shadow-2xl sm:p-8">

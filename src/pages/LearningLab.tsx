@@ -17,7 +17,7 @@ export default function LearningLabPage() {
         title="Learning Lab for Study Notes and Scan Solve"
         description="Upload notes to generate concepts, flashcards, and MCQs, or scan homework questions for step-by-step AI solutions."
         keywords="learning lab, study arena, scan and solve, AI notes, homework solver, MCQ generator"
-        url="https://syllab.in/learning-lab"
+        url="https://YOUR_DOMAIN_HERE/learning-lab"
       />
 
       <section className="rounded-[2rem] bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">

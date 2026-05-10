@@ -1,8 +1,8 @@
 import React from 'react';
-import { Award, BadgeCheck, BookOpenCheck, Brain, CalendarDays, CheckCircle2, Clock, Flame, Medal, RotateCcw, Trophy } from 'lucide-react';
+import { Award, BookOpenCheck, Brain, CalendarDays, CheckCircle2, Clock, Flame, Medal, RotateCcw, Trophy, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
-import { collection, doc, getDoc, getDocs, limit, orderBy, query, serverTimestamp, setDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
@@ -25,6 +25,7 @@ type Attempt = {
   score: number;
   total: number;
   secondsLeft: number;
+  durationSeconds: number;
   answers: Record<string, number>;
 };
 
@@ -44,12 +45,14 @@ type LeaderboardEntry = {
   score: number;
   total: number;
   secondsLeft: number;
+  durationSeconds: number;
   date: string;
   points: number;
 };
 
 interface DailyChallengesPageProps {
   currentUser: FirebaseUser | null;
+  onReward: (summary: { scoreGained: number; xpGained: number }) => Promise<void>;
 }
 
 const CATEGORIES: { id: ChallengeCategory; title: string; desc: string; icon: React.ElementType }[] = [
@@ -63,7 +66,10 @@ const CLASS_LEVELS = ['5', '6', '7', '8', '9', '10'];
 const STORAGE_KEY = 'syllab_daily_challenge_profile';
 
 function todayKey(date = new Date()) {
-  return date.toISOString().slice(0, 10);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 function attemptKey(date: string, category: ChallengeCategory, classLevel?: string) {
@@ -101,8 +107,33 @@ function emptyProfile(): ChallengeProfile {
   return { attempts: {}, bestScore: 0, totalScore: 0, participation: 0 };
 }
 
-function streakFromAttempts(attempts: Record<string, Attempt>) {
-  const completedDates = new Set(Object.values(attempts).map((attempt) => attempt.date));
+function profileStorageKey(user: FirebaseUser | null) {
+  return user ? `${STORAGE_KEY}:${user.uid}` : STORAGE_KEY;
+}
+
+function readLocalProfile(user: FirebaseUser | null): ChallengeProfile {
+  try {
+    const stored = window.localStorage.getItem(profileStorageKey(user));
+    return stored ? ({ ...emptyProfile(), ...JSON.parse(stored) } as ChallengeProfile) : emptyProfile();
+  } catch {
+    return emptyProfile();
+  }
+}
+
+function writeLocalProfile(user: FirebaseUser | null, profile: ChallengeProfile) {
+  window.localStorage.setItem(profileStorageKey(user), JSON.stringify(profile));
+}
+
+function richerProfile(localProfile: ChallengeProfile, cloudProfile: ChallengeProfile) {
+  const localAttempts = Object.keys(localProfile.attempts).length;
+  const cloudAttempts = Object.keys(cloudProfile.attempts).length;
+  if (localAttempts !== cloudAttempts) {
+    return localAttempts > cloudAttempts ? localProfile : cloudProfile;
+  }
+  return localProfile.participation > cloudProfile.participation ? localProfile : cloudProfile;
+}
+
+function streakFromDates(completedDates: Set<string>) {
   let streak = 0;
   const cursor = new Date(`${todayKey()}T00:00:00`);
   while (completedDates.has(todayKey(cursor))) {
@@ -124,37 +155,57 @@ function monthDays() {
 }
 
 async function loadProfile(user: FirebaseUser | null): Promise<ChallengeProfile> {
+  const localProfile = readLocalProfile(user);
   if (user && FIRESTORE_FEATURES_ENABLED) {
-    const snap = await getDoc(doc(db, 'dailyChallengeProfiles', user.uid));
-    return snap.exists() ? ({ ...emptyProfile(), ...snap.data() } as ChallengeProfile) : emptyProfile();
+    try {
+      const snap = await getDoc(doc(db, 'dailyChallengeProfiles', user.uid));
+      if (!snap.exists()) {
+        return localProfile;
+      }
+      return richerProfile(localProfile, { ...emptyProfile(), ...snap.data() } as ChallengeProfile);
+    } catch (error) {
+      console.warn('Daily challenge profile load failed. Using local profile cache.', error);
+    }
   }
-  try {
-    return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '') || emptyProfile();
-  } catch {
-    return emptyProfile();
-  }
+  return localProfile;
 }
 
 async function saveProfile(user: FirebaseUser | null, profile: ChallengeProfile) {
+  writeLocalProfile(user, profile);
   if (user && FIRESTORE_FEATURES_ENABLED) {
     await setDoc(doc(db, 'dailyChallengeProfiles', user.uid), {
       ...profile,
       userId: user.uid,
       updatedAt: serverTimestamp(),
     }, { merge: true });
-    return;
   }
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
 }
 
-async function loadOverallLeaderboard(): Promise<LeaderboardEntry[]> {
+function sortLeaderboard(entries: LeaderboardEntry[]) {
+  return entries.sort((a, b) => b.points - a.points || (a.durationSeconds ?? 180 - a.secondsLeft) - (b.durationSeconds ?? 180 - b.secondsLeft));
+}
+
+async function loadOverallLeaderboard(date: string): Promise<LeaderboardEntry[]> {
   if (!FIRESTORE_FEATURES_ENABLED) return [];
   const snap = await getDocs(
     query(
       collection(db, 'dailyChallengeLeaderboard'),
-      orderBy('points', 'desc'),
-      orderBy('secondsLeft', 'desc'),
-      limit(25),
+      where('date', '==', date),
+      limit(100),
+    ),
+  );
+  return sortLeaderboard(
+    snap.docs.map((item) => ({ id: item.id, ...(item.data() as Omit<LeaderboardEntry, 'id'>) })),
+  ).slice(0, 25);
+}
+
+async function loadUserLeaderboardEntries(user: FirebaseUser | null): Promise<LeaderboardEntry[]> {
+  if (!user || !FIRESTORE_FEATURES_ENABLED) return [];
+  const snap = await getDocs(
+    query(
+      collection(db, 'dailyChallengeLeaderboard'),
+      where('userId', '==', user.uid),
+      limit(100),
     ),
   );
   return snap.docs.map((item) => ({ id: item.id, ...(item.data() as Omit<LeaderboardEntry, 'id'>) }));
@@ -163,7 +214,7 @@ async function loadOverallLeaderboard(): Promise<LeaderboardEntry[]> {
 async function publishLeaderboardEntry(user: FirebaseUser | null, attempt: Attempt) {
   if (!user || !FIRESTORE_FEATURES_ENABLED) return;
   const entryId = `${user.uid}_${attempt.date}_${attempt.category}_${attempt.classLevel || 'exam'}`.replace(/\s+/g, '-');
-  const points = attempt.score * 100 + attempt.secondsLeft;
+  const points = attempt.score * 1000 + attempt.secondsLeft;
   await setDoc(doc(db, 'dailyChallengeLeaderboard', entryId), {
     userId: user.uid,
     displayName: user.displayName || user.email || 'Syllab Learner',
@@ -172,13 +223,23 @@ async function publishLeaderboardEntry(user: FirebaseUser | null, attempt: Attem
     score: attempt.score,
     total: attempt.total,
     secondsLeft: attempt.secondsLeft,
+    durationSeconds: attempt.durationSeconds,
     date: attempt.date,
     points,
+    completedAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
   });
 }
 
-export default function DailyChallengesPage({ currentUser }: DailyChallengesPageProps) {
+function dailyXpFor(score: number, total: number) {
+  const accuracy = total ? score / total : 0;
+  const base = 25;
+  const correctXp = score * 10;
+  const bonus = accuracy >= 1 ? 30 : accuracy >= 0.9 ? 20 : accuracy >= 0.8 ? 10 : 0;
+  return base + correctXp + bonus;
+}
+
+export default function DailyChallengesPage({ currentUser, onReward }: DailyChallengesPageProps) {
   const [category, setCategory] = React.useState<ChallengeCategory>('EAMCET');
   const [classLevel, setClassLevel] = React.useState('5');
   const [index, setIndex] = React.useState(0);
@@ -187,7 +248,10 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
   const [finished, setFinished] = React.useState(false);
   const [profile, setProfile] = React.useState<ChallengeProfile>(emptyProfile());
   const [overallLeaderboard, setOverallLeaderboard] = React.useState<LeaderboardEntry[]>([]);
+  const [userLeaderboardEntries, setUserLeaderboardEntries] = React.useState<LeaderboardEntry[]>([]);
   const [saveError, setSaveError] = React.useState<string | null>(null);
+  const [leaderboardLoading, setLeaderboardLoading] = React.useState(true);
+  const [xpNotice, setXpNotice] = React.useState<string | null>(null);
 
   const dateKey = todayKey();
   const questions = React.useMemo(() => questionsFor(category, classLevel, dateKey), [category, classLevel, dateKey]);
@@ -195,20 +259,50 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
   const key = attemptKey(dateKey, category, category === 'Classes 5-10' ? classLevel : undefined);
   const completedToday = Boolean(profile.attempts[key]);
   const score = questions.reduce((total, question) => total + (answers[question.id] === question.correct ? 1 : 0), 0);
-  const completionProgress = Math.round((Object.keys(answers).length / Math.max(1, questions.length)) * 100);
-  const streak = streakFromAttempts(profile.attempts);
-  const completedDates = React.useMemo(
-    () => new Set(Object.values(profile.attempts).map((attempt) => attempt.date)),
-    [profile.attempts],
+  const answerProgress = Math.round((Object.keys(answers).length / Math.max(1, questions.length)) * 100);
+  const ownLeaderboardEntries = React.useMemo(
+    () => {
+      const entries = [
+        ...userLeaderboardEntries,
+        ...overallLeaderboard.filter((entry) => currentUser && entry.userId === currentUser.uid),
+      ];
+      return Array.from(new Map(entries.map((entry) => [entry.id, entry])).values());
+    },
+    [currentUser, overallLeaderboard, userLeaderboardEntries],
   );
+  const completedDates = React.useMemo(
+    () => new Set([
+      ...Object.values(profile.attempts).map((attempt) => attempt.date),
+      ...ownLeaderboardEntries.map((entry) => entry.date),
+    ]),
+    [ownLeaderboardEntries, profile.attempts],
+  );
+  const completedAnyToday = completedDates.has(dateKey);
+  const streak = streakFromDates(completedDates);
+  const completionProgress = completedAnyToday ? 100 : answerProgress;
+  const dailyDoseXp = React.useMemo(() => {
+    const attempts = Object.values(profile.attempts);
+    const attemptKeys = new Set(attempts.map((attempt) => attemptKey(attempt.date, attempt.category, attempt.classLevel)));
+    const profileXp = attempts.reduce((total, attempt) => total + dailyXpFor(attempt.score, attempt.total), 0);
+    const leaderboardXp = ownLeaderboardEntries.reduce((total, entry) => {
+      const entryKey = attemptKey(entry.date, entry.category, entry.classLevel || undefined);
+      return attemptKeys.has(entryKey) ? total : total + dailyXpFor(entry.score, entry.total);
+    }, 0);
+    return profileXp + leaderboardXp;
+  }, [ownLeaderboardEntries, profile.attempts]);
   React.useEffect(() => {
     loadProfile(currentUser)
       .then(setProfile)
       .catch(() => setSaveError('Could not load your streak. Using this device for now.'));
-    loadOverallLeaderboard()
+    setLeaderboardLoading(true);
+    loadOverallLeaderboard(dateKey)
       .then(setOverallLeaderboard)
-      .catch(() => setSaveError('Overall leaderboard is unavailable right now.'));
-  }, [currentUser]);
+      .catch(() => setSaveError('Overall leaderboard is unavailable right now.'))
+      .finally(() => setLeaderboardLoading(false));
+    loadUserLeaderboardEntries(currentUser)
+      .then(setUserLeaderboardEntries)
+      .catch((error) => console.warn('Daily challenge user leaderboard load failed.', error));
+  }, [currentUser, dateKey]);
 
   React.useEffect(() => {
     const attempt = profile.attempts[key];
@@ -250,12 +344,15 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
     const attempt: Attempt = {
       date: dateKey,
       category,
-      classLevel: category === 'Classes 5-10' ? classLevel : undefined,
       score,
       total: questions.length,
       secondsLeft: timeLeft,
+      durationSeconds: 180 - timeLeft,
       answers,
     };
+    if (category === 'Classes 5-10') {
+      attempt.classLevel = classLevel;
+    }
     const nextProfile: ChallengeProfile = {
       attempts: { ...profile.attempts, [key]: attempt },
       bestScore: Math.max(profile.bestScore, score),
@@ -264,18 +361,45 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
     };
     setProfile(nextProfile);
     setFinished(true);
+    const shouldGrantDailyXp = !completedAnyToday;
+    const xpGained = shouldGrantDailyXp ? dailyXpFor(score, questions.length) : 0;
+    if (shouldGrantDailyXp) {
+      await onReward({ scoreGained: score * 10, xpGained });
+      setXpNotice(`Daily Dose complete: +${xpGained} XP`);
+    } else {
+      setXpNotice('Daily Dose already rewarded today. Score and ranking updated.');
+    }
+    let leaderboardSyncFailed = false;
+
     try {
       await saveProfile(currentUser, nextProfile);
+    } catch (error) {
+      console.warn('Daily challenge profile cloud sync failed. Local progress is saved.', error);
+    }
+
+    try {
       await publishLeaderboardEntry(currentUser, attempt);
-      setOverallLeaderboard(await loadOverallLeaderboard());
+      setOverallLeaderboard(await loadOverallLeaderboard(dateKey));
+      setUserLeaderboardEntries(await loadUserLeaderboardEntries(currentUser));
+    } catch (error) {
+      leaderboardSyncFailed = true;
+      console.error('Daily challenge leaderboard sync failed.', error);
+    }
+
+    if (leaderboardSyncFailed) {
+      setSaveError('Score saved on this screen, but ranking publish failed. Check Firestore rules/env for Daily Dose.');
+    } else {
       setSaveError(null);
-    } catch {
-      setSaveError('Score saved on this screen, but cloud sync or overall ranking failed.');
     }
   };
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = String(timeLeft % 60).padStart(2, '0');
+  const leaderboardEmptyMessage = !FIRESTORE_FEATURES_ENABLED
+    ? 'Cloud rankings are disabled. Set VITE_FIRESTORE_FEATURES=true and redeploy to use common rankings.'
+    : !currentUser
+      ? 'Sign in and finish today\'s challenge to enter the rankings.'
+      : 'No ranking entries for today yet. Finish a daily challenge after signing in to publish your score.';
 
   return (
     <main className="space-y-8 pb-12">
@@ -283,7 +407,7 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
         title="Daily Challenges for EAMCET, IIT JEE, NEET and Classes 5-10"
         description="Solve daily timed quizzes for EAMCET, IIT JEE, NEET, and Classes 5th to 10th with streaks, scores, explanations, and rankings."
         keywords="daily quiz, EAMCET practice, IIT JEE questions, NEET quiz, aptitude questions class 5 to 10"
-        url="https://syllab.in/daily-challenges"
+        url="https://YOUR_DOMAIN_HERE/daily-challenges"
       />
 
       <section className="rounded-[2rem] bg-slate-900 p-6 text-white shadow-2xl sm:p-8">
@@ -360,10 +484,16 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
         </div>
       ) : null}
 
+      {xpNotice ? (
+        <div className="rounded-2xl border border-emerald-100 bg-emerald-50 px-5 py-4 text-sm font-bold text-emerald-700">
+          {xpNotice}
+        </div>
+      ) : null}
+
       <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {[
           { label: 'Daily Completion', value: `${completionProgress}%`, icon: CheckCircle2 },
-          { label: 'Badges Earned', value: Math.max(0, Number(streak >= 1) + Number(streak >= 3) + Number(profile.participation >= 5)), icon: BadgeCheck },
+          { label: 'Daily Dose XP', value: dailyDoseXp, icon: Zap },
           { label: 'Participation', value: profile.participation, icon: Trophy },
         ].map((item) => (
           <div key={item.label} className="rounded-2xl bg-white p-5 shadow-sm">
@@ -489,11 +619,15 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
 
           <div className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-black text-slate-900">Rankings</h2>
+              <h2 className="text-lg font-black text-slate-900">Fastest Rankings</h2>
               <Medal size={20} className="text-amber-500" />
             </div>
             <div className="space-y-3">
-              {overallLeaderboard.length > 0 ? overallLeaderboard.slice(0, 8).map((entry, rank) => (
+              {leaderboardLoading ? (
+                <p className="text-sm font-medium leading-relaxed text-slate-500">
+                  Loading rankings...
+                </p>
+              ) : overallLeaderboard.length > 0 ? overallLeaderboard.slice(0, 8).map((entry, rank) => (
                 <div key={entry.id} className="flex items-center justify-between rounded-2xl bg-slate-50 p-3">
                   <div>
                     <div className="text-sm font-black text-slate-900">#{rank + 1} {entry.displayName}</div>
@@ -501,11 +635,16 @@ export default function DailyChallengesPage({ currentUser }: DailyChallengesPage
                       {entry.category}{entry.classLevel ? ` - Class ${entry.classLevel}` : ''} - {entry.date}
                     </div>
                   </div>
-                  <div className="text-sm font-black text-primary">{entry.score}/{entry.total}</div>
+                    <div className="text-right">
+                      <div className="text-sm font-black text-primary">{entry.score}/{entry.total}</div>
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                        {entry.durationSeconds ?? (180 - entry.secondsLeft)}s
+                      </div>
+                    </div>
                 </div>
               )) : (
                 <p className="text-sm font-medium leading-relaxed text-slate-500">
-                  Sign in and finish a challenge to enter the overall rankings.
+                  {leaderboardEmptyMessage}
                 </p>
               )}
             </div>
