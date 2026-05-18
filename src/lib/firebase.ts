@@ -48,7 +48,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://syllab-backen
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const db = getFirestore(app, "ai-studio-868e857b-004a-46b8-805c-01de7314e6e4");
 
 const googleProvider = new GoogleAuthProvider();
 const authPersistenceReady = setPersistence(auth, browserLocalPersistence).catch((error) => {
