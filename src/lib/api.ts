@@ -1,10 +1,12 @@
 // src/lib/api.ts
 // Single source of truth for ALL backend calls.
-// Production URL only. No localhost. No fallbacks.
+// VITE_API_BASE_URL is preferred; VITE_API_URL is kept for older env files.
+const rawApiUrl =
+  import.meta.env.VITE_API_BASE_URL ||
+  import.meta.env.VITE_API_URL ||
+  "https://syllab-backend.onrender.com";
 
-export const API_URL = "https://syllab-backend.onrender.com";
-
-console.log("[api] API_URL:", API_URL);
+export const API_URL = String(rawApiUrl).replace(/\/+$/, "");
 
 /* ───────────── Types ───────────── */
 

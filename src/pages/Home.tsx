@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+﻿import React from 'react';
 import {
   Sparkles,
   Bot,
@@ -9,6 +8,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import StructuredData from '../seo/StructuredData';
 
 /**
  * Syllab Homepage
@@ -53,7 +53,7 @@ const SUBJECTS = [
 ];
 
 export default function HomePage({ setTab }: HomePageProps) {
-  // Click a class number → store class in sessionStorage and switch to Syllabus tab
+  // Click a class number â†’ store class in sessionStorage and switch to Syllabus tab
   const handleClassClick = (classNum: number) => {
     sessionStorage.setItem('syllab_class_filter', String(classNum));
     if (setTab) {
@@ -62,11 +62,18 @@ export default function HomePage({ setTab }: HomePageProps) {
     }
   };
 
-  // "Start Learning Free" / "Open Syllabus" → switch to Syllabus tab (no class pre-filter)
+  // "Start Learning Free" / "Open Syllabus" â†’ switch to Syllabus tab (no class pre-filter)
   const goToSyllabus = () => {
     sessionStorage.removeItem('syllab_class_filter');
     if (setTab) {
       setTab('syllabus');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const goToAbout = () => {
+    if (setTab) {
+      setTab('about');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -77,9 +84,19 @@ export default function HomePage({ setTab }: HomePageProps) {
         title="AI Learning App for Class 5 to 12 CBSE | NCERT, JEE, NEET"
         description="Syllab is India's AI-powered learning platform. NCERT-aligned content for Class 5 to 12 covering Maths, Science, English, Hindi. Plus JEE and NEET prep. Free to start."
         keywords="AI learning India, NCERT solutions, CBSE Class 5 to 12, Class 10 Maths, Class 9 Science, JEE preparation, NEET preparation, online tuition India"
+        url="https://syllab.in/"
+      />
+      <StructuredData
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Syllab',
+          url: 'https://syllab.in',
+          description: 'Practice JEE, EAMCET, and class-wise mock tests with daily challenges and explanations.',
+        }}
       />
 
-      {/* Pure-CSS animations — no library needed */}
+      {/* Pure-CSS animations â€” no library needed */}
       <style>{`
         @keyframes float-slow {
           0%, 100% { transform: translateY(0) rotate(-3deg); }
@@ -159,7 +176,7 @@ export default function HomePage({ setTab }: HomePageProps) {
           </h1>
 
           <p className="anim-fade-up anim-delay-2 text-base sm:text-lg text-slate-600 font-medium mb-8 max-w-xl mx-auto leading-relaxed">
-            NCERT-aligned learning for Class 5 to 12. Maths, Science, English, and competitive exam prep — all in one place.
+            NCERT-aligned learning for Class 5 to 12. Maths, Science, English, and competitive exam prep â€” all in one place.
           </p>
 
           <div className="anim-fade-up anim-delay-3 flex gap-3 justify-center flex-wrap">
@@ -169,12 +186,13 @@ export default function HomePage({ setTab }: HomePageProps) {
             >
               Start Learning Free <ArrowRight size={16} />
             </button>
-            <Link
-              to="/about"
+            <button
+              type="button"
+              onClick={goToAbout}
               className="bg-white border-2 border-slate-200 text-slate-900 px-6 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-transform"
             >
               For Parents
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -186,11 +204,11 @@ export default function HomePage({ setTab }: HomePageProps) {
             Pick your class.
           </h2>
           <p className="text-slate-500 font-medium">
-            Personalized content for every grade — Class 5 to 12.
+            Personalized content for every grade â€” Class 5 to 12.
           </p>
         </div>
 
-        {/* ✅ Each class button switches to the Syllabus tab and pre-filters */}
+        {/* âœ… Each class button switches to the Syllabus tab and pre-filters */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-3xl mx-auto">
           {CLASSES.map((classNum) => (
             <button
@@ -217,7 +235,7 @@ export default function HomePage({ setTab }: HomePageProps) {
               Built for how kids learn.
             </h2>
             <p className="text-slate-500 font-medium">
-              Three powerful tools — aligned with NCERT and competitive exam patterns.
+              Three powerful tools â€” aligned with NCERT and competitive exam patterns.
             </p>
           </div>
 

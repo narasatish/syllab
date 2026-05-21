@@ -24,6 +24,7 @@ import {
   where,
 } from 'firebase/firestore';
 import { Question, UserProgress, UserStats } from '../types';
+import { FIRESTORE_FEATURES_ENABLED } from './cloudFeatures';
 
 // All Firebase config comes from env vars. These are PUBLIC identifiers —
 // safe in the client bundle. No JSON-file fallback: the old
@@ -36,6 +37,7 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
 };
+const firebaseDatabaseId = import.meta.env.VITE_FIREBASE_DATABASE_ID;
 
 for (const [k, v] of Object.entries(firebaseConfig)) {
   if (!v) console.error(`Missing Firebase env var for: ${k} (set VITE_FIREBASE_*)`);
@@ -48,7 +50,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://syllab-backen
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app, "ai-studio-868e857b-004a-46b8-805c-01de7314e6e4");
+export const db = firebaseDatabaseId ? getFirestore(app, firebaseDatabaseId) : getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
 const authPersistenceReady = setPersistence(auth, browserLocalPersistence).catch((error) => {
@@ -62,7 +64,7 @@ export const DEFAULT_USER_STATS: UserStats = {
   score: 0,
   xp: 0,
   rank: 'Beginner',
-  streak: 1,
+  streak: 0,
   level: 1,
   badges: [],
 };
@@ -75,11 +77,15 @@ export const DEFAULT_USER_PROGRESS: UserProgress = {
 
 export const mapError = (code?: string) => {
   switch (code) {
-    case 'auth/email-already-in-use': return 'Email already registered';
+    case 'auth/email-already-in-use': return 'This email is already registered. Switch to Login instead of Sign Up.';
     case 'auth/wrong-password':
-    case 'auth/invalid-credential':   return 'Incorrect password';
-    case 'auth/user-not-found':       return 'User not found';
+    case 'auth/invalid-login-credentials':
+    case 'auth/invalid-credential':   return 'Could not sign in. Check the password, or use Sign Up if this is a new account.';
+    case 'auth/user-not-found':       return 'No account exists for this email. Use Sign Up to create one.';
     case 'auth/invalid-email':        return 'Enter a valid email address';
+    case 'auth/invalid-api-key':      return 'Firebase API key is invalid. Check VITE_FIREBASE_API_KEY.';
+    case 'auth/api-key-not-valid':    return 'Firebase API key is invalid. Check VITE_FIREBASE_API_KEY.';
+    case 'auth/app-not-authorized':   return 'This app domain is not authorized in Firebase Console';
     case 'auth/popup-closed-by-user': return 'Google sign-in was cancelled';
     case 'auth/network-request-failed': return 'Network error. Check your connection';
     case 'auth/unauthorized-domain':  return 'This domain is not authorized in Firebase Console';
@@ -106,6 +112,9 @@ const normalizeAuthError = (error: unknown) => {
     return error;
   }
   const code = typeof error === 'object' && error && 'code' in error ? String(error.code) : undefined;
+  if (import.meta.env.DEV && code) {
+    console.warn('[firebase-auth]', code, error);
+  }
   return new Error(mapError(code));
 };
 
@@ -141,12 +150,23 @@ export const ensureUserDocuments = async (user: Pick<User, 'uid'>) => {
   await Promise.all([initializeUser(user), initializeProgress(user.uid)]);
 };
 
+export const tryEnsureUserDocuments = async (user: Pick<User, 'uid'>) => {
+  if (!FIRESTORE_FEATURES_ENABLED) return false;
+  try {
+    await ensureUserDocuments(user);
+    return true;
+  } catch (error) {
+    console.warn('Signed in, but Firestore profile initialization failed.', error);
+    return false;
+  }
+};
+
 // ========== AUTH FLOWS ==========
 export const signInWithGoogle = async () => {
   await authPersistenceReady;
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    await ensureUserDocuments(result.user);
+    await tryEnsureUserDocuments(result.user);
     return result.user;
   } catch (error) {
     throw normalizeAuthError(error);
@@ -159,7 +179,7 @@ export const signUpWithEmail = async (email: string, password: string) => {
     const normalizedEmail = validateEmail(email);
     validatePassword(password);
     const result = await createUserWithEmailAndPassword(auth, normalizedEmail, password);
-    await ensureUserDocuments(result.user);
+    await tryEnsureUserDocuments(result.user);
     return result.user;
   } catch (error) {
     throw normalizeAuthError(error);
@@ -172,7 +192,7 @@ export const signInWithEmail = async (email: string, password: string) => {
     const normalizedEmail = validateEmail(email);
     validatePassword(password);
     const result = await signInWithEmailAndPassword(auth, normalizedEmail, password);
-    await ensureUserDocuments(result.user);
+    await tryEnsureUserDocuments(result.user);
     return result.user;
   } catch (error) {
     throw normalizeAuthError(error);
@@ -202,7 +222,7 @@ export const resetPassword = async (email: string) => {
     }
   } catch (error) {
     if (error instanceof Error) throw error;
-    throw new Error('Could not send reset email. Please try again.');
+    throw new Error('Could not send reset email. Please try again.', { cause: error });
   }
 };
 

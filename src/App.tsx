@@ -3,32 +3,34 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import {
   BookOpen,
   Bot,
-  Camera,
+  CalendarDays,
+  ChartNoAxesCombined,
+  ClipboardList,
   Home,
   LogIn,
   LogOut,
   Menu,
   Sparkles,
   Target,
-  Trophy,
   User,
+  UserRound,
   X,
   Zap,
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { cn } from './lib/utils';
-import { generateQuestions } from './data/questions';
+import SEO from './components/SEO';
+import { FIREBASE_AUTH_ENABLED, FIRESTORE_FEATURES_ENABLED } from './lib/cloudFeatures';
 import { SYLLABUS } from './data/syllabus';
 import {
   auth,
   DEFAULT_USER_PROGRESS,
   DEFAULT_USER_STATS,
-  ensureUserDocuments,
   getUserProgress,
   getUserStats,
   logout,
@@ -38,17 +40,21 @@ import {
   signInWithEmail,
   signInWithGoogle,
   signUpWithEmail,
+  tryEnsureUserDocuments,
 } from './lib/firebase';
-import { AuthFormState, Question, UserProgress, UserStats } from './types';
+import { AuthFormState, UserProgress, UserStats } from './types';
 
 // Lazy load pages for performance
 const HomePage = React.lazy(() => import('./pages/Home'));
 const SyllabusPage = React.lazy(() => import('./pages/Syllabus'));
 const ArenaPage = React.lazy(() => import('./pages/Arena'));
 const TutorPage = React.lazy(() => import('./pages/Tutor'));
-const DashboardPage = React.lazy(() => import('./pages/Dashboard'));
-const ScanPage = React.lazy(() => import('./pages/Scan'));
-const StudyArenaPage = React.lazy(() => import('./pages/StudyArena'));
+const LearningLabPage = React.lazy(() => import('./pages/LearningLab'));
+const DailyChallengesPage = React.lazy(() => import('./pages/DailyChallenges'));
+const ProgressHubPage = React.lazy(() => import('./pages/ProgressHub'));
+const MockTestsPage = React.lazy(() => import('./pages/MockTests'));
+const PrepHubPage = React.lazy(() => import('./pages/PrepHub'));
+const StudentProfilePage = React.lazy(() => import('./pages/StudentProfile'));
 const AboutPage = React.lazy(() => import('./pages/About'));
 const ContactPage = React.lazy(() => import('./pages/Contact'));
 const SitemapPage = React.lazy(() => import('./pages/Sitemap'));
@@ -64,6 +70,11 @@ type SessionSummary = {
   xpGained: number;
 };
 
+type RewardSummary = {
+  scoreGained: number;
+  xpGained: number;
+};
+
 const EMPTY_AUTH_FORM: AuthFormState = {
   email: '',
   password: '',
@@ -74,6 +85,107 @@ const getRankFromXp = (xp: number) => {
   if (xp >= 750) return 'Explorer';
   if (xp >= 250) return 'Apprentice';
   return 'Beginner';
+};
+
+const TAB_TO_PATH: Record<string, string> = {
+  home: '/',
+  syllabus: '/syllabus',
+  arena: '/practice',
+  daily: '/daily-challenges',
+  mock_tests: '/mock-tests',
+  progress: '/progress',
+  learning_lab: '/learning-lab',
+  prep_hub: '/preparation',
+  about: '/about',
+  contact: '/contact',
+  sitemap: '/sitemap',
+  profile: '/profile',
+  admin_pipeline: '/admin',
+};
+
+const PATH_TO_TAB: Record<string, string> = Object.fromEntries(
+  Object.entries(TAB_TO_PATH).map(([tab, path]) => [path, tab])
+);
+
+const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string }> = {
+  home: {
+    title: 'Syllab.in - Free AI Learning App for CBSE, NCERT, JEE and NEET',
+    description: 'Syllab.in is a free AI learning platform for Class 5 to 12 students. Study CBSE NCERT chapters, practice MCQs, take mock tests, solve doubts with AI tutor — completely free.',
+    keywords: 'Syllab, AI learning app, NCERT, CBSE, JEE, NEET, EAMCET, free online learning, class 5 to 12',
+    url: 'https://syllab.in/',
+  },
+  syllabus: {
+    title: 'Class 5 to 12 NCERT Syllabus Explorer | CBSE Chapters | Syllab.in',
+    description: 'Explore class-wise and subject-wise NCERT chapters with summaries, concepts, AI tutor support, and practice questions for Class 5 to 12.',
+    keywords: 'NCERT syllabus, CBSE chapters, class 5 to 12 syllabus, chapter summary, NCERT notes',
+    url: 'https://syllab.in/syllabus',
+  },
+  arena: {
+    title: 'Practice Arena - Chapter Wise MCQs for CBSE NCERT | Syllab.in',
+    description: 'Practice timed NCERT-aligned MCQs for every chapter with scoring, explanations, and mistake tracking for Class 5 to 12 students.',
+    keywords: 'practice MCQ, CBSE quiz, NCERT questions, chapter wise practice, online quiz',
+    url: 'https://syllab.in/practice',
+  },
+  daily: {
+    title: 'Daily Challenges for JEE, NEET, EAMCET and Classes 5 to 10 | Syllab.in',
+    description: 'Solve daily timed quiz challenges for JEE, NEET, EAMCET, and school aptitude with score rankings and streak tracking.',
+    keywords: 'daily challenges, EAMCET quiz, IIT JEE practice, NEET questions, daily quiz, aptitude quiz',
+    url: 'https://syllab.in/daily-challenges',
+  },
+  progress: {
+    title: 'Student Progress Hub with Learning Analytics | Syllab.in',
+    description: 'Track your weak topics, XP, learning streaks, paused quizzes, and full study progress in one student dashboard on Syllab.in.',
+    keywords: 'student analytics, progress dashboard, learning tracker, AI weakness finder, study progress',
+    url: 'https://syllab.in/progress',
+  },
+  mock_tests: {
+    title: 'Free Mock Tests for JEE, NEET, EAMCET and Board Exams | Syllab.in',
+    description: 'Attempt free exam-style mock tests for JEE, NEET, EAMCET and CBSE board exams with timed questions and instant scoring.',
+    keywords: 'JEE mock test, NEET mock test, EAMCET mock test, free online mock test, board exam practice',
+    url: 'https://syllab.in/mock-tests',
+  },
+  prep_hub: {
+    title: 'JEE NEET EAMCET and Board Exam Preparation Hub | Syllab.in',
+    description: 'Read exam strategies, chapter-wise weightage guides, JEE syllabus notes, NEET preparation tips and EAMCET practice plans on Syllab.in.',
+    keywords: 'JEE syllabus, NEET preparation, EAMCET practice, board exam strategy, exam tips',
+    url: 'https://syllab.in/preparation',
+  },
+  profile: {
+    title: 'Student Profile, Stats and Badges | Syllab.in',
+    description: 'View your XP, streaks, badges, share achievements and track your learning journey on Syllab.in.',
+    keywords: 'student profile, learning streak, badges, XP, referral',
+    url: 'https://syllab.in/profile',
+  },
+  learning_lab: {
+    title: 'AI Learning Lab - Generate Notes, Flashcards and Scan Solve | Syllab.in',
+    description: 'Upload study material to generate concepts, flashcards, and MCQs instantly, or scan homework problems for step-by-step AI solutions.',
+    keywords: 'learning lab, study arena, scan solve, AI notes, MCQ generator, homework solver, flashcards',
+    url: 'https://syllab.in/learning-lab',
+  },
+  about: {
+    title: 'About Syllab.in - Free AI Learning for Indian Students',
+    description: 'Learn about Syllab.in and its mission to make high-quality AI-powered learning completely free and accessible for every Indian student.',
+    keywords: 'about Syllab, AI education India, free learning platform',
+    url: 'https://syllab.in/about',
+  },
+  contact: {
+    title: 'Contact Syllab.in Support',
+    description: 'Contact Syllab.in for learning support, platform help, partnerships, and academic questions.',
+    keywords: 'contact Syllab, student support, help',
+    url: 'https://syllab.in/contact',
+  },
+  sitemap: {
+    title: 'Syllab.in Sitemap',
+    description: 'Browse the Syllab.in platform sitemap with all pages, subjects, classes, and learning modules.',
+    keywords: 'Syllab sitemap, learning pages',
+    url: 'https://syllab.in/sitemap',
+  },
+  admin_pipeline: {
+    title: 'Syllab Admin Pipeline',
+    description: 'Admin tooling for reviewing learning content and generation workflows.',
+    keywords: 'Syllab admin',
+    url: 'https://syllab.in/admin',
+  },
 };
 
 function PageFallback() {
@@ -102,7 +214,6 @@ function LoginModal({
 
   useEffect(() => {
     if (!isOpen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMethod('google');
       setMode('signin');
       setForm(EMPTY_AUTH_FORM);
@@ -126,6 +237,10 @@ function LoginModal({
     if (loading) {
       return;
     }
+    if (!FIREBASE_AUTH_ENABLED) {
+      setError('Authentication is not configured yet. Set a valid Firebase Web API key and VITE_FIREBASE_AUTH_ENABLED=true.');
+      return;
+    }
 
     setLoading(true);
     setError(null);
@@ -139,7 +254,11 @@ function LoginModal({
 
       onClose();
     } catch (authError) {
-      setError(authError instanceof Error ? authError.message : 'Something went wrong');
+      const message = authError instanceof Error ? authError.message : 'Something went wrong';
+      if (mode === 'signup' && message.includes('already registered')) {
+        setMode('signin');
+      }
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -147,6 +266,10 @@ function LoginModal({
 
   const handleGoogleAuth = async () => {
     if (loading) {
+      return;
+    }
+    if (!FIREBASE_AUTH_ENABLED) {
+      setError('Google sign-in is not configured yet. Set a valid Firebase Web API key and VITE_FIREBASE_AUTH_ENABLED=true.');
       return;
     }
 
@@ -165,6 +288,10 @@ function LoginModal({
 
   const handleResetPassword = async () => {
     if (loading) return;
+    if (!FIREBASE_AUTH_ENABLED) {
+      setError('Password reset is not configured yet. Set a valid Firebase Web API key and VITE_FIREBASE_AUTH_ENABLED=true.');
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
@@ -178,7 +305,7 @@ function LoginModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[60] flex items-end justify-center overflow-y-auto p-3 sm:items-center sm:p-4">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -188,27 +315,27 @@ function LoginModal({
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 16 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="relative w-full max-w-md rounded-[2.5rem] bg-white p-10 shadow-2xl"
+        className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-md overflow-y-auto rounded-[1.75rem] bg-white p-5 shadow-2xl sm:max-h-[calc(100dvh-2rem)] sm:rounded-[2.5rem] sm:p-8 md:p-10"
       >
         <button
           type="button"
           onClick={onClose}
           disabled={loading}
-          className="absolute right-6 top-6 text-slate-400 transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+          className="absolute right-4 top-4 rounded-full p-2 text-slate-400 transition-colors hover:bg-slate-50 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50 sm:right-6 sm:top-6"
           aria-label="Close authentication modal"
         >
           <X size={22} />
         </button>
 
-        <div className="space-y-6">
+        <div className="space-y-5 sm:space-y-6">
           <div className="text-center">
-            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-white shadow-xl shadow-emerald-500/20">
-              <User size={28} />
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-xl shadow-emerald-500/20 sm:mb-4 sm:h-16 sm:w-16">
+              <User size={24} />
             </div>
-            <h2 className="text-2xl font-black tracking-tight text-slate-900">
+            <h2 className="text-xl font-black tracking-tight text-slate-900 sm:text-2xl">
               {mode === 'signin' ? 'Welcome Back' : mode === 'reset' ? 'Reset Password' : 'Create Your Account'}
             </h2>
-            <p className="mt-2 text-sm font-medium text-slate-500">
+            <p className="mt-2 text-sm font-medium leading-relaxed text-slate-500">
               {mode === 'signin'
                 ? 'Sign in to continue your learning progress.'
                 : mode === 'reset'
@@ -229,7 +356,7 @@ function LoginModal({
                   }}
                   disabled={loading}
                   className={cn(
-                    'flex-1 rounded-xl py-3 text-[10px] font-black uppercase tracking-widest transition-all',
+                    'min-w-0 flex-1 rounded-xl py-3 text-[10px] font-black uppercase tracking-widest transition-all',
                     method === value ? 'bg-white text-primary shadow-sm' : 'text-slate-400 hover:text-slate-600',
                   )}
                 >
@@ -255,7 +382,7 @@ function LoginModal({
               type="button"
               onClick={handleGoogleAuth}
               disabled={loading}
-              className="flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-slate-100 bg-white px-5 py-5 text-sm font-black transition-all hover:border-primary disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-slate-100 bg-white px-4 py-4 text-sm font-black transition-all hover:border-primary disabled:cursor-not-allowed disabled:opacity-60 sm:px-5 sm:py-5"
             >
               {loading ? <Zap size={18} className="animate-spin" /> : <LogIn size={18} />}
               <span>{loading ? 'Please wait...' : 'Continue with Google'}</span>
@@ -274,7 +401,7 @@ function LoginModal({
                   onChange={(event) => updateField('email', event.target.value)}
                   placeholder="name@example.com"
                   disabled={loading}
-                  className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-4 font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-3.5 text-base font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60 sm:p-4"
                 />
               </div>
 
@@ -303,7 +430,7 @@ function LoginModal({
                     onChange={(event) => updateField('password', event.target.value)}
                     placeholder="Enter your password"
                     disabled={loading}
-                    className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-4 font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+                    className="w-full rounded-2xl border-2 border-transparent bg-slate-50 p-3.5 text-base font-bold outline-none transition-all focus:border-primary focus:bg-white disabled:cursor-not-allowed disabled:opacity-60 sm:p-4"
                   />
                 </div>
               ) : null}
@@ -312,7 +439,7 @@ function LoginModal({
                 type="button"
                 onClick={mode === 'reset' ? handleResetPassword : handleEmailAuth}
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-primary py-5 text-lg font-black text-white shadow-lg shadow-violet-500/20 transition-all hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-primary py-4 text-base font-black text-white shadow-lg shadow-emerald-500/20 transition-all hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-60 sm:py-5 sm:text-lg"
               >
                 {loading ? <Zap className="animate-spin" size={20} /> : <LogIn size={20} />}
                 {loading ? 'Sending...' : mode === 'reset' ? 'Send Reset Link' : mode === 'signin' ? 'Login' : 'Sign Up'}
@@ -359,26 +486,34 @@ function LoginModal({
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState(() => PATH_TO_TAB[window.location.pathname] || 'home');
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
   const [stats, setStats] = useState<UserStats>(DEFAULT_USER_STATS);
   const [progress, setProgress] = useState<UserProgress>(DEFAULT_USER_PROGRESS);
-  const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [authLoading, setAuthLoading] = useState(true);
   const [appError, setAppError] = useState<string | null>(null);
   const [practiceConfig, setPracticeConfig] = useState<Record<string, unknown> | null>(null);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isTutorOpen, setTutorOpen] = useState(false);
+  const [isMockExamMode, setMockExamMode] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setAuthLoading(false);
       try {
         if (user) {
           setCurrentUser(user);
 
-          // Use the robust utility to ensure all docs exist
-          await ensureUserDocuments(user);
+          if (!FIRESTORE_FEATURES_ENABLED) {
+            setStats(DEFAULT_USER_STATS);
+            setProgress(DEFAULT_USER_PROGRESS);
+            setAppError(null);
+            return;
+          }
+
+          const profileReady = await tryEnsureUserDocuments(user);
 
           const [resolvedStats, resolvedProgress] = await Promise.all([
             getUserStats(user.uid),
@@ -388,7 +523,7 @@ export default function App() {
           setStats(resolvedStats ?? DEFAULT_USER_STATS);
           setProgress(resolvedProgress ?? DEFAULT_USER_PROGRESS);
           // Successful sign-in: clear any stale "couldn't load account" banner
-          setAppError(null);
+          setAppError(profileReady ? null : 'Signed in, but cloud profile sync is not ready. Local features still work.');
         } else {
           // Signed-out / guest. This is a normal, valid state — never an error.
           setCurrentUser(null);
@@ -404,11 +539,11 @@ export default function App() {
         console.error('Auth state initialization failed.', error);
         // Only show this banner when the user is actually signed in. For
         // guests we silently swallow it — they don't have an "account" to load.
-        if (user) {
-          setAppError('Unable to load your account data right now.');
+        if (user && FIRESTORE_FEATURES_ENABLED) {
+          setStats(DEFAULT_USER_STATS);
+          setProgress(DEFAULT_USER_PROGRESS);
+          setAppError('Signed in, but cloud account data could not be loaded. Check Firestore rules/env.');
         }
-      } finally {
-        setAuthLoading(false);
       }
     });
 
@@ -416,19 +551,24 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const initApp = async () => {
-      try {
-        const allQuestions = generateQuestions(SYLLABUS);
-        setQuestions(allQuestions);
-      } catch (error) {
-        console.error('Application initialization error', error);
-        setAppError('Unable to initialize the study database.');
-      } finally {
-        setLoading(false);
-      }
-    };
+    setLoading(false);
+  }, []);
 
-    initApp();
+  const navigate = useCallback((tab: string) => {
+    setActiveTab(tab);
+    const path = TAB_TO_PATH[tab] || '/';
+    if (window.location.pathname !== path) {
+      window.history.pushState({ tab }, '', path);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handlePop = () => {
+      const tab = PATH_TO_TAB[window.location.pathname] || 'home';
+      setActiveTab(tab);
+    };
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
   }, []);
 
   const handleSessionComplete = async (summary: SessionSummary) => {
@@ -443,12 +583,13 @@ export default function App() {
     const nextProgress: UserProgress = {
       completedChapters: Array.from(new Set([...progress.completedChapters, ...summary.completedChapters])),
       lastChapter: summary.lastChapter,
+      conceptProgress: progress.conceptProgress || {},
     };
 
     setStats(nextStats);
     setProgress(nextProgress);
 
-    if (!currentUser) {
+    if (!currentUser || !FIRESTORE_FEATURES_ENABLED) {
       return;
     }
 
@@ -463,23 +604,52 @@ export default function App() {
     }
   };
 
+  const handleRewardComplete = async (summary: RewardSummary) => {
+    if (summary.scoreGained <= 0 && summary.xpGained <= 0) return;
+    const nextXp = stats.xp + summary.xpGained;
+    const nextStats: UserStats = {
+      ...stats,
+      score: stats.score + summary.scoreGained,
+      xp: nextXp,
+      rank: getRankFromXp(nextXp),
+    };
+
+    setStats(nextStats);
+
+    if (!currentUser || !FIRESTORE_FEATURES_ENABLED) {
+      return;
+    }
+
+    try {
+      await saveUserStats(currentUser.uid, nextStats);
+    } catch (error) {
+      console.error('Failed to save XP reward.', error);
+      setAppError('XP could not be saved. Please try again.');
+    }
+  };
+
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'syllabus', label: 'Syllabus', icon: BookOpen },
     { id: 'arena', label: 'Practice Arena', icon: Target },
-    { id: 'study_arena', label: 'Study Arena', icon: Sparkles },
-    { id: 'tutor', label: 'AI Tutor', icon: Bot },
-    { id: 'scan', label: 'Scan & Solve', icon: Camera },
-    { id: 'standing', label: 'Standing', icon: Trophy },
+    { id: 'daily', label: 'Daily Dose', icon: CalendarDays },
+    { id: 'mock_tests', label: 'Mock Tests', icon: ClipboardList },
+    { id: 'progress', label: 'Progress Hub', icon: ChartNoAxesCombined },
+    { id: 'learning_lab', label: 'Learning Lab', icon: Sparkles },
+    { id: 'profile', label: 'Profile', icon: UserRound },
   ];
 
   const isInitializing = loading || authLoading;
+  const seo = PAGE_SEO[activeTab] || PAGE_SEO.home;
+  const setTab = navigate;
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
-      <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-8 backdrop-blur-xl">
+      <SEO {...seo} />
+      {!isMockExamMode ? (
+      <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
         <button
-          onClick={() => setActiveTab('home')}
+          onClick={() => navigate('home')}
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-xl font-black text-white shadow-xl shadow-emerald-500/20">
@@ -493,7 +663,7 @@ export default function App() {
             <button
               key={item.id}
               type="button"
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => navigate(item.id)}
               className={cn(
                 'rounded-xl px-5 py-2.5 text-[9px] font-black uppercase tracking-widest transition-all',
                 activeTab === item.id
@@ -510,11 +680,16 @@ export default function App() {
           <div className="hidden items-center gap-3 border-r border-slate-200 pr-6 md:flex">
             {currentUser ? (
               <div className="flex items-center gap-3">
+                <div className="rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-2 text-sm font-black text-emerald-700 shadow-sm">
+                  {stats.xp.toLocaleString()} XP
+                </div>
                 <div className="text-right">
                   <div className="max-w-[180px] truncate text-[10px] font-black text-slate-900">
                     {currentUser.email || 'Student'}
                   </div>
-                  <div className="text-[8px] font-black uppercase tracking-widest text-primary">{stats.rank}</div>
+                  <div className="flex items-center justify-end gap-2 text-[8px] font-black uppercase tracking-widest text-primary">
+                    <span>{stats.rank}</span>
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -545,6 +720,7 @@ export default function App() {
           </button>
         </div>
       </header>
+      ) : null}
 
       <AnimatePresence>
         {isMobileMenuOpen ? (
@@ -579,8 +755,11 @@ export default function App() {
 
       <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
 
-      <main className="flex-1 overflow-y-auto bg-slate-50/50 px-6 pb-12 pt-24">
-        <div className="mx-auto max-w-7xl">
+      <main className={cn(
+        'flex-1 overflow-y-auto bg-slate-50/50',
+        isMockExamMode ? 'px-0 pb-0 pt-0' : 'px-4 pb-12 pt-24 sm:px-6',
+      )}>
+        <div className={cn(isMockExamMode ? 'mx-0 max-w-none' : 'mx-auto max-w-7xl')}>
           {appError && currentUser ? (
             <div className="mb-6 rounded-2xl border border-amber-100 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-700 flex items-center justify-between gap-4">
               <span>{appError}</span>
@@ -611,32 +790,41 @@ export default function App() {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {activeTab === 'home' ? <HomePage setTab={setActiveTab} currentUser={currentUser} /> : null}
+                  {activeTab === 'home' ? <HomePage setTab={navigate} /> : null}
                   {activeTab === 'syllabus' ? (
                     <SyllabusPage
-                      setTab={setActiveTab}
+                      setTab={navigate}
+                      openTutor={() => setTutorOpen(true)}
                       syllabus={SYLLABUS}
                       setPracticeConfig={setPracticeConfig}
                     />
                   ) : null}
                   {activeTab === 'arena' ? (
                     <ArenaPage
-                      questions={questions}
                       practiceConfig={practiceConfig}
                       clearConfig={() => setPracticeConfig(null)}
                       currentUser={currentUser}
                       onSessionComplete={handleSessionComplete}
                     />
                   ) : null}
-                  {activeTab === 'study_arena' ? <StudyArenaPage /> : null}
-                  {activeTab === 'tutor' ? <TutorPage currentUser={currentUser} /> : null}
-                  {activeTab === 'scan' ? <ScanPage /> : null}
-                  {activeTab === 'standing' ? (
-                    <DashboardPage stats={stats} currentUser={currentUser} setTab={setActiveTab} />
+                  {activeTab === 'daily' ? (
+                    <DailyChallengesPage currentUser={currentUser} onReward={handleRewardComplete} />
                   ) : null}
+                  {activeTab === 'mock_tests' ? (
+                    <MockTestsPage
+                      currentUser={currentUser}
+                      setTab={navigate}
+                      onExamModeChange={setMockExamMode}
+                      onReward={handleRewardComplete}
+                    />
+                  ) : null}
+                  {['progress', 'analytics'].includes(activeTab) ? <ProgressHubPage currentUser={currentUser} setTab={navigate} /> : null}
+                  {['learning_lab', 'study_arena', 'scan'].includes(activeTab) ? <LearningLabPage /> : null}
+                  {activeTab === 'prep_hub' ? <PrepHubPage setTab={navigate} /> : null}
+                  {activeTab === 'profile' ? <StudentProfilePage currentUser={currentUser} stats={stats} setTab={navigate} /> : null}
                   {activeTab === 'about' ? <AboutPage /> : null}
                   {activeTab === 'contact' ? <ContactPage /> : null}
-                  {activeTab === 'sitemap' ? <SitemapPage setTab={setActiveTab} /> : null}
+                  {activeTab === 'sitemap' ? <SitemapPage setTab={navigate} /> : null}
                   {activeTab === 'admin_pipeline' ? <AdminPipelinePage /> : null}
                 </motion.div>
               </AnimatePresence>
@@ -645,11 +833,40 @@ export default function App() {
         </div>
       </main>
 
+      {!isMockExamMode ? (
+      <div className="fixed bottom-5 right-5 z-[55] flex flex-col items-end gap-3">
+        <AnimatePresence>
+          {isTutorOpen ? (
+            <motion.div
+              initial={{ opacity: 0, y: 18, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 18, scale: 0.96 }}
+              className="h-[min(680px,calc(100dvh-7rem))] w-[min(420px,calc(100vw-2rem))]"
+            >
+              <Suspense fallback={<div className="h-full rounded-3xl bg-white p-8 text-center text-sm font-bold text-slate-400 shadow-2xl">Loading tutor...</div>}>
+                <TutorPage currentUser={currentUser} floating onClose={() => setTutorOpen(false)} />
+              </Suspense>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
+        <button
+          type="button"
+          onClick={() => setTutorOpen((open) => !open)}
+          className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-2xl shadow-emerald-500/30 transition-transform hover:-translate-y-0.5"
+          aria-label={isTutorOpen ? 'Close AI tutor' : 'Open AI tutor'}
+          title="AI Tutor"
+        >
+          <Bot size={24} />
+        </button>
+      </div>
+      ) : null}
+
+      {!isMockExamMode ? (
       <footer className="bg-secondary text-white border-t border-slate-800 py-24 px-8 mt-24">
         <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-16">
           <div className="space-y-8">
             <button
-              onClick={() => setActiveTab('home')}
+              onClick={() => navigate('home')}
               className="flex items-center gap-3 transition-opacity hover:opacity-80"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-xl font-black text-white shadow-lg shadow-emerald-500/20">
@@ -665,18 +882,23 @@ export default function App() {
           <div>
             <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Learning Hub</h4>
             <ul className="space-y-4">
-              <li><button onClick={() => setActiveTab('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus Explorer</button></li>
-              <li><button onClick={() => setActiveTab('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice Arena</button></li>
-              <li><button onClick={() => setActiveTab('tutor')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
-              <li><button onClick={() => setActiveTab('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
+              <li><button onClick={() => navigate('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus Explorer</button></li>
+              <li><button onClick={() => navigate('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice Arena</button></li>
+              <li><button onClick={() => navigate('daily')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenges</button></li>
+              <li><button onClick={() => navigate('mock_tests')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
+              <li><button onClick={() => navigate('progress')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Progress Hub</button></li>
+              <li><button onClick={() => navigate('learning_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Learning Lab</button></li>
+              <li><button onClick={() => setTutorOpen(true)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
+              <li><button onClick={() => navigate('prep_hub')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
+              <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Company</h4>
             <ul className="space-y-4">
-              <li><button onClick={() => setActiveTab('about')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Our Mission</button></li>
-              <li><button onClick={() => setActiveTab('contact')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Contact Support</button></li>
+              <li><button onClick={() => navigate('about')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Our Mission</button></li>
+              <li><button onClick={() => navigate('contact')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Contact Support</button></li>
               <li><a href="https://syllab.in/sitemap.xml" target="_blank" rel="noreferrer" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Sitemap</a></li>
             </ul>
           </div>
@@ -697,6 +919,7 @@ export default function App() {
           </div>
         </div>
       </footer>
+      ) : null}
     </div>
   );
 }

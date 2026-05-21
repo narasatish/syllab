@@ -45,8 +45,8 @@ service cloud.firestore {
             && d.xp is number && d.xp >= 0
             && d.rank is string
             && d.rank in [
-                 'Beginner', 'Initiate', 'Scholar', 'Adept',
-                 'Expert', 'Master', 'Grandmaster'
+                 'Beginner', 'Initiate', 'Apprentice', 'Explorer',
+                 'Scholar', 'Adept', 'Expert', 'Master', 'Grandmaster'
                ]
             && (!('streak' in d.keys()) || (d.streak is number && d.streak >= 0))
             && (!('level' in d.keys())  || (d.level is number && d.level >= 1))
@@ -115,6 +115,42 @@ service cloud.firestore {
       allow read: if isOwner();
       allow create, update: if isOwner()
         && request.resource.data.userId == userId;
+      allow delete: if false;
+    }
+
+    // ---------- DAILY CHALLENGES ----------
+    match /dailyChallengeProfiles/{userId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+      allow read: if isOwner();
+      allow create, update: if isOwner()
+        && request.resource.data.userId == userId
+        && request.resource.data.keys().hasOnly([
+          'userId', 'attempts', 'bestScore', 'totalScore',
+          'participation', 'updatedAt'
+        ])
+        && request.resource.data.size() < 200
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+    }
+
+    match /dailyChallengeLeaderboard/{entryId} {
+      allow read: if true;
+      allow create, update: if request.auth != null
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.keys().hasOnly([
+          'userId', 'displayName', 'category', 'classLevel',
+          'score', 'total', 'secondsLeft', 'durationSeconds', 'date',
+          'points', 'completedAt', 'updatedAt'
+        ])
+        && request.resource.data.score is number
+        && request.resource.data.total is number
+        && request.resource.data.secondsLeft is number
+        && request.resource.data.durationSeconds is number
+        && request.resource.data.points is number
+        && request.resource.data.completedAt == request.time
+        && request.resource.data.updatedAt == request.time;
       allow delete: if false;
     }
 

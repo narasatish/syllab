@@ -8,7 +8,7 @@ const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp", "application/pd
 const ACCEPT_ATTR = ".jpg,.jpeg,.png,.webp,.pdf";
 
 export default function ScanAndSolve() {
-  const [file, setFile] = useState<any>(null);
+  const [file, setFile] = useState<File | null>(null);
   const [filePreview, setFilePreview] = useState<string | null>(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
   const [solution, setSolution] = useState("");
@@ -55,7 +55,7 @@ export default function ScanAndSolve() {
     reader.readAsDataURL(selected);
   };
 
-  const handleDrop = (e: any) => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setDragActive(false);
     const dropped = e.dataTransfer.files?.[0];
@@ -72,8 +72,8 @@ export default function ScanAndSolve() {
       // ✅ Uses API_URL from api.ts (works locally AND on syllab.in)
       const response = await scanAndSolve(filePreview);
       setSolution(cleanText(response || ""));
-    } catch (err: any) {
-      setError(err.message || "Something went wrong.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -95,9 +95,9 @@ export default function ScanAndSolve() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+    <div className="grid min-w-0 grid-cols-1 gap-6 md:grid-cols-5">
       {/* LEFT (20%) */}
-      <div className="md:col-span-1 flex flex-col gap-4">
+      <div className="flex min-w-0 flex-col gap-4 md:col-span-1">
         <div
           onDragOver={(e) => {
             e.preventDefault();
@@ -127,13 +127,13 @@ export default function ScanAndSolve() {
             </>
           ) : isPdf ? (
             <div className="text-center text-sm">
-              <p className="font-medium">{file.name}</p>
+              <p className="break-all font-medium">{file.name}</p>
               <p className="text-gray-500">{formatSize(file.size)}</p>
               <button onClick={reset} className="text-red-400 mt-2">Remove</button>
             </div>
           ) : (
             <div className="relative">
-              <img src={imagePreviewUrl!} className="max-h-40 rounded" />
+              <img src={imagePreviewUrl!} alt="Uploaded question preview" loading="lazy" className="max-h-40 rounded object-contain" />
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -159,13 +159,13 @@ export default function ScanAndSolve() {
       </div>
 
       {/* RIGHT (80%) */}
-      <div className="md:col-span-4 border-2 border-dashed rounded-2xl p-6 min-h-[260px] bg-gray-50">
+      <div className="min-w-0 rounded-2xl border-2 border-dashed bg-gray-50 p-4 sm:p-6 md:col-span-4 min-h-[260px]">
         {loading ? (
           <div className="h-full flex items-center justify-center text-gray-500">
             Solving...
           </div>
         ) : solution ? (
-          <div className="prose max-w-none whitespace-pre-wrap text-gray-800 leading-relaxed">
+          <div className="prose max-w-none overflow-x-auto whitespace-pre-wrap break-words text-gray-800 leading-relaxed">
             {solution}
           </div>
         ) : (
