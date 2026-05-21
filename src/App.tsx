@@ -59,6 +59,8 @@ const AboutPage = React.lazy(() => import('./pages/About'));
 const ContactPage = React.lazy(() => import('./pages/Contact'));
 const SitemapPage = React.lazy(() => import('./pages/Sitemap'));
 const AdminPipelinePage = React.lazy(() => import('./pages/AdminPipeline'));
+const BlogPage = React.lazy(() => import('./pages/Blog'));
+const ClassPage = React.lazy(() => import('./pages/ClassPage'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -101,6 +103,15 @@ const TAB_TO_PATH: Record<string, string> = {
   sitemap: '/sitemap',
   profile: '/profile',
   admin_pipeline: '/admin',
+  blog: '/blog',
+  class_5: '/class-5',
+  class_6: '/class-6',
+  class_7: '/class-7',
+  class_8: '/class-8',
+  class_9: '/class-9',
+  class_10: '/class-10',
+  class_11: '/class-11',
+  class_12: '/class-12',
 };
 
 const PATH_TO_TAB: Record<string, string> = Object.fromEntries(
@@ -186,6 +197,20 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     keywords: 'Syllab admin',
     url: 'https://syllab.in/admin',
   },
+  blog: {
+    title: 'Study Tips, JEE NEET CBSE Guides | Syllab.in Blog',
+    description: 'Expert study guides for CBSE Class 5-12, JEE Mains, NEET preparation. Free study plans, important chapters, and resources for Indian students.',
+    keywords: 'CBSE study tips, JEE preparation, NEET study plan, Class 10 board exam tips, free resources India',
+    url: 'https://syllab.in/blog',
+  },
+  class_5: { title: 'Class 5 NCERT Syllabus & Study Guide | Syllab.in', description: 'Class 5 CBSE NCERT complete guide with important chapters, subjects, and free practice for Maths, EVS, English and Hindi.', keywords: 'Class 5 NCERT, Class 5 CBSE, Class 5 Maths, Class 5 EVS', url: 'https://syllab.in/class-5' },
+  class_6: { title: 'Class 6 NCERT Syllabus & Study Guide | Syllab.in', description: 'Class 6 CBSE NCERT guide: Maths, Science, Social Science, English and Hindi important chapters and study tips.', keywords: 'Class 6 NCERT, Class 6 CBSE, Class 6 Maths, Class 6 Science', url: 'https://syllab.in/class-6' },
+  class_7: { title: 'Class 7 NCERT Syllabus & Study Guide | Syllab.in', description: 'Class 7 CBSE NCERT guide with Algebra, Science, Social Science and Language important chapters and tips.', keywords: 'Class 7 NCERT, Class 7 CBSE, Class 7 Maths, Class 7 Science', url: 'https://syllab.in/class-7' },
+  class_8: { title: 'Class 8 NCERT Syllabus & Study Guide | Syllab.in', description: 'Class 8 CBSE NCERT complete guide with Rational Numbers, Microorganisms, History and Language chapters.', keywords: 'Class 8 NCERT, Class 8 CBSE, Class 8 Maths, Class 8 Science', url: 'https://syllab.in/class-8' },
+  class_9: { title: 'Class 9 NCERT Syllabus & Study Guide | Syllab.in', description: 'Class 9 CBSE NCERT guide: Number Systems, Motion, Atoms, Democratic Politics — all important chapters and study tips.', keywords: 'Class 9 NCERT, Class 9 CBSE, Class 9 Maths, Class 9 Science, Class 9 Social Science', url: 'https://syllab.in/class-9' },
+  class_10: { title: 'Class 10 NCERT Syllabus, Board Exam Tips | Syllab.in', description: 'Class 10 CBSE board exam preparation guide with important NCERT chapters, study plan, and free practice for all subjects.', keywords: 'Class 10 NCERT, Class 10 CBSE board exam, Class 10 Maths, Class 10 Science, board exam tips', url: 'https://syllab.in/class-10' },
+  class_11: { title: 'Class 11 NCERT Syllabus, JEE NEET Preparation | Syllab.in', description: 'Class 11 CBSE NCERT guide with Physics, Chemistry, Maths and Biology important chapters for boards and JEE/NEET.', keywords: 'Class 11 NCERT, Class 11 CBSE, Class 11 Physics, Class 11 Chemistry, JEE Class 11', url: 'https://syllab.in/class-11' },
+  class_12: { title: 'Class 12 NCERT Syllabus, Board & JEE NEET Guide | Syllab.in', description: 'Class 12 CBSE board exam and JEE/NEET preparation guide with Physics, Chemistry, Maths and Biology important chapters.', keywords: 'Class 12 NCERT, Class 12 CBSE, Class 12 Physics, Class 12 Maths, JEE NEET Class 12', url: 'https://syllab.in/class-12' },
 };
 
 function PageFallback() {
@@ -826,6 +851,10 @@ export default function App() {
                   {activeTab === 'contact' ? <ContactPage /> : null}
                   {activeTab === 'sitemap' ? <SitemapPage setTab={navigate} /> : null}
                   {activeTab === 'admin_pipeline' ? <AdminPipelinePage /> : null}
+                  {activeTab === 'blog' ? <BlogPage setTab={navigate} /> : null}
+                  {activeTab.startsWith('class_') ? (
+                    <ClassPage classNum={parseInt(activeTab.replace('class_', ''), 10)} setTab={navigate} />
+                  ) : null}
                 </motion.div>
               </AnimatePresence>
             </Suspense>
@@ -863,7 +892,7 @@ export default function App() {
 
       {!isMockExamMode ? (
       <footer className="bg-secondary text-white border-t border-slate-800 py-24 px-8 mt-24">
-        <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-16">
+        <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-12">
           <div className="space-y-8">
             <button
               onClick={() => navigate('home')}
@@ -890,7 +919,17 @@ export default function App() {
               <li><button onClick={() => navigate('learning_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Learning Lab</button></li>
               <li><button onClick={() => setTutorOpen(true)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
               <li><button onClick={() => navigate('prep_hub')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
+              <li><button onClick={() => navigate('blog')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Blog</button></li>
               <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">By Class</h4>
+            <ul className="space-y-4">
+              {[5,6,7,8,9,10,11,12].map((c) => (
+                <li key={c}><button onClick={() => navigate(`class_${c}`)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Class {c}</button></li>
+              ))}
             </ul>
           </div>
 

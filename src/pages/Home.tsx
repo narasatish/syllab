@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useState } from 'react';
 import {
   Sparkles,
   Bot,
@@ -6,6 +6,8 @@ import {
   Trophy,
   ArrowRight,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import StructuredData from '../seo/StructuredData';
@@ -295,7 +297,7 @@ export default function HomePage({ setTab }: HomePageProps) {
               {[
                 'NCERT and CBSE curriculum aligned',
                 'Olympiad and NTSE pattern questions',
-                'No ads. No distractions. Ever.',
+                'Free forever for core features',
                 'Track your child\u2019s weekly progress',
               ].map((point) => (
                 <li key={point} className="flex items-start gap-3">
@@ -313,6 +315,9 @@ export default function HomePage({ setTab }: HomePageProps) {
         </div>
       </section>
 
+      {/* FAQ SECTION */}
+      <FaqSection />
+
       {/* FINAL CTA */}
       <section className="text-center px-5 py-16 sm:py-20">
         <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tighter mb-4">
@@ -329,5 +334,99 @@ export default function HomePage({ setTab }: HomePageProps) {
         </button>
       </section>
     </>
+  );
+}
+
+// ─── FAQ Section ────────────────────────────────────────────────────────────
+
+const FAQS = [
+  {
+    q: 'What is Syllab.in?',
+    a: 'Syllab.in is a free AI-powered learning platform for Indian students from Class 5 to 12. It provides NCERT-aligned chapter summaries, chapter-wise MCQ practice, daily challenges, mock tests, an AI tutor, and a learning lab — all in one place.',
+  },
+  {
+    q: 'Is Syllab.in completely free?',
+    a: 'Yes. Core features including chapter practice, daily challenges, AI tutor, and mock tests are completely free. No credit card required. No hidden subscription.',
+  },
+  {
+    q: 'Which classes does Syllab cover?',
+    a: 'Syllab covers Class 5 through Class 12, including CBSE NCERT curriculum for all major subjects: Mathematics, Science, Social Science, Physics, Chemistry, Biology, and English.',
+  },
+  {
+    q: 'Does Syllab help with JEE and NEET preparation?',
+    a: 'Yes. Syllab has dedicated JEE and NEET preparation sections with chapter-wise practice, mock tests, and daily challenges covering Physics, Chemistry, Mathematics, and Biology at the Class 11-12 level.',
+  },
+  {
+    q: 'How is Syllab different from other learning apps?',
+    a: 'Syllab is AI-first — not just video lectures. It gives personalized practice, identifies your weak chapters, tracks your XP and streak, and lets you ask an AI tutor any question in real time. Plus it\'s free for core features.',
+  },
+  {
+    q: 'Can I use Syllab for CBSE board exam preparation?',
+    a: 'Absolutely. All content on Syllab is NCERT-aligned and CBSE-mapped. The Mock Tests section has full-length board-pattern exams for Class 10 and Class 12 students.',
+  },
+  {
+    q: 'What subjects are covered on Syllab?',
+    a: 'Mathematics, Science (Physics, Chemistry, Biology), Social Science (History, Geography, Civics, Economics), English, and competitive exam subjects for JEE and NEET preparation.',
+  },
+  {
+    q: 'Do I need to create an account to use Syllab?',
+    a: 'You can browse content without an account. Creating a free account lets you save your progress, track XP and streaks, save your mistakes, and resume paused quizzes across devices.',
+  },
+];
+
+function FaqSection() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  return (
+    <section className="max-w-3xl mx-auto px-5 py-16 sm:py-20">
+      {/* FAQ JSON-LD for Google Featured Snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: FAQS.map(({ q, a }) => ({
+              '@type': 'Question',
+              name: q,
+              acceptedAnswer: { '@type': 'Answer', text: a },
+            })),
+          }),
+        }}
+      />
+
+      <div className="text-center mb-10">
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-slate-500 font-medium">Everything you need to know about Syllab.in</p>
+      </div>
+
+      <div className="space-y-3">
+        {FAQS.map(({ q, a }, i) => {
+          const isOpen = openIdx === i;
+          return (
+            <div key={i} className="bg-white border border-slate-100 rounded-2xl overflow-hidden">
+              <button
+                onClick={() => setOpenIdx(isOpen ? null : i)}
+                className="w-full text-left p-5 flex items-center justify-between gap-4"
+              >
+                <span className="font-black text-slate-900 text-sm sm:text-base">{q}</span>
+                {isOpen ? (
+                  <ChevronUp size={18} className="text-slate-400 flex-shrink-0" />
+                ) : (
+                  <ChevronDown size={18} className="text-slate-400 flex-shrink-0" />
+                )}
+              </button>
+              {isOpen && (
+                <div className="px-5 pb-5">
+                  <p className="text-sm text-slate-600 font-medium leading-relaxed">{a}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
