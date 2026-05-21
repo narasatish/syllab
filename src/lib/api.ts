@@ -149,3 +149,70 @@ export async function loadConcept(args: LoadConceptArgs): Promise<any> {
 export async function getUserStats(uid: string): Promise<UserStats> {
   return get<UserStats>(`/api/user/stats/${uid}`);
 }
+
+/* ───────────── PPT Lesson ───────────── */
+
+export interface PptSlide {
+  index: number;
+  type: 'title' | 'overview' | 'concept' | 'diagram' | 'example' | 'formula' | 'activity' | 'keypoints' | 'mcq' | 'summary' | 'end';
+  title: string;
+  subtitle?: string;
+  content?: string;
+  bullets?: string[];
+  keyPoints?: string[];
+  emoji?: string;
+  highlight?: string;
+  diagramHint?: string;
+  question?: string;
+  options?: string[];
+  correct?: number;
+  explanation?: string;
+  callToAction?: string;
+  bg?: string;
+}
+
+export interface PptLesson {
+  chapterTitle: string;
+  subject: string;
+  classLevel: string;
+  totalSlides: number;
+  slides: PptSlide[];
+  teacherNotes?: string[];
+  chapterId?: string;
+}
+
+export interface GetPptLessonArgs {
+  classLevel: string | number;
+  subject: string;
+  chapterTitle: string;
+  chapterId: string;
+}
+
+export async function getPptLesson(args: GetPptLessonArgs): Promise<PptLesson> {
+  const data = await post<{ lesson: PptLesson; fromCache?: boolean }>('/api/ppt-lesson', args);
+  if (!data.lesson) throw new Error('No lesson returned from API');
+  return data.lesson;
+}
+
+/* ───────────── Coding Feedback ───────────── */
+
+export interface CodingFeedback {
+  score: number;
+  verdict: string;
+  summary: string;
+  strengths: string[];
+  improvements: string[];
+  hint: string;
+  correctedCode?: string;
+}
+
+export interface GetCodingFeedbackArgs {
+  language: string;
+  code: string;
+  task?: string;
+  classLevel?: string | number;
+}
+
+export async function getCodingFeedback(args: GetCodingFeedbackArgs): Promise<CodingFeedback> {
+  return post<CodingFeedback>('/api/coding-feedback', args);
+}

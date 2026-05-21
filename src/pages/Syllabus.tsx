@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Bot, Target, Pin, Loader2 } from 'lucide-react';
+import { Search, Filter, BookOpen, Sparkles, X, Zap, PlayCircle, Lightbulb, ArrowRight, Bot, Target, Pin, Loader2, Presentation } from 'lucide-react';
 import { Chapter, Subject, ClassLevel, Concept } from '../types';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
@@ -8,7 +8,8 @@ import { CONCEPTS } from '../data/concepts';
 import { getChapterSummary, ensureChapterSummary } from '../data/chapterSummaries';
 import { usePinnedChapters } from '../lib/pinnedChapters';
 import SEO from '../components/SEO';
-import { loadConcept } from '../lib/api';
+import { loadConcept, getPptLesson, PptLesson } from '../lib/api';
+import WebSlideViewer from '../components/WebSlideViewer';
 
 interface SyllabusPageProps {
   setTab: (tab: string) => void;
@@ -469,6 +470,11 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const [activeConcept, setActiveConcept] = useState<Concept | null>(null);
   const [activeChapter, setActiveChapter] = useState<Chapter | null>(null);
 
+  // PPT Lesson state
+  const [pptLesson, setPptLesson] = useState<PptLesson | null>(null);
+  const [pptLoading, setPptLoading] = useState(false);
+  const [pptChapter, setPptChapter] = useState<Chapter | null>(null);
+
   // Pinned chapters now live in Firestore (cloud-synced across devices).
   // Guests see an empty list and a soft prompt when they try to pin.
   const { pins: pinnedChapters, togglePin: togglePinCloud, isAuthed: pinsAuthed } = usePinnedChapters();
@@ -590,6 +596,26 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     }
   };
 
+  const handlePptLesson = async (chapter: Chapter) => {
+    setPptChapter(chapter);
+    setPptLoading(true);
+    try {
+      const lesson = await getPptLesson({
+        classLevel: chapter.classLevel,
+        subject: chapter.subject,
+        chapterTitle: chapter.title,
+        chapterId: chapter.id,
+      });
+      setPptLesson(lesson);
+    } catch (err) {
+      console.error('[handlePptLesson]', err);
+      alert(`Could not load PPT lesson for "${chapter.title}". Please check your connection and retry.`);
+      setPptChapter(null);
+    } finally {
+      setPptLoading(false);
+    }
+  };
+
   const handleNextConcept = () => {
     if (!activeConcept) return;
     const currentIndex = CONCEPTS.findIndex(c => c.id === activeConcept.id);
@@ -630,6 +656,52 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
               </div>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* PPT loading overlay */}
+      <AnimatePresence>
+        {pptLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm"
+          >
+            <div className="bg-white rounded-3xl p-10 shadow-2xl flex flex-col items-center gap-4 max-w-xs text-center">
+              <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center animate-pulse">
+                <Presentation size={26} className="animate-bounce" />
+              </div>
+              <div>
+                <p className="font-black text-slate-900 text-lg">Generating lesson...</p>
+                <p className="text-xs font-semibold text-slate-500 mt-1">
+                  AI is creating slides for<br />
+                  <span className="text-primary font-black">{pptChapter?.title}</span>
+                </p>
+                <p className="text-[10px] text-slate-400 mt-2">May take 10–20 seconds. Cached for all students!</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* PPT Slide Viewer */}
+      <AnimatePresence>
+        {pptLesson && !pptLoading && (
+          <WebSlideViewer
+            lesson={pptLesson}
+            onClose={() => { setPptLesson(null); setPptChapter(null); }}
+            onAskTutor={(question) => {
+              setPptLesson(null);
+              setPptChapter(null);
+              openTutor();
+              // Pass context to tutor via sessionStorage
+              window.setTimeout(() => {
+                sessionStorage.setItem('syllab_tutor_prefill', question);
+                window.dispatchEvent(new CustomEvent('syllab:tutor-prefill', { detail: question }));
+              }, 300);
+            }}
+          />
         )}
       </AnimatePresence>
 
@@ -765,6 +837,15 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
                 AI Tutor
               </button>
             </div>
+
+            {/* PPT Lesson button */}
+            <button
+              onClick={() => void handlePptLesson(chapter)}
+              className="flex items-center justify-center gap-2 py-3.5 mb-3 w-full bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700 border border-violet-100 hover:border-violet-200 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest shadow-sm"
+            >
+              <Presentation size={14} />
+              PPT Lesson
+            </button>
 
             <button
               onClick={() => handlePractice(chapter)}

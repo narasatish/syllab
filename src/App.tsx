@@ -61,6 +61,7 @@ const SitemapPage = React.lazy(() => import('./pages/Sitemap'));
 const AdminPipelinePage = React.lazy(() => import('./pages/AdminPipeline'));
 const BlogPage = React.lazy(() => import('./pages/Blog'));
 const ClassPage = React.lazy(() => import('./pages/ClassPage'));
+const SkillsLabPage = React.lazy(() => import('./pages/SkillsLab'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -104,6 +105,7 @@ const TAB_TO_PATH: Record<string, string> = {
   profile: '/profile',
   admin_pipeline: '/admin',
   blog: '/blog',
+  skills_lab: '/skills-lab',
   class_5: '/class-5',
   class_6: '/class-6',
   class_7: '/class-7',
@@ -196,6 +198,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Admin tooling for reviewing learning content and generation workflows.',
     keywords: 'Syllab admin',
     url: 'https://syllab.in/admin',
+  },
+  skills_lab: {
+    title: 'Skills Lab — Python, SQL, AI, Data Analytics & Aptitude | Syllab.in',
+    description: 'Learn Python, SQL, AI Basics, Data Analytics, Aptitude, and build Mini Projects with AI-powered coding feedback. Free skills lab for Class 5-12 students.',
+    keywords: 'Python for students, SQL basics, AI basics India, data analytics Class 10 11 12, aptitude test, coding for students',
+    url: 'https://syllab.in/skills-lab',
   },
   blog: {
     title: 'Study Tips, JEE NEET CBSE Guides | Syllab.in Blog',
@@ -661,6 +669,7 @@ export default function App() {
     { id: 'mock_tests', label: 'Mock Tests', icon: ClipboardList },
     { id: 'progress', label: 'Progress Hub', icon: ChartNoAxesCombined },
     { id: 'learning_lab', label: 'Learning Lab', icon: Sparkles },
+    { id: 'skills_lab', label: 'Skills Lab', icon: Zap },
     { id: 'profile', label: 'Profile', icon: UserRound },
   ];
 
@@ -852,6 +861,7 @@ export default function App() {
                   {activeTab === 'sitemap' ? <SitemapPage setTab={navigate} /> : null}
                   {activeTab === 'admin_pipeline' ? <AdminPipelinePage /> : null}
                   {activeTab === 'blog' ? <BlogPage setTab={navigate} /> : null}
+                  {activeTab === 'skills_lab' ? <SkillsLabPage setTab={navigate} /> : null}
                   {activeTab.startsWith('class_') ? (
                     <ClassPage classNum={parseInt(activeTab.replace('class_', ''), 10)} setTab={navigate} />
                   ) : null}
@@ -920,6 +930,7 @@ export default function App() {
               <li><button onClick={() => setTutorOpen(true)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
               <li><button onClick={() => navigate('prep_hub')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
               <li><button onClick={() => navigate('blog')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Blog</button></li>
+              <li><button onClick={() => navigate('skills_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Skills Lab</button></li>
               <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
           </div>
