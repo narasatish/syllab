@@ -101,8 +101,10 @@ export default function ContactPage() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Your Name</label>
+              <label htmlFor="contact-name" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Your Name</label>
               <input 
+                id="contact-name"
+                name="name"
                 required
                 type="text" 
                 value={form.name}
@@ -113,8 +115,10 @@ export default function ContactPage() {
             </div>
             
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Email Address</label>
+              <label htmlFor="contact-email" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Email Address</label>
               <input 
+                id="contact-email"
+                name="email"
                 required
                 type="email" 
                 value={form.email}
@@ -125,8 +129,10 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Message</label>
+              <label htmlFor="contact-message" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2">Message</label>
               <textarea 
+                id="contact-message"
+                name="message"
                 required
                 rows={4}
                 value={form.message}

@@ -94,6 +94,18 @@ export const mapError = (code?: string) => {
   }
 };
 
+const mapGoogleError = (code?: string) => {
+  switch (code) {
+    case 'auth/account-exists-with-different-credential':
+      return 'This email is already registered with another sign-in method. Use Email login or reset your password.';
+    case 'auth/invalid-credential':
+    case 'auth/invalid-login-credentials':
+      return 'Google sign-in could not be completed. Try again or check that Google sign-in is enabled for this Firebase project.';
+    default:
+      return mapError(code);
+  }
+};
+
 const validateEmail = (email: string) => {
   const normalizedEmail = email.trim().toLowerCase();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)) {
@@ -107,7 +119,7 @@ const validatePassword = (password: string) => {
   return password;
 };
 
-const normalizeAuthError = (error: unknown) => {
+const normalizeAuthError = (error: unknown, mapper = mapError) => {
   if (error instanceof Error && !('code' in (error as unknown as Record<string, unknown>))) {
     return error;
   }
@@ -115,7 +127,7 @@ const normalizeAuthError = (error: unknown) => {
   if (import.meta.env.DEV && code) {
     console.warn('[firebase-auth]', code, error);
   }
-  return new Error(mapError(code));
+  return new Error(mapper(code));
 };
 
 // ========== USER PROFILE INIT ==========
@@ -169,7 +181,7 @@ export const signInWithGoogle = async () => {
     await tryEnsureUserDocuments(result.user);
     return result.user;
   } catch (error) {
-    throw normalizeAuthError(error);
+    throw normalizeAuthError(error, mapGoogleError);
   }
 };
 

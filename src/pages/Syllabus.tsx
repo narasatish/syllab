@@ -733,27 +733,27 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full sm:w-auto">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 shrink-0" size={18} />
           <input
             type="text"
             placeholder="Search curricula..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all w-64 text-sm"
+            className="w-full rounded-xl border border-slate-200 py-2.5 pl-10 pr-4 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 sm:w-64"
           />
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 mt-2">
-        <Filter size={16} className="text-slate-400 mr-2" />
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl">
+      <div className="mt-2 flex max-w-full flex-wrap items-start gap-2 overflow-hidden">
+        <Filter size={16} className="mr-1 mt-3 shrink-0 text-slate-400" />
+        <div className="flex max-w-full flex-wrap items-center gap-1.5 rounded-xl bg-slate-100 p-1">
           {CLASSES.map(c => (
             <button
               key={c}
               onClick={() => setSelectedClass(c)}
               className={cn(
-                "px-4 py-1.5 rounded-lg text-xs font-bold transition-all",
+                "whitespace-nowrap px-4 py-1.5 rounded-lg text-xs font-bold transition-all",
                 selectedClass === c ? "bg-white text-primary shadow-sm" : "text-slate-500 hover:text-primary"
               )}
             >
@@ -762,13 +762,13 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           ))}
         </div>
         <div className="w-px h-8 bg-slate-200 mx-2 hidden sm:block" />
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl">
+        <div className="flex max-w-full flex-wrap items-center gap-1.5 rounded-xl bg-slate-100 p-1">
           {subjects.map(s => (
             <button
               key={s}
               onClick={() => setSelectedSubject(s as Subject | 'All')}
               className={cn(
-                "px-4 py-1.5 rounded-lg text-xs font-bold transition-all",
+                "whitespace-nowrap px-4 py-1.5 rounded-lg text-xs font-bold transition-all",
                 selectedSubject === s ? "bg-white text-primary shadow-sm" : "text-slate-500 hover:text-primary"
               )}
             >

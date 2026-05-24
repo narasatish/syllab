@@ -6,6 +6,12 @@ import path from 'path';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
+    modulePreload: {
+      resolveDependencies(_url, deps, context) {
+        if (context.hostType !== 'html') return deps;
+        return deps.filter((dep) => !dep.includes('vendor-charts') && !dep.includes('vendor-pdf') && !dep.includes('vendor-markdown'));
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

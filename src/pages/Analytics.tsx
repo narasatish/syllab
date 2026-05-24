@@ -215,8 +215,8 @@ export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProp
           <h2 className="mb-5 flex items-center gap-2 text-lg font-black text-slate-900">
             <BarChartIcon /> Subject-wise Accuracy
           </h2>
-          <div className="h-72 min-h-[288px] min-w-0">
-            <ResponsiveContainer width="100%" height="100%" minWidth={320} minHeight={288}>
+          <div className="h-72 min-h-[288px] min-w-0 overflow-hidden">
+            <ResponsiveContainer width="100%" height={288}>
               <BarChart data={subjectData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis dataKey="subject" tick={{ fontSize: 11 }} />
@@ -232,8 +232,8 @@ export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProp
           <h2 className="mb-5 flex items-center gap-2 text-lg font-black text-slate-900">
             <TrendingUp size={18} /> Speed vs Accuracy
           </h2>
-          <div className="h-72 min-h-[288px] min-w-0">
-            <ResponsiveContainer width="100%" height="100%" minWidth={320} minHeight={288}>
+          <div className="h-72 min-h-[288px] min-w-0 overflow-hidden">
+            <ResponsiveContainer width="100%" height={288}>
               <LineChart data={weeklyData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis dataKey="day" />

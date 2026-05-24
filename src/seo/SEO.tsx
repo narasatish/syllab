@@ -33,6 +33,8 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
+      <meta property="og:site_name" content="Syllab" />
+      <meta property="og:locale" content="en_IN" />
       {image ? <meta property="og:image" content={image} /> : null}
 
       <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />

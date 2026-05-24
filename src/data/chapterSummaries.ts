@@ -122,6 +122,7 @@ export const CHAPTER_SUMMARIES: Record<string, string> = {
 // same chapter summary multiple times within a single navigation.
 const _memCache: Map<string, string> = new Map();
 const _inflight: Map<string, Promise<string>> = new Map();
+const _warnedFailures: Set<string> = new Set();
 
 // Concurrency limiter — at most 6 backend calls in-flight at a time so a
 // freshly opened class with 30 chapters doesn't smash the backend.
@@ -239,7 +240,10 @@ export async function ensureChapterSummary(args: {
       }
       return fallback || '';
     } catch (err) {
-      console.warn('ensureChapterSummary failed for', chapterTitle, err);
+      if (import.meta.env.DEV && !_warnedFailures.has(key)) {
+        _warnedFailures.add(key);
+        console.warn('ensureChapterSummary failed for', chapterTitle, err);
+      }
       return fallback || '';
     } finally {
       releaseSlot();

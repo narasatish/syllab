@@ -81,6 +81,14 @@ describe('firebase auth helpers', () => {
     await expect(signUpWithEmail('student@example.com', '123456')).resolves.toEqual({ uid: 'user-setup-fails' });
   });
 
+  it('google sign-in creates or returns the user even if Firestore profile initialization fails', async () => {
+    signInWithPopupMock.mockResolvedValueOnce({ user: { uid: 'google-user-1' } });
+    setDocMock.mockRejectedValueOnce({ code: 'permission-denied' });
+
+    const { signInWithGoogle } = await import('./firebase');
+    await expect(signInWithGoogle()).resolves.toEqual({ uid: 'google-user-1' });
+  });
+
   it('initializeUser writes the default user profile with both server timestamps', async () => {
     const { initializeUser } = await import('./firebase');
     await initializeUser({ uid: 'user-1' } as never);
