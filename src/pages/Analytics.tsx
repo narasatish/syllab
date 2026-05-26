@@ -28,6 +28,16 @@ export default function AnalyticsPage({ currentUser, setTab }: AnalyticsPageProp
     setLoading(false);
   }, [currentUser]);
 
+  // Refresh when any activity completes
+  React.useEffect(() => {
+    const handler = () => {
+      setAttempts(getPracticeAttempts(currentUser?.uid || null));
+      setMockAttempts(getMockAttempts(currentUser?.uid || null));
+    };
+    window.addEventListener('syllab:progress-updated', handler);
+    return () => window.removeEventListener('syllab:progress-updated', handler);
+  }, [currentUser?.uid]);
+
   const subjectData = React.useMemo(() => {
     const stats = attempts.reduce((acc: Record<string, { score: number; total: number; attempts: number }>, attempt) => {
       const key = attempt.subject || 'Mixed';

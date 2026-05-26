@@ -55,6 +55,7 @@ export const recordMockAttempt = (attempt: Omit<MockAttempt, 'id' | 'completedAt
     completedAt: new Date().toISOString(),
   };
   writeAll([nextAttempt, ...readAll()]);
+  window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
   return nextAttempt;
 };
 

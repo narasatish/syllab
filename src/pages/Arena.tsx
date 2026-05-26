@@ -17,11 +17,14 @@ import { User as FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
 import { SYLLABUS } from '../data/syllabus';
 import { ClassLevel, Difficulty, Question, Subject } from '../types';
-import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
+import { recordMistake, saveQuizSession, getPausedSession, QuizSession, db } from '../lib/firebase';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import { usePinnedChapters } from '../lib/pinnedChapters';
 import { recordPracticeAttempt } from '../lib/practiceAnalytics';
 import ReactMarkdown from 'react-markdown';
 import LoginRequiredModal from '../components/LoginRequiredModal';
+import SEO from '../seo/SEO';
 
 // =====================================================================
 // API base — works in both Vite and CRA
@@ -128,6 +131,7 @@ interface ArenaPageProps {
   practiceConfig: Record<string, unknown> | null;
   clearConfig: () => void;
   currentUser: FirebaseUser | null;
+  userClass?: string;
   onSessionComplete: (summary: {
     completedChapters: string[];
     lastChapter: string;
@@ -142,6 +146,7 @@ export default function ArenaPage({
   practiceConfig,
   clearConfig,
   currentUser,
+  userClass,
   onSessionComplete,
 }: ArenaPageProps) {
   const [mode, setMode] = useState<GameMode>('config');
@@ -161,7 +166,12 @@ export default function ArenaPage({
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const quizStartedAtRef = useRef<number | null>(null);
 
-  const [selClass, setSelClass] = useState<ClassLevel>('5');
+  const [selClass, setSelClass] = useState<ClassLevel>(() => {
+    // Initialize from userClass (prop from App) so cloud-synced value is used on mount
+    const VALID = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+    return (userClass && VALID.includes(userClass) ? userClass : '5') as ClassLevel;
+  });
+  const hasManuallySelectedClass = useRef(false);
   const [selSubject, setSelSubject] = useState<Subject>('Mathematics');
   const [selChapter, setSelChapter] = useState('');
   const [selCount, setSelCount] = useState('10');
@@ -213,8 +223,13 @@ export default function ArenaPage({
       setSelectedDifficulty('mixed');
       setSelCount('150');
       clearConfig();
+    } else if (userClass && (['1','2','3','4','5','6','7','8','9','10','11','12'] as ClassLevel[]).includes(userClass as ClassLevel)) {
+      // Cloud-first sync: update class if user hasn't manually changed it in this session
+      if (!hasManuallySelectedClass.current) {
+        setSelClass(userClass as ClassLevel);
+      }
     }
-  }, [clearConfig, practiceConfig]);
+  }, [clearConfig, practiceConfig, userClass]);
 
   useEffect(() => {
     if (mode === 'quiz' && isTimerEnabled && !isAnswered && timeLeft > 0) {
@@ -236,6 +251,22 @@ export default function ArenaPage({
         ? (Date.now() - quizStartedAtRef.current) / 1000
         : quizQuestions.length * timePerQuestion * 60;
       recordPracticeAttempt(currentUser?.uid || null, quizQuestions, score, elapsedSeconds);
+      // Write to Firestore for parent dashboard tracking
+      if (FIRESTORE_FEATURES_ENABLED && currentUser) {
+        try {
+          const subjects = Array.from(new Set(quizQuestions.map((q) => q.subject).filter(Boolean)));
+          await addDoc(collection(db, 'userActivities'), {
+            userId: currentUser.uid,
+            type: 'practice',
+            title: quizQuestions[0]?.chapter_name || 'Practice Session',
+            subject: subjects.length === 1 ? subjects[0] : 'Mixed',
+            score,
+            total: quizQuestions.length,
+            completedAt: serverTimestamp(),
+          });
+        } catch { /* non-fatal */ }
+      }
+      window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
       const accuracy = quizQuestions.length ? score / quizQuestions.length : 0;
       const bonusXp = accuracy >= 0.9 ? 50 : accuracy >= 0.8 ? 30 : 0;
       const xpGained = score * 10 + bonusXp;
@@ -367,6 +398,12 @@ export default function ArenaPage({
 
   return (
     <div className="space-y-8 pb-20">
+      <SEO
+        title="Practice Arena — Chapter-wise MCQs for CBSE NCERT"
+        description="Practice timed chapter-wise MCQs for NCERT CBSE with instant scoring, AI-tracked mistakes, and detailed explanations. Free for all Class 1–12 students."
+        keywords="CBSE MCQ practice, NCERT chapter questions, chapter wise quiz, online MCQ test, timed practice, CBSE exam prep, free MCQ Class 6 7 8 9 10 11 12, NCERT practice questions"
+        url="https://syllab.in/practice"
+      />
       <LoginRequiredModal
         isOpen={isLoginModalOpen}
         onClose={() => setIsLoginModalOpen(false)}
@@ -450,7 +487,7 @@ export default function ArenaPage({
                 <label className="ml-2 text-[10px] font-black uppercase tracking-widest text-slate-400">Class Level</label>
                 <div className="grid grid-cols-4 gap-2 sm:grid-cols-8">
                   {availableClasses.map((value) => (
-                    <button key={value} type="button" onClick={() => { setSelClass(value); setSelChapter(''); }}
+                    <button key={value} type="button" onClick={() => { hasManuallySelectedClass.current = true; setSelClass(value); setSelChapter(''); }}
                       className={cn(
                         'rounded-2xl py-3 text-sm font-black transition-all',
                         selClass === value ? 'bg-primary text-white shadow-xl shadow-violet-500/20' : 'bg-slate-50 text-slate-400 hover:bg-slate-100',
@@ -459,6 +496,15 @@ export default function ArenaPage({
                     </button>
                   ))}
                 </div>
+                {userClass && selClass !== userClass && (
+                  <button
+                    type="button"
+                    onClick={() => { setSelClass(userClass as ClassLevel); setSelChapter(''); }}
+                    className="mt-1 text-[10px] font-black text-blue-600 hover:underline"
+                  >
+                    ← Back to your class ({userClass})
+                  </button>
+                )}
               </div>
 
               {/* Subject */}

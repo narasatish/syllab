@@ -57,6 +57,7 @@ export const recordPracticeAttempt = (
     avgSecondsPerQuestion: Math.max(1, Math.round(elapsedSeconds / total)),
   };
   writeAll([attempt, ...readAll()]);
+  window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
 };
 
 export const getPracticeAttempts = (userId: string | null): PracticeAttempt[] => {
