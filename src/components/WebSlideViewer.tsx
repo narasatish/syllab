@@ -248,8 +248,37 @@ function SlideBody({ slide, theme, lessonOverview }: {
   );
 }
 
+/** Hard gate — must pass before any PDF/print export is allowed. */
+function canExportLesson(lesson: DeepPptLesson): boolean {
+  if (!lesson || !Array.isArray(lesson.slides)) return false;
+  if ((lesson as any).isFallback === true) return false;
+  if ((lesson as any).quality === 'quick_fallback') return false;
+  if ((lesson as any).canExport === false) return false;
+  if (lesson.source === 'fallback') return false;
+  if (lesson.slides.length < 12) return false;
+  const text = lesson.slides
+    .map(s => [s.title, s.subtitle, ...(s.bullets || []), s.example].filter(Boolean).join(' '))
+    .join(' ');
+  const BAD = [
+    'Quick Study Guide',
+    'Full AI lesson is being prepared',
+    'lesson is still loading',
+    'Study this concept thoroughly',
+    'Refer to your NCERT textbook',
+    'Practice related questions to reinforce',
+  ];
+  return !BAD.some(p => text.includes(p));
+}
+
 // ─── PDF Export via window.print() with syllab.in watermark ───────────────────
 function exportLessonAsPDF(lesson: DeepPptLesson) {
+  // HARD GATE — never let a fallback / placeholder lesson reach the export window.
+  if (!canExportLesson(lesson)) {
+    alert(
+      'The full AI lesson is still being prepared. Please reopen "PPT Lesson" in about a minute and try Download PDF again.',
+    );
+    return;
+  }
   // NOTE: do NOT use `noopener` here — it breaks document.write on some browsers.
   const w = window.open('', '_blank', 'width=900,height=1200,scrollbars=yes,resizable=yes');
   if (!w) {
@@ -531,9 +560,9 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
                 <span className="hidden sm:inline">Ask AI</span>
               </button>
             )}
-            {/* PDF export hidden for fallback lessons — never let users save a
-                quick guide as if it were the official PPT. */}
-            {(lesson as any).canExport !== false && !isFallback && (
+            {/* PDF export only shown if the lesson actually passes the hard
+                quality gate — never let users save a placeholder as PPT. */}
+            {canExportLesson(lesson) && (
               <button
                 type="button"
                 onClick={() => exportLessonAsPDF(lesson)}

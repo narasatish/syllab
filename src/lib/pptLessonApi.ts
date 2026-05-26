@@ -199,84 +199,48 @@ async function fetchFromBackend(
 
 /* ─── Offline fallback slides ────────────────────────────────────────────── */
 
+/**
+ * Quick fallback shown only when the backend can't reach Gemini.
+ * Deliberately small (3 slides) and visually clearly NOT a real lesson, so
+ * users see at a glance that the full lesson hasn't loaded yet. NEVER cached,
+ * NEVER exported.
+ */
 function buildFallbackSlides(payload: DeepPptLessonRequest): DeepPptSlide[] {
   const title = payload.chapterTitle;
   const cls = String(payload.classLevel);
   const sub = payload.subject;
-  const summary = payload.summary || `${title} is an important topic in Class ${cls} ${sub}.`;
-  const concepts: string[] = payload.concepts?.length
-    ? payload.concepts
-    : [
-        `Introduction to ${title}`,
-        `Key definitions and terminology`,
-        `Important principles and laws`,
-        `Real-world examples and applications`,
-        `Common exam questions`,
-      ];
 
-  const slides: DeepPptSlide[] = [
+  return [
     {
       slideNumber: 1,
       layout: 'title',
-      title,
-      subtitle: `Class ${cls} ${sub} — Quick Study Guide`,
+      title: `⏳ ${title}`,
+      subtitle: `The full AI lesson is still loading. Please tap Retry in a minute.`,
       bullets: [],
     },
     {
       slideNumber: 2,
       layout: 'concept',
-      title: 'Chapter Overview',
-      bullets: [summary],
+      title: 'Why am I seeing this?',
+      bullets: [
+        `The AI lesson server is currently slow or warming up (this happens after a quiet period).`,
+        `This screen is a placeholder so you are not stuck on a blank loading spinner.`,
+        `Close this and tap "PPT Lesson" again in about a minute — the real chapter lesson will appear.`,
+        `If it keeps happening, your internet may be unstable. Try switching between Wi-Fi and mobile data.`,
+      ],
+    },
+    {
+      slideNumber: 3,
+      layout: 'concept',
+      title: `What you can do right now`,
+      bullets: [
+        `Open Practice Arena to attempt MCQ questions on ${title}.`,
+        `Open Skills Lab to revise related topics.`,
+        `Re-open this PPT button in a minute — the lesson will be generated.`,
+      ],
+      subtitle: `Class ${cls} · ${sub} · Lesson loading…`,
     },
   ];
-
-  concepts.slice(0, 6).forEach((concept, i) => {
-    slides.push({
-      slideNumber: i + 3,
-      layout: 'concept',
-      title: concept,
-      bullets: [
-        `Study this concept thoroughly for your exams.`,
-        `Refer to your NCERT textbook for detailed explanations.`,
-        `Practice related questions to reinforce your understanding.`,
-      ],
-    });
-  });
-
-  slides.push(
-    {
-      slideNumber: slides.length + 1,
-      layout: 'revision',
-      title: 'Quick Revision',
-      bullets: [
-        `Review all key points of ${title}.`,
-        `Make brief notes in your own words.`,
-        `Solve at least 10 practice questions today.`,
-        `Check NCERT examples and exercises.`,
-      ],
-    },
-    {
-      slideNumber: slides.length + 2,
-      layout: 'question',
-      title: 'Practice Questions',
-      bullets: [
-        `1. Define the main concept of ${title}.`,
-        `2. State the key principles or laws.`,
-        `3. Give two real-world applications.`,
-        `4. Draw and label a relevant diagram.`,
-        `5. Solve one numerical/problem from NCERT.`,
-      ],
-    },
-    {
-      slideNumber: slides.length + 3,
-      layout: 'revision',
-      title: `Well done! Keep studying ${title} 🎉`,
-      subtitle: 'Full AI lesson is being prepared. Refresh in a minute to get it.',
-      bullets: [],
-    },
-  );
-
-  return slides;
 }
 
 /* ─── Main exported function ─────────────────────────────────────────────── */
@@ -323,7 +287,7 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
       console.warn('[pptLessonApi] backend failed:', (backendErr as Error)?.message);
     }
 
-    // ── Step 3: Quick fallback (NEVER cached, NEVER exported) ───────────
+    // ── Step 3: Tiny "lesson loading" placeholder (NEVER cached, NEVER exported)
     const fallbackSlides = buildFallbackSlides(payload);
     return {
       id: lessonKey,
@@ -331,14 +295,14 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
       classLevel: String(payload.classLevel),
       subject: payload.subject,
       chapterTitle: payload.chapterTitle,
-      title: payload.chapterTitle,
+      title: `⏳ ${payload.chapterTitle} — lesson loading`,
       slides: fallbackSlides,
       source: 'fallback',
       quality: 'quick_fallback',
       isFallback: true,
       canExport: false,
       fallbackMessage:
-        'Quick study guide shown — the full AI lesson is still being prepared. Tap Retry in a minute for the full chapter-by-chapter lesson with examples and practice questions.',
+        'The full AI lesson is still loading. This is just a placeholder — close this and reopen "PPT Lesson" in about a minute to see the real chapter slides.',
     };
   } finally {
     if (slowTimer !== null) clearTimeout(slowTimer);
