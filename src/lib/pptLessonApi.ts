@@ -17,6 +17,10 @@ import { API_URL } from './api';
 import { db } from './firebase';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 
+/** Build version — printed on every PPT call so we can see in production
+ *  whether the user is on the new bundle or a stale cached one. */
+export const PPT_BUILD_VERSION = 'ppt-2026-05-26-r4';
+
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 
 export type DeepPptQuestion = {
@@ -170,28 +174,36 @@ async function saveCache(lessonKey: string, lesson: DeepPptLesson): Promise<void
 async function fetchFromBackend(
   payload: DeepPptLessonRequest,
   timeoutMs: number,
+  reqId: string,
 ): Promise<DeepPptLesson> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const url = `${API_URL}/api/ppt-lesson`;
+  console.log(`[ppt ${reqId}] → POST ${url}  timeout=${timeoutMs}ms`, payload);
 
   try {
-    const res = await fetch(`${API_URL}/api/ppt-lesson`, {
+    const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Ppt-ReqId': reqId },
       body: JSON.stringify(payload),
       signal: controller.signal,
+      // Bypass any HTTP/SW caching — we never want a stale 500 served to us.
+      cache: 'no-store',
     });
+    console.log(`[ppt ${reqId}] ← HTTP ${res.status} from backend`);
 
     if (!res.ok) {
-      let msg = 'Backend returned error.';
-      try { const b = await res.json(); if (b?.error) msg = b.error; } catch { /* ignore */ }
-      throw new Error(msg);
+      let body: any = null;
+      try { body = await res.json(); } catch { /* ignore */ }
+      console.warn(`[ppt ${reqId}] backend error body:`, body);
+      throw new Error(body?.error || `HTTP ${res.status}`);
     }
 
     const data = await res.json();
     if (!data.lesson || !Array.isArray(data.lesson.slides)) {
       throw new Error('Invalid lesson response from backend.');
     }
+    console.log(`[ppt ${reqId}] ← lesson received  slides=${data.lesson.slides.length}  fromCache=${data.fromCache}`);
     return data.lesson as DeepPptLesson;
   } finally {
     clearTimeout(timer);
@@ -249,9 +261,10 @@ function buildFallbackSlides(payload: DeepPptLessonRequest): DeepPptSlide[] {
 export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<DeepPptLesson> {
   const lessonKey = makeLessonKey(payload);
   const mobile = isMobile();
-  // Mobile: 15s hard cap — phone browsers kill idle connections fast.
-  // Desktop: 60s — accommodates Render free-tier cold start.
+  const reqId = Math.random().toString(36).slice(2, 8);
   const timeoutMs = mobile ? 15_000 : 60_000;
+
+  console.log(`[ppt ${reqId}] START  build=${PPT_BUILD_VERSION}  mobile=${mobile}  key=${lessonKey}  API=${API_URL}`);
 
   // Signal cold-start banner after 5 s (only if we end up calling backend)
   let slowTimer: ReturnType<typeof setTimeout> | null = null;
@@ -260,8 +273,10 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
     // ── Step 1: Firestore cache (instant on any device) ──────────────────
     const cached = await getCached(lessonKey);
     if (cached) {
+      console.log(`[ppt ${reqId}] CACHE HIT  slides=${cached.slides.length}`);
       return { ...cached, source: 'cache', id: lessonKey };
     }
+    console.log(`[ppt ${reqId}] cache MISS — calling backend`);
 
     // ── Step 2: Backend API ───────────────────────────────────────────────
     slowTimer = window.setTimeout(() => {
@@ -275,13 +290,14 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
     let lesson: DeepPptLesson | null = null;
     for (let i = 0; i < attempts; i++) {
       try {
-        lesson = await fetchFromBackend(payload, timeoutMs);
+        lesson = await fetchFromBackend(payload, timeoutMs, `${reqId}-${i + 1}`);
         if (lesson && Array.isArray(lesson.slides) && lesson.slides.length >= 10) {
+          console.log(`[ppt ${reqId}] BACKEND OK on attempt ${i + 1}  slides=${lesson.slides.length}`);
           break;
         }
-        console.warn('[pptLessonApi] backend attempt', i + 1, 'too thin, slides:', lesson?.slides?.length);
+        console.warn(`[ppt ${reqId}] backend attempt ${i + 1} too thin  slides=${lesson?.slides?.length}`);
       } catch (backendErr) {
-        console.warn('[pptLessonApi] backend attempt', i + 1, 'failed:', (backendErr as Error)?.message);
+        console.warn(`[ppt ${reqId}] backend attempt ${i + 1} FAILED:`, (backendErr as Error)?.message);
       }
       lesson = null;
     }
@@ -296,6 +312,7 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
         id: lessonKey,
       };
     }
+    console.warn(`[ppt ${reqId}] ALL ${attempts} backend attempts failed — using fallback`);
 
     // ── Step 3: Tiny "lesson loading" placeholder (NEVER cached, NEVER exported)
     const fallbackSlides = buildFallbackSlides(payload);
