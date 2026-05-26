@@ -222,24 +222,26 @@ function buildFallbackSlides(payload: DeepPptLessonRequest): DeepPptSlide[] {
   const title = payload.chapterTitle;
   const cls = String(payload.classLevel);
   const sub = payload.subject;
+  const errorReason = (typeof window !== 'undefined' && (window as any).__lastPptError) || 'no error captured';
 
   return [
     {
       slideNumber: 1,
       layout: 'title',
       title: `⏳ ${title}`,
-      subtitle: `The full AI lesson is still loading. Please tap Retry in a minute.`,
+      subtitle: `The full AI lesson could not be loaded. Diagnostic info below.`,
       bullets: [],
     },
     {
       slideNumber: 2,
       layout: 'concept',
-      title: 'Why am I seeing this?',
+      title: 'Diagnostic info (share this if support asks)',
       bullets: [
-        `The AI lesson server is currently slow or warming up (this happens after a quiet period).`,
-        `This screen is a placeholder so you are not stuck on a blank loading spinner.`,
-        `Close this and tap "PPT Lesson" again in about a minute — the real chapter lesson will appear.`,
-        `If it keeps happening, your internet may be unstable. Try switching between Wi-Fi and mobile data.`,
+        `Reason: ${errorReason}`,
+        `Build: ${PPT_BUILD_VERSION}`,
+        `API: ${API_URL}`,
+        `Class ${cls} · ${sub} · "${title}"`,
+        `Action: close this modal and tap "PPT Lesson" again — backend should be warm now.`,
       ],
     },
     {
@@ -247,11 +249,10 @@ function buildFallbackSlides(payload: DeepPptLessonRequest): DeepPptSlide[] {
       layout: 'concept',
       title: `What you can do right now`,
       bullets: [
+        `Close this and reopen "PPT Lesson" — the lesson usually loads on the second try.`,
         `Open Practice Arena to attempt MCQ questions on ${title}.`,
         `Open Skills Lab to revise related topics.`,
-        `Re-open this PPT button in a minute — the lesson will be generated.`,
       ],
-      subtitle: `Class ${cls} · ${sub} · Lesson loading…`,
     },
   ];
 }
@@ -262,7 +263,10 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
   const lessonKey = makeLessonKey(payload);
   const mobile = isMobile();
   const reqId = Math.random().toString(36).slice(2, 8);
-  const timeoutMs = mobile ? 15_000 : 60_000;
+  // Desktop: 90 s. Backend retries Gemini up to 3 times internally
+  // (~30 s) plus Render free-tier cold start (~30 s) = up to 60 s. 90 s gives
+  // headroom. Mobile keeps 15 s hard cap.
+  const timeoutMs = mobile ? 15_000 : 90_000;
 
   console.log(`[ppt ${reqId}] START  build=${PPT_BUILD_VERSION}  mobile=${mobile}  key=${lessonKey}  API=${API_URL}`);
 
@@ -283,23 +287,22 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
       window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'pptLesson' } }));
     }, 5000);
 
-    // Try the backend up to 2 times — Gemini sometimes outputs a banned
-    // template phrase and the backend rejects it. A second attempt almost
-    // always succeeds. Mobile timeout already short, so 2 tries fit budget.
-    const attempts = mobile ? 1 : 2;
+    // Backend already retries Gemini 3x internally, so one frontend attempt
+    // is enough. Desktop gets the full 60s budget per attempt.
     let lesson: DeepPptLesson | null = null;
-    for (let i = 0; i < attempts; i++) {
-      try {
-        lesson = await fetchFromBackend(payload, timeoutMs, `${reqId}-${i + 1}`);
-        if (lesson && Array.isArray(lesson.slides) && lesson.slides.length >= 10) {
-          console.log(`[ppt ${reqId}] BACKEND OK on attempt ${i + 1}  slides=${lesson.slides.length}`);
-          break;
-        }
-        console.warn(`[ppt ${reqId}] backend attempt ${i + 1} too thin  slides=${lesson?.slides?.length}`);
-      } catch (backendErr) {
-        console.warn(`[ppt ${reqId}] backend attempt ${i + 1} FAILED:`, (backendErr as Error)?.message);
+    let lastError = '';
+    try {
+      lesson = await fetchFromBackend(payload, timeoutMs, reqId);
+      if (lesson && Array.isArray(lesson.slides) && lesson.slides.length >= 10) {
+        console.log(`[ppt ${reqId}] ✅ BACKEND OK  slides=${lesson.slides.length}`);
+      } else {
+        lastError = `thin response: slides=${lesson?.slides?.length}`;
+        console.warn(`[ppt ${reqId}] ❌ ${lastError}`);
+        lesson = null;
       }
-      lesson = null;
+    } catch (backendErr) {
+      lastError = (backendErr as Error)?.message || 'unknown error';
+      console.warn(`[ppt ${reqId}] ❌ backend FAILED:`, lastError);
     }
     if (lesson) {
       void saveCache(lessonKey, lesson);
@@ -312,10 +315,13 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
         id: lessonKey,
       };
     }
-    console.warn(`[ppt ${reqId}] ALL ${attempts} backend attempts failed — using fallback`);
+    console.warn(`[ppt ${reqId}] ⚠️ backend failed — using fallback. Reason:`, lastError);
+    // Stash last error so the fallback banner can show it.
+    (window as any).__lastPptError = `${lastError} · build ${PPT_BUILD_VERSION} · ${API_URL}`;
 
     // ── Step 3: Tiny "lesson loading" placeholder (NEVER cached, NEVER exported)
     const fallbackSlides = buildFallbackSlides(payload);
+    const lastErr = (window as any).__lastPptError || 'unknown';
     return {
       id: lessonKey,
       chapterId: payload.chapterId || lessonKey,
@@ -328,8 +334,7 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
       quality: 'quick_fallback',
       isFallback: true,
       canExport: false,
-      fallbackMessage:
-        'The full AI lesson is still loading. This is just a placeholder — close this and reopen "PPT Lesson" in about a minute to see the real chapter slides.',
+      fallbackMessage: `Backend request failed (${lastErr}). Close and tap "PPT Lesson" again — backend should be warm now.`,
     };
   } finally {
     if (slowTimer !== null) clearTimeout(slowTimer);
