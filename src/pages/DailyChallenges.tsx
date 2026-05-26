@@ -2,11 +2,12 @@
 import { Award, BookOpenCheck, Brain, CalendarDays, CheckCircle2, Clock, Flame, Medal, RotateCcw, Trophy, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
-import { addDoc, collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
+import { recordLearningActivity } from '../lib/progressTracker';
 import {
   CLASS_BANK as QUESTION_CLASS_BANK,
   EXAM_BANK as QUESTION_EXAM_BANK,
@@ -400,21 +401,19 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
       console.error('Daily challenge leaderboard sync failed.', error);
     }
 
-    // Write to userActivities so Progress + parent dashboard track daily challenge
-    if (currentUser && FIRESTORE_FEATURES_ENABLED) {
-      try {
-        await addDoc(collection(db, 'userActivities'), {
-          userId: currentUser.uid,
-          type: 'daily_challenge',
-          title: `Daily Challenge — ${category}`,
-          subject: category,
-          score,
-          total: questions.length,
-          completedAt: serverTimestamp(),
-        });
-      } catch { /* non-fatal */ }
+    // Canonical progress write — single row in All Activity + parent dashboard.
+    if (currentUser) {
+      void recordLearningActivity({
+        uid: currentUser.uid,
+        type: 'daily_challenge',
+        title: 'Daily Challenge Completed',
+        subject: category,
+        classLevel: category === 'Classes 5-10' ? classLevel : undefined,
+        score,
+        total: questions.length,
+        xpGained,
+      });
     }
-    window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
 
     if (leaderboardSyncFailed) {
       setSaveError('Score saved on this screen, but ranking publish failed. Check Firestore rules/env for Daily Dose.');

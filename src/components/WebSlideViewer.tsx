@@ -442,27 +442,19 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
   const theme = LAYOUT_THEME[slide.layout || 'concept'] || LAYOUT_THEME.concept;
 
   return (
-    <section className="w-full overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-2xl shadow-slate-200/60">
+    <section className="flex h-full w-full flex-col overflow-hidden bg-white shadow-2xl shadow-slate-200/60 sm:rounded-[2rem] sm:border sm:border-slate-100">
       {/* Fallback banner — shown when backend was unreachable */}
       {isFallback && fallbackMsg && (
-        <div className="flex items-start gap-3 border-b border-amber-100 bg-amber-50 px-4 py-3 sm:px-6">
+        <div className="shrink-0 flex items-start gap-3 border-b border-amber-100 bg-amber-50 px-4 py-3 sm:px-6">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
           <div className="flex-1 min-w-0">
             <p className="text-xs font-bold text-amber-800 leading-snug">{fallbackMsg}</p>
           </div>
-          {onClose && (
-            <button
-              onClick={() => { onClose(); setTimeout(() => onClose?.(), 100); }}
-              className="shrink-0 rounded-lg bg-amber-200 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-amber-800 hover:bg-amber-300 transition-colors"
-            >
-              Retry
-            </button>
-          )}
         </div>
       )}
 
-      {/* Header */}
-      <div className={cn('bg-gradient-to-r p-4 text-white sm:p-6', theme.header)}>
+      {/* Header — fixed at top */}
+      <div className={cn('shrink-0 bg-gradient-to-r p-4 text-white sm:p-6', theme.header)}>
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
             <p className="text-[9px] font-black uppercase tracking-[0.25em] text-white/80">
@@ -505,8 +497,8 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
         </div>
       </div>
 
-      {/* Slide content — scrollable on mobile */}
-      <div className="overflow-y-auto p-4 sm:p-8" style={{ maxHeight: 'calc(100dvh - 220px)' }}>
+      {/* Slide content — flexes to fill available space, scrolls if too tall */}
+      <div className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-8">
         <SlideErrorBoundary slideNumber={slide.slideNumber}>
           <SlideBody
             slide={slide}
@@ -518,8 +510,8 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
         </SlideErrorBoundary>
       </div>
 
-      {/* Navigation — sticky at bottom, touch-friendly */}
-      <div className="border-t border-slate-100 bg-white p-3 sm:p-5">
+      {/* Navigation — fixed at bottom, touch-friendly */}
+      <div className="shrink-0 border-t border-slate-100 bg-white p-3 sm:p-5">
         <div className="flex items-center justify-between gap-2">
           <button
             onClick={() => setIndex(v => Math.max(0, v - 1))}

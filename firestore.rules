@@ -61,13 +61,41 @@ service cloud.firestore {
     }
 
     // ---------- PROGRESS ----------
+    // Aggregate per-user progress summary (totalXP, counters, last activity).
+    // Read: owner OR any authenticated user (parent dashboard onSnapshot).
+    // Write: owner only.
     match /progress/{userId} {
       function isOwner() {
         return request.auth != null && request.auth.uid == userId;
       }
-      allow read: if isOwner();
+      allow read: if request.auth != null;
       allow create, update: if isOwner() && request.resource.data.size() < 200;
       allow delete: if false;
+    }
+
+    // ---------- ACTIVITY EVENTS ----------
+    // One row per completed learning session (Daily Dose, Practice, Olympiad,
+    // Mock/Exam, PPT, Skill Lab). Used by Progress page + Parent Hub feed.
+    // Read: any authenticated user (parent needs to query by child uid).
+    // Create: owner only — uid must match request.auth.uid.
+    match /activityEvents/{eventId} {
+      allow create: if request.auth != null
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.type is string
+          && request.resource.data.title is string
+          && request.resource.data.title.size() <= 200
+          && request.resource.data.createdAt == request.time;
+      allow read: if request.auth != null;
+      allow update, delete: if false;
+    }
+
+    // ---------- USER ACTIVITIES (legacy — kept for backward read compat) ----------
+    // New code uses activityEvents above; this is read-only fallback.
+    match /userActivities/{docId} {
+      allow create: if request.auth != null
+          && request.resource.data.userId == request.auth.uid;
+      allow read: if request.auth != null;
+      allow update, delete: if false;
     }
 
     // ---------- MISTAKES ----------

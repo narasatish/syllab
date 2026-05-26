@@ -234,7 +234,9 @@ function buildFallbackSlides(payload: DeepPptLessonRequest): DeepPptSlide[] {
 export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<DeepPptLesson> {
   const lessonKey = makeLessonKey(payload);
   const mobile = isMobile();
-  const timeoutMs = mobile ? 20_000 : 60_000;
+  // Mobile: 15s hard cap — phone browsers kill idle connections fast.
+  // Desktop: 60s — accommodates Render free-tier cold start.
+  const timeoutMs = mobile ? 15_000 : 60_000;
 
   // Signal cold-start banner after 5 s (only if we end up calling backend)
   let slowTimer: ReturnType<typeof setTimeout> | null = null;

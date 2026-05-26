@@ -17,11 +17,10 @@ import { User as FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
 import { SYLLABUS } from '../data/syllabus';
 import { ClassLevel, Difficulty, Question, Subject } from '../types';
-import { recordMistake, saveQuizSession, getPausedSession, QuizSession, db } from '../lib/firebase';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
+import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
 import { usePinnedChapters } from '../lib/pinnedChapters';
 import { recordPracticeAttempt } from '../lib/practiceAnalytics';
+import { recordLearningActivity } from '../lib/progressTracker';
 import ReactMarkdown from 'react-markdown';
 import LoginRequiredModal from '../components/LoginRequiredModal';
 import SEO from '../seo/SEO';
@@ -251,25 +250,26 @@ export default function ArenaPage({
         ? (Date.now() - quizStartedAtRef.current) / 1000
         : quizQuestions.length * timePerQuestion * 60;
       recordPracticeAttempt(currentUser?.uid || null, quizQuestions, score, elapsedSeconds);
-      // Write to Firestore for parent dashboard tracking
-      if (FIRESTORE_FEATURES_ENABLED && currentUser) {
-        try {
-          const subjects = Array.from(new Set(quizQuestions.map((q) => q.subject).filter(Boolean)));
-          await addDoc(collection(db, 'userActivities'), {
-            userId: currentUser.uid,
-            type: 'practice',
-            title: quizQuestions[0]?.chapter_name || 'Practice Session',
-            subject: subjects.length === 1 ? subjects[0] : 'Mixed',
-            score,
-            total: quizQuestions.length,
-            completedAt: serverTimestamp(),
-          });
-        } catch { /* non-fatal */ }
-      }
-      window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
       const accuracy = quizQuestions.length ? score / quizQuestions.length : 0;
       const bonusXp = accuracy >= 0.9 ? 50 : accuracy >= 0.8 ? 30 : 0;
       const xpGained = score * 10 + bonusXp;
+
+      // Canonical progress write — activityEvents + progress + users XP (one batch)
+      if (currentUser) {
+        const subjects = Array.from(new Set(quizQuestions.map((q) => q.subject).filter(Boolean)));
+        void recordLearningActivity({
+          uid: currentUser.uid,
+          type: 'practice_session',
+          title: 'Practice Session Completed',
+          subject: subjects.length === 1 ? subjects[0] : 'Mixed',
+          classLevel: quizQuestions[0]?.class_level,
+          score,
+          total: quizQuestions.length,
+          xpGained,
+          sourceId: lastChapter,
+        });
+      }
+
       await onSessionComplete({
         completedChapters,
         lastChapter,

@@ -818,50 +818,74 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         )}
       </AnimatePresence>
 
-      {/* PPT loading overlay */}
+      {/* PPT modal — single fullscreen container.
+          - Opens INSTANTLY on click (pptLoading=true, pptLesson=null) so the user
+            never sees a blank screen.
+          - Swaps loading-spinner → slide viewer as soon as slides arrive.
+          - Fullscreen on mobile (100dvh + safe-area), centered card on desktop.
+          - getDeepPptLesson() never throws, so we never reach the error modal. */}
       <AnimatePresence>
-        {pptLoading && (
+        {(pptLoading || pptLesson) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm"
+            className="fixed inset-0 z-[70] flex items-stretch justify-center bg-slate-900/60 backdrop-blur-sm sm:items-center sm:p-4"
           >
-            <div className="bg-white rounded-3xl p-10 shadow-2xl flex flex-col items-center gap-4 max-w-xs text-center">
-              <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center animate-pulse">
-                <Presentation size={26} className="animate-bounce" />
-              </div>
-              <div>
-                <p className="font-black text-slate-900 text-lg">Generating lesson...</p>
-                <p className="text-xs font-semibold text-slate-500 mt-1">
-                  AI is creating slides for<br />
-                  <span className="text-primary font-black">{pptChapter?.title}</span>
-                </p>
-                <p className="text-[10px] text-slate-400 mt-2">May take 10–20 seconds. Cached for all students!</p>
-              </div>
+            <div
+              className="relative flex w-full flex-col bg-white shadow-2xl sm:max-w-5xl sm:rounded-[2rem]"
+              style={{ maxHeight: '100dvh', height: '100dvh' }}
+            >
+              {pptLoading && !pptLesson ? (
+                /* Loading state — close button always available */
+                <div className="flex h-full flex-col">
+                  <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 sm:px-6">
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Preparing lesson</p>
+                      <p className="truncate text-sm font-black text-slate-900">{pptChapter?.title}</p>
+                    </div>
+                    <button
+                      onClick={() => { setPptLoading(false); setPptChapter(null); }}
+                      className="ml-3 shrink-0 rounded-xl bg-slate-100 p-2.5 text-slate-600 hover:bg-slate-200 transition-colors touch-manipulation"
+                      title="Cancel"
+                    >
+                      <X size={18} />
+                    </button>
+                  </div>
+                  <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-white animate-pulse">
+                      <Presentation size={28} className="animate-bounce" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-black text-slate-900">Generating lesson…</p>
+                      <p className="mt-1 text-xs font-semibold text-slate-500">
+                        AI is preparing slides. If this takes more than a few seconds,<br />
+                        a quick text study guide will open automatically.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : pptLesson ? (
+                <div className="h-full overflow-hidden">
+                  <WebSlideViewer
+                    lesson={pptLesson}
+                    onClose={() => { setPptLesson(null); setPptChapter(null); }}
+                    onAskAI={(slideNumber, context) => {
+                      setPptLesson(null);
+                      setPptChapter(null);
+                      openTutor();
+                      const question = context ? `Explain slide ${slideNumber}: ${context}` : `Help me understand slide ${slideNumber}`;
+                      window.setTimeout(() => {
+                        sessionStorage.setItem('syllab_tutor_prefill', question);
+                        window.dispatchEvent(new CustomEvent('syllab:tutor-prefill', { detail: question }));
+                      }, 300);
+                    }}
+                    onPractice={() => { setPptLesson(null); setPptChapter(null); }}
+                  />
+                </div>
+              ) : null}
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* PPT Slide Viewer */}
-      <AnimatePresence>
-        {pptLesson && !pptLoading && (
-          <WebSlideViewer
-            lesson={pptLesson}
-            onClose={() => { setPptLesson(null); setPptChapter(null); }}
-            onAskAI={(slideNumber, context) => {
-              setPptLesson(null);
-              setPptChapter(null);
-              openTutor();
-              const question = context ? `Explain slide ${slideNumber}: ${context}` : `Help me understand slide ${slideNumber}`;
-              window.setTimeout(() => {
-                sessionStorage.setItem('syllab_tutor_prefill', question);
-                window.dispatchEvent(new CustomEvent('syllab:tutor-prefill', { detail: question }));
-              }, 300);
-            }}
-            onPractice={() => { setPptLesson(null); setPptChapter(null); }}
-          />
         )}
       </AnimatePresence>
 

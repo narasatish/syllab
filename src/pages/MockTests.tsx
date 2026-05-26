@@ -7,6 +7,7 @@ import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 import { MockAnswerStatus, MockAttemptQuestion, recordMockAttempt } from '../lib/mockTestAnalytics';
+import { recordLearningActivity } from '../lib/progressTracker';
 import { MockPaper, loadMockTest, MockTestLoadError } from '../lib/mockTestLoader';
 import { MockTestMeta, getMocksByExam } from '../data/mockTestsList';
 import { OLYMPIAD_POOLS, generateRandomExam, type OlympiadQuestion } from '../data/olympiadQuestions';
@@ -196,17 +197,28 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
         type: examType,
         completedAt: serverTimestamp(),
       });
-      // Also write to userActivities so All Activity + parent dashboard track exams/olympiads
-      await addDoc(collection(db, 'userActivities'), {
-        userId: currentUser.uid,
-        type: examType,
+      // Canonical progress write — single row in All Activity + parent dashboard.
+      const examXp = total > 0
+        ? (() => {
+            const pct = (score / total) * 100;
+            if (pct >= 90) return 120;
+            if (pct >= 75) return 80;
+            if (pct >= 60) return 50;
+            if (pct >= 40) return 30;
+            return 15;
+          })()
+        : 0;
+      void recordLearningActivity({
+        uid: currentUser.uid,
+        type: examType === 'olympiad' ? 'olympiad' : 'exam',
         title,
         subject: config?.subjects?.[0] || examType,
+        classLevel: config?.class,
         score,
         total,
-        completedAt: serverTimestamp(),
+        xpGained: examXp,
+        sourceId: examCode || undefined,
       });
-      window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
     } catch (err) {
       console.error('[Syllab] Failed to save exam result to Firestore:', err);
       setResultSyncWarning('Result saved locally, sync failed — will retry on next attempt');
@@ -322,20 +334,20 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
         negativeMarks: question.negativeMarks || -1,
       })),
     });
-    // Write to userActivities so Progress page + parent dashboard track mock tests
-    if (FIRESTORE_FEATURES_ENABLED && currentUser) {
-      try {
-        await addDoc(collection(db, 'userActivities'), {
-          userId: currentUser.uid,
-          type: 'mock',
-          title: paper.title,
-          subject: selectedMock?.exam || 'Mock Test',
-          completedAt: serverTimestamp(),
-        });
-      } catch { /* non-fatal */ }
-    }
-    window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
     const gainedXp = mockXpFor(finalResult.correct, paper.questions.length);
+    // Canonical progress write — one row per mock test.
+    if (currentUser) {
+      void recordLearningActivity({
+        uid: currentUser.uid,
+        type: 'mock_test',
+        title: paper.title,
+        subject: selectedMock?.exam || 'Mock Test',
+        score: finalResult.correct,
+        total: paper.questions.length,
+        xpGained: gainedXp,
+        sourceId: paper.id,
+      });
+    }
     setXpAward(gainedXp);
     await onReward({ scoreGained: Math.max(0, finalResult.score), xpGained: gainedXp });
     setStatuses(finalStatuses);

@@ -13,9 +13,7 @@ import React, {
 } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { motion, AnimatePresence } from 'motion/react';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db } from '../lib/firebase';
-import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
+import { recordLearningActivity } from '../lib/progressTracker';
 import {
   BookOpen,
   Brain,
@@ -1165,19 +1163,16 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
       window.dispatchEvent(new CustomEvent('syllab:skills-updated'));
       return next;
     });
-    // Save to Firestore if not already done and user is logged in
-    if (!alreadyDone && currentUser && FIRESTORE_FEATURES_ENABLED) {
-      try {
-        addDoc(collection(db, 'userActivities'), {
-          userId: currentUser.uid,
-          type: 'skill',
-          title: activeTopic.title,
-          subject: lang.name,
-          completedAt: serverTimestamp(),
-        }).catch(() => { /* non-fatal */ });
-      } catch {
-        /* non-fatal */
-      }
+    // Canonical progress write — Skill Lab session.
+    if (!alreadyDone && currentUser) {
+      void recordLearningActivity({
+        uid: currentUser.uid,
+        type: 'skill_lab',
+        title: activeTopic.title,
+        subject: lang.name,
+        xpGained: 10,
+        sourceId: activeTopic.id,
+      });
     }
     // Show points toast only for first-time completion
     if (!alreadyDone) {

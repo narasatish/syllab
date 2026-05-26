@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Activity, ArrowRight, ClipboardList, Flame, Gift, PlayCircle, Trophy, Zap } from 'lucide-react';
 import { User as FirebaseUser } from 'firebase/auth';
-import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
-import { getPracticeAttempts, type PracticeAttempt } from '../lib/practiceAnalytics';
+import { collection, doc, getDoc, onSnapshot, query, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
 import { UserStats } from '../types';
 import { cn } from '../lib/utils';
@@ -11,48 +10,19 @@ import { getExtendedProfile, saveExtendedProfile } from '../lib/userProfile';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import { db } from '../lib/firebase';
 
-/** XP awarded per completed exam based on score percentage */
-function examXp(score: number, total: number): number {
-  if (total === 0) return 0;
-  const pct = (score / total) * 100;
-  if (pct >= 90) return 120;
-  if (pct >= 75) return 80;
-  if (pct >= 60) return 50;
-  if (pct >= 40) return 30;
-  return 15;
-}
-
-interface ExamResult {
+interface ActivityEvent {
   id: string;
+  type: string;
   title: string;
-  score: number;
-  total: number;
-  percentage: number;
-  classLevel?: string;
-  subjects?: string[];
-  level?: string;
-  examCode?: string | null;
-  type?: string;
-  completedAt?: { toDate?: () => Date } | null;
+  subject?: string | null;
+  classLevel?: string | null;
+  score?: number | null;
+  total?: number | null;
+  percentage?: number | null;
+  xpGained?: number;
+  createdAt?: { toDate?: () => Date } | null;
 }
 
-interface DailyChallengeEntry {
-  id: string;
-  displayName?: string;
-  totalXP?: number;
-  score?: number;
-  total?: number;
-  completedAt?: { toDate?: () => Date } | null;
-}
-
-interface UserActivity {
-  id: string;
-  type: 'skill' | 'english' | 'olympiad' | 'live_exam';
-  title: string;
-  subject?: string;
-  level?: string;
-  completedAt?: { toDate?: () => Date } | null;
-}
 
 const AnalyticsPage = React.lazy(() => import('./Analytics'));
 
@@ -143,75 +113,72 @@ interface PausedSession {
 export default function ProgressPage({ currentUser, stats, setTab }: ProgressPageProps) {
   const { total: totalSkills } = useSkillsProgress();
   const [selectedAvatarId, setSelectedAvatarId] = useState('starter');
-  const [examResults, setExamResults] = useState<ExamResult[]>([]);
-  const [examsLoading, setExamsLoading] = useState(false);
   const [pausedSession, setPausedSession] = useState<PausedSession | null>(null);
-  const [practiceAttempts, setPracticeAttempts] = useState<PracticeAttempt[]>([]);
-  const [dailyChallenges, setDailyChallenges] = useState<DailyChallengeEntry[]>([]);
-  const [userActivities, setUserActivities] = useState<UserActivity[]>([]);
-  const [refreshTick, setRefreshTick] = useState(0);
+  const [activityEvents, setActivityEvents] = useState<ActivityEvent[]>([]);
+  const [activityLoading, setActivityLoading] = useState(false);
 
   useEffect(() => {
     if (!currentUser || !FIRESTORE_FEATURES_ENABLED) return;
     getExtendedProfile(currentUser.uid).then(p => setSelectedAvatarId(p.selectedAvatarId));
   }, [currentUser?.uid]);
 
+  // Live subscriptions: activityEvents (feed) + progress (counters) + paused session.
+  // No refresh button, no manual re-fetch — Firestore pushes updates instantly.
   useEffect(() => {
     if (!currentUser || !FIRESTORE_FEATURES_ENABLED) return;
-    setExamsLoading(true);
+    setActivityLoading(true);
 
-    // Load practice attempts from localStorage
-    setPracticeAttempts(getPracticeAttempts(currentUser.uid));
-
-    // Load completed exams, paused mock test, daily challenges, and user activities in parallel
-    Promise.all([
-      getDocs(query(collection(db, 'examResults'), where('userId', '==', currentUser.uid))),
-      getDoc(doc(db, 'quizSessions', currentUser.uid)),
-      getDocs(query(collection(db, 'dailyChallengeLeaderboard'), where('userId', '==', currentUser.uid))),
-      getDocs(query(collection(db, 'userActivities'), where('userId', '==', currentUser.uid))),
-    ])
-      .then(([snap, sessionSnap, dcSnap, activitiesSnap]) => {
-        const results = snap.docs
-          .map((d) => ({ id: d.id, ...(d.data() as any) } as ExamResult))
+    // 1. activityEvents feed — orderBy createdAt desc, limit 20, client-side sort
+    //    (no composite index needed because we sort client-side).
+    const eventsQ = query(
+      collection(db, 'activityEvents'),
+      where('uid', '==', currentUser.uid),
+    );
+    const unsubEvents = onSnapshot(
+      eventsQ,
+      (snap) => {
+        const events: ActivityEvent[] = snap.docs
+          .map((d) => ({ id: d.id, ...(d.data() as any) } as ActivityEvent))
           .sort((a, b) => {
-            const ta = a.completedAt?.toDate?.()?.getTime() ?? 0;
-            const tb = b.completedAt?.toDate?.()?.getTime() ?? 0;
+            const ta = a.createdAt?.toDate?.()?.getTime() ?? 0;
+            const tb = b.createdAt?.toDate?.()?.getTime() ?? 0;
             return tb - ta;
-          });
-        setExamResults(results);
+          })
+          .slice(0, 20);
+        setActivityEvents(events);
+        setActivityLoading(false);
+      },
+      (err) => {
+        console.warn('[ProgressPage] activityEvents listener error:', err?.message);
+        setActivityLoading(false);
+      },
+    );
+
+    // 2. progress/{uid} — kept subscribed so cache stays warm for future features.
+    //    (Counters not displayed yet — feed below is the source of truth.)
+    const unsubProgress = onSnapshot(
+      doc(db, 'progress', currentUser.uid),
+      () => { /* no-op */ },
+      () => { /* non-fatal */ },
+    );
+
+    // 3. Paused quiz session (one-time check)
+    getDoc(doc(db, 'quizSessions', currentUser.uid))
+      .then((sessionSnap) => {
         if (sessionSnap.exists()) {
           const s = sessionSnap.data() as PausedSession;
           if (s.active !== false && Array.isArray(s.questions) && s.questions.length > 0) {
             setPausedSession(s);
           }
         }
-        const dcResults: DailyChallengeEntry[] = dcSnap.docs
-          .map((d) => ({ id: d.id, ...(d.data() as any) } as DailyChallengeEntry))
-          .sort((a, b) => {
-            const ta = a.completedAt?.toDate?.()?.getTime() ?? 0;
-            const tb = b.completedAt?.toDate?.()?.getTime() ?? 0;
-            return tb - ta;
-          });
-        setDailyChallenges(dcResults);
-        const activities: UserActivity[] = activitiesSnap.docs
-          .map((d) => ({ id: d.id, ...(d.data() as any) } as UserActivity))
-          .sort((a, b) => {
-            const ta = a.completedAt?.toDate?.()?.getTime() ?? 0;
-            const tb = b.completedAt?.toDate?.()?.getTime() ?? 0;
-            return tb - ta;
-          });
-        setUserActivities(activities);
       })
-      .catch(() => {})
-      .finally(() => setExamsLoading(false));
-  }, [currentUser?.uid, refreshTick]);
+      .catch(() => {});
 
-  // Re-fetch when any activity completes (practice, mock, olympiad, etc.)
-  useEffect(() => {
-    const handler = () => setRefreshTick((t) => t + 1);
-    window.addEventListener('syllab:progress-updated', handler);
-    return () => window.removeEventListener('syllab:progress-updated', handler);
-  }, []);
+    return () => {
+      unsubEvents();
+      unsubProgress();
+    };
+  }, [currentUser?.uid]);
 
   const highestAvatar = [...AVATAR_REWARDS].reverse().find(a => isAvatarUnlocked(a, stats, totalSkills)) ?? AVATAR_REWARDS[0];
 
@@ -321,25 +288,25 @@ export default function ProgressPage({ currentUser, stats, setTab }: ProgressPag
         </div>
       </section>
 
-      {/* All Activity */}
+      {/* All Activity — one row per completed session */}
       <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50">
         <div className="flex items-center gap-2 mb-5">
           <ClipboardList className="text-primary" size={20} />
           <h2 className="text-xl font-black text-slate-900">All Activity</h2>
-          {(examResults.length + practiceAttempts.length + dailyChallenges.length) > 0 && (
+          {activityEvents.length > 0 && (
             <span className="ml-auto rounded-full bg-primary/10 px-3 py-1 text-[10px] font-black text-primary">
-              {examResults.length + practiceAttempts.length + dailyChallenges.length} activities
+              {activityEvents.length} sessions
             </span>
           )}
         </div>
 
         {!currentUser ? (
           <p className="text-sm text-slate-400 text-center py-6">Sign in to see your activity.</p>
-        ) : examsLoading ? (
+        ) : activityLoading ? (
           <p className="text-sm text-slate-400 text-center py-6">Loading activity…</p>
         ) : (
           <div className="space-y-3">
-            {/* In-Progress / Paused mock test */}
+            {/* In-progress / paused mock */}
             {pausedSession && (
               <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-4">
                 <div className="flex items-center justify-between gap-3">
@@ -364,207 +331,91 @@ export default function ProgressPage({ currentUser, stats, setTab }: ProgressPag
               </div>
             )}
 
-            {/* Completed exam results */}
-            {examResults.length === 0 && practiceAttempts.length === 0 && dailyChallenges.length === 0 && !pausedSession ? (
+            {activityEvents.length === 0 && !pausedSession ? (
               <div className="text-center py-8">
                 <ClipboardList className="mx-auto mb-3 text-slate-200" size={36} />
                 <p className="font-bold text-slate-500">No activity yet</p>
-                <p className="text-sm text-slate-400 mt-1">Complete a mock test, practice session, or daily challenge to see results here.</p>
+                <p className="text-sm text-slate-400 mt-1">Complete a daily challenge, practice session, or exam to see one row per session here.</p>
                 <button
-                  onClick={() => setTab('mock_tests')}
+                  onClick={() => setTab('daily')}
                   className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-primary px-5 py-2.5 text-xs font-black uppercase tracking-widest text-white hover:bg-emerald-500 transition-colors"
                 >
-                  Go to Exams <ArrowRight size={13} />
+                  Start Daily Dose <ArrowRight size={13} />
                 </button>
               </div>
             ) : (
-              <>
-                {examResults.map((r) => {
-                  const pct = r.percentage ?? (r.total > 0 ? Math.round((r.score / r.total) * 100) : 0);
-                  const xpEarned = examXp(r.score, r.total);
-                  const date = r.completedAt?.toDate?.();
-                  const colorBg = pct >= 80 ? 'bg-emerald-50 border-emerald-200' : pct >= 50 ? 'bg-amber-50 border-amber-200' : 'bg-rose-50 border-rose-200';
-                  const colorText = pct >= 80 ? 'text-emerald-700' : pct >= 50 ? 'text-amber-700' : 'text-rose-700';
-                  const colorBar = pct >= 80 ? 'bg-emerald-500' : pct >= 50 ? 'bg-amber-400' : 'bg-rose-400';
-                  return (
-                    <div key={r.id} className={`rounded-2xl border p-4 ${colorBg}`}>
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className={`rounded-full bg-white/70 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest ${colorText}`}>
-                              ✓ Completed
-                            </span>
+              activityEvents.map((evt) => {
+                const score = typeof evt.score === 'number' ? evt.score : null;
+                const total = typeof evt.total === 'number' ? evt.total : null;
+                const pct = typeof evt.percentage === 'number'
+                  ? evt.percentage
+                  : (score != null && total != null && total > 0 ? Math.round((score / total) * 100) : null);
+                const date = evt.createdAt?.toDate?.();
+                const xp = evt.xpGained ?? 0;
+
+                // Color + label per activity type
+                const META: Record<string, { label: string; emoji: string; tone: 'emerald'|'violet'|'amber'|'indigo'|'sky'|'rose'|'fuchsia' }> = {
+                  daily_challenge:  { label: 'Daily Challenge', emoji: '🔥', tone: 'violet' },
+                  practice_session: { label: 'Practice Session', emoji: '🏟️', tone: 'emerald' },
+                  olympiad:         { label: 'Olympiad', emoji: '🏆', tone: 'fuchsia' },
+                  mock_test:        { label: 'Mock Test', emoji: '📝', tone: 'sky' },
+                  exam:             { label: 'Exam', emoji: '🎓', tone: 'amber' },
+                  ppt_lesson:       { label: 'Lesson Studied', emoji: '📖', tone: 'indigo' },
+                  skill_lab:        { label: 'Skill Mastered', emoji: '⚡', tone: 'emerald' },
+                  english_lab:      { label: 'English Challenge', emoji: '🗣️', tone: 'sky' },
+                };
+                const meta = META[evt.type] || { label: 'Activity', emoji: '✓', tone: 'emerald' as const };
+                const palette: Record<string, { bg: string; text: string; chip: string; bar: string }> = {
+                  emerald: { bg: 'bg-emerald-50 border-emerald-200', text: 'text-emerald-700', chip: 'bg-white/70 text-emerald-700', bar: 'bg-emerald-500' },
+                  violet:  { bg: 'bg-violet-50 border-violet-200',   text: 'text-violet-700',  chip: 'bg-white/70 text-violet-700',  bar: 'bg-violet-500' },
+                  amber:   { bg: 'bg-amber-50 border-amber-200',     text: 'text-amber-700',   chip: 'bg-white/70 text-amber-700',   bar: 'bg-amber-500' },
+                  indigo:  { bg: 'bg-indigo-50 border-indigo-200',   text: 'text-indigo-700',  chip: 'bg-white/70 text-indigo-700',  bar: 'bg-indigo-500' },
+                  sky:     { bg: 'bg-sky-50 border-sky-200',         text: 'text-sky-700',     chip: 'bg-white/70 text-sky-700',     bar: 'bg-sky-500' },
+                  rose:    { bg: 'bg-rose-50 border-rose-200',       text: 'text-rose-700',    chip: 'bg-white/70 text-rose-700',    bar: 'bg-rose-500' },
+                  fuchsia: { bg: 'bg-fuchsia-50 border-fuchsia-200', text: 'text-fuchsia-700', chip: 'bg-white/70 text-fuchsia-700', bar: 'bg-fuchsia-500' },
+                };
+                const c = palette[meta.tone];
+
+                return (
+                  <div key={evt.id} className={`rounded-2xl border p-4 ${c.bg}`}>
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <span className={`rounded-full px-2 py-0.5 text-[9px] font-black uppercase tracking-widest ${c.chip}`}>
+                            {meta.emoji} {meta.label}
+                          </span>
+                          {xp > 0 && (
                             <span className="rounded-full bg-white/70 px-2 py-0.5 text-[9px] font-black text-slate-600">
-                              +{xpEarned} XP
+                              +{xp} XP
                             </span>
-                          </div>
-                          <p className={`font-black text-sm ${colorText} truncate`}>{r.title}</p>
-                          <div className="flex flex-wrap items-center gap-2 mt-1">
-                            {r.examCode && (
-                              <span className="rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-black text-slate-600">
-                                Code: {r.examCode}
-                              </span>
-                            )}
-                            {r.classLevel && (
-                              <span className={`text-[10px] font-bold opacity-70 ${colorText}`}>Class {r.classLevel}</span>
-                            )}
-                            {r.level && (
-                              <span className={`text-[10px] font-bold opacity-60 ${colorText}`}>{r.level}</span>
-                            )}
-                            {date && (
-                              <span className="text-[10px] font-bold text-slate-400">
-                                {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-                              </span>
-                            )}
-                          </div>
+                          )}
+                        </div>
+                        <p className={`font-black text-sm ${c.text} truncate`}>{evt.title}</p>
+                        <div className={`flex flex-wrap items-center gap-2 mt-1 text-[10px] font-bold ${c.text} opacity-70`}>
+                          {evt.subject && <span>{evt.subject}</span>}
+                          {evt.classLevel && <span>Class {evt.classLevel}</span>}
+                          {score != null && total != null && <span>{score}/{total}</span>}
+                          {date && (
+                            <span className="text-slate-400">
+                              {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                            </span>
+                          )}
+                        </div>
+                        {pct != null && (
                           <div className="mt-2 h-1.5 w-full rounded-full bg-white/50">
-                            <div className={`h-1.5 rounded-full ${colorBar}`} style={{ width: `${pct}%` }} />
+                            <div className={`h-1.5 rounded-full ${c.bar}`} style={{ width: `${pct}%` }} />
                           </div>
-                        </div>
-                        <div className={`text-right shrink-0 ${colorText}`}>
-                          <div className="text-2xl font-black">{pct}%</div>
-                          <div className="text-[10px] font-bold opacity-70">{r.score}/{r.total}</div>
-                          <button
-                            onClick={() => setTab('mock_tests')}
-                            className="mt-1 text-[9px] font-black opacity-60 hover:opacity-100 transition-opacity underline"
-                          >
-                            Practice Again
-                          </button>
-                        </div>
+                        )}
                       </div>
+                      {pct != null && (
+                        <div className={`text-right shrink-0 ${c.text}`}>
+                          <div className="text-2xl font-black">{pct}%</div>
+                        </div>
+                      )}
                     </div>
-                  );
-                })}
-
-                {practiceAttempts.length > 0 && (
-                  <>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 pt-3 pb-1">🏟️ Practice Arena</p>
-                    {practiceAttempts.slice(0, 20).map((a) => {
-                      const pct = a.accuracy;
-                      const colorBg = pct >= 80 ? 'bg-emerald-50 border-emerald-200' : pct >= 50 ? 'bg-amber-50 border-amber-200' : 'bg-rose-50 border-rose-200';
-                      const colorText = pct >= 80 ? 'text-emerald-700' : pct >= 50 ? 'text-amber-700' : 'text-rose-700';
-                      const colorBar = pct >= 80 ? 'bg-emerald-500' : pct >= 50 ? 'bg-amber-400' : 'bg-rose-400';
-                      const date = new Date(a.completedAt);
-                      return (
-                        <div key={a.id} className={`rounded-2xl border p-4 ${colorBg}`}>
-                          <div className="flex items-start justify-between gap-3">
-                            <div className="min-w-0 flex-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <span className={`rounded-full bg-white/70 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest ${colorText}`}>
-                                  ✓ Practice
-                                </span>
-                                <span className="rounded-full bg-white/70 px-2 py-0.5 text-[9px] font-black text-slate-600">
-                                  {Math.round(a.elapsedSeconds / 60)}m {a.elapsedSeconds % 60}s
-                                </span>
-                              </div>
-                              <p className={`font-black text-sm ${colorText} truncate`}>
-                                {a.subject} — {a.chapterTitles.slice(0, 2).join(', ') || 'Mixed practice'}
-                              </p>
-                              <div className="flex flex-wrap items-center gap-2 mt-1">
-                                <span className={`text-[10px] font-bold opacity-70 ${colorText}`}>{a.total} questions</span>
-                                <span className="text-[10px] font-bold text-slate-400">
-                                  {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-                                </span>
-                              </div>
-                              <div className="mt-2 h-1.5 w-full rounded-full bg-white/50">
-                                <div className={`h-1.5 rounded-full ${colorBar}`} style={{ width: `${pct}%` }} />
-                              </div>
-                            </div>
-                            <div className={`text-right shrink-0 ${colorText}`}>
-                              <div className="text-2xl font-black">{pct}%</div>
-                              <div className="text-[10px] font-bold opacity-70">{a.score}/{a.total}</div>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-
-                {dailyChallenges.length > 0 && (
-                  <>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 pt-3 pb-1">🔥 Daily Challenges</p>
-                    {dailyChallenges.slice(0, 20).map((dc) => {
-                      const date = dc.completedAt?.toDate?.();
-                      return (
-                        <div key={dc.id} className="rounded-2xl border border-violet-200 bg-violet-50 p-4">
-                          <div className="flex items-start justify-between gap-3">
-                            <div className="min-w-0 flex-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <span className="rounded-full bg-white/70 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-violet-700">
-                                  ✓ Daily Challenge
-                                </span>
-                              </div>
-                              <p className="font-black text-sm text-violet-700">
-                                {dc.displayName || 'Daily Challenge Completed'}
-                              </p>
-                              {date && (
-                                <p className="text-[10px] font-bold text-violet-500 mt-1">
-                                  {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-                                </p>
-                              )}
-                            </div>
-                            {dc.totalXP !== undefined && (
-                              <div className="text-right shrink-0 text-violet-700">
-                                <div className="text-2xl font-black">+{dc.totalXP}</div>
-                                <div className="text-[10px] font-bold opacity-70">XP</div>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-
-                {userActivities.length > 0 && (
-                  <>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 pt-3 pb-1">✨ Skills & English Practice</p>
-                    {userActivities.slice(0, 20).map((activity) => {
-                      const date = activity.completedAt?.toDate?.();
-                      const typeLabel = activity.type === 'skill' ? 'Skill Completed'
-                        : activity.type === 'english' ? 'English Challenge'
-                        : activity.type === 'olympiad' ? 'Olympiad'
-                        : 'Exam';
-                      const bgColor = activity.type === 'skill' ? 'bg-indigo-50 border-indigo-200'
-                        : activity.type === 'english' ? 'bg-sky-50 border-sky-200'
-                        : 'bg-purple-50 border-purple-200';
-                      const badgeColor = activity.type === 'skill' ? 'bg-white/70 text-indigo-700'
-                        : activity.type === 'english' ? 'bg-white/70 text-sky-700'
-                        : 'bg-white/70 text-purple-700';
-                      const textColor = activity.type === 'skill' ? 'text-indigo-700'
-                        : activity.type === 'english' ? 'text-sky-700'
-                        : 'text-purple-700';
-                      return (
-                        <div key={activity.id} className={`rounded-2xl border ${bgColor} p-4`}>
-                          <div className="flex items-start justify-between gap-3">
-                            <div className="min-w-0 flex-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <span className={`rounded-full px-2 py-0.5 text-[9px] font-black uppercase tracking-widest ${badgeColor}`}>
-                                  {activity.type === 'english' ? '✓' : '★'} {typeLabel}
-                                </span>
-                              </div>
-                              <p className={`font-black text-sm ${textColor}`}>
-                                {activity.title}
-                              </p>
-                              {(activity.subject || activity.level) && (
-                                <p className={`text-[10px] font-bold opacity-70 mt-1 ${textColor}`}>
-                                  {activity.subject ? `${activity.subject}` : ''}{activity.level ? ` • ${activity.level}` : ''}
-                                </p>
-                              )}
-                              {date && (
-                                <p className={`text-[10px] font-bold opacity-70 mt-1`}>
-                                  {date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-              </>
+                  </div>
+                );
+              })
             )}
           </div>
         )}
