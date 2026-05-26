@@ -412,6 +412,8 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
   const total = lesson.slides.length;
   const slide = lesson.slides[index];
   const progress = total > 0 ? ((index + 1) / total) * 100 : 0;
+  const isFallback = (lesson as any).source === 'fallback';
+  const fallbackMsg = (lesson as any).fallbackMessage as string | undefined;
 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (e.key === 'ArrowRight' || e.key === ' ') setIndex(v => Math.min(total - 1, v + 1));
@@ -425,48 +427,86 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
   }, [handleKey]);
 
   if (!slide) {
-    return <div className="rounded-[2rem] border border-slate-200 bg-white p-12 text-center text-slate-400 font-semibold">No slides available.</div>;
+    return (
+      <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-center">
+        <p className="font-bold text-slate-400">No slides available.</p>
+        {onClose && (
+          <button onClick={onClose} className="mt-4 rounded-xl bg-primary px-5 py-2.5 text-sm font-black text-white">
+            Close
+          </button>
+        )}
+      </div>
+    );
   }
 
   const theme = LAYOUT_THEME[slide.layout || 'concept'] || LAYOUT_THEME.concept;
 
   return (
-    <section className="overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-2xl shadow-slate-200/60">
+    <section className="w-full overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-2xl shadow-slate-200/60">
+      {/* Fallback banner — shown when backend was unreachable */}
+      {isFallback && fallbackMsg && (
+        <div className="flex items-start gap-3 border-b border-amber-100 bg-amber-50 px-4 py-3 sm:px-6">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-bold text-amber-800 leading-snug">{fallbackMsg}</p>
+          </div>
+          {onClose && (
+            <button
+              onClick={() => { onClose(); setTimeout(() => onClose?.(), 100); }}
+              className="shrink-0 rounded-lg bg-amber-200 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-amber-800 hover:bg-amber-300 transition-colors"
+            >
+              Retry
+            </button>
+          )}
+        </div>
+      )}
+
       {/* Header */}
-      <div className={cn('bg-gradient-to-r p-5 text-white sm:p-6', theme.header)}>
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div className="min-w-0">
+      <div className={cn('bg-gradient-to-r p-4 text-white sm:p-6', theme.header)}>
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
             <p className="text-[9px] font-black uppercase tracking-[0.25em] text-white/80">
               Syllab Lesson · {lesson.subject} · Class {lesson.classLevel}
             </p>
-            <h2 className="mt-1 text-xl font-black sm:text-2xl truncate">{lesson.title}</h2>
-            <p className="mt-1 text-sm text-white/80">Slide {index + 1} of {total}{slide.layout ? ` · ${slide.layout}` : ''}</p>
+            <h2 className="mt-1 text-lg font-black leading-tight sm:text-2xl">{lesson.title}</h2>
+            <p className="mt-0.5 text-xs text-white/80">
+              Slide {index + 1} of {total}{slide.layout ? ` · ${slide.layout}` : ''}
+            </p>
           </div>
           {onClose && (
-            <button onClick={onClose} className="rounded-xl bg-white/10 p-2 text-white hover:bg-white/20 transition-all shrink-0" title="Close">
-              <X size={18} />
+            <button
+              onClick={onClose}
+              className="rounded-xl bg-white/10 p-2.5 text-white hover:bg-white/20 transition-all shrink-0 touch-manipulation"
+              title="Close"
+            >
+              <X size={20} />
             </button>
           )}
         </div>
 
-        {/* Progress */}
-        <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/20">
+        {/* Progress bar */}
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/20">
           <div className="h-full rounded-full bg-white transition-all duration-500" style={{ width: `${progress}%` }} />
         </div>
 
-        {/* Dot navigator */}
-        <div className="mt-3 flex gap-1 overflow-x-auto pb-1">
+        {/* Dot navigator — scrollable on mobile */}
+        <div className="mt-3 flex gap-1 overflow-x-auto pb-1 scrollbar-none">
           {lesson.slides.map((_, i) => (
-            <button key={i} onClick={() => setIndex(i)}
-              className={cn('h-1.5 rounded-full shrink-0 transition-all', i === index ? 'w-6 bg-white' : 'w-1.5 bg-white/30 hover:bg-white/60')}
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={cn(
+                'h-2 rounded-full shrink-0 transition-all touch-manipulation',
+                i === index ? 'w-6 bg-white' : 'w-2 bg-white/30 hover:bg-white/60',
+              )}
               title={`Slide ${i + 1}`}
             />
           ))}
         </div>
       </div>
 
-      {/* Slide content */}
-      <div className="p-4 sm:p-8">
+      {/* Slide content — scrollable on mobile */}
+      <div className="overflow-y-auto p-4 sm:p-8" style={{ maxHeight: 'calc(100dvh - 220px)' }}>
         <SlideErrorBoundary slideNumber={slide.slideNumber}>
           <SlideBody
             slide={slide}
@@ -476,43 +516,51 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
               .map(s => s.title)}
           />
         </SlideErrorBoundary>
+      </div>
 
-        {/* Navigation */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex gap-3">
-            <button onClick={() => setIndex(v => Math.max(0, v - 1))} disabled={index === 0}
-              className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-700 disabled:opacity-40 hover:bg-slate-50 transition-all">
-              <ArrowLeft className="h-4 w-4" /> Prev
-            </button>
-            <button onClick={() => setIndex(v => Math.min(total - 1, v + 1))} disabled={index === total - 1}
-              className="flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-black text-white disabled:opacity-40 hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20">
-              Next <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
+      {/* Navigation — sticky at bottom, touch-friendly */}
+      <div className="border-t border-slate-100 bg-white p-3 sm:p-5">
+        <div className="flex items-center justify-between gap-2">
+          <button
+            onClick={() => setIndex(v => Math.max(0, v - 1))}
+            disabled={index === 0}
+            className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-slate-700 disabled:opacity-40 hover:bg-slate-50 transition-all touch-manipulation min-w-[80px] justify-center"
+          >
+            <ArrowLeft className="h-4 w-4" /> Prev
+          </button>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 justify-center">
             {onAskAI && (
-              <button onClick={() => onAskAI(slide.slideNumber, slide.title)}
-                className="flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white hover:bg-slate-800 transition-all">
-                <Brain className="h-4 w-4" /> Ask AI
+              <button
+                onClick={() => onAskAI(slide.slideNumber, slide.title)}
+                className="flex items-center gap-1.5 rounded-xl bg-slate-950 px-3 py-3 text-xs font-black text-white hover:bg-slate-800 transition-all touch-manipulation"
+              >
+                <Brain className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Ask AI</span>
               </button>
             )}
-            {onPractice && (
-              <button onClick={onPractice}
-                className="flex items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-black text-white hover:bg-orange-600 transition-all">
-                Practice
-              </button>
-            )}
-            <button type="button" onClick={() => exportLessonAsPDF(lesson)}
-              title="Open print-friendly version with syllab.in watermark"
-              className="flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-black text-emerald-700 hover:bg-emerald-100 transition-all">
-              <Download className="h-4 w-4" /> Export PDF
+            <button
+              type="button"
+              onClick={() => exportLessonAsPDF(lesson)}
+              title="Export as PDF"
+              className="flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-3 text-xs font-black text-emerald-700 hover:bg-emerald-100 transition-all touch-manipulation"
+            >
+              <Download className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">PDF</span>
             </button>
           </div>
+
+          <button
+            onClick={() => setIndex(v => Math.min(total - 1, v + 1))}
+            disabled={index === total - 1}
+            className="flex items-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-black text-white disabled:opacity-40 hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20 touch-manipulation min-w-[80px] justify-center"
+          >
+            Next <ArrowRight className="h-4 w-4" />
+          </button>
         </div>
 
-        <p className="mt-4 text-center text-[9px] font-bold text-slate-300 uppercase tracking-widest">
-          ← → Arrow keys to navigate · Esc to close
+        <p className="mt-2 hidden sm:block text-center text-[9px] font-bold text-slate-300 uppercase tracking-widest">
+          ← → Arrow keys · Esc to close
         </p>
       </div>
     </section>

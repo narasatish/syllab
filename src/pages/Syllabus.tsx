@@ -682,6 +682,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     setPptError(null);
     setPptLoading(true);
     try {
+      // Cache-first: returns instantly if cached, falls back to offline slides on failure
       const lesson = await getDeepPptLesson({
         classLevel: chapter.classLevel,
         subject: chapter.subject,
@@ -689,11 +690,14 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         chapterId: chapter.id,
         topics: [],
         examGoal: 'CBSE/NCERT',
+        summary: getChapterSummary(chapter.title, chapter.explanation || chapter.title),
       });
+      // Always open the viewer — even for fallback lessons
       setPptLesson(lesson);
     } catch (err) {
-      console.error('[handlePptLesson]', err);
-      setPptError(`Could not load PPT lesson for "${chapter.title}". The AI is generating it — please try again in a moment.`);
+      // Should not normally reach here (API now returns fallback instead of throwing)
+      console.error('[handlePptLesson] unexpected error:', err);
+      setPptError(`Could not load lesson for "${chapter.title}". Please try again.`);
       setPptChapter(null);
     } finally {
       setPptLoading(false);
