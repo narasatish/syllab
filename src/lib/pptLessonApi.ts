@@ -54,6 +54,12 @@ export type DeepPptLesson = {
   slides: DeepPptSlide[];
   /** Added by cache-first layer — "cache" | "backend" | "fallback" */
   source?: string;
+  /** Quality tag — "full_ai" only when backend returns >=15 chapter-specific slides. */
+  quality?: 'full_ai' | 'quick_fallback';
+  /** True when slides are a temporary client-built guide, not real AI lesson. */
+  isFallback?: boolean;
+  /** False when slides are a fallback — PDF/PPT export is blocked. */
+  canExport?: boolean;
   /** Friendly message when source is "fallback" */
   fallbackMessage?: string;
 };
@@ -86,6 +92,37 @@ function makeLessonKey(payload: DeepPptLessonRequest): string {
   return `${payload.classLevel}_${payload.subject}_${id}`.replace(/[^a-zA-Z0-9_-]/g, '_');
 }
 
+/* ─── Quality validation — reject cached fallbacks ───────────────────────── */
+
+/** Generic placeholder phrases that identify a fallback-quality lesson. */
+const PLACEHOLDER_PHRASES = [
+  'Study this concept thoroughly for your exams',
+  'Refer to your NCERT textbook for detailed explanations',
+  'Practice related questions to reinforce your understanding',
+  'Full AI lesson is being prepared',
+  'Quick Study Guide',
+  'Define the main concept of',
+  'State the key principles or laws',
+];
+
+/** Returns true if the lesson is a high-quality full AI lesson, not a fallback. */
+function isHighQualityLesson(lesson: DeepPptLesson): boolean {
+  if (!lesson || !Array.isArray(lesson.slides)) return false;
+  // Reject explicit fallback tags
+  if (lesson.isFallback === true) return false;
+  if (lesson.quality === 'quick_fallback') return false;
+  // Must have a reasonable number of slides
+  if (lesson.slides.length < 12) return false;
+  // Must not contain placeholder phrases (sampled — first slide of each chunk)
+  const text = lesson.slides
+    .map(s => [s.title, ...(s.bullets || []), s.subtitle, s.example].filter(Boolean).join(' '))
+    .join(' ');
+  for (const phrase of PLACEHOLDER_PHRASES) {
+    if (text.includes(phrase)) return false;
+  }
+  return true;
+}
+
 /* ─── Firestore cache ────────────────────────────────────────────────────── */
 
 async function getCached(lessonKey: string): Promise<DeepPptLesson | null> {
@@ -93,9 +130,10 @@ async function getCached(lessonKey: string): Promise<DeepPptLesson | null> {
     const snap = await getDoc(doc(db, PPT_COLLECTION, lessonKey));
     if (!snap.exists()) return null;
     const data = snap.data() as DeepPptLesson;
-    // Validate: must have at least 8 new-format slides (slideNumber field)
-    if (!Array.isArray(data.slides) || data.slides.length < 8) return null;
-    if (!data.slides[0]?.slideNumber) return null; // old format — ignore
+    if (!data.slides?.[0]?.slideNumber) return null; // old format — ignore
+    // Reject cached fallbacks — these were saved before the quality gate or
+    // by older code that didn't distinguish full lessons from fallbacks.
+    if (!isHighQualityLesson(data)) return null;
     return data;
   } catch {
     return null; // Firestore unavailable — fall through
@@ -103,10 +141,15 @@ async function getCached(lessonKey: string): Promise<DeepPptLesson | null> {
 }
 
 async function saveCache(lessonKey: string, lesson: DeepPptLesson): Promise<void> {
+  // Refuse to cache anything that doesn't pass the quality gate.
+  if (!isHighQualityLesson(lesson)) return;
   try {
     await setDoc(doc(db, PPT_COLLECTION, lessonKey), {
       ...lesson,
       id: lessonKey,
+      quality: 'full_ai',
+      isFallback: false,
+      canExport: true,
       updatedAt: serverTimestamp(),
     });
   } catch {
@@ -255,26 +298,41 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
 
     try {
       const lesson = await fetchFromBackend(payload, timeoutMs);
-      // Save to Firestore cache for future loads (fire-and-forget)
-      void saveCache(lessonKey, lesson);
-      return { ...lesson, source: 'backend', id: lessonKey };
+      // Only cache + return as full lesson if it actually passes the quality gate.
+      if (isHighQualityLesson(lesson)) {
+        void saveCache(lessonKey, lesson);
+        return {
+          ...lesson,
+          source: 'backend',
+          quality: 'full_ai',
+          isFallback: false,
+          canExport: true,
+          id: lessonKey,
+        };
+      }
+      // Backend returned junk (e.g. partial / empty) — fall through to fallback path.
+      console.warn('[pptLessonApi] backend returned low-quality lesson — using fallback');
     } catch (backendErr) {
       console.warn('[pptLessonApi] backend failed:', (backendErr as Error)?.message);
-      // ── Step 3: Offline fallback (always works, no network needed) ──────
-      const fallbackSlides = buildFallbackSlides(payload);
-      return {
-        id: lessonKey,
-        chapterId: payload.chapterId || lessonKey,
-        classLevel: String(payload.classLevel),
-        subject: payload.subject,
-        chapterTitle: payload.chapterTitle,
-        title: payload.chapterTitle,
-        slides: fallbackSlides,
-        source: 'fallback',
-        fallbackMessage:
-          'Full AI lesson could not be generated right now. Showing a text study guide instead. Try again in a moment for the full lesson.',
-      };
     }
+
+    // ── Step 3: Quick fallback (NEVER cached, NEVER exported) ───────────
+    const fallbackSlides = buildFallbackSlides(payload);
+    return {
+      id: lessonKey,
+      chapterId: payload.chapterId || lessonKey,
+      classLevel: String(payload.classLevel),
+      subject: payload.subject,
+      chapterTitle: payload.chapterTitle,
+      title: payload.chapterTitle,
+      slides: fallbackSlides,
+      source: 'fallback',
+      quality: 'quick_fallback',
+      isFallback: true,
+      canExport: false,
+      fallbackMessage:
+        'Quick study guide shown — the full AI lesson is still being prepared. Tap Retry in a minute for the full chapter-by-chapter lesson with examples and practice questions.',
+    };
   } finally {
     if (slowTimer !== null) clearTimeout(slowTimer);
     window.dispatchEvent(new CustomEvent('syllab:ai-fast', { detail: { source: 'pptLesson' } }));

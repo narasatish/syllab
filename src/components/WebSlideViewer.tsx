@@ -531,15 +531,19 @@ export default function WebSlideViewer({ lesson, onClose, onAskAI, onPractice }:
                 <span className="hidden sm:inline">Ask AI</span>
               </button>
             )}
-            <button
-              type="button"
-              onClick={() => exportLessonAsPDF(lesson)}
-              title="Export as PDF"
-              className="flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-3 text-xs font-black text-emerald-700 hover:bg-emerald-100 transition-all touch-manipulation"
-            >
-              <Download className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">PDF</span>
-            </button>
+            {/* PDF export hidden for fallback lessons — never let users save a
+                quick guide as if it were the official PPT. */}
+            {(lesson as any).canExport !== false && !isFallback && (
+              <button
+                type="button"
+                onClick={() => exportLessonAsPDF(lesson)}
+                title="Export as PDF"
+                className="flex items-center gap-1.5 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-3 text-xs font-black text-emerald-700 hover:bg-emerald-100 transition-all touch-manipulation"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">PDF</span>
+              </button>
+            )}
           </div>
 
           <button
