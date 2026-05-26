@@ -539,6 +539,23 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const [pptError, setPptError] = useState<string | null>(null);
   const [conceptError, setConceptError] = useState<string | null>(null);
 
+  // Close all modals if user navigates away via navbar — defensive fix for
+  // "stuck on page" reports where a tab click didn't visibly change page.
+  useEffect(() => {
+    const onNavigate = () => {
+      setPptLesson(null);
+      setPptLoading(false);
+      setPptChapter(null);
+      setPptError(null);
+      setActiveConcept(null);
+      setActiveChapter(null);
+      setConceptError(null);
+      setConceptLoading(false);
+    };
+    window.addEventListener('syllab:navigate', onNavigate);
+    return () => window.removeEventListener('syllab:navigate', onNavigate);
+  }, []);
+
   // Pinned chapters now live in Firestore (cloud-synced across devices).
   // Guests see an empty list and a soft prompt when they try to pin.
   const { pins: pinnedChapters, togglePin: togglePinCloud, isAuthed: pinsAuthed } = usePinnedChapters();
@@ -823,16 +840,20 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
             never sees a blank screen.
           - Swaps loading-spinner → slide viewer as soon as slides arrive.
           - Fullscreen on mobile (100dvh + safe-area), centered card on desktop.
-          - getDeepPptLesson() never throws, so we never reach the error modal. */}
+          - getDeepPptLesson() never throws, so we never reach the error modal.
+          - Backdrop click closes the modal — fixes "stuck on page" bug where
+            the modal (z-70) used to swallow navbar clicks (z-50). */}
       <AnimatePresence>
         {(pptLoading || pptLesson) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => { setPptLesson(null); setPptLoading(false); setPptChapter(null); }}
             className="fixed inset-0 z-[70] flex items-stretch justify-center bg-slate-900/60 backdrop-blur-sm sm:items-center sm:p-4"
           >
             <div
+              onClick={(e) => e.stopPropagation()}
               className="relative flex w-full flex-col bg-white shadow-2xl sm:max-w-5xl sm:rounded-[2rem]"
               style={{ maxHeight: '100dvh', height: '100dvh' }}
             >

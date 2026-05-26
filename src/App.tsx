@@ -782,6 +782,9 @@ export default function App() {
     if (window.location.pathname !== path) {
       window.history.pushState({ tab }, '', path);
     }
+    // Tell any open modal (PPT viewer, concept viewer, tutor, etc.) to close.
+    // Modals subscribe to this event so navbar clicks always escape.
+    window.dispatchEvent(new CustomEvent('syllab:navigate'));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

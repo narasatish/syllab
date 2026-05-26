@@ -80,7 +80,10 @@ export type DeepPptLessonRequest = {
 
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 
-const PPT_COLLECTION = 'shared_ppt_lessons_v2';
+// v3: forces clean cache after the quality gate was added. All v2 docs are
+// abandoned — they were generated under a looser prompt and may contain
+// generic placeholder content.
+const PPT_COLLECTION = 'shared_ppt_lessons_v3';
 
 function isMobile(): boolean {
   if (typeof navigator === 'undefined') return false;

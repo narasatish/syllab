@@ -156,9 +156,23 @@ export interface LoadConceptArgs {
   chapterId: string;
 }
 
+function isMobileUA(): boolean {
+  if (typeof navigator === 'undefined') return false;
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+/**
+ * Load a chapter concept from the backend. Mobile gets a 15-second hard cap
+ * (phone browsers kill idle sockets fast); desktop waits up to 60 s for
+ * Render cold start. On any failure, returns a minimal fallback concept
+ * built from the chapter title so the "Learn" button NEVER shows an error
+ * dialog on mobile.
+ */
 export async function loadConcept(args: LoadConceptArgs): Promise<any> {
+  const mobile = isMobileUA();
+  const timeoutMs = mobile ? 15_000 : 60_000;
   const controller = new AbortController();
-  const abortTimer = setTimeout(() => controller.abort(), 90_000);
+  const abortTimer = setTimeout(() => controller.abort(), timeoutMs);
   const slowTimer = window.setTimeout(() => {
     window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'loadConcept' } }));
   }, 5000);
@@ -171,12 +185,28 @@ export async function loadConcept(args: LoadConceptArgs): Promise<any> {
       signal: controller.signal,
     });
     if (!res.ok) {
-      const errText = await res.text().catch(() => '');
-      throw new Error(`API /api/concept ${res.status}: ${errText.slice(0, 200)}`);
+      throw new Error(`API /api/concept ${res.status}`);
     }
     const data = await res.json();
     if (!data.concept) throw new Error('No concept returned');
     return data.concept;
+  } catch (err) {
+    console.warn('[loadConcept] backend failed, returning fallback:', (err as Error)?.message);
+    // Minimal client-side fallback — same shape as backend Concept so the
+    // viewer renders without errors. User can retry once Render warms up.
+    return {
+      id: args.chapterId,
+      chapterId: args.chapterId,
+      title: args.chapterTitle,
+      summary: `${args.chapterTitle} is a Class ${args.classLevel} ${args.subject} chapter from the NCERT/CBSE syllabus.`,
+      keyPoints: [
+        `Open your NCERT textbook to "${args.chapterTitle}" to read the full chapter.`,
+        'Take notes on the key definitions and examples.',
+        'Try the in-chapter exercises and end-of-chapter questions.',
+      ],
+      examples: [],
+      _isFallback: true,
+    };
   } finally {
     clearTimeout(abortTimer);
     clearTimeout(slowTimer);
