@@ -1,19 +1,11 @@
 rules_version = '2';
 
-// Syllab / PadhAI Firestore Rules (v2)
-//
-// Invariants from security_spec.md that remain enforced:
-//   • Owner-only read/write on user data
-//   • Monotonic score/xp (no regression)
-//   • Immutable createdAt
-//   • Strict schema on shape-critical collections (contacts, mistakes)
-//   • Size limits on user-supplied strings
-//   • Server-assigned timestamps
-//
-// Changes vs v1 to match the actual app code:
-//   • Users: allow real stat fields (streak, level, badges, city, state)
-//   • Ranks: accept 'Beginner' for back-compat with existing profiles
-//   • Mistakes: schema matches the blueprint + lib/firebase.ts
+// Syllab Firestore Security Rules v3
+// Changes from v2:
+//   • users: allow extended profile fields (personal, learning, parent, selectedAvatarId, etc.)
+//   • users: allow parent to update only parentId on a child doc
+//   • parentRequests: new collection for child→parent invitation flow
+//   • Keep monotonic XP/score, immutable createdAt
 
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -24,54 +16,46 @@ service cloud.firestore {
         return request.auth != null && request.auth.uid == userId;
       }
 
-      function allowedKeys() {
-        return [
-          'score', 'xp', 'rank',
-          'streak', 'level', 'badges',
-          'displayName', 'email',
-          'city', 'state',
-          'createdAt', 'updatedAt', 'lastActive'
-        ];
+      // Core stats validation (only checked when the fields are present)
+      function statsValid(d) {
+        return (!('score' in d) || (d.score is number && d.score >= 0))
+            && (!('xp'    in d) || (d.xp    is number && d.xp    >= 0))
+            && (!('rank'  in d) || d.rank is string)
+            && (!('streak' in d) || (d.streak is number && d.streak >= 0));
       }
 
-      function requiredKeys() {
-        return ['score', 'xp', 'rank', 'createdAt', 'updatedAt'];
+      // Stats must not regress on updates
+      function noStatRegression() {
+        return (!('score' in resource.data) || !('score' in request.resource.data) || request.resource.data.score >= resource.data.score)
+            && (!('xp' in resource.data)    || !('xp'    in request.resource.data) || request.resource.data.xp    >= resource.data.xp);
       }
 
-      function validShape(d) {
-        return d.keys().hasOnly(allowedKeys())
-            && d.keys().hasAll(requiredKeys())
-            && d.score is number && d.score >= 0
-            && d.xp is number && d.xp >= 0
-            && d.rank is string
-            && d.rank in [
-                 'Beginner', 'Initiate', 'Apprentice', 'Explorer',
-                 'Scholar', 'Adept', 'Expert', 'Master', 'Grandmaster'
-               ]
-            && (!('streak' in d.keys()) || (d.streak is number && d.streak >= 0))
-            && (!('level' in d.keys())  || (d.level is number && d.level >= 1))
-            && (!('badges' in d.keys()) || (d.badges is list && d.badges.size() <= 100))
-            && (!('displayName' in d.keys()) || (d.displayName is string && d.displayName.size() <= 60))
-            && (!('email' in d.keys())       || (d.email is string && d.email.size() <= 200))
-            && (!('city' in d.keys())        || (d.city is string && d.city.size() <= 60))
-            && (!('state' in d.keys())       || (d.state is string && d.state.size() <= 60));
+      // createdAt must not change
+      function createdAtPreserved() {
+        return !('createdAt' in resource.data)
+            || !('createdAt' in request.resource.data)
+            || request.resource.data.createdAt == resource.data.createdAt;
       }
 
-      allow read: if isOwner();
+      // Any authenticated user can read a user doc (parent dashboard needs this)
+      allow read: if request.auth != null;
 
+      // Owner creates their own doc
       allow create: if isOwner()
-        && validShape(request.resource.data)
-        && request.resource.data.createdAt == request.time
-        && request.resource.data.updatedAt == request.time;
+          && statsValid(request.resource.data);
 
+      // Owner updates their own doc
       allow update: if isOwner()
-        && validShape(request.resource.data)
-        && request.resource.data.createdAt == resource.data.createdAt
-        && (!('email' in resource.data.keys())
-            || request.resource.data.email == resource.data.email)
-        && request.resource.data.updatedAt == request.time
-        && request.resource.data.score >= resource.data.score
-        && request.resource.data.xp >= resource.data.xp;
+          && statsValid(request.resource.data)
+          && noStatRegression()
+          && createdAtPreserved();
+
+      // A parent can update ONLY the parentId field on a child doc
+      allow update: if request.auth != null
+          && request.auth.uid != userId
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['parentId', 'updatedAt'])
+          && (request.resource.data.parentId == request.auth.uid
+              || request.resource.data.parentId == null);
 
       allow delete: if false;
     }
@@ -86,7 +70,7 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    // ---------- MISTAKES (immutable audit records) ----------
+    // ---------- MISTAKES ----------
     match /mistakes/{docId} {
       allow create: if request.auth != null
         && request.resource.data.userId == request.auth.uid
@@ -100,10 +84,8 @@ service cloud.firestore {
         && request.resource.data.questionText is string
         && request.resource.data.questionText.size() <= 5000
         && request.resource.data.timestamp == request.time;
-
       allow read: if request.auth != null
         && resource.data.userId == request.auth.uid;
-
       allow update, delete: if false;
     }
 
@@ -155,9 +137,6 @@ service cloud.firestore {
     }
 
     // ---------- CONTACTS ----------
-    // Auth NOT required — prospects use contact forms before signup.
-    // Tight schema + size limits are the only defense against spam here.
-    // If you want auth-only, add `request.auth != null &&` to the condition.
     match /contacts/{contactId} {
       allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'message', 'createdAt'])
         && request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt'])
@@ -170,14 +149,80 @@ service cloud.firestore {
         && request.resource.data.message.size() > 0
         && request.resource.data.message.size() <= 5000
         && request.resource.data.createdAt == request.time;
-
       allow read, update, delete: if false;
     }
 
     // ---------- AI CACHE ----------
-    // Backend Admin SDK writes only. Clients must never touch this.
     match /aiCache/{docId} {
       allow read, write: if false;
+    }
+
+    // ---------- PARENT LINKS ----------
+    match /parents/{parentUid} {
+      allow read, write: if request.auth != null && request.auth.uid == parentUid;
+    }
+
+    // ---------- PARENT REQUESTS ----------
+    // Child sends an invitation to their parent's email.
+    // Status: pending → accepted | rejected
+    match /parentRequests/{requestId} {
+      // Child creates the request
+      allow create: if request.auth != null
+          && request.resource.data.childUid == request.auth.uid
+          && request.resource.data.keys().hasAll([
+               'childUid', 'childEmail', 'childName',
+               'parentEmailLower', 'status', 'createdAt', 'updatedAt'
+             ])
+          && request.resource.data.status == 'pending'
+          && request.resource.data.createdAt == request.time;
+
+      // Anyone authenticated can read (child checks their own; parent checks by email)
+      allow read: if request.auth != null;
+
+      // Child or parent can update status (accept/reject)
+      allow update: if request.auth != null
+          && (resource.data.childUid == request.auth.uid
+              || resource.data.parentEmailLower == request.auth.token.email.lower());
+
+      allow delete: if false;
+    }
+
+    // ---------- EXAM CODES ----------
+    // Parent/teacher creates a code; any logged-in user can read to join
+    match /examCodes/{code} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+          && request.resource.data.keys().hasAll(['class', 'subjects', 'level', 'count'])
+          && request.resource.data.count is number
+          && request.resource.data.count <= 100;
+      allow delete: if false;
+    }
+
+    // ---------- EXAM RESULTS ----------
+    // Written by student after completing a live/custom exam.
+    // Readable by anyone authenticated (parent needs to query by child userId).
+    match /examResults/{resultId} {
+      allow create: if request.auth != null
+          && request.resource.data.userId == request.auth.uid
+          && request.resource.data.keys().hasAll(['userId', 'title', 'score', 'total', 'completedAt'])
+          && request.resource.data.score is number
+          && request.resource.data.total is number
+          && request.resource.data.completedAt == request.time;
+      allow read: if request.auth != null;
+      allow update, delete: if false;
+    }
+
+    // ---------- NEWSLETTERS ----------
+    // Subscribers can create their own subscription directly from the client.
+    // No reads/updates/deletes from client — admin SDK handles those.
+    match /newsletters/{docId} {
+      allow create: if request.resource.data.keys().hasAll(['email', 'subscribedAt'])
+          && request.resource.data.keys().hasOnly(['email', 'classLevel', 'role', 'active', 'subscribedAt'])
+          && request.resource.data.email is string
+          && request.resource.data.email.size() > 0
+          && request.resource.data.email.size() <= 200
+          && request.resource.data.subscribedAt == request.time;
+      allow read, update, delete: if false;
     }
 
     // ---------- DEFAULT DENY ----------

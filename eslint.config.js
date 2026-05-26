@@ -24,6 +24,11 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       '@typescript-eslint/no-explicit-any': 'warn',
       'react-hooks/set-state-in-effect': 'off',
+      // React Compiler experimental rules — flag legitimate ref patterns + memo hints.
+      // Refs ARE mutable by design (that's the whole point of useRef). Disable noise.
+      'react-hooks/immutability': 'off',
+      'react-hooks/preserve-manual-memoization': 'off',
+      'react-hooks/no-deps-recompute': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
@@ -38,5 +43,16 @@ export default tseslint.config(
     rules: {
       ...firebaseRulesPlugin.configs['flat/recommended'].rules,
     },
-  }
+  },
+  // Content files (tutorials, question banks, syllabus, articles) contain intentional
+  // escape sequences in code samples and question strings — ESLint can't tell these
+  // are content vs source code, so silence those specific rules in data/.
+  {
+    files: ['src/data/**/*.ts', 'src/data/**/*.tsx'],
+    rules: {
+      'no-useless-escape': 'off',
+      'no-empty': 'off',
+      'no-misleading-character-class': 'off',
+    },
+  },
 );

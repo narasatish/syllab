@@ -8,17 +8,25 @@ import { CONCEPTS } from '../data/concepts';
 import { getChapterSummary, ensureChapterSummary } from '../data/chapterSummaries';
 import { usePinnedChapters } from '../lib/pinnedChapters';
 import SEO from '../components/SEO';
-import { loadConcept, getPptLesson, PptLesson } from '../lib/api';
+import { loadConcept } from '../lib/api';
+import { getDeepPptLesson, DeepPptLesson } from '../lib/pptLessonApi';
 import WebSlideViewer from '../components/WebSlideViewer';
+import ClassFilterBanner from '../components/filters/ClassFilterBanner';
+import {
+  ClassFilterMode, getSelectedClasses, filterClassContent,
+  getStoredRanges, getStoredFilterMode, setStoredFilterMode,
+} from '../utils/classFilters';
 
 interface SyllabusPageProps {
   setTab: (tab: string) => void;
   openTutor: () => void;
   syllabus: Chapter[];
   setPracticeConfig: (config: Record<string, unknown>) => void;
+  userClass?: string;
+  isLoggedIn?: boolean;
 }
 
-const CLASSES: (ClassLevel | 'All')[] = ['All', '5', '6', '7', '8', '9', '10', '11', '12'];
+const CLASSES: (ClassLevel | 'All')[] = ['All', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 const SYLLABUS_VIEW_KEY = 'syllab_syllabus_view_state';
 
 type SyllabusViewState = {
@@ -292,7 +300,7 @@ function ConceptView({
             <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div className="space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 text-primary rounded-lg text-[10px] font-black uppercase tracking-widest border border-primary/10">
-                  {concept.subject} â€¢ Master Module
+                  {concept.subject} &middot; Master Module
                 </div>
                 <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter leading-tight italic-serif">
                   {concept.title}
@@ -454,7 +462,7 @@ function ConceptView({
   );
 }
 
-export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeConfig }: SyllabusPageProps) {
+export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeConfig, userClass, isLoggedIn = false }: SyllabusPageProps) {
   const [searchParams] = useSearchParams();
   const restoredView = React.useMemo<SyllabusViewState | null>(() => {
     try {
@@ -464,16 +472,72 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       return null;
     }
   }, []);
+
+  const getInitialClass = (): ClassLevel | 'All' => {
+    if (restoredView?.selectedClass) return restoredView.selectedClass;
+    if (userClass && CLASSES.includes(userClass as ClassLevel)) return userClass as ClassLevel;
+    return 'All';
+  };
+
   const [search, setSearch] = useState(restoredView?.search || '');
   const [selectedSubject, setSelectedSubject] = useState<Subject | 'All'>(restoredView?.selectedSubject || 'All');
-  const [selectedClass, setSelectedClass] = useState<ClassLevel | 'All'>(restoredView?.selectedClass || 'All');
+  const [selectedClass, setSelectedClass] = useState<ClassLevel | 'All'>(getInitialClass);
+  // Track if user has manually tapped a class tab in this session — if so, don't override with Firestore sync
+  const hasManuallySelectedClass = useRef(false);
+  // Class-range filter (multi-class via profile ranges) + filter mode
+  const [selectedRanges, setSelectedRanges] = useState<string[]>(() => getStoredRanges());
+  const [filterMode, setFilterMode] = useState<ClassFilterMode>(() => getStoredFilterMode('syllabus', 'selected_only'));
+  // Extra classes the user wants to also see — pre-populated from selectedRanges
+  // so Class 10 user with [class_11_12] tick automatically also sees 11 + 12.
+  const rangesToExtras = (ranges: string[], primary: ClassLevel | 'All'): Set<ClassLevel> => {
+    const all = getSelectedClasses(primary === 'All' ? null : primary, ranges);
+    const out = new Set<ClassLevel>();
+    all.forEach((n) => { if (String(n) !== primary) out.add(String(n) as ClassLevel); });
+    return out;
+  };
+  const [extraClasses, setExtraClasses] = useState<Set<ClassLevel>>(() => rangesToExtras(getStoredRanges(), getInitialClass()));
+
+  React.useEffect(() => {
+    const sync = () => {
+      const r = getStoredRanges();
+      setSelectedRanges(r);
+      setExtraClasses(rangesToExtras(r, selectedClass));
+    };
+    window.addEventListener('storage', sync);
+    return () => window.removeEventListener('storage', sync);
+     
+  }, [selectedClass]);
+
+  // Cloud-first: when userClass prop changes (Firestore sync after sign-in), update the selected class
+  // unless the user has already manually chosen a class tab in this session.
+  React.useEffect(() => {
+    if (!userClass || hasManuallySelectedClass.current) return;
+    if (CLASSES.includes(userClass as ClassLevel)) {
+      setSelectedClass(userClass as ClassLevel);
+      setExtraClasses(rangesToExtras(getStoredRanges(), userClass as ClassLevel));
+    }
+     
+  }, [userClass]);
+
+  const handleModeChange = (m: ClassFilterMode) => {
+    setFilterMode(m);
+    setStoredFilterMode('syllabus', m);
+  };
+
+  // Effective user classes (primary + extra ranges)
+  const userSelectedClasses = React.useMemo(
+    () => getSelectedClasses(userClass, selectedRanges),
+    [userClass, selectedRanges]
+  );
   const [activeConcept, setActiveConcept] = useState<Concept | null>(null);
   const [activeChapter, setActiveChapter] = useState<Chapter | null>(null);
 
-  // PPT Lesson state
-  const [pptLesson, setPptLesson] = useState<PptLesson | null>(null);
+  // PPT Lesson state (Deep V3)
+  const [pptLesson, setPptLesson] = useState<DeepPptLesson | null>(null);
   const [pptLoading, setPptLoading] = useState(false);
   const [pptChapter, setPptChapter] = useState<Chapter | null>(null);
+  const [pptError, setPptError] = useState<string | null>(null);
+  const [conceptError, setConceptError] = useState<string | null>(null);
 
   // Pinned chapters now live in Firestore (cloud-synced across devices).
   // Guests see an empty list and a soft prompt when they try to pin.
@@ -491,7 +555,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   // âœ… On mount: read class from sessionStorage (set by Home page) or URL ?class=N
   // sessionStorage is fine â€” it's per-tab and only used for cross-page navigation.
   React.useEffect(() => {
-    const validClasses: ClassLevel[] = ['5', '6', '7', '8', '9', '10', '11', '12'];
+    const validClasses: ClassLevel[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
     const fromStorage = sessionStorage.getItem('syllab_class_filter');
     const fromUrl = searchParams.get('class');
     const candidate = fromStorage || fromUrl;
@@ -501,12 +565,12 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       setSelectedSubject('All'); // always default subject to All when coming from Home
       sessionStorage.removeItem('syllab_class_filter'); // consume once
     }
-  }, [searchParams]);
+  }, [searchParams, userClass]);
 
   const subjects: (Subject | 'All')[] = React.useMemo(() => {
     const pool = selectedClass === 'All'
       ? syllabus
-      : syllabus.filter(c => c.classLevel === selectedClass);
+      : syllabus.filter(c => c.classLevel === selectedClass || extraClasses.has(c.classLevel as ClassLevel));
     const unique = Array.from(new Set(pool.map(c => c.subject))).sort();
     return ['All', ...unique] as (Subject | 'All')[];
   }, [syllabus, selectedClass]);
@@ -545,13 +609,28 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     }
   }, [subjects, selectedSubject]);
 
-  const filteredChapters = syllabus.filter(chapter => {
-    const matchesSearch = chapter.title.toLowerCase().includes(search.toLowerCase()) ||
-                         (chapter.topics || []).some(t => t.toLowerCase().includes(search.toLowerCase()));
-    const matchesSubject = selectedSubject === 'All' || chapter.subject === selectedSubject;
-    const matchesClass = selectedClass === 'All' || chapter.classLevel === selectedClass;
-    return matchesSearch && matchesSubject && matchesClass;
-  });
+  const filteredChapters = React.useMemo(() => {
+    // First: search + subject + manual class-tab filter
+    const baseFiltered = syllabus.filter(chapter => {
+      const matchesSearch = chapter.title.toLowerCase().includes(search.toLowerCase()) ||
+                           (chapter.topics || []).some(t => t.toLowerCase().includes(search.toLowerCase()));
+      const matchesSubject = selectedSubject === 'All' || chapter.subject === selectedSubject;
+      const matchesClass = selectedClass === 'All'
+        || chapter.classLevel === selectedClass
+        || extraClasses.has(chapter.classLevel as ClassLevel);
+      return matchesSearch && matchesSubject && matchesClass;
+    });
+
+    // Then: apply user's class-range filter mode (only when "All" is selected
+    // in the tab, so the manual tab choice always wins)
+    if (selectedClass !== 'All') return baseFiltered;
+    return filterClassContent(
+      baseFiltered.map(c => ({ ...c, classLevel: Number(c.classLevel) })) as any,
+      userSelectedClasses,
+      filterMode,
+      isLoggedIn,
+    ) as typeof baseFiltered;
+  }, [syllabus, search, selectedSubject, selectedClass, extraClasses, userSelectedClasses, filterMode, isLoggedIn]);
 
   const handlePractice = (chapter: Chapter) => {
     setPracticeConfig({
@@ -590,7 +669,8 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       setActiveConcept(concept);
     } catch (err) {
       console.error('[handleConcept]', err);
-      alert(`Could not load concept for "${chapter.title}". Please check your connection.`);
+      setConceptError(`Could not load concept for "${chapter.title}". Please check your connection.`);
+      setActiveChapter(null);
     } finally {
       setConceptLoading(false);
     }
@@ -598,18 +678,22 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
 
   const handlePptLesson = async (chapter: Chapter) => {
     setPptChapter(chapter);
+    setPptLesson(null);
+    setPptError(null);
     setPptLoading(true);
     try {
-      const lesson = await getPptLesson({
+      const lesson = await getDeepPptLesson({
         classLevel: chapter.classLevel,
         subject: chapter.subject,
         chapterTitle: chapter.title,
         chapterId: chapter.id,
+        topics: [],
+        examGoal: 'CBSE/NCERT',
       });
       setPptLesson(lesson);
     } catch (err) {
       console.error('[handlePptLesson]', err);
-      alert(`Could not load PPT lesson for "${chapter.title}". Please check your connection and retry.`);
+      setPptError(`Could not load PPT lesson for "${chapter.title}". The AI is generating it — please try again in a moment.`);
       setPptChapter(null);
     } finally {
       setPptLoading(false);
@@ -659,6 +743,77 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         )}
       </AnimatePresence>
 
+      {/* PPT Error modal */}
+      <AnimatePresence>
+        {pptError && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 10 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 10 }}
+              className="bg-white rounded-3xl p-8 shadow-2xl max-w-md w-full"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center flex-shrink-0">
+                  <Presentation size={22} className="text-red-500" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-black text-slate-900 text-lg">PPT Lesson Could Not Load</h3>
+                  <p className="text-slate-600 text-sm mt-2 leading-relaxed">{pptError}</p>
+                </div>
+              </div>
+              <div className="mt-6 flex gap-3">
+                <button
+                  onClick={() => setPptError(null)}
+                  className="flex-1 rounded-2xl bg-slate-900 px-5 py-3 font-black text-white text-sm hover:bg-slate-800 transition-colors"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => { setPptError(null); if (pptChapter) handlePptLesson(pptChapter); }}
+                  className="flex-1 rounded-2xl bg-primary px-5 py-3 font-black text-white text-sm hover:bg-primary/90 transition-colors"
+                >
+                  Try Again
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Concept Error modal */}
+      <AnimatePresence>
+        {conceptError && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 10 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 10 }}
+              className="bg-white rounded-3xl p-8 shadow-2xl max-w-md w-full"
+            >
+              <h3 className="font-black text-slate-900 text-lg">Could Not Load Concept</h3>
+              <p className="text-slate-600 text-sm mt-2 leading-relaxed">{conceptError}</p>
+              <button
+                onClick={() => setConceptError(null)}
+                className="mt-5 w-full rounded-2xl bg-slate-900 px-5 py-3 font-black text-white text-sm"
+              >
+                OK
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* PPT loading overlay */}
       <AnimatePresence>
         {pptLoading && (
@@ -691,16 +846,17 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           <WebSlideViewer
             lesson={pptLesson}
             onClose={() => { setPptLesson(null); setPptChapter(null); }}
-            onAskTutor={(question) => {
+            onAskAI={(slideNumber, context) => {
               setPptLesson(null);
               setPptChapter(null);
               openTutor();
-              // Pass context to tutor via sessionStorage
+              const question = context ? `Explain slide ${slideNumber}: ${context}` : `Help me understand slide ${slideNumber}`;
               window.setTimeout(() => {
                 sessionStorage.setItem('syllab_tutor_prefill', question);
                 window.dispatchEvent(new CustomEvent('syllab:tutor-prefill', { detail: question }));
               }, 300);
             }}
+            onPractice={() => { setPptLesson(null); setPptChapter(null); }}
           />
         )}
       </AnimatePresence>
@@ -727,49 +883,49 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl md:text-3xl font-heading font-black mb-1 tracking-tight">ðŸ“š Curriculum Vault</h2>
+          <h2 className="text-2xl md:text-3xl font-heading font-black mb-1 tracking-tight">📚 Curriculum Vault</h2>
           <p className="text-slate-500 font-medium text-sm">
             Deep dive into concepts and practice with <span className="text-primary font-black">{totalQuestions.toLocaleString()}+</span> questions.
           </p>
         </div>
 
-        <div className="relative w-full sm:w-auto">
+        <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 shrink-0" size={18} />
           <input
             type="text"
             placeholder="Search curricula..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 py-2.5 pl-10 pr-4 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 sm:w-64"
+            className="pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all w-64 text-sm"
           />
         </div>
       </div>
 
-      <div className="mt-2 flex max-w-full flex-wrap items-start gap-2 overflow-hidden">
-        <Filter size={16} className="mr-1 mt-3 shrink-0 text-slate-400" />
-        <div className="flex max-w-full flex-wrap items-center gap-1.5 rounded-xl bg-slate-100 p-1">
+      <div className="flex flex-wrap items-center gap-2 mt-2">
+        <Filter size={16} className="text-slate-400 mr-2" />
+        <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 rounded-xl overflow-x-auto">
           {CLASSES.map(c => (
             <button
               key={c}
-              onClick={() => setSelectedClass(c)}
+              onClick={() => { hasManuallySelectedClass.current = true; setSelectedClass(c); setExtraClasses(new Set()); }}
               className={cn(
-                "whitespace-nowrap px-4 py-1.5 rounded-lg text-xs font-bold transition-all",
-                selectedClass === c ? "bg-white text-primary shadow-sm" : "text-slate-500 hover:text-primary"
+                'px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
+                selectedClass === c ? 'bg-white text-primary shadow-sm' : 'text-slate-500 hover:text-primary'
               )}
             >
-              Class {c === 'All' ? 'All' : c}
+              {c === 'All' ? 'All' : 'Class ' + c}
             </button>
           ))}
         </div>
         <div className="w-px h-8 bg-slate-200 mx-2 hidden sm:block" />
-        <div className="flex max-w-full flex-wrap items-center gap-1.5 rounded-xl bg-slate-100 p-1">
+        <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 rounded-xl">
           {subjects.map(s => (
             <button
               key={s}
               onClick={() => setSelectedSubject(s as Subject | 'All')}
               className={cn(
-                "whitespace-nowrap px-4 py-1.5 rounded-lg text-xs font-bold transition-all",
-                selectedSubject === s ? "bg-white text-primary shadow-sm" : "text-slate-500 hover:text-primary"
+                'px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
+                selectedSubject === s ? 'bg-white text-primary shadow-sm' : 'text-slate-500 hover:text-primary'
               )}
             >
               {s}
@@ -777,6 +933,23 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           ))}
         </div>
       </div>
+
+      {isLoggedIn && selectedClass === 'All' && (
+        <ClassFilterBanner
+          selectedClasses={userSelectedClasses}
+          mode={filterMode}
+          onModeChange={handleModeChange}
+          sectionName="syllabus"
+          resultCount={filteredChapters.length}
+          onChangeClass={() => setTab('profile')}
+        />
+      )}
+
+      {selectedClass !== 'All' && (
+        <div className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700">
+          <span>Showing Class {selectedClass} — {filteredChapters.length} chapters</span>
+        </div>
+      )}
 
       {/* âœ… Plain divs (no motion.div layout) â€” massive perf gain when 100+ chapters render */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -804,7 +977,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
                   chapter.subject === 'Biology' ? "bg-emerald-50 text-emerald-600 border-emerald-100" :
                   "bg-violet-50 text-violet-600 border-violet-100"
                 )}>
-                  {chapter.subject} â€¢ Class {chapter.classLevel}
+                  {chapter.subject} &middot; Class {chapter.classLevel}
                 </span>
               </div>
             </div>

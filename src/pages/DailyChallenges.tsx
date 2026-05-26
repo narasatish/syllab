@@ -2,7 +2,7 @@
 import { Award, BookOpenCheck, Brain, CalendarDays, CheckCircle2, Clock, Flame, Medal, RotateCcw, Trophy, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
-import { collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, limit, query, serverTimestamp, setDoc, where } from 'firebase/firestore';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
@@ -56,13 +56,13 @@ interface DailyChallengesPageProps {
 }
 
 const CATEGORIES: { id: ChallengeCategory; title: string; desc: string; icon: React.ElementType }[] = [
-  { id: 'EAMCET', title: 'EAMCET', desc: '3 daily questions: maths, physics, chemistry.', icon: Flame },
-  { id: 'IIT JEE', title: 'IIT JEE', desc: '3 daily questions: maths, physics, chemistry.', icon: Brain },
-  { id: 'NEET', title: 'NEET', desc: '3 daily questions: biology, chemistry, physics.', icon: BookOpenCheck },
+  { id: 'EAMCET', title: 'EAMCET', desc: '10 daily questions: maths, physics, chemistry.', icon: Flame },
+  { id: 'IIT JEE', title: 'IIT JEE', desc: '10 daily questions: maths, physics, chemistry.', icon: Brain },
+  { id: 'NEET', title: 'NEET', desc: '10 daily questions: biology, chemistry, physics.', icon: BookOpenCheck },
   { id: 'Classes 5-10', title: 'Classes 5th to 10th', desc: 'Choose class, then get aptitude and foundation questions.', icon: Award },
 ];
 
-const CLASS_LEVELS = ['5', '6', '7', '8', '9', '10'];
+const CLASS_LEVELS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 const STORAGE_KEY = 'syllab_daily_challenge_profile';
 
 function todayKey(date = new Date()) {
@@ -83,7 +83,7 @@ function dayOffset(dateKey: string) {
 function rotateQuestions(bank: DailyQuestion[], dateKey: string) {
   if (bank.length <= 3) return bank;
   const offset = dayOffset(dateKey) % bank.length;
-  return [...bank.slice(offset), ...bank.slice(0, offset)].slice(0, 3);
+  return [...bank.slice(offset), ...bank.slice(0, offset)].slice(0, 10);
 }
 
 function questionsFor(category: ChallengeCategory, classLevel: string, dateKey: string) {
@@ -96,11 +96,21 @@ function questionsFor(category: ChallengeCategory, classLevel: string, dateKey: 
     NEET: ['Biology', 'Chemistry', 'Physics'],
   };
   const offset = dayOffset(dateKey);
-  return subjectOrder[category].flatMap((subject) => {
+  const allQs: DailyQuestion[] = [];
+  subjectOrder[category].forEach((subject) => {
     const pool = QUESTION_EXAM_BANK[category][subject] || [];
-    if (!pool.length) return [];
-    return pool[offset % pool.length];
+    if (!pool.length) return;
+    // Take questions from multiple days to reach ~10 total
+    const questionsPerSubject = Math.ceil(10 / subjectOrder[category].length);
+    for (let i = 0; i < questionsPerSubject; i++) {
+      const dayPool = pool[(offset + i) % pool.length];
+      if (Array.isArray(dayPool)) allQs.push(...dayPool);
+      else if (dayPool) allQs.push(dayPool as DailyQuestion);
+    }
   });
+  // Deduplicate by id and cap at 10
+  const seen = new Set<string>();
+  return allQs.filter(q => q?.id && !seen.has(q.id) && seen.add(q.id)).slice(0, 10);
 }
 
 function emptyProfile(): ChallengeProfile {
@@ -182,7 +192,7 @@ async function saveProfile(user: FirebaseUser | null, profile: ChallengeProfile)
 }
 
 function sortLeaderboard(entries: LeaderboardEntry[]) {
-  return entries.sort((a, b) => b.points - a.points || (a.durationSeconds ?? 180 - a.secondsLeft) - (b.durationSeconds ?? 180 - b.secondsLeft));
+  return entries.sort((a, b) => b.points - a.points || (a.durationSeconds ?? 600 - a.secondsLeft) - (b.durationSeconds ?? 600 - b.secondsLeft));
 }
 
 async function loadOverallLeaderboard(date: string): Promise<LeaderboardEntry[]> {
@@ -213,22 +223,26 @@ async function loadUserLeaderboardEntries(user: FirebaseUser | null): Promise<Le
 
 async function publishLeaderboardEntry(user: FirebaseUser | null, attempt: Attempt) {
   if (!user || !FIRESTORE_FEATURES_ENABLED) return;
-  const entryId = `${user.uid}_${attempt.date}_${attempt.category}_${attempt.classLevel || 'exam'}`.replace(/\s+/g, '-');
-  const points = attempt.score * 1000 + attempt.secondsLeft;
-  await setDoc(doc(db, 'dailyChallengeLeaderboard', entryId), {
-    userId: user.uid,
-    displayName: user.displayName || user.email || 'Syllab Learner',
-    category: attempt.category,
-    classLevel: attempt.classLevel || '',
-    score: attempt.score,
-    total: attempt.total,
-    secondsLeft: attempt.secondsLeft,
-    durationSeconds: attempt.durationSeconds,
-    date: attempt.date,
-    points,
-    completedAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
-  });
+  try {
+    const entryId = `${user.uid}_${attempt.date}_${attempt.category}_${attempt.classLevel || 'exam'}`.replace(/\s+/g, '-');
+    const points = attempt.score * 1000 + attempt.secondsLeft;
+    await setDoc(doc(db, 'dailyChallengeLeaderboard', entryId), {
+      userId: user.uid,
+      displayName: user.displayName || user.email || 'Syllab Learner',
+      category: attempt.category,
+      classLevel: attempt.classLevel || '',
+      score: attempt.score,
+      total: attempt.total,
+      secondsLeft: attempt.secondsLeft,
+      durationSeconds: attempt.durationSeconds,
+      date: attempt.date,
+      points,
+      completedAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    });
+  } catch (err) {
+    console.error('[Syllab] Failed to publish leaderboard entry:', err);
+  }
 }
 
 function dailyXpFor(score: number, total: number) {
@@ -244,7 +258,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
   const [classLevel, setClassLevel] = React.useState('5');
   const [index, setIndex] = React.useState(0);
   const [answers, setAnswers] = React.useState<Record<string, number>>({});
-  const [timeLeft, setTimeLeft] = React.useState(180);
+  const [timeLeft, setTimeLeft] = React.useState(600);
   const [finished, setFinished] = React.useState(false);
   const [profile, setProfile] = React.useState<ChallengeProfile>(emptyProfile());
   const [overallLeaderboard, setOverallLeaderboard] = React.useState<LeaderboardEntry[]>([]);
@@ -313,7 +327,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
     } else {
       setAnswers({});
       setFinished(false);
-      setTimeLeft(180);
+      setTimeLeft(600);
       setIndex(0);
     }
   }, [key, profile.attempts]);
@@ -336,7 +350,7 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
     setCategory(nextCategory);
     setIndex(0);
     setAnswers({});
-    setTimeLeft(180);
+    setTimeLeft(600);
     setFinished(false);
   };
 
@@ -386,6 +400,22 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
       console.error('Daily challenge leaderboard sync failed.', error);
     }
 
+    // Write to userActivities so Progress + parent dashboard track daily challenge
+    if (currentUser && FIRESTORE_FEATURES_ENABLED) {
+      try {
+        await addDoc(collection(db, 'userActivities'), {
+          userId: currentUser.uid,
+          type: 'daily_challenge',
+          title: `Daily Challenge — ${category}`,
+          subject: category,
+          score,
+          total: questions.length,
+          completedAt: serverTimestamp(),
+        });
+      } catch { /* non-fatal */ }
+    }
+    window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
+
     if (leaderboardSyncFailed) {
       setSaveError('Score saved on this screen, but ranking publish failed. Check Firestore rules/env for Daily Dose.');
     } else {
@@ -404,10 +434,25 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
   return (
     <main className="space-y-8 pb-12">
       <SEO
-        title="Daily Challenges for EAMCET, IIT JEE, NEET and Classes 5-10"
-        description="Solve daily timed quizzes for EAMCET, IIT JEE, NEET, and Classes 5th to 10th with streaks, scores, explanations, and rankings."
-        keywords="daily quiz, EAMCET practice, IIT JEE questions, NEET quiz, aptitude questions class 5 to 10"
+        title="Daily Challenges — JEE, NEET, EAMCET & School Quiz | Syllab.in"
+        description="Solve free daily timed quizzes for IIT JEE, NEET, EAMCET and Classes 5 to 10. Build streaks, earn XP, see your rank and get instant explanations — every day."
+        keywords="daily quiz India, EAMCET practice questions, IIT JEE daily questions, NEET quiz free, aptitude questions class 5 to 10, daily challenge students, JEE daily practice, study streak"
         url="https://syllab.in/daily-challenges"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Course',
+          name: 'Daily Challenges — JEE NEET EAMCET & School Quiz',
+          description: 'Daily timed quizzes for JEE, NEET, EAMCET and school students. Build streaks and earn XP with daily practice.',
+          url: 'https://syllab.in/daily-challenges',
+          provider: { '@type': 'Organization', name: 'Syllab.in', url: 'https://syllab.in' },
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+          hasCourseInstance: [
+            { '@type': 'CourseInstance', name: 'JEE Daily Challenge', courseMode: 'online' },
+            { '@type': 'CourseInstance', name: 'NEET Daily Challenge', courseMode: 'online' },
+            { '@type': 'CourseInstance', name: 'EAMCET Daily Challenge', courseMode: 'online' },
+            { '@type': 'CourseInstance', name: 'School Aptitude Daily Quiz', courseMode: 'online' },
+          ],
+        }}
       />
 
       <section className="rounded-[2rem] bg-slate-900 p-6 text-white shadow-2xl sm:p-8">

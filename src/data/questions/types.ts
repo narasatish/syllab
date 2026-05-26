@@ -1,5 +1,5 @@
 export type ExamCategory = "IIT JEE" | "EAMCET" | "NEET";
-export type DailyCategory = ExamCategory | "Classes 5-10";
+export type DailyCategory = ExamCategory | "Classes 5-10" | "Classes 1-4";
 export type QuestionSubject =
   | "Mathematics"
   | "Physics"

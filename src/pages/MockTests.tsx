@@ -196,6 +196,16 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
         type: examType,
         completedAt: serverTimestamp(),
       });
+      // Also write to userActivities so All Activity + parent dashboard track exams/olympiads
+      await addDoc(collection(db, 'userActivities'), {
+        userId: currentUser.uid,
+        type: examType,
+        title,
+        subject: config?.subjects?.[0] || examType,
+        score,
+        total,
+        completedAt: serverTimestamp(),
+      });
       window.dispatchEvent(new CustomEvent('syllab:progress-updated'));
     } catch (err) {
       console.error('[Syllab] Failed to save exam result to Firestore:', err);

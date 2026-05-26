@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Database, FileUp, Cpu, CheckCircle2, AlertTriangle, Loader2, Sparkles } from 'lucide-react';
+import SEO from '../seo/SEO';
 import { motion } from 'motion/react';
 import { cn } from '../lib/utils';
 
@@ -50,6 +51,12 @@ export default function AdminPipelinePage() {
 
   return (
     <div className="max-w-6xl mx-auto space-y-12 pb-24">
+      <SEO
+        title="Admin Pipeline | Syllab"
+        description="Admin tooling for reviewing learning content and generation workflows."
+        url="https://syllab.in/admin"
+        noindex
+      />
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-white rounded-full text-[10px] font-black uppercase tracking-widest">

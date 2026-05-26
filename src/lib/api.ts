@@ -73,8 +73,17 @@ async function get<T = any>(path: string): Promise<T> {
 /* ───────────── Tutor ───────────── */
 
 export async function askTutor(prompt: string, history: ChatTurn[] = []): Promise<string> {
-  const data = await post<{ text: string }>("/api/tutor", { prompt, history });
-  return data.text || "";
+  const slowTimer = window.setTimeout(() => {
+    window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'askTutor' } }));
+  }, 5000);
+
+  try {
+    const data = await post<{ text: string }>("/api/tutor", { prompt, history });
+    return data.text || "";
+  } finally {
+    window.clearTimeout(slowTimer);
+    window.dispatchEvent(new CustomEvent('syllab:ai-fast', { detail: { source: 'askTutor' } }));
+  }
 }
 
 /* ───────────── Practice Arena ───────────── */
@@ -89,7 +98,16 @@ export interface GenerateQuestionsArgs {
 }
 
 export async function generateQuestions(args: GenerateQuestionsArgs): Promise<{ questions: MCQ[] }> {
-  return post<{ questions: MCQ[] }>("/api/questions/batch", args);
+  const slowTimer = window.setTimeout(() => {
+    window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'generateQuestions' } }));
+  }, 5000);
+
+  try {
+    return await post<{ questions: MCQ[] }>("/api/questions/batch", args);
+  } finally {
+    window.clearTimeout(slowTimer);
+    window.dispatchEvent(new CustomEvent('syllab:ai-fast', { detail: { source: 'generateQuestions' } }));
+  }
 }
 
 /* ───────────── Scan & Solve ───────────── */
@@ -139,9 +157,31 @@ export interface LoadConceptArgs {
 }
 
 export async function loadConcept(args: LoadConceptArgs): Promise<any> {
-  const data = await post<{ concept: any }>("/api/concept", args);
-  if (!data.concept) throw new Error("No concept returned");
-  return data.concept;
+  const controller = new AbortController();
+  const abortTimer = setTimeout(() => controller.abort(), 90_000);
+  const slowTimer = window.setTimeout(() => {
+    window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'loadConcept' } }));
+  }, 5000);
+
+  try {
+    const res = await fetch(`${API_URL}/api/concept`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(args),
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      const errText = await res.text().catch(() => '');
+      throw new Error(`API /api/concept ${res.status}: ${errText.slice(0, 200)}`);
+    }
+    const data = await res.json();
+    if (!data.concept) throw new Error('No concept returned');
+    return data.concept;
+  } finally {
+    clearTimeout(abortTimer);
+    clearTimeout(slowTimer);
+    window.dispatchEvent(new CustomEvent('syllab:ai-fast', { detail: { source: 'loadConcept' } }));
+  }
 }
 
 /* ───────────── Dashboard stats ───────────── */
@@ -194,6 +234,87 @@ export async function getPptLesson(args: GetPptLessonArgs): Promise<PptLesson> {
   return data.lesson;
 }
 
+/* ───────────── English Voice Feedback ───────────── */
+
+export interface EnglishFeedback {
+  correction: string;
+  explanation: string;
+  encouragement: string;
+  betterVersion?: string;
+}
+
+export interface EnglishChatTurn {
+  role: 'student' | 'teacher';
+  text: string;
+}
+
+/**
+ * Conversational reply — the AI acts as a friendly chat partner who asks
+ * follow-up questions and keeps the conversation flowing. No grammar critique
+ * unless there's a major error. Returns a single short spoken response.
+ */
+export async function getEnglishConversationReply(
+  transcript: string,
+  history: EnglishChatTurn[],
+  context?: string,
+): Promise<string> {
+  const recentHistory = history.slice(-8).map(t => `${t.role === 'student' ? 'Student' : 'Teacher'}: ${t.text}`).join('\n');
+  const prompt = `You are a warm, friendly English conversation partner for an Indian school student. Your job is to have a NATURAL spoken conversation — like a friend chatting. Do NOT correct grammar unless it is a major confusion. Keep replies SHORT (1-2 sentences max) so the student speaks more than you do. Always end with a question or invitation so the student replies back.
+
+${context ? `Conversation topic: ${context}\n` : ''}${recentHistory ? `Recent conversation:\n${recentHistory}\n` : ''}
+Student just said: "${transcript}"
+
+Respond with ONLY your spoken reply (no JSON, no labels, no explanation). 1-2 sentences. End with a question that invites the student to talk more.`;
+
+  const raw = await askTutor(prompt, []);
+  // Strip any accidental JSON/markdown wrapping
+  return raw.replace(/```[a-z]*\n?|\n?```/g, '').replace(/^["']|["']$/g, '').trim();
+}
+
+/**
+ * Opening line — AI starts the conversation with a warm greeting + topic question.
+ */
+export async function getEnglishConversationOpener(context?: string): Promise<string> {
+  const prompt = `You are a warm, friendly English conversation partner for an Indian school student starting a spoken practice session.${context ? ` The topic is: "${context}".` : ''} Start the conversation with a warm 1-sentence greeting AND a clear open-ended question. Total 1-2 sentences. Just the spoken text — no labels, no JSON.`;
+  const raw = await askTutor(prompt, []);
+  return raw.replace(/```[a-z]*\n?|\n?```/g, '').replace(/^["']|["']$/g, '').trim();
+}
+
+export async function getEnglishVoiceFeedback(transcript: string, context?: string): Promise<EnglishFeedback> {
+  const prompt = `You are a friendly, encouraging English teacher AI for Indian school students.
+
+The student just said or wrote: "${transcript}"
+${context ? `Context / task: ${context}` : ''}
+
+Evaluate their English briefly and helpfully. Respond in this exact JSON format (no markdown, just JSON):
+{
+  "correction": "If there are grammar/vocabulary mistakes, gently point them out. If correct, say 'Great grammar!'",
+  "explanation": "One short explanation of the grammar rule or vocabulary tip.",
+  "encouragement": "One friendly, motivating sentence to keep the student going.",
+  "betterVersion": "If improvements exist, write the corrected/improved version. If already good, omit this field or set to null."
+}
+
+Keep each field to 1-2 sentences. Be warm and encouraging. Use simple language.`;
+
+  const raw = await askTutor(prompt, []);
+  try {
+    const cleaned = raw.replace(/```json\n?|\n?```/g, '').trim();
+    const parsed = JSON.parse(cleaned) as EnglishFeedback;
+    return {
+      correction: parsed.correction || 'Good effort!',
+      explanation: parsed.explanation || '',
+      encouragement: parsed.encouragement || 'Keep practicing!',
+      betterVersion: parsed.betterVersion || undefined,
+    };
+  } catch {
+    return {
+      correction: raw.slice(0, 200),
+      explanation: '',
+      encouragement: 'Keep practicing — you\'re doing great!',
+    };
+  }
+}
+
 /* ───────────── Coding Feedback ───────────── */
 
 export interface CodingFeedback {
@@ -214,5 +335,14 @@ export interface GetCodingFeedbackArgs {
 }
 
 export async function getCodingFeedback(args: GetCodingFeedbackArgs): Promise<CodingFeedback> {
-  return post<CodingFeedback>('/api/coding-feedback', args);
+  const slowTimer = window.setTimeout(() => {
+    window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'getCodingFeedback' } }));
+  }, 5000);
+
+  try {
+    return await post<CodingFeedback>('/api/coding-feedback', args);
+  } finally {
+    window.clearTimeout(slowTimer);
+    window.dispatchEvent(new CustomEvent('syllab:ai-fast', { detail: { source: 'getCodingFeedback' } }));
+  }
 }

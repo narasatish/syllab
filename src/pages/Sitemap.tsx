@@ -1,6 +1,7 @@
 import React from 'react';
 import { SYLLABUS } from '../data/syllabus';
 import { Map, Link as LinkIcon, ExternalLink, ChevronRight } from 'lucide-react';
+import SEO from '../seo/SEO';
 
 export default function SitemapPage({ setTab }: { setTab: (tab: string) => void }) {
   const subjects = Array.from(new Set(SYLLABUS.map(s => s.subject)));
@@ -8,6 +9,12 @@ export default function SitemapPage({ setTab }: { setTab: (tab: string) => void 
 
   return (
     <div className="space-y-12 pb-24 max-w-6xl mx-auto">
+      <SEO
+        title="Syllab.in Sitemap — All Pages, Subjects & Classes"
+        description="Full sitemap of Syllab.in covering all classes, subjects, learning modules, exam hubs, blog posts, and study tools."
+        keywords="Syllab sitemap, all pages, classes subjects, CBSE learning pages"
+        url="https://syllab.in/sitemap"
+      />
       <header className="text-center space-y-4">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-[10px] font-black uppercase tracking-[0.2em] border border-primary/20">
           <Map size={14} /> Global Taxonomy

@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
+  sendPasswordResetEmail,
   setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -131,18 +132,24 @@ const normalizeAuthError = (error: unknown, mapper = mapError) => {
 };
 
 // ========== USER PROFILE INIT ==========
-export const initializeUser = async (user: Pick<User, 'uid'>) => {
+export const initializeUser = async (user: Pick<User, 'uid' | 'email' | 'displayName'>) => {
   const ref = doc(db, 'users', user.uid);
   const snap = await getDoc(ref);
+  // Normalise email to lowercase for consistent queries
+  const emailLower = (user.email || '').toLowerCase().trim();
 
   if (!snap.exists()) {
-    // Must match firestore.rules validShape(): both createdAt and updatedAt
-    // must equal request.time (i.e. serverTimestamp()).
+    // New user — create doc with email so parent-child lookup works
     await setDoc(ref, {
       ...DEFAULT_USER_STATS,
+      email: emailLower,
+      displayName: user.displayName || '',
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     });
+  } else if (emailLower && !snap.data().email) {
+    // Backfill email for existing users who were created without it
+    await setDoc(ref, { email: emailLower, updatedAt: serverTimestamp() }, { merge: true });
   }
 };
 
@@ -158,11 +165,11 @@ export const initializeProgress = async (userId: string) => {
   }
 };
 
-export const ensureUserDocuments = async (user: Pick<User, 'uid'>) => {
+export const ensureUserDocuments = async (user: Pick<User, 'uid' | 'email' | 'displayName'>) => {
   await Promise.all([initializeUser(user), initializeProgress(user.uid)]);
 };
 
-export const tryEnsureUserDocuments = async (user: Pick<User, 'uid'>) => {
+export const tryEnsureUserDocuments = async (user: Pick<User, 'uid' | 'email' | 'displayName'>) => {
   if (!FIRESTORE_FEATURES_ENABLED) return false;
   try {
     await ensureUserDocuments(user);
@@ -178,6 +185,7 @@ export const signInWithGoogle = async () => {
   await authPersistenceReady;
   try {
     const result = await signInWithPopup(auth, googleProvider);
+    // Pass full user so email + displayName are stored in Firestore doc
     await tryEnsureUserDocuments(result.user);
     return result.user;
   } catch (error) {
@@ -213,28 +221,136 @@ export const signInWithEmail = async (email: string, password: string) => {
 
 export const logout = async () => {
   await auth.signOut();
+
+  // Clear all syllab_* localStorage keys for privacy
+  try {
+    Object.keys(localStorage)
+      .filter((k) => k.startsWith('syllab_'))
+      .forEach((k) => localStorage.removeItem(k));
+  } catch {
+    // localStorage may be unavailable in some environments
+  }
+};
+
+/**
+ * Send a branded welcome email via the Syllab backend (Resend).
+ * Fire-and-forget — failure is non-fatal.
+ */
+export const sendWelcomeEmail = async (email: string, displayName: string) => {
+  try {
+    await fetch(`${API_BASE_URL}/api/auth/send-welcome-email`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, displayName, from: 'support@syllab.in' }),
+    });
+  } catch {
+    // Non-fatal: welcome email is best-effort
+  }
+};
+
+/**
+ * Ensure email is written to the user's Firestore doc.
+ * Called on every auth state change so existing users get backfilled
+ * without needing to sign out and back in.
+ */
+export const syncUserEmail = async (uid: string, email: string | null) => {
+  if (!FIRESTORE_FEATURES_ENABLED || !email) return;
+  try {
+    const emailLower = email.toLowerCase().trim();
+    const ref = doc(db, 'users', uid);
+    const snap = await getDoc(ref);
+    if (snap.exists() && !snap.data().email) {
+      await setDoc(ref, { email: emailLower, updatedAt: serverTimestamp() }, { merge: true });
+      console.info('[Syllab] Email backfilled to Firestore for parent-child lookup.');
+    }
+  } catch (err) {
+    console.warn('[Syllab] syncUserEmail failed (non-fatal):', err);
+  }
 };
 
 // Calls the backend, which generates the reset link via Firebase Admin SDK
 // and sends a branded email via Resend. Frontend never sees whether the
-// email exists — the backend always returns success to prevent enumeration.
+// Always uses Firebase's own sendPasswordResetEmail (instant, reliable, no backend needed).
+// Simultaneously fires the branded backend email as best-effort so the user gets whichever arrives first.
 export const resetPassword = async (email: string) => {
-  try {
-    const normalizedEmail = validateEmail(email);
+  const normalizedEmail = validateEmail(email);
 
-    const res = await fetch(`${API_BASE_URL}/api/auth/send-reset-email`, {
+  // 1. Firebase native reset — guaranteed delivery, works even if backend is down
+  await sendPasswordResetEmail(auth, normalizedEmail, {
+    url: 'https://syllab.in',
+    handleCodeInApp: false,
+  });
+
+  // 2. Branded Resend email — fire-and-forget, non-fatal
+  fetch(`${API_BASE_URL}/api/auth/send-reset-email`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: normalizedEmail }),
+  }).catch(() => {/* non-fatal */});
+};
+
+/**
+ * Subscribe an email address to the Syllab weekly newsletter.
+ * Writes directly to Firestore (no backend round-trip → no Render cold-start 503).
+ * Falls back to the backend API when Firestore is disabled.
+ */
+export const subscribeToNewsletter = async (
+  email: string,
+  classLevel?: string,
+  role?: 'student' | 'parent',
+): Promise<{ success: boolean; error?: string }> => {
+  const normalizedEmail = email.toLowerCase().trim();
+  if (!normalizedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)) {
+    return { success: false, error: 'Enter a valid email address' };
+  }
+
+  // Direct Firestore write — instant, no sleeping backend
+  if (FIRESTORE_FEATURES_ENABLED) {
+    try {
+      await addDoc(collection(db, 'newsletters'), {
+        email: normalizedEmail,
+        classLevel: classLevel || '',
+        role: role || '',
+        active: true,
+        subscribedAt: serverTimestamp(),
+      });
+      return { success: true };
+    } catch {
+      // Fall through to backend
+    }
+  }
+
+  // Backend fallback
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/newsletter/subscribe`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: normalizedEmail }),
+      body: JSON.stringify({ email: normalizedEmail, classLevel, role }),
     });
+    const data = await res.json().catch(() => ({}));
+    return { success: data.success === true };
+  } catch {
+    return { success: false, error: 'Network error' };
+  }
+};
 
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      throw new Error(data.error || 'Could not send reset email. Please try again.');
-    }
-  } catch (error) {
-    if (error instanceof Error) throw error;
-    throw new Error('Could not send reset email. Please try again.', { cause: error });
+/**
+ * Send a parent invitation email via the backend.
+ * Called when a child sends a parent request.
+ */
+export const sendParentInvitationEmail = async (
+  parentEmail: string,
+  childName: string,
+  childUid: string,
+): Promise<void> => {
+  try {
+    await fetch(`${API_BASE_URL}/api/auth/send-parent-invitation`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ parentEmail, childName, childUid }),
+    });
+  } catch {
+    // Non-fatal
   }
 };
 
@@ -336,16 +452,20 @@ export const recordMistake = async (
   question: Pick<Question, 'id' | 'options' | 'correct_index' | 'subject' | 'chapter_id' | 'question_text'>,
   selectedOption: string,
 ) => {
-  await addDoc(collection(db, 'mistakes'), {
-    userId,
-    questionId: question.id,
-    chapterId: question.chapter_id,
-    subject: question.subject,
-    questionText: question.question_text,
-    selectedOption,
-    correctOption: question.options[question.correct_index] ?? '',
-    timestamp: serverTimestamp(),
-  });
+  try {
+    await addDoc(collection(db, 'mistakes'), {
+      userId,
+      questionId: question.id,
+      chapterId: question.chapter_id,
+      subject: question.subject,
+      questionText: question.question_text,
+      selectedOption,
+      correctOption: question.options[question.correct_index] ?? '',
+      timestamp: serverTimestamp(),
+    });
+  } catch (err) {
+    console.error('[Syllab] Failed to record mistake:', err);
+  }
 };
 
 export interface MistakeRecord {
@@ -386,11 +506,15 @@ export const saveQuizSession = async (
   userId: string,
   session: Omit<QuizSession, 'userId' | 'updatedAt'>,
 ) => {
-  await setDoc(doc(db, 'quizSessions', userId), {
-    ...session,
-    userId,
-    updatedAt: serverTimestamp(),
-  });
+  try {
+    await setDoc(doc(db, 'quizSessions', userId), {
+      ...session,
+      userId,
+      updatedAt: serverTimestamp(),
+    });
+  } catch (err) {
+    console.error('[Syllab] Failed to save quiz session:', err);
+  }
 };
 
 export const getPausedSession = async (userId: string): Promise<QuizSession | null> => {

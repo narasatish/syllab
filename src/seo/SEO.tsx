@@ -9,6 +9,8 @@ export interface SEOProps {
   image?: string;
   type?: SEOType;
   keywords?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 export default function SEO({
@@ -18,6 +20,8 @@ export default function SEO({
   image,
   type = 'website',
   keywords,
+  jsonLd,
+  noindex = false,
 }: SEOProps) {
   const finalTitle = title.toLowerCase().includes('syllab') ? title : `${title} | Syllab`;
 
@@ -26,7 +30,7 @@ export default function SEO({
       <title>{finalTitle}</title>
       <meta name="description" content={description} />
       {keywords ? <meta name="keywords" content={keywords} /> : null}
-      <meta name="robots" content="index,follow,max-image-preview:large" />
+      <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
       <link rel="canonical" href={url} />
 
       <meta property="og:title" content={finalTitle} />
@@ -41,6 +45,17 @@ export default function SEO({
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={description} />
       {image ? <meta name="twitter:image" content={image} /> : null}
+
+      <meta name="author" content="Syllab.in" />
+      <meta property="og:site_name" content="Syllab.in" />
+      {!image ? <meta property="og:image" content="https://syllab.in/og-image.svg" /> : null}
+      {!image ? <meta name="twitter:image" content="https://syllab.in/og-image.svg" /> : null}
+
+      {jsonLd ? (
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      ) : null}
     </Helmet>
   );
 }

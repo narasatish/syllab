@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, BookOpen, Target, Trophy, Star, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, BookOpen, Target, Trophy, CheckCircle2 } from 'lucide-react';
 import SEO from '../components/SEO';
 
 interface ClassData {
@@ -12,6 +12,54 @@ interface ClassData {
 }
 
 const CLASS_DATA: Record<number, ClassData> = {
+  1: {
+    subjects: ['Mathematics', 'EVS (Environmental Studies)', 'English', 'Hindi'],
+    description: 'Class 1 is the very first year of formal schooling. Children learn number recognition, basic addition and subtraction, the alphabet, simple words, and explore their world through fun activities and EVS.',
+    keyTopics: ['Numbers 1–100', 'Basic Addition and Subtraction', 'Shapes and Space', 'My Body and Family', 'Plants and Animals', 'Alphabet and Simple Words'],
+    importantChapters: [
+      { subject: 'Mathematics', chapters: ['Shapes and Space', 'Numbers from One to Nine', 'Addition', 'Subtraction', 'Numbers from Ten to Twenty', 'Time', 'Measurement'] },
+      { subject: 'EVS', chapters: ['My Body', 'Plants around Me', 'Animals around Me', 'My Family and Home'] },
+      { subject: 'English', chapters: ['A Happy Child', 'After a Bath', 'One Little Kitten', 'Moo'] },
+    ],
+    examInfo: 'Class 1 uses Continuous Comprehensive Evaluation (CCE). No formal board exams. Assessment is through activities, oral tests, drawings, and short written tasks. The focus is on joyful learning.',
+    tips: ['Practice writing numbers 1–100 every day', 'Read aloud for 10–15 minutes daily', 'Draw and label shapes, animals, and plants', 'Use real objects (coins, blocks) to learn addition and subtraction'],
+  },
+  2: {
+    subjects: ['Mathematics', 'EVS (Environmental Studies)', 'English', 'Hindi'],
+    description: 'Class 2 builds on Class 1 by strengthening reading, writing, and arithmetic. Students learn two-digit arithmetic, simple sentences, patterns, and explore their surroundings through activity-based learning.',
+    keyTopics: ['Numbers up to 100', 'Two-digit Addition and Subtraction', 'Patterns and Shapes', 'Time and Money', 'My Family and Relationships', 'Plants, Animals and Water'],
+    importantChapters: [
+      { subject: 'Mathematics', chapters: ['What is Long, What is Round?', 'Counting in Groups', 'How Much Can You Carry?', 'Counting in Tens', 'Patterns', 'Footprints', 'Jugs and Mugs'] },
+      { subject: 'EVS', chapters: ['My School', 'Our Environment', 'Air and Water', 'Animals and Their Food'] },
+      { subject: 'English', chapters: ['First Day at School', 'Haldi\'s Adventure', 'I am Lucky!', 'A Smile'] },
+    ],
+    examInfo: 'Class 2 has activity-based assessment. Learning is evaluated through projects, oral responses, drawings, and simple written tests. NCERT "Math Magic" and EVS books are the main textbooks.',
+    tips: ['Practice two-digit addition with carrying', 'Build vocabulary by reading short illustrated stories', 'Identify patterns in tiles, clothes, and nature', 'Write simple 3–5 word sentences every day'],
+  },
+  3: {
+    subjects: ['Mathematics', 'EVS (Environmental Studies)', 'English', 'Hindi'],
+    description: 'Class 3 introduces multiplication tables, three-digit numbers, and simple fractions. EVS expands to cover plants, water, shelter, and the planet, helping students connect learning to everyday life.',
+    keyTopics: ['3-Digit Numbers', 'Multiplication Tables 1–10', 'Introduction to Fractions', 'Time and Calendar', 'Water and Earth', 'Food and Shelter'],
+    importantChapters: [
+      { subject: 'Mathematics', chapters: ['Where to Look From', 'Fun with Numbers', 'Give and Take', 'Long and Short', 'Shapes and Designs', 'Time Goes On', 'Who is Heavier?'] },
+      { subject: 'EVS', chapters: ['Poonam\'s Day Out', 'The Plant Fairy', 'Water O Water', 'Our First School', 'Chhotu\'s House', 'A Treat for Mosquitoes'] },
+      { subject: 'English', chapters: ['Good Morning', 'The Magic Garden', 'Bird Talk', 'The Enormous Turnip', 'The Yellow Butterfly'] },
+    ],
+    examInfo: 'Class 3 is assessed through term exams and class activities. NCERT "Math Magic" and "Looking Around" are key textbooks. Regular practice of multiplication tables is essential for Class 4 and beyond.',
+    tips: ['Memorize multiplication tables 1–12 thoroughly', 'Practice reading comprehension passages aloud', 'Draw and label diagrams for EVS topics like plants and animals', 'Learn to tell time on an analog clock'],
+  },
+  4: {
+    subjects: ['Mathematics', 'EVS (Environmental Studies)', 'English', 'Hindi'],
+    description: 'Class 4 strengthens multiplication, introduces long division, and covers basic geometry. EVS covers states of matter, transport, trees and forests, and social awareness topics.',
+    keyTopics: ['4-Digit Numbers', 'Multiplication and Division', 'Basic Fractions and Halves', 'Geometry and Measurement', 'Water and Its Forms', 'Trees, Transport and Environment'],
+    importantChapters: [
+      { subject: 'Mathematics', chapters: ['Building with Bricks', 'Long and Short', 'A Trip to Bhopal', 'Tick-Tick-Tick', 'The Way the World Looks', 'The Junk Seller', 'Jugs and Mugs', 'Halves and Quarters'] },
+      { subject: 'EVS', chapters: ['Going to School', 'Ear to Ear', 'A Day with Nandu', 'The Story of Amrita', 'Anita and the Honeybees', 'Hungry Planet', 'From the Window'] },
+      { subject: 'English', chapters: ['Wake Up!', 'Noses', 'Run!', 'The Donkey', 'Pinocchio', 'Don\'t be Afraid of the Dark'] },
+    ],
+    examInfo: 'Class 4 has school-level term exams. NCERT "Math Magic" and "Looking Around" are the main textbooks. Understanding concepts is more important than memorization at this stage.',
+    tips: ['Practice long division with step-by-step working', 'Use a pizza or chapati to understand fractions visually', 'Read EVS chapters carefully — questions are practical and real-world', 'Learn basic unit conversions for length (cm, m), weight (g, kg), and capacity (ml, l)'],
+  },
   5: {
     subjects: ['Mathematics', 'EVS (Environmental Studies)', 'English', 'Hindi'],
     description: 'Class 5 is the foundation year for CBSE primary education. Students learn number operations, geometry basics, environmental awareness, and language skills that form the base for all future learning.',
@@ -119,7 +167,6 @@ export default function ClassPage({ classNum, setTab }: ClassPageProps) {
   const data = CLASS_DATA[classNum];
   if (!data) return null;
 
-  const isHighSchool = classNum >= 9;
   const isCompetitive = classNum >= 11;
 
   return (
@@ -164,7 +211,7 @@ export default function ClassPage({ classNum, setTab }: ClassPageProps) {
           <button
             onClick={() => {
               sessionStorage.setItem('syllab_class_filter', String(classNum));
-              setTab && setTab('syllabus');
+              if (setTab) setTab('syllabus');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-4 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-transform shadow-lg"
@@ -304,7 +351,7 @@ export default function ClassPage({ classNum, setTab }: ClassPageProps) {
           <button
             onClick={() => {
               sessionStorage.setItem('syllab_class_filter', String(classNum));
-              setTab && setTab('syllabus');
+              if (setTab) setTab('syllabus');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className="p-6 bg-emerald-500 text-white rounded-3xl text-left active:scale-95 transition-transform group"
@@ -334,12 +381,12 @@ export default function ClassPage({ classNum, setTab }: ClassPageProps) {
         {/* Other Classes */}
         <div className="bg-slate-50 rounded-3xl p-6 sm:p-8">
           <h2 className="text-lg font-black text-slate-900 mb-4">Other Classes</h2>
-          <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
-            {[5, 6, 7, 8, 9, 10, 11, 12].map((c) => (
+          <div className="grid grid-cols-6 sm:grid-cols-12 gap-2">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((c) => (
               <button
                 key={c}
                 onClick={() => setTab && setTab(`class_${c}`)}
-                className={`p-3 rounded-2xl text-center font-black text-sm transition-all active:scale-95 ${
+                className={`p-2 sm:p-3 rounded-2xl text-center font-black text-sm transition-all active:scale-95 ${
                   c === classNum
                     ? 'bg-emerald-500 text-white shadow-lg'
                     : 'bg-white border border-slate-200 text-slate-600 hover:border-emerald-400'

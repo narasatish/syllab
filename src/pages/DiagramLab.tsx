@@ -116,7 +116,7 @@ export default function DiagramLab() {
                 )}
               >
                 {/* Image */}
-                <div className={cn('relative h-44 overflow-hidden bg-gradient-to-br', diagram.fallbackGradient)}>
+                <div className="relative h-44 overflow-hidden bg-slate-50">
                   {!imgFailed ? (
                     <img
                       src={diagram.imageUrl}
@@ -124,9 +124,15 @@ export default function DiagramLab() {
                       onError={() => setImgErrors((prev) => new Set([...prev, diagram.id]))}
                       className="absolute inset-0 h-full w-full object-contain p-2 transition-transform group-hover:scale-105"
                       loading="lazy"
+                      referrerPolicy="no-referrer"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-6xl">{diagram.emoji}</div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-slate-50">
+                      <div className={cn('h-10 w-10 rounded-xl flex items-center justify-center', colors.badge)}>
+                        <span className="text-lg">🔬</span>
+                      </div>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Diagram coming soon</p>
+                    </div>
                   )}
                 </div>
                 {/* Info */}
