@@ -1,0 +1,132 @@
+#!/usr/bin/env node
+/**
+ * Sitemap generator for syllab.in
+ * Outputs public/sitemap.xml with:
+ *   • Static page URLs (main tabs)
+ *   • Class pages 1-12
+ *   • Per-language Skills Lab landing pages
+ *   • Every individual topic deep link
+ *
+ * Run:  node scripts/generate-sitemap.mjs
+ * Or:   npm run build:sitemap
+ */
+
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname  = path.dirname(__filename);
+const ROOT       = path.resolve(__dirname, '..');
+const SITE       = process.env.VITE_SITE_URL || 'https://syllab.in';
+const OUT        = path.join(ROOT, 'public', 'sitemap.xml');
+
+// ─── Read the tutorials index to discover all topics ─────────────────────────
+async function readTopics() {
+  const indexPath = path.join(ROOT, 'src', 'data', 'tutorials', 'index.ts');
+  const src = await fs.readFile(indexPath, 'utf8');
+
+  // Extract language ids from LANGUAGES array
+  const langIds = [];
+  const langMatches = src.matchAll(/id:\s*['"]([a-z0-9-]+)['"]/gi);
+  for (const m of langMatches) langIds.push(m[1]);
+
+  // De-dupe
+  const languages = [...new Set(langIds)];
+
+  // For each topic file, read and extract topic ids
+  const topicsByLang = {};
+  for (const lang of languages) {
+    const candidates = [
+      `${lang}.ts`,
+      `${lang.replace(/-/g, '')}.ts`,
+      `${lang.replace(/-/g, 'L')}.ts`, // ai-learning -> aiLearning
+    ];
+    // Manual map for non-trivial cases
+    const fileMap = {
+      'ai-learning': 'aiLearning.ts',
+      'data-analytics': 'dataAnalytics.ts',
+      'app-dev': 'app-dev.ts',
+      'game-dev': 'game-dev.ts',
+    };
+    const filename = fileMap[lang] || `${lang}.ts`;
+    const fp = path.join(ROOT, 'src', 'data', 'tutorials', filename);
+    try {
+      const content = await fs.readFile(fp, 'utf8');
+      const ids = [...content.matchAll(/^\s*id:\s*['"]([a-z0-9-]+)['"]/gm)].map(m => m[1]);
+      topicsByLang[lang] = ids;
+    } catch {
+      // Skip missing files (e.g. registered but not yet created)
+      topicsByLang[lang] = [];
+    }
+  }
+
+  return { languages, topicsByLang };
+}
+
+// ─── Build the URL list ──────────────────────────────────────────────────────
+function buildUrls({ languages, topicsByLang }) {
+  const urls = [];
+
+  // Home — top priority
+  urls.push({ loc: '/',                    priority: 1.0, changefreq: 'daily' });
+
+  // Main tabs — high
+  for (const p of ['/syllabus', '/arena', '/daily-challenges', '/mock-tests',
+                   '/learning-lab', '/skills-lab', '/updates']) {
+    urls.push({ loc: p, priority: 0.9, changefreq: 'weekly' });
+  }
+
+  // Static pages — medium
+  for (const p of ['/parent', '/profile', '/about', '/contact', '/sitemap', '/blog']) {
+    urls.push({ loc: p, priority: 0.6, changefreq: 'monthly' });
+  }
+
+  // Class pages
+  for (let c = 1; c <= 12; c++) {
+    urls.push({ loc: `/class-${c}`, priority: 0.7, changefreq: 'weekly' });
+  }
+
+  // Skills Lab language landings
+  for (const lang of languages) {
+    urls.push({ loc: `/skills-lab/${lang}`, priority: 0.7, changefreq: 'weekly' });
+  }
+
+  // Individual topics — biggest count, lower priority
+  for (const lang of languages) {
+    for (const topicId of (topicsByLang[lang] || [])) {
+      urls.push({ loc: `/skills-lab/${lang}/${topicId}`, priority: 0.6, changefreq: 'monthly' });
+    }
+  }
+
+  return urls;
+}
+
+// ─── XML serialization ───────────────────────────────────────────────────────
+function toXml(urls) {
+  const today = new Date().toISOString().split('T')[0];
+  const items = urls.map(u =>
+    `  <url>\n` +
+    `    <loc>${SITE}${u.loc}</loc>\n` +
+    `    <lastmod>${today}</lastmod>\n` +
+    `    <changefreq>${u.changefreq}</changefreq>\n` +
+    `    <priority>${u.priority.toFixed(1)}</priority>\n` +
+    `  </url>`
+  ).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</urlset>\n`;
+}
+
+// ─── Run ─────────────────────────────────────────────────────────────────────
+async function main() {
+  const data = await readTopics();
+  const urls = buildUrls(data);
+  await fs.mkdir(path.dirname(OUT), { recursive: true });
+  await fs.writeFile(OUT, toXml(urls), 'utf8');
+  console.log(`✅ Sitemap written: ${OUT}`);
+  console.log(`   ${urls.length} URLs across ${data.languages.length} languages`);
+}
+
+main().catch(err => {
+  console.error('❌ Sitemap generation failed:', err);
+  process.exit(1);
+});
