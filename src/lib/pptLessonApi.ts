@@ -148,8 +148,9 @@ async function getCached(lessonKey: string): Promise<DeepPptLesson | null> {
 }
 
 async function saveCache(lessonKey: string, lesson: DeepPptLesson): Promise<void> {
-  // Refuse to cache anything that doesn't pass the quality gate.
-  if (!isHighQualityLesson(lesson)) return;
+  // Trust the backend's quality gate. Only refuse to cache obvious fallbacks.
+  if (!lesson || !Array.isArray(lesson.slides) || lesson.slides.length < 10) return;
+  if (lesson.isFallback === true || lesson.quality === 'quick_fallback') return;
   try {
     await setDoc(doc(db, PPT_COLLECTION, lessonKey), {
       ...lesson,
@@ -267,24 +268,33 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
       window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'pptLesson' } }));
     }, 5000);
 
-    try {
-      const lesson = await fetchFromBackend(payload, timeoutMs);
-      // Only cache + return as full lesson if it actually passes the quality gate.
-      if (isHighQualityLesson(lesson)) {
-        void saveCache(lessonKey, lesson);
-        return {
-          ...lesson,
-          source: 'backend',
-          quality: 'full_ai',
-          isFallback: false,
-          canExport: true,
-          id: lessonKey,
-        };
+    // Try the backend up to 2 times — Gemini sometimes outputs a banned
+    // template phrase and the backend rejects it. A second attempt almost
+    // always succeeds. Mobile timeout already short, so 2 tries fit budget.
+    const attempts = mobile ? 1 : 2;
+    let lesson: DeepPptLesson | null = null;
+    for (let i = 0; i < attempts; i++) {
+      try {
+        lesson = await fetchFromBackend(payload, timeoutMs);
+        if (lesson && Array.isArray(lesson.slides) && lesson.slides.length >= 10) {
+          break;
+        }
+        console.warn('[pptLessonApi] backend attempt', i + 1, 'too thin, slides:', lesson?.slides?.length);
+      } catch (backendErr) {
+        console.warn('[pptLessonApi] backend attempt', i + 1, 'failed:', (backendErr as Error)?.message);
       }
-      // Backend returned junk (e.g. partial / empty) — fall through to fallback path.
-      console.warn('[pptLessonApi] backend returned low-quality lesson — using fallback');
-    } catch (backendErr) {
-      console.warn('[pptLessonApi] backend failed:', (backendErr as Error)?.message);
+      lesson = null;
+    }
+    if (lesson) {
+      void saveCache(lessonKey, lesson);
+      return {
+        ...lesson,
+        source: 'backend',
+        quality: 'full_ai',
+        isFallback: false,
+        canExport: true,
+        id: lessonKey,
+      };
     }
 
     // ── Step 3: Tiny "lesson loading" placeholder (NEVER cached, NEVER exported)
