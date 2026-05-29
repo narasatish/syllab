@@ -23,7 +23,7 @@ import { getWritingByLevel, type WritingPrompt } from '../data/english/writingDa
 import { getGrammarByLevel } from '../data/english/grammarData';
 import { getVocabByLevel, getWordOfDay } from '../data/english/vocabData';
 import { getStoriesByLevel } from '../data/english/storiesData';
-import { askTutor } from '../lib/api';
+import { askTutor, API_URL } from '../lib/api';
 
 const VoiceEnglishTeacher = lazy(() => import('../components/VoiceEnglishTeacher'));
 
@@ -62,19 +62,26 @@ export default function EnglishLab({ currentUser }: EnglishLabProps) {
     localStorage.setItem('syllab_english_level', level);
   }, [level]);
 
+  // Prewarm the backend when Speaking tab becomes active so the Render
+  // dyno is already awake by the time the user taps the mic.
+  useEffect(() => {
+    if (activeTab !== 'speaking') return;
+    fetch(`${API_URL}/api/ai/health`, { method: 'GET' }).catch(() => {/* ignore */});
+  }, [activeTab]);
+
   return (
     <main className="space-y-6 pb-12">
       <SEO
         title="English Lab — AI Speaking, Daily Challenge, Grammar & Vocabulary | Syllab.in"
         description="Practice English daily with AI voice conversation, grammar challenges, reading passages, vocabulary builder and story-based activities. Free for CBSE Classes 1–10 students."
         keywords="English speaking practice India, AI English teacher free, CBSE English grammar, English vocabulary builder, daily English challenge, NCERT English Class 1 to 10, reading comprehension practice, English voice practice"
-        url="https://syllab.in/english-lab"
+        url="https://syllab.in/english"
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'Course',
           name: 'English Lab — AI-Powered English Learning',
           description: 'Free AI-powered English learning for CBSE students. Daily challenges, AI speaking practice, grammar lessons, reading passages, and vocabulary builder.',
-          url: 'https://syllab.in/english-lab',
+          url: 'https://syllab.in/english',
           provider: { '@type': 'Organization', name: 'Syllab.in', url: 'https://syllab.in' },
           offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
           educationalLevel: 'Class 1 to 10',

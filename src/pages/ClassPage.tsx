@@ -178,20 +178,41 @@ export default function ClassPage({ classNum, setTab }: ClassPageProps) {
         url={`https://syllab.in/class-${classNum}`}
       />
 
-      {/* JSON-LD for Class Page */}
+      {/* JSON-LD: Course + BreadcrumbList */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Course',
-            name: `Class ${classNum} CBSE NCERT Learning — Syllab.in`,
-            description: data.description,
-            provider: { '@type': 'Organization', name: 'Syllab.in', url: 'https://syllab.in' },
-            educationalLevel: `Grade ${classNum}`,
-            courseCode: `CBSE-CLASS-${classNum}`,
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-          }),
+          __html: JSON.stringify([
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Course',
+              name: `Class ${classNum} CBSE NCERT Full Course`,
+              description: data.description,
+              url: `https://syllab.in/class-${classNum}`,
+              provider: {
+                '@type': 'EducationalOrganization',
+                name: 'Syllab.in',
+                url: 'https://syllab.in',
+              },
+              educationalLevel: `Grade ${classNum}`,
+              inLanguage: 'en-IN',
+              isAccessibleForFree: true,
+              offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+              hasCourseInstance: data.subjects.map(subject => ({
+                '@type': 'CourseInstance',
+                name: `Class ${classNum} ${subject}`,
+                courseMode: 'online',
+              })),
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://syllab.in/' },
+                { '@type': 'ListItem', position: 2, name: `Class ${classNum}`, item: `https://syllab.in/class-${classNum}` },
+              ],
+            },
+          ]),
         }}
       />
 

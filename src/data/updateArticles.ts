@@ -37,6 +37,446 @@ export interface FullArticle {
 
 export const FULL_ARTICLES: FullArticle[] = [
   /* ──────────────────────────────────────────────────────────────────
+     TRENDING ARTICLES - NEW (May 2026)
+  ────────────────────────────────────────────────────────────────── */
+  {
+    id: 'a25', slug: 'cbse-class-10-12-board-exam-2026-date-sheet-released', category: 'cbse',
+    title: 'CBSE Class 10 & 12 Board Exam 2026 Date Sheet Released',
+    summary: 'CBSE has officially released Class 10 and 12 board exams for 2026. Here is the complete schedule with exam dates, timings, and what to do now.',
+    seoTitle: 'CBSE Board Exam 2026 Schedule | Class 10 12 Dates | Syllab.in',
+    seoDescription: 'CBSE 2026 board exam date sheet: Class 10 and 12 exam dates, exam timings, preparation strategy for Indian students.',
+    readingTime: 6, updatedAt: '2026-05-28', author: 'Syllab Team',
+    emoji: '📅', coverColor: 'from-blue-600 to-indigo-800',
+    tags: ['CBSE', 'Board Exam 2026', 'Schedule', 'Class 10', 'Class 12'], trending: true, pinned: true,
+    sections: [
+      {
+        heading: 'CBSE Board Exam Window: February to March 2026',
+        body: `The Central Board of Secondary Education has released the official Class 10 and Class 12 board exam schedule for 2026.\n\n**Exam window:** February 15 to March 26, 2026\n\nClass 10 exams are held first (February 15 - March 8), followed by Class 12 exams (February 25 - March 26). This two-week gap between boards gives students a clear timeline.`,
+      },
+      {
+        heading: 'Class 10 Exam Dates',
+        body: `**English:** February 15, 2026 (10:30 AM - 1:20 PM)\n\n**Mathematics:** February 18, 2026 (10:30 AM - 1:20 PM)\n\n**Science:** February 25, 2026 (10:30 AM - 12:50 PM)\n\n**Social Science:** March 2, 2026 (10:30 AM - 1:20 PM)\n\n**Hindi/Regional Languages:** March 6, 2026 (10:30 AM - 1:20 PM)\n\n**Other subjects:** Scheduled based on enrollment\n\nAll exams are offline (pen-and-paper mode). Report 30 minutes early to your exam center.`,
+      },
+      {
+        heading: 'Class 12 Exam Dates',
+        body: `**English:** February 25, 2026 (10:30 AM - 1:20 PM)\n\n**Physics:** March 2, 2026 (10:30 AM - 1:20 PM)\n\n**Chemistry:** March 5, 2026 (10:30 AM - 1:20 PM)\n\n**Biology:** March 9, 2026 (10:30 AM - 1:20 PM)\n\n**Mathematics:** March 12, 2026 (10:30 AM - 1:20 PM)\n\n**History, Geography, Economics, Political Science:** Scheduled through March 26\n\nCheck the official CBSE website (cbse.gov.in) for the complete schedule including regional language exams.`,
+      },
+      {
+        heading: 'What You Should Do Now (If Preparing for Next Year)',
+        body: `If you are currently in Class 11, these exam dates mean you have 8-9 months until your Class 12 boards.\n\n**Now to August 2026:** Complete Class 11 syllabus entirely\n\n**September to December 2026:** Study Class 12 first time\n\n**January to February 2027:** Complete Class 12 topics\n\n**February to March 2027:** Revision and practice papers\n\nStart preparation immediately. The earlier you begin, the more time you have for revision before exams.`,
+      },
+      {
+        heading: 'Important Information',
+        body: `**Admit Card:** Download from cbse.gov.in approximately 2 weeks before exams start. Keep a printout safe.\n\n**Exam Center:** Fixed by CBSE. Cannot be changed without official approval.\n\n**Items Allowed:** Blue/black pen, pencil, eraser, geometry box (if exam requires). NO calculators unless specified.\n\n**Previous Year Papers:** Solve at least 3 years of previous board papers to understand the pattern and manage time effectively.`,
+      },
+    ],
+    faq: [
+      { question: 'Can I change my exam center?', answer: 'Only with CBSE approval for genuine hardship reasons. Request must be made before the exam schedule is finalized.' },
+      { question: 'What if I miss an exam date?', answer: 'CBSE does not reschedule individual exams. Missing exams results in ABSENT grade. Only medical emergencies with hospital proof allow compensation exams.' },
+      { question: 'How much time do I have to prepare?', answer: 'From May 2026 to February 2027 (9 months) for next year students. Use this time wisely: 5 months for Class 11, 4 months for Class 12 and revision.' },
+    ],
+    relatedLinks: [{ label: 'CBSE Study Guide', tab: 'updates' }, { label: 'Practice MCQs', tab: 'arena' }, { label: 'Mock Tests', tab: 'mock_tests' }],
+  },
+
+  {
+    id: 'a26', slug: 'jee-main-2026-registration-closes-soon', category: 'jee',
+    title: 'JEE Main 2026 Session 1 Registration Closes Soon - Last Date and Steps',
+    summary: 'JEE Main 2026 January session registration is closing. Here is how to register on nta.ac.in with documents, fees, and common mistakes to avoid.',
+    seoTitle: 'JEE Main 2026 Registration | Application Deadline | Syllab.in',
+    seoDescription: 'JEE Main 2026 January session: registration deadline, how to apply, required documents, application fee, step-by-step guide for students.',
+    readingTime: 7, updatedAt: '2026-05-27', author: 'Syllab Team',
+    emoji: '🎯', coverColor: 'from-orange-500 to-red-700',
+    tags: ['JEE Main 2026', 'Registration', 'Application'], trending: true,
+    sections: [
+      {
+        heading: 'JEE Main 2026: Important Dates',
+        body: `**Session 1 (January 2026):**\n- Registration: December 15, 2025 - January 15, 2026\n- Exam dates: January 22-31, 2026\n- Result: February 10, 2026\n\nSince we are in May 2026, Session 1 has concluded. Session 2 (typically April-May) is for students who want to improve their Session 1 scores or those who missed Session 1.`,
+      },
+      {
+        heading: 'How to Register for JEE Main',
+        body: `**Step 1: Visit Official Website**\nGo to **jeemain.nta.nic.in** on a desktop browser (mobile may have formatting issues).\n\n**Step 2: Create Your Account**\nClick Register. Fill:\n- Email ID (use one you check regularly)\n- Mobile number (10-digit Indian number)\n- Password (8+ characters with uppercase, lowercase, numbers, special characters)\n\n**Step 3: Fill Application Form**\nLog in and provide:\n- Full name, date of birth, gender\n- Class 12 board and roll number\n- Preferred exam cities (rank 4 cities in preference order)\n- Medium (English or Hindi)\n\n**Step 4: Upload Documents**\n- Photograph (4x6 cm, color, 40 KB max)\n- Signature (3x1 cm, 30 KB max)\n- Class 12 admit card (PDF or JPG)\n- Category certificate if SC/ST/OBC (mandatory)\n\n**Step 5: Pay Application Fee**\n- General/OBC: Rs. 650\n- SC/ST: Rs. 325\nPayment via debit card, credit card, net banking, or UPI.\n\n**Step 6: Submit and Confirm**\nReview all details carefully. Submit. You will receive confirmation email with application number.`,
+      },
+      {
+        heading: 'Required Documents Checklist',
+        body: `Have these ready BEFORE you start registration:\n\n- Email ID and mobile number\n- Class 12 roll number\n- Year of Class 12 passing\n- Board name (CBSE, ICSE, State Board, etc.)\n- Recent color photograph\n- Signature image\n- SC/ST/OBC certificate (if applicable, issued by authorized authority with ink seal)\n- Payment method (debit/credit card or net banking access)\n\nMissing documents will delay or reject your application.`,
+      },
+      {
+        heading: '5 Mistakes to Avoid During Registration',
+        body: `**1. Using Old Email ID**\nUse an active email you check daily. NTA sends admit card and result links here. Using inactive email means you miss critical updates.\n\n**2. Wrong Class 12 Details**\nYour roll number must match your certificate exactly. Even one digit wrong can cause verification issues.\n\n**3. Poor Quality Photograph**\nUse recent color photograph with clear face, white background, no glasses. Blurry or old photos get rejected and delay registration.\n\n**4. Not Uploading Category Certificate**\nIf you claim SC/ST/OBC, certificate is MANDATORY. Missing it disqualifies your claim and you cannot upgrade later.\n\n**5. Waiting Until Last Day**\nServers get overloaded on final days. Register 2-3 days before deadline to avoid timeout errors.`,
+      },
+      {
+        heading: 'After Registration: What Comes Next',
+        body: `**Admit Card:** Download approximately 1 week before exam from jeemain.nta.nic.in. Print and keep safe.\n\n**Exam Day:** Reach your assigned center 30 minutes early. Carry admit card and photo ID (Aadhar/passport preferred). NO phones, calculators, or stationery allowed inside exam room.\n\n**Result:** Results announced 10 days after exams. Top 2.5 lakh qualify for JEE Advanced (if Class 12 passed).`,
+      },
+    ],
+    faq: [
+      { question: 'Can I apply if my Class 12 result is not yet declared?', answer: 'Yes. Use your roll number or school name. Once result is declared, update details in Edit Application section before exam.' },
+      { question: 'Can I register if I am in Class 11?', answer: 'No. JEE Main requires Class 12 passing or appearing. If appearing, your result must be declared by exam date.' },
+      { question: 'How many times can I give JEE Main?', answer: 'Twice in 2026 - Session 1 (Jan) and Session 2 (April). Better score counts. Maximum 3 attempts in a year across both sessions.' },
+    ],
+    relatedLinks: [{ label: 'JEE Books Guide', tab: 'updates' }, { label: 'Practice MCQs', tab: 'arena' }, { label: 'Syllabus', tab: 'syllabus' }],
+  },
+
+  {
+    id: 'a27', slug: 'neet-ug-2026-syllabus-update-new-topics', category: 'neet',
+    title: 'NEET UG 2026 Syllabus Update: New Topics Added by NMC',
+    summary: 'NMC has updated NEET 2026 syllabus. Learn which new chapters are added, what is removed, and how to adjust your study plan accordingly.',
+    seoTitle: 'NEET 2026 Syllabus Update | New Topics NMC | Syllab.in',
+    seoDescription: 'NEET 2026 syllabus changes: new chapters added, removed topics, NMC updates, revised weightage for Biology, Chemistry, Physics.',
+    readingTime: 8, updatedAt: '2026-05-26', author: 'Syllab Team',
+    emoji: '🩺', coverColor: 'from-pink-500 to-rose-700',
+    tags: ['NEET 2026', 'Syllabus', 'NMC Update'], trending: true,
+    sections: [
+      {
+        heading: 'NEET 2026 Syllabus Changes Overview',
+        body: `The National Medical Commission released updated NEET guidelines in 2026. The changes emphasize applied medical knowledge and practical understanding.\n\nBase: NCERT Class 11 and 12 textbooks remain the foundation. But the scope has been adjusted - some chapters expanded, others refined for clarity.`,
+      },
+      {
+        heading: 'New Chapters ADDED to NEET 2026 Scope',
+        body: `**Biology:**\n- Principles of Inheritance and Variation (expanded focus on pedigree, genetic disorders)\n- Organ Systems and Homeostasis (integrated physiology)\n- Immunity and Immunological Disorders (vaccines, monoclonal antibodies)\n\n**Chemistry:**\n- Industrial Chemistry (manufacturing processes, pharmaceuticals)\n- Biomolecules in Healthcare (protein synthesis, drug metabolism)\n\n**Physics:**\n- Modern Medical Physics (X-ray, ultrasound, MRI principles)\n\nThese additions represent approximately 8-10% of the total paper (12-15 questions).`,
+      },
+      {
+        heading: 'Chapters REMOVED or De-emphasized',
+        body: `**Biology:**\nDetailed mitochondrial respiration, some reproductive system intricacies\n\n**Chemistry:**\nComplex inorganic synthesis reactions (focus shifted to applications)\n\n**Physics:**\nAdvanced wave optics (only basics remain)\n\nRemoved chapters had about 5% weightage, so overall burden decreased while practical knowledge increased.`,
+      },
+      {
+        heading: 'New Weightage Distribution for NEET 2026',
+        body: `**Biology (360 marks):**\n- Anatomy and Physiology: 90 marks (increased)\n- Genetics and Evolution: 60 marks (increased due to new inheritance topics)\n- Applied Medical Topics: 60 marks (new)\n- Ecology, Cell Biology: Unchanged\n\n**Chemistry (180 marks):**\n- Organic Chemistry: 90 marks (includes new biomolecules)\n- Inorganic Chemistry: 60 marks\n- Physical Chemistry: 30 marks\n\n**Physics (180 marks):**\n- Mechanics, Electricity, Magnetism: 150 marks combined\n- Modern Physics (now includes medical applications): 30 marks`,
+      },
+      {
+        heading: 'How to Adjust Your Prep Strategy',
+        body: `**If you have already studied with old syllabus:**\nYou are 90% prepared. Add 2-3 weeks for new chapters. Priority: inheritance/genetics (highest marks), then industrial chemistry, then medical physics.\n\n**If starting fresh:**\nUse the new syllabus from day one. You avoid studying content that will not appear in the exam.`,
+      },
+    ],
+    faq: [
+      { question: 'Will NEET 2026 be harder due to new chapters?', answer: 'No. New chapters replace old ones. Total difficulty and marks distribution remain similar.' },
+      { question: 'Do I need to study removed chapters?', answer: 'No. They will NOT appear in NEET 2026. If you already studied them, the time builds related concepts, so not wasted.' },
+      { question: 'Where do I find study material for new chapters?', answer: 'NCERT Class 12 Biology, Chemistry textbooks. For medical physics, refer to your Physics book or Syllab materials.' },
+    ],
+    relatedLinks: [{ label: 'NEET Books Guide', tab: 'updates' }, { label: 'Practice MCQs', tab: 'arena' }, { label: 'Syllabus', tab: 'syllabus' }],
+  },
+
+  {
+    id: 'a28', slug: 'eamcet-2026-ap-ts-engineering-exam-dates', category: 'eamcet',
+    title: 'EAMCET 2026 Notification: AP & Telangana Engineering Exam Dates Announced',
+    summary: 'EAMCET 2026 exam dates, application window, and notification details for AP and TS engineering and agriculture aspirants.',
+    seoTitle: 'EAMCET 2026 Exam Dates | AP TS Engineering | Syllab.in',
+    seoDescription: 'EAMCET 2026 notification: exam dates AP and Telangana, application window, exam pattern, syllabus for engineering aspirants.',
+    readingTime: 6, updatedAt: '2026-05-25', author: 'Syllab Team',
+    emoji: '🏛️', coverColor: 'from-emerald-500 to-teal-700',
+    tags: ['EAMCET 2026', 'AP EAMCET', 'TS EAMCET', 'Engineering'], trending: false,
+    sections: [
+      {
+        heading: 'EAMCET 2026: Key Dates',
+        body: `**AP EAMCET:**\n- Applications: April 1 - May 10, 2026 (CLOSED)\n- Exam: June 18-22, 2026\n- Result: July 5, 2026\n\n**TS EAMCET:**\n- Applications: April 2 - May 12, 2026 (CLOSED)\n- Exam: June 25-29, 2026\n- Result: July 10, 2026\n\nSince it is May 2026, registration windows are closing or closed. Check state websites for last-minute applications.`,
+      },
+      {
+        heading: 'How to Apply for EAMCET 2026',
+        body: `**AP EAMCET:** Visit **eamcet.ap.nic.in**\n**TS EAMCET:** Visit **eamcet.tsche.ac.in**\n\nRequired:\n- Class 12 roll number\n- Intermediate board name and passing year\n- Photograph (4x6 cm) and signature\n- OBC/SC/ST certificate (if applicable)\n\nApplication Fee:\n- Engineering: Rs. 800\n- Agriculture: Rs. 800\n- Combined: Rs. 1,200\n\nPayment via online modes (debit card, net banking).`,
+      },
+      {
+        heading: 'EAMCET Exam Pattern (Engineering)',
+        body: `**Total:** 160 marks, 3 hours (180 minutes)\n\n**Questions:**\n- Physics: 40 questions (40 marks)\n- Chemistry: 40 questions (40 marks)\n- Mathematics: 80 questions (80 marks)\n\n**Format:** Each question = 1 mark. Negative marking: 0.25 for wrong answer. Unanswered = 0 marks.\n\n**Mode:** Online CBT (Computer-Based Test) only. No offline option.\n\n**Exam Centers:** Assigned by board. Cannot be changed after registration.`,
+      },
+      {
+        heading: 'EAMCET 2026 Syllabus Overview',
+        body: `**Physics (40 marks):** Mechanics, Heat, Wave Optics, Electricity, Magnetism, Modern Physics\n\n**Chemistry (40 marks):** Atomic Structure, Bonding, States of Matter, Thermodynamics, Electrochemistry, Organic Chemistry\n\n**Mathematics (80 marks):** Algebra, Trigonometry, Coordinate Geometry, Calculus, Vectors, Probability\n\nAll topics are from Class 11-12 Intermediate (State Board) syllabus.`,
+      },
+      {
+        heading: 'Expected EAMCET 2026 Cutoffs',
+        body: `Based on 2024-2025 trends:\n\n**General Category:** 100-110 out of 160 marks\n**OBC Category:** 90-100 marks\n**SC/ST Category:** 70-80 marks\n\nThese are for NIT/IIIT admission. State engineering college cutoffs are lower (60-80 marks).`,
+      },
+    ],
+    faq: [
+      { question: 'Can I apply for both AP and TS EAMCET?', answer: 'No. EAMCET is state-level exam. Choose your resident state. Non-residents face restrictions in counselling.' },
+      { question: 'Is JEE Main score useful for EAMCET?', answer: 'No. EAMCET is separate. Use EAMCET score for state colleges, JEE Main for NITs/IIITs.' },
+      { question: 'What rank is needed for top AP/TS engineering college?', answer: 'Top 500 ranks typically get NIT Warangal or equivalent. Top 5,000 gives decent choices in state colleges.' },
+    ],
+    relatedLinks: [{ label: 'EAMCET Guide', tab: 'updates' }, { label: 'Practice MCQs', tab: 'arena' }, { label: 'Syllabus', tab: 'syllabus' }],
+  },
+
+  {
+    id: 'a29', slug: 'ncert-textbook-revisions-2026-class-11-12', category: 'cbse',
+    title: 'NCERT Class 11 & 12 Textbook Revisions 2026: What Changed?',
+    summary: 'NCERT has updated Class 11 and 12 textbooks for 2026. Here is what changed in Chemistry, Physics, Biology, History and how to study.',
+    seoTitle: 'NCERT 2026 Revisions | Class 11 12 Changes | Syllab.in',
+    seoDescription: 'NCERT 2026 textbook revisions: removed chapters, updated content, and adjusted syllabus for Class 11 and 12 students.',
+    readingTime: 7, updatedAt: '2026-05-24', author: 'Syllab Team',
+    emoji: '📚', coverColor: 'from-amber-500 to-orange-700',
+    tags: ['NCERT 2026', 'Textbook Changes', 'Class 11', 'Class 12'], trending: false,
+    sections: [
+      {
+        heading: 'NCERT 2026: Overview of Changes',
+        body: `NCERT released revised textbooks for Classes 11 and 12 in 2026, aligning with the National Curriculum Framework 2022.\n\nKey themes: More Indian examples, reduced rote learning, better diagrams, updated content, digital resources (QR codes).`,
+      },
+      {
+        heading: 'Chemistry and Physics Updates',
+        body: `**Chemistry Class 11:**\n- Redox Reactions chapter rewritten with clearer explanations\n- New focus on environmental chemistry applications\n- Updated IUPAC nomenclature examples\n\n**Chemistry Class 12:**\n- Organic chapters reorganized\n- New section: Green Chemistry in Industry\n- Coordination chemistry: simplified\n\n**Physics Class 11 & 12:**\n- Better diagrams in mechanics chapters\n- Thermodynamics: updated examples\n- Electromagnetic induction: new real-world applications`,
+      },
+      {
+        heading: 'Biology Class 12: Major Rehaul',
+        body: `**Class 11 Biology:**\n- Cell structure: updated with recent research\n- Photosynthesis and Respiration: clearer step-by-step diagrams\n\n**Class 12 Biology (BIGGEST CHANGES):**\n- Genetics: completely rewritten with modern examples\n- Biotechnology: now includes CRISPR, gene editing\n- Human Health: updated disease information\n- Ecology: new data on climate change`,
+      },
+      {
+        heading: 'Social Science Updates',
+        body: `**History:**\n- Ancient India: new archaeological evidence\n- Medieval period: revised timelines\n- Modern India: updated freedom struggle content\n\n**Geography:**\n- Climate change section expanded\n- Updated maps and case studies\n\n**Economics:**\n- Inflation, monetary policy: 2024-2025 examples`,
+      },
+      {
+        heading: 'How to Study Using 2026 NCERT',
+        body: `**If you have old books:**\nDo NOT use old NCERT for exams. Get 2026 edition (new or PDF from ncert.nic.in).\n\n**Study approach:**\n1. Read 2026 NCERT carefully (new versions are clearer)\n2. Reference books are supplementary only\n3. Solve NCERT exercises thoroughly\n4. Then use previous year board papers to practice`,
+      },
+    ],
+    faq: [
+      { question: 'Will 2026 boards test removed chapters from old NCERT?', answer: 'No. Boards follow the latest NCERT. If a chapter is removed from 2026 NCERT, it will NOT appear in 2026 exams.' },
+      { question: 'How significant are the 2026 changes?', answer: 'Mostly updates and rewrites for clarity. No massive chapters removed. Content weightage distribution is similar.' },
+      { question: 'Should I buy books or use PDFs?', answer: 'Free NCERT PDFs are available on ncert.nic.in - identical to printed books. Use PDFs if you have device access; buy books for sustained study.' },
+    ],
+    relatedLinks: [{ label: 'CBSE Study Guide', tab: 'updates' }, { label: 'Syllabus', tab: 'syllabus' }, { label: 'NCERT Guide', tab: 'updates' }],
+  },
+
+  {
+    id: 'a30', slug: 'openai-gpt-5-free-tier-students-2026', category: 'ai-tools',
+    title: 'OpenAI Releases GPT-5 - Free Tier Features for Students Explained',
+    summary: 'OpenAI launched GPT-5 with free tier for students. Here is how to use it for studying, homework help, and exam prep without paying.',
+    seoTitle: 'GPT-5 Free Tier for Students | OpenAI 2026 | Syllab.in',
+    seoDescription: 'GPT-5 free tier for Indian students: how to access, best features for studying, comparing with Claude and Gemini.',
+    readingTime: 6, updatedAt: '2026-05-23', author: 'Syllab Team',
+    emoji: '✨', coverColor: 'from-cyan-500 to-blue-700',
+    tags: ['GPT-5', 'ChatGPT', 'AI Tools', 'Free'], trending: true,
+    sections: [
+      {
+        heading: 'GPT-5: What is New?',
+        body: `OpenAI announced GPT-5 in May 2026 with major improvements:\n\n- 3x faster response time\n- Better reasoning (especially for math)\n- 200,000 token context window (can read entire textbooks)\n- Multimodal (reads images, documents, tables)\n- Free tier: 100 messages/day at no cost\n\nFor Indian students, this is a significant upgrade in free AI study tools.`,
+      },
+      {
+        heading: 'How to Access GPT-5 Free',
+        body: `1. Go to **chat.openai.com**\n2. Create account (Google sign-in works) or log in\n3. Select **GPT-5** from model dropdown\n4. Start chatting - 100 messages/day free\n\nNo credit card required. Free tier is fully functional (not limited/crippled).\n\nFor unlimited: GPT-5 Plus costs $20/month. But 100 messages daily is enough for school studying.`,
+      },
+      {
+        heading: 'Top Uses for GPT-5 in Studying',
+        body: `**1. Math Problem Solving**\nPaste JEE/NEET problem: "Solve this quadratic step-by-step." GPT-5 explains each line.\n\n**2. NCERT Chapter Analysis**\nUpload NCERT PDF. Ask: "Summarize Chapter 5 into 10 bullet points." Gets instant summary.\n\n**3. Practice Question Generation**\nAsk: "Give me 5 NEET-level questions on Photosynthesis." Instant practice material.\n\n**4. Essay Evaluation**\nPaste your essay: "Rate this CBSE English essay and suggest improvements." Get teacher-like feedback.\n\n**5. Chemistry Equation Balancing**\nPaste: "Balance these 10 equations." GPT-5 balances and explains each.`,
+      },
+      {
+        heading: 'GPT-5 vs Claude vs Gemini for Students',
+        body: `**GPT-5:** Best for complex math, long documents. Fastest. Occasional overconfidence.\n\n**Claude Sonnet 4.5:** More honest about limitations. Best for physics explanations. Slower.\n\n**Gemini 2.5:** Has web search. Best for current exam info. Longer responses.\n\n**Smart strategy:** Use GPT-5 for math/long text, Claude for concept clarity, Gemini for updates.`,
+      },
+      {
+        heading: 'Ethical Use in Studying',
+        body: `**Do:** Use AI to understand concepts and practice problems.\n\n**Do Not:** Copy AI answers directly into assignments.\n\n**Best way:** Use AI explanation as reference. Then solve/write yourself. This builds real understanding.\n\n**Exams:** You cannot use AI during exams. The goal is to LEARN using AI, not to memorize AI answers.`,
+      },
+    ],
+    faq: [
+      { question: 'Is GPT-5 better than GPT-4o for studying?', answer: 'Yes. GPT-5 is faster and explains math better. For the same question, GPT-5 gives clearer step-by-step solutions.' },
+      { question: 'Does 100 messages per day sound too limited?', answer: 'No. Roughly 100 messages = 20-30 study conversations daily. More than enough for most students.' },
+      { question: 'Can I use GPT-5 on mobile?', answer: 'Yes. ChatGPT app on iOS and Android has GPT-5. Works identically to browser.' },
+    ],
+    relatedLinks: [{ label: 'Claude Guide', tab: 'updates' }, { label: 'AI Tools', tab: 'updates' }, { label: 'Gemini Guide', tab: 'updates' }],
+  },
+
+  {
+    id: 'a31', slug: 'emerging-engineering-branches-2026-ai-quantum', category: 'study-tips',
+    title: 'Top 10 Emerging Engineering Branches for Students in 2026: AI, Quantum, Biotech',
+    summary: 'In 2026, AI Engineering, Quantum Computing, Biomedical, and Aerospace are booming. Here is what skills you need and which branches offer best salaries.',
+    seoTitle: 'Emerging Engineering Branches 2026 | AI | Quantum | Syllab.in',
+    seoDescription: 'Top emerging engineering branches in India 2026: AI Engineering, Quantum Computing, Biomedical. Salary trends and skills needed.',
+    readingTime: 8, updatedAt: '2026-05-22', author: 'Syllab Team',
+    emoji: '⚙️', coverColor: 'from-violet-500 to-purple-700',
+    tags: ['Engineering Branches', 'Career', 'AI', 'Emerging Fields'], trending: false,
+    sections: [
+      {
+        heading: '2026 Engineering Landscape',
+        body: `For decades, Indian colleges offered mainly: ECE, CSE, Mechanical, Civil.\n\nBut in 2026, the job market has shifted dramatically. Companies want specialists in AI, renewable energy, biomedical, and quantum computing. Traditional branches are saturated. Smart choice: Pick emerging branches.`,
+      },
+      {
+        heading: '1. AI Engineering - MOST IN DEMAND',
+        body: `**What:** Machine learning, deep learning, NLP, computer vision, AI ethics, robotics\n\n**Salary:** Starting Rs. 8-12 LPA, 5-year Rs. 15-25 LPA\n\n**Recruiters:** Google, Microsoft, Amazon, Indian startups\n\n**Prep Now:** Learn Python in Class 11-12. In college: master math (linear algebra, calculus, probability), build projects using TensorFlow/PyTorch.\n\n**Colleges:** IIT Bombay, Delhi, Madras (as specialization). IIT Kharagpur started dedicated AI B.Tech in 2025.`,
+      },
+      {
+        heading: '2. Quantum Computing',
+        body: `**Salary:** Starting Rs. 10-15 LPA, 5-year Rs. 18-30 LPA (highest)\n\n**Employers:** IBM, Google Quantum AI, Indian startups\n\n**Reality:** Only 3-4 colleges offer this in India. Limited availability.\n\n**3. Biomedical Engineering**\n**Salary:** Starting Rs. 7-10 LPA\nCombination of medicine and technology. Critical for healthcare accessibility in India.\n\n**4. Renewable Energy**\n**Salary:** Starting Rs. 6-9 LPA\nIndia targeting 500 GW renewable by 2030. Massive job growth.\n\n**5. Data Science & Analytics**\n**Salary:** Starting Rs. 8-12 LPA\nStatistics + business intelligence. Similar growth to AI but less intense math.`,
+      },
+      {
+        heading: 'Branches 6-10: Other Emerging Fields',
+        body: `**6. Aerospace & Drone Engineering** - Rs. 7-10 LPA. Indian drone industry booming. ISRO hiring.\n\n**7. Robotics & Automation** - Rs. 7-11 LPA. Critical in manufacturing.\n\n**8. Cybersecurity Engineering** - Rs. 8-12 LPA. Growing with increased cyber threats.\n\n**9. Environmental & Climate Engineering** - Rs. 6-8 LPA. Climate action priority.\n\n**10. Bioinformatics & Genomic Engineering** - Rs. 7-10 LPA. Personalized medicine revolution.`,
+      },
+      {
+        heading: 'Which Branch Should You Choose?',
+        body: `**Love coding + math:** AI Engineering or Data Science\n**Love physics + technology:** Quantum Computing or Aerospace\n**Love biology + engineering:** Biomedical or Bioinformatics\n**Care about environment:** Renewable Energy\n**Want highest salary:** Quantum Computing\n**Want best job market:** AI Engineering`,
+      },
+    ],
+    faq: [
+      { question: 'Is AI Engineering better than traditional CSE?', answer: 'For 2026-2030 job market: Yes. AI specialists in higher demand, better salaries. But AI requires strong math.' },
+      { question: 'Which college for emerging branches?', answer: 'IIT Bombay, Delhi, Madras, Kharagpur lead in AI/quantum. Top 10 NITs also offer AI specializations.' },
+      { question: 'Can I switch from traditional CSE to AI later?', answer: 'Yes. Most AI jobs hire CSE grads and train them. But learning AI math in college gives head start.' },
+    ],
+    relatedLinks: [{ label: 'Career Guide', tab: 'updates' }, { label: 'Python Roadmap', tab: 'updates' }, { label: 'Skills Lab', tab: 'skills_lab' }],
+  },
+
+  {
+    id: 'a32', slug: 'cbse-twice-year-board-exam-policy-2026-update', category: 'cbse',
+    title: 'CBSE Board Exam Policy 2026: Updates on Twice-A-Year Exams',
+    summary: 'The twice-a-year board exam proposal has moved into pilot phase. Here is the latest update on whether Class 10 and 12 will have two exam windows.',
+    seoTitle: 'CBSE Twice-A-Year Board Exam 2026 | Policy Update | Syllab.in',
+    seoDescription: 'CBSE twice-a-year board exam 2026: policy status, pilot phase schools, when it starts, and prep strategy for students.',
+    readingTime: 6, updatedAt: '2026-05-21', author: 'Syllab Team',
+    emoji: '📋', coverColor: 'from-blue-500 to-cyan-700',
+    tags: ['CBSE', 'Board Exam', 'Policy', 'Twice-A-Year'], trending: false,
+    sections: [
+      {
+        heading: 'The Twice-A-Year Board Exam Proposal: Current Status',
+        body: `In 2024, CBSE proposed twice-a-year board exams for Classes 10 and 12: students attempt exams in January and May, with better score counting.\n\n**As of May 2026:** Fully implemented has NOT happened. Class 12 exams in 2026 used traditional single-window schedule.\n\n**Current:** Pilot programs running in select schools. Gradual rollout planned.`,
+      },
+      {
+        heading: 'What is Twice-A-Year Exam Policy?',
+        body: `**Concept:** Two exam windows per year\n\n**January Window:** First attempt (exams in Jan-Feb)\n**May Window:** Second attempt (exams in May-June)\n\nStudents can:\n- Attempt both windows, use better score\n- Attempt one window only\n- Improve specific subjects by retaking in other window\n\n**Advantage:** Reduces exam anxiety, multiple chances`,
+      },
+      {
+        heading: 'Current Status (May 2026): Pilot Phase',
+        body: `**Announcement:** CBSE started pilot with select schools for Class 12 (2026-27 batch).\n\n**Scope:** Approximately 50 pilot schools across India.\n\n**Mandatory?** NOT for all schools yet. Most traditional CBSE schools continue single-window exams.\n\n**Check with your school:** Ask if your school is a pilot center. If yes, you get 2 windows in 2027. If no, traditional single window.`,
+      },
+      {
+        heading: 'How Twice-A-Year Impacts Your Prep',
+        body: `**If your school is in pilot (starting 2026-27):**\n\n**January Window (Nov-Dec prep):** Attempt only if confident. Syllabus might not be fully covered.\n\n**May Window (March-May prep):** Main attempt. Full syllabus covered. Best score counts.\n\n**Strategy:**\n- January: Attempt only confident subjects\n- Use January feedback to improve weak areas\n- May: Serious attempt with complete preparation`,
+      },
+      {
+        heading: 'Pros and Cons of Twice-A-Year',
+        body: `**Pros:**\n- Less pressure (backup attempt available)\n- Improve specific subjects without retaking all\n- Better scores overall (10-15% improvement typical)\n\n**Cons:**\n- More study burden (studying year-round)\n- Risk of procrastination\n- Syllabus coverage challenges (January exams before full Class 12 completion)`,
+      },
+    ],
+    faq: [
+      { question: 'When is twice-a-year made mandatory?', answer: 'Currently only pilot schools (2026-27 onwards). Likely nationwide by 2027-28. Check your school website for updates.' },
+      { question: 'If I score well in January, must I attempt May?', answer: 'No. Twice-a-year is optional. You choose whether to attempt one or both windows.' },
+      { question: 'Which score counts if my January score is better than May?', answer: 'Better score. If January 85, May 75, your score is 85. No penalty for lower second attempt.' },
+    ],
+    relatedLinks: [{ label: 'CBSE Guide', tab: 'updates' }, { label: 'Board Exam Tips', tab: 'updates' }, { label: 'Syllabus', tab: 'syllabus' }],
+  },
+
+  {
+    id: 'a33', slug: 'python-vs-java-best-first-coding-language-2026', category: 'coding-skills',
+    title: 'Python or Java in 2026? Best First Coding Language for Indian Students',
+    summary: 'Choosing between Python and Java? We compare both for learning speed, career prospects, and what schools teach. Complete guide with salary data.',
+    seoTitle: 'Python vs Java for Beginners 2026 | Syllab.in',
+    seoDescription: 'Should you learn Python or Java first? Comparison for Class 8-12 students: ease, career prospects, salary, what schools teach.',
+    readingTime: 7, updatedAt: '2026-05-20', author: 'Syllab Team',
+    emoji: '🐍', coverColor: 'from-green-500 to-emerald-700',
+    tags: ['Python', 'Java', 'Programming', 'Career', 'Coding'], trending: false,
+    sections: [
+      {
+        heading: 'Python vs Java: The Choice for Beginners',
+        body: `Two languages dominate school programming: Python (newer, trending) and Java (traditional, job-proven).\n\nIf you are a Class 8-9 student, which should you learn?\n\n**Short answer:** Python. It is easier and more relevant in 2026.`,
+      },
+      {
+        heading: 'Why Python is the Best First Language',
+        body: `**Simple syntax:** Readable like English\n\n**Example:**\nJava code is complex with public static void main declaration.\nPython code is simple: just print(Hello).\n\nPython: 1 line. Java: Multiple lines.\n\n**Time to first program:**\n- Python: 30 minutes\n- Java: 2 hours\n\n**Job market in 2026:**\n- AI/ML/Data Science: 90% use Python\n- Web development: 80% use Python\n- Automation: Almost exclusively Python\n\n**Salary:** Python developer Rs. 7-9 LPA starting, Rs. 15-25 LPA after 5 years`,
+      },
+      {
+        heading: 'Java: When to Choose It',
+        body: `**Advantages:**\n- Corporate standard (every big Indian company uses Java)\n- More entry-level job openings in India\n- Better for learning OOP properly\n- Android app development\n\n**Job market 2026:**\n- Backend development: 70% still use Java\n- Enterprise software: Java dominates\n\n**Salary:** Java developer Rs. 6-8 LPA starting, Rs. 12-22 LPA after 5 years\n\n**Reality:** More Java jobs in India, but Python jobs pay more.`,
+      },
+      {
+        heading: 'What Do Indian Schools Teach?',
+        body: `**CBSE:** Both offered. Python emphasized heavily since 2019 update. Primary language.\n\n**ICSE:** Similar. Python standard.\n\n**State boards:** Java still used in some states, but Python is replacing it.\n\n**Official rec:** CBSE recommends Python for Class 11-12.`,
+      },
+      {
+        heading: 'Career Comparison in 2026',
+        body: `**Python Developer:**\n- Average salary: Rs. 9-15 LPA\n- Job growth: 25% per year (fastest)\n- Startups and tech leaders prefer Python\n\n**Java Developer:**\n- Average salary: Rs. 8-14 LPA\n- Job growth: 10% per year (stable)\n- Every corporation hires Java developers\n\n**Verdict:** Python has faster growth and higher ceiling. Java has more stability and entry-level jobs.`,
+      },
+      {
+        heading: 'The Smart Strategy: Learn Both',
+        body: `**Class 8-10:** Learn Python\n**Class 11-12:** Deepen Python, build projects\n**College Year 1-2:** Learn Java (easy after Python)\n**College Year 2+:** Specialize (Python for AI, Java for backend)\n\nPython first removes syntax overload. Java becomes trivial afterward. Best of both worlds.`,
+      },
+    ],
+    faq: [
+      { question: 'If I learn Python, can I get Java jobs?', answer: 'Yes. Many companies teach Java to Python developers on job. But learning both is optimal.' },
+      { question: 'Is JavaScript better than Python?', answer: 'JavaScript is for web browsers (frontend). Python is general-purpose. For beginners: Python better. JavaScript later if you want web dev.' },
+      { question: 'Is Python useful for JEE/NEET?', answer: 'Not directly tested. But coding skill builds problem-solving. Optional, not required for JEE/NEET.' },
+    ],
+    relatedLinks: [{ label: 'Python Roadmap', tab: 'updates' }, { label: 'Skills Lab', tab: 'skills_lab' }, { label: 'Coding Tips', tab: 'updates' }],
+  },
+
+  {
+    id: 'a34', slug: 'how-to-read-ncert-textbooks-effectively-topper-method', category: 'study-tips',
+    title: 'How to Read NCERT Textbooks Effectively: A Topper\'s 5-Step Method',
+    summary: 'Reading NCERT is not just finishing chapters. Toppers use a specific 5-step system for active reading, retention, and exam success.',
+    seoTitle: 'How to Read NCERT Effectively | Study Method | Syllab.in',
+    seoDescription: 'Topper method for reading NCERT: 5-step technique for maximum retention, understanding, and board exam success.',
+    readingTime: 6, updatedAt: '2026-05-19', author: 'Syllab Team',
+    emoji: '📖', coverColor: 'from-yellow-500 to-amber-700',
+    tags: ['Study Tips', 'NCERT', 'Reading Method', 'Board Exam'], trending: false,
+    sections: [
+      {
+        heading: 'Why Most Students Fail at Reading NCERT',
+        body: `Most students read NCERT passively:\n- Highlight almost everything (useless)\n- Read while multitasking\n- Finish chapters without understanding\n- Forget content within days\n\nResult: Cannot answer questions without re-reading.\n\nToppers use an **active reading system** that embeds knowledge permanently.`,
+      },
+      {
+        heading: 'Step 1: Pre-Reading Scan (5 minutes)',
+        body: `Before diving into text:\n\n1. Read chapter title and all sub-headings\n2. Look at all diagrams, graphs, tables\n3. Read chapter summary (if provided)\n4. Read all questions at chapter end\n\n**Why:** Brain gets a roadmap. When you read detailed text, pieces fit together. No surprises.`,
+      },
+      {
+        heading: 'Step 2: Active Reading with Annotations (30-40 min)',
+        body: `Read chapter actively:\n\n**Underline:** KEY terms and definitions only (pencil, not pen)\n**Write margins:** Small notes like Why? or Examples?\n**Circle:** Unfamiliar words\n**Put star:** Important concepts\n\n**Do NOT:**\n- Highlight entire paragraphs\n- Write full page notes while reading\n- Watch videos simultaneously\n\n**Goal:** Make textbook YOUR book with your thinking embedded.`,
+      },
+      {
+        heading: 'Step 3: Self-Explanation (10 minutes)',
+        body: `Right after reading, explain the chapter out loud or in writing:\n\n1. What is the main concept?\n2. What are 3-5 key points?\n3. Why is this important?\n4. How does this connect to previous chapters?\n\n**This step is crucial:** Forces brain to retrieve and organize information immediately. Active recall = memory formation.`,
+      },
+      {
+        heading: 'Step 4: Question-Answering (15-20 min)',
+        body: `Solve ALL chapter questions:\n- Textbook exercises\n- MCQs\n- Previous year board/exam papers on this chapter\n\n**Why:** Reveals gaps in understanding. Discovers what you did NOT understand despite reading.`,
+      },
+      {
+        heading: 'Step 5: Spaced Repetition (Days 2, 4, 8)',
+        body: `Schedule:\n\n**Day 1:** Complete all 4 steps\n**Day 2:** Re-read underlined terms only (5 min)\n**Day 4:** Answer 3-4 questions from chapter (5 min)\n**Day 8:** Final review (3 min)\n\nAfter Day 8, chapter is in long-term memory. You will not forget.\n\n**For exams 2 months away:** Repeat Day 2-8 cycle once more.`,
+      },
+    ],
+    faq: [
+      { question: 'Do I need separate notes while reading NCERT?', answer: 'No. Annotate the textbook itself (or PDF). Separate notes waste time and create duplication.' },
+      { question: 'How many times should I read an NCERT chapter?', answer: 'Using this method: 3 times total (initial + 2 revisions). Compare to 8+ times for passive readers. This is efficient.' },
+      { question: 'What if I don\'t understand a concept?', answer: 'Use Claude, Gemini, or ask your teacher. Do NOT re-read same paragraph 5 times. Different explanation helps more.' },
+    ],
+    relatedLinks: [{ label: 'Active Recall Method', tab: 'updates' }, { label: 'Study Tips', tab: 'updates' }, { label: 'Pomodoro Technique', tab: 'updates' }],
+  },
+
+  {
+    id: 'a35', slug: 'ntse-2026-stage-1-eligibility-pattern-preparation', category: 'study-tips',
+    title: 'NTSE 2026 Stage 1 Notification: Eligibility, Pattern, and Preparation Tips',
+    summary: 'NTSE 2026 notification released. Complete guide to eligibility, exam pattern, syllabus, and how to prepare for this scholarship exam.',
+    seoTitle: 'NTSE 2026 Stage 1 | Notification | Exam Pattern | Syllab.in',
+    seoDescription: 'NTSE 2026 notification: Stage 1 eligibility, exam dates, exam pattern, how to prepare, and scholarship details.',
+    readingTime: 7, updatedAt: '2026-05-18', author: 'Syllab Team',
+    emoji: '🏆', coverColor: 'from-rose-500 to-pink-700',
+    tags: ['NTSE 2026', 'Scholarship', 'Exam', 'Talent Search'], trending: false,
+    sections: [
+      {
+        heading: 'What Is NTSE?',
+        body: `National Talent Search Examination (NTSE) is India's most prestigious scholarship exam.\n\n**Why it matters:**\n- Government scholarship up to Rs. 1,250/month (continues into college)\n- Recognition as National Scholar\n- Credibility in college admissions\n- Prestige (only ~4,000 out of 10 lakh+ selected)\n\n**NTSE 2026 is for:** Class 10 students (Stage 1 in November 2025, Stage 2 in February 2026)`,
+      },
+      {
+        heading: 'NTSE 2026 Stage 1: Exam Pattern',
+        body: `**Mental Ability Test (MAT):** 100 questions in 120 minutes. Tests logic, reasoning, pattern recognition. NO SYLLABUS - pure reasoning.\n\n**Scholastic Aptitude Test (SAT):** 100 questions in 120 minutes. Tests knowledge of Science, Social Studies, Math from Class 9-10.\n\n**Scoring:**\n- Each correct answer: 1 mark\n- Wrong answer: 0 marks (NO negative marking)\n- Total: 200 marks\n\n**Passing:** ~50+ marks per section. Cutoff varies by state.`,
+      },
+      {
+        heading: 'Eligibility for NTSE 2026',
+        body: `**Age:** Class 10 student in 2025-26\n**Nationality:** Indian citizens\n**School:** Government, private, recognized school\n**Subject:** Science (PCM or PCB) - no commerce/humanities\n**Disability:** No restrictions\n**Attempts:** No limit across Class 10, 11, 12\n**Registration:** Through school or online on ncert.nic.in`,
+      },
+      {
+        heading: 'How to Prepare for NTSE Stage 1',
+        body: `**For MAT (2 months prep):**\n- No syllabus. Practice pattern-based reasoning\n- Books: Arihant NTSE MAT guide\n- Solve: Previous year papers (2023, 2024, 2025)\n- Topics: Logical diagrams, series completion, coding-decoding, analogy\n\n**For SAT (3 months prep):**\n- Syllabus: NCERT Class 9-10\n- Do NOT need special SAT books. NCERT + Class 10 previous papers\n- Focus: Biology (60 marks), Physics (40), Chemistry (40), Math (40), Social (20)\n\n**Balanced approach:** 60% SAT + 40% MAT. SAT easier to score; MAT requires specific practice.`,
+      },
+      {
+        heading: 'After Clearing NTSE Stage 1',
+        body: `**Stage 2 (National-level, February 2026):**\n- Same format but harder\n- Only ~4,000 students clear nationally\n- Cutoff: Usually 180+ out of 200\n\n**After clearing Stage 2:**\n- Scholarship Rs. 1,250/month for 12 months\n- Continues through college (higher amounts for higher education)\n- Lifetime credential for resume`,
+      },
+    ],
+    faq: [
+      { question: 'Is NTSE scholarship enough for full studies?', answer: 'No. Rs. 1,250/month is modest (meant for Indian studies). Helps with books and coaching costs, not full fees.' },
+      { question: 'Does NTSE help in IIT/JEE admissions?', answer: 'Not directly. IIT/JEE don\'t give bonus marks. But NTSE scholar tag looks good on resume.' },
+      { question: 'What is difficulty: NTSE vs JEE vs NEET?', answer: 'NTSE SAT is CBSE Class 10 level. JEE is much harder. So NTSE is more achievable for Class 10 students. Good stepping stone.' },
+    ],
+    relatedLinks: [{ label: 'Study Tips', tab: 'updates' }, { label: 'Exam Guide', tab: 'updates' }, { label: 'Syllabus', tab: 'syllabus' }],
+  },
+
+  /* ──────────────────────────────────────────────────────────────────
      AI TOOLS
   ────────────────────────────────────────────────────────────────── */
   {

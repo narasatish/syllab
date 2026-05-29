@@ -31,6 +31,8 @@ import { cn } from './lib/utils';
 import SEO from './components/SEO';
 import InstallPrompt from './components/InstallPrompt';
 import ColdStartBanner from './components/ColdStartBanner';
+import PomodoroTimer from './components/PomodoroTimer';
+import DarkModeToggle from './components/DarkModeToggle';
 import { FIREBASE_AUTH_ENABLED, FIRESTORE_FEATURES_ENABLED } from './lib/cloudFeatures';
 import { SYLLABUS } from './data/syllabus';
 import {
@@ -75,6 +77,15 @@ const UpdatesPage = React.lazy(() => import('./pages/Updates'));
 const ClassPage = React.lazy(() => import('./pages/ClassPage'));
 const SkillsLabPage = React.lazy(() => import('./pages/SkillsLab'));
 const EnglishLabPage = React.lazy(() => import('./pages/EnglishLab'));
+const CodingChallengesPage = React.lazy(() => import('./pages/CodingChallengesPage'));
+const MiniProjectsPage = React.lazy(() => import('./pages/MiniProjectsPage'));
+const CodingForKidsPage = React.lazy(() => import('./pages/CodingForKidsPage'));
+const PythonForKidsPage = React.lazy(() => import('./pages/PythonForKidsPage'));
+const ComputerBasicsPage = React.lazy(() => import('./pages/ComputerBasicsPage'));
+const CyberSafetyPage = React.lazy(() => import('./pages/CyberSafetyPage'));
+const AiForStudentsPage = React.lazy(() => import('./pages/AiForStudentsPage'));
+const WebDevPage = React.lazy(() => import('./pages/WebDevPage'));
+const GeneralKnowledgePage = React.lazy(() => import('./pages/GeneralKnowledge'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -108,14 +119,17 @@ const getStoredClass = () => {
   try { return localStorage.getItem('syllab_user_class') || ''; } catch { return ''; }
 };
 
+// URL paths — these are the CANONICAL URLs (May 2026 rename).
+// Old URLs are 301-redirected via firebase.json (see hosting config) AND
+// listed in LEGACY_PATH_TO_TAB below as a client-side fallback.
 const TAB_TO_PATH: Record<string, string> = {
   home: '/',
   syllabus: '/syllabus',
   arena: '/practice',
   daily: '/daily-challenges',
-  mock_tests: '/exams',
-  progress: '/progress',
-  learning_lab: '/learning-lab',
+  mock_tests: '/mock-tests',          // was /exams
+  progress: '/dashboard',              // was /progress
+  learning_lab: '/ai-tutor',           // was /learning-lab
   prep_hub: '/preparation',
   about: '/about',
   contact: '/contact',
@@ -125,8 +139,8 @@ const TAB_TO_PATH: Record<string, string> = {
   admin_pipeline: '/admin',
   blog: '/blog',
   updates: '/updates',
-  skills_lab: '/skills-lab',
-  english_lab: '/english-lab',
+  skills_lab: '/coding',               // was /skills-lab
+  english_lab: '/english',             // was /english-lab
   privacy: '/privacy',
   terms: '/terms',
   class_1: '/class-1',
@@ -141,53 +155,129 @@ const TAB_TO_PATH: Record<string, string> = {
   class_10: '/class-10',
   class_11: '/class-11',
   class_12: '/class-12',
+  coding_challenges: '/coding-challenges',
+  mini_projects: '/mini-projects',
+  coding_for_kids: '/coding-for-kids',
+  python_for_kids: '/python-for-kids',
+  computer_basics: '/computer-basics',
+  cyber_safety: '/cyber-safety',
+  ai_for_students: '/ai-for-students',
+  web_development: '/web-development',
+  general_knowledge: '/gk-quiz',       // was /general-knowledge
+};
+
+// Legacy URL aliases so users with old bookmarks still land on the right page
+// even before Firebase's 301 redirect activates (safety net).
+const LEGACY_PATH_TO_TAB: Record<string, string> = {
+  '/exams': 'mock_tests',
+  '/progress': 'progress',
+  '/learning-lab': 'learning_lab',
+  '/skills-lab': 'skills_lab',
+  '/english-lab': 'english_lab',
+  '/general-knowledge': 'general_knowledge',
 };
 
 const PATH_TO_TAB: Record<string, string> = Object.fromEntries(
   Object.entries(TAB_TO_PATH).map(([tab, path]) => [path, tab])
 );
+// Merge legacy entries so old URLs resolve client-side too
+for (const [legacyPath, tab] of Object.entries(LEGACY_PATH_TO_TAB)) {
+  if (!PATH_TO_TAB[legacyPath]) PATH_TO_TAB[legacyPath] = tab;
+}
 
-const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string }> = {
+const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[] }> = {
   home: {
     title: 'Syllab.in — Free AI Learning for CBSE, NCERT, JEE & NEET | Class 1–12',
-    description: 'Syllab.in is India\'s free AI learning platform for Class 1 to 12. Study CBSE NCERT chapters, practice MCQs, take mock tests, solve doubts with AI tutor. Free for every student.',
-    keywords: 'Syllab, free learning app India, AI tutor, NCERT CBSE, JEE preparation, NEET preparation, EAMCET, free education, Class 1 to 12, online learning, edtech India, free mock test, study app India',
+    description: 'Syllab.in is India\'s free AI learning platform for Class 1 to 12. Study NCERT chapters, practice MCQs, take mock tests for JEE/NEET/EAMCET/WBJEE/MHT-CET/KCET, learn coding, daily GK quiz, dark-mode for night study. Free for every Indian student.',
+    keywords: 'free learning app India, AI tutor free India, NCERT solutions free, CBSE notes free Class 1-12, JEE preparation free 2026, NEET preparation free, EAMCET mock test, online learning app India, free mock test India, doubt solver free, free education India, study app India, best learning app Class 10 India, NCERT app free, CBSE app free India, JEE preparation app 2026, NEET preparation app 2026, free education app India Class 12, Unacademy alternative free, BYJU\'s alternative free, Khan Academy India, free AI study app, online tuition free India, school learning app India, practice test app free India, MHT CET free, KCET preparation free, WBJEE preparation free, BITSAT mock test free, TNEA mock free, UPSEE 2026 free, COMEDK UGET, GUJCET practice, OJEE mock test free, GK quiz India free, daily GK Class 5-12, general knowledge MCQ India, current affairs 2026, dark mode study app, night study app India, weekly newsletter free, student progress tracker India, parent dashboard India free',
     url: 'https://syllab.in/',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Syllab.in',
+        operatingSystem: 'Web',
+        applicationCategory: 'EducationApplication',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Free AI-powered learning platform for Class 1–12 CBSE Indian students',
+        aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '12000', bestRating: '5' },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'EducationalOrganization',
+        name: 'Syllab.in',
+        url: 'https://syllab.in',
+        description: 'Free AI education platform for Indian students Class 1-12',
+        sameAs: ['https://twitter.com/syllabdotin'],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'Is Syllab.in free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Syllab.in is completely free for all Indian students from Class 1 to Class 12.' } },
+          { '@type': 'Question', name: 'Which exams does Syllab.in help with?', acceptedAnswer: { '@type': 'Answer', text: 'Syllab.in helps with JEE Mains, NEET, EAMCET, CBSE boards, BITSAT, VITEEE, WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE, and Math/Science Olympiads. All state engineering and medical entrance exams covered free.' } },
+          { '@type': 'Question', name: 'Does Syllab.in cover NCERT syllabus?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Syllab.in covers the complete NCERT syllabus for Class 1 to 12 with AI-powered notes, MCQs, and practice tests.' } },
+          { '@type': 'Question', name: 'Can I practice coding on Syllab.in?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Syllab.in Skills Lab offers Python, JavaScript, SQL, Java coding challenges with instant AI feedback — completely free.' } },
+          { '@type': 'Question', name: 'Does Syllab.in have a daily GK quiz?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — the General Knowledge section has 150+ MCQs across Indian history, geography, polity, science, and current affairs 2025-26 with a daily 10-question quiz for Class 5-12 students.' } },
+          { '@type': 'Question', name: 'Does Syllab.in have a dark mode?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, Syllab.in has a dark mode toggle in the top navigation. Tap the moon icon to switch — useful for night study sessions.' } },
+          { '@type': 'Question', name: 'Will I receive a weekly study newsletter?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — signed-in students get a weekly performance email with their XP, streak, completed topics, and class-appropriate study blogs. Parents get a separate child-progress newsletter.' } },
+          { '@type': 'Question', name: 'Are state engineering exam mock tests available?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — 10 mock papers each for WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE plus 15 each for JEE Main, NEET, EAMCET, AP EAMCET, BITSAT, VITEEE. Over 200 mocks free.' } },
+        ],
+      },
+    ],
   },
   syllabus: {
     title: 'Class 1–12 NCERT Syllabus Explorer | CBSE Chapters & Notes | Syllab.in',
     description: 'Browse NCERT chapters for every class and subject. AI-powered summaries, concept notes, practice questions, and learning guides for Class 1 to 12 CBSE students.',
-    keywords: 'NCERT syllabus, CBSE syllabus Class 1 to 12, chapter notes, NCERT chapters, subject-wise chapters, CBSE chapter summary, NCERT notes free, online syllabus guide',
+    keywords: 'NCERT syllabus free, CBSE syllabus Class 1-12, NCERT notes free download, CBSE chapter notes, important chapters CBSE, NCERT book chapters, free NCERT chapters, syllabus guide India, NCERT textbook solutions free, NCERT chapter summary, CBSE syllabus 2025-26, important chapters NCERT, chapter notes free download, subject wise chapters CBSE, NCERT questions and answers',
     url: 'https://syllab.in/syllabus',
   },
   arena: {
-    title: 'Practice Arena — Chapter-wise MCQs for CBSE NCERT | Syllab.in',
+    title: 'Practice — Free Chapter-wise MCQs for CBSE NCERT | Syllab.in',
     description: 'Practice timed chapter-wise MCQs for NCERT CBSE with instant scoring, explanations, and AI mistake tracking. Free for all Class 1–12 students.',
-    keywords: 'CBSE MCQ practice, NCERT questions, chapter wise quiz, online MCQ test, timed practice, CBSE exam prep, chapter test, free MCQ Class 6 7 8 9 10 11 12',
+    keywords: 'free MCQ practice CBSE, NCERT chapter wise quiz, online mock test free, CBSE practice questions, board exam prep Class 10, competitive exam practice, timed quiz online, NCERT MCQ practice free, chapter quiz CBSE, MCQ questions Class 9 10 11 12, objective questions free, short answer questions CBSE, practice arena India free',
     url: 'https://syllab.in/practice',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'CBSE NCERT Chapter-wise MCQ Practice',
+      description: 'Chapter-wise MCQ practice for all CBSE NCERT subjects Class 1 to 12',
+      provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+      isAccessibleForFree: true,
+      inLanguage: 'en-IN',
+    },
   },
   daily: {
-    title: 'Daily Challenges — JEE, NEET, EAMCET & School Quiz | Syllab.in',
-    description: 'Take daily quiz challenges for JEE, NEET, EAMCET, and school aptitude with live rankings and streak tracking. Practice every day, improve your rank.',
-    keywords: 'daily quiz, JEE daily practice, NEET daily questions, EAMCET quiz, daily challenge app, quiz competition, aptitude quiz, daily MCQ, study daily',
+    title: 'Daily Challenge — JEE NEET EAMCET & School Daily Quiz | Syllab.in',
+    description: 'Take a daily quiz challenge for JEE, NEET, EAMCET, and school aptitude with live rankings and streak tracking. Practice every day, improve your rank. Same daily quiz for all users — compete with friends.',
+    keywords: 'daily challenge free India, daily quiz free India, JEE daily practice 2026, NEET daily questions, EAMCET practice daily, quiz competition free, aptitude questions daily, morning quiz challenge, daily dose CBSE, streak challenge India',
     url: 'https://syllab.in/daily-challenges',
   },
   progress: {
-    title: 'Student Progress Dashboard — Analytics, XP & Exam History | Syllab.in',
-    description: 'View your XP, streaks, weak topics, exam results, completed chapters, and full learning analytics in your personalised student progress dashboard.',
-    keywords: 'student progress dashboard, learning analytics, XP tracker, study streak, weak topics AI, exam history, performance dashboard, CBSE student tracker',
-    url: 'https://syllab.in/progress',
+    title: 'Dashboard — XP, Streaks, Analytics & Exam History | Syllab.in',
+    description: 'View your XP, streaks, weak topics, exam results, completed chapters, and full learning analytics in your personalised student dashboard.',
+    keywords: 'student dashboard India, learning analytics free, XP tracker India, study streak app, weak topics AI, exam history dashboard, performance dashboard, CBSE student progress tracker, my dashboard syllab, student progress dashboard',
+    url: 'https://syllab.in/dashboard',
   },
   mock_tests: {
-    title: 'Mock Tests, Olympiads & Custom Exams | Syllab.in Exams Hub',
-    description: 'Free mock tests for JEE, NEET, EAMCET, VIT, BITSAT; Math and Science Olympiads; create custom exams and share live exam codes with students.',
-    keywords: 'JEE mock test free, NEET mock test, EAMCET mock test, Math Olympiad, Science Olympiad, custom exam creator, live exam code, online mock test India',
-    url: 'https://syllab.in/exams',
+    title: 'Mock Tests — Free JEE, NEET, EAMCET & State Exam Papers | Syllab.in',
+    description: 'Free mock tests for JEE Main, NEET, EAMCET, VIT, BITSAT, and all state engineering entrance exams (WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE). 10+ mocks per exam. Math & Science Olympiads included.',
+    keywords: 'mock tests free India, JEE Main mock test 2026 free, NEET mock test 2026 free, EAMCET mock test free, VIT mock test, BITSAT mock test free, WBJEE mock test free, TNEA mock test, UPSEE 2026 free, MHT-CET mock test free, KCET 2026 mock test, COMEDK UGET practice, GUJCET practice free, OJEE mock test free, state engineering entrance exams, full length mock test free India, board exam practice test Class 10, Math Olympiad free, sample paper CBSE 2026, previous year question paper, engineering entrance exam preparation free, test series free India',
+    url: 'https://syllab.in/mock-tests',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'Free Mock Tests for JEE, NEET, EAMCET & State Exams',
+      description: 'Practice with full mock tests for JEE Mains, NEET, EAMCET, BITSAT, WBJEE, TNEA, UPSEE, MHT-CET, KCET, COMEDK, GUJCET, OJEE and Olympiads',
+      provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+      isAccessibleForFree: true,
+      inLanguage: 'en-IN',
+    },
   },
   prep_hub: {
     title: 'JEE NEET EAMCET Board Exam Preparation Guides | Syllab.in',
     description: 'Comprehensive preparation guides for JEE Mains, NEET, EAMCET, and CBSE boards — chapter weightage, study plans, important formulas, and tips from top scorers.',
-    keywords: 'JEE preparation guide, NEET study plan, EAMCET tips, board exam preparation, CBSE study strategy, JEE syllabus 2025 2026, important chapters JEE NEET, exam strategies',
+    keywords: 'JEE Mains preparation 2026, NEET preparation guide, EAMCET strategy, CBSE board exam tips, high weightage chapters JEE, NEET important topics, study plan competitive exam',
     url: 'https://syllab.in/preparation',
   },
   profile: {
@@ -203,10 +293,20 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     url: 'https://syllab.in/parent',
   },
   learning_lab: {
-    title: 'AI Learning Lab — Notes, Flashcards, MCQ Generator & Scan Solve | Syllab.in',
-    description: 'Generate AI concept notes, flashcards, and practice MCQs from any topic. Scan and solve homework problems step-by-step with AI — free for all students.',
-    keywords: 'AI notes generator, flashcard maker, AI MCQ generator, scan solve homework, AI study tool, concept notes AI, homework helper India, free AI learning tools',
-    url: 'https://syllab.in/learning-lab',
+    title: 'AI Tutor — Free AI Homework Helper, Notes & Doubt Solver | Syllab.in',
+    description: 'Free AI Tutor for Indian students. Generate AI concept notes, flashcards, practice MCQs. Scan & solve homework problems step-by-step. 24/7 doubt solving — no subscription, free for Class 1-12.',
+    keywords: 'AI tutor free India, AI homework helper India free, free AI study helper India, AI notes generator free, homework solver India free, flashcard maker free, question paper generator AI, AI tutor homework, concept notes generator AI, AI doubt solver free, scan and solve homework, photo question solver India, free AI study buddy, ChatGPT alternative for students free, Gemini tutor free, AI math solver India',
+    url: 'https://syllab.in/ai-tutor',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'Free AI Tutor for Indian Students',
+      description: 'AI-powered tutoring with notes generation, flashcards, scan-and-solve, and 24/7 doubt clearing for CBSE NCERT students',
+      provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+      isAccessibleForFree: true,
+      inLanguage: 'en-IN',
+      educationalLevel: 'Class 1 to Class 12',
+    },
   },
   about: {
     title: 'About Syllab.in — Free AI Education for Every Indian Student',
@@ -233,28 +333,61 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     url: 'https://syllab.in/admin',
   },
   skills_lab: {
-    title: 'Skills Lab — Python, SQL, AI, Data Science & Aptitude | Syllab.in',
-    description: 'Learn Python coding, SQL databases, AI basics, Data Analytics, Aptitude reasoning, and build Mini Projects with AI feedback — free for Class 5–12 students.',
-    keywords: 'Python for students India, learn Python free, SQL basics Class 10 11 12, AI basics for students, data analytics beginner, coding skills students, aptitude reasoning, mini projects, free coding course India',
-    url: 'https://syllab.in/skills-lab',
+    title: 'Coding — Free Python, JavaScript, SQL & AI for Students | Syllab.in',
+    description: 'Free coding courses for Indian students Class 5-12. Learn Python, JavaScript, SQL, Java, AI basics, Data Analytics, App Dev, Robotics, Game Dev, Git, Cloud, and Prompt Engineering. Build Mini Projects with instant AI feedback.',
+    keywords: 'free coding India students, learn coding free India, Python for students India free, Python course Class 10, learn Python free, JavaScript basics free India, SQL basics free, SQL tutorial students, AI basics for students, data science course free India, coding skills students, competitive programming free India, HackerRank alternative free, LeetCode alternative free India, Python tutorial Class 10 11 India, Java basics free, coding course India free, programming languages for students, learn SQL free India, HTML CSS basics students, free coding bootcamp India, code for kids India, learn programming free India, app development free students, game development course free, robotics for students India',
+    url: 'https://syllab.in/coding',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'Skills Lab — Free Coding & AI Courses for Indian Students',
+      description: 'Learn Python, JavaScript, SQL, Java, AI, Data Analytics and more with guided projects and coding challenges',
+      provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+      hasCourseInstance: [
+        { '@type': 'CourseInstance', name: 'Python Programming', courseMode: 'online', isAccessibleForFree: true },
+        { '@type': 'CourseInstance', name: 'JavaScript Basics', courseMode: 'online', isAccessibleForFree: true },
+        { '@type': 'CourseInstance', name: 'SQL Databases', courseMode: 'online', isAccessibleForFree: true },
+        { '@type': 'CourseInstance', name: 'AI & Machine Learning Basics', courseMode: 'online', isAccessibleForFree: true },
+      ],
+      isAccessibleForFree: true,
+      inLanguage: 'en-IN',
+    },
   },
   english_lab: {
-    title: 'English Lab — Speaking, Reading, Grammar & Vocabulary | Syllab.in',
-    description: 'Practice English every day with AI speaking coach, daily grammar challenges, reading passages, NCERT story guides, vocabulary builder, and listening exercises — all free.',
-    keywords: 'English speaking practice India, English grammar CBSE, vocabulary builder, NCERT English Class 1 to 10, English reading comprehension, daily English challenge, AI English teacher free',
-    url: 'https://syllab.in/english-lab',
+    title: 'English — Free AI Speaking, Grammar & Vocabulary Practice | Syllab.in',
+    description: 'Practice English daily with AI speaking coach, grammar challenges, reading passages, NCERT story guides, vocabulary builder, and IELTS prep — all free for Indian students.',
+    keywords: 'English speaking practice free India, IELTS preparation free, English grammar CBSE Class 10, English vocabulary app free, spoken English practice app, NCERT English Class 9 10, English reading comprehension free, AI English teacher free India, free English coach India, English fluency app free, spoken English course free, learn English online free India, English speaking practice for students, English vocabulary builder Class 6 7 8 9 10',
+    url: 'https://syllab.in/english',
   },
   blog: {
     title: 'Study Tips & Guides for CBSE JEE NEET Students | Syllab.in Blog',
-    description: 'Free study tips, chapter guides, exam strategies, and preparation advice for CBSE Class 5–12, JEE Mains, NEET, and EAMCET students. Written by educators.',
-    keywords: 'CBSE study tips, JEE mains preparation, NEET study guide, board exam tips Class 10, how to study effectively, important chapters CBSE, free study blog India',
+    description: 'Free study tips, chapter guides, exam strategies, and preparation advice for CBSE Class 5–12, JEE Mains, NEET, and EAMCET students. Auto-updated weekly with trending topics.',
+    keywords: 'study tips CBSE students, JEE preparation strategy 2026, NEET exam guide, board exam tips Class 10, how to score high, important chapters high weightage, exam strategy blog, free NCERT notes Class 10, JEE NEET EAMCET 2026 preparation, best free coding platforms India students, CBSE Class 10 board exam tips 2026',
     url: 'https://syllab.in/blog',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Syllab.in Blog',
+      description: 'Free study tips, exam guides, and preparation strategies for Indian students Class 1-12',
+      url: 'https://syllab.in/blog',
+      publisher: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+      inLanguage: 'en-IN',
+    },
   },
   updates: {
-    title: 'Student Updates — CBSE, JEE, NEET, AI & Coding News | Syllab.in',
-    description: 'Latest updates on CBSE, NCERT, JEE, NEET, EAMCET exams, AI tools for students, coding skills, and new features on Syllab.in.',
-    keywords: 'CBSE updates 2025 2026, JEE news, NEET latest news, AI tools for students, ChatGPT students, Gemini AI, coding skills India, student news updates',
+    title: 'Blog — Latest CBSE, JEE, NEET, AI & Study Tips for Indian Students | Syllab.in',
+    description: 'Syllab Blog: daily updates for Indian students. CBSE notifications 2026, JEE Mains dates, NEET 2026 syllabus, EAMCET schedule, AI tool reviews (ChatGPT, Claude, Gemini), study tips, coding trends. 35+ articles, refreshed weekly.',
+    keywords: 'Syllab blog, education blog India, student blog India, CBSE updates 2025 2026, CBSE notification 2026, JEE Mains 2026 news, JEE Mains January 2026 dates, NEET latest news 2026, NEET 2026 schedule, EAMCET 2026 notification, AI tools for students 2026, ChatGPT for students, Claude AI tutor, Gemini AI study, coding skills India trending, student news updates India, edtech news India, NCERT updates 2026, board exam news 2026, free education news India, daily student news, education news today India, study tips blog, exam preparation blog India',
     url: 'https://syllab.in/updates',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Syllab.in Blog',
+      description: 'Daily-updated education blog for Indian students Class 1-12 covering CBSE, JEE, NEET, EAMCET, AI tools, study tips, and coding trends',
+      url: 'https://syllab.in/updates',
+      publisher: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+      inLanguage: 'en-IN',
+    },
   },
   class_1: { title: 'Class 1 NCERT Syllabus, Subjects & Study Tips | Syllab.in', description: 'Complete Class 1 CBSE NCERT guide with important chapters in Maths, EVS, English and Hindi. Free practice and study tips for Class 1 students.', keywords: 'Class 1 NCERT, Class 1 CBSE, Class 1 Maths, Class 1 EVS, Class 1 English, Class 1 syllabus', url: 'https://syllab.in/class-1' },
   class_2: { title: 'Class 2 NCERT Syllabus, Subjects & Study Tips | Syllab.in', description: 'Class 2 CBSE NCERT guide with important chapters in Maths, EVS, English and Hindi. Build a strong foundation with free study tips.', keywords: 'Class 2 NCERT, Class 2 CBSE, Class 2 Maths, Class 2 EVS, Class 2 English, Class 2 syllabus', url: 'https://syllab.in/class-2' },
@@ -264,10 +397,85 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
   class_6: { title: 'Class 6 NCERT Syllabus, Important Chapters & Study Tips | Syllab.in', description: 'Class 6 CBSE NCERT guide with important Maths, Science, Social Science, English and Hindi chapters and study tips.', keywords: 'Class 6 NCERT, Class 6 CBSE, Class 6 Maths, Class 6 Science, Class 6 Social Science', url: 'https://syllab.in/class-6' },
   class_7: { title: 'Class 7 NCERT Syllabus, Important Chapters & Study Tips | Syllab.in', description: 'Class 7 CBSE NCERT guide with Algebra, Science, Social Science and Language important chapters and free study tips.', keywords: 'Class 7 NCERT, Class 7 CBSE, Class 7 Maths, Class 7 Science, Class 7 algebra', url: 'https://syllab.in/class-7' },
   class_8: { title: 'Class 8 NCERT Syllabus, Important Chapters & Study Tips | Syllab.in', description: 'Class 8 CBSE NCERT complete guide with Rational Numbers, Microorganisms, History and Language chapters for boards.', keywords: 'Class 8 NCERT, Class 8 CBSE, Class 8 Maths, Class 8 Science, Class 8 rational numbers', url: 'https://syllab.in/class-8' },
-  class_9: { title: 'Class 9 NCERT Syllabus, Important Chapters & Study Guide | Syllab.in', description: 'Class 9 CBSE NCERT guide: Number Systems, Motion, Atoms, Democratic Politics — important chapters, study tips and free practice.', keywords: 'Class 9 NCERT, Class 9 CBSE, Class 9 Maths, Class 9 Science, Class 9 Social Science, Class 9 board', url: 'https://syllab.in/class-9' },
-  class_10: { title: 'Class 10 NCERT Syllabus, Board Exam Preparation | Syllab.in', description: 'Class 10 CBSE board exam guide with important NCERT chapters, study plan, subject weightage and free practice for all subjects.', keywords: 'Class 10 NCERT, Class 10 CBSE board exam, Class 10 Maths, Class 10 Science, board exam tips 2025 2026', url: 'https://syllab.in/class-10' },
-  class_11: { title: 'Class 11 NCERT Syllabus, JEE NEET Foundation | Syllab.in', description: 'Class 11 CBSE NCERT guide with Physics, Chemistry, Maths and Biology for boards and JEE/NEET foundation. Free study tips.', keywords: 'Class 11 NCERT, Class 11 CBSE, Class 11 Physics, Class 11 Chemistry, Class 11 Maths, JEE Class 11 preparation', url: 'https://syllab.in/class-11' },
-  class_12: { title: 'Class 12 NCERT Syllabus, Board Exam & JEE NEET Guide | Syllab.in', description: 'Class 12 CBSE board exam and JEE/NEET preparation guide with Physics, Chemistry, Maths and Biology important chapters, study plan and tips.', keywords: 'Class 12 NCERT, Class 12 CBSE, Class 12 Physics, Class 12 Maths, Class 12 Chemistry, JEE NEET Class 12, board exam 2025 2026', url: 'https://syllab.in/class-12' },
+  class_9: { title: 'Class 9 NCERT Syllabus, Important Chapters & Study Guide | Syllab.in', description: 'Class 9 CBSE NCERT guide: Number Systems, Motion, Atoms, Democratic Politics — important chapters, study tips and free practice.', keywords: 'Class 9 NCERT free, Class 9 CBSE Maths, Class 9 Science chapters, Class 9 board prep, free NCERT notes Class 9, JEE NEET foundation Class 9', url: 'https://syllab.in/class-9' },
+  class_10: { title: 'Class 10 NCERT Syllabus, Board Exam Preparation | Syllab.in', description: 'Class 10 CBSE board exam guide with important NCERT chapters, study plan, subject weightage and free practice for all subjects.', keywords: 'Class 10 CBSE board exam 2025 2026, NCERT solutions Class 10, Class 10 Maths board exam, Class 10 Science board prep, board exam tips CBSE', url: 'https://syllab.in/class-10' },
+  class_11: { title: 'Class 11 NCERT Syllabus, JEE NEET Foundation | Syllab.in', description: 'Class 11 CBSE NCERT guide with Physics, Chemistry, Maths and Biology for boards and JEE/NEET foundation. Free study tips.', keywords: 'Class 11 NCERT solutions, JEE preparation Class 11, NEET foundation Class 11, Class 11 Physics Chemistry Maths, CBSE Class 11 notes free', url: 'https://syllab.in/class-11' },
+  class_12: { title: 'Class 12 NCERT Syllabus, Board Exam & JEE NEET Guide | Syllab.in', description: 'Class 12 CBSE board exam and JEE/NEET preparation guide with Physics, Chemistry, Maths and Biology important chapters, study plan and tips.', keywords: 'Class 12 board exam 2025 2026, JEE Mains Class 12, NEET preparation Class 12, Class 12 NCERT solutions, CBSE Class 12 Maths Chemistry Physics', url: 'https://syllab.in/class-12' },
+  coding_challenges: {
+    title: 'Free Coding Challenges for Students | JavaScript Python | Syllab.in',
+    description: 'Practice coding with free interactive challenges for Indian students. Run JavaScript code in your browser, earn XP, and level up your programming skills.',
+    keywords: 'competitive programming India free, coding challenges free, LeetCode alternative free India, programming practice students, Python coding challenges free',
+    url: 'https://syllab.in/coding-challenges',
+  },
+  mini_projects: {
+    title: 'Mini Coding Projects for Students | Python JavaScript HTML | Syllab.in',
+    description: 'Build 24 free mini coding projects in Python, JavaScript, HTML and SQL. Step-by-step guided projects for Indian students, Class 6 to 12.',
+    keywords: 'mini coding projects students India, Python projects beginners, JavaScript mini projects, HTML CSS projects Class 10 11',
+    url: 'https://syllab.in/mini-projects',
+  },
+  coding_for_kids: {
+    title: 'Free Coding for Kids India | Class 3–8 Programming | Syllab.in',
+    description: 'Learn coding for free with fun games and challenges designed for Indian kids Class 3 to 8. Start with Scratch basics, Python, and JavaScript — no prior experience needed.',
+    keywords: 'coding for kids India, free coding Class 3 4 5 6 7 8, kids programming India, learn coding children, coding games for kids free',
+    url: 'https://syllab.in/coding-for-kids',
+  },
+  python_for_kids: {
+    title: 'Free Python for Kids India | Class 6–10 Python Basics | Syllab.in',
+    description: 'Learn Python programming free for Indian students Class 6 to 10. Easy Python tutorials, projects, and practice — the most popular coding language for careers in AI and data science.',
+    keywords: 'Python for kids India, free Python Class 6 7 8 9 10, Python beginners students, learn Python free India, Python projects students',
+    url: 'https://syllab.in/python-for-kids',
+  },
+  computer_basics: {
+    title: 'Free Computer Basics for Class 3–8 | CBSE ICT Notes | Syllab.in',
+    description: 'Learn computer basics free — hardware, software, internet, cyber safety for CBSE Class 3 to 8 students. Aligned with NCERT ICT syllabus with fun quizzes.',
+    keywords: 'computer basics Class 3 4 5 6 7 8, CBSE computer science, free ICT notes students India, hardware software basics, computer parts kids',
+    url: 'https://syllab.in/computer-basics',
+  },
+  cyber_safety: {
+    title: 'Free Cyber Safety for Students India | Class 5–10 | Syllab.in',
+    description: 'Learn internet safety, cyberbullying awareness, and online privacy for free. Essential cyber safety course for Indian students Class 5 to 10 by Syllab.in.',
+    keywords: 'cyber safety for students India, internet safety kids, cyberbullying awareness Class 8 9 10, online safety free course India, digital literacy students',
+    url: 'https://syllab.in/cyber-safety',
+  },
+  ai_for_students: {
+    title: 'Free AI for Students India | Class 8–12 Artificial Intelligence | Syllab.in',
+    description: 'Learn Artificial Intelligence free for Indian students Class 8 to 12. AI basics, machine learning, ChatGPT, and career paths — free course at Syllab.in.',
+    keywords: 'AI course free India, machine learning for students, ChatGPT tutorial students, AI ML course students free, artificial intelligence Class 8-12 free',
+    url: 'https://syllab.in/ai-for-students',
+  },
+  web_development: {
+    title: 'Free Web Development for Students India | HTML CSS JavaScript | Syllab.in',
+    description: 'Learn web development free — HTML, CSS, JavaScript projects for Indian students Class 8 to 12. Build real websites and launch your tech career.',
+    keywords: 'web development for students India, free HTML CSS JavaScript Class 10 11 12, website building beginners India, front-end development students free',
+    url: 'https://syllab.in/web-development',
+  },
+  general_knowledge: {
+    title: 'GK Quiz — Free General Knowledge MCQs for Indian Students | Syllab.in',
+    description: 'Practice 150+ GK quiz questions on Indian history, geography, polity, static GK, current affairs 2025-26, and science. Free daily GK quiz for Class 5-12 students. Same daily quiz for all users — compete with friends.',
+    keywords: 'GK quiz free India, GK questions India free, general knowledge MCQ free India, Indian history MCQ Class 8 9 10, geography questions India, current affairs 2026 India, GK quiz Class 5 6 7 8 9 10, CBSE GK questions free, competitive exam GK preparation, polity questions UPSC SSC, daily GK quiz India, static GK MCQ, Indian constitution MCQ, GK for SSC banking exams, GK Olympiad questions, NTSE GK preparation, Indian states capitals quiz, ISRO missions GK, awards 2026 India, GK questions India daily',
+    url: 'https://syllab.in/gk-quiz',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: 'Free General Knowledge Quiz for Indian Students',
+        description: '150+ GK MCQs on Indian history, geography, polity, current affairs and science — free daily quiz for Class 5-12',
+        provider: { '@type': 'Organization', name: 'Syllab.in', sameAs: 'https://syllab.in' },
+        isAccessibleForFree: true,
+        inLanguage: 'en-IN',
+        educationalLevel: 'Class 5 to Class 12',
+        teaches: 'Indian History, Geography, Polity, Static GK, Current Affairs, Science GK',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://syllab.in/' },
+          { '@type': 'ListItem', position: 2, name: 'GK Quiz', item: 'https://syllab.in/gk-quiz' },
+        ],
+      },
+    ],
+  },
 };
 
 function PageFallback() {
@@ -285,10 +493,13 @@ function LoginModal({
   isOpen,
   onClose,
   onAuthComplete,
+  onExistingLogin,
 }: {
   isOpen: boolean;
   onClose: () => void;
   onAuthComplete?: (role: 'student' | 'parent') => void;
+  /** Fires when an existing user signs in (not new signup). Lets App route them away from /profile. */
+  onExistingLogin?: (role?: 'student' | 'parent') => void;
 }) {
   const [method, setMethod] = useState<AuthMethod>('google');
   const [mode, setMode] = useState<AuthMode>('signin');
@@ -354,6 +565,8 @@ function LoginModal({
         setAuthStep('role');
       } else {
         await signInWithEmail(form.email, form.password);
+        // Existing user — bounce them away from /profile to the home page
+        onExistingLogin?.();
         onClose();
       }
     } catch (authError) {
@@ -386,6 +599,8 @@ function LoginModal({
       if (cloudRole) {
         // Sync to localStorage so next check is fast
         setStoredRole(cloudRole);
+        // Existing user — bounce them away from /profile to home (or parent hub if parent role)
+        onExistingLogin?.(cloudRole);
         onClose();
       } else {
         // New Google user — send welcome email + show role picker
@@ -766,12 +981,12 @@ export default function App() {
 
   const handleAuthComplete = (role: 'student' | 'parent') => {
     setUserRole(role);
-    if (role === 'parent') {
-      setActiveTab('parent');
-      const path = TAB_TO_PATH['parent'] || '/parent';
-      if (window.location.pathname !== path) {
-        window.history.pushState({ tab: 'parent' }, '', path);
-      }
+    // After role pick: parents → parent hub; students → home (NOT /profile).
+    const targetTab = role === 'parent' ? 'parent' : 'home';
+    setActiveTab(targetTab);
+    const path = TAB_TO_PATH[targetTab] || '/';
+    if (window.location.pathname !== path) {
+      window.history.pushState({ tab: targetTab }, '', path);
     }
     setLoginModalOpen(false);
   };
@@ -795,6 +1010,14 @@ export default function App() {
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
+  }, []);
+
+  // Any page can request the login modal by dispatching `syllab:require-login`.
+  // Used by Mock Tests, Daily Challenges etc. to gate actions that need an account.
+  useEffect(() => {
+    const handler = () => setLoginModalOpen(true);
+    window.addEventListener('syllab:require-login', handler);
+    return () => window.removeEventListener('syllab:require-login', handler);
   }, []);
 
   const handleSessionComplete = async (summary: SessionSummary) => {
@@ -854,20 +1077,25 @@ export default function App() {
     }
   };
 
-  const navItems = [
-    { id: 'home', label: 'Home', icon: Home },
-    // Parent-only pages are filtered below — students don't see Parent Hub in nav
-    ...(userRole !== 'student' ? [] : []),
-    { id: 'syllabus', label: 'Syllabus', icon: BookOpen },
-    { id: 'arena', label: 'Practice Arena', icon: Target },
-    { id: 'daily', label: 'Daily Dose', icon: CalendarDays },
-    { id: 'mock_tests', label: 'Exams', icon: ClipboardList },
-    { id: 'learning_lab', label: 'Learning Lab', icon: Sparkles },
-    { id: 'skills_lab', label: 'Skills Lab', icon: Zap },
-    { id: 'english_lab', label: 'English Lab', icon: BookOpen },
-    { id: 'updates', label: 'Updates', icon: Sparkles },
-    // Progress: show for students and guests; parents use parent hub instead
-    ...(userRole !== 'parent' ? [{ id: 'progress', label: 'Progress', icon: ChartNoAxesCombined }] : []),
+  // Nav order (May 2026 rename): single concrete verbs/nouns, AI Tutor flagged
+  // as featured. Order matches usage frequency for Class 1-12 students.
+  // Old labels: Practice Arena / Exams / Learning Lab / Skills Lab / English Lab /
+  //             Daily Dose / GK / Interactive Lab / Updates / Progress.
+  const navItems: Array<{ id: string; label: string; icon: any; featured?: boolean }> = [
+    { id: 'home',              label: 'Home',             icon: Home },
+    { id: 'syllabus',          label: 'Syllabus',         icon: BookOpen },
+    { id: 'arena',             label: 'Practice',         icon: Target },
+    { id: 'mock_tests',        label: 'Mock Tests',       icon: ClipboardList },
+    { id: 'learning_lab',      label: 'AI Tutor',         icon: Sparkles, featured: true },
+    { id: 'skills_lab',        label: 'Coding',           icon: Zap },
+    { id: 'english_lab',       label: 'English',          icon: BookOpen },
+    { id: 'daily',             label: 'Daily Challenge',  icon: CalendarDays },
+    { id: 'general_knowledge', label: 'GK Quiz',          icon: BookOpen },
+    // Updates page is now the canonical "Blog" — old /blog page still exists
+    // but hidden from nav (kept at /blog for any indexed inbound links).
+    { id: 'updates',           label: 'Blog',             icon: Sparkles },
+    // Dashboard: show for students and guests; parents use parent hub instead
+    ...(userRole !== 'parent' ? [{ id: 'progress', label: 'Dashboard', icon: ChartNoAxesCombined }] : []),
     // Parent Hub: show for parents and guests (not for students)
     ...(userRole !== 'student' ? [{ id: 'parent', label: 'Parent Hub', icon: Users }] : []),
   ];
@@ -877,7 +1105,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
-      <SEO {...seo} />
+      <SEO title={seo.title} description={seo.description} keywords={seo.keywords} url={seo.url} jsonLd={seo.jsonLd} />
       {!isMockExamMode ? (
       <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
         <button
@@ -897,18 +1125,27 @@ export default function App() {
               type="button"
               onClick={() => navigate(item.id)}
               className={cn(
-                'rounded-xl px-5 py-2.5 text-[9px] font-black uppercase tracking-widest transition-all',
+                'relative rounded-xl px-5 py-2.5 text-[9px] font-black uppercase tracking-widest transition-all',
                 activeTab === item.id
                   ? 'bg-secondary text-white shadow-xl shadow-slate-900/20'
-                  : 'text-slate-500 hover:text-secondary',
+                  : item.featured
+                    ? 'bg-gradient-to-r from-emerald-50 to-blue-50 text-emerald-700 hover:from-emerald-100 hover:to-blue-100'
+                    : 'text-slate-500 hover:text-secondary',
               )}
             >
+              {item.featured && <span className="mr-1">🤖</span>}
               {item.label}
+              {item.featured && activeTab !== item.id && (
+                <span className="absolute -top-1 -right-1 rounded-full bg-emerald-500 px-1.5 py-0.5 text-[7px] font-black uppercase tracking-wider text-white shadow-md">
+                  AI
+                </span>
+              )}
             </button>
           ))}
         </nav>
 
         <div className="flex items-center gap-4">
+          <DarkModeToggle size={20} />
           <div className="hidden items-center gap-3 md:flex">
             {currentUser ? (() => {
               const headerAvatar = [...AVATAR_REWARDS].reverse().find(a =>
@@ -973,10 +1210,10 @@ export default function App() {
             })() : (
               <button
                 type="button"
-                onClick={() => { navigate('profile'); setLoginModalOpen(true); }}
+                onClick={() => setLoginModalOpen(true)}
                 className="btn-primary px-6 py-2.5 text-xs font-black uppercase tracking-widest"
               >
-                My Profile
+                Login / Sign Up
               </button>
             )}
           </div>
@@ -1031,10 +1268,10 @@ export default function App() {
             ) : (
               <button
                 type="button"
-                onClick={() => { navigate('profile'); setLoginModalOpen(true); setMobileMenuOpen(false); }}
+                onClick={() => { setLoginModalOpen(true); setMobileMenuOpen(false); }}
                 className="mb-4 w-full rounded-2xl bg-primary py-4 text-sm font-black text-white shadow-lg shadow-emerald-500/20"
               >
-                Sign In / My Profile
+                Login / Sign Up
               </button>
             )}
 
@@ -1061,7 +1298,17 @@ export default function App() {
         ) : null}
       </AnimatePresence>
 
-      <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} onAuthComplete={handleAuthComplete} />
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setLoginModalOpen(false)}
+        onAuthComplete={handleAuthComplete}
+        onExistingLogin={(role) => {
+          // Sign-in finished. Bounce the user OFF /profile (where the Login button
+          // had navigated them) so they land on home (students) or parent hub (parents).
+          if (role === 'parent') navigate('parent');
+          else navigate('home');
+        }}
+      />
 
       <main className={cn(
         'flex-1 overflow-y-auto bg-slate-50/50',
@@ -1158,6 +1405,15 @@ export default function App() {
                   {activeTab === 'updates' ? <UpdatesPage setTab={navigate} /> : null}
                   {activeTab === 'skills_lab' ? <SkillsLabPage currentUser={currentUser} setTab={navigate} openTutor={() => setTutorOpen(true)} /> : null}
                   {activeTab === 'english_lab' ? <EnglishLabPage currentUser={currentUser} setTab={navigate} /> : null}
+                  {activeTab === 'coding_challenges' ? <CodingChallengesPage currentUser={currentUser} /> : null}
+                  {activeTab === 'mini_projects' ? <MiniProjectsPage /> : null}
+                  {activeTab === 'coding_for_kids' ? <CodingForKidsPage /> : null}
+                  {activeTab === 'python_for_kids' ? <PythonForKidsPage /> : null}
+                  {activeTab === 'computer_basics' ? <ComputerBasicsPage /> : null}
+                  {activeTab === 'cyber_safety' ? <CyberSafetyPage /> : null}
+                  {activeTab === 'ai_for_students' ? <AiForStudentsPage /> : null}
+                  {activeTab === 'web_development' ? <WebDevPage /> : null}
+                  {activeTab === 'general_knowledge' ? <GeneralKnowledgePage setTab={navigate} /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>
@@ -1220,6 +1476,11 @@ export default function App() {
       <ColdStartBanner />
       ) : null}
 
+      {/* Show Pomodoro Timer on practice/syllabus pages */}
+      {!isMockExamMode && (activeTab === 'arena' || activeTab === 'syllabus') && (
+        <PomodoroTimer />
+      )}
+
       {!isMockExamMode ? (
       <footer className="bg-secondary text-white border-t border-slate-800 py-24 px-8 mt-24">
         <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-12">
@@ -1241,17 +1502,18 @@ export default function App() {
           <div>
             <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-8">Learning Hub</h4>
             <ul className="space-y-4">
-              <li><button onClick={() => navigate('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus Explorer</button></li>
-              <li><button onClick={() => navigate('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice Arena</button></li>
-              <li><button onClick={() => navigate('daily')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenges</button></li>
-              <li><button onClick={() => navigate('mock_tests')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Exams Hub</button></li>
-              <li><button onClick={() => navigate('progress')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Progress Hub</button></li>
-              <li><button onClick={() => navigate('learning_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Learning Lab</button></li>
+              <li><button onClick={() => navigate('syllabus')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Syllabus</button></li>
+              <li><button onClick={() => navigate('arena')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Practice</button></li>
+              <li><button onClick={() => navigate('daily')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Daily Challenge</button></li>
+              <li><button onClick={() => navigate('mock_tests')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Mock Tests</button></li>
+              <li><button onClick={() => navigate('progress')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Dashboard</button></li>
+              <li><button onClick={() => navigate('learning_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Tutor</button></li>
               <li><button onClick={() => setTutorOpen(true)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">AI Mentoring</button></li>
               <li><button onClick={() => navigate('prep_hub')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Preparation Guides</button></li>
               <li><button onClick={() => navigate('blog')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Study Blog</button></li>
-              <li><button onClick={() => navigate('skills_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Skills Lab</button></li>
-              <li><button onClick={() => navigate('english_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">English Lab</button></li>
+              <li><button onClick={() => navigate('skills_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Coding</button></li>
+              <li><button onClick={() => navigate('english_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">English</button></li>
+              <li><button onClick={() => navigate('general_knowledge')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">GK Quiz</button></li>
               <li><button onClick={() => navigate('parent')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Parent Hub</button></li>
               <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>

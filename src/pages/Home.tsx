@@ -1,28 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { FULL_ARTICLES } from '../data/updateArticles';
 import {
   Sparkles,
-  Bot,
-  ScanLine,
   ArrowRight,
   ChevronDown,
   ChevronUp,
-  BookOpen,
   Code2,
   Brain,
   BarChart3,
-  Zap,
   Target,
   Star,
   Users,
-  TrendingUp,
   Shield,
   Play,
   GraduationCap,
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import StructuredData from '../seo/StructuredData';
+import HomeFeatureGrid from '../components/HomeFeatureGrid';
+import HomeInteractiveDemo from '../components/HomeInteractiveDemo';
 
 interface HomePageProps {
   setTab?: (tab: string) => void;
@@ -131,139 +128,6 @@ const HOME_SCHEMA = [
     ],
   },
 ];
-
-const SUBJECTS = [
-  { name: 'Python', emoji: '🐍', count: 31, color: 'bg-blue-50 border-blue-200 text-blue-700', accent: 'bg-blue-500', tab: 'skills' },
-  { name: 'JavaScript', emoji: '⚡', count: 11, color: 'bg-yellow-50 border-yellow-200 text-yellow-700', accent: 'bg-yellow-500', tab: 'skills' },
-  { name: 'Java', emoji: '☕', count: 15, color: 'bg-orange-50 border-orange-200 text-orange-700', accent: 'bg-orange-500', tab: 'skills' },
-  { name: 'SQL', emoji: '🗄️', count: 18, color: 'bg-violet-50 border-violet-200 text-violet-700', accent: 'bg-violet-500', tab: 'skills' },
-  { name: 'HTML', emoji: '🌐', count: 13, color: 'bg-rose-50 border-rose-200 text-rose-700', accent: 'bg-rose-500', tab: 'skills' },
-  { name: 'CSS', emoji: '🎨', count: 10, color: 'bg-pink-50 border-pink-200 text-pink-700', accent: 'bg-pink-500', tab: 'skills' },
-  { name: 'AI Learning', emoji: '🤖', count: 23, color: 'bg-emerald-50 border-emerald-200 text-emerald-700', accent: 'bg-emerald-500', tab: 'skills' },
-  { name: 'Data Analytics', emoji: '📊', count: 21, color: 'bg-cyan-50 border-cyan-200 text-cyan-700', accent: 'bg-cyan-500', tab: 'skills' },
-];
-
-const FEATURES = [
-  {
-    icon: Bot,
-    title: 'AI Tutor',
-    desc: 'Ask anything — get crystal-clear explanations in seconds. Powered by Google Gemini.',
-    color: 'from-emerald-400 to-teal-600',
-    bg: 'bg-emerald-50',
-  },
-  {
-    icon: Code2,
-    title: 'Skills Lab',
-    desc: 'Hands-on coding practice with live preview, AI feedback, and step-by-step challenges.',
-    color: 'from-violet-400 to-purple-600',
-    bg: 'bg-violet-50',
-  },
-  {
-    icon: BookOpen,
-    title: 'PPT Lessons',
-    desc: 'AI-generated visual slide lessons for any topic — perfect for quick revision.',
-    color: 'from-amber-400 to-orange-500',
-    bg: 'bg-amber-50',
-  },
-  {
-    icon: Target,
-    title: 'Practice Arena',
-    desc: 'NCERT-based questions for every chapter. Track your progress and beat your streak.',
-    color: 'from-rose-400 to-pink-600',
-    bg: 'bg-rose-50',
-  },
-  {
-    icon: Brain,
-    title: 'Syllabus Mentor',
-    desc: 'Your personalized AI study guide — coverage tracker, chapter insights, study plans.',
-    color: 'from-sky-400 to-blue-600',
-    bg: 'bg-sky-50',
-  },
-  {
-    icon: ScanLine,
-    title: 'Scan & Solve',
-    desc: 'Stuck on homework? Photograph any problem and get an instant AI explanation.',
-    color: 'from-slate-400 to-slate-600',
-    bg: 'bg-slate-50',
-  },
-];
-
-const STATS = [
-  { number: '116+', label: 'Topics', icon: BookOpen },
-  { number: '8', label: 'Subjects', icon: GraduationCap },
-  { number: '3', label: 'Skill Levels', icon: TrendingUp },
-  { number: 'Free', label: 'Forever', icon: Star },
-];
-
-const LEVELS = [
-  {
-    tag: '🟢 Basic',
-    title: 'Start from zero',
-    desc: 'Perfect for Class 5–8 and absolute beginners. Simple concepts, lots of examples.',
-    color: 'border-emerald-200 bg-emerald-50',
-    textColor: 'text-emerald-700',
-    tagBg: 'bg-emerald-100 text-emerald-800',
-  },
-  {
-    tag: '🟡 Intermediate',
-    title: 'Level up',
-    desc: 'For Class 9–11 students ready to tackle real programming and data concepts.',
-    color: 'border-amber-200 bg-amber-50',
-    textColor: 'text-amber-700',
-    tagBg: 'bg-amber-100 text-amber-800',
-  },
-  {
-    tag: '🔴 Advanced',
-    title: 'Go pro',
-    desc: 'Class 12 and beyond — algorithms, AI architecture, databases, career-ready skills.',
-    color: 'border-rose-200 bg-rose-50',
-    textColor: 'text-rose-700',
-    tagBg: 'bg-rose-100 text-rose-800',
-  },
-];
-
-// ─── Animated counter ──────────────────────────────────────────────────────────
-function AnimatedStat({ number, label, icon: Icon }: { number: string; label: string; icon: React.ElementType }) {
-  const [displayed, setDisplayed] = useState('0');
-  const ref = useRef<HTMLDivElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const target = parseInt(number.replace(/\D/g, '')) || 0;
-    const isText = isNaN(parseInt(number));
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !started.current) {
-        started.current = true;
-        if (isText) { setDisplayed(number); return; }
-        let start = 0;
-        const step = Math.ceil(target / 40);
-        const interval = setInterval(() => {
-          start += step;
-          if (start >= target) {
-            setDisplayed(number);
-            clearInterval(interval);
-          } else {
-            setDisplayed(String(start) + (number.includes('+') ? '+' : ''));
-          }
-        }, 30);
-      }
-    }, { threshold: 0.3 });
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [number]);
-
-  return (
-    <div ref={ref} className="flex flex-col items-center gap-2">
-      <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center">
-        <Icon size={22} className="text-slate-600" />
-      </div>
-      <div className="text-3xl sm:text-4xl font-black text-slate-900">{displayed || number}</div>
-      <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{label}</div>
-    </div>
-  );
-}
 
 export default function HomePage({ setTab, currentUser, stats, userClass }: HomePageProps) {
   const handleClassClick = (classNum: number) => {
@@ -490,17 +354,6 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         </div>
       </section>
 
-      {/* ── STATS BAR ────────────────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-5 py-12 sm:py-16">
-        <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
-            {STATS.map(s => (
-              <AnimatedStat key={s.label} number={s.number} label={s.label} icon={s.icon} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── PICK YOUR CLASS ──────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-5 pb-16 sm:pb-20">
         <div className="text-center mb-10">
@@ -527,203 +380,11 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
         </div>
       </section>
 
-      {/* ── SKILL LEVELS ─────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-slate-50 to-white py-16 sm:py-20">
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">
-              <TrendingUp size={13} />
-              Skill progression
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
-              Learn at your level.
-            </h2>
-            <p className="text-slate-500 font-medium max-w-xl mx-auto">
-              Every subject has three tiers. Start basic, grow to advanced — at your own pace.
-            </p>
-          </div>
+      {/* ── WHAT YOU CAN DO — 6 animated feature tiles ──────────────────────── */}
+      <HomeFeatureGrid onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {LEVELS.map((level) => (
-              <div key={level.tag} className={`card-hover p-6 sm:p-8 border-2 ${level.color} rounded-3xl`}>
-                <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 ${level.tagBg}`}>
-                  {level.tag}
-                </span>
-                <h3 className={`text-xl font-black mb-2 ${level.textColor}`}>{level.title}</h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">{level.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SUBJECTS SHOWCASE ─────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 py-16 sm:py-20">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">
-            <Code2 size={13} />
-            Skills Lab
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
-            8 subjects. Hundreds of topics.
-          </h2>
-          <p className="text-slate-500 font-medium max-w-xl mx-auto">
-            From scratch to career-ready. Every topic has theory, code examples, live preview, and AI-checked practice.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {SUBJECTS.map((sub) => (
-            <button key={sub.name} onClick={goToSkills}
-              className={`subject-card card-hover p-5 border-2 ${sub.color} rounded-2xl text-left transition-all active:scale-95 overflow-hidden relative group`}>
-              <div className="text-2xl mb-2">{sub.emoji}</div>
-              <div className="font-black text-slate-900 text-sm mb-1">{sub.name}</div>
-              <div className="text-[10px] font-bold text-slate-500 mb-3">{sub.count} topics</div>
-              {/* Only show progress bar for signed-in users (it reflects their activity) */}
-              {currentUser ? (
-                <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
-                  <div className={`h-full ${sub.accent} subject-bar rounded-full transition-all duration-500`}
-                    style={{ width: `${Math.min(100, (sub.count / 50) * 100)}%` }} />
-                </div>
-              ) : (
-                <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest ${sub.color}`}>
-                  Free
-                </div>
-              )}
-            </button>
-          ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <button onClick={goToSkills}
-            className="inline-flex items-center gap-2 bg-slate-900 text-white px-7 py-4 rounded-2xl text-xs font-black uppercase tracking-widest shadow-lg active:scale-95 transition-transform hover:bg-slate-800">
-            Explore All Topics <ArrowRight size={15} />
-          </button>
-        </div>
-      </section>
-
-      {/* ── FEATURES GRID ─────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-16 sm:py-20">
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-[11px] font-black uppercase tracking-widest mb-4">
-              <Zap size={13} className="text-amber-400" />
-              Everything in one app
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tighter mb-3">
-              Built for how students learn.
-            </h2>
-            <p className="text-slate-300 font-medium max-w-xl mx-auto">
-              Six powerful tools — designed together so you never have to switch apps.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {FEATURES.map((f) => (
-              <div key={f.title} className={`card-hover p-6 sm:p-7 ${f.bg} rounded-3xl border border-white/5`}>
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${f.color} flex items-center justify-center text-white mb-4 shadow-lg`}>
-                  <f.icon size={22} />
-                </div>
-                <h3 className="text-base font-black text-slate-900 mb-2">{f.title}</h3>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW TO USE SYLLAB ───────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-5 py-16 sm:py-20">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-black uppercase tracking-widest mb-4">
-            <GraduationCap size={13} />
-            Quick Start Guide
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
-            Everything you need, in one place.
-          </h2>
-          <p className="text-slate-500 font-medium max-w-xl mx-auto">
-            Here's how to get the most out of Syllab — for students and parents alike.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 gap-6">
-          {/* For Students */}
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 rounded-3xl p-6 sm:p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-lg">🎓</div>
-              <h3 className="text-lg font-black text-slate-900">For Students</h3>
-            </div>
-            <ol className="space-y-4">
-              {[
-                { step: '1', icon: '📚', title: 'Pick your class & subject', desc: 'Go to Syllabus Explorer → select your class → browse chapters and start learning.' },
-                { step: '2', icon: '🖥️', title: 'Watch PPT lessons', desc: 'Click "PPT Lesson" on any chapter to get an AI-generated visual slide show — great for quick revision.' },
-                { step: '3', icon: '🎯', title: 'Practice MCQs', desc: 'Use Practice Arena for chapter-wise MCQs. Try Daily Challenges every day to build streaks and earn XP.' },
-                { step: '4', icon: '🤖', title: 'Ask the AI Tutor', desc: 'Stuck? Hit the AI Tutor button anywhere, type your doubt, and get a step-by-step explanation instantly.' },
-                { step: '5', icon: '🏆', title: 'Take Mock Tests', desc: 'Attempt full-length JEE / NEET / EAMCET / Olympiad mock tests to benchmark your exam readiness.' },
-              ].map(({ step, icon, title, desc }) => (
-                <li key={step} className="flex gap-4">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white text-xs font-black flex items-center justify-center shrink-0 mt-0.5">{step}</div>
-                  <div>
-                    <p className="font-black text-slate-900 text-sm">{icon} {title}</p>
-                    <p className="text-xs text-slate-500 font-medium mt-0.5 leading-relaxed">{desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <button onClick={goToSyllabus}
-              className="mt-6 w-full bg-emerald-500 text-white rounded-2xl py-3 text-xs font-black uppercase tracking-widest hover:bg-emerald-600 transition-colors flex items-center justify-center gap-2">
-              Start Exploring <ArrowRight size={14} />
-            </button>
-          </div>
-
-          {/* For Parents */}
-          <div className="bg-gradient-to-br from-violet-50 to-purple-50 border border-violet-100 rounded-3xl p-6 sm:p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-2xl bg-violet-500 text-white flex items-center justify-center text-lg">👨‍👩‍👧</div>
-              <h3 className="text-lg font-black text-slate-900">For Parents</h3>
-            </div>
-            <ol className="space-y-4">
-              {[
-                { step: '1', icon: '📱', title: 'Create a free account', desc: 'Sign up free — your child\'s progress, XP, streaks, and quiz history are all saved securely.' },
-                { step: '2', icon: '⚙️', title: 'Set your child\'s class', desc: 'After signing in, go to Profile → set the class. Syllab will personalise content for their grade automatically.' },
-                { step: '3', icon: '📊', title: 'Monitor progress', desc: 'Open Parent Hub to see subject-wise performance, daily activity, weak chapters, and comparison with class average.' },
-                { step: '4', icon: '📋', title: 'Explore the syllabus', desc: 'Syllabus Explorer shows the complete NCERT curriculum for every class — see what\'s coming next for your child.' },
-                { step: '5', icon: '💬', title: 'Share feedback', desc: 'Found something off? Use Contact Support to send us feedback — we read every message and act on it within 48 hours.' },
-              ].map(({ step, icon, title, desc }) => (
-                <li key={step} className="flex gap-4">
-                  <div className="w-8 h-8 rounded-xl bg-violet-500 text-white text-xs font-black flex items-center justify-center shrink-0 mt-0.5">{step}</div>
-                  <div>
-                    <p className="font-black text-slate-900 text-sm">{icon} {title}</p>
-                    <p className="text-xs text-slate-500 font-medium mt-0.5 leading-relaxed">{desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <button onClick={goToParent}
-              className="mt-6 w-full bg-violet-500 text-white rounded-2xl py-3 text-xs font-black uppercase tracking-widest hover:bg-violet-600 transition-colors flex items-center justify-center gap-2">
-              Open Parent Hub <ArrowRight size={14} />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FEEDBACK STRIP ───────────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-5 pb-6">
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">💬</span>
-            <div>
-              <p className="font-black text-slate-900 text-sm">Got feedback? We'd love to hear from you.</p>
-              <p className="text-xs text-slate-500 font-medium">Your suggestions make Syllab better for every student in India.</p>
-            </div>
-          </div>
-          <button onClick={() => setTab?.('contact')}
-            className="shrink-0 bg-amber-500 text-white px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-amber-600 transition-colors whitespace-nowrap">
-            Share Feedback →
-          </button>
-        </div>
-      </section>
+      {/* ── SEE IT IN ACTION — interactive demo carousel ─────────────────── */}
+      <HomeInteractiveDemo onNavigate={(tab) => { setTab?.(tab); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
 
       {/* ── FOR PARENTS ──────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-5 py-16 sm:py-20">
@@ -767,32 +428,6 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ─────────────────────────────────────────────────────── */}
-      <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="max-w-4xl mx-auto px-5">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter mb-3">
-              Get started in 3 steps.
-            </h2>
-            <p className="text-slate-500 font-medium">No downloads. No credit card. No waiting.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { step: '01', title: 'Pick a subject', desc: 'Choose from Python, AI, SQL, Java, HTML, CSS, JS, or Data Analytics — at any level.', color: 'text-violet-600 bg-violet-50 border-violet-200' },
-              { step: '02', title: 'Read & Try', desc: 'Each topic has theory, live code examples, and an interactive editor. See it run instantly.', color: 'text-emerald-600 bg-emerald-50 border-emerald-200' },
-              { step: '03', title: 'Practice & Level up', desc: 'Solve challenges, get AI feedback, view your solution only when you\'re ready. Track your progress.', color: 'text-amber-600 bg-amber-50 border-amber-200' },
-            ].map(({ step, title, desc, color }) => (
-              <div key={step} className="card-hover bg-white p-6 rounded-3xl border border-slate-100">
-                <div className={`text-[11px] font-black uppercase tracking-widest border rounded-xl px-3 py-1.5 inline-block mb-4 ${color}`}>{step}</div>
-                <h3 className="font-black text-slate-900 text-base mb-2">{title}</h3>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">{desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

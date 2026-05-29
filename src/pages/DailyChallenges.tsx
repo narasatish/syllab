@@ -667,7 +667,14 @@ export default function DailyChallengesPage({ currentUser, onReward }: DailyChal
               <Medal size={20} className="text-amber-500" />
             </div>
             <div className="space-y-3">
-              {leaderboardLoading ? (
+              {!currentUser ? (
+                // Privacy gate — never show other users' names/scores to guests
+                <div className="rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 px-4 py-6 text-center">
+                  <p className="text-3xl mb-2">🔒</p>
+                  <p className="text-sm font-black text-slate-700 mb-1">Sign in to see rankings</p>
+                  <p className="text-xs font-medium text-slate-500">Rankings are visible only to signed-in students.</p>
+                </div>
+              ) : leaderboardLoading ? (
                 <p className="text-sm font-medium leading-relaxed text-slate-500">
                   Loading rankings...
                 </p>

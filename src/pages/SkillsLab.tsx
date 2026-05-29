@@ -36,6 +36,8 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
+import ChallengesView from '../components/skillslab/ChallengesView';
+import ProjectsGalleryView from '../components/skillslab/ProjectsGalleryView';
 import { getCodingFeedback, CodingFeedback } from '../lib/api';
 import {
   LANGUAGES,
@@ -755,8 +757,8 @@ function Sidebar({
   activeTopicId: string;
   completedIds: string[];
   onSelect: (id: string) => void;
-  viewMode: 'topic' | 'career' | 'project';
-  onViewChange: (mode: 'topic' | 'career' | 'project') => void;
+  viewMode: 'topic' | 'career' | 'challenges' | 'projects';
+  onViewChange: (mode: 'topic' | 'career' | 'challenges' | 'projects') => void;
 }) {
   const [levelFilter, setLevelFilter] = useState<'All' | 'Beginner' | 'Intermediate' | 'Advanced'>('All');
 
@@ -800,13 +802,13 @@ function Sidebar({
         </div>
       </div>
 
-      {/* Career Guide & Project Idea quick links */}
-      <div className="grid grid-cols-2 gap-1.5">
+      {/* Career / Challenges / Projects quick links */}
+      <div className="grid grid-cols-3 gap-1">
         <button
           type="button"
           onClick={() => onViewChange(viewMode === 'career' ? 'topic' : 'career')}
           className={cn(
-            'rounded-xl px-3 py-2 text-[9px] font-black uppercase tracking-widest transition-all',
+            'rounded-xl px-2 py-2 text-[8px] font-black uppercase tracking-widest transition-all leading-tight',
             viewMode === 'career'
               ? `${lang.bgClass} text-white`
               : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
@@ -816,15 +818,27 @@ function Sidebar({
         </button>
         <button
           type="button"
-          onClick={() => onViewChange(viewMode === 'project' ? 'topic' : 'project')}
+          onClick={() => onViewChange(viewMode === 'challenges' ? 'topic' : 'challenges')}
           className={cn(
-            'rounded-xl px-3 py-2 text-[9px] font-black uppercase tracking-widest transition-all',
-            viewMode === 'project'
+            'rounded-xl px-2 py-2 text-[8px] font-black uppercase tracking-widest transition-all leading-tight',
+            viewMode === 'challenges'
               ? `${lang.bgClass} text-white`
               : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
           )}
         >
-          🛠️ Project
+          🎮 Challenges
+        </button>
+        <button
+          type="button"
+          onClick={() => onViewChange(viewMode === 'projects' ? 'topic' : 'projects')}
+          className={cn(
+            'rounded-xl px-2 py-2 text-[8px] font-black uppercase tracking-widest transition-all leading-tight',
+            viewMode === 'projects'
+              ? `${lang.bgClass} text-white`
+              : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
+          )}
+        >
+          🛠️ Projects
         </button>
       </div>
 
@@ -930,34 +944,113 @@ function Sidebar({
   );
 }
 
+/* ─── Career salary progression data per language ──────────────────────────── */
+const SALARY_PROGRESSION: Record<string, { fresher: string; mid: string; senior: string; lead: string }> = {
+  python:           { fresher: '₹3–6 LPA',  mid: '₹8–18 LPA',  senior: '₹20–40 LPA', lead: '₹45–80 LPA' },
+  java:             { fresher: '₹3–7 LPA',  mid: '₹9–20 LPA',  senior: '₹22–45 LPA', lead: '₹50–90 LPA' },
+  javascript:       { fresher: '₹3–6 LPA',  mid: '₹8–18 LPA',  senior: '₹20–40 LPA', lead: '₹45–80 LPA' },
+  html:             { fresher: '₹2–4 LPA',  mid: '₹5–12 LPA',  senior: '₹15–30 LPA', lead: '₹35–60 LPA' },
+  css:              { fresher: '₹2–4 LPA',  mid: '₹5–12 LPA',  senior: '₹15–30 LPA', lead: '₹35–60 LPA' },
+  sql:              { fresher: '₹3–5 LPA',  mid: '₹7–15 LPA',  senior: '₹18–35 LPA', lead: '₹40–70 LPA' },
+  'ai-learning':    { fresher: '₹5–10 LPA', mid: '₹15–30 LPA', senior: '₹35–60 LPA', lead: '₹70–1.5 Cr' },
+  'data-analytics': { fresher: '₹4–8 LPA',  mid: '₹10–22 LPA', senior: '₹25–50 LPA', lead: '₹55–90 LPA' },
+  cybersecurity:    { fresher: '₹4–8 LPA',  mid: '₹10–22 LPA', senior: '₹25–50 LPA', lead: '₹55–1 Cr' },
+  'game-dev':       { fresher: '₹3–6 LPA',  mid: '₹8–18 LPA',  senior: '₹20–40 LPA', lead: '₹45–80 LPA' },
+  'cloud-computing':{ fresher: '₹5–10 LPA', mid: '₹12–25 LPA', senior: '₹30–55 LPA', lead: '₹60–1 Cr' },
+};
+
+const MARKET_GROWTH: Record<string, { demand: string; openings: string; trend: string; scope: string }> = {
+  python:           { demand: '🔥 Very High', openings: '2.1 lakh+ jobs India 2025', trend: '+28% YoY growth', scope: 'AI/ML, web, data science, automation — every industry' },
+  java:             { demand: '🔥 High',      openings: '1.8 lakh+ jobs India 2025', trend: '+15% YoY growth', scope: 'Banking, enterprise, Android, backend systems' },
+  javascript:       { demand: '🔥 Very High', openings: '2.4 lakh+ jobs India 2025', trend: '+32% YoY growth', scope: 'Web apps, React/Node, full-stack, startups' },
+  html:             { demand: '⚡ Steady',    openings: '1.5 lakh+ jobs India 2025', trend: '+18% YoY growth', scope: 'Web development, UI/UX, email templates' },
+  css:              { demand: '⚡ Steady',    openings: '1.5 lakh+ jobs India 2025', trend: '+18% YoY growth', scope: 'UI design, web styling, design systems' },
+  sql:              { demand: '🔥 High',      openings: '1.6 lakh+ jobs India 2025', trend: '+22% YoY growth', scope: 'Every app with data: banking, healthcare, e-commerce' },
+  'ai-learning':    { demand: '🚀 Exploding', openings: '80,000+ AI jobs India 2025', trend: '+65% YoY growth', scope: 'AI research, MLOps, LLMs — fastest growing field globally' },
+  'data-analytics': { demand: '🔥 Very High', openings: '1.2 lakh+ jobs India 2025', trend: '+40% YoY growth', scope: 'Finance, FMCG, healthcare, consulting, startups' },
+  cybersecurity:    { demand: '🚀 Critical',  openings: '40,000+ jobs India 2025',   trend: '+35% YoY growth', scope: 'Banks, IT companies, govt, all sectors need security' },
+  'game-dev':       { demand: '📈 Growing',   openings: '25,000+ jobs India 2025',   trend: '+45% YoY growth', scope: 'Gaming studios, ed-tech, AR/VR, metaverse' },
+  'cloud-computing':{ demand: '🔥 Very High', openings: '90,000+ jobs India 2025',   trend: '+50% YoY growth', scope: 'AWS/Azure/GCP, every company moving to cloud' },
+};
+
 /* ─── Career Guide view ─────────────────────────────────────────────────────── */
 function CareerGuideView({ lang }: { lang: LanguageConfig }) {
   const cg = lang.careerGuide;
+  const sal = SALARY_PROGRESSION[lang.id];
+  const mkt = MARKET_GROWTH[lang.id];
+
   if (!cg) return (
     <div className="rounded-2xl bg-slate-50 p-8 text-center text-slate-400 font-bold">Career guide coming soon for {lang.name}!</div>
   );
+
   return (
     <div className="space-y-5 pb-12">
+      {/* Hero */}
       <div className={cn('rounded-2xl p-6 text-white', lang.bgClass)}>
         <div className="text-3xl mb-2">{lang.emoji}</div>
         <h2 className="text-2xl font-black">Career Guide — {lang.name}</h2>
         <p className="mt-1 text-sm font-medium text-white/80">{lang.description}</p>
+        {mkt && (
+          <div className="mt-4 flex flex-wrap gap-3">
+            <span className="bg-white/20 rounded-xl px-3 py-1.5 text-[10px] font-black uppercase tracking-widest">{mkt.demand}</span>
+            <span className="bg-white/20 rounded-xl px-3 py-1.5 text-[10px] font-black uppercase tracking-widest">{mkt.trend}</span>
+          </div>
+        )}
       </div>
+
+      {/* Market overview */}
+      {mkt && (
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">📊 Job Openings</p>
+            <p className={cn('text-lg font-black', lang.textClass)}>{mkt.openings}</p>
+          </div>
+          <div className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">🌍 Where It's Used</p>
+            <p className="text-sm font-bold text-slate-700 leading-snug">{mkt.scope}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Salary progression */}
+      {sal && (
+        <div className="rounded-2xl bg-white border border-slate-100 p-5 shadow-sm">
+          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">💰 Salary Growth Path (India)</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {([
+              { label: 'Fresher (0–1 yr)', value: sal.fresher, pct: 25 },
+              { label: 'Mid (2–4 yrs)',    value: sal.mid,     pct: 50 },
+              { label: 'Senior (5–8 yrs)', value: sal.senior,  pct: 75 },
+              { label: 'Lead / Architect', value: sal.lead,    pct: 100 },
+            ] as const).map(({ label, value, pct }) => (
+              <div key={label} className="space-y-2">
+                <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div className={cn('h-full rounded-full', lang.bgClass)} style={{ width: `${pct}%` }} />
+                </div>
+                <p className={cn('text-sm font-black', lang.textClass)}>{value}</p>
+                <p className="text-[9px] font-bold text-slate-400 leading-tight">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Job roles + Companies */}
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl bg-white shadow p-5">
+        <div className="rounded-2xl bg-white border border-slate-100 shadow-sm p-5">
           <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">💼 Job Roles</p>
           <ul className="space-y-2">
             {cg.roles.map((r, i) => (
               <li key={i} className="flex items-center gap-2 text-sm font-bold text-slate-700">
-                <span className={cn('h-2 w-2 rounded-full', lang.bgClass)} />
+                <span className={cn('h-2 w-2 rounded-full shrink-0', lang.bgClass)} />
                 {r}
               </li>
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl bg-white shadow p-5 space-y-4">
+        <div className="rounded-2xl bg-white border border-slate-100 shadow-sm p-5 space-y-4">
           <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">💰 Average Salary (India)</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">💰 Average Package</p>
             <p className={cn('text-2xl font-black', lang.textClass)}>{cg.avgSalary}</p>
           </div>
           <div>
@@ -969,19 +1062,28 @@ function CareerGuideView({ lang }: { lang: LanguageConfig }) {
             </div>
           </div>
         </div>
-        <div className="rounded-2xl bg-white shadow p-5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">🚀 What to Learn Next</p>
-          <ul className="space-y-2">
+      </div>
+
+      {/* Learning path + Tip */}
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl bg-white border border-slate-100 shadow-sm p-5">
+          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">🗺️ Learning Roadmap</p>
+          <ol className="space-y-2">
             {cg.nextSkills.map((s, i) => (
-              <li key={i} className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                <span className="text-emerald-500 font-black">→</span> {s}
+              <li key={i} className="flex items-start gap-3">
+                <span className={cn('flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-black text-white mt-0.5', lang.bgClass)}>{i + 1}</span>
+                <span className="text-sm font-medium text-slate-700">{s}</span>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
-        <div className={cn('rounded-2xl p-5 border-2', lang.borderClass, 'bg-white shadow')}>
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">💡 Career Tip</p>
+        <div className={cn('rounded-2xl p-5 border-2', lang.borderClass, 'bg-white shadow-sm')}>
+          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">💡 Expert Career Tip</p>
           <p className={cn('text-base font-bold leading-relaxed', lang.textClass)}>"{cg.tip}"</p>
+          <div className="mt-4 p-3 bg-slate-50 rounded-xl">
+            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">🎯 Quick Action</p>
+            <p className="text-xs font-semibold text-slate-600">Start with the topics in this lab → complete 5 projects → put them on GitHub → you're job-ready in 6 months.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1036,7 +1138,7 @@ function LanguageGrid({
   active: string;
   onSelect: (id: string) => void;
 }) {
-  const NEW_LANGUAGES = new Set(['git-github', 'prompt-engineering', 'ai-agents', 'cloud-computing', 'data-mining']);
+  const NEW_LANGUAGES = new Set(['git-github', 'prompt-engineering', 'cloud-computing', 'data-mining', 'computer-basics']);
   return (
     <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2.5">
       {LANGUAGES.map((lang) => (
@@ -1123,7 +1225,7 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
   const [activeLangId, setActiveLangId] = useState<string>('python');
   const [activeTopicId, setActiveTopicId] = useState<string>('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [viewMode, setViewMode] = useState<'topic' | 'career' | 'project'>('topic');
+  const [viewMode, setViewMode] = useState<'topic' | 'career' | 'challenges' | 'projects'>('topic');
   const [completed, setCompleted] = useState<Record<string, string[]>>(loadCompleted);
   const [pointsToast, setPointsToast] = useState<{ pts: number; topic: string } | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -1192,20 +1294,20 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
         title="Skills Lab — Python, SQL, AI, Git, Cloud Computing & 18 Subjects | Syllab.in"
         description="Free tutorials for Python, Java, HTML, JavaScript, SQL, AI Learning, Data Mining, Cloud Computing, Git & GitHub, Prompt Engineering, Cybersecurity and more. Career guides + project ideas for every subject."
         keywords="skills lab, Python tutorial India, Java programming, SQL tutorial, AI learning, cloud computing basics, Git GitHub tutorial, prompt engineering, cybersecurity basics, data mining, coding for students India"
-        url="https://syllab.in/skills-lab"
+        url="https://syllab.in/coding"
         jsonLd={[
           {
             '@context': 'https://schema.org',
             '@type': 'ItemList',
             name: 'Skills Lab Courses — Syllab.in',
             description: 'Free hands-on skill courses for Indian students covering Python, Java, SQL, AI, Data Analytics, Cloud Computing, Cybersecurity and more.',
-            url: 'https://syllab.in/skills-lab',
+            url: 'https://syllab.in/coding',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, item: { '@type': 'Course', name: 'Python Programming', url: 'https://syllab.in/skills-lab', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
-              { '@type': 'ListItem', position: 2, item: { '@type': 'Course', name: 'SQL Database Basics', url: 'https://syllab.in/skills-lab', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
-              { '@type': 'ListItem', position: 3, item: { '@type': 'Course', name: 'AI & Machine Learning Basics', url: 'https://syllab.in/skills-lab', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
-              { '@type': 'ListItem', position: 4, item: { '@type': 'Course', name: 'Data Analytics', url: 'https://syllab.in/skills-lab', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
-              { '@type': 'ListItem', position: 5, item: { '@type': 'Course', name: 'HTML & CSS Web Development', url: 'https://syllab.in/skills-lab', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
+              { '@type': 'ListItem', position: 1, item: { '@type': 'Course', name: 'Python Programming', url: 'https://syllab.in/coding', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
+              { '@type': 'ListItem', position: 2, item: { '@type': 'Course', name: 'SQL Database Basics', url: 'https://syllab.in/coding', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
+              { '@type': 'ListItem', position: 3, item: { '@type': 'Course', name: 'AI & Machine Learning Basics', url: 'https://syllab.in/coding', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
+              { '@type': 'ListItem', position: 4, item: { '@type': 'Course', name: 'Data Analytics', url: 'https://syllab.in/coding', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
+              { '@type': 'ListItem', position: 5, item: { '@type': 'Course', name: 'HTML & CSS Web Development', url: 'https://syllab.in/coding', provider: { '@type': 'Organization', name: 'Syllab.in' }, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } } },
             ],
           },
         ]}
@@ -1338,16 +1440,20 @@ export default function SkillsLab({ setTab, openTutor, currentUser }: SkillsLabP
         {/* Main content */}
         <div
           ref={contentRef}
-          className="flex-1 min-w-0 overflow-y-auto px-6 md:px-10 pt-16 md:pt-8 pb-8"
+          className="flex-1 min-w-0 overflow-y-auto px-6 md:px-10 pt-14 md:pt-5 pb-8"
         >
           <AnimatePresence mode="wait">
             {viewMode === 'career' ? (
               <motion.div key={`career-${activeLangId}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
                 <CareerGuideView lang={lang} />
               </motion.div>
-            ) : viewMode === 'project' ? (
-              <motion.div key={`project-${activeLangId}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-                <ProjectIdeaView lang={lang} />
+            ) : viewMode === 'challenges' ? (
+              <motion.div key={`challenges-${activeLangId}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+                <ChallengesView lang={lang} activeLangId={activeLangId} />
+              </motion.div>
+            ) : viewMode === 'projects' ? (
+              <motion.div key={`projects-${activeLangId}`} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+                <ProjectsGalleryView lang={lang} activeLangId={activeLangId} />
               </motion.div>
             ) : activeTopic ? (
               <motion.div

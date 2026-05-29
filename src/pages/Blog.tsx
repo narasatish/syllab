@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, BookOpen, Clock, ChevronDown, ChevronUp, Tag } from 'lucide-react';
 import SEO from '../components/SEO';
+import WhatsAppShare from '../components/WhatsAppShare';
 
 interface BlogPost {
   id: string;
@@ -9,7 +10,7 @@ interface BlogPost {
   date: string;
   readTime: string;
   category: string;
-  content: React.ReactNode;
+  content: React.ReactNode | string; // Support both JSX and string markdown
 }
 
 const POSTS: BlogPost[] = [
@@ -307,6 +308,165 @@ const POSTS: BlogPost[] = [
       </div>
     ),
   },
+  {
+    id: 'free-ncert-notes-class-10-science',
+    title: 'Free NCERT Notes for Class 10 Science: Chapter-Wise Complete Guide',
+    description: 'Complete chapter-wise NCERT Class 10 Science notes with important concepts, diagrams, and practice questions. Free study guide for all CBSE students preparing for boards.',
+    date: 'May 28, 2026',
+    readTime: '7 min read',
+    category: 'Class 10',
+    content: (
+      <div className="prose prose-slate max-w-none">
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          Class 10 CBSE Science is essential for board exams and competitive exam foundations. The NCERT textbook is your best friend — it's written by experts and covers exactly what you need to know. This guide breaks down every chapter and shows you how to study it effectively.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Class 10 Science NCERT Chapters Overview</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-2">
+          <strong>Biology Topics (Chapters 6-8):</strong> Life Processes (photosynthesis, respiration, nutrition), Control and Coordination (nervous and endocrine systems), How Do Organisms Reproduce (sexual and asexual reproduction).
+        </p>
+        <p className="text-slate-600 text-base leading-relaxed mb-2">
+          <strong>Chemistry Topics (Chapters 1-5):</strong> Chemical Reactions and Equations, Acids Bases and Salts, Metals and Non-metals, Carbon and Its Compounds, Periodic Classification of Elements.
+        </p>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          <strong>Physics Topics (Chapters 10-12):</strong> Light Reflection and Refraction, Human Eye and Colourful World, Electricity, Magnetic Effects of Current.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">How to Study NCERT Class 10 Science Effectively</h3>
+        <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+          <li><strong>Read once without notes:</strong> Understand the flow and main concepts of each chapter</li>
+          <li><strong>Highlight key definitions:</strong> Photosynthesis, respiration, DNA, heredity — mark these clearly</li>
+          <li><strong>Draw diagrams from memory:</strong> Human eye, nephron, flower, atom models — all appear in exams</li>
+          <li><strong>Answer intext questions:</strong> These are often exact board exam questions</li>
+          <li><strong>Solve all end-chapter exercises:</strong> Don't skip any — all are important</li>
+        </ul>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Important Diagrams You Must Master</h3>
+        <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+          <li>Photosynthesis process and leaf structure</li>
+          <li>Human digestive, circulatory, and nervous systems</li>
+          <li>Nephron and kidney filtration</li>
+          <li>Flower and plant reproduction structures</li>
+          <li>Human eye and light refraction</li>
+          <li>Simple electric circuits and electromagnets</li>
+        </ul>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Use Syllab.in for Chapter-Wise Practice</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          After reading each NCERT chapter, practice on Syllab.in with chapter-wise MCQs, AI-generated practice questions, and instant feedback. Syllab.in also provides AI summaries so you can revise quickly before exams. Use the daily challenges to stay consistent throughout your preparation.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: 'best-free-coding-platforms-india-students',
+    title: 'Best Free Coding Platforms for Students in India 2026',
+    description: 'Compare free coding platforms available to Indian students. Learn Python, JavaScript, and SQL for free with interactive challenges and instant AI feedback.',
+    date: 'May 26, 2026',
+    readTime: '6 min read',
+    category: 'Coding',
+    content: (
+      <div className="prose prose-slate max-w-none">
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          Coding is the most in-demand skill in 2026. But expensive courses keep many Indian students away. Here's the good news: you don't need to pay. These free platforms teach you Python, JavaScript, SQL, and more — with better interactivity than most paid courses.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Why Coding Skills Matter (Even in School)</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          Coding is no longer a niche skill. In India, competitive exams now include programming questions. Colleges value coding skills during admissions. And in the job market, a student who can code earns 2-3x more than peers. Starting early (Class 6+) gives you a massive advantage.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Best Free Coding Platforms (Fully Compared)</h3>
+        <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+          <li><strong>Syllab.in Skills Lab (Best for India):</strong> Python, JavaScript, SQL, Java with interactive challenges, mini projects, AI feedback, and live competitions. Designed specifically for Class 6-12 students. Completely free, no limits.</li>
+          <li><strong>CodeChef:</strong> Excellent competitive programming platform. Free to use but better for students who already know basics.</li>
+          <li><strong>HackerRank:</strong> Interactive tutorials + problems for Python, Java, SQL. Free tier is good for learning.</li>
+          <li><strong>Codecademy (Free Tier):</strong> Interactive courses. Free version covers Python, JavaScript basics.</li>
+          <li><strong>FreeCodeCamp:</strong> YouTube videos for web development (HTML, CSS, JavaScript) — completely free.</li>
+        </ul>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Python: The #1 Language for Beginners</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          Python is easy, readable, and powerful. It's used in AI, data science, web development, and automation. Start with basics: variables, loops, functions, lists, dictionaries. Then solve 50+ problems on Syllab.in to build speed. By Class 10, you should be able to solve competitive programming problems in Python.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Coding Roadmap for Class 6-12 Students</h3>
+        <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+          <li><strong>Class 6-8:</strong> Computer basics, Scratch (visual programming), Python syntax</li>
+          <li><strong>Class 9-10:</strong> Python intermediate, SQL databases, mini projects</li>
+          <li><strong>Class 11-12:</strong> Advanced Python, JavaScript (web), data structures, competitive programming</li>
+        </ul>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Start Coding Today on Syllab.in</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          Syllab.in Skills Lab lets you start coding immediately with guided projects, instant feedback, and AI mentoring. Whether you're Class 6 or Class 12, there's a learning path for you. All courses are free, all your progress is tracked, and you can code right in your browser.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: 'jee-neet-eamcet-2026-complete-guide',
+    title: 'JEE NEET EAMCET 2026 Complete Preparation Guide for Class 11 & 12',
+    description: 'Comprehensive guide for Class 11 and 12 students preparing for JEE Mains, NEET, and EAMCET. Includes preparation timeline, subject strategies, and free resources.',
+    date: 'May 24, 2026',
+    readTime: '10 min read',
+    category: 'Competitive Exams',
+    content: (
+      <div className="prose prose-slate max-w-none">
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          JEE, NEET, and EAMCET are India's biggest competitive exams. Over 15 lakh students appear for JEE, 20 lakh for NEET, and 5 lakh for EAMCET. Cracking any of these opens doors to top engineering, medical, and science colleges. This guide gives you the exact roadmap.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Why Start Early (Class 11 Matters)</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          Class 11 covers 40% of JEE and 30% of NEET syllabus. Many students ignore Class 11 thinking they'll focus on Class 12, then fail because the foundation is weak. The toppers start serious prep in Class 11 and dominate by Class 12. Don't make this mistake.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Class 11: Foundation Year (June-March)</h3>
+        <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+          <li><strong>Months 1-4 (June-Sept):</strong> Complete Class 11 NCERT for Physics, Chemistry, Maths. Focus on understanding, not speed.</li>
+          <li><strong>Months 5-8 (Oct-Jan):</strong> Start advanced problem-solving. Practice on Syllab.in daily. Join a test series by December.</li>
+          <li><strong>Months 9-10 (Feb-March):</strong> Revise Class 11, finish pending chapters. Take 10+ mock tests.</li>
+        </ul>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Class 12: Intensive Prep (April-Exam)</h3>
+        <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+          <li><strong>Months 1-4 (April-July):</strong> Complete Class 12 syllabus + revise Class 11 simultaneously. No skipping.</li>
+          <li><strong>Months 5-7 (Aug-Oct):</strong> Full mock tests 3x per week. Analysis of weak chapters. Solve previous year papers (PYQs).</li>
+          <li><strong>Months 8-10 (Nov-Jan):</strong> 40+ full mock tests. PYQ focus. Weak chapter revision. Mental preparation.</li>
+        </ul>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Subject-Wise Preparation Strategy</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-2">
+          <strong>Physics:</strong> Master Mechanics, Electrostatics, Current Electricity first — they're high weightage. Don't memorize — understand concepts deeply. Use Syllab.in daily challenges for practice.
+        </p>
+        <p className="text-slate-600 text-base leading-relaxed mb-2">
+          <strong>Chemistry:</strong> Physical and Organic Chemistry need daily practice. Create formula sheets, reaction lists. Biology students: read NCERT Biology 3+ times for NEET — it's 360 marks alone.
+        </p>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          <strong>Maths:</strong> Calculus, Coordinate Geometry, Algebra are the backbone. Practice 50+ problems per topic. Speed matters here — use Syllab.in timed tests to build speed.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">How Many Hours to Study?</h3>
+        <ul className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+          <li>Class 11: 4-5 hours daily self-study (including school time)</li>
+          <li>Class 12 (Apr-Oct): 6-8 hours daily</li>
+          <li>Class 12 (Nov-Jan): 8-10 hours daily (including mock tests)</li>
+          <li>Weekend: One full mock test + analysis (5-6 hours)</li>
+        </ul>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Free Resources: Don't Waste Money</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          NCERT + Syllab.in + PYQs = everything you need. NCERT is the foundation. Syllab.in provides practice, mock tests, and AI doubt-solving. Previous year papers show the exact exam pattern. Top JEE/NEET students often use only these three resources. Don't buy expensive coaching if you can't afford it — these free resources work.
+        </p>
+
+        <h3 className="text-xl font-black text-slate-900 mt-6 mb-3">Use Syllab.in for Competitive Exam Prep</h3>
+        <p className="text-slate-600 text-base leading-relaxed mb-4">
+          Syllab.in provides JEE-pattern daily challenges, NEET-specific mock tests, chapter-wise MCQs, and an AI tutor available 24/7. The platform automatically identifies your weak topics and recommends practice. It's the closest free alternative to expensive test series. Start using it from Class 11 and build consistency.
+        </p>
+      </div>
+    ),
+  },
 ];
 
 interface BlogPageProps {
@@ -315,6 +475,90 @@ interface BlogPageProps {
 
 export default function BlogPage({ setTab }: BlogPageProps) {
   const [expandedId, setExpandedId] = useState<string | null>(POSTS[0].id);
+  const [progress, setProgress] = useState(0);
+  const [allPosts, setAllPosts] = useState<BlogPost[]>(POSTS);
+
+  // Load auto-generated blogs
+  useEffect(() => {
+    async function loadAutoBlogs() {
+      try {
+        const response = await fetch('/autoBlogs.json');
+        if (response.ok) {
+          const autoBlogs = await response.json();
+          // Convert auto-blog strings to JSX for consistent rendering
+          const convertedAutoBlogs = autoBlogs.map((blog: any) => ({
+            ...blog,
+            content: (
+              <div className="prose prose-slate max-w-none">
+                {blog.content.split('\n\n').map((paragraph: string, idx: number) => {
+                  if (paragraph.startsWith('##')) {
+                    return (
+                      <h3 key={idx} className="text-xl font-black text-slate-900 mt-6 mb-3">
+                        {paragraph.replace('##', '').trim()}
+                      </h3>
+                    );
+                  }
+                  if (paragraph.startsWith('- ')) {
+                    return (
+                      <ul key={idx} className="list-disc pl-6 space-y-2 text-slate-600 text-base mb-4">
+                        {paragraph.split('\n').map((item: string, i: number) => (
+                          <li key={i} className="text-slate-600">{item.replace('- ', '').trim()}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  if (paragraph.startsWith('**')) {
+                    return (
+                      <p key={idx} className="text-slate-600 text-base leading-relaxed mb-4">
+                        {paragraph.split(/\*\*/).map((part: string, i: number) => (
+                          i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+                        ))}
+                      </p>
+                    );
+                  }
+                  return (
+                    <p key={idx} className="text-slate-600 text-base leading-relaxed mb-4">
+                      {paragraph}
+                    </p>
+                  );
+                })}
+              </div>
+            ),
+          }));
+          // Combine static and auto blogs, sorted by date
+          const combined = [...POSTS, ...convertedAutoBlogs].sort((a, b) => {
+            const dateA = new Date(a.date).getTime();
+            const dateB = new Date(b.date).getTime();
+            return dateB - dateA;
+          });
+          setAllPosts(combined);
+        }
+      } catch (error) {
+        console.error('Failed to load auto-blogs:', error);
+        // Fall back to static POSTS
+        setAllPosts(POSTS);
+      }
+    }
+    loadAutoBlogs();
+  }, []);
+
+  // Reading progress bar - track scroll when reading individual article
+  useEffect(() => {
+    if (!expandedId) {
+      setProgress(0);
+      return;
+    }
+
+    const handleScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      if (total > 0) {
+        setProgress((window.scrollY / total) * 100);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [expandedId]);
 
   return (
     <>
@@ -335,7 +579,7 @@ export default function BlogPage({ setTab }: BlogPageProps) {
             name: 'Syllab.in Learning Blog',
             url: 'https://syllab.in/blog',
             description: 'Expert study guides, tips, and resources for CBSE, JEE, and NEET students in India.',
-            blogPost: POSTS.map((p) => ({
+            blogPost: allPosts.map((p) => ({
               '@type': 'BlogPosting',
               headline: p.title,
               description: p.description,
@@ -346,6 +590,11 @@ export default function BlogPage({ setTab }: BlogPageProps) {
           }),
         }}
       />
+
+      {/* Reading progress bar - only shown when reading an article */}
+      {expandedId && (
+        <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" style={{ width: `${progress}%` }} />
+      )}
 
       <div className="max-w-4xl mx-auto">
         {/* Header */}
@@ -377,7 +626,7 @@ export default function BlogPage({ setTab }: BlogPageProps) {
 
         {/* Posts */}
         <div className="space-y-4">
-          {POSTS.map((post, idx) => {
+          {allPosts.map((post, idx) => {
             const isOpen = expandedId === post.id;
             return (
               <article
@@ -435,13 +684,18 @@ export default function BlogPage({ setTab }: BlogPageProps) {
                       </div>
                     )}
 
-                    <div className="mt-6 pt-6 border-t border-slate-100">
+                    <div className="mt-6 pt-6 border-t border-slate-100 flex flex-wrap items-center gap-3">
                       <button
                         onClick={() => setTab && setTab('syllabus')}
                         className="inline-flex items-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-2xl text-xs font-black uppercase tracking-widest active:scale-95 transition-transform shadow-lg"
                       >
                         Start Practicing on Syllab <ArrowRight size={14} />
                       </button>
+                      <WhatsAppShare
+                        text={`Just read: "${post.title}"\n\n${post.description}`}
+                        url={`https://syllab.in/blog#${post.id}`}
+                        label="Share"
+                      />
                     </div>
                   </div>
                 )}

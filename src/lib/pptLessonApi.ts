@@ -19,7 +19,33 @@ import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 
 /** Build version — printed on every PPT call so we can see in production
  *  whether the user is on the new bundle or a stale cached one. */
-export const PPT_BUILD_VERSION = 'ppt-2026-05-26-r4';
+export const PPT_BUILD_VERSION = 'ppt-2026-05-26-r5';
+
+/**
+ * Pre-warm the backend so a cold Render dyno is awake by the time the user
+ * actually opens a PPT lesson. Idempotent and best-effort — failure is fine.
+ * Call this once on app boot or when entering Syllabus / chapter view.
+ */
+let prewarmStartedAt = 0;
+export function prewarmPptBackend(): void {
+  // De-dupe: don't ping more than once every 2 minutes
+  if (Date.now() - prewarmStartedAt < 2 * 60_000) return;
+  prewarmStartedAt = Date.now();
+  try {
+    // Ping once to wake the dyno
+    fetch(`${API_URL}/api/ai/health`, { method: 'GET', cache: 'no-store' })
+      .then(() => console.log('[ppt] backend prewarm OK'))
+      .catch(() => {
+        console.log('[ppt] backend prewarm attempt 1 failed — retrying in 15s');
+        // Second ping after 15 s (Render dyno usually boots in 10-30 s)
+        setTimeout(() => {
+          fetch(`${API_URL}/api/ai/health`, { method: 'GET', cache: 'no-store' })
+            .then(() => console.log('[ppt] backend prewarm retry OK'))
+            .catch(() => console.log('[ppt] backend prewarm retry also failed (non-fatal)'));
+        }, 15_000);
+      });
+  } catch { /* ignore */ }
+}
 
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 
@@ -263,15 +289,16 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
   const lessonKey = makeLessonKey(payload);
   const mobile = isMobile();
   const reqId = Math.random().toString(36).slice(2, 8);
-  // Desktop: 90 s. Backend retries Gemini up to 3 times internally
-  // (~30 s) plus Render free-tier cold start (~30 s) = up to 60 s. 90 s gives
-  // headroom. Mobile keeps 15 s hard cap.
-  const timeoutMs = mobile ? 15_000 : 90_000;
+  // Render free-tier cold start can take ~30 s, then Gemini retries take
+  // another ~30 s. Desktop gets 90 s; mobile gets 75 s (still under most
+  // mobile-browser idle limits but enough for a real cold start). 15 s was
+  // too aggressive — it failed before the backend even woke up.
+  const timeoutMs = mobile ? 75_000 : 90_000;
 
   console.log(`[ppt ${reqId}] START  build=${PPT_BUILD_VERSION}  mobile=${mobile}  key=${lessonKey}  API=${API_URL}`);
 
   // Signal cold-start banner after 5 s (only if we end up calling backend)
-  let slowTimer: ReturnType<typeof setTimeout> | null = null;
+  let slowTimer: number | null = null;
 
   try {
     // ── Step 1: Firestore cache (instant on any device) ──────────────────
@@ -287,22 +314,34 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
       window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'pptLesson' } }));
     }, 5000);
 
-    // Backend already retries Gemini 3x internally, so one frontend attempt
-    // is enough. Desktop gets the full 60s budget per attempt.
+    // Backend already retries Gemini 3x internally. We try up to 2 times on
+    // the frontend — the second attempt handles Render cold-start where the
+    // first fetch fails immediately ("Failed to fetch") while the dyno boots.
+    // After the first failure we wait 20 s so the dyno has time to wake up.
     let lesson: DeepPptLesson | null = null;
     let lastError = '';
-    try {
-      lesson = await fetchFromBackend(payload, timeoutMs, reqId);
-      if (lesson && Array.isArray(lesson.slides) && lesson.slides.length >= 10) {
-        console.log(`[ppt ${reqId}] ✅ BACKEND OK  slides=${lesson.slides.length}`);
-      } else {
-        lastError = `thin response: slides=${lesson?.slides?.length}`;
-        console.warn(`[ppt ${reqId}] ❌ ${lastError}`);
-        lesson = null;
+    const MAX_ATTEMPTS = 2;
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        if (attempt > 1) {
+          console.log(`[ppt ${reqId}] ⏳ retry ${attempt}/${MAX_ATTEMPTS} — waiting 20 s for backend to warm up`);
+          await new Promise(res => setTimeout(res, 20_000));
+        }
+        lesson = await fetchFromBackend(payload, timeoutMs, reqId);
+        if (lesson && Array.isArray(lesson.slides) && lesson.slides.length >= 10) {
+          console.log(`[ppt ${reqId}] ✅ BACKEND OK  slides=${lesson.slides.length}  attempt=${attempt}`);
+          break;
+        } else {
+          lastError = `thin response: slides=${lesson?.slides?.length}`;
+          console.warn(`[ppt ${reqId}] ❌ attempt ${attempt}: ${lastError}`);
+          lesson = null;
+        }
+      } catch (backendErr) {
+        lastError = (backendErr as Error)?.message || 'unknown error';
+        console.warn(`[ppt ${reqId}] ❌ attempt ${attempt} FAILED:`, lastError);
+        // Don't retry on abort (user timeout) — only on network errors
+        if (lastError.includes('abort') || lastError.includes('AbortError')) break;
       }
-    } catch (backendErr) {
-      lastError = (backendErr as Error)?.message || 'unknown error';
-      console.warn(`[ppt ${reqId}] ❌ backend FAILED:`, lastError);
     }
     if (lesson) {
       void saveCache(lessonKey, lesson);
@@ -315,7 +354,7 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
         id: lessonKey,
       };
     }
-    console.warn(`[ppt ${reqId}] ⚠️ backend failed — using fallback. Reason:`, lastError);
+    console.warn(`[ppt ${reqId}] ⚠️ all attempts failed — using fallback. Reason:`, lastError);
     // Stash last error so the fallback banner can show it.
     (window as any).__lastPptError = `${lastError} · build ${PPT_BUILD_VERSION} · ${API_URL}`;
 
@@ -334,7 +373,7 @@ export async function getDeepPptLesson(payload: DeepPptLessonRequest): Promise<D
       quality: 'quick_fallback',
       isFallback: true,
       canExport: false,
-      fallbackMessage: `Backend request failed (${lastErr}). Close and tap "PPT Lesson" again — backend should be warm now.`,
+      fallbackMessage: `Backend is warming up — lesson will load on your next tap. (${lastErr})`,
     };
   } finally {
     if (slowTimer !== null) clearTimeout(slowTimer);

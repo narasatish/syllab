@@ -8,6 +8,7 @@ import {
   EmailAuthProvider, reauthenticateWithCredential, updatePassword,
 } from 'firebase/auth';
 import SEO from '../components/SEO';
+import WhatsAppShare from '../components/WhatsAppShare';
 import { UserStats } from '../types';
 import { cn } from '../lib/utils';
 import { logout } from '../lib/firebase';
@@ -261,6 +262,11 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
               <button onClick={async () => { await navigator.clipboard?.writeText(inviteUrl); setCopied(true); setTimeout(() => setCopied(false), 1800); }} className="flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 text-xs font-black uppercase tracking-widest text-white">
                 <Copy size={14} /> {copied ? '✅ Copied!' : 'Copy'}
               </button>
+              <WhatsAppShare
+                text={`Join me on Syllab.in - free NCERT practice, mock tests, and AI tutor for Class 5-12!\n\nI'm at Level ${Math.floor((stats.xp || 0) / 1000)} with ${stats.xp || 0} XP`}
+                url={inviteUrl}
+                label="WhatsApp"
+              />
             </div>
           </div>
         </section>

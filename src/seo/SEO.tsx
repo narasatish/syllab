@@ -13,6 +13,8 @@ export interface SEOProps {
   noindex?: boolean;
 }
 
+const DEFAULT_IMAGE = 'https://syllab.in/og-image.png';
+
 export default function SEO({
   title,
   description,
@@ -24,36 +26,47 @@ export default function SEO({
   noindex = false,
 }: SEOProps) {
   const finalTitle = title.toLowerCase().includes('syllab') ? title : `${title} | Syllab`;
+  const finalImage = image || DEFAULT_IMAGE;
+  const imageAlt = `${finalTitle} — Syllab.in`;
 
   return (
     <Helmet>
       <title>{finalTitle}</title>
       <meta name="description" content={description} />
       {keywords ? <meta name="keywords" content={keywords} /> : null}
-      <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
+      <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1'} />
       <link rel="canonical" href={url} />
 
+      {/* hreflang for localization */}
+      <link rel="alternate" hrefLang="en-IN" href={url} />
+      <link rel="alternate" hrefLang="en" href={url} />
+
+      {/* Open Graph */}
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="Syllab" />
+      <meta property="og:site_name" content="Syllab.in" />
       <meta property="og:locale" content="en_IN" />
-      {image ? <meta property="og:image" content={image} /> : null}
+      <meta property="og:image" content={finalImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:alt" content={imageAlt} />
 
-      <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+      {/* Twitter / X */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@syllabdotin" />
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={description} />
-      {image ? <meta name="twitter:image" content={image} /> : null}
+      <meta name="twitter:image" content={finalImage} />
+      <meta name="twitter:image:alt" content={imageAlt} />
 
       <meta name="author" content="Syllab.in" />
-      <meta property="og:site_name" content="Syllab.in" />
-      {!image ? <meta property="og:image" content="https://syllab.in/og-image.svg" /> : null}
-      {!image ? <meta name="twitter:image" content="https://syllab.in/og-image.svg" /> : null}
 
       {jsonLd ? (
         <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
+          {JSON.stringify(Array.isArray(jsonLd) ? jsonLd : jsonLd)}
         </script>
       ) : null}
     </Helmet>

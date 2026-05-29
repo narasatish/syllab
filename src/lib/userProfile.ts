@@ -63,10 +63,19 @@ export async function getExtendedProfile(uid: string): Promise<ExtendedUserProfi
     const snap = await getDoc(doc(db, 'users', uid));
     if (!snap.exists()) return DEFAULT_EXTENDED_PROFILE;
     const d = snap.data();
+    const parent = { ...DEFAULT_PARENT, ...(d.parent ?? {}) };
+    // The authoritative link signal is `parentId` written by the parent when they
+    // accept the connection (Firestore rules only let a parent touch parentId on a
+    // child doc — they cannot write the nested `parent.connected` flag). So derive
+    // the connected state from parentId here.
+    if (typeof d.parentId === 'string' && d.parentId.length > 0) {
+      parent.connected = true;
+      parent.parentUid = d.parentId;
+    }
     return {
       personal: { ...DEFAULT_PERSONAL, ...(d.personal ?? {}) },
       learning: { ...DEFAULT_LEARNING, ...(d.learning ?? {}) },
-      parent: { ...DEFAULT_PARENT, ...(d.parent ?? {}) },
+      parent,
       selectedAvatarId: d.selectedAvatarId ?? 'starter',
       role: d.role === 'student' || d.role === 'parent' ? d.role : undefined,
     };

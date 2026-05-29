@@ -17,6 +17,7 @@ import { promptEngineeringTopics } from './prompt-engineering';
 import { aiAgentsTopics } from './ai-agents';
 import { cloudComputingTopics } from './cloud-computing';
 import { dataMiningTopics } from './data-mining';
+import { computerBasicsTopics } from './computer-basics';
 
 export type { TutorialTopic, LanguageConfig, CareerGuide, ProjectIdea };
 
@@ -457,37 +458,7 @@ export const LANGUAGES: LanguageConfig[] = [
       techStack: 'Any LLM (ChatGPT, Claude, Gemini), text editor',
     },
   },
-  {
-    id: 'ai-agents',
-    name: 'AI Agents',
-    emoji: '🤝',
-    color: '#8B5CF6',
-    bgClass: 'bg-purple-600',
-    textClass: 'text-purple-600',
-    borderClass: 'border-purple-600',
-    editorMode: 'feedback',
-    description: 'Learn how AI agents work — from simple reflex agents to multi-agent systems that reason, plan, and act autonomously.',
-    careerGuide: {
-      roles: ['AI Agent Developer', 'Agentic AI Engineer', 'LLM Systems Engineer', 'AI Automation Specialist', 'Conversational AI Developer'],
-      avgSalary: '₹10–60 LPA (cutting-edge field)',
-      topCompanies: ['OpenAI (GPT Agents)', 'Anthropic (Claude)', 'Microsoft Copilot', 'Salesforce Einstein', 'ServiceNow AI'],
-      nextSkills: ['LangChain Agents', 'AutoGPT / CrewAI', 'Tool calling & function APIs', 'Vector databases', 'RAG pipelines'],
-      tip: 'AI agents are replacing manual workflows — engineers who can build reliable agent systems are among the most in-demand globally right now.',
-    },
-    projectIdea: {
-      title: 'Research Agent',
-      description: 'Build a simple Python AI agent that takes a topic, searches for information, summarises it, and formats a structured research report.',
-      steps: [
-        'Define the agent\'s tools: web_search(), summarise(), format_report()',
-        'Create the agent loop: observe → think → act → observe',
-        'Use a simple LLM API to generate reasoning and summaries',
-        'Chain: search topic → collect snippets → summarise each → compile report',
-        'Output a formatted Markdown report saved to a file',
-      ],
-      difficulty: 'Intermediate',
-      techStack: 'Python, OpenAI/Anthropic API, requests library, Markdown',
-    },
-  },
+  // AI Agents merged into AI Learning — topics available under 'ai-learning'
   {
     id: 'cloud-computing',
     name: 'Cloud Computing',
@@ -550,6 +521,37 @@ export const LANGUAGES: LanguageConfig[] = [
       techStack: 'Python, mlxtend, pandas, matplotlib, networkx',
     },
   },
+  {
+    id: 'computer-basics',
+    name: 'Computer Basics',
+    emoji: '💻',
+    color: '#0369A1',
+    bgClass: 'bg-sky-500',
+    textClass: 'text-sky-600',
+    borderClass: 'border-sky-500',
+    editorMode: 'feedback',
+    description: 'Learn how computers work — hardware, software, internet, cyber safety, and your first steps into coding.',
+    careerGuide: {
+      roles: ['Any IT Professional', 'Software Engineer', 'IT Support', 'Hardware Engineer', 'Cybersecurity Professional'],
+      avgSalary: 'Foundation for all tech careers (₹3–50 LPA)',
+      topCompanies: ['All tech companies', 'Every IT industry', 'Government IT roles'],
+      nextSkills: ['Programming (Python, Java)', 'Networking & Security', 'System Administration', 'Hardware & Troubleshooting'],
+      tip: 'Understanding computer fundamentals is the foundation for every tech career — it opens doors to coding, IT support, hacking, and beyond.',
+    },
+    projectIdea: {
+      title: 'Design Your Dream Computer Setup',
+      description: 'Research real computer components, design your ideal PC or laptop setup for gaming/coding/design, and calculate the total budget.',
+      steps: [
+        'Choose a purpose: gaming, coding, design, or school work',
+        'Research components: CPU, GPU, RAM, Storage, Motherboard, PSU',
+        'Compare options and prices on Flipkart, Amazon, or local stores',
+        'Create a shopping list with links and prices',
+        'Calculate total cost and write why each component matters',
+      ],
+      difficulty: 'Beginner',
+      techStack: 'Internet research, spreadsheet, learning about PC hardware',
+    },
+  },
 ];
 
 // ─── Topic lookup by language ─────────────────────────────────────────────────
@@ -559,7 +561,7 @@ export const TOPICS_BY_LANGUAGE: Record<string, TutorialTopic[]> = {
   html: htmlTopics,
   javascript: javascriptTopics,
   sql: sqlTopics,
-  'ai-learning': aiLearningTopics,
+  'ai-learning': [...aiLearningTopics, ...aiAgentsTopics],
   'data-analytics': dataAnalyticsTopics,
   aptitude: aptitudeTopics,
   'app-dev': appDevTopics,
@@ -568,9 +570,11 @@ export const TOPICS_BY_LANGUAGE: Record<string, TutorialTopic[]> = {
   'game-dev': gameDevTopics,
   'git-github': gitGithubTopics,
   'prompt-engineering': promptEngineeringTopics,
-  'ai-agents': aiAgentsTopics,
+  // ai-agents merged into ai-learning (see LANGUAGES array)
+
   'cloud-computing': cloudComputingTopics,
   'data-mining': dataMiningTopics,
+  'computer-basics': computerBasicsTopics,
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

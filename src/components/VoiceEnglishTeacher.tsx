@@ -3,10 +3,15 @@
  *
  * Behaviour:
  * • Continuous browser SpeechRecognition (auto-restarts on silence/timeout).
- * • Silence detection: 2.5s with no new words → auto-submit current transcript to AI.
+ * • Silence detection: 1.2s with no new words → auto-submit current transcript to AI.
  * • SpeechSynthesis: AI reads its feedback aloud with an Indian English voice if available.
- * • Recognition keeps running while AI is speaking — student can interrupt naturally.
+ * • Recognition restarts properly after every AI response (key mobile fix).
  * • Backend handles the AI grammar feedback (never the API key in the client).
+ *
+ * Mobile notes:
+ * • iOS Safari — no SpeechRecognition support; text-only mode shown.
+ * • Android Chrome — continuous:true can stop after each utterance; the onend
+ *   handler and post-speak restart cover this.
  */
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Mic, MicOff, RefreshCw, Volume2, VolumeX, Loader2 } from 'lucide-react';
@@ -15,6 +20,9 @@ import { getEnglishConversationReply, getEnglishConversationOpener } from '../li
 /* ─── Speech API shim ─────────────────────────────────────────────────────── */
 const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 const isSpeechSupported = !!SR;
+
+/* Detect iOS (no SpeechRecognition at all) */
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
 
 /* Silence threshold (ms) — auto-submit student turn after this much quiet time */
 const SILENCE_MS = 1200;
@@ -37,10 +45,10 @@ const CONVERSATION_PROMPTS = [
 function pickBestVoice(): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis?.getVoices() || [];
   if (voices.length === 0) return null;
-  // 1. Indian English (Microsoft Heera, Google हिन्दी w/ English, en-IN)
+  // 1. Indian English (Microsoft Heera, Google en-IN)
   const inEN = voices.find(v => v.lang === 'en-IN');
   if (inEN) return inEN;
-  // 2. Female-sounding English voice (heuristic — name contains "female" or "Samantha"/"Karen"/"Heera")
+  // 2. Female-sounding English voice (name heuristic)
   const femaleEn = voices.find(v => /female|heera|samantha|karen|moira|tessa/i.test(v.name) && /^en/i.test(v.lang));
   if (femaleEn) return femaleEn;
   // 3. Any en-* voice
@@ -96,16 +104,20 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
     el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
   }, [turns, sessionState]);
 
-  /* Preload speech-synthesis voices (browsers expose them asynchronously) */
+  /* Preload speech-synthesis voices (browsers expose them asynchronously).
+     Use addEventListener for maximum cross-browser compatibility. */
   useEffect(() => {
     if (!window.speechSynthesis) return;
     const tryLoad = () => {
-      voiceRef.current = pickBestVoice();
-      if (voiceRef.current) setVoicesReady(true);
+      const picked = pickBestVoice();
+      if (picked) {
+        voiceRef.current = picked;
+        setVoicesReady(true);
+      }
     };
     tryLoad();
-    window.speechSynthesis.onvoiceschanged = tryLoad;
-    return () => { window.speechSynthesis.onvoiceschanged = null; };
+    window.speechSynthesis.addEventListener('voiceschanged', tryLoad);
+    return () => { window.speechSynthesis.removeEventListener('voiceschanged', tryLoad); };
   }, []);
 
   /* Clear silence timer */
@@ -124,27 +136,49 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
     }
     window.speechSynthesis.cancel();
     const utter = new SpeechSynthesisUtterance(text);
+    // Use detected voice or fallback to en-IN
     utter.lang = voiceRef.current?.lang || 'en-IN';
-    utter.rate = 0.95;
-    utter.pitch = 1.05;
+    // Slightly slower rate for clarity; natural pitch
+    utter.rate = 0.9;
+    utter.pitch = 1.0;
+    utter.volume = 1.0;
     if (voiceRef.current) utter.voice = voiceRef.current;
     utter.onend = () => { onDone?.(); };
     utter.onerror = () => { onDone?.(); };
     window.speechSynthesis.speak(utter);
+
+    // iOS work-around: speech synthesis sometimes hangs silently.
+    // If nothing has happened after 12s, force onDone.
+    const hangGuard = window.setTimeout(() => { onDone?.(); }, 12_000);
+    utter.onend = () => { clearTimeout(hangGuard); onDone?.(); };
+    utter.onerror = () => { clearTimeout(hangGuard); onDone?.(); };
   }, [isMuted]);
 
-  /* Submit current transcript to AI, then auto-restart listening */
+  /* Mirror sessionState into a ref so closures can read the latest value */
+  const sessionStateRef = useRef<SessionState>('idle');
+  useEffect(() => { sessionStateRef.current = sessionState; }, [sessionState]);
+
+  /* ── Forward-declare startListening so it can be called from doListenAfterSpeak ── */
+  const startListeningRef = useRef<() => void>(() => {});
+
+  /* Resume listening after AI finishes speaking.
+     Calls startListening() which properly creates a new recognition instance. */
+  const doListenAfterSpeak = useCallback(() => {
+    if (wantsListeningRef.current) {
+      startListeningRef.current();
+    } else {
+      setSessionState('idle');
+    }
+  }, []);
+
+  /* Submit current transcript to AI, then restart listening */
   const submitTurn = useCallback(async () => {
     clearSilence();
     const finalText = transcriptRef.current.trim();
-    if (!finalText) {
-      // Nothing to send — keep listening
-      return;
-    }
+    if (!finalText) return; // nothing to send — stay listening
     setTranscript('');
     setInterimText('');
     setSessionState('processing');
-    // Append student turn immediately for snappy UI
     const newTurns: ChatTurn[] = [...turnsRef.current, { role: 'student', text: finalText }];
     setTurns(newTurns);
     try {
@@ -152,18 +186,12 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
       const teacherTurn: ChatTurn = { role: 'teacher', text: reply };
       setTurns((prev) => [...prev, teacherTurn]);
       setSessionState('speaking');
-      speak(reply, () => {
-        if (wantsListeningRef.current) {
-          setSessionState('listening');
-        } else {
-          setSessionState('idle');
-        }
-      });
+      speak(reply, doListenAfterSpeak);
     } catch {
       setError('Could not reach the AI. Check your connection and try again.');
       setSessionState(wantsListeningRef.current ? 'listening' : 'idle');
     }
-  }, [context, currentPrompt, speak]);
+  }, [context, currentPrompt, speak, doListenAfterSpeak]);
 
   /* Have the AI open the conversation with a friendly greeting + question */
   const sendOpener = useCallback(async () => {
@@ -173,22 +201,18 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
       const teacherTurn: ChatTurn = { role: 'teacher', text: opener };
       setTurns((prev) => [...prev, teacherTurn]);
       setSessionState('speaking');
-      speak(opener, () => {
-        if (wantsListeningRef.current) {
-          setSessionState('listening');
-        } else {
-          setSessionState('idle');
-        }
-      });
+      speak(opener, doListenAfterSpeak);
     } catch {
       setSessionState(wantsListeningRef.current ? 'listening' : 'idle');
     }
-  }, [context, currentPrompt, speak]);
+  }, [context, currentPrompt, speak, doListenAfterSpeak]);
 
   /* Start (or resume) continuous listening */
   const startListening = useCallback(() => {
     if (!isSpeechSupported) {
-      setError('Your browser does not support speech recognition. Try Chrome or Edge.');
+      setError(isIOS
+        ? 'Voice recognition is not supported on iOS Safari. Please use the Chrome app on Android or desktop Chrome/Edge.'
+        : 'Your browser does not support speech recognition. Try Chrome or Edge.');
       return;
     }
     setError(null);
@@ -203,12 +227,14 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
     // First time starting this conversation → have the AI open with a question
     if (turnsRef.current.length === 0) {
       void sendOpener();
-      // sendOpener will set state to 'speaking' then 'listening' when done — listening will restart from rec.onend below
+      // sendOpener → 'processing' → 'speaking' → doListenAfterSpeak → startListening
+      // So we'll re-enter after the opener is spoken.
+      return;
     }
 
     const rec = new SR();
     rec.lang = 'en-IN';
-    rec.continuous = true;      // keep listening through pauses
+    rec.continuous = true;
     rec.interimResults = true;
     rec.maxAlternatives = 1;
 
@@ -227,36 +253,38 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
 
       // Any new speech resets the silence timer
       clearSilence();
-      // Schedule auto-submit if the student stays quiet
       silenceTimerRef.current = window.setTimeout(() => {
         if (transcriptRef.current.trim().length > 0) {
-          // Stop the current recognition so we can re-create cleanly after AI response
           void submitTurn();
         }
       }, SILENCE_MS);
     };
 
     rec.onerror = (event: any) => {
-      if (event.error === 'no-speech') {
-        // expected — keep listening, the silence timer will handle it
-        return;
-      }
+      if (event.error === 'no-speech') return; // expected — keep listening
       if (event.error === 'not-allowed') {
         setError('Microphone access denied. Please allow microphone in browser settings.');
         wantsListeningRef.current = false;
         setSessionState('idle');
       } else if (event.error === 'aborted' || event.error === 'audio-capture') {
         // ignore — will restart automatically
+      } else if (event.error === 'network') {
+        // On Android, network error during recognition is transient — restart
+        recognitionRef.current = null;
+        if (wantsListeningRef.current) {
+          window.setTimeout(() => { if (wantsListeningRef.current) startListening(); }, 500);
+        }
       } else {
         setError(`Speech error: ${event.error}`);
       }
     };
 
     rec.onend = () => {
-      // Browser auto-stops recognition; we restart so it feels continuous.
+      // Browser auto-stops recognition; restart if still wanted and not mid-AI-turn
       recognitionRef.current = null;
-      if (wantsListeningRef.current && sessionStateRef.current !== 'processing' && sessionStateRef.current !== 'speaking') {
-        // Auto-restart after a tiny delay
+      if (wantsListeningRef.current &&
+          sessionStateRef.current !== 'processing' &&
+          sessionStateRef.current !== 'speaking') {
         window.setTimeout(() => {
           if (wantsListeningRef.current) startListening();
         }, 250);
@@ -266,21 +294,18 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
     try {
       recognitionRef.current = rec;
       rec.start();
-      // Don't override 'processing'/'speaking' if opener is in flight
       if (sessionStateRef.current !== 'processing' && sessionStateRef.current !== 'speaking') {
         setSessionState('listening');
       }
     } catch {
-      // Some browsers throw if start() is called too quickly; try again shortly
       window.setTimeout(() => {
         if (wantsListeningRef.current) startListening();
       }, 400);
     }
   }, [submitTurn, sendOpener]);
 
-  /* Mirror sessionState into a ref so onend can read the latest value */
-  const sessionStateRef = useRef<SessionState>('idle');
-  useEffect(() => { sessionStateRef.current = sessionState; }, [sessionState]);
+  /* Keep the startListeningRef pointing to the latest startListening closure */
+  useEffect(() => { startListeningRef.current = startListening; }, [startListening]);
 
   /* Stop everything — used by the X / stop button */
   const stopAll = useCallback(() => {
@@ -296,7 +321,7 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
     setCurrentPrompt(CONVERSATION_PROMPTS[Math.floor(Math.random() * CONVERSATION_PROMPTS.length)]);
     setTranscript('');
     setInterimText('');
-    setTurns([]); // fresh conversation → AI fires a new opener on next mic tap
+    setTurns([]);
     stopAll();
   };
 
@@ -390,7 +415,6 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
             </div>
           </div>
         )}
-
       </div>
 
       {/* Error */}
@@ -400,12 +424,16 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
         </div>
       )}
 
-      {/* Browser support warning */}
-      {!isSpeechSupported && (
+      {/* iOS / browser support warning */}
+      {isIOS ? (
+        <div className="mx-5 mb-3 rounded-xl border border-amber-100 bg-amber-50 px-4 py-2 text-xs font-bold text-amber-700">
+          ⚠️ Voice input is not available on iOS Safari. Open Syllab in Chrome on Android or use a desktop browser for AI voice practice.
+        </div>
+      ) : !isSpeechSupported ? (
         <div className="mx-5 mb-3 rounded-xl border border-amber-100 bg-amber-50 px-4 py-2 text-xs font-bold text-amber-700">
           ⚠️ Your browser doesn't support the microphone feature. Please use Chrome or Edge for voice practice.
         </div>
-      )}
+      ) : null}
 
       {/* Controls */}
       <div className="border-t border-slate-100 bg-white px-5 pb-5 pt-4">
@@ -415,7 +443,7 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
             <button
               type="button"
               onClick={startListening}
-              disabled={!isSpeechSupported}
+              disabled={!isSpeechSupported || isIOS}
               className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-sky-500 text-white shadow-lg shadow-sky-500/30 hover:bg-sky-600 active:scale-95 transition-all disabled:cursor-not-allowed disabled:opacity-40"
               title="Start speaking"
             >
@@ -452,7 +480,6 @@ export default function VoiceEnglishTeacher({ context, onClose }: VoiceEnglishTe
               <p className="text-sm font-bold text-emerald-600">🔊 AI is talking… mic resumes after.</p>
             )}
           </div>
-
         </div>
 
         <p className="mt-3 text-[10px] font-bold text-slate-400 text-center">

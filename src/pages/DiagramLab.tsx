@@ -115,9 +115,9 @@ export default function DiagramLab() {
                   colors.card,
                 )}
               >
-                {/* Image */}
-                <div className="relative h-44 overflow-hidden bg-slate-50">
-                  {!imgFailed ? (
+                {/* Image — falls back to a beautiful gradient + emoji illustration */}
+                <div className={cn('relative h-44 overflow-hidden bg-gradient-to-br', diagram.fallbackGradient)}>
+                  {!imgFailed && diagram.imageUrl ? (
                     <img
                       src={diagram.imageUrl}
                       alt={diagram.name}
@@ -127,11 +127,11 @@ export default function DiagramLab() {
                       referrerPolicy="no-referrer"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-slate-50">
-                      <div className={cn('h-10 w-10 rounded-xl flex items-center justify-center', colors.badge)}>
-                        <span className="text-lg">🔬</span>
-                      </div>
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Diagram coming soon</p>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 transition-transform group-hover:scale-105">
+                      <span className="text-7xl drop-shadow-md" aria-hidden="true">{diagram.emoji}</span>
+                      <p className="px-3 text-center text-[11px] font-black text-slate-700 uppercase tracking-widest line-clamp-1">
+                        {diagram.name}
+                      </p>
                     </div>
                   )}
                 </div>

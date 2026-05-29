@@ -8,9 +8,12 @@ export const htmlTopics: TutorialTopic[] = [
     difficulty: 'Beginner',
     livePreview: true,
     theory: [
-      `HTML (HyperText Markup Language) is the standard language for creating web pages. Every website you visit is built with HTML. It describes the structure and content of a page using tags enclosed in angle brackets.`,
-      `HTML is NOT a programming language — it's a markup language. You use it to tell the browser what content to show: headings, paragraphs, images, links, tables, forms, and much more.`,
-      `A basic HTML document has a DOCTYPE declaration, an html root element, a head (metadata) and body (visible content). Browsers read this and render the visual page.`,
+      `HTML (HyperText Markup Language) is the standard language for creating web pages and is the foundation of the web. Every website you visit — YouTube, Google, Facebook, Flipkart — is built with HTML. It describes the structure and content of a page using tags enclosed in angle brackets, telling the browser what to display.`,
+      `Tim Berners-Lee, a British scientist at CERN (European Organization for Nuclear Research) in Switzerland, invented HTML in 1991. He created it to share research papers and documents over the internet, leading to the birth of the World Wide Web. HTML 1.0 was simple (only 22 tags), but its elegant design has stood the test of time.`,
+      `HTML evolved from a simple document format to a powerful web standard. HTML 2.0 (1995) was the first standard, HTML 4.0 (1997) added better structure, XHTML (2000) was stricter but less popular, and HTML5 (2014) revolutionized web development with new semantic tags (<section>, <article>, <nav>, <video>, <canvas>) and APIs. This evolution made HTML more expressive and interactive.`,
+      `HTML is used with CSS (styling) and JavaScript (interactivity) to build all web experiences. Frameworks like React, Vue, Angular generate HTML dynamically. Template engines (Handlebars, EJS, Jinja2) use HTML as their base. Tools like WordPress, Wix, and Figma export HTML. Every modern web framework from Nextjs to Django produces HTML at its core.`,
+      `In India and globally, HTML is essential for web professionals. Companies like Flipkart, Swiggy, Airbnb, Netflix, and TCS use HTML as the foundation for their web platforms. Government websites, educational platforms (NIOS, various state boards), and e-commerce sites all use HTML. For CBSE Class 8+ Computer Science students, HTML is the entry point to web development and is now part of curriculum guidelines.`,
+      `HTML knowledge is critical for career growth: 100% of web developer jobs require HTML. Frontend developer positions globally show 5+ million openings. HTML is easiest to learn, making it perfect for beginners. Students learning HTML often find it a gateway to full-stack development, earning INR 3–10 LPA in India. HTML is not just a skill — it's the passport to the digital economy.`,
     ],
     syntax: `<!DOCTYPE html>
 <html>

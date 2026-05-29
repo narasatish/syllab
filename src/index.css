@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
 @import "tailwindcss";
 
+/* Tailwind v4 class-based dark mode (instead of prefers-color-scheme).
+ * Lets `dark:` utilities activate when `.dark` is on the <html> element. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* CSS for 3D flashcard flip animation */
+@layer utilities {
+  .perspective-1000 { perspective: 1000px; }
+  .preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Playfair Display", serif;
@@ -14,8 +26,96 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
   body {
     @apply bg-bg-beige text-secondary font-sans antialiased overflow-x-hidden;
+  }
+
+  html.dark body {
+    @apply bg-slate-900 text-slate-100;
+  }
+
+  html.dark {
+    @apply bg-slate-900;
+  }
+
+  /* ── Global dark-mode overrides ──────────────────────────────────────
+   * Most components use hardcoded light utilities (bg-white, text-slate-*).
+   * Rather than editing every component, we override the most common
+   * neutral utilities to dark equivalents when .dark is on <html>. Colors
+   * (green/blue/red/etc.) are intentionally untouched so primary actions
+   * still pop.
+   */
+
+  /* Backgrounds */
+  html.dark .bg-white { background-color: #1e293b !important; }
+  html.dark .bg-slate-50 { background-color: #1e293b !important; }
+  html.dark .bg-slate-100 { background-color: #334155 !important; }
+  html.dark .bg-slate-200 { background-color: #475569 !important; }
+  html.dark .bg-bg-beige { background-color: #0f172a !important; }
+  html.dark .bg-gray-50 { background-color: #1e293b !important; }
+  html.dark .bg-gray-100 { background-color: #334155 !important; }
+
+  /* Text colors */
+  html.dark .text-slate-900 { color: #f1f5f9 !important; }
+  html.dark .text-slate-800 { color: #e2e8f0 !important; }
+  html.dark .text-slate-700 { color: #cbd5e1 !important; }
+  html.dark .text-slate-600 { color: #cbd5e1 !important; }
+  html.dark .text-slate-500 { color: #94a3b8 !important; }
+  html.dark .text-slate-400 { color: #94a3b8 !important; }
+  html.dark .text-secondary { color: #f1f5f9 !important; }
+  html.dark .text-gray-900 { color: #f1f5f9 !important; }
+  html.dark .text-gray-800 { color: #e2e8f0 !important; }
+  html.dark .text-gray-700 { color: #cbd5e1 !important; }
+  html.dark .text-black { color: #f1f5f9 !important; }
+
+  /* Borders */
+  html.dark .border-slate-100 { border-color: #334155 !important; }
+  html.dark .border-slate-200 { border-color: #475569 !important; }
+  html.dark .border-slate-300 { border-color: #64748b !important; }
+  html.dark .border-gray-100 { border-color: #334155 !important; }
+  html.dark .border-gray-200 { border-color: #475569 !important; }
+  html.dark .border-white { border-color: #334155 !important; }
+
+  /* Cards / shadows look dim in dark — soften them */
+  html.dark .shadow,
+  html.dark .shadow-md,
+  html.dark .shadow-lg,
+  html.dark .shadow-xl,
+  html.dark .shadow-2xl {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+  }
+
+  /* Form inputs */
+  html.dark input[type="text"],
+  html.dark input[type="email"],
+  html.dark input[type="password"],
+  html.dark input[type="number"],
+  html.dark input[type="search"],
+  html.dark textarea,
+  html.dark select {
+    background-color: #334155 !important;
+    color: #f1f5f9 !important;
+    border-color: #475569 !important;
+  }
+
+  /* Subtle gradient backgrounds → keep their accent but tint dark */
+  html.dark .bg-gradient-to-r,
+  html.dark .bg-gradient-to-br,
+  html.dark .bg-gradient-to-tr,
+  html.dark .bg-gradient-to-b {
+    filter: brightness(0.8);
   }
 
   img, video, canvas, svg {
@@ -81,5 +181,35 @@
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-slate-200 rounded-full hover:bg-slate-300;
+  }
+
+  /* Flashcard 3D flip animation */
+  .card-3d {
+    perspective: 1000px;
+  }
+
+  .card-3d-inner {
+    transition: transform 0.6s ease-out;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-3d.flipped .card-3d-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-3d-front,
+  .card-3d-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .card-3d-back {
+    transform: rotateY(180deg);
   }
 }

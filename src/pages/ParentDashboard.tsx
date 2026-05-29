@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { db } from '../lib/firebase';
+import { encodeExamConfig } from '../lib/examCode';
 import SEO from '../components/SEO';
 
 interface ParentDashboardProps {
@@ -147,7 +148,7 @@ export default function ParentDashboardPage({ currentUser, setTab }: ParentDashb
 
   const generateExamCode = async () => {
     const config = { class: examClass, subjects: examSubjects, level: examLevel, count: examCount };
-    const code = btoa(JSON.stringify(config)).replace(/=/g, '').substring(0, 8).toUpperCase();
+    const code = encodeExamConfig(config);
     setExamCode(code);
     const url = `${window.location.origin}/exams?code=${code}`;
     navigator.clipboard?.writeText(url).catch(() => undefined);

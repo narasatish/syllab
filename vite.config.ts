@@ -5,6 +5,17 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      // In dev, forward /api/* to the Render backend so the browser
+      // never makes a cross-origin request (no CORS issues on localhost).
+      '/api': {
+        target: 'https://syllab-backend.onrender.com',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
   build: {
     modulePreload: {
       resolveDependencies(_url, deps, context) {

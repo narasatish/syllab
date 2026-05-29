@@ -15,6 +15,7 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { User as FirebaseUser } from 'firebase/auth';
 import { cn } from '../lib/utils';
+import WhatsAppShare from '../components/WhatsAppShare';
 import { SYLLABUS } from '../data/syllabus';
 import { ClassLevel, Difficulty, Question, Subject } from '../types';
 import { recordMistake, saveQuizSession, getPausedSession, QuizSession } from '../lib/firebase';
@@ -789,6 +790,13 @@ export default function ArenaPage({
               className="btn-secondary flex-1 rounded-2xl py-5 text-lg">
               Practice This Chapter More
             </button>
+          </div>
+          <div className="mt-6">
+            <WhatsAppShare
+              text={`Just scored ${quizQuestions.length ? Math.round((score / quizQuestions.length) * 100) : 0}% on Syllab.in quiz! 🎯\n\nGained ${score * 10 + ((quizQuestions.length ? score / quizQuestions.length : 0) >= 0.9 ? 50 : (quizQuestions.length ? score / quizQuestions.length : 0) >= 0.8 ? 30 : 0)} XP\n\nJoin free NCERT practice and mock tests!`}
+              url="https://syllab.in/practice"
+              label="Share Score"
+            />
           </div>
           {!currentUser ? (
             <p className="mt-6 text-sm font-semibold text-slate-500">Sign in to store your results, completed chapters, and mistakes in Firestore.</p>

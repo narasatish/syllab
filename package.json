@@ -7,12 +7,21 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "build:mocks": "node scripts/generate-mocks.mjs",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build:prerender": "node scripts/generate-prerender.mjs",
+    "build:og": "node scripts/generate-og-image.mjs",
+    "blog:generate": "node scripts/generate-trending-blogs.mjs",
+    "build": "node scripts/generate-og-image.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-trending-blogs.mjs && vite build && node scripts/generate-prerender.mjs",
     "preview": "vite preview",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "lint": "eslint .",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "newsletter:send": "node scripts/send-weekly-newsletter.mjs",
+    "newsletter:dry-run": "DRY_RUN=true node scripts/send-weekly-newsletter.mjs",
+    "mocks:generate-state": "python3 scripts/generate_all_mocks.py",
+    "ig:post": "node scripts/instagram-bot/post-daily.mjs",
+    "ig:preview": "node -e \"process.env.DRY_RUN='true'; import('./scripts/instagram-bot/post-daily.mjs')\"",
+    "ig:preview-puzzle": "node -e \"process.env.DRY_RUN='true'; process.argv.push('--type=puzzle'); import('./scripts/instagram-bot/post-daily.mjs')\""
   },
   "dependencies": {
     "@eslint/js": "^10.0.1",
@@ -35,6 +44,7 @@
     "globals": "^17.5.0",
     "jsdom": "^29.0.2",
     "katex": "^0.16.45",
+    "lottie-react": "^2.4.0",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "pdfjs-dist": "^5.6.205",
@@ -54,6 +64,7 @@
     "vitest": "^4.1.5"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",

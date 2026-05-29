@@ -9,7 +9,7 @@ import { getChapterSummary, ensureChapterSummary } from '../data/chapterSummarie
 import { usePinnedChapters } from '../lib/pinnedChapters';
 import SEO from '../components/SEO';
 import { loadConcept } from '../lib/api';
-import { getDeepPptLesson, DeepPptLesson } from '../lib/pptLessonApi';
+import { getDeepPptLesson, DeepPptLesson, prewarmPptBackend } from '../lib/pptLessonApi';
 import WebSlideViewer from '../components/WebSlideViewer';
 import ClassFilterBanner from '../components/filters/ClassFilterBanner';
 import {
@@ -505,8 +505,15 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     };
     window.addEventListener('storage', sync);
     return () => window.removeEventListener('storage', sync);
-     
+
   }, [selectedClass]);
+
+  // Pre-warm the PPT backend the moment a user lands on the syllabus page.
+  // Render free-tier dynos sleep after 15 min idle — kicking off a /health
+  // GET here means the dyno is already awake by the time they tap a chapter.
+  React.useEffect(() => {
+    prewarmPptBackend();
+  }, []);
 
   // Cloud-first: when userClass prop changes (Firestore sync after sign-in), update the selected class
   // unless the user has already manually chosen a class tab in this session.

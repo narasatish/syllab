@@ -28,5 +28,5 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
 if (import.meta.env.PROD) {
   const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://syllab-backend.onrender.com';
   // Fire-and-forget — no await, no error UI. Just nudges the dyno awake.
-  fetch(`${apiBase}/health`, { method: 'GET', cache: 'no-store' }).catch(() => { /* ignore */ });
+  fetch(`${apiBase}/api/ai/health`, { method: 'GET', cache: 'no-store' }).catch(() => { /* ignore */ });
 }

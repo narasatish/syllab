@@ -3,6 +3,7 @@ import { BarChart3, BookOpen, CheckCircle2, ChevronLeft, ChevronRight, Clipboard
 import { User as FirebaseUser } from 'firebase/auth';
 import { addDoc, collection, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../lib/firebase';
+import { encodeExamConfig } from '../lib/examCode';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import SEO from '../components/SEO';
 import { cn } from '../lib/utils';
@@ -422,6 +423,14 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
   };
 
   const loadMock = async (meta: MockTestMeta) => {
+    // Privacy + result-tracking gate: must sign in before taking any mock.
+    // Browsing the list above is fine; starting the timer requires an account.
+    if (!currentUser) {
+      setError('Please sign in or sign up — your mock test result needs to be saved to your account.');
+      // Bubble up to App to open the login modal
+      window.dispatchEvent(new CustomEvent('syllab:require-login'));
+      return;
+    }
     setError(null);
     setLoading(true);
     try {
@@ -515,7 +524,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
       }
       const finalQuestions = collected.slice(0, createCount);
       const config = { class: createClass, subjects: createSubjects, level: createLevel, count: finalQuestions.length };
-      const code = btoa(JSON.stringify(config)).replace(/=/g, '').substring(0, 8).toUpperCase();
+      const code = encodeExamConfig(config);
       setShareCode(code);
       // Save code to Firestore so students can join with just the short code
       void saveExamCode(code, config);
@@ -681,28 +690,13 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
           </section>
         )}
 
-        {/* ─── Mock Tests Section ─── */}
+        {/* ─── Mock Tests Section — grouped into 3 category tabs ─── */}
         {activeSection === 'mocks' && (
-          <>
-            {['JEE', 'NEET', 'EAMCET', 'APEAMCET', 'VIT', 'BITSAT'].map((exam) => {
-              const mocksByExam = getMocksByExam(exam);
-              return (
-                <section key={exam} className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
-                  <h2 className="mb-6 text-2xl font-black text-slate-900">{exam}</h2>
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {mocksByExam.map((mock) => (
-                      <MockCard
-                        key={mock.id}
-                        mock={mock}
-                        onStart={() => void loadMock(mock)}
-                        isLoading={loading && selectedMock?.id === mock.id}
-                      />
-                    ))}
-                  </div>
-                </section>
-              );
-            })}
-          </>
+          <MockTestsTabs
+            loadMock={loadMock}
+            loading={loading}
+            selectedMock={selectedMock}
+          />
         )}
 
         {/* ─── Olympiads Section ─── */}
@@ -1465,6 +1459,129 @@ function OlympiadExamRunner({
         </div>
       )}
     </div>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+ * MockTestsTabs — Groups all mock-test exams into 3 high-level tabs:
+ *   • IIT JEE / NEET (national engineering & medical entrance)
+ *   • EAMCET & State exams (AP/TS/KA/MH/WB/TN/UP/GJ/OD)
+ *   • BITSAT / VITEEE (private deemed-university entrances)
+ * Each tab shows its grouped exam sections — keeps the top of the page
+ * clean while still giving access to every exam.
+ * ─────────────────────────────────────────────────────────────────────── */
+type ExamCategoryId = 'jee-neet' | 'state' | 'private';
+const EXAM_CATEGORIES: { id: ExamCategoryId; label: string; emoji: string; bg: string; exams: string[]; descriptions: Record<string, string> }[] = [
+  {
+    id: 'jee-neet',
+    label: 'IIT JEE & NEET',
+    emoji: '🏆',
+    bg: 'bg-indigo-600',
+    exams: ['JEE', 'NEET'],
+    descriptions: {
+      JEE: 'JEE Main — National engineering entrance for NITs, IIITs, and JEE Advanced gateway',
+      NEET: 'NEET UG — National medical entrance for MBBS/BDS admissions',
+    },
+  },
+  {
+    id: 'state',
+    label: 'EAMCET & State Exams',
+    emoji: '🇮🇳',
+    bg: 'bg-emerald-600',
+    exams: ['EAMCET', 'APEAMCET', 'KCET', 'MHTCET', 'WBJEE', 'TNEA', 'UPSEE', 'COMEDK', 'GUJCET', 'OJEE'],
+    descriptions: {
+      EAMCET: 'TS EAMCET — Telangana State Engineering, Agriculture & Medical Common Entrance',
+      APEAMCET: 'AP EAMCET — Andhra Pradesh Engineering, Agriculture & Medical entrance',
+      KCET: 'KCET — Karnataka Common Entrance Test (Engineering & Medical)',
+      MHTCET: 'MHT-CET — Maharashtra Common Entrance Test',
+      WBJEE: 'WBJEE — West Bengal Joint Entrance Exam',
+      TNEA: 'TNEA — Tamil Nadu Engineering Admissions',
+      UPSEE: 'UPSEE / UPCET — Uttar Pradesh State Entrance',
+      COMEDK: 'COMEDK UGET — Karnataka Private Engineering & Medical',
+      GUJCET: 'GUJCET — Gujarat Common Entrance Test',
+      OJEE: 'OJEE — Odisha Joint Entrance Exam',
+    },
+  },
+  {
+    id: 'private',
+    label: 'BITSAT & Private',
+    emoji: '🎓',
+    bg: 'bg-violet-600',
+    exams: ['BITSAT', 'VIT'],
+    descriptions: {
+      BITSAT: 'BITSAT — BITS Pilani / Goa / Hyderabad admission test',
+      VIT: 'VITEEE — VIT Vellore & Chennai engineering entrance exam',
+    },
+  },
+];
+
+function MockTestsTabs({
+  loadMock,
+  loading,
+  selectedMock,
+}: {
+  loadMock: (mock: MockTestMeta) => Promise<void> | void;
+  loading: boolean;
+  selectedMock: MockTestMeta | null;
+}) {
+  const [activeCategory, setActiveCategory] = React.useState<ExamCategoryId>('jee-neet');
+  const category = EXAM_CATEGORIES.find((c) => c.id === activeCategory)!;
+
+  return (
+    <>
+      {/* Top-level category tabs (only 3) */}
+      <section className="rounded-[2rem] bg-white p-4 shadow-xl shadow-slate-200/50 sm:p-6">
+        <div className="flex flex-wrap gap-2">
+          {EXAM_CATEGORIES.map((cat) => {
+            const active = cat.id === activeCategory;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveCategory(cat.id)}
+                className={cn(
+                  'inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-xs font-black uppercase tracking-widest transition-all',
+                  active ? `${cat.bg} text-white shadow-lg` : 'bg-slate-100 text-slate-600 hover:bg-slate-200',
+                )}
+              >
+                <span className="text-base">{cat.emoji}</span>
+                {cat.label}
+                <span className={cn('ml-1 rounded-full px-1.5 text-[10px]', active ? 'bg-white/20' : 'bg-slate-200 text-slate-500')}>
+                  {cat.exams.reduce((sum, e) => sum + getMocksByExam(e).length, 0)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        <p className="mt-3 text-xs font-medium text-slate-500">
+          Pick a category above, then a mock test to start a 3-hour exam-like simulation with negative marking.
+        </p>
+      </section>
+
+      {/* Render exams inside the selected category */}
+      {category.exams.map((exam) => {
+        const mocksByExam = getMocksByExam(exam);
+        if (mocksByExam.length === 0) return null;
+        return (
+          <section key={exam} className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
+            <div>
+              <h2 className="mb-2 text-2xl font-black text-slate-900">{exam}</h2>
+              <p className="mb-4 text-sm font-medium text-slate-500">{category.descriptions[exam]}</p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {mocksByExam.map((mock) => (
+                <MockCard
+                  key={mock.id}
+                  mock={mock}
+                  onStart={() => void loadMock(mock)}
+                  isLoading={loading && selectedMock?.id === mock.id}
+                />
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </>
   );
 }
 

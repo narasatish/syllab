@@ -71,14 +71,25 @@ function buildUrls({ languages, topicsByLang }) {
   // Home — top priority
   urls.push({ loc: '/',                    priority: 1.0, changefreq: 'daily' });
 
-  // Main tabs — high
-  for (const p of ['/syllabus', '/arena', '/daily-challenges', '/mock-tests',
-                   '/learning-lab', '/skills-lab', '/updates']) {
-    urls.push({ loc: p, priority: 0.9, changefreq: 'weekly' });
+  // Main tabs — high (must match TAB_TO_PATH in App.tsx exactly).
+  // May 2026 rename: /exams→/mock-tests, /learning-lab→/ai-tutor,
+  // /skills-lab→/coding, /english-lab→/english, /progress→/dashboard,
+  // /general-knowledge→/gk-quiz. (/3d-lab removed.)
+  for (const p of ['/syllabus', '/practice', '/daily-challenges', '/mock-tests', '/gk-quiz',
+                   '/ai-tutor', '/coding', '/english', '/updates',
+                   '/preparation', '/coding-challenges', '/mini-projects']) {
+    urls.push({ loc: p, priority: 0.9, changefreq: 'daily' });
+  }
+
+  // SEO landing pages — high priority (target high-volume keywords)
+  for (const p of ['/coding-for-kids', '/python-for-kids', '/computer-basics',
+                   '/cyber-safety', '/ai-for-students', '/web-development']) {
+    urls.push({ loc: p, priority: 0.8, changefreq: 'weekly' });
   }
 
   // Static pages — medium
-  for (const p of ['/parent', '/profile', '/about', '/contact', '/sitemap', '/blog']) {
+  for (const p of ['/parent', '/profile', '/about', '/contact', '/sitemap',
+                   '/blog', '/dashboard', '/terms', '/privacy']) {
     urls.push({ loc: p, priority: 0.6, changefreq: 'monthly' });
   }
 
@@ -89,13 +100,13 @@ function buildUrls({ languages, topicsByLang }) {
 
   // Skills Lab language landings
   for (const lang of languages) {
-    urls.push({ loc: `/skills-lab/${lang}`, priority: 0.7, changefreq: 'weekly' });
+    urls.push({ loc: `/coding/${lang}`, priority: 0.7, changefreq: 'weekly' });
   }
 
   // Individual topics — biggest count, lower priority
   for (const lang of languages) {
     for (const topicId of (topicsByLang[lang] || [])) {
-      urls.push({ loc: `/skills-lab/${lang}/${topicId}`, priority: 0.6, changefreq: 'monthly' });
+      urls.push({ loc: `/coding/${lang}/${topicId}`, priority: 0.6, changefreq: 'monthly' });
     }
   }
 

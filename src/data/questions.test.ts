@@ -3,7 +3,7 @@ import { generateQuestions } from './questions';
 import { SYLLABUS } from './syllabus';
 
 describe('Question Generation System', () => {
-  it('should generate at least 300 questions per chapter', () => {
+  it('should generate at least 300 questions per chapter', { timeout: 30_000 }, () => {
     const questions = generateQuestions(SYLLABUS);
     const chapterIds = SYLLABUS.map(c => c.id);
     

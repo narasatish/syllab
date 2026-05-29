@@ -185,6 +185,25 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // ---------- SHARED PPT LESSONS (cache-first AI lessons) ----------
+    // Lessons are deterministic per (class, subject, chapter) — any user
+    // who fetched and validated one can populate the cache for everyone.
+    // Doc IDs look like "10_Science_chapter-2-acids-bases-and-salts".
+    match /shared_ppt_lessons_v4/{lessonKey} {
+      // Read: any authenticated user
+      allow read: if request.auth != null;
+      // Write: any authenticated user, but only with a real lesson
+      //   • slides array with >= 10 entries
+      //   • not flagged as a fallback
+      //   • payload under Firestore's 1 MiB doc limit (capped at 500 KB here)
+      allow create, update: if request.auth != null
+          && request.resource.data.slides is list
+          && request.resource.data.slides.size() >= 10
+          && (!('isFallback' in request.resource.data) || request.resource.data.isFallback == false)
+          && (!('quality' in request.resource.data) || request.resource.data.quality != 'quick_fallback');
+      allow delete: if false;
+    }
+
     // ---------- PARENT LINKS ----------
     match /parents/{parentUid} {
       allow read, write: if request.auth != null && request.auth.uid == parentUid;

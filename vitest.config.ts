@@ -8,7 +8,14 @@ export default defineConfig({
     },
   },
   test: {
-    environment: 'node',
     globals: true,
+    // Use jsdom for all tests by default (needed for React components and
+    // browser-API code like window.setTimeout, window.SpeechSynthesis, etc.)
+    environment: 'jsdom',
+    setupFiles: ['./src/setupTests.ts'],
+    environmentMatchGlobs: [
+      // Keep node environment only for pure Firebase/Node tests
+      ['src/lib/firebase.test.ts', 'node'],
+    ],
   },
 });

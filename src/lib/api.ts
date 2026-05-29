@@ -1,10 +1,12 @@
 // src/lib/api.ts
 // Single source of truth for ALL backend calls.
-// VITE_API_BASE_URL is preferred; VITE_API_URL is kept for older env files.
-const rawApiUrl =
-  import.meta.env.VITE_API_BASE_URL ||
-  import.meta.env.VITE_API_URL ||
-  "https://syllab-backend.onrender.com";
+// In dev mode, use '' (relative URL) so Vite's /api proxy handles requests
+// without CORS issues.  In production the full Render URL is used.
+const rawApiUrl = import.meta.env.DEV
+  ? ''
+  : (import.meta.env.VITE_API_BASE_URL ||
+     import.meta.env.VITE_API_URL ||
+     "https://syllab-backend.onrender.com");
 
 export const API_URL = String(rawApiUrl).replace(/\/+$/, "");
 
@@ -72,15 +74,28 @@ async function get<T = any>(path: string): Promise<T> {
 
 /* ───────────── Tutor ───────────── */
 
-export async function askTutor(prompt: string, history: ChatTurn[] = []): Promise<string> {
+export async function askTutor(prompt: string, history: ChatTurn[] = [], timeoutMs = 75_000): Promise<string> {
+  const controller = new AbortController();
+  const abortTimer = setTimeout(() => controller.abort(), timeoutMs);
   const slowTimer = window.setTimeout(() => {
     window.dispatchEvent(new CustomEvent('syllab:ai-slow', { detail: { source: 'askTutor' } }));
   }, 5000);
 
   try {
-    const data = await post<{ text: string }>("/api/tutor", { prompt, history });
-    return data.text || "";
+    const res = await fetch(`${API_URL}/api/tutor`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, history }),
+      signal: controller.signal,
+    });
+    if (!res.ok) {
+      const errText = await res.text().catch(() => '');
+      throw new Error(`API /api/tutor ${res.status}: ${errText.slice(0, 200)}`);
+    }
+    const data = await res.json();
+    return data.text || '';
   } finally {
+    clearTimeout(abortTimer);
     window.clearTimeout(slowTimer);
     window.dispatchEvent(new CustomEvent('syllab:ai-fast', { detail: { source: 'askTutor' } }));
   }
@@ -285,7 +300,7 @@ export interface EnglishChatTurn {
  */
 export async function getEnglishConversationReply(
   transcript: string,
-  history: EnglishChatTurn[],
+  history: EnglishChatTurn[] = [],
   context?: string,
 ): Promise<string> {
   const recentHistory = history.slice(-8).map(t => `${t.role === 'student' ? 'Student' : 'Teacher'}: ${t.text}`).join('\n');
