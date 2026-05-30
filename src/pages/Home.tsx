@@ -446,7 +446,16 @@ export default function HomePage({ setTab, currentUser, stats, userClass }: Home
           </button>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
-          {FULL_ARTICLES.slice(0, 3).map(article => (
+          {(() => {
+            // Show a DIVERSE mix on the home page — one article per category — so
+            // it never shows three of the same topic (e.g. all finance) together.
+            const seen = new Set<string>();
+            const picks = FULL_ARTICLES.filter(a => {
+              if (seen.has(a.category)) return false;
+              seen.add(a.category); return true;
+            }).slice(0, 3);
+            return picks;
+          })().map(article => (
             <button key={article.id} onClick={() => goToArticle(article.id)}
               className={`text-left rounded-2xl bg-gradient-to-br ${article.coverColor} p-5 text-white shadow-lg hover:-translate-y-0.5 transition-transform`}>
               <div className="text-3xl mb-3">{article.emoji}</div>

@@ -78,6 +78,16 @@ const FEATURES: Feature[] = [
     gradient: 'from-cyan-500 to-sky-600',
     ringColor: 'ring-cyan-300',
   },
+  {
+    id: 'finance',
+    emoji: '💰',
+    title: 'Life Skills',
+    tagline: 'Money, saving, stocks & markets — Class 5 to 12.',
+    badge: 'New · Beyond school',
+    tab: 'syllabus',
+    gradient: 'from-amber-500 to-emerald-600',
+    ringColor: 'ring-emerald-300',
+  },
 ];
 
 interface Props {
@@ -95,7 +105,7 @@ export default function HomeFeatureGrid({ onNavigate }: Props) {
           Everything you need to ace school + entrance exams.
         </h2>
         <p className="text-slate-500 font-medium max-w-xl mx-auto">
-          Six tools designed together. No app-switching. All free.
+          Seven tools designed together — including money &amp; markets school doesn't teach. No app-switching. All free.
         </p>
       </div>
 

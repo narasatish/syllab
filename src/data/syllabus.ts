@@ -1,5 +1,7 @@
 import { Chapter, ClassLevel, Subject } from "../types";
 import { JUNIOR_SYLLABUS } from "./cbseJuniorSyllabus";
+import { FINANCIAL_LITERACY } from "./financialLiteracy";
+import { STATE_BOARD_SYLLABUS } from "./stateBoards";
 
 type SeniorSeed = {
   id: string;
@@ -34,6 +36,7 @@ const subjectSummary: Record<Subject, string> = {
   Science: "Science chapters build observation, evidence, and activity-led reasoning.",
   English: "English chapters build reading, vocabulary, expression, grammar-in-context, and interpretation.",
   "The World Around Us": "This subject connects students to environment, society, health, places, materials, and inquiry.",
+  "Financial Literacy": "Money, saving, banking, stocks, currencies, commodities and markets — taught with real-life examples from basics to advanced.",
 };
 
 const senior = (seed: SeniorSeed): Chapter => ({
@@ -325,4 +328,4 @@ const SENIOR_SYLLABUS: Chapter[] = [
   ].map(([id, title]) => senior({ id, classLevel: "12", subject: "Mathematics", title, difficulty: "Hard" })),
 ];
 
-export const SYLLABUS: Chapter[] = [...JUNIOR_SYLLABUS, ...SENIOR_SYLLABUS];
+export const SYLLABUS: Chapter[] = [...JUNIOR_SYLLABUS, ...SENIOR_SYLLABUS, ...FINANCIAL_LITERACY, ...STATE_BOARD_SYLLABUS];

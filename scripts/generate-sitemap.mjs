@@ -76,7 +76,7 @@ function buildUrls({ languages, topicsByLang }) {
   // /skills-lab→/coding, /english-lab→/english, /progress→/dashboard,
   // /general-knowledge→/gk-quiz. (/3d-lab removed.)
   for (const p of ['/syllabus', '/practice', '/daily-challenges', '/mock-tests', '/gk-quiz',
-                   '/ai-tutor', '/coding', '/english', '/updates',
+                   '/ai-tutor', '/coding', '/english', '/updates', '/career-predictor',
                    '/preparation', '/coding-challenges', '/mini-projects']) {
     urls.push({ loc: p, priority: 0.9, changefreq: 'daily' });
   }

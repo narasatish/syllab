@@ -55,6 +55,8 @@ import {
 } from './lib/firebase';
 import { AuthFormState, UserProgress, UserStats } from './types';
 import { getCloudRole, getExtendedProfile, getStoredRole, saveUserRole, setStoredRole } from './lib/userProfile';
+import { initGamification, syncXpMirror } from './lib/gamification';
+import RewardToast from './components/RewardToast';
 
 // Lazy load pages for performance
 const HomePage = React.lazy(() => import('./pages/Home'));
@@ -86,6 +88,7 @@ const CyberSafetyPage = React.lazy(() => import('./pages/CyberSafetyPage'));
 const AiForStudentsPage = React.lazy(() => import('./pages/AiForStudentsPage'));
 const WebDevPage = React.lazy(() => import('./pages/WebDevPage'));
 const GeneralKnowledgePage = React.lazy(() => import('./pages/GeneralKnowledge'));
+const CareerPredictorPage = React.lazy(() => import('./pages/CareerPredictor'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -164,6 +167,7 @@ const TAB_TO_PATH: Record<string, string> = {
   ai_for_students: '/ai-for-students',
   web_development: '/web-development',
   general_knowledge: '/gk-quiz',       // was /general-knowledge
+  career: '/career-predictor',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -227,10 +231,21 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     ],
   },
   syllabus: {
-    title: 'Class 1–12 NCERT Syllabus Explorer | CBSE Chapters & Notes | Syllab.in',
-    description: 'Browse NCERT chapters for every class and subject. AI-powered summaries, concept notes, practice questions, and learning guides for Class 1 to 12 CBSE students.',
-    keywords: 'NCERT syllabus free, CBSE syllabus Class 1-12, NCERT notes free download, CBSE chapter notes, important chapters CBSE, NCERT book chapters, free NCERT chapters, syllabus guide India, NCERT textbook solutions free, NCERT chapter summary, CBSE syllabus 2025-26, important chapters NCERT, chapter notes free download, subject wise chapters CBSE, NCERT questions and answers',
+    title: 'Class 1–12 NCERT Syllabus + Free Financial Literacy | CBSE Chapters | Syllab.in',
+    description: 'Browse NCERT chapters for every class and subject with AI lessons, natural-voice narration, and practice. Plus a free Financial Literacy track — stocks, saving, money & markets for Class 5 to 12.',
+    keywords: 'NCERT syllabus free, CBSE syllabus Class 1-12, NCERT notes free download, CBSE chapter notes, important chapters CBSE, NCERT book chapters, free NCERT chapters, NCERT chapter summary, CBSE syllabus 2025-26, subject wise chapters CBSE, financial literacy for students India, free stock market course for students, money and savings lessons for kids, financial education Class 5-12, stock market basics for students free, learn investing students India, commodities gold oil lessons, currency exchange lessons students, life skills curriculum India free',
     url: 'https://syllab.in/syllabus',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'Financial Literacy for Students (Class 5–12)',
+      description: 'Free Financial Literacy course for Indian students: money, saving, banking, stocks, currencies, gold, oil, commodities and trade — basics to advanced with real-life examples.',
+      provider: { '@type': 'EducationalOrganization', name: 'Syllab', url: 'https://syllab.in' },
+      isAccessibleForFree: true,
+      inLanguage: 'en-IN',
+      educationalLevel: 'Class 5 to Class 12',
+      about: ['Financial Literacy', 'Stock Market', 'Saving', 'Investing', 'Currencies', 'Commodities'],
+    },
   },
   arena: {
     title: 'Practice — Free Chapter-wise MCQs for CBSE NCERT | Syllab.in',
@@ -376,8 +391,8 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
   },
   updates: {
     title: 'Blog — Latest CBSE, JEE, NEET, AI & Study Tips for Indian Students | Syllab.in',
-    description: 'Syllab Blog: daily updates for Indian students. CBSE notifications 2026, JEE Mains dates, NEET 2026 syllabus, EAMCET schedule, AI tool reviews (ChatGPT, Claude, Gemini), study tips, coding trends. 35+ articles, refreshed weekly.',
-    keywords: 'Syllab blog, education blog India, student blog India, CBSE updates 2025 2026, CBSE notification 2026, JEE Mains 2026 news, JEE Mains January 2026 dates, NEET latest news 2026, NEET 2026 schedule, EAMCET 2026 notification, AI tools for students 2026, ChatGPT for students, Claude AI tutor, Gemini AI study, coding skills India trending, student news updates India, edtech news India, NCERT updates 2026, board exam news 2026, free education news India, daily student news, education news today India, study tips blog, exam preparation blog India',
+    description: 'Syllab Blog: daily updates for Indian students. CBSE notifications 2026, JEE Mains dates, NEET 2026 syllabus, EAMCET schedule, AI tool reviews, study tips, coding trends, plus Money & Markets — stock market basics, saving & financial literacy for students. 38+ articles, refreshed weekly.',
+    keywords: 'Syllab blog, education blog India, student blog India, CBSE updates 2025 2026, CBSE notification 2026, JEE Mains 2026 news, NEET latest news 2026, EAMCET 2026 notification, AI tools for students 2026, ChatGPT for students, Claude AI tutor, coding skills India trending, student news updates India, edtech news India, NCERT updates 2026, board exam news 2026, free education news India, study tips blog, exam preparation blog India, stock market basics for students, financial literacy blog India, money saving tips for kids, why petrol prices change, gold price explained students, commodities for students',
     url: 'https://syllab.in/updates',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -475,6 +490,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
         ],
       },
     ],
+  },
+  career: {
+    title: 'Free JEE Rank Predictor, NEET College Predictor & Stream Guide | Syllab.in',
+    description: 'Free JEE Main rank predictor (percentile to rank), JEE college predictor, NEET marks-to-rank & medical college predictor, and after-10th stream guidance for Indian students.',
+    keywords: 'JEE rank predictor free, JEE Main percentile to rank, JEE college predictor free, NEET rank predictor free, NEET college predictor, NEET marks vs rank 2026, which stream after 10th, career guidance after 10th 12th India, JoSAA cutoff predictor, MBBS college predictor India, engineering college predictor free',
+    url: 'https://syllab.in/career-predictor',
   },
 };
 
@@ -904,6 +925,9 @@ export default function App() {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  // Start the gamification engine (streaks, badges, level tracking) once.
+  useEffect(() => { initGamification(); }, []);
+
   const handleClassChange = (cls: string) => {
     setUserClass(cls);
     try { if (cls) localStorage.setItem('syllab_user_class', cls); else localStorage.removeItem('syllab_user_class'); } catch { /* ignore */ }
@@ -936,6 +960,8 @@ export default function App() {
 
           setStats(resolvedStats ?? DEFAULT_USER_STATS);
           setProgress(resolvedProgress ?? DEFAULT_USER_PROGRESS);
+          // Seed the gamification XP mirror from the authoritative Firestore value
+          syncXpMirror((resolvedStats ?? DEFAULT_USER_STATS).xp || 0);
 
           // Cloud-first: sync class and role from Firestore so they always win over stale localStorage
           if (extProfile.learning.primaryClass) {
@@ -1091,6 +1117,7 @@ export default function App() {
     { id: 'english_lab',       label: 'English',          icon: BookOpen },
     { id: 'daily',             label: 'Daily Challenge',  icon: CalendarDays },
     { id: 'general_knowledge', label: 'GK Quiz',          icon: BookOpen },
+    { id: 'career',            label: 'Career & Predictor', icon: Target },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1106,6 +1133,7 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-bg-beige text-secondary">
       <SEO title={seo.title} description={seo.description} keywords={seo.keywords} url={seo.url} jsonLd={seo.jsonLd} />
+      <RewardToast />
       {!isMockExamMode ? (
       <header className="fixed left-0 right-0 top-0 z-50 flex h-20 items-center justify-between border-b border-slate-200/50 bg-white/80 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
         <button
@@ -1414,6 +1442,7 @@ export default function App() {
                   {activeTab === 'ai_for_students' ? <AiForStudentsPage /> : null}
                   {activeTab === 'web_development' ? <WebDevPage /> : null}
                   {activeTab === 'general_knowledge' ? <GeneralKnowledgePage setTab={navigate} /> : null}
+                  {activeTab === 'career' ? <CareerPredictorPage /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>

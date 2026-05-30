@@ -5,7 +5,8 @@ export type Subject =
   | "Mathematics"
   | "Science"
   | "English"
-  | "The World Around Us";
+  | "The World Around Us"
+  | "Financial Literacy";
 export type ClassLevel = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12";
 export type Difficulty = "easy" | "medium" | "hard" | "mixed";
 
@@ -21,6 +22,8 @@ export interface Chapter {
   title: string;
   subject: Subject;
   classLevel: ClassLevel;
+  /** Education board. Undefined = CBSE/NCERT (the default content). */
+  board?: 'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra';
   topics: string[];
   ncertUrl?: string;
   sourceBook?: string;

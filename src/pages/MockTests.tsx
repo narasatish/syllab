@@ -15,8 +15,9 @@ import { OLYMPIAD_POOLS, generateRandomExam, type OlympiadQuestion } from '../da
 import { generateQuestions } from '../lib/api';
 import FormulaBank from './FormulaBank';
 import DiagramLab from './DiagramLab';
+import PyqPractice from '../components/PyqPractice';
 
-type ExamSection = 'mocks' | 'olympiads' | 'formulas' | 'diagrams' | 'create' | 'live';
+type ExamSection = 'mocks' | 'olympiads' | 'formulas' | 'diagrams' | 'create' | 'live' | 'pyq';
 
 interface OlympiadMeta {
   id: string;
@@ -583,6 +584,7 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
   if (!paper) {
     const sectionTabs: { id: ExamSection; label: string; icon: React.ReactNode }[] = [
       { id: 'mocks',    label: 'Mock Tests',    icon: <ClipboardList size={15} /> },
+      { id: 'pyq',      label: 'PYQ Practice',  icon: <ClipboardList size={15} /> },
       { id: 'olympiads',label: 'Olympiads',     icon: <Medal size={15} /> },
       { id: 'formulas', label: 'Formula Bank',  icon: <BookOpen size={15} /> },
       { id: 'diagrams', label: 'Diagram Lab',   icon: <FlaskConical size={15} /> },
@@ -697,6 +699,17 @@ export default function MockTestsPage({ currentUser, setTab, onExamModeChange, o
             loading={loading}
             selectedMock={selectedMock}
           />
+        )}
+
+        {/* ─── PYQ Practice Section ─── */}
+        {activeSection === 'pyq' && (
+          <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
+            <div className="mb-6">
+              <h2 className="text-2xl font-black text-slate-900">📝 PYQ Practice Papers</h2>
+              <p className="text-sm text-slate-500 mt-1">Original, exam-pattern papers with instant solutions — CBSE, JEE & NEET.</p>
+            </div>
+            <PyqPractice currentUser={currentUser} />
+          </section>
         )}
 
         {/* ─── Olympiads Section ─── */}

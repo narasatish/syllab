@@ -259,6 +259,31 @@ const ROUTES = [
     ],
   },
   {
+    path: '/career-predictor',
+    title: 'Free JEE Rank Predictor, NEET College Predictor & Stream Guide | Syllab.in',
+    description: 'Free JEE Main rank predictor (percentile to rank), JEE college predictor, NEET marks-to-rank & medical college predictor, and after-10th stream guidance for Indian students. Indicative estimates from 2024 data.',
+    keywords: 'JEE rank predictor free, JEE Main percentile to rank, JEE college predictor free, NEET rank predictor free, NEET college predictor, NEET marks vs rank 2026, which stream after 10th, career guidance after 10th 12th India, JoSAA cutoff predictor, MBBS college predictor India, engineering college predictor free',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Syllab Rank & College Predictor',
+        applicationCategory: 'EducationApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        isAccessibleForFree: true,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://syllab.in/' },
+          { '@type': 'ListItem', position: 2, name: 'Career & Predictor', item: 'https://syllab.in/career-predictor' },
+        ],
+      },
+    ],
+  },
+  {
     path: '/terms',
     title: 'Terms of Service | Syllab.in',
     description: 'Read the Terms of Service for Syllab.in — India\'s free AI learning platform for Class 1 to 12 students.',

@@ -37,6 +37,87 @@ export interface FullArticle {
 
 export const FULL_ARTICLES: FullArticle[] = [
   /* ──────────────────────────────────────────────────────────────────
+     MONEY & MARKETS — Financial Literacy (NEW)
+  ────────────────────────────────────────────────────────────────── */
+  {
+    id: 'f1', slug: 'stock-market-basics-for-students-india', category: 'finance',
+    title: 'Stock Market Basics for Students — Explained Simply (2026)',
+    summary: 'What is a share? What are Sensex and Nifty? How do prices move? A beginner-friendly guide for Indian students from Class 9 to 12, with real examples.',
+    seoTitle: 'Stock Market Basics for Students India | Free Guide | Syllab.in',
+    seoDescription: 'Learn stock market basics free: what is a share, Sensex, Nifty, how prices move, investing vs trading — simple guide for Class 9-12 Indian students.',
+    readingTime: 7, updatedAt: '2026-05-30', author: 'Syllab Team',
+    emoji: '📈', coverColor: 'from-emerald-600 to-green-800',
+    tags: ['Stock Market', 'Investing', 'Sensex', 'Nifty', 'Financial Literacy'], trending: true, pinned: true,
+    sections: [
+      { heading: 'What is a Share?',
+        body: `A **share** (or stock) is a tiny piece of ownership in a company.\n\nImagine a company is a large pizza cut into 1,00,000 slices. If you buy 1 slice (1 share), you own a tiny part of that company. If the company grows and earns more, your slice becomes more valuable.\n\nWhen you hear "I bought 10 shares of Reliance", it means that person owns 10 small pieces of Reliance Industries.` },
+      { heading: 'What are Sensex and Nifty?',
+        body: `India has two main stock exchanges: the **BSE** (Bombay Stock Exchange) and the **NSE** (National Stock Exchange).\n\n**Sensex** tracks 30 large, well-known companies on the BSE.\n\n**Nifty 50** tracks 50 large companies on the NSE.\n\nThese are called *indices*. When you hear "the market went up today", it usually means Sensex/Nifty rose — meaning most big companies gained value.` },
+      { heading: 'How Do Share Prices Move?',
+        body: `Share prices move on **demand and supply** — exactly like cricket-match tickets.\n\nIf more people want to BUY a share than SELL it, the price rises. If more want to sell, it falls.\n\nWhat makes people want to buy or sell? Company profits, news, the economy, and confidence about the future. A company announcing record profits usually sees its share price rise.` },
+      { heading: 'Investing vs Trading',
+        body: `**Investing** means buying shares and holding them for years, letting them grow — like planting a tree.\n\n**Trading** means buying and selling quickly (even within a day) to profit from small price moves — much riskier.\n\nFor students and beginners, *learning* comes first. Never invest real money without understanding the basics and the risks.` },
+    ],
+    faq: [
+      { question: 'Can a student invest in the stock market?', answer: 'To open a real trading account (Demat) in India you must be 18+. Minors can invest only through a guardian. But you can learn everything now — start with Syllab Financial Literacy lessons.' },
+      { question: 'Is the stock market gambling?', answer: 'No. Gambling is pure chance. Investing is owning real businesses that grow over time. But it does carry risk, so knowledge and patience matter.' },
+      { question: 'How much money do I need to start?', answer: 'You can buy a single share for as little as a few hundred rupees. But learning the basics first is far more important than the amount.' },
+    ],
+    relatedLinks: [{ label: 'Financial Literacy Lessons', tab: 'syllabus' }, { label: 'GK Quiz', tab: 'general_knowledge' }, { label: 'Practice MCQs', tab: 'arena' }],
+  },
+  {
+    id: 'f2', slug: 'money-saving-habits-for-kids-class-5-8', category: 'finance',
+    title: 'Teaching Money & Saving to Kids (Class 5–8) — A Parent\'s Guide',
+    summary: 'Needs vs wants, pocket-money budgeting, the piggy-bank habit, and how banks pay interest — simple money lessons every Indian child should learn early.',
+    seoTitle: 'Teach Kids Money & Saving Class 5-8 | Parent Guide | Syllab.in',
+    seoDescription: 'Free guide to teach children money: needs vs wants, budgeting pocket money, saving habits, bank interest — simple examples for Class 5-8 Indian kids.',
+    readingTime: 6, updatedAt: '2026-05-29', author: 'Syllab Team',
+    emoji: '🐷', coverColor: 'from-amber-500 to-emerald-600',
+    tags: ['Saving', 'Money', 'Class 5', 'Class 8', 'Parenting'], trending: true,
+    sections: [
+      { heading: 'Start with Needs vs Wants',
+        body: `The first money lesson is the difference between a **need** and a **want**.\n\n**Needs** are things we must have: food, school books, clothes.\n\n**Wants** are nice-to-have: a new toy, video games, extra chocolates.\n\nAsk your child before any purchase: "Is this a need or a want?" This one habit builds smart spending for life.` },
+      { heading: 'The Piggy-Bank Habit',
+        body: `Saving is simply *spending less than you have, and keeping the rest*.\n\nGive a simple rule: from every ₹50 of pocket money, save ₹10. In 10 weeks that's ₹100 — enough for something special the child chose.\n\nWatching savings grow teaches patience and the joy of reaching a goal.` },
+      { heading: 'Budgeting Pocket Money',
+        body: `A **budget** is just a plan for money. Try the simple 3-jar method with ₹100 pocket money:\n\n• **Spend jar:** ₹40 for snacks and small things\n• **Save jar:** ₹30 towards a goal\n• **Share jar:** ₹30 for gifts or helping others\n\nLetting children manage their own small budget is the best practical lesson.` },
+      { heading: 'How Banks Help Money Grow',
+        body: `When you keep money in a **savings account**, the bank uses it and pays you a little extra called **interest**.\n\nExample: ₹1,000 in a bank at 4% interest becomes ₹1,040 after one year — you earned ₹40 just for keeping it safe.\n\nVisiting a bank and reading a passbook together makes this real for kids.` },
+    ],
+    faq: [
+      { question: 'At what age should kids learn about money?', answer: 'As early as Class 1-2 with coins and counting. By Class 5-8 they can understand saving, budgeting, and how banks work.' },
+      { question: 'Should I give my child pocket money?', answer: 'Yes — a small, regular amount is the best hands-on way to teach budgeting, saving, and spending decisions.' },
+    ],
+    relatedLinks: [{ label: 'Financial Literacy Lessons', tab: 'syllabus' }, { label: 'GK Quiz', tab: 'general_knowledge' }],
+  },
+  {
+    id: 'f3', slug: 'why-petrol-gold-prices-change-commodities-explained', category: 'finance',
+    title: 'Why Petrol & Gold Prices Change — Commodities Explained',
+    summary: 'Crude oil, gold, currencies and trade decide the prices around you. A clear Class 10–12 explainer on commodities, exchange rates, and why your petrol bill moves.',
+    seoTitle: 'Why Petrol & Gold Prices Change | Commodities for Students | Syllab.in',
+    seoDescription: 'Free explainer: why petrol and gold prices change, what commodities are, crude oil, exchange rates, trade — simple guide for Class 10-12 Indian students.',
+    readingTime: 7, updatedAt: '2026-05-28', author: 'Syllab Team',
+    emoji: '🛢️', coverColor: 'from-yellow-500 to-orange-700',
+    tags: ['Commodities', 'Gold', 'Oil', 'Currency', 'Trade'],
+    sections: [
+      { heading: 'What are Commodities?',
+        body: `**Commodities** are basic raw things that people buy and sell in large amounts — like **gold, silver, crude oil, wheat, and cotton**.\n\nUnlike a phone brand, one unit of gold is the same as another, so its price is set by global demand and supply. These are traded on commodity markets every day.` },
+      { heading: 'Why Petrol Prices Change',
+        body: `India imports most of its **crude oil** from other countries. Petrol is made from crude oil.\n\nThree things move petrol prices:\n\n1. **Global crude price** — if world demand rises or OPEC countries cut supply, crude gets costlier.\n2. **Rupee vs Dollar** — oil is bought in US dollars. If ₹ weakens (say $1 = ₹85 instead of ₹80), the same oil costs more rupees.\n3. **Taxes** — central and state taxes add a big part of the final pump price.` },
+      { heading: 'Why People Buy Gold',
+        body: `In India, gold is both jewellery and savings. It's called a **safe haven** — when stock markets fall or there's uncertainty, many people buy gold, so its price often rises.\n\nGold protects against **inflation** too: as money slowly loses value over years, gold tends to hold its worth.` },
+      { heading: 'Currencies & Trade',
+        body: `An **exchange rate** tells how much one currency is worth in another. If $1 = ₹83, a $10 imported toy costs ₹830.\n\nCountries **export** what they make well (India exports software, textiles) and **import** what they need (oil, electronics). When imports cost more than exports, it's called a **trade deficit** — and it can weaken the currency, which then raises import prices like petrol.` },
+    ],
+    faq: [
+      { question: 'Why is petrol cheaper in some countries?', answer: 'Mainly because of lower taxes and/or local oil production. India imports most oil and adds significant taxes, so pump prices are higher.' },
+      { question: 'Is gold a good investment?', answer: 'Gold is considered safer and protects against inflation, but it does not always grow fast like good stocks. Most experts suggest holding a small portion in gold for balance.' },
+      { question: 'What is OPEC?', answer: 'OPEC is a group of major oil-producing countries that together decide how much oil to supply — which strongly affects global crude prices.' },
+    ],
+    relatedLinks: [{ label: 'Financial Literacy Lessons', tab: 'syllabus' }, { label: 'GK Quiz', tab: 'general_knowledge' }],
+  },
+
+  /* ──────────────────────────────────────────────────────────────────
      TRENDING ARTICLES - NEW (May 2026)
   ────────────────────────────────────────────────────────────────── */
   {

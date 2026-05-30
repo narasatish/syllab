@@ -11,10 +11,67 @@
  *   • 20-25 slides per chapter
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, Volume2, VolumeX } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Volume2, VolumeX, Play, Pause } from 'lucide-react';
 import { getDeepPptLesson, DeepPptSlide } from '../lib/pptLessonApi';
+import Mascot, { MascotMood } from './Mascot';
+import { playCorrect, playWrong, playPage, playCelebrate, isSoundMuted, setSoundMuted } from '../lib/soundFx';
+import { pickSlideImage, LessonImage } from '../lib/lessonImages';
+import { getNaturalAudioUrl, TTS_LANGUAGES, TtsLang, TtsVoice } from '../lib/ttsApi';
+
+/* ─── Markdown cleanup ───────────────────────────────────────────────────────── */
+// The AI returns markdown like "**Reflection** is ...". We render bold properly
+// and strip stray markdown so users never see raw ** or * characters.
+function formatInline(text: string): React.ReactNode {
+  if (!text) return null;
+  const cleaned = text.replace(/`/g, '').replace(/^[\s*•\-]+/, '');
+  const parts = cleaned.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((p, i) => {
+    if (p.startsWith('**') && p.endsWith('**')) {
+      return <strong key={i} className="font-black text-white">{p.slice(2, -2)}</strong>;
+    }
+    return <React.Fragment key={i}>{p.replace(/\*\*/g, '').replace(/\*/g, '')}</React.Fragment>;
+  });
+}
+// Plain text (for speech) — no markdown symbols at all
+function cleanText(text: string): string {
+  return (text || '').replace(/\*\*/g, '').replace(/[*`#_]/g, '').replace(/\s+/g, ' ').trim();
+}
+
+/* ─── Bullet structuring ─────────────────────────────────────────────────────
+   The AI often crams "Example: … Solution: 1. … 2. … 3. …" into ONE line.
+   We split that into clean, separately-rendered pieces: labels (Example /
+   Solution), numbered steps, and plain points. */
+type BulletPiece = { type: 'label' | 'step' | 'point'; text: string; num?: string };
+
+function splitLines(raw: string): string[] {
+  let t = (raw || '').trim();
+  // Break before section labels
+  t = t.replace(/\s*(Solution|Example|Answer|Step|Note|Formula)\s*:/gi, '\n$1:');
+  // Break before numbered steps like " 1. " " 2. " (but not decimals like 9.8)
+  t = t.replace(/\s+(\d{1,2})\.\s+(?=[A-Za-z(])/g, '\n$1. ');
+  return t.split('\n').map(s => s.trim()).filter(Boolean);
+}
+
+function expandBullets(bullets: string[]): BulletPiece[] {
+  const out: BulletPiece[] = [];
+  for (const b of bullets) {
+    for (const ln of splitLines(b)) {
+      const step = ln.match(/^(\d{1,2})\.\s+(.*)$/);
+      const label = ln.match(/^(?:📌\s*)?(Example|Solution|Answer|Note|Formula)\s*:\s*(.*)$/i);
+      if (step) {
+        out.push({ type: 'step', num: step[1], text: step[2] });
+      } else if (label) {
+        out.push({ type: 'label', text: label[1] });
+        if (label[2]) out.push({ type: 'point', text: label[2] });
+      } else {
+        out.push({ type: 'point', text: ln });
+      }
+    }
+  }
+  return out;
+}
 
 /* ─── Types ─────────────────────────────────────────────────────────────────── */
 type SlideKind =
@@ -30,6 +87,7 @@ interface ViewSlide {
   highlight?: string;   // callout box
   footNote?: string;    // small italic text (common mistake etc.)
   bg: string;           // Tailwind gradient string
+  image?: LessonImage;  // optional relevant picture
   // quiz only
   question?: string;
   options?: string[];
@@ -50,7 +108,7 @@ export interface LessonViewerProps {
 const SUBJ_EMOJI: Record<string, string> = {
   Physics: '⚡', Chemistry: '🧪', Biology: '🌿', Mathematics: '📐',
   Science: '🔬', English: '📚', History: '🏛️', Geography: '🌏',
-  'Social Science': '🌍', default: '📖',
+  'Social Science': '🌍', 'Financial Literacy': '💰', default: '📖',
 };
 
 const KIND_BG: Record<SlideKind, string> = {
@@ -113,10 +171,11 @@ function makeHook(name: string, subject: string, classLevel: string): ViewSlide 
       ? '💡 Real-world connections ahead'
       : '🏆 Board + JEE / NEET ready',
     bg: KIND_BG.hook,
+    image: pickSlideImage(name, classLevel, subject) || undefined,
   };
 }
 
-function pptToView(s: DeepPptSlide, subject: string): ViewSlide {
+function pptToView(s: DeepPptSlide, subject: string, _chapter: string, classLevel: string): ViewSlide {
   const kind: SlideKind =
     s.layout === 'question' ? 'quiz' :
     s.layout === 'revision' ? 'summary' :
@@ -141,21 +200,24 @@ function pptToView(s: DeepPptSlide, subject: string): ViewSlide {
     const q = s.questions[0];
     return {
       kind: 'quiz', emoji: '🧠',
-      title: s.title || 'Quick Check', body: '',
-      question: q.question,
-      explanation: q.explanation || q.answer,
+      title: cleanText(s.title) || 'Quick Check', body: '',
+      question: cleanText(q.question),
+      explanation: cleanText(q.explanation || q.answer),
       bg: KIND_BG.quiz,
     };
   }
 
   return {
     kind, emoji,
-    title: s.title,
-    body: s.subtitle || bullets[0] || '',
+    title: cleanText(s.title),
+    body: s.subtitle || (bullets.length === 1 ? bullets[0] : ''),
     bullets: bullets.length > 1 ? bullets : undefined,
     highlight: s.rememberThis || s.examFocus || undefined,
-    footNote: s.commonMistake ? `⚠️ Common mistake: ${s.commonMistake}` : undefined,
+    footNote: s.commonMistake ? `Common mistake: ${cleanText(s.commonMistake)}` : undefined,
     bg: KIND_BG[kind],
+    // Match an image to THIS slide's own content (title + first point), not the chapter.
+    // Subject-gated so e.g. Financial Literacy never matches a science diagram.
+    image: pickSlideImage(`${s.title} ${bullets[0] || ''} ${s.visualSuggestion || ''}`, classLevel, subject) || undefined,
   };
 }
 
@@ -170,11 +232,29 @@ function makeCelebrate(name: string): ViewSlide {
 }
 
 /* ─── Speech helpers ─────────────────────────────────────────────────────────── */
-const say = (text: string) => {
-  if (!('speechSynthesis' in window)) return;
+// Pick the most natural-sounding available English voice (prefer Google / neural,
+// then an Indian-English voice, then any English voice).
+function pickVoice(): SpeechSynthesisVoice | null {
+  if (!('speechSynthesis' in window)) return null;
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return null;
+  return (
+    voices.find(v => /google/i.test(v.name) && v.lang.startsWith('en')) ||
+    voices.find(v => v.lang === 'en-IN') ||
+    voices.find(v => /natural|neural/i.test(v.name) && v.lang.startsWith('en')) ||
+    voices.find(v => v.lang.startsWith('en')) ||
+    voices[0]
+  );
+}
+const say = (text: string, onEnd?: () => void) => {
+  if (!('speechSynthesis' in window)) { onEnd?.(); return; }
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-IN'; u.rate = 0.88;
+  const u = new SpeechSynthesisUtterance(cleanText(text));
+  const v = pickVoice();
+  if (v) u.voice = v;
+  u.lang = v?.lang || 'en-IN';
+  u.rate = 0.9; u.pitch = 1.05;
+  if (onEnd) u.onend = onEnd;
   window.speechSynthesis.speak(u);
 };
 const hush = () => { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); };
@@ -183,12 +263,25 @@ const hush = () => { if ('speechSynthesis' in window) window.speechSynthesis.can
 export default function LessonViewer({
   classLevel, subject, chapterId, chapterName, onClose, onPractice,
 }: LessonViewerProps) {
+  const cls = parseInt(classLevel) || 8;
+  const isYoung = cls <= 5;
+
   const [slides, setSlides] = useState<ViewSlide[]>([makeHook(chapterName, subject, classLevel)]);
   const [loading, setLoading] = useState(true);
   const [current, setCurrent] = useState(0);
   const [dir, setDir]         = useState(1);
   const [speaking, setSpeaking] = useState(false);
   const [quizPicks, setQuizPicks] = useState<Record<number, number>>({});
+  const [autoPlay, setAutoPlay] = useState(false);   // hands-free read mode (Class 1-5)
+  const [muted, setMuted]       = useState(isSoundMuted());
+  const [lang, setLang]         = useState<TtsLang>('en');
+  const [langOpen, setLangOpen] = useState(false);
+  const [audioLoading, setAudioLoading] = useState(false);
+  const currentRef = useRef(current);
+  currentRef.current = current;
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const speakSeq = useRef(0);  // cancels stale async narration when slide changes
+  const ttsVoice: TtsVoice = isYoung ? 'friendly' : 'warm';
 
   /* Fetch AI slides — hook shows instantly while this loads in background */
   useEffect(() => {
@@ -196,8 +289,19 @@ export default function LessonViewer({
     getDeepPptLesson({ classLevel, subject, chapterTitle: chapterName, chapterId })
       .then(lesson => {
         if (lesson?.slides?.length) {
-          const ai = lesson.slides.map(s => pptToView(s, subject));
-          setSlides([makeHook(chapterName, subject, classLevel), ...ai, makeCelebrate(chapterName)]);
+          const hook = makeHook(chapterName, subject, classLevel);
+          const ai = lesson.slides.map(s => pptToView(s, subject, chapterName, classLevel));
+          // De-duplicate images: each picture appears on at most ONE slide.
+          // Slides whose image is a repeat fall back to clean full-width text.
+          const usedImg = new Set<string>();
+          if (hook.image) usedImg.add(hook.image.url);
+          for (const sl of ai) {
+            if (sl.image) {
+              if (usedImg.has(sl.image.url)) sl.image = undefined;
+              else usedImg.add(sl.image.url);
+            }
+          }
+          setSlides([hook, ...ai, makeCelebrate(chapterName)]);
         } else {
           setSlides(prev => [...prev, makeCelebrate(chapterName)]);
         }
@@ -207,31 +311,99 @@ export default function LessonViewer({
     return () => hush();
   }, [chapterId, classLevel, subject, chapterName]);
 
+  // Stop EVERYTHING that's making sound — browser speech + cached audio + pending async
+  const stopAll = () => {
+    speakSeq.current++;            // invalidate any in-flight getNaturalAudioUrl
+    hush();                        // cancel Web Speech
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current.currentTime = 0; }
+    setSpeaking(false);
+    setAudioLoading(false);
+  };
+
   const goTo = (idx: number) => {
-    hush(); setSpeaking(false);
+    stopAll();
+    if (idx !== current) playPage();
     setDir(idx > current ? 1 : -1);
     setCurrent(Math.max(0, Math.min(idx, slides.length - 1)));
   };
 
   const slide = slides[current];
-  const cls   = parseInt(classLevel) || 8;
   const pct   = slides.length > 1 ? Math.round((current / (slides.length - 1)) * 100) : 0;
 
-  const toggleRead = () => {
-    if (speaking) { hush(); setSpeaking(false); return; }
-    const text = [slide.title, slide.body, slide.question, ...(slide.bullets || [])].filter(Boolean).join('. ');
-    say(text); setSpeaking(true);
+  const slideText = (s: ViewSlide) =>
+    cleanText([s.title, s.body, s.question, ...(s.bullets || []), s.image?.caption, s.highlight].filter(Boolean).join('. '));
+
+  // Speak a slide using natural neural voice (backend), falling back to Web Speech.
+  const speak = async (text: string, onDone?: () => void) => {
+    const seq = ++speakSeq.current;
+    setSpeaking(true);
+    setAudioLoading(true);
+    let url: string | null = null;
+    try {
+      url = await getNaturalAudioUrl(text, { lang, voice: ttsVoice });
+    } catch { /* fall through */ }
+    if (seq !== speakSeq.current) return;   // slide changed while we were fetching
+    setAudioLoading(false);
+
+    if (url) {
+      const audio = audioRef.current || new Audio();
+      audioRef.current = audio;
+      audio.src = url;
+      audio.muted = muted;
+      audio.onended = () => { if (seq === speakSeq.current) { setSpeaking(false); onDone?.(); } };
+      audio.onerror = () => { if (seq === speakSeq.current) say(text, () => { setSpeaking(false); onDone?.(); }); };
+      audio.play().catch(() => { if (seq === speakSeq.current) say(text, () => { setSpeaking(false); onDone?.(); }); });
+    } else {
+      // No backend audio → browser Web Speech (English only)
+      say(text, () => { if (seq === speakSeq.current) { setSpeaking(false); onDone?.(); } });
+    }
   };
+
+  const toggleRead = () => {
+    if (speaking) { stopAll(); return; }
+    void speak(slideText(slide));
+  };
+
+  const toggleMute = () => {
+    const m = !muted; setMuted(m); setSoundMuted(m);
+    if (audioRef.current) audioRef.current.muted = m;
+  };
+
+  // GUARANTEE: whenever the slide index changes, all narration stops immediately.
+  useEffect(() => {
+    return () => { hush(); if (audioRef.current) audioRef.current.pause(); };
+  }, [current]);
+
+  // Celebrate sound on the final slide
+  useEffect(() => {
+    if (slide.kind === 'celebrate') playCelebrate();
+  }, [slide.kind]);
+
+  // Auto-play (hands-free): narrate each slide, then advance when narration ends.
+  useEffect(() => {
+    if (!autoPlay) return;
+    if (slide.kind === 'quiz' || slide.kind === 'celebrate') { setAutoPlay(false); return; }
+    const idxAtStart = current;
+    void speak(slideText(slide), () => {
+      if (currentRef.current !== idxAtStart) return;
+      setTimeout(() => {
+        if (currentRef.current !== idxAtStart) return;
+        if (idxAtStart < slides.length - 1) { setDir(1); setCurrent(idxAtStart + 1); playPage(); }
+        else setAutoPlay(false);
+      }, 600);
+    });
+    return () => { speakSeq.current++; hush(); if (audioRef.current) audioRef.current.pause(); };
+  }, [autoPlay, current, slide.kind]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="fixed inset-0 z-[70] flex items-stretch justify-center bg-slate-900/70 backdrop-blur-sm sm:items-center sm:p-4"
-      onClick={onClose}
+      onClick={() => { stopAll(); onClose(); }}
     >
       <div
         onClick={e => e.stopPropagation()}
-        className="relative w-full overflow-hidden shadow-2xl sm:max-w-xl sm:rounded-[2.5rem]"
+        className="relative w-full overflow-hidden shadow-2xl sm:max-w-6xl sm:rounded-[2rem]"
         style={{ height: '100dvh', maxHeight: '100dvh' }}
       >
         {/* Progress bar */}
@@ -259,23 +431,55 @@ export default function LessonViewer({
                 </span>
                 <span className="text-[9px] font-black text-white/40">{current + 1} / {slides.length}{loading && ' · loading…'}</span>
               </div>
-              <div className="flex gap-2">
-                <button onClick={toggleRead} title="Read aloud"
+              <div className="flex gap-2 items-center">
+                {/* Language picker for narration */}
+                <div className="relative">
+                  <button onClick={() => setLangOpen(o => !o)} title="Narration language"
+                    className="rounded-xl bg-white/15 px-2.5 py-2 text-white hover:bg-white/25 transition-colors touch-manipulation text-xs font-black flex items-center gap-1">
+                    🌐 {lang.toUpperCase()}
+                  </button>
+                  {langOpen && (
+                    <div className="absolute right-0 mt-1 w-32 rounded-xl bg-white shadow-xl overflow-hidden z-30">
+                      {TTS_LANGUAGES.map(l => (
+                        <button key={l.code}
+                          onClick={() => { stopAll(); setLang(l.code); setLangOpen(false); }}
+                          className={`block w-full text-left px-3 py-2 text-xs font-bold transition-colors ${lang === l.code ? 'bg-violet-100 text-violet-700' : 'text-slate-700 hover:bg-slate-100'}`}>
+                          {l.native} <span className="text-slate-400">({l.label})</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {/* Auto-play (hands-free) — shown for young learners */}
+                {isYoung && (
+                  <button onClick={() => { if (autoPlay) stopAll(); setAutoPlay(a => !a); }}
+                    title={autoPlay ? 'Pause auto-read' : 'Auto-read (hands-free)'}
+                    className={`rounded-xl p-2 transition-colors touch-manipulation ${autoPlay ? 'bg-white text-violet-700' : 'bg-white/15 text-white hover:bg-white/25'}`}>
+                    {autoPlay ? <Pause size={14} /> : <Play size={14} />}
+                  </button>
+                )}
+                <button onClick={toggleRead} title="Read this slide aloud"
                   className="rounded-xl bg-white/15 p-2 text-white hover:bg-white/25 transition-colors touch-manipulation">
-                  {speaking ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                  {audioLoading ? <span className="block h-3.5 w-3.5 rounded-full border-2 border-white/40 border-t-white animate-spin" /> : speaking ? <VolumeX size={14} /> : <Volume2 size={14} />}
                 </button>
-                <button onClick={() => { hush(); onClose(); }}
+                <button onClick={toggleMute} title={muted ? 'Unmute sounds' : 'Mute sounds'}
+                  className="rounded-xl bg-white/15 px-2 text-white hover:bg-white/25 transition-colors touch-manipulation text-xs font-black">
+                  {muted ? '🔇' : '🔊'}
+                </button>
+                <button onClick={() => { stopAll(); onClose(); }}
                   className="rounded-xl bg-white/15 p-2 text-white hover:bg-white/25 transition-colors touch-manipulation">
                   <X size={14} />
                 </button>
               </div>
             </div>
 
-            {/* Slide content */}
-            <div className="flex flex-1 flex-col items-center justify-center overflow-y-auto px-5 py-3 text-center">
-              {slide.kind === 'quiz'      ? <QuizBlock  slide={slide} idx={current} picks={quizPicks} setPicks={setQuizPicks} /> :
-               slide.kind === 'celebrate' ? <CelebBlock onPractice={onPractice} onClose={onClose} /> :
-               <NormalBlock slide={slide} cls={cls} />}
+            {/* Slide content — centered, max width so full-screen looks clean */}
+            <div className="flex flex-1 items-center justify-center overflow-y-auto px-5 py-3">
+              <div className="w-full max-w-4xl mx-auto">
+                {slide.kind === 'quiz'      ? <QuizBlock  slide={slide} idx={current} picks={quizPicks} setPicks={setQuizPicks} /> :
+                 slide.kind === 'celebrate' ? <CelebBlock onPractice={onPractice} onClose={onClose} /> :
+                 <NormalBlock slide={slide} cls={cls} isYoung={isYoung} />}
+              </div>
             </div>
 
             {/* Navigation */}
@@ -312,38 +516,104 @@ export default function LessonViewer({
   );
 }
 
-/* ─── Slide sub-components ───────────────────────────────────────────────────── */
-function NormalBlock({ slide, cls }: { slide: ViewSlide; cls: number }) {
+/* ─── Image (calls onFail so the slide can fall back to full-width text) ──────── */
+function SlideImage({ image, onFail }: { image: LessonImage; onFail: () => void }) {
   return (
-    <>
-      <div className="mb-3 text-6xl sm:text-7xl select-none">{slide.emoji}</div>
-      <h2 className={`font-black text-white leading-tight mb-3 ${cls <= 5 ? 'text-2xl sm:text-3xl' : 'text-xl sm:text-2xl'}`}>
-        {slide.title}
+    <figure className="flex flex-col items-center">
+      <div className="overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-white/20">
+        <img
+          src={image.url} alt={image.alt} onError={onFail}
+          loading="lazy"
+          className="max-h-[40vh] sm:max-h-[52vh] w-auto object-contain bg-white"
+        />
+      </div>
+      {image.caption && (
+        <figcaption className="mt-2 text-xs text-white/70 italic text-center max-w-xs">{image.caption}</figcaption>
+      )}
+    </figure>
+  );
+}
+
+/* ─── Slide sub-components ───────────────────────────────────────────────────── */
+function NormalBlock({ slide, cls, isYoung }: { slide: ViewSlide; cls: number; isYoung: boolean }) {
+  // If the matched image fails to load, drop it and use clean full-width text —
+  // never show an empty emoji box. (NormalBlock remounts per slide, so this resets.)
+  const [imgFailed, setImgFailed] = useState(false);
+  const hasImage = !!slide.image && !imgFailed;
+
+  // Big emoji / mascot ONLY on the opening hook slide — never on content slides.
+  const isHook = slide.kind === 'hook';
+  const showMascot = isYoung && (isHook || slide.kind === 'tip' || slide.kind === 'mistake');
+  const mascotMood: MascotMood = slide.kind === 'mistake' ? 'oops' : slide.kind === 'tip' ? 'cheer' : 'happy';
+
+  const sizeCls = cls <= 5 ? 'text-base sm:text-lg' : 'text-sm sm:text-[15px]';
+
+  const textCol = (
+    <div className={`flex flex-col ${hasImage ? 'text-left items-start' : 'text-center items-center'}`}>
+      {showMascot ? (
+        <div className="mb-2"><Mascot mood={mascotMood} size={64} /></div>
+      ) : isHook && !hasImage ? (
+        <div className="mb-4 text-6xl sm:text-7xl select-none">{slide.emoji}</div>
+      ) : null}
+
+      <h2 className={`font-black text-white leading-tight mb-4 ${cls <= 5 ? 'text-3xl sm:text-4xl' : hasImage ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl'}`}>
+        {formatInline(slide.title)}
       </h2>
+
       {slide.body && (
-        <p className={`text-white/88 leading-relaxed mb-4 ${cls <= 5 ? 'text-base' : 'text-sm sm:text-base'}`}>
-          {slide.body}
+        <p className={`text-white/90 mb-5 leading-relaxed ${cls <= 5 ? 'text-lg sm:text-xl' : hasImage ? 'text-sm sm:text-base' : 'text-base sm:text-lg'} ${hasImage ? '' : 'max-w-3xl'}`}>
+          {formatInline(slide.body)}
         </p>
       )}
+
       {slide.bullets && slide.bullets.length > 0 && (
-        <ul className="text-left w-full max-w-sm space-y-2.5 mb-4">
-          {slide.bullets.map((b, i) => (
-            <li key={i} className="flex gap-2 text-white/85 text-sm leading-snug">
-              <span className="shrink-0 text-white/40 mt-0.5 font-black">›</span>
-              <span>{b}</span>
-            </li>
-          ))}
-        </ul>
+        <div className={`text-left space-y-3 mb-5 w-full ${hasImage ? '' : 'max-w-3xl'}`}>
+          {expandBullets(slide.bullets).map((p, i) => {
+            if (p.type === 'label') {
+              return (
+                <p key={i} className="pt-1 text-[11px] font-black uppercase tracking-widest text-white/60">
+                  {p.text}
+                </p>
+              );
+            }
+            if (p.type === 'step') {
+              return (
+                <div key={i} className={`flex gap-3 text-white/90 leading-relaxed ${sizeCls}`}>
+                  <span className="shrink-0 mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-xs font-black text-white">{p.num}</span>
+                  <span className="flex-1">{formatInline(p.text)}</span>
+                </div>
+              );
+            }
+            return (
+              <div key={i} className={`flex gap-3 text-white/90 leading-relaxed ${sizeCls}`}>
+                <span className="shrink-0 mt-2 h-1.5 w-1.5 rounded-full bg-white/70" />
+                <span className="flex-1">{formatInline(p.text)}</span>
+              </div>
+            );
+          })}
+        </div>
       )}
+
       {slide.highlight && (
-        <div className="w-full max-w-sm rounded-2xl bg-white/15 border border-white/20 px-4 py-3 text-sm font-bold text-white text-left">
-          {slide.highlight}
+        <div className={`rounded-2xl bg-white/15 border border-white/20 px-5 py-3.5 text-sm sm:text-base font-bold text-white text-left w-full ${hasImage ? '' : 'max-w-3xl'}`}>
+          {formatInline(slide.highlight)}
         </div>
       )}
       {slide.footNote && (
-        <p className="mt-3 text-xs text-white/55 italic max-w-sm">{slide.footNote}</p>
+        <p className="mt-3 text-xs sm:text-sm text-amber-200/90 italic">⚠️ {formatInline(slide.footNote.replace(/^⚠️\s*/, ''))}</p>
       )}
-    </>
+    </div>
+  );
+
+  // No image (or it failed) → clean full-width text, no emoji box.
+  if (!hasImage) return textCol;
+
+  // Two-column: image + text side by side on desktop, stacked on mobile.
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8 items-center">
+      <div className="order-1 sm:order-none"><SlideImage image={slide.image!} onFail={() => setImgFailed(true)} /></div>
+      <div className="order-2">{textCol}</div>
+    </div>
   );
 }
 
@@ -356,18 +626,22 @@ function QuizBlock({ slide, idx, picks, setPicks }: {
   const answered = chosen !== -1;
 
   return (
-    <>
+    <div className="flex flex-col items-center text-center">
       <div className="text-5xl mb-2 select-none">🧠</div>
       <p className="text-[9px] font-black uppercase tracking-widest text-white/50 mb-3">Quick Check</p>
-      <p className="text-base font-black text-white mb-5 leading-snug max-w-sm">
-        {slide.question || slide.body}
+      <p className="text-base sm:text-lg font-black text-white mb-5 leading-snug max-w-lg">
+        {formatInline(slide.question || slide.body)}
       </p>
 
       {slide.options?.length ? (
-        <div className="w-full max-w-sm space-y-2">
+        <div className="w-full max-w-md space-y-2">
           {slide.options.map((opt, i) => (
             <button key={i} disabled={answered}
-              onClick={() => !answered && setPicks(p => ({ ...p, [idx]: i }))}
+              onClick={() => {
+                if (answered) return;
+                setPicks(p => ({ ...p, [idx]: i }));
+                if (i === slide.correct) playCorrect(); else playWrong();
+              }}
               className={`w-full rounded-2xl px-4 py-3 text-sm font-semibold text-left transition-colors touch-manipulation
                 ${answered
                   ? i === slide.correct  ? 'bg-emerald-500 text-white'
@@ -390,17 +664,17 @@ function QuizBlock({ slide, idx, picks, setPicks }: {
       {answered && slide.explanation && (
         <motion.div
           initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-          className="mt-4 w-full max-w-sm rounded-2xl bg-white/10 border border-white/10 px-4 py-3 text-sm text-white/85 text-left">
-          💡 {slide.explanation}
+          className="mt-4 w-full max-w-md rounded-2xl bg-white/10 border border-white/10 px-4 py-3 text-sm text-white/85 text-left">
+          💡 {formatInline(slide.explanation)}
         </motion.div>
       )}
-    </>
+    </div>
   );
 }
 
 function CelebBlock({ onPractice, onClose }: { onPractice: () => void; onClose: () => void }) {
   return (
-    <>
+    <div className="flex flex-col items-center text-center">
       <motion.div
         animate={{ scale: [1, 1.15, 1], rotate: [0, 8, -8, 0] }}
         transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2.5 }}
@@ -416,6 +690,6 @@ function CelebBlock({ onPractice, onClose }: { onPractice: () => void; onClose: 
       <button onClick={onClose} className="text-xs text-white/50 hover:text-white/80 transition">
         ← Back to Syllabus
       </button>
-    </>
+    </div>
   );
 }

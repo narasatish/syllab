@@ -76,6 +76,14 @@ const subjectOverview: Record<Subject, { explanation: string; example: string; e
     example: "",
     examInsight: "",
   },
+  "Financial Literacy": {
+    explanation:
+      "A money-and-markets lesson that teaches saving, banking, investing, and trading with simple real-life examples.",
+    example:
+      "Students connect ideas to pocket money, shopping, bank passbooks, share prices, gold rates, and fuel prices.",
+    examInsight:
+      "Learn the term, see a real example, then try a small calculation — that's how money skills stick.",
+  },
 };
 
 const toSlug = (value: string) =>
@@ -92,6 +100,7 @@ const subjectSlug: Record<Subject, string> = {
   Physics: "phy",
   Chemistry: "chem",
   Biology: "bio",
+  "Financial Literacy": "fin",
 };
 
 const buildTopics = (chapterTitle: string, subject: Subject, sourceBook: string) => {

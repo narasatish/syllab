@@ -52,10 +52,34 @@ const CATEGORIES = [
   { id: 'ai-tools',       label: 'AI Tools',      emoji: '🤖', color: 'bg-emerald-600 text-white' },
   { id: 'coding-skills',  label: 'Coding Skills', emoji: '💻', color: 'bg-cyan-600 text-white' },
   { id: 'study-tips',     label: 'Study Tips',    emoji: '💡', color: 'bg-amber-600 text-white' },
+  { id: 'finance',        label: 'Money & Markets', emoji: '💰', color: 'bg-emerald-600 text-white' },
 ];
 
 /* ─── Static articles ────────────────────────────────────────────────────── */
 const ARTICLES: Article[] = [
+  // ── Money & Markets (Financial Literacy) ──────────────────────────────
+  {
+    id: 'f1', slug: 'stock-market-basics-for-students-india', category: 'finance', riskLevel: 'low', trending: true, pinned: true,
+    title: 'Stock Market Basics for Students — Explained Simply (2026)',
+    summary: 'What is a share? What are Sensex and Nifty? How do prices move? A beginner-friendly guide for Indian students from Class 9 to 12, with real examples — no jargon.',
+    tags: ['Stock Market', 'Investing', 'Sensex', 'Nifty', 'Financial Literacy'], readingTime: 7, date: '2026-05-30',
+    emoji: '📈', coverColor: 'from-emerald-600 to-green-800', author: 'Syllab Team',
+  },
+  {
+    id: 'f2', slug: 'money-saving-habits-for-kids-class-5-8', category: 'finance', riskLevel: 'low', trending: true,
+    title: 'Teaching Money & Saving to Kids (Class 5–8) — A Parent\'s Guide',
+    summary: 'Needs vs wants, pocket-money budgeting, the piggy-bank habit, and how banks pay interest — simple money lessons every Indian child should learn early, with examples.',
+    tags: ['Saving', 'Money', 'Class 5', 'Class 8', 'Parenting'], readingTime: 6, date: '2026-05-29',
+    emoji: '🐷', coverColor: 'from-amber-500 to-emerald-600', author: 'Syllab Team',
+  },
+  {
+    id: 'f3', slug: 'why-petrol-gold-prices-change-commodities-explained', category: 'finance', riskLevel: 'low',
+    title: 'Why Petrol & Gold Prices Change — Commodities Explained',
+    summary: 'Crude oil, gold, currencies and trade decide the prices around you. A clear Class 10–12 explainer on commodities, exchange rates, and why your petrol bill moves.',
+    tags: ['Commodities', 'Gold', 'Oil', 'Currency', 'Trade'], readingTime: 7, date: '2026-05-28',
+    emoji: '🛢️', coverColor: 'from-yellow-500 to-orange-700', author: 'Syllab Team',
+  },
+
   // ── Class 1 — 4 (Young Learners) ──────────────────────────────────────
   {
     id: 'k1', slug: 'class-1-4-worksheets-launched', category: 'class-1-4', riskLevel: 'low', trending: true, pinned: true,

@@ -481,6 +481,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   };
 
   const [search, setSearch] = useState(restoredView?.search || '');
+  const [selectedBoard, setSelectedBoard] = useState<'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra'>('CBSE');
   const [selectedSubject, setSelectedSubject] = useState<Subject | 'All'>(restoredView?.selectedSubject || 'All');
   const [selectedClass, setSelectedClass] = useState<ClassLevel | 'All'>(getInitialClass);
   // Track if user has manually tapped a class tab in this session — if so, don't override with Firestore sync
@@ -596,13 +597,29 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     }
   }, [searchParams, userClass]);
 
+  // A chapter belongs to the selected board (chapters with no board = CBSE).
+  const inBoard = React.useCallback(
+    (c: Chapter) => (c.board || 'CBSE') === selectedBoard,
+    [selectedBoard],
+  );
+
   const subjects: (Subject | 'All')[] = React.useMemo(() => {
+    const byBoard = syllabus.filter(inBoard);
     const pool = selectedClass === 'All'
-      ? syllabus
-      : syllabus.filter(c => c.classLevel === selectedClass || extraClasses.has(c.classLevel as ClassLevel));
-    const unique = Array.from(new Set(pool.map(c => c.subject))).sort();
-    return ['All', ...unique] as (Subject | 'All')[];
-  }, [syllabus, selectedClass]);
+      ? byBoard
+      : byBoard.filter(c => c.classLevel === selectedClass || extraClasses.has(c.classLevel as ClassLevel));
+    const unique = Array.from(new Set(pool.map(c => c.subject)));
+    // Fixed teaching order — academics first, "Financial Literacy" always last.
+    const ORDER: Subject[] = [
+      'Physics', 'Chemistry', 'Biology', 'Mathematics', 'Science',
+      'English', 'The World Around Us', 'Financial Literacy',
+    ];
+    const ordered = unique.sort((a, b) => {
+      const ia = ORDER.indexOf(a as Subject); const ib = ORDER.indexOf(b as Subject);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    });
+    return ['All', ...ordered] as (Subject | 'All')[];
+  }, [syllabus, selectedClass, extraClasses, inBoard]);
 
   React.useEffect(() => {
     const restoreY = restoredView?.scrollY;
@@ -641,13 +658,14 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const filteredChapters = React.useMemo(() => {
     // First: search + subject + manual class-tab filter
     const baseFiltered = syllabus.filter(chapter => {
+      const matchesBoard = (chapter.board || 'CBSE') === selectedBoard;
       const matchesSearch = chapter.title.toLowerCase().includes(search.toLowerCase()) ||
                            (chapter.topics || []).some(t => t.toLowerCase().includes(search.toLowerCase()));
       const matchesSubject = selectedSubject === 'All' || chapter.subject === selectedSubject;
       const matchesClass = selectedClass === 'All'
         || chapter.classLevel === selectedClass
         || extraClasses.has(chapter.classLevel as ClassLevel);
-      return matchesSearch && matchesSubject && matchesClass;
+      return matchesBoard && matchesSearch && matchesSubject && matchesClass;
     });
 
     // Then: apply user's class-range filter mode (only when "All" is selected
@@ -659,7 +677,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       filterMode,
       isLoggedIn,
     ) as typeof baseFiltered;
-  }, [syllabus, search, selectedSubject, selectedClass, extraClasses, userSelectedClasses, filterMode, isLoggedIn]);
+  }, [syllabus, search, selectedSubject, selectedClass, selectedBoard, extraClasses, userSelectedClasses, filterMode, isLoggedIn]);
 
   const handlePractice = (chapter: Chapter) => {
     setPracticeConfig({
@@ -962,38 +980,115 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 mt-2">
-        <Filter size={16} className="text-slate-400 mr-2" />
-        <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 rounded-xl overflow-x-auto">
-          {CLASSES.map(c => (
+      {/* ── Board selector ─────────────────────────────────────────────────── */}
+      <div className="mt-4 flex items-center gap-3">
+        <span className="hidden sm:flex items-center shrink-0 w-20 text-[10px] font-black uppercase tracking-widest text-slate-400">Board</span>
+        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar flex-nowrap">
+          {([
+            { id: 'CBSE', label: 'CBSE / NCERT' },
+            { id: 'AP', label: 'AP' },
+            { id: 'TS', label: 'Telangana' },
+            { id: 'Karnataka', label: 'Karnataka' },
+            { id: 'Maharashtra', label: 'Maharashtra' },
+          ] as const).map(b => (
             <button
-              key={c}
-              onClick={() => { hasManuallySelectedClass.current = true; setSelectedClass(c); setExtraClasses(new Set()); }}
+              key={b.id}
+              onClick={() => { setSelectedBoard(b.id); setSelectedSubject('All'); }}
               className={cn(
-                'px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
-                selectedClass === c ? 'bg-white text-primary shadow-sm' : 'text-slate-500 hover:text-primary'
+                'shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
+                selectedBoard === b.id ? 'bg-primary text-white shadow-sm' : 'text-slate-500 hover:text-primary'
               )}
             >
-              {c === 'All' ? 'All' : 'Class ' + c}
-            </button>
-          ))}
-        </div>
-        <div className="w-px h-8 bg-slate-200 mx-2 hidden sm:block" />
-        <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 rounded-xl">
-          {subjects.map(s => (
-            <button
-              key={s}
-              onClick={() => setSelectedSubject(s as Subject | 'All')}
-              className={cn(
-                'px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
-                selectedSubject === s ? 'bg-white text-primary shadow-sm' : 'text-slate-500 hover:text-primary'
-              )}
-            >
-              {s}
+              {b.label}
             </button>
           ))}
         </div>
       </div>
+
+      {/* ── Filters: two clean rows (Class / Subject). Each is a single-line
+            horizontal scroll strip on mobile so it never wraps into a clumsy
+            block. Labels make it scannable. ───────────────────────────────── */}
+      <div className="mt-3 space-y-2.5">
+        {/* Class row */}
+        <div className="flex items-center gap-3">
+          <span className="hidden sm:flex items-center gap-1.5 shrink-0 w-20 text-[10px] font-black uppercase tracking-widest text-slate-400">
+            <Filter size={13} /> Class
+          </span>
+          <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar flex-nowrap">
+            {CLASSES.map(c => (
+              <button
+                key={c}
+                onClick={() => { hasManuallySelectedClass.current = true; setSelectedClass(c); setExtraClasses(new Set()); }}
+                className={cn(
+                  'shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
+                  selectedClass === c ? 'bg-white text-primary shadow-sm' : 'text-slate-500 hover:text-primary'
+                )}
+              >
+                {c === 'All' ? 'All' : 'Class ' + c}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Subject row */}
+        <div className="flex items-center gap-3">
+          <span className="hidden sm:flex items-center shrink-0 w-20 text-[10px] font-black uppercase tracking-widest text-slate-400">
+            Subject
+          </span>
+          <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar flex-nowrap">
+            {subjects.map(s => {
+              const isFinance = s === 'Financial Literacy';
+              return (
+                <button
+                  key={s}
+                  onClick={() => setSelectedSubject(s as Subject | 'All')}
+                  className={cn(
+                    'shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
+                    isFinance
+                      ? selectedSubject === s
+                        ? 'bg-gradient-to-r from-amber-400 to-emerald-500 text-white shadow-sm'
+                        : 'text-emerald-700 bg-gradient-to-r from-amber-50 to-emerald-50 hover:from-amber-100 hover:to-emerald-100'
+                      : selectedSubject === s
+                        ? 'bg-white text-primary shadow-sm'
+                        : 'text-slate-500 hover:text-primary'
+                  )}
+                >
+                  {isFinance ? '💰 Life Skills' : s}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* State board info note — verified subjects only (we never guess chapters) */}
+      {selectedBoard !== 'CBSE' && (
+        <div className="mb-6 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-800">
+          📋 Showing <strong>{selectedBoard === 'AP' ? 'Andhra Pradesh' : selectedBoard === 'TS' ? 'Telangana' : selectedBoard}</strong> board chapters (Maths &amp; Science, verified from official syllabus). More subjects are added as we verify them. Lessons, voice &amp; practice work the same as CBSE.
+        </div>
+      )}
+
+      {/* Featured "Life Skills" banner — makes Financial Literacy stand out as a
+          special beyond-school track, with a cross-link to the GK quiz. */}
+      {selectedSubject === 'Financial Literacy' && (
+        <div className="mb-6 rounded-3xl border border-emerald-100 bg-gradient-to-r from-amber-50 via-white to-emerald-50 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="text-4xl shrink-0">💰</div>
+          <div className="flex-1">
+            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Beyond School · Life Skills</p>
+            <h3 className="font-black text-slate-900 text-lg leading-tight">Money &amp; Markets — the stuff school doesn't teach</h3>
+            <p className="text-sm text-slate-600 mt-1">
+              Saving, banking, stocks, currencies, gold, oil &amp; trade — Class 5 to 12, basics to advanced,
+              with real-life examples and a teacher voice. Tap any chapter and hit <strong>✨ Lesson</strong>.
+            </p>
+          </div>
+          <button
+            onClick={() => setTab('general_knowledge')}
+            className="shrink-0 rounded-2xl bg-slate-900 text-white px-4 py-3 text-xs font-black uppercase tracking-wider hover:bg-slate-800 transition-colors"
+          >
+            Test your GK →
+          </button>
+        </div>
+      )}
 
       {isLoggedIn && selectedClass === 'All' && (
         <ClassFilterBanner

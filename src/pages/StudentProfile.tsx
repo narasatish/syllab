@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 import SEO from '../components/SEO';
 import WhatsAppShare from '../components/WhatsAppShare';
+import RewardsPanel from '../components/RewardsPanel';
 import { UserStats } from '../types';
 import { cn } from '../lib/utils';
 import { logout } from '../lib/firebase';
@@ -210,6 +211,12 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
       {/* ── MY PROFILE ─────────────────────────────────────────────────────── */}
       {tab === 'My Profile' && (
         <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 space-y-5">
+          {/* Gamification: level, streak, badges */}
+          <div>
+            <h2 className="text-xl font-black text-slate-900 mb-4">🎮 Your Rewards</h2>
+            <RewardsPanel xp={stats.xp || 0} />
+          </div>
+          <div className="border-t border-slate-100 pt-5" />
           <h2 className="text-xl font-black text-slate-900">Personal Details</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="First Name">
