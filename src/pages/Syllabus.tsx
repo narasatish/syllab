@@ -11,6 +11,7 @@ import SEO from '../components/SEO';
 import { loadConcept } from '../lib/api';
 import { getDeepPptLesson, DeepPptLesson, prewarmPptBackend } from '../lib/pptLessonApi';
 import WebSlideViewer from '../components/WebSlideViewer';
+import LessonViewer from '../components/LessonViewer';
 import ClassFilterBanner from '../components/filters/ClassFilterBanner';
 import {
   ClassFilterMode, getSelectedClasses, filterClassContent,
@@ -539,12 +540,15 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const [activeConcept, setActiveConcept] = useState<Concept | null>(null);
   const [activeChapter, setActiveChapter] = useState<Chapter | null>(null);
 
-  // PPT Lesson state (Deep V3)
+  // PPT Lesson state (Deep V3) — kept for legacy; new "Lesson" button uses LessonViewer
   const [pptLesson, setPptLesson] = useState<DeepPptLesson | null>(null);
   const [pptLoading, setPptLoading] = useState(false);
   const [pptChapter, setPptChapter] = useState<Chapter | null>(null);
   const [pptError, setPptError] = useState<string | null>(null);
   const [conceptError, setConceptError] = useState<string | null>(null);
+
+  // Unified Lesson Viewer (replaces Learn + PPT Lesson buttons)
+  const [lessonChapter, setLessonChapter] = useState<Chapter | null>(null);
 
   // Close all modals if user navigates away via navbar — defensive fix for
   // "stuck on page" reports where a tab click didn't visibly change page.
@@ -558,6 +562,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       setActiveChapter(null);
       setConceptError(null);
       setConceptLoading(false);
+      setLessonChapter(null);
     };
     window.addEventListener('syllab:navigate', onNavigate);
     return () => window.removeEventListener('syllab:navigate', onNavigate);
@@ -1051,12 +1056,13 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-3">
+              {/* Unified Lesson button — replaces Learn + PPT Lesson */}
               <button
-                onClick={() => void handleConcept(chapter)}
-                className="flex items-center justify-center gap-2 py-3.5 bg-slate-50 hover:bg-white hover:text-primary border border-slate-100 hover:border-primary/20 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest text-slate-500 shadow-sm"
+                onClick={() => { setLessonChapter(chapter); prewarmPptBackend(); }}
+                className="flex items-center justify-center gap-2 py-3.5 bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700 border border-violet-100 hover:border-violet-200 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest shadow-sm"
               >
-                <BookOpen size={14} />
-                Learn
+                <Sparkles size={14} />
+                Lesson
               </button>
               <button
                 onClick={openTutor}
@@ -1066,15 +1072,6 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
                 AI Tutor
               </button>
             </div>
-
-            {/* PPT Lesson button */}
-            <button
-              onClick={() => void handlePptLesson(chapter)}
-              className="flex items-center justify-center gap-2 py-3.5 mb-3 w-full bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700 border border-violet-100 hover:border-violet-200 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest shadow-sm"
-            >
-              <Presentation size={14} />
-              PPT Lesson
-            </button>
 
             <button
               onClick={() => handlePractice(chapter)}
@@ -1093,6 +1090,23 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">No curricula found matching filters.</p>
         </div>
       )}
+
+      {/* Unified LessonViewer — triggered by the "Lesson" button on each chapter card */}
+      <AnimatePresence>
+        {lessonChapter && (
+          <LessonViewer
+            classLevel={lessonChapter.classLevel}
+            subject={lessonChapter.subject}
+            chapterId={lessonChapter.id}
+            chapterName={lessonChapter.title}
+            onClose={() => setLessonChapter(null)}
+            onPractice={() => {
+              setLessonChapter(null);
+              handlePractice(lessonChapter);
+            }}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
