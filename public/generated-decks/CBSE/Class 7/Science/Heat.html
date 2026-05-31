@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Heat: Understanding Energy Transfer — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Heat</span>!</h2>
+          <ul><li>Understanding a fundamental form of energy.</li><li>Exploring how heat affects our daily lives.</li><li>Discovering how heat moves from one place to another.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we begin an exciting journey into the world of 'Heat'. Heat is all around us, influencing everything from the weather to cooking our food. Let's explore this amazing energy together!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Heat</span>?</h2>
+          <ul><li>Heat is a form of energy.</li><li>It makes things feel hot or warm.</li><li>It can transfer from a hotter object to a colder object.</li></ul>
+          <p class="notes">🎙️ Think about touching a hot cup of tea or feeling the warmth of the sun. That sensation is caused by heat. It's a type of energy that can do work, like boiling water or even generating electricity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Hot</span> vs. Cold</h2>
+          <ul><li>We use our sense of touch to feel if an object is hot or cold.</li><li>Our sense of touch is not always reliable.</li><li>A cup of hot coffee feels different from ice cream.</li></ul>
+          <p class="notes">🎙️ We constantly encounter hot and cold objects. While our hands can tell us if something is generally hot or cold, this feeling can be subjective. For example, lukewarm water might feel hot to a hand that was just in ice, and cold to a hand that was just in hot water.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hot Coffee</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Ice Cream</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>What is <span class="hl">Temperature</span>?</h2>
+          <ul><li>Temperature is the measure of the degree of hotness or coldness of an object.</li><li>It tells us how hot or cold an object really is.</li><li>It is not the same as heat.</li></ul>
+          <p class="notes">🎙️ Since our sense of touch isn't always accurate, we need a precise way to measure how hot or cold something is. This is where temperature comes in. It provides an objective measure, unlike our subjective feelings.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Measuring Hotness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>How Do We <span class="hl">Measure</span> Temperature?</h2>
+          <ul><li>We use a device called a thermometer to measure temperature.</li><li>Thermometers are designed to give accurate readings.</li><li>They work on the principle of expansion and contraction of liquids.</li></ul>
+          <p class="notes">🎙️ Just like we use a ruler to measure length, we use a thermometer to measure temperature. These instruments are carefully calibrated to give consistent and reliable readings, which is crucial in science and medicine.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">The Thermometer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Clinical vs. Laboratory <span class="hl">Thermometers</span></h2>
+          <ul><li>Different thermometers are used for different purposes.</li><li>The two main types are clinical and laboratory thermometers.</li><li>They have different ranges and specific designs.</li></ul>
+          <p class="notes">🎙️ You wouldn't use a large industrial scale to weigh a feather, right? Similarly, we have specialized thermometers. Clinical thermometers are for measuring body temperature, while laboratory thermometers are for experiments and general measurements.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Clinical</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Laboratory</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>The <span class="hl">Clinical</span> Thermometer</h2>
+          <ul><li>Used to measure human body temperature.</li><li>Has a range of 35°C to 42°C (or 94°F to 108°F).</li><li>It has a kink or constriction to prevent mercury from falling back quickly.</li></ul>
+          <p class="notes">🎙️ This is the thermometer your doctor uses! The kink is a clever design feature that holds the mercury level, allowing you to read the temperature accurately even after it's removed from the mouth. Always remember to jerk it down before use.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤒</div><div class="vcap">Body Temperature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>The <span class="hl">Laboratory</span> Thermometer</h2>
+          <ul><li>Used for measuring temperature in laboratories and experiments.</li><li>Has a wider range, typically from -10°C to 110°C.</li><li>Does not have a kink, so mercury falls back immediately.</li></ul>
+          <p class="notes">🎙️ For scientific experiments, we need to measure a broader range of temperatures, from very cold to very hot. The laboratory thermometer is perfect for this, but remember, you must read it while it's still in contact with the substance being measured.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Experiment Temperature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>How to <span class="hl">Read</span> a Thermometer</h2>
+          <ul><li>Hold the thermometer horizontally at eye level.</li><li>Note the major divisions and then the smaller divisions.</li><li>Read the temperature corresponding to the top of the mercury level.</li></ul>
+          <p class="notes">🎙️ Accurate reading is key! Make sure your eye is exactly level with the mercury column to avoid parallax error. Practice makes perfect when it comes to getting precise temperature readings.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hold at Eye Level</span></div><div class="step"><span class="snum">2</span><span>Identify Divisions</span></div><div class="step"><span class="snum">3</span><span>Read Mercury Level</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>How Does Heat <span class="hl">Move</span>?</h2>
+          <ul><li>Heat energy always flows from a hotter region to a colder region.</li><li>This transfer continues until both regions reach the same temperature.</li><li>There are three main modes of heat transfer: Conduction, Convection, and Radiation.</li></ul>
+          <p class="notes">🎙️ Imagine placing an ice cube in a glass of warm water. The ice melts because heat from the warmer water flows to the colder ice. This natural tendency of heat to move is fundamental to understanding many phenomena.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Heat Flow</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Conduction</span>: Heat Through Solids</h2>
+          <ul><li>The process of heat transfer in solids.</li><li>Heat transfers from particle to particle without actual movement of the particles.</li><li>Common in metals and other solid materials.</li></ul>
+          <p class="notes">🎙️ Think about holding one end of a metal spoon in a flame. Soon, the other end also gets hot. This is conduction! The heat energy makes the particles at the hot end vibrate more, and these vibrations are passed on to neighboring particles.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Heat_transfer.svg?width=500" data-fb="🔗" alt="Heat transfers from hot to cold regions through three methods: conduction (direct contact)"/><div class="vcap">Heat transfers from hot to cold regions through three methods: conduction (direct contact)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Good <span class="hl">Conductors</span> of Heat</h2>
+          <ul><li>Materials that allow heat to pass through them easily are called conductors.</li><li>Most metals like copper, aluminum, and iron are good conductors.</li><li>Used in cooking utensils and heating elements.</li></ul>
+          <p class="notes">🎙️ Good conductors are essential for things we want to heat up quickly. That's why your cooking pots are made of metal – so the heat from the stove can quickly transfer to your food.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span></div><div class="vcap">Heat Flows Easily</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Poor Conductors (<span class="hl">Insulators</span>)</h2>
+          <ul><li>Materials that do not allow heat to pass through them easily are called insulators.</li><li>Examples include wood, plastic, air, and wool.</li><li>Used to prevent heat loss or gain, like in thermos flasks.</li></ul>
+          <p class="notes">🎙️ Insulators are just as important as conductors! They help us keep things hot or cold. For instance, the plastic handles on your metal cooking pots protect your hands from the heat.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧤</span><span>🧤</span><span>🧤</span><span>🧤</span><span>🧤</span></div><div class="vcap">Blocks Heat Flow</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Conduction in <span class="hl">Daily Life</span></h2>
+          <ul><li>Cooking utensils have metal bottoms (conductors) for efficient heating.</li><li>Their handles are made of plastic or wood (insulators) to protect our hands.</li><li>Hot water pipes are often insulated to prevent heat loss.</li></ul>
+          <p class="notes">🎙️ This is a perfect example of applying knowledge about conduction. We strategically use conductors where we want heat to transfer and insulators where we want to block it, making our lives safer and more efficient.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Metal Pot</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Wooden Handle</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Convection</span>: Heat in Fluids</h2>
+          <ul><li>The process of heat transfer in liquids and gases (fluids).</li><li>Heat transfers due to the actual movement of the heated particles.</li><li>Hotter, less dense fluid rises, and colder, denser fluid sinks, creating a current.</li></ul>
+          <p class="notes">🎙️ Imagine boiling water in a pot. The water at the bottom gets hot, becomes lighter, and rises. Colder, heavier water from the top sinks to take its place, creating a continuous cycle called a convection current.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Fluid Movement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Convection: <span class="hl">Sea Breeze</span> and Land Breeze</h2>
+          <ul><li>During the day, land heats up faster than the sea.</li><li>Warm air above the land rises, and cooler air from the sea moves in (sea breeze).</li><li>At night, land cools faster, and the process reverses (land breeze).</li></ul>
+          <p class="notes">🎙️ This is a beautiful example of convection currents on a large scale. The differential heating and cooling of land and water create these breezes, which are very noticeable near coastal areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Nature's Air Conditioning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Radiation</span>: Heat Without Medium</h2>
+          <ul><li>The process of heat transfer that does not require any medium.</li><li>Heat travels as electromagnetic waves.</li><li>It can occur even in a vacuum, like heat from the sun reaching Earth.</li></ul>
+          <p class="notes">🎙️ How does the sun's heat reach us across the vast emptiness of space? Through radiation! Unlike conduction and convection, radiation doesn't need particles to transfer heat, making it a unique and powerful mode.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Waves of Heat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Radiation in <span class="hl">Daily Life</span></h2>
+          <ul><li>Feeling the warmth of a campfire without touching the flames.</li><li>Heat from a room heater spreading across the room.</li><li>The sun's heat reaching Earth is the most common example.</li></ul>
+          <p class="notes">🎙️ When you stand near a bonfire, you feel its warmth even if you're not touching the fire or the air directly above it. That's radiation at work! Darker surfaces absorb more radiant heat, while lighter surfaces reflect it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Warmth from a Distance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which mode of heat transfer is primarily responsible for heating water in a pot?</li><li>A) Conduction</li><li>B) Convection</li><li>C) Radiation</li></ul>
+          <p class="notes">🎙️ Think about how liquids transfer heat. Does it involve particle-to-particle transfer without movement, or actual movement of the heated fluid? Take a moment to recall the definitions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the main difference between a clinical and a laboratory thermometer?</li><li>A) Their size</li><li>B) Their range of temperature</li><li>C) The material they are made of</li></ul>
+          <p class="notes">🎙️ Remember the specific purposes for which each thermometer is designed. One is for human body temperature, and the other for broader scientific use. What limits their use?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the definition of temperature?</li><li>A) The amount of heat an object contains</li><li>B) The degree of hotness or coldness of an object</li><li>C) The rate at which heat is transferred</li></ul>
+          <p class="notes">🎙️ This is a core concept we discussed early on. Is temperature a measure of quantity or intensity? How does it help us objectively describe hot and cold?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Why Wear <span class="hl">Light Clothes</span> in Summer?</h2>
+          <ul><li>Light-coloured clothes reflect most of the sun's heat.</li><li>Dark-coloured clothes absorb more heat.</li><li>Wearing light clothes keeps us cooler in hot weather.</li></ul>
+          <p class="notes">🎙️ This is a practical application of understanding radiation. Light colours are poor absorbers and good reflectors of radiant heat, which is exactly what we want when the sun is blazing down on us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">Reflecting Heat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Why <span class="hl">Dark Houses</span> in Cold Regions?</h2>
+          <ul><li>In very cold regions, houses are sometimes painted dark.</li><li>Dark surfaces absorb more solar radiation.</li><li>This helps to keep the houses warmer by absorbing more heat from the sun.</li></ul>
+          <p class="notes">🎙️ Conversely, in cold climates, people want to maximize heat absorption. Painting houses dark helps them soak up as much radiant energy from the sun as possible, reducing heating costs and keeping interiors warmer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Absorbing Heat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Heat</h2>
+          <ul><li>Heat is a form of energy; Temperature measures its degree.</li><li>Thermometers (Clinical &amp; Laboratory) measure temperature.</li><li>Heat transfers by Conduction (solids), Convection (fluids), and Radiation (no medium).</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the distinction between heat and temperature, the different types of thermometers, and the three fascinating ways heat travels. These concepts are fundamental to understanding the world around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Importance</span> of Understanding Heat</h2>
+          <ul><li>Heat plays a crucial role in weather, climate, and daily activities.</li><li>Understanding heat helps in designing better homes and appliances.</li><li>It is fundamental to many scientific and engineering fields.</li></ul>
+          <p class="notes">🎙️ From cooking our food to predicting weather patterns, the principles of heat are everywhere. By understanding these concepts, you've gained valuable insight into how our world works and how we can innovate to make it better. Keep exploring!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Knowledge Applied</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 7 · Science</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

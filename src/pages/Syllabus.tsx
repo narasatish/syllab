@@ -12,6 +12,10 @@ import { loadConcept } from '../lib/api';
 import { getDeepPptLesson, DeepPptLesson, prewarmPptBackend } from '../lib/pptLessonApi';
 import WebSlideViewer from '../components/WebSlideViewer';
 import LessonViewer from '../components/LessonViewer';
+import DeckViewer from '../components/DeckViewer';
+import HtmlDeckViewer from '../components/HtmlDeckViewer';
+import { getDeckUrl } from '../data/chapterDecks';
+import { getGeneratedDeckUrl } from '../data/generatedDecks';
 import ClassFilterBanner from '../components/filters/ClassFilterBanner';
 import {
   ClassFilterMode, getSelectedClasses, filterClassContent,
@@ -550,6 +554,10 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
 
   // Unified Lesson Viewer (replaces Learn + PPT Lesson buttons)
   const [lessonChapter, setLessonChapter] = useState<Chapter | null>(null);
+  // Provided polished slide deck (PDF) — opens instead of AI lesson when available
+  const [deck, setDeck] = useState<{ url: string; chapter: Chapter } | null>(null);
+  // Generated HTML deck (free, emoji/CSS designed) — used when no PDF deck exists
+  const [htmlDeck, setHtmlDeck] = useState<{ url: string; chapter: Chapter } | null>(null);
 
   // Close all modals if user navigates away via navbar — defensive fix for
   // "stuck on page" reports where a tab click didn't visibly change page.
@@ -564,6 +572,8 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
       setConceptError(null);
       setConceptLoading(false);
       setLessonChapter(null);
+      setDeck(null);
+      setHtmlDeck(null);
     };
     window.addEventListener('syllab:navigate', onNavigate);
     return () => window.removeEventListener('syllab:navigate', onNavigate);
@@ -1151,9 +1161,16 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-3">
-              {/* Unified Lesson button — replaces Learn + PPT Lesson */}
+              {/* Lesson button — opens the polished provided deck if one exists,
+                  otherwise the AI-generated lesson. */}
               <button
-                onClick={() => { setLessonChapter(chapter); prewarmPptBackend(); }}
+                onClick={() => {
+                  const pdfDeck = getDeckUrl(chapter.classLevel, chapter.title);
+                  const htmlDeckUrl = getGeneratedDeckUrl(chapter.classLevel, chapter.title);
+                  if (pdfDeck) setDeck({ url: pdfDeck, chapter });
+                  else if (htmlDeckUrl) setHtmlDeck({ url: htmlDeckUrl, chapter });
+                  else { setLessonChapter(chapter); prewarmPptBackend(); }
+                }}
                 className="flex items-center justify-center gap-2 py-3.5 bg-violet-50 hover:bg-violet-100 text-violet-600 hover:text-violet-700 border border-violet-100 hover:border-violet-200 rounded-2xl transition-all font-black text-[10px] uppercase tracking-widest shadow-sm"
               >
                 <Sparkles size={14} />
@@ -1185,6 +1202,30 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">No curricula found matching filters.</p>
         </div>
       )}
+
+      {/* Polished provided deck (PDF) — pixel-perfect designed slides */}
+      <AnimatePresence>
+        {deck && (
+          <DeckViewer
+            url={deck.url}
+            title={deck.chapter.title}
+            onClose={() => setDeck(null)}
+            onPractice={() => { const ch = deck.chapter; setDeck(null); handlePractice(ch); }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Generated HTML deck (free designed slides) */}
+      <AnimatePresence>
+        {htmlDeck && (
+          <HtmlDeckViewer
+            url={htmlDeck.url}
+            title={htmlDeck.chapter.title}
+            onClose={() => setHtmlDeck(null)}
+            onPractice={() => { const ch = htmlDeck.chapter; setHtmlDeck(null); handlePractice(ch); }}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Unified LessonViewer — triggered by the "Lesson" button on each chapter card */}
       <AnimatePresence>

@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Motion in a Plane — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Motion in a Plane: An <span class="hl">Introduction</span></h2>
+          <ul><li>What is 2D motion and why is it important?</li><li>Extending concepts from 1D motion.</li><li>Real-world examples: cricket, flight, planetary orbits.</li></ul>
+          <p class="notes">🎙️ Welcome to the chapter 'Motion in a Plane'. This chapter builds upon our understanding of 1D motion and extends it to two dimensions. We'll explore how objects move in a flat surface, which is crucial for understanding many real-world phenomena.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Scalars vs. <span class="hl">Vectors</span>: A Quick Review</h2>
+          <ul><li>Scalars: Magnitude only (e.g., distance, speed, mass).</li><li>Vectors: Magnitude AND direction (e.g., displacement, velocity, force).</li><li>Vector notation: Arrow over symbol (e.g., →v).</li></ul>
+          <p class="notes">🎙️ Before diving into 2D motion, let's quickly recap scalars and vectors. Understanding the difference is fundamental, as motion in a plane inherently involves vector quantities like displacement, velocity, and acceleration. Remember, direction is key for vectors.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Scalar (Magnitude)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Vector (Mag. + Dir.)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Representing Vectors <span class="hl">Graphically</span></h2>
+          <ul><li>An arrow represents a vector.</li><li>Length of arrow = magnitude.</li><li>Arrowhead points in direction of vector.</li></ul>
+          <p class="notes">🎙️ Graphically, vectors are depicted as arrows. The length of the arrow signifies the vector's magnitude, while the arrowhead indicates its direction. This visual representation is very useful for understanding vector operations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Vector as an arrow</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Vector Addition: <span class="hl">Triangle Law</span></h2>
+          <ul><li>If two vectors are represented by two sides of a triangle in order.</li><li>Their resultant is represented by the third side in opposite order.</li><li>Head-to-tail method for adding vectors.</li></ul>
+          <p class="notes">🎙️ The Triangle Law is a geometric method for adding two vectors. You place the tail of the second vector at the head of the first. The resultant vector then connects the tail of the first to the head of the second, completing the triangle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Vector A</span></div><div class="step"><span class="snum">2</span><span>Vector B (head-to-tail)</span></div><div class="step"><span class="snum">3</span><span>Resultant R (closing side)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Vector Addition: <span class="hl">Parallelogram Law</span></h2>
+          <ul><li>If two vectors are represented by two adjacent sides of a parallelogram.</li><li>Their resultant is given by the diagonal passing through their common point.</li><li>Applicable for co-initial vectors (starting from same point).</li></ul>
+          <p class="notes">🎙️ The Parallelogram Law is another geometric method, particularly useful when two vectors originate from the same point. The resultant is the diagonal of the parallelogram formed by these two vectors, starting from their common origin.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding vectors from a common point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Vector Addition: <span class="hl">Analytical</span> Method</h2>
+          <ul><li>Resolve vectors into rectangular components (x and y).</li><li>Add x-components and y-components separately.</li><li>Resultant magnitude: R = √(Rx² + Ry²); Direction: tanθ = Ry/Rx.</li></ul>
+          <p class="notes">🎙️ For more complex problems, the analytical method using components is preferred. By breaking vectors into their x and y components, we can add them algebraically. This method is precise and universally applicable for any number of vectors.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Calculating vector components</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Vector <span class="hl">Subtraction</span></h2>
+          <ul><li>Subtracting vector B from A is equivalent to adding -B to A.</li><li>-B has the same magnitude as B but opposite direction.</li><li>A - B = A + (-B).</li></ul>
+          <p class="notes">🎙️ Vector subtraction isn't simply about reducing magnitudes. It's defined as adding the negative of the vector being subtracted. This means reversing the direction of the vector to be subtracted and then performing standard vector addition.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Vector A minus Vector B</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Resolution</span> of Vectors</h2>
+          <ul><li>The process of splitting a vector into two or more components.</li><li>Usually resolved into two perpendicular (rectangular) components.</li><li>Ax = A cosθ, Ay = A sinθ, where θ is angle with x-axis.</li></ul>
+          <p class="notes">🎙️ Resolution of vectors is the inverse of vector addition. It's a powerful technique where a single vector is broken down into its effective parts along specific directions. This simplifies analysis, especially in 2D motion problems, by converting a single vector into two independent components.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Breaking a vector into components</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Vector Addition</h2>
+          <ul><li>Problem: Two forces 3N and 4N act at right angles to each other. Find the magnitude and direction of their resultant.</li><li>Solution: R = √(3² + 4²) = 5N. tanθ = 4/3, so θ = 53.13° with the 3N force.</li><li>Common mistake: Simply adding magnitudes (3+4=7N) which is incorrect.</li></ul>
+          <p class="notes">🎙️ This example demonstrates how to find the resultant of two perpendicular vectors using the analytical method. Remember to use Pythagoras theorem for magnitude and trigonometry for direction. Never just add magnitudes for vectors acting at an angle.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Position and <span class="hl">Displacement</span> Vectors</h2>
+          <ul><li>Position vector (r): Describes object's location from origin.</li><li>Displacement vector (Δr): Change in position vector (Δr = r₂ - r₁).</li><li>Displacement is the shortest distance between initial and final points.</li></ul>
+          <p class="notes">🎙️ In 2D, an object's position is given by a position vector from the origin to its location. Displacement, then, is the vector difference between the final and initial position vectors. It's important to distinguish displacement from the actual path length travelled.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Pinpointing location and change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Velocity</span> Vector</h2>
+          <ul><li>Average velocity: Δr/Δt (total displacement / total time).</li><li>Instantaneous velocity: dr/dt (rate of change of position).</li><li>Direction of instantaneous velocity is tangent to the path.</li></ul>
+          <p class="notes">🎙️ Velocity in 2D is a vector quantity, possessing both magnitude (speed) and direction. The instantaneous velocity vector is always tangential to the path of motion at any given point. This means its direction continuously changes in curved paths.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Direction of motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Acceleration</span> Vector</h2>
+          <ul><li>Average acceleration: Δv/Δt (change in velocity / time).</li><li>Instantaneous acceleration: dv/dt (rate of change of velocity).</li><li>Acceleration can change speed, direction, or both.</li></ul>
+          <p class="notes">🎙️ Acceleration in 2D describes how the velocity vector changes over time. This change can be in the magnitude of velocity (speeding up or slowing down), its direction (turning), or both. It's a crucial concept for understanding forces and motion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Changing velocity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Motion in a Plane with <span class="hl">Constant Acceleration</span></h2>
+          <ul><li>Kinematic equations are applied component-wise (x and y).</li><li>vx = ux + axt, vy = uy + ayt.</li><li>rx = ux t + ½ axt², ry = uy t + ½ ayt².</li></ul>
+          <p class="notes">🎙️ When acceleration is constant, we can apply the familiar 1D kinematic equations independently to the x and y components of motion. This simplifies complex 2D problems into two separate 1D problems, connected by time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️⬆️</div><div class="vcap">Independent x and y motions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1: Vector Concepts</h2>
+          <ul><li>Can two vectors of different magnitudes add up to give a zero resultant?</li><li>Is vector addition always commutative (A+B = B+A)?</li><li>If A + B = C and |A| + |B| = |C|, what can you say about A and B?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about these questions. They test your fundamental understanding of vector properties. Correct answers are: No; Yes; They are parallel and in the same direction.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Projectile</span> Motion: A Special Case</h2>
+          <ul><li>Motion of an object thrown into space and moving under gravity alone.</li><li>Assumes negligible air resistance.</li><li>Path traced is a parabola.</li></ul>
+          <p class="notes">🎙️ Projectile motion is a classic example of motion in a plane. When an object is launched into the air and only gravity acts upon it, it follows a characteristic parabolic path. This motion is analyzed by separating it into independent horizontal and vertical components.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Projectile_motion.svg?width=500" data-fb="🏀" alt="Projectile motion is motion of an object launched at an angle. The path is parabolic due t"/><div class="vcap">Projectile motion is motion of an object launched at an angle. The path is parabolic due t</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Projectile Motion: Assumptions &amp; <span class="hl">Trajectory</span></h2>
+          <ul><li>Air resistance is negligible.</li><li>Acceleration due to gravity (g) is constant and vertically downwards.</li><li>Horizontal velocity component is constant; Vertical motion is under constant 'g'.</li></ul>
+          <p class="notes">🎙️ To simplify analysis, we make certain ideal assumptions for projectile motion. The key insight is that the horizontal and vertical motions are independent, with time connecting them. The horizontal motion is uniform, while the vertical motion is uniformly accelerated.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Parabolic path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Projectile Motion: Time of Flight (T) &amp; <span class="hl">Max Height</span> (H)</h2>
+          <ul><li>Time of Flight (T): Total time the projectile is in the air. T = (2u sinθ)/g.</li><li>Maximum Height (H): Highest point reached above projection point. H = (u² sin²θ)/(2g).</li><li>Derived from vertical motion equations.</li></ul>
+          <p class="notes">🎙️ These are two important parameters describing projectile motion. The time of flight depends on the initial vertical velocity component, while the maximum height reached also depends on this component and the acceleration due to gravity. Remember these formulas for problem-solving.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Time of Flight</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Max Height</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Projectile Motion: Horizontal <span class="hl">Range</span> (R)</h2>
+          <ul><li>Horizontal Range (R): Total horizontal distance covered. R = (u² sin2θ)/g.</li><li>Maximum range occurs at a projection angle of 45°.</li><li>For a given speed, two complementary angles (θ and 90°-θ) give the same range.</li></ul>
+          <p class="notes">🎙️ The horizontal range is the distance covered along the ground. It depends on both the initial speed and the projection angle. Knowing that maximum range is achieved at 45 degrees and that complementary angles yield the same range are important exam points.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Reaching the target</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Projectile Motion</h2>
+          <ul><li>Problem: A projectile is fired with an initial velocity of 20 m/s at 30° above the horizontal. Find its time of flight and maximum height (g=10 m/s²).</li><li>Solution: T = (2 * 20 * sin30°)/10 = 2s. H = (20² * sin²30°)/(2*10) = 5m.</li><li>Remember to use components for initial velocity: ux = u cosθ, uy = u sinθ.</li></ul>
+          <p class="notes">🎙️ This example shows the direct application of the formulas for time of flight and maximum height. Make sure to correctly substitute the values and use the sine component for vertical motion. Pay attention to units and significant figures.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 2: Projectile Motion</h2>
+          <ul><li>At what point in a projectile's path is its vertical velocity zero?</li><li>What is the angle of projection for which the horizontal range is equal to the maximum height?</li><li>Does the horizontal velocity of a projectile change during its flight?</li></ul>
+          <p class="notes">🎙️ Test your understanding of projectile motion. Consider the independent nature of horizontal and vertical components. The vertical velocity is zero at the peak, the horizontal velocity remains constant, and the range equals height for a specific angle.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Uniform <span class="hl">Circular Motion</span> (UCM)</h2>
+          <ul><li>Motion of an object along a circular path at a constant speed.</li><li>Speed is constant, but velocity is continuously changing (due to changing direction).</li><li>Therefore, UCM is an accelerated motion.</li></ul>
+          <p class="notes">🎙️ Uniform Circular Motion is another important type of 2D motion. Even though the object's speed is constant, its direction is continuously changing, which means its velocity is changing. Any change in velocity implies acceleration, making UCM an accelerated motion.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Centripetal_force.svg?width=500" data-fb="🔄" alt="Circular motion occurs when an object moves in a circular path at constant speed. Velocity"/><div class="vcap">Circular motion occurs when an object moves in a circular path at constant speed. Velocity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Centripetal</span> Acceleration &amp; Force</h2>
+          <ul><li>Acceleration in UCM is always directed towards the center of the circle (centripetal acceleration).</li><li>Magnitude: ac = v²/r = rω² (where ω is angular speed).</li><li>Centripetal Force (Fc): Fc = mac = mv²/r, also directed towards the center.</li></ul>
+          <p class="notes">🎙️ The acceleration in UCM is called centripetal acceleration, always pointing towards the center. This acceleration requires a centripetal force to maintain the circular path. This force is not a new type of force but is provided by existing forces like tension, friction, or gravity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎡</div><div class="vcap">Force pulling towards center</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Non-Uniform</span> Circular Motion</h2>
+          <ul><li>Speed of the object changes along the circular path.</li><li>Has both centripetal (radial) and tangential acceleration.</li><li>Net acceleration: a = √(ac² + at²).</li></ul>
+          <p class="notes">🎙️ In non-uniform circular motion, both the speed and direction of the object change. This means there's a tangential acceleration (changing speed) in addition to the centripetal acceleration (changing direction). The net acceleration is the vector sum of these two perpendicular components.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Changing speed and direction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 3: Circular Motion</h2>
+          <ul><li>In uniform circular motion, is the acceleration vector constant?</li><li>What provides the centripetal force for a car taking a turn on a level road?</li><li>Can an object in circular motion have zero acceleration at any point?</li></ul>
+          <p class="notes">🎙️ Consider these questions carefully. In UCM, acceleration magnitude is constant, but its direction changes, so the vector is not constant. Friction provides the centripetal force for a car. No, an object in circular motion always has centripetal acceleration.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Motion in a Plane: <span class="hl">Recap</span></h2>
+          <ul><li>Vectors: Addition, Subtraction, Resolution.</li><li>Position, Displacement, Velocity, and Acceleration vectors.</li><li>Projectile Motion: T, H, R formulas and concepts.</li><li>Circular Motion: UCM, Centripetal acceleration/force, Non-UCM.</li></ul>
+          <p class="notes">🎙️ We've covered a vast and important chapter! Remember the vector basics, how to apply kinematic equations in 2D, and the specific characteristics of projectile and circular motion. Practice numerical problems regularly to master these concepts for your exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 11 · Physics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

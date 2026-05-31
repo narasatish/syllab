@@ -1,0 +1,342 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Three Dimensional Geometry — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">1 / 24</span>
+          <h2>Recalling <span class="hl">2D vs. 3D</span> Space</h2>
+          <ul><li>2D: Defined by X and Y axes (flat plane).</li><li>3D: Defined by X, Y, and Z axes (space).</li><li>Adds depth and volume to our understanding.</li></ul>
+          <p class="notes">🎙️ Before we dive deep, let's quickly recall the difference between 2D and 3D. In 2D, we deal with shapes on a flat surface like a paper, using two coordinates. In 3D, we add a third dimension, depth, which allows us to describe objects in our real world.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">2D (Plane)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3D (Space)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 24</span>
+          <h2>The 3D <span class="hl">Coordinate System</span>: Axes &amp; Octants</h2>
+          <ul><li>Three mutually perpendicular axes: X, Y, Z.</li><li>Origin (0,0,0) is the intersection point.</li><li>Space divided into 8 octants.</li></ul>
+          <p class="notes">🎙️ Imagine three lines crossing at a single point, each perpendicular to the other two. These are our X, Y, and Z axes. They divide the entire space into eight regions, much like quadrants in 2D, but here they are called octants.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">3D Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 24</span>
+          <h2>Locating a Point: <span class="hl">(x, y, z)</span> Coordinates</h2>
+          <ul><li>Every point P in space has unique coordinates (x, y, z).</li><li>x, y, z represent perpendicular distances from YZ, XZ, XY planes respectively.</li><li>Points on axes or planes have specific zero coordinates.</li></ul>
+          <p class="notes">🎙️ Just as you locate a point on a map using latitude and longitude, in 3D, we use three coordinates (x, y, z). These values tell us exactly where a point is relative to the origin and the three coordinate planes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Point P(x,y,z)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 24</span>
+          <h2>Calculating Distance Between Two Points</h2>
+          <ul><li>Extension of the 2D distance formula.</li><li>Distance between P(x1, y1, z1) and Q(x2, y2, z2).</li><li>Formula: √[(x2-x1)² + (y2-y1)² + (z2-z1)²].</li></ul>
+          <p class="notes">🎙️ The distance formula in 3D is a direct generalization from 2D. We simply add the square of the difference in the z-coordinates. This formula is vital for calculating lengths of segments, perimeters, and more in 3D space.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Distance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 24</span>
+          <h2><span class="hl">Worked Example</span>: Applying the Distance Formula</h2>
+          <ul><li>Find distance between A(1, -3, 4) and B(-4, 1, 2).</li><li>Step 1: Identify (x1,y1,z1) and (x2,y2,z2).</li><li>Step 2: Substitute values into the formula.</li><li>Step 3: Calculate the result.</li></ul>
+          <p class="notes">🎙️ Let's work through an example together. First, clearly identify your coordinates. Then, carefully substitute them into the formula. Remember to handle negative signs correctly during squaring to avoid common errors.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify points</span></div><div class="step"><span class="snum">2</span><span>Substitute values</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div><div class="step"><span class="snum">4</span><span>Final Answer</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 24</span>
+          <h2>Section Formula: Dividing a Line Segment (Internal)</h2>
+          <ul><li>Finds coordinates of a point dividing a segment in a given ratio.</li><li>Point R divides P(x1,y1,z1) and Q(x2,y2,z2) internally in ratio m:n.</li><li>Formula: R = [(mx2+nx1)/(m+n), (my2+ny1)/(m+n), (mz2+nz1)/(m+n)].</li></ul>
+          <p class="notes">🎙️ The section formula helps us find the coordinates of a point that lies *between* two given points and divides the line segment joining them in a specific ratio. This is a direct extension of the 2D section formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Dividing a Segment</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 24</span>
+          <h2>Section Formula: <span class="hl">External Division</span> &amp; Midpoint</h2>
+          <ul><li>External Division: R = [(mx2-nx1)/(m-n), (my2-ny1)/(m-n), (mz2-nz1)/(m-n)].</li><li>Midpoint Formula: Special case when m:n = 1:1.</li><li>Midpoint M = [(x1+x2)/2, (y1+y2)/2, (z1+z2)/2].</li></ul>
+          <p class="notes">🎙️ External division means the point lies *outside* the segment on the line extended. The formula is similar, just with a minus sign. The midpoint is a very common special case where the ratio is 1:1, making the calculation simpler.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Beyond the Segment</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 24</span>
+          <h2>Worked Example: Applying the <span class="hl">Section Formula</span></h2>
+          <ul><li>Find point dividing A(2,-1,4) and B(4,3,2) in ratio 2:3 internally.</li><li>Step 1: Identify points and ratio (m,n).</li><li>Step 2: Apply the internal section formula.</li><li>Step 3: Calculate each coordinate.</li></ul>
+          <p class="notes">🎙️ Let's practice with the section formula. Remember to correctly assign m and n, and substitute them carefully into the respective x, y, and z coordinate expressions. Pay attention to the order of points.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify values</span></div><div class="step"><span class="snum">2</span><span>Apply formula</span></div><div class="step"><span class="snum">3</span><span>Calculate (x,y,z)</span></div><div class="step"><span class="snum">4</span><span>Final Point</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 24</span>
+          <h2><span class="hl">Direction Cosines</span>: Orienting a Line in Space</h2>
+          <ul><li>Cosines of angles a, b, g made by a line with positive X, Y, Z axes.</li><li>Represented as l = cos a, m = cos b, n = cos g.</li><li>Important relation: l² + m² + n² = 1.</li></ul>
+          <p class="notes">🎙️ Direction cosines tell us the orientation of a line in 3D space. They are essentially the projections of a unit vector along the line onto the coordinate axes. The sum of their squares is always one, a crucial property.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angles with Axes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 24</span>
+          <h2><span class="hl">Direction Ratios</span>: Proportional to Direction Cosines</h2>
+          <ul><li>Any three numbers a, b, c proportional to direction cosines (l, m, n).</li><li>Not unique; many sets of DRs for a single line.</li><li>If (a,b,c) are DRs, then (ka,kb,kc) are also DRs for any k≠0.</li></ul>
+          <p class="notes">🎙️ Direction ratios are simpler to find than direction cosines. They are just numbers proportional to the direction cosines. Think of them as a vector pointing in the direction of the line, but not necessarily a unit vector.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Line Direction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 24</span>
+          <h2>Connecting Direction Cosines and Direction Ratios</h2>
+          <ul><li>If (a, b, c) are DRs, then DCs (l, m, n) can be found.</li><li>l = a/√(a²+b²+c²), m = b/√(a²+b²+c²), n = c/√(a²+b²+c²).</li><li>The denominator is the magnitude of the vector (a,b,c).</li></ul>
+          <p class="notes">🎙️ This slide shows how to convert direction ratios into unique direction cosines. We essentially normalize the direction ratios by dividing each by the magnitude of the vector formed by the DRs. This ensures l² + m² + n² = 1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">DRs to DCs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 24</span>
+          <h2>Worked Example: Finding <span class="hl">DCs and DRs</span></h2>
+          <ul><li>Find DRs and DCs of line joining P(2,3,-1) and Q(1,-2,4).</li><li>Step 1: Calculate (x2-x1, y2-y1, z2-z1) for DRs.</li><li>Step 2: Calculate √(a²+b²+c²).</li><li>Step 3: Divide DRs by magnitude to get DCs.</li></ul>
+          <p class="notes">🎙️ This example demonstrates how to find both direction ratios and direction cosines for a line given two points. Remember, the DRs are simply the differences in the coordinates, and then you normalize them to get the DCs.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find DRs (a,b,c)</span></div><div class="step"><span class="snum">2</span><span>Calculate magnitude</span></div><div class="step"><span class="snum">3</span><span>Find DCs (l,m,n)</span></div><div class="step"><span class="snum">4</span><span>Verify (optional)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 24</span>
+          <h2>Equation of a Line in Space: <span class="hl">Vector Form</span></h2>
+          <ul><li>Line passing through point A (position vector 'a') and parallel to vector 'b'.</li><li>Vector equation: r = a + λb.</li><li>r is the position vector of any point on the line.</li><li>λ is a scalar parameter.</li></ul>
+          <p class="notes">🎙️ The vector form of a line's equation is intuitive. It says that any point on the line can be reached by starting at a known point 'a' on the line and moving some multiple (λ) of the direction vector 'b'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Line as a Vector Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 24</span>
+          <h2>Equation of a Line in Space: <span class="hl">Cartesian Form</span></h2>
+          <ul><li>Line passing through (x1, y1, z1) and having DRs (a, b, c).</li><li>Cartesian equation: (x-x1)/a = (y-y1)/b = (z-z1)/c.</li><li>This form is derived directly from the vector form.</li><li>Each part equals the parameter λ.</li></ul>
+          <p class="notes">🎙️ The Cartesian form is often more practical for calculations. Here, (x1, y1, z1) is a point on the line, and (a, b, c) are its direction ratios. Remember that 'a', 'b', 'c' cannot be zero simultaneously. If one is zero, the numerator must also be zero for that term.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Algebraic Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 24</span>
+          <h2>Worked Example: Finding the Equation of a Line</h2>
+          <ul><li>Find vector and Cartesian equations of line through (5,2,-4) and parallel to (3,2,-8).</li><li>Step 1: Identify 'a' (position vector) and 'b' (direction vector).</li><li>Step 2: Write vector form: r = a + λb.</li><li>Step 3: Extract (x1,y1,z1) and (a,b,c) for Cartesian form.</li></ul>
+          <p class="notes">🎙️ This example shows how to form both vector and Cartesian equations for a line when given a point and a parallel vector. It's a straightforward application of the formulas we just discussed.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify point &amp; direction</span></div><div class="step"><span class="snum">2</span><span>Write Vector Eq.</span></div><div class="step"><span class="snum">3</span><span>Write Cartesian Eq.</span></div><div class="step"><span class="snum">4</span><span>Verify (optional)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 24</span>
+          <h2><span class="hl">Angle</span> Between Two Lines in Space</h2>
+          <ul><li>Given two lines with direction vectors b1 and b2 (or DRs (a1,b1,c1) and (a2,b2,c2)).</li><li>Vector form: cos θ = |b1 · b2| / (|b1| |b2|).</li><li>Cartesian form: cos θ = |a1a2 + b1b2 + c1c2| / √(a1²+b1²+c1²)√(a2²+b2²+c2²).</li><li>Angle is always acute (0 to π/2).</li></ul>
+          <p class="notes">🎙️ The angle between two lines is found using their direction vectors or direction ratios. We use the dot product formula, taking the absolute value to ensure we get the acute angle between them. Remember, parallel lines have θ=0, perpendicular lines have θ=π/2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Intersection Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 24</span>
+          <h2>Shortest Distance Between Two <span class="hl">Skew Lines</span>: Concept</h2>
+          <ul><li>Skew lines are non-parallel, non-intersecting lines in 3D space.</li><li>They do not lie in the same plane.</li><li>The shortest distance is the length of the common perpendicular between them.</li></ul>
+          <p class="notes">🎙️ Skew lines are a unique concept in 3D. Unlike parallel lines that never meet, or intersecting lines that meet at a point, skew lines never meet and are not parallel. Imagine two roads on different levels that cross over each other without connecting.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Separated Paths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 24</span>
+          <h2>Shortest Distance Between Skew Lines: <span class="hl">Formula</span></h2>
+          <ul><li>Lines: r1 = a1 + λb1 and r2 = a2 + μb2.</li><li>Formula: d = |(b1 x b2) · (a2 - a1)| / |b1 x b2|.</li><li>Denominator is the magnitude of the cross product of direction vectors.</li><li>Numerator involves scalar triple product.</li></ul>
+          <p class="notes">🎙️ This formula is crucial for finding the shortest distance between two skew lines. It looks complex but involves standard vector operations: cross product, dot product, and magnitude. Master this formula for exam success.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Calculating Separation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 24</span>
+          <h2>Worked Example: <span class="hl">Shortest Distance</span> Between Skew Lines</h2>
+          <ul><li>Given two line equations in vector form.</li><li>Step 1: Identify a1, b1, a2, b2.</li><li>Step 2: Calculate (a2 - a1).</li><li>Step 3: Calculate (b1 x b2).</li><li>Step 4: Apply the shortest distance formula.</li></ul>
+          <p class="notes">🎙️ This is a comprehensive example applying the shortest distance formula. Break it down into smaller, manageable vector operations. Accuracy in vector cross product and dot product calculations is key here.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Vectors</span></div><div class="step"><span class="snum">2</span><span>Calculate (a2-a1)</span></div><div class="step"><span class="snum">3</span><span>Calculate (b1 x b2)</span></div><div class="step"><span class="snum">4</span><span>Apply Formula</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 24</span>
+          <h2><span class="hl">Quick Check</span> 1: Direction Cosines &amp; Ratios</h2>
+          <ul><li>If a line makes angles 90°, 135°, 45° with X, Y, Z axes, what are its DCs?</li><li>What are the DRs of a line passing through (1,2,3) and (4,5,6)?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Try to answer these two questions based on what we've learned about direction cosines and direction ratios. Remember the definition of DCs and how to find DRs from two points.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 24</span>
+          <h2>Quick Check 2: Equation of a Line</h2>
+          <ul><li>Write the Cartesian equation of a line passing through (1,2,3) and parallel to the vector 3i + 4j - 5k.</li><li>Convert the vector equation r = (i + 2j - k) + λ(2i - j + 3k) to Cartesian form.</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of line equations. Can you formulate the Cartesian equation from a point and a parallel vector? And can you convert from vector to Cartesian form?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 24</span>
+          <h2>Quick Check 3: <span class="hl">Distance and Angle</span></h2>
+          <ul><li>Find the distance between points (1,0,0) and (0,1,0).</li><li>If two lines have direction ratios (1,2,3) and (2,-1,0), find the cosine of the angle between them.</li></ul>
+          <p class="notes">🎙️ One last quick check on distance and angles. These are fundamental calculations. Make sure you're comfortable with the formulas for both.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 24</span>
+          <h2><span class="hl">Common Mistakes</span> &amp; Exam Tips for 3D Geometry</h2>
+          <ul><li>Sign errors in section formula or distance formula.</li><li>Confusing DRs with DCs (l²+m²+n²=1 only for DCs).</li><li>Incorrect vector operations (dot/cross product) for shortest distance.</li><li>Not identifying 'a' and 'b' correctly in line equations.</li></ul>
+          <p class="notes">🎙️ Many students lose marks due to careless errors. Always double-check your signs, especially with negative coordinates. Ensure you understand the distinction between direction ratios and direction cosines, and practice your vector algebra.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Beware!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 24</span>
+          <h2><span class="hl">Recap</span>: Key Concepts &amp; Next Steps</h2>
+          <ul><li>3D Coordinate System, Distance, Section Formula.</li><li>Direction Cosines &amp; Ratios, their relationship.</li><li>Equations of a Line (Vector &amp; Cartesian Forms).</li><li>Angle between Lines, Shortest Distance between Skew Lines.</li></ul>
+          <p class="notes">🎙️ Today, we covered the foundational concepts of 3D Geometry. These are essential building blocks. Practice all types of problems, especially those involving formulas, to solidify your understanding for the board exams. Our next session will delve into Planes in 3D.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Mathematics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

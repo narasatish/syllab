@@ -90,15 +90,20 @@ function matchDiagram(slideText: string, classNum: number): LessonImage | null {
   const wanted = new Set(tokenize(slideText));
   if (wanted.size === 0) return null;
 
-  let best: { score: number; d: typeof DIAGRAMS[number] } | null = null;
+  // HIGH-PRECISION: only match when the slide is genuinely ABOUT this diagram —
+  // i.e. most of the diagram's distinctive name words appear in the slide.
+  // A single common word ("field", "law", "energy") must NOT trigger a match,
+  // or you get a respiratory-system diagram on an Electric-Charges slide.
+  let best: { coverage: number; d: typeof DIAGRAMS[number] } | null = null;
   for (const d of DIAGRAMS) {
-    const dt = new Set(tokenize(d.name));
-    let score = 0;
-    for (const w of wanted) if (dt.has(w)) score += 2;
-    if (Math.abs(d.classNumber - classNum) <= 2) score += 0.5;
-    // One strong keyword match (score >= 2) is enough — duplicates are removed
-    // downstream, so a lower bar means MORE slides get a relevant picture.
-    if (score >= 2 && (!best || score > best.score)) best = { score, d };
+    const dt = tokenize(d.name);
+    if (dt.length < 2) continue;                 // skip 1-word diagram names (too ambiguous)
+    const matched = dt.filter(t => wanted.has(t)).length;
+    const coverage = matched / dt.length;
+    // Require at least 2 of the diagram's words AND >=70% of its name present.
+    if (matched >= 2 && coverage >= 0.7 && (!best || coverage > best.coverage)) {
+      best = { coverage, d };
+    }
   }
   if (!best) return null;
   return { url: best.d.imageUrl, alt: best.d.name, caption: best.d.summary?.slice(0, 90) };
@@ -129,11 +134,11 @@ export function pickSlideImage(
   subject?: string,
 ): LessonImage | null {
   const cls = parseInt(classLevel) || 8;
-  const concept = matchConcept(slideText);
+  // Concept images (pizza/apple/clock) are kid-relatable — only for Classes 1-5,
+  // never on senior slides (an apple on a Class 12 Physics slide is wrong).
+  const concept = cls <= 5 ? matchConcept(slideText) : null;
   // Only science subjects may use the science diagram library.
   const allowDiagram = !subject || SCIENCE_SUBJECTS.has(subject);
   const diagram = allowDiagram ? matchDiagram(slideText, cls) : null;
-  // Young kids prefer the relatable real-life concept image; older students get
-  // the precise diagram first (science) then a concept image as fallback.
   return cls <= 5 ? (concept || diagram) : (diagram || concept);
 }

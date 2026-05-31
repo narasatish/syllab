@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Derivatives — Futures &amp; Options Explained Simply — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Derivatives</span>: Futures &amp; Options Explained Simply</h2>
+          <ul><li>Chapter: Derivatives — Futures &amp; Options Explained Simply</li><li>Subject: Financial Literacy</li><li>Class: 12, CBSE Board</li><li>Your guide to understanding financial contracts!</li></ul>
+          <p class="notes">🎙️ Hello students! Today we embark on an exciting journey into the world of financial derivatives. This chapter is crucial for understanding advanced financial concepts and is important from an exam perspective.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Derivatives</span>?</h2>
+          <ul><li>A financial contract whose value is 'derived' from an underlying asset.</li><li>Underlying assets can be stocks, commodities, currencies, interest rates, etc.</li><li>They don't have independent value; they depend on the price movements of the underlying asset.</li></ul>
+          <p class="notes">🎙️ Think of a derivative as a shadow. The shadow's shape and size depend on the object casting it. Similarly, a derivative's value depends entirely on its underlying asset. If the asset's price changes, so does the derivative's value.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Linked Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Purpose</span> of Derivatives: Why Use Them?</h2>
+          <ul><li>Hedging: To reduce or 'hedge' against potential price risks.</li><li>Speculation: To profit from anticipated future price movements.</li><li>Arbitrage: To profit from price differences in different markets.</li></ul>
+          <p class="notes">🎙️ Derivatives serve multiple purposes. Businesses often use them to protect themselves from adverse price changes, like a farmer selling his crop in advance. Savvy investors might use them to bet on future prices, while others exploit tiny price discrepancies across markets.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Risk Management</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Main <span class="hl">Types</span> of Derivatives</h2>
+          <ul><li>Futures: Obligation to buy/sell at a future date.</li><li>Options: Right, but not obligation, to buy/sell.</li><li>Forwards: Similar to futures but customized and OTC.</li><li>Swaps: Agreement to exchange cash flows.</li></ul>
+          <p class="notes">🎙️ While there are several types, for Class 12 CBSE, our primary focus will be on Futures and Options. Forwards are similar to futures but are private agreements, and swaps involve exchanging cash flows.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Futures</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Options</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Forwards</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Swaps</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Our <span class="hl">Focus</span>: Futures &amp; Options</h2>
+          <ul><li>These are the most common and important derivatives for your curriculum.</li><li>Understanding their mechanics is key for exam success.</li><li>We'll cover definitions, features, examples, and calculations.</li></ul>
+          <p class="notes">🎙️ Futures and Options are foundational. Mastering these will give you a strong base in financial literacy. Pay close attention to the examples and calculations, as they are frequently tested.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Key Contracts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Futures</span> Contracts: The Obligation</h2>
+          <ul><li>An agreement to buy or sell an underlying asset.</li><li>At a predetermined price.</li><li>On a specified future date.</li><li>Both parties are *obligated* to fulfill the contract.</li></ul>
+          <p class="notes">🎙️ A futures contract is a firm commitment. Once you enter into it, you are bound to either buy or sell the asset as agreed, regardless of what the market price is on the expiry date. This obligation is a key differentiator from options.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Future Date</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Key <span class="hl">Features</span> of Futures Contracts</h2>
+          <ul><li>Standardized: Fixed quantity, quality, and delivery dates.</li><li>Exchange-Traded: Traded on organized exchanges (e.g., NSE, BSE).</li><li>Margin Requirement: Initial deposit to cover potential losses.</li><li>Mark-to-Market: Daily settlement of gains/losses.</li></ul>
+          <p class="notes">🎙️ Standardization ensures liquidity and transparency. Being exchange-traded means there's a clearing house guaranteeing performance. Margin is crucial; it's a security deposit. Mark-to-market means your account is adjusted daily based on price movements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Standardized</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Futures <span class="hl">Example</span>: Farmer &amp; Flour Mill</h2>
+          <ul><li>A farmer expects to harvest wheat in 3 months.</li><li>A flour mill needs wheat in 3 months.</li><li>They agree today on a price of ₹2,000 per quintal for 100 quintals.</li><li>This locks in the price for both, reducing uncertainty.</li></ul>
+          <p class="notes">🎙️ Imagine a farmer worried about wheat prices falling, and a mill worried about prices rising. A futures contract allows them to agree on a price today for a future transaction, providing price certainty for both. This is a classic example of hedging.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span></div><div class="vcap">Wheat Harvest</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example: Nifty Futures (<span class="hl">Long Position</span>)</h2>
+          <ul><li>You buy 1 lot (50 units) of Nifty Futures at ₹18,000, expiring in 1 month.</li><li>You expect Nifty to rise. Initial margin paid.</li><li>After 1 month, Nifty is at ₹18,200.</li><li>You fulfill your obligation to buy at ₹18,000 and immediately sell at ₹18,200.</li></ul>
+          <p class="notes">🎙️ Here, you took a 'long' position, meaning you bet on the price increasing. Since your prediction was correct, you make a profit. Remember, you were obligated to buy at ₹18,000, even if the market price was different.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Buy Futures @ ₹18,000</span></div><div class="step"><span class="snum">2</span><span>Nifty Rises to ₹18,200</span></div><div class="step"><span class="snum">3</span><span>Profit = (18,200 - 18,000) * 50</span></div><div class="step"><span class="snum">4</span><span>Total Profit = ₹10,000</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Worked Example: Nifty Futures (<span class="hl">Short Position</span>)</h2>
+          <ul><li>You sell 1 lot (50 units) of Nifty Futures at ₹18,000, expiring in 1 month.</li><li>You expect Nifty to fall. Initial margin paid.</li><li>After 1 month, Nifty is at ₹17,800.</li><li>You fulfill your obligation to sell at ₹18,000 and immediately buy at ₹17,800.</li></ul>
+          <p class="notes">🎙️ In a 'short' position, you bet on the price decreasing. Since Nifty fell, you can buy it cheaper in the spot market and deliver it against your futures contract, making a profit. If Nifty had risen, you would have incurred a loss.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sell Futures @ ₹18,000</span></div><div class="step"><span class="snum">2</span><span>Nifty Falls to ₹17,800</span></div><div class="step"><span class="snum">3</span><span>Profit = (18,000 - 17,800) * 50</span></div><div class="step"><span class="snum">4</span><span>Total Profit = ₹10,000</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Advantages</span> of Futures Contracts</h2>
+          <ul><li>Price Discovery: Help in determining future spot prices.</li><li>Risk Management: Effective hedging tool for producers/consumers.</li><li>Liquidity: Exchange-traded contracts offer high liquidity.</li><li>Leverage: Control large value of assets with small margin.</li></ul>
+          <p class="notes">🎙️ Futures are powerful tools. They provide a clear indication of future price expectations and are excellent for managing price risk. The leverage aspect means you can control a significant asset value with a relatively small upfront investment, amplifying both gains and losses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Benefits</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Disadvantages</span> of Futures Contracts</h2>
+          <ul><li>High Risk: Leverage can lead to significant losses.</li><li>Margin Calls: If losses accumulate, more margin may be required.</li><li>Complexity: Requires good understanding of market dynamics.</li><li>Obligation: You *must* buy/sell, even if unfavorable.</li></ul>
+          <p class="notes">🎙️ While advantageous, futures come with substantial risks. The same leverage that magnifies gains can also magnify losses, potentially exceeding your initial margin. Margin calls can be demanding, and the obligation to transact can be costly if the market moves against you.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Risks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 1: Futures</h2>
+          <ul><li>True or False: In a futures contract, the buyer has the right but not the obligation to buy the underlying asset.</li><li>What is 'Mark-to-Market' in futures trading?</li><li>Name one key advantage of using futures contracts.</li></ul>
+          <p class="notes">🎙️ Take a moment to think about these questions. The first one checks your understanding of the core difference between futures and options. The second tests your knowledge of a key operational feature, and the third asks about their utility.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Options</span> Contracts: The Right, Not the Obligation</h2>
+          <ul><li>A contract giving the buyer the *right*, but not the obligation, to buy or sell an underlying asset.</li><li>At a predetermined price (strike price).</li><li>On or before a specified future date (expiry date).</li><li>The buyer pays a 'premium' for this right.</li></ul>
+          <p class="notes">🎙️ This is the fundamental difference from futures. As an option buyer, you have the flexibility to choose whether to exercise your right or let the option expire worthless. This flexibility comes at a cost, known as the premium.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Right vs. Obligation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Two Types</span> of Options: Call &amp; Put</h2>
+          <ul><li>Call Option: Gives the buyer the right to BUY the underlying asset.</li><li>Put Option: Gives the buyer the right to SELL the underlying asset.</li></ul>
+          <p class="notes">🎙️ These are the two basic types of options. A call option is used when you expect the price to rise, giving you the right to buy at a lower, pre-agreed price. A put option is used when you expect the price to fall, giving you the right to sell at a higher, pre-agreed price.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Call Option</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Put Option</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Call Option</span> Explained</h2>
+          <ul><li>Buyer has the right to buy the underlying asset.</li><li>Seller (writer) has the obligation to sell if exercised.</li><li>Buyers profit if the underlying price rises above the strike price + premium.</li><li>Sellers profit from the premium if the option expires unexercised.</li></ul>
+          <p class="notes">🎙️ Think of 'Call' as calling the asset to you, i.e., buying it. A call option buyer is bullish. Their maximum loss is the premium paid. The call option seller is bearish or neutral and hopes the price stays below the strike so they keep the premium.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📞</div><div class="vcap">Right to Buy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Put Option</span> Explained</h2>
+          <ul><li>Buyer has the right to sell the underlying asset.</li><li>Seller (writer) has the obligation to buy if exercised.</li><li>Buyers profit if the underlying price falls below the strike price - premium.</li><li>Sellers profit from the premium if the option expires unexercised.</li></ul>
+          <p class="notes">🎙️ Think of 'Put' as putting the asset away, i.e., selling it. A put option buyer is bearish. Again, their maximum loss is limited to the premium. The put option seller is bullish or neutral and earns the premium if the price stays above the strike.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🅿️</div><div class="vcap">Right to Sell</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Key Terms</span> in Options Trading</h2>
+          <ul><li>Strike Price: The predetermined price at which the asset can be bought/sold.</li><li>Premium: The price paid by the option buyer to the seller for the right.</li><li>Expiry Date: The last date on which the option can be exercised.</li><li>Lot Size: The fixed number of units of the underlying asset in one contract.</li></ul>
+          <p class="notes">🎙️ These terms are fundamental to understanding options. The strike price is your reference point. The premium is your upfront cost and maximum loss as a buyer. The expiry date defines the lifespan of your right, and lot size determines the total value of your contract.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Contract Details</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: <span class="hl">Call Option</span> Buyer</h2>
+          <ul><li>You buy a Call Option on Reliance stock with a strike price of ₹2,500.</li><li>Premium paid = ₹50 per share. Lot size = 250 shares.</li><li>Total premium paid = ₹50 * 250 = ₹12,500.</li><li>Scenario 1: Reliance closes at ₹2,600 on expiry. You exercise.</li><li>Scenario 2: Reliance closes at ₹2,400 on expiry. You let it lapse.</li></ul>
+          <p class="notes">🎙️ In Scenario 1, you make a profit because the stock price went above your strike price plus premium. In Scenario 2, the stock price fell below your strike, so exercising would lead to a bigger loss. You simply let the option expire, limiting your loss to the premium.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Spot Price ₹2,600: Buy @ ₹2,500, Sell @ ₹2,600. Profit = (₹100*250) - ₹12,500 = ₹12,500</span></div><div class="step"><span class="snum">2</span><span>Spot Price ₹2,400: Don't Exercise. Loss = ₹12,500 (premium)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked Example: <span class="hl">Put Option</span> Buyer</h2>
+          <ul><li>You buy a Put Option on TCS stock with a strike price of ₹3,500.</li><li>Premium paid = ₹70 per share. Lot size = 150 shares.</li><li>Total premium paid = ₹70 * 150 = ₹10,500.</li><li>Scenario 1: TCS closes at ₹3,400 on expiry. You exercise.</li><li>Scenario 2: TCS closes at ₹3,600 on expiry. You let it lapse.</li></ul>
+          <p class="notes">🎙️ Here, you profited when the stock price fell below your strike price, allowing you to sell at a higher price than the market. If the price had risen, you would not exercise, limiting your loss to the premium paid, demonstrating the limited risk for an option buyer.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Spot Price ₹3,400: Sell @ ₹3,500, Buy @ ₹3,400. Profit = (₹100*150) - ₹10,500 = ₹4,500</span></div><div class="step"><span class="snum">2</span><span>Spot Price ₹3,600: Don't Exercise. Loss = ₹10,500 (premium)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Moneyness</span> of Options</h2>
+          <ul><li>In-the-Money (ITM): Option has intrinsic value if exercised immediately.</li><li>At-the-Money (ATM): Strike price equals the underlying asset's current price.</li><li>Out-of-the-Money (OTM): Option has no intrinsic value; exercising would be unprofitable.</li></ul>
+          <p class="notes">🎙️ This concept describes the profitability of an option relative to its strike price and the current market price. An ITM option is 'in profit' before considering the premium, while an OTM option is 'out of profit' and likely to expire worthless if it stays that way.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Option Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Advantages</span> of Options Contracts</h2>
+          <ul><li>Limited Risk (for buyer): Maximum loss is limited to the premium paid.</li><li>Flexibility: Buyer has the right, not the obligation, to act.</li><li>Leverage: Control a large asset value with a smaller premium.</li><li>Income Generation (for seller): Can earn premium by writing options.</li></ul>
+          <p class="notes">🎙️ The limited risk for buyers is a major draw for options. This allows for strategic bets without the fear of unlimited losses. Sellers, however, face unlimited risk but earn income from the premium received, making it a strategy for those with a specific market view.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Key Benefits</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Disadvantages</span> of Options Contracts</h2>
+          <ul><li>Complexity: More intricate strategies and factors affect pricing.</li><li>Time Decay: Options lose value as they approach expiry.</li><li>High Risk (for seller): Unlimited loss potential for option writers.</li><li>Premium Cost: Options can be expensive, eating into potential profits.</li></ul>
+          <p class="notes">🎙️ Options are not without their drawbacks. Their pricing is complex, influenced by factors like volatility and time. Time decay, or 'theta,' is a constant enemy of the option buyer. Sellers face substantial risk, and the premium itself can be a significant cost for buyers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Challenges</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Questions</span> 2 &amp; 3: Options</h2>
+          <ul><li>If you expect a stock's price to fall, would you buy a Call Option or a Put Option?</li><li>What is the maximum loss for an option buyer?</li><li>Explain 'In-the-Money' for a Call Option.</li></ul>
+          <p class="notes">🎙️ These questions will help solidify your understanding of options. Remember the core difference between calls and puts, and the concept of limited risk for buyers. Defining 'in-the-money' for a call option shows you understand its intrinsic value.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Conclusion: Derivatives Simplified</h2>
+          <ul><li>Derivatives derive value from an underlying asset.</li><li>Futures: Obligation to buy/sell at a future date and price.</li><li>Options: Right, but not obligation, to buy/sell at strike price.</li><li>Used for hedging, speculation, and arbitrage. Understand risks!</li></ul>
+          <p class="notes">🎙️ We've covered the basics of derivatives, focusing on futures and options. Remember the key distinctions: obligation versus right, and the different risk profiles for buyers and sellers. These concepts are vital for your exams and for understanding financial markets. Keep practicing the examples!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Key Takeaways</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Financial Literacy</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

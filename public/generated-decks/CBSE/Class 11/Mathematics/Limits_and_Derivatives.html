@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Limits and Derivatives (Class 11 CBSE) — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Limits and Derivatives</span>!</h2>
+          <ul><li>Essential Chapter for Class 11 &amp; 12</li><li>Foundation for Calculus</li><li>Crucial for JEE &amp; Board Exams</li></ul>
+          <p class="notes">🎙️ Hello students! Today we embark on a very important journey into the world of Limits and Derivatives. This chapter is not just for your Class 11 exams but forms the bedrock for advanced mathematics you'll encounter in Class 12 and competitive exams like JEE.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Why do we need <span class="hl">Limits</span>?</h2>
+          <ul><li>Understand behaviour near a point</li><li>Deal with undefined expressions</li><li>Foundation for calculus concepts</li></ul>
+          <p class="notes">🎙️ Imagine trying to find the value of a function exactly at a point where it's undefined. Limits help us understand what happens to the function's value as we get extremely close to that point, without actually touching it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Approaching a value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Intuitive Understanding</span> of a Limit</h2>
+          <ul><li>Value a function approaches</li><li>As input approaches a specific number</li><li>Not necessarily the function's value AT that point</li></ul>
+          <p class="notes">🎙️ Think of a limit as a target. As our input 'x' gets closer and closer to a certain number, the function's output 'f(x)' gets closer and closer to a specific value. This target value is the limit.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Targeting a value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Left-Hand and Right-Hand</span> Limits</h2>
+          <ul><li>Approach from values less than 'a'</li><li>Approach from values greater than 'a'</li><li>Both must lead to the same value</li></ul>
+          <p class="notes">🎙️ To truly understand how a function behaves near a point, we must consider approaching it from both sides: from values smaller than 'a' (left-hand limit) and from values larger than 'a' (right-hand limit).</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>LHL: x → a⁻</span></div><div class="step"><span class="snum">2</span><span>RHL: x → a⁺</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>When Does a Limit <span class="hl">Exist</span>?</h2>
+          <ul><li>LHL must be equal to RHL</li><li>Both must be finite values</li><li>Then the limit exists and equals that value</li></ul>
+          <p class="notes">🎙️ For the limit of a function to exist at a point 'a', the value the function approaches from the left side must be exactly the same as the value it approaches from the right side. This is the fundamental condition.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of limits</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Visualizing Limit <span class="hl">Existence</span></h2>
+          <ul><li>LHL ≠ RHL: Limit does not exist</li><li>LHL = RHL = L: Limit exists</li><li>Function value f(a) might be different</li></ul>
+          <p class="notes">🎙️ This visual shows a scenario where the Left-Hand Limit and Right-Hand Limit are equal, meaning the limit exists. If these bars were of different heights, the limit would not exist, even if the function itself is defined at that point.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">LHL</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">RHL</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Limit Value</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Worked Example: <span class="hl">Direct Substitution</span> (Polynomial)</h2>
+          <ul><li>Evaluate: lim (x→2) (x² + 3x + 1)</li><li>Substitute x=2 directly</li><li>Result: 2² + 3(2) + 1 = 4 + 6 + 1 = 11</li></ul>
+          <p class="notes">🎙️ For polynomial functions and many other well-behaved functions, if direct substitution does not lead to an indeterminate form, it is the simplest way to evaluate the limit. Always try this first!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Worked Example: <span class="hl">Rational Function</span> (Direct Substitution)</h2>
+          <ul><li>Evaluate: lim (x→1) (x + 2) / (x + 1)</li><li>Substitute x=1 directly</li><li>Result: (1 + 2) / (1 + 1) = 3 / 2</li></ul>
+          <p class="notes">🎙️ Again, in this case, direct substitution works perfectly fine because the denominator does not become zero. This indicates that the function is continuous at x=1, and the limit is simply the function's value.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>What are <span class="hl">Indeterminate Forms</span>?</h2>
+          <ul><li>Expressions like 0/0, ∞/∞, ∞-∞</li><li>Cannot be determined directly</li><li>Require algebraic manipulation</li></ul>
+          <p class="notes">🎙️ When direct substitution results in forms like 0/0, it doesn't mean the limit doesn't exist. It means we need to do more work. These are 'indeterminate' because their actual value depends on how the numerator and denominator approach zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❓</span><span>❓</span><span>❓</span></div><div class="vcap">Common indeterminate forms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Technique 1: <span class="hl">Factorisation Method</span></h2>
+          <ul><li>Factorize numerator and denominator</li><li>Cancel common factors</li><li>Then substitute the limit value</li></ul>
+          <p class="notes">🎙️ The factorisation method is very effective when you have polynomial expressions that result in 0/0. By cancelling the common factor (x-a), you eliminate the problematic term causing the zero in the denominator.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Factorize Expressions</span></div><div class="step"><span class="snum">2</span><span>Cancel Common Factors</span></div><div class="step"><span class="snum">3</span><span>Substitute Limit Value</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Example: <span class="hl">Factorisation</span> Method</h2>
+          <ul><li>Evaluate: lim (x→2) (x² - 4) / (x - 2)</li><li>Factorize x² - 4 to (x - 2)(x + 2)</li><li>Cancel (x - 2), then substitute x=2: 2 + 2 = 4</li></ul>
+          <p class="notes">🎙️ Here, direct substitution gives 0/0. By factoring the numerator into (x-2)(x+2), we can cancel the (x-2) term, which was causing the denominator to be zero. After cancellation, direct substitution yields the limit.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Technique 2: <span class="hl">Rationalisation Method</span></h2>
+          <ul><li>Used for expressions with square roots</li><li>Multiply by conjugate of root term</li><li>Simplify and then substitute</li></ul>
+          <p class="notes">🎙️ When you see square roots in a limit problem that gives 0/0, rationalisation is often the way to go. Multiplying by the conjugate helps eliminate the square root and usually creates a factor that can be cancelled.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Roots</span></div><div class="step"><span class="snum">2</span><span>Multiply by Conjugate</span></div><div class="step"><span class="snum">3</span><span>Simplify &amp; Substitute</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Example: <span class="hl">Rationalisation</span> Method</h2>
+          <ul><li>Evaluate: lim (x→0) (√(1+x) - 1) / x</li><li>Multiply numerator &amp; denominator by (√(1+x) + 1)</li><li>Simplify to 1 / (√(1+x) + 1), then substitute x=0: 1 / (1+1) = 1/2</li></ul>
+          <p class="notes">🎙️ This is a classic example where rationalisation helps. Notice how the (a-b)(a+b) = a²-b² identity simplifies the numerator, allowing us to cancel the 'x' term in the denominator that was causing the 0/0 form.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Properties of Limits</span> (Algebra of Limits)</h2>
+          <ul><li>Sum Rule: lim(f+g) = lim f + lim g</li><li>Product Rule: lim(f*g) = lim f * lim g</li><li>Quotient Rule: lim(f/g) = lim f / lim g (if lim g ≠ 0)</li><li>Constant Multiple Rule: lim(c*f) = c * lim f</li></ul>
+          <p class="notes">🎙️ Limits behave very nicely with basic arithmetic operations. These properties allow us to break down complex limit problems into simpler ones, evaluating each part separately and then combining the results.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combining limits</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick Check: <span class="hl">Evaluate</span> this Limit</h2>
+          <ul><li>lim (x→3) (x² - 9) / (x - 3)</li><li>A) 0</li><li>B) 3</li><li>C) 6</li><li>D) Does Not Exist</li></ul>
+          <p class="notes">🎙️ Take a moment to solve this problem using the techniques we just discussed. Remember to check for indeterminate forms and apply the appropriate method. We will discuss the answer shortly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>What are Derivatives? (<span class="hl">Rate of Change</span>)</h2>
+          <ul><li>Measure of how a function changes</li><li>Instantaneous rate of change</li><li>Slope of the tangent line</li></ul>
+          <p class="notes">🎙️ While limits help us understand behavior near a point, derivatives tell us exactly how fast a function is changing at a specific point. Think of it like the instantaneous speed of a moving object.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Instantaneous speed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Defining Derivative: <span class="hl">First Principles</span></h2>
+          <ul><li>f'(x) = lim (h→0) [f(x+h) - f(x)] / h</li><li>Also known as the delta method</li><li>Fundamental definition of the derivative</li></ul>
+          <p class="notes">🎙️ This formula is the very heart of derivatives. It represents the limit of the average rate of change over an infinitesimally small interval 'h', giving us the instantaneous rate of change.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find f(x+h)</span></div><div class="step"><span class="snum">2</span><span>Calculate Difference</span></div><div class="step"><span class="snum">3</span><span>Divide by h</span></div><div class="step"><span class="snum">4</span><span>Apply Limit (h→0)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Derivative as <span class="hl">Slope of Tangent</span></h2>
+          <ul><li>Derivative at 'x' is slope of tangent</li><li>Tangent touches curve at one point</li><li>Reveals direction &amp; steepness of curve</li></ul>
+          <p class="notes">🎙️ Geometrically, the derivative of a function at a point 'x' is the slope of the tangent line to the curve at that point. This visual connection helps us understand what the numerical value of a derivative actually represents.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Measuring steepness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: <span class="hl">Derivative of x²</span> from First Principles</h2>
+          <ul><li>Function: f(x) = x²</li><li>f(x+h) = (x+h)² = x² + 2xh + h²</li><li>f'(x) = lim (h→0) [(x² + 2xh + h²) - x²] / h</li><li>Simplify: lim (h→0) [2xh + h²] / h = lim (h→0) [2x + h] = 2x</li></ul>
+          <p class="notes">🎙️ Let's apply the first principles definition to find the derivative of x². Notice how the 'h' in the denominator cancels out after simplification, allowing us to substitute h=0 and find the derivative, which is 2x.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Avoid These <span class="hl">Common Mistakes</span>!</h2>
+          <ul><li>Assuming limit exists if f(a) is defined</li><li>Incorrectly cancelling terms (e.g., x/x = 1 when x=0)</li><li>Forgetting to apply the limit operator</li><li>Confusing average vs. instantaneous rate</li></ul>
+          <p class="notes">🎙️ Students often make crucial errors. Remember, a function being defined at 'a' doesn't guarantee the limit exists. Also, be careful with algebraic manipulations, especially when dealing with variables that approach zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Watch out!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check: <span class="hl">Spot the Error</span></h2>
+          <ul><li>Problem: lim (x→0) (x² + 3x) / x</li><li>Student's solution: lim (x→0) (x + 3) = 3</li><li>Is this correct? If so, why? If not, why?</li></ul>
+          <p class="notes">🎙️ Consider the steps taken by the student. Is the cancellation valid at every stage? Think about the definition of a limit and when terms can be cancelled. We'll discuss the nuances of this problem.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Rules for Differentiation</span></h2>
+          <ul><li>Power Rule: d/dx (xⁿ) = nxⁿ⁻¹</li><li>Sum/Difference Rule: d/dx (f±g) = f'±g'</li><li>Product Rule: d/dx (fg) = f'g + fg'</li><li>Quotient Rule: d/dx (f/g) = (f'g - fg') / g²</li></ul>
+          <p class="notes">🎙️ Just like limits, derivatives also have rules for arithmetic operations. These rules simplify the process of finding derivatives immensely, especially for complex functions, without having to use first principles every time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Derivative tools</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Where are Derivatives Used?</h2>
+          <ul><li>Finding maximum/minimum values</li><li>Optimization problems in science/engineering</li><li>Velocity and acceleration in physics</li><li>Rate of change in economics</li></ul>
+          <p class="notes">🎙️ Derivatives are incredibly powerful tools with vast applications across various fields. From designing efficient systems to predicting economic trends, understanding rates of change is crucial in the real world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Real-world impact</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check: <span class="hl">Basic Derivative</span></h2>
+          <ul><li>If f(x) = x⁵, what is f'(x)?</li><li>A) 5x⁶</li><li>B) x⁴</li><li>C) 5x⁴</li><li>D) 1/5 x⁶</li></ul>
+          <p class="notes">🎙️ Apply the power rule for differentiation that we just introduced. This is a fundamental rule you must know. Choose the correct option and be ready to explain your reasoning.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Limits and Derivatives</h2>
+          <ul><li>Limits describe function behavior near a point.</li><li>LHL = RHL for limit existence.</li><li>Derivatives are instantaneous rates of change.</li><li>First principles define derivatives.</li></ul>
+          <p class="notes">🎙️ Today, we've covered the foundational concepts of limits and derivatives. Remember, limits are about approaching, while derivatives are about instantaneous change. Master these concepts, and you'll be well-prepared for your exams and future studies.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 11 · Mathematics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

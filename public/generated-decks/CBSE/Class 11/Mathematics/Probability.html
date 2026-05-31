@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Probability: Unlocking Uncertainty — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to Probability: <span class="hl">Unlocking</span> Uncertainty</h2>
+          <ul><li>Explore the world of chance and likelihood.</li><li>Understand foundational concepts of probability.</li><li>Prepare for CBSE Class 11 exams with confidence.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into Probability, a fundamental concept in mathematics. We'll learn how to quantify uncertainty and make informed predictions about future events. This chapter is crucial for your Class 11 exams and has vast real-world applications.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Why Study Probability? <span class="hl">Real-World</span> Applications</h2>
+          <ul><li>Weather forecasting and climate modeling.</li><li>Stock market predictions and risk assessment.</li><li>Genetics, medicine, and disease spread.</li><li>Games of chance and sports analytics.</li></ul>
+          <p class="notes">🎙️ Probability isn't just a theoretical concept; it's deeply embedded in our daily lives. From deciding whether to carry an umbrella to understanding election outcomes, probability helps us navigate an uncertain world. It's a powerful tool for decision-making across many fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Probability Everywhere</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Defining <span class="hl">Random Experiments</span></h2>
+          <ul><li>An experiment whose outcome cannot be predicted with certainty.</li><li>All possible outcomes are known in advance.</li><li>Can be repeated under identical conditions.</li></ul>
+          <p class="notes">🎙️ A random experiment is the cornerstone of probability. Think about tossing a coin; you know it will be heads or tails, but you can't predict which one it will be for a single toss. This unpredictability, combined with known possible outcomes, defines a random experiment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Unpredictable Outcomes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Understanding <span class="hl">Sample Space</span> (S)</h2>
+          <ul><li>The set of all possible outcomes of a random experiment.</li><li>Represented by 'S'.</li><li>Crucial for defining events and calculating probabilities.</li></ul>
+          <p class="notes">🎙️ The sample space is essentially the 'universe' of all possible results for your experiment. For example, if you toss two coins, the sample space consists of {HH, HT, TH, TT}. Clearly defining 'S' is the first critical step in solving any probability problem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">Two Coin Toss Outcomes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>What is an <span class="hl">Event</span> (E)?</h2>
+          <ul><li>A subset of the sample space (S).</li><li>A collection of some possible outcomes.</li><li>Example: Getting a 'Head' when tossing a coin.</li></ul>
+          <p class="notes">🎙️ An event is simply a specific outcome or a group of outcomes that we are interested in. If the sample space is rolling a die {1, 2, 3, 4, 5, 6}, then 'getting an even number' is an event, represented as {2, 4, 6}. Events are subsets of the sample space.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Targeted Outcomes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Algebra of Events: <span class="hl">Operations</span> on Events</h2>
+          <ul><li>Union (A ∪ B): A or B or both occur.</li><li>Intersection (A ∩ B): Both A and B occur.</li><li>Complement (A'): Event A does not occur.</li></ul>
+          <p class="notes">🎙️ Just like sets, we can perform operations on events to describe more complex scenarios. Union means 'A or B', intersection means 'A and B', and complement means 'not A'. Understanding these operations is key to applying probability rules correctly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Combining Events</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>No Overlap: <span class="hl">Mutually Exclusive</span> Events</h2>
+          <ul><li>Events that cannot occur simultaneously.</li><li>Their intersection is an empty set (A ∩ B = Φ).</li><li>Example: Getting a 'Head' and a 'Tail' on a single coin toss.</li></ul>
+          <p class="notes">🎙️ Mutually exclusive events are like parallel lines; they never meet. If one event happens, the other cannot. This concept simplifies probability calculations significantly, especially when dealing with unions of events. Remember, A and B cannot both happen at the same time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Separate Paths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Covering All Possibilities: <span class="hl">Exhaustive</span> Events</h2>
+          <ul><li>A set of events whose union covers the entire sample space (A₁ ∪ A₂ ∪ ... ∪ Aₙ = S).</li><li>At least one of the events must occur.</li><li>Example: Getting an even number or an odd number when rolling a die.</li></ul>
+          <p class="notes">🎙️ Exhaustive events collectively leave no stone unturned in the sample space. Together, they account for every possible outcome of the experiment. This concept is particularly useful when considering partitions of the sample space or when analyzing all possible scenarios.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">All Covered</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Fair Chances: <span class="hl">Equally Likely</span> Outcomes</h2>
+          <ul><li>Outcomes that have the same probability of occurring.</li><li>No outcome is preferred over another.</li><li>Assumed in classical probability definition.</li></ul>
+          <p class="notes">🎙️ When we say outcomes are equally likely, it means each outcome has an identical chance of happening. For instance, in a fair coin toss, heads and tails are equally likely. This assumption is crucial for applying the classical definition of probability, which we'll discuss next.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balanced Outcomes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Classical Definition</span> of Probability</h2>
+          <ul><li>P(E) = (Number of favorable outcomes) / (Total number of possible outcomes).</li><li>Applicable when all outcomes are equally likely.</li><li>Denoted as P(E) = n(E) / n(S).</li></ul>
+          <p class="notes">🎙️ This is the most common and intuitive way to define probability. It's a simple ratio: how many ways can your event happen, divided by the total number of ways anything can happen. Remember, this formula relies on the assumption of equally likely outcomes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Ratio of Chances</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Calculating P(E): <span class="hl">Step-by-Step</span></h2>
+          <ul><li>Identify the sample space (S) and its size n(S).</li><li>Identify the event (E) and its size n(E).</li><li>Apply the formula: P(E) = n(E) / n(S).</li></ul>
+          <p class="notes">🎙️ Following these steps systematically will help you avoid errors in probability problems. First, clearly list all possibilities, then identify the specific outcomes you're interested in. Finally, apply the ratio to get your probability.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Define S</span></div><div class="step"><span class="snum">2</span><span>Define E</span></div><div class="step"><span class="snum">3</span><span>Count n(S), n(E)</span></div><div class="step"><span class="snum">4</span><span>Calculate P(E)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Key <span class="hl">Properties</span> of Probability P(E)</h2>
+          <ul><li>0 ≤ P(E) ≤ 1: Probability is always between 0 and 1.</li><li>P(S) = 1: Probability of the certain event is 1.</li><li>P(Φ) = 0: Probability of the impossible event is 0.</li></ul>
+          <p class="notes">🎙️ These properties are fundamental. A probability of 0 means an event will never happen, while 1 means it's guaranteed. Any value outside this range indicates a calculation error. The sum of probabilities of all elementary events in a sample space must equal 1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Probability Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Coin Toss</span> Probability</h2>
+          <ul><li>Experiment: Tossing three fair coins.</li><li>Find P(getting exactly two heads).</li><li>Find P(getting at least one tail).</li></ul>
+          <p class="notes">🎙️ Let's apply our knowledge. For three coins, the sample space S has 2³ = 8 outcomes. List them carefully: {HHH, HHT, HTH, THH, HTT, THT, TTH, TTT}. Now identify the favorable outcomes for each event and use the formula P(E) = n(E)/n(S).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span><span>🪙</span></div><div class="vcap">Three Coins</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Die Roll</span> Probability</h2>
+          <ul><li>Experiment: Rolling a single fair die.</li><li>Find P(getting an even number).</li><li>Find P(getting a number greater than 4).</li></ul>
+          <p class="notes">🎙️ Here, the sample space S is {1, 2, 3, 4, 5, 6}, so n(S) = 6. For an even number, E = {2, 4, 6}, so n(E) = 3. P(even) = 3/6 = 1/2. For a number greater than 4, E = {5, 6}, so n(E) = 2. P(&gt;4) = 2/6 = 1/3. Simple, right?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span></div><div class="vcap">Single Die</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Common Mistake 1: <span class="hl">Incorrect Sample Space</span></h2>
+          <ul><li>Failing to list ALL possible outcomes.</li><li>Assuming outcomes are equally likely when they are not.</li><li>Example: Two coin tosses, thinking {HH, HT, TT} is S (missing TH).</li></ul>
+          <p class="notes">🎙️ An incorrect sample space is the most frequent cause of errors in probability problems. Always take your time to systematically list every unique outcome. Especially for multiple events, use tree diagrams or tables to ensure completeness and correctness.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Sample Space Error</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Probability of 'OR' (<span class="hl">Union</span> of Events)</h2>
+          <ul><li>P(A ∪ B) = P(A) + P(B) - P(A ∩ B).</li><li>This formula applies when events A and B are NOT mutually exclusive.</li><li>Subtract P(A ∩ B) to avoid double-counting common outcomes.</li></ul>
+          <p class="notes">🎙️ When you want to find the probability of A or B happening, you add their individual probabilities. However, if they can happen together, you must subtract the probability of their intersection, as those outcomes were counted twice. This is the Addition Theorem of Probability.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combining Chances</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Union of <span class="hl">Disjoint Events</span> (Mutually Exclusive)</h2>
+          <ul><li>If A and B are mutually exclusive, P(A ∩ B) = 0.</li><li>Formula simplifies: P(A ∪ B) = P(A) + P(B).</li><li>This is a special case of the general addition rule.</li></ul>
+          <p class="notes">🎙️ This simplified rule is very powerful. When events cannot occur together, calculating the probability of either happening is straightforward: just sum their individual probabilities. Always check if events are mutually exclusive before applying this simplified formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">No Shared Link</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Complement</span> of an Event: P(A')</h2>
+          <ul><li>P(A') = 1 - P(A).</li><li>A' (or Aᶜ) represents the event 'not A'.</li><li>Useful when calculating P(A) directly is complex.</li></ul>
+          <p class="notes">🎙️ The complement rule is incredibly useful. If you know the probability of an event happening, you immediately know the probability of it not happening by subtracting from 1. This often simplifies problems, especially those involving 'at least one' scenarios.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">The Opposite</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example 3: <span class="hl">Cards</span> - Union &amp; Intersection</h2>
+          <ul><li>Experiment: Drawing one card from a standard deck of 52 cards.</li><li>Event A: Getting a King.</li><li>Event B: Getting a Heart.</li><li>Find P(A ∪ B) and P(A ∩ B).</li></ul>
+          <p class="notes">🎙️ Here, n(S) = 52. P(King) = 4/52, P(Heart) = 13/52. The King of Hearts is common to both, so P(King ∩ Heart) = 1/52. Now, apply the union formula: P(King ∪ Heart) = P(King) + P(Heart) - P(King ∩ Heart). This is a classic application of the addition theorem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span></div><div class="vcap">Deck of Cards</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked Example 4: <span class="hl">Mutually Exclusive</span> Application</h2>
+          <ul><li>Bag contains 5 red, 3 blue, 2 green balls.</li><li>One ball is drawn at random.</li><li>Find P(drawing a red OR a blue ball).</li></ul>
+          <p class="notes">🎙️ Total balls = 5+3+2 = 10. Drawing a red ball and drawing a blue ball are mutually exclusive events – you can't draw both at once. So, P(Red) = 5/10, P(Blue) = 3/10. P(Red or Blue) = P(Red) + P(Blue) = 5/10 + 3/10 = 8/10 = 4/5.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span><span>🔴</span><span>🔴</span><span>🔴</span></div><div class="vcap">Balls in a Bag</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Question 1: <span class="hl">Basic Probability</span> Check</h2>
+          <ul><li>A fair coin is tossed. What is the probability of getting a tail?</li><li>A. 0</li><li>B. 0.5</li><li>C. 1</li><li>D. 0.25</li></ul>
+          <p class="notes">🎙️ Think about the sample space for a single coin toss and the number of favorable outcomes for getting a tail. This is a direct application of the classical definition. The answer should be quite straightforward for you now.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Question 2: <span class="hl">Union Rule</span> Application</h2>
+          <ul><li>If P(A) = 0.4, P(B) = 0.3, and P(A ∩ B) = 0.1, find P(A ∪ B).</li><li>A. 0.8</li><li>B. 0.7</li><li>C. 0.6</li><li>D. 0.5</li></ul>
+          <p class="notes">🎙️ Recall the general addition theorem for probability. Plug in the given values carefully to find the probability of the union of events A and B. Remember to subtract the intersection if it's not zero.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Question 3: <span class="hl">Complement Rule</span> Check</h2>
+          <ul><li>The probability of rain tomorrow is 0.6. What is the probability that it will NOT rain?</li><li>A. 0.6</li><li>B. 0.4</li><li>C. 0.3</li><li>D. 1.0</li></ul>
+          <p class="notes">🎙️ This question directly tests your understanding of the complement rule. If an event has a certain probability of occurring, its complement, or the event not occurring, is simply 1 minus that probability. Apply the formula P(A') = 1 - P(A).</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Summary &amp; Recap: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>Random experiments, Sample Space, Events.</li><li>Mutually Exclusive &amp; Exhaustive Events.</li><li>Classical Definition: P(E) = n(E)/n(S).</li><li>Addition Theorem: P(A∪B) = P(A)+P(B)-P(A∩B).</li><li>Complement Rule: P(A') = 1-P(A).</li></ul>
+          <p class="notes">🎙️ We've covered a lot of ground today! Remember the definitions of key terms and the conditions for applying each formula. A strong grasp of these fundamentals will serve you well in more advanced topics and in your exams. Practice makes perfect!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Concepts Consolidated</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Mastering Probability for Exams: Tips &amp; Practice</h2>
+          <ul><li>Clearly define S and E for every problem.</li><li>Use Venn diagrams for complex event relationships.</li><li>Practice a variety of problems, including those from NCERT.</li><li>Understand common pitfalls like double-counting.</li></ul>
+          <p class="notes">🎙️ To excel in probability, systematic problem-solving is crucial. Don't rush; take the time to identify all elements correctly. Consistent practice with diverse problems from your textbook and previous year papers will build your confidence and accuracy. All the best for your preparations!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Prepare for Success</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 11 · Mathematics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

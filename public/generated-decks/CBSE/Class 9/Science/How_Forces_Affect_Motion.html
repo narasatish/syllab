@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>How Forces Affect Motion — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to 'How Forces Affect <span class="hl">Motion</span>'!</h2>
+          <ul><li>What makes things move or stop?</li><li>Why do objects change direction?</li><li>Explore the fascinating world of forces!</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're starting an exciting new chapter: 'How Forces Affect Motion'. We'll discover the hidden powers that influence everything around us, from a rolling ball to a flying rocket. Get ready to understand the physics behind everyday movements!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Force</span>?</h2>
+          <ul><li>A push or a pull on an object.</li><li>It cannot be seen, but its effects can be observed.</li><li>Forces are interactions between two or more objects.</li></ul>
+          <p class="notes">🎙️ Think about opening a door. You either push it or pull it. That push or pull is what we call a force. We can't see the force itself, but we can definitely see what it does to the door, right? It's always about an interaction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Push or Pull</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>What Can a <span class="hl">Force</span> Do?</h2>
+          <ul><li>Move a stationary object.</li><li>Stop a moving object.</li><li>Change the speed of a moving object.</li><li>Change the direction or shape of an object.</li></ul>
+          <p class="notes">🎙️ Forces are powerful! Imagine kicking a football – a force makes it move. If a goalkeeper stops it, that's another force. A force can also make a car speed up or slow down, or even crush a can, changing its shape.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start Motion</span></div><div class="step"><span class="snum">2</span><span>Stop Motion</span></div><div class="step"><span class="snum">3</span><span>Change Speed</span></div><div class="step"><span class="snum">4</span><span>Change Direction/Shape</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Types of Forces: <span class="hl">Contact</span> vs. Non-Contact</h2>
+          <ul><li>Forces are broadly classified into two types.</li><li>Contact forces require physical touch.</li><li>Non-contact forces act from a distance.</li></ul>
+          <p class="notes">🎙️ Forces can be categorized based on whether the objects actually touch each other. When you push a trolley, you are in direct contact, making it a contact force. But what about a magnet pulling a pin? They don't touch, yet there's a force!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Contact Forces</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Non-Contact Forces</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Contact Force: <span class="hl">Muscular</span> Force</h2>
+          <ul><li>Force exerted by the muscles of our body.</li><li>Used for pushing, pulling, lifting, carrying.</li><li>Example: A person pushing a loaded cart.</li></ul>
+          <p class="notes">🎙️ Our bodies are full of muscles, and when we use them to exert a force, it's called muscular force. Whether you're lifting your school bag or cycling to school, you're using muscular force. Even animals use muscular force, like a bullock pulling a cart.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Body Strength</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Contact Force: <span class="hl">Frictional</span> Force</h2>
+          <ul><li>Force that opposes motion between two surfaces.</li><li>Always acts in the opposite direction of motion.</li><li>Example: A rolling ball eventually stops due to friction.</li></ul>
+          <p class="notes">🎙️ Friction is the reason why things slow down and stop. When you slide a book across a table, friction between the book and the table surface resists its movement. It's also why we can walk without slipping – friction between our shoes and the ground!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Resistance to Motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Non-Contact Force: <span class="hl">Gravitational</span> Force</h2>
+          <ul><li>Force of attraction between any two objects with mass.</li><li>The Earth's gravity pulls objects towards its center.</li><li>Example: An apple falling from a tree.</li></ul>
+          <p class="notes">🎙️ Gravity is the force that keeps our feet on the ground and causes objects to fall downwards. It's a non-contact force because the Earth doesn't need to touch the apple for it to fall. Every object in the universe exerts a gravitational force on every other object!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Earth's Pull</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Non-Contact Force: <span class="hl">Magnetic</span> Force</h2>
+          <ul><li>Force exerted by magnets on magnetic materials.</li><li>Can be attractive (North-South) or repulsive (North-North).</li><li>Example: A magnet attracting iron pins.</li></ul>
+          <p class="notes">🎙️ You've probably played with magnets. They can pull certain metals towards them without touching, or push other magnets away. This invisible pull or push is magnetic force. It's used in many devices, from refrigerator doors to electric motors.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Attraction/Repulsion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Non-Contact Force: <span class="hl">Electrostatic</span> Force</h2>
+          <ul><li>Force exerted by charged bodies on other charged bodies.</li><li>Can be attractive (opposite charges) or repulsive (like charges).</li><li>Example: A charged comb attracting tiny pieces of paper.</li></ul>
+          <p class="notes">🎙️ Have you ever rubbed a balloon on your hair and then stuck it to a wall? That's electrostatic force at play! It's the force between objects that have an electrical charge. This force can make your hair stand on end or even cause lightning in a storm.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Static Electricity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Balanced</span> and Unbalanced Forces</h2>
+          <ul><li>Multiple forces acting on an object.</li><li>Balanced forces: Net force is zero, no change in motion.</li><li>Unbalanced forces: Net force is not zero, causes change in motion.</li></ul>
+          <p class="notes">🎙️ Often, more than one force acts on an object at the same time. If all these forces cancel each other out, we say they are balanced, and the object won't change its state of motion. But if there's a leftover or 'net' force, then the forces are unbalanced, and something will happen!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Balanced Forces</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Unbalanced Forces</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Unbalanced</span> Forces Cause Motion</h2>
+          <ul><li>An object at rest starts moving.</li><li>A moving object speeds up or slows down.</li><li>A moving object changes its direction.</li></ul>
+          <p class="notes">🎙️ Unbalanced forces are the agents of change! If you push a stationary box, it moves because your push is an unbalanced force. If you apply the brakes in a car, an unbalanced frictional force slows it down. All changes in motion are due to unbalanced forces.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏎️</div><div class="vcap">Change in Motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Describing State of <span class="hl">Motion</span></h2>
+          <ul><li>An object is either at rest or in motion.</li><li>At rest: Position does not change with time.</li><li>In motion: Position changes with time (moving).</li></ul>
+          <p class="notes">🎙️ Before we dive deeper, let's be clear about what we mean by 'state of motion'. An object is either sitting still, which we call 'at rest', or it's moving, which we call 'in motion'. These are the two basic states of motion we'll be discussing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♂️</div><div class="vcap">Rest or Moving</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Newton's First Law: <span class="hl">Inertia</span>!</h2>
+          <ul><li>An object at rest stays at rest, and an object in motion stays in motion with the same speed and in the same direction, unless acted upon by an unbalanced force.</li><li>This property is called Inertia.</li><li>Inertia is the resistance of an object to changes in its state of motion.</li></ul>
+          <p class="notes">🎙️ Newton's First Law is often called the Law of Inertia. It tells us that objects are 'lazy' – they want to keep doing whatever they're already doing. If they're still, they want to stay still. If they're moving, they want to keep moving at the same speed and direction, unless a force comes along to change that.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Resisting Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Inertia in <span class="hl">Action</span>!</h2>
+          <ul><li>When a bus suddenly starts, passengers fall backward.</li><li>When a bus suddenly brakes, passengers lurch forward.</li><li>This happens due to the inertia of the passengers.</li></ul>
+          <p class="notes">🎙️ Think about riding in a bus. When the bus suddenly accelerates, your body tries to stay at rest, making you feel like you're falling backward. Similarly, when the bus suddenly stops, your body tries to continue moving forward, causing you to lurch. This is a perfect example of inertia!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚌➡️🧍‍♂️</div><div class="vcap">Passenger's Inertia</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Mass</span> and Inertia</h2>
+          <ul><li>Mass is a measure of an object's inertia.</li><li>Objects with more mass have more inertia.</li><li>It is harder to change the state of motion of a heavier object.</li></ul>
+          <p class="notes">🎙️ Imagine trying to push a small toy car versus a heavy truck. Which one is harder to get moving? The truck, right? That's because the truck has more mass, and therefore more inertia. The more massive an object is, the more it resists changes to its motion.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Small Mass</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Large Mass</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What type of force causes a football to stop rolling?</li><li>If an object is moving at a constant velocity, are the forces acting on it balanced or unbalanced?</li><li>Which has more inertia: a bicycle or a train?</li></ul>
+          <p class="notes">🎙️ Let's pause for a quick check of your understanding. Think about the concepts we've just covered. Take a moment to consider your answers to these questions before we move on to Newton's next big idea.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Newton's Second Law: Force and <span class="hl">Acceleration</span></h2>
+          <ul><li>The acceleration of an object is directly proportional to the net force acting on it.</li><li>It is inversely proportional to the object's mass.</li><li>Force = mass × acceleration (F = ma).</li></ul>
+          <p class="notes">🎙️ Newton's Second Law tells us exactly how much an object's motion will change when an unbalanced force acts on it. It says that a bigger force will cause more acceleration, and a heavier object will accelerate less for the same force. This is one of the most fundamental laws in physics!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Speeding Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>The Formula: <span class="hl">F = ma</span></h2>
+          <ul><li>F: Force (measured in Newtons, N)</li><li>m: Mass (measured in kilograms, kg)</li><li>a: Acceleration (measured in meters per second squared, m/s²)</li></ul>
+          <p class="notes">🎙️ This simple formula, F = ma, is incredibly powerful. It allows us to calculate the force needed to cause a certain acceleration, or to find the acceleration an object will experience given a force and its mass. Make sure you remember the units for each variable!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Units of Force: <span class="hl">Newton</span> (N)</h2>
+          <ul><li>The standard unit of force is the Newton (N).</li><li>One Newton is the force required to accelerate a 1 kg mass by 1 m/s².</li><li>1 N = 1 kg·m/s².</li></ul>
+          <p class="notes">🎙️ The unit of force is named after Sir Isaac Newton, who formulated these laws. So, if you apply a force of 1 Newton to an object that has a mass of 1 kilogram, that object will speed up by 1 meter per second, every second. It's a very precise definition!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Unit of Force</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Let's <span class="hl">Calculate</span> Force!</h2>
+          <ul><li>Problem: A car of mass 1000 kg accelerates at 2 m/s².</li><li>What is the force acting on the car?</li><li>Solution: F = ma = 1000 kg × 2 m/s² = 2000 N.</li></ul>
+          <p class="notes">🎙️ Here's a practical application of F=ma. We have the mass of the car and its acceleration. By simply multiplying these two values, we can find the force that is causing this acceleration. Remember to always include the correct units in your final answer.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Given</span></div><div class="step"><span class="snum">2</span><span>Choose Formula</span></div><div class="step"><span class="snum">3</span><span>Substitute Values</span></div><div class="step"><span class="snum">4</span><span>Calculate Answer</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Newton's Third Law: <span class="hl">Action-Reaction</span></h2>
+          <ul><li>For every action, there is an equal and opposite reaction.</li><li>Forces always occur in pairs.</li><li>The action and reaction forces act on different objects.</li></ul>
+          <p class="notes">🎙️ This law is perhaps the most intriguing! It means that forces never exist alone. If you push on something, that something pushes back on you with exactly the same amount of force, but in the opposite direction. This is crucial for understanding how things move and interact.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Opposite &amp; Equal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Action-Reaction in <span class="hl">Everyday</span> Life</h2>
+          <ul><li>Walking: You push the ground backward, the ground pushes you forward.</li><li>Rocket Propulsion: Rocket pushes gases downward, gases push rocket upward.</li><li>Swimming: You push water backward, water pushes you forward.</li></ul>
+          <p class="notes">🎙️ Think about how you walk. Your foot pushes against the ground (action), and the ground pushes back against your foot, propelling you forward (reaction). Similarly, when you row a boat, your oar pushes the water backward, and the water pushes the boat forward. These action-reaction pairs are everywhere!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛶</div><div class="vcap">Rowing a Boat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Another Quick <span class="hl">Check</span>!</h2>
+          <ul><li>State Newton's First Law of Motion.</li><li>If a force of 50 N acts on a 10 kg object, what is its acceleration?</li><li>When you jump, what is the action force and what is the reaction force?</li></ul>
+          <p class="notes">🎙️ Alright, let's do one more quick check to ensure you've grasped the core concepts of Newton's laws. These laws are foundational to understanding mechanics. Take your time to recall the definitions and formulas.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span></h2>
+          <ul><li>Force is a push or pull, changing motion or shape.</li><li>Contact (muscular, friction) and Non-Contact (gravity, magnetic, electrostatic) forces.</li><li>Unbalanced forces cause changes in motion (Newton's 1st Law - Inertia).</li><li>F = ma (Newton's 2nd Law - Force, Mass, Acceleration).</li><li>Action-Reaction pairs (Newton's 3rd Law).</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! We started by defining what a force is and its various effects. Then we explored different types of forces, leading us to Newton's three fundamental laws of motion. These laws explain almost every movement we see around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Exploring</span> Forces!</h2>
+          <ul><li>Observe forces in your daily life.</li><li>Think about how these laws apply to sports, vehicles, and even space travel.</li><li>Science is everywhere!</li></ul>
+          <p class="notes">🎙️ Forces are not just textbook concepts; they are an integral part of our world. I encourage you to look around and identify different forces at play, whether it's gravity pulling you down or friction helping you walk. Keep asking questions and exploring the fascinating world of physics!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 9 · Science</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

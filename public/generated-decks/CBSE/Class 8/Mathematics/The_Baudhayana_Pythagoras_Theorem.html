@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Baudhayana-Pythagoras Theorem — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to Our Math Journey!</h2>
+          <ul><li>Today, we explore a foundational concept in geometry.</li><li>It connects sides of a special type of triangle.</li><li>A theorem known across cultures and centuries.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today we're embarking on an exciting mathematical journey. We'll discover a very important theorem that helps us understand the relationship between the sides of a specific type of triangle. This theorem has a rich history and is used widely.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Right-Angled Triangle</span>?</h2>
+          <ul><li>A triangle with one angle exactly 90 degrees.</li><li>This 90-degree angle is also called a 'right angle'.</li><li>It's a fundamental shape in geometry.</li></ul>
+          <p class="notes">🎙️ Let's start with the basics. A right-angled triangle is simply a triangle that contains one angle that measures exactly 90 degrees. This special angle is often marked with a small square symbol. Understanding this shape is key to our lesson today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Right Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Parts</span> of a Right-Angled Triangle</h2>
+          <ul><li>Hypotenuse: The longest side, opposite the right angle.</li><li>Legs: The two shorter sides forming the right angle.</li><li>These parts have special names.</li></ul>
+          <p class="notes">🎙️ Every right-angled triangle has three distinct sides with specific names. The side directly opposite the 90-degree angle is called the hypotenuse, and it's always the longest side. The other two sides, which form the right angle, are called the legs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Triangle Sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Meet <span class="hl">Baudhayana</span>: The Ancient Indian Sage</h2>
+          <ul><li>An ancient Indian mathematician and priest.</li><li>Lived around 800 BCE to 500 BCE.</li><li>Authored the 'Baudhayana Sulbasutra'.</li></ul>
+          <p class="notes">🎙️ Our story begins in ancient India, with a revered figure named Baudhayana. He was a profound scholar, and his work predates many Western mathematicians. He documented significant mathematical knowledge in his texts, which are crucial to understanding our theorem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Scroll</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The <span class="hl">Sulbasutras</span>: Geometry for Rituals</h2>
+          <ul><li>Ancient Indian Sanskrit texts.</li><li>Contained rules for constructing altars.</li><li>Included detailed geometric principles.</li></ul>
+          <p class="notes">🎙️ The Sulbasutras were not just math books; they were practical manuals for religious rituals. To construct altars of precise shapes and sizes, detailed geometric knowledge was essential. It's fascinating how mathematics was intertwined with daily life and traditions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Ancient Texts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Baudhayana's Theorem: The <span class="hl">Statement</span></h2>
+          <ul><li>The diagonal of a rectangle produces both areas which the two sides separately produce.</li><li>This means the square on the diagonal equals the sum of squares on its sides.</li><li>A profound observation about right triangles.</li></ul>
+          <p class="notes">🎙️ Baudhayana's original statement is quite elegant. He described how the area of the square built on the diagonal of a rectangle is equal to the sum of the areas of the squares built on its two sides. This is essentially the theorem we know today, applied to a rectangle divided into two right triangles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Key Idea</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Visualizing</span> the Theorem</h2>
+          <ul><li>Imagine squares drawn on each side of a right triangle.</li><li>The area of the square on the hypotenuse is equal to...</li><li>...the sum of the areas of the squares on the two legs.</li></ul>
+          <p class="notes">🎙️ Let's visualize this. If you draw a square on each side of a right-angled triangle, the magic happens! The area of the largest square (on the hypotenuse) perfectly matches the combined area of the two smaller squares (on the legs). This visual is key to understanding the theorem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⏹️</span><span>⏹️</span><span>⏹️</span></div><div class="vcap">Squares on Sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Meet <span class="hl">Pythagoras</span>: The Greek Philosopher</h2>
+          <ul><li>An ancient Greek mathematician and philosopher.</li><li>Lived around 570 BCE to 495 BCE.</li><li>Known for the 'Pythagorean Theorem'.</li></ul>
+          <p class="notes">🎙️ Centuries later, in ancient Greece, another brilliant mind named Pythagoras made similar discoveries. He founded a school of thought and his teachings significantly influenced Western mathematics. His name is often associated with this theorem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Ancient Greece</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>The Pythagorean Theorem: The <span class="hl">Formula</span></h2>
+          <ul><li>In a right-angled triangle, the square of the hypotenuse (c) is equal to...</li><li>...the sum of the squares of the other two sides (a and b).</li><li>Expressed as: a² + b² = c².</li></ul>
+          <p class="notes">🎙️ The Pythagorean Theorem gives us a neat formula. If 'a' and 'b' are the lengths of the legs and 'c' is the length of the hypotenuse, then a squared plus b squared equals c squared. This simple equation unlocks many geometric problems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Mathematical Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Why</span> 'Baudhayana-Pythagoras' Theorem?</h2>
+          <ul><li>Baudhayana stated the principle centuries before Pythagoras.</li><li>Pythagoras (or his followers) provided a formal proof.</li><li>Acknowledges contributions from both traditions.</li></ul>
+          <p class="notes">🎙️ It's important to recognize that the core principle was known in India long before Pythagoras. While Pythagoras and his school are credited with a formal proof, Baudhayana's earlier work demonstrates the theorem's independent discovery. Naming it 'Baudhayana-Pythagoras' honors both historical contributions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Collaboration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Proof Idea 1: <span class="hl">Geometric Visual</span></h2>
+          <ul><li>Arrange four identical right triangles around a central square.</li><li>The total area of the large square can be expressed in two ways.</li><li>This visual arrangement leads directly to a² + b² = c².</li></ul>
+          <p class="notes">🎙️ One of the most intuitive ways to understand why this theorem works is through a geometric proof. Imagine a large square. Inside it, we arrange four identical right-angled triangles and a smaller square in the center. By calculating the total area in two different ways, you can visually 'see' a² + b² = c².</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Visual Proof</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Proof Idea 2: <span class="hl">Algebraic</span> Derivation</h2>
+          <ul><li>Using coordinates and distance formula.</li><li>Or extending the geometric proof with algebraic terms.</li><li>Both methods confirm the relationship.</li></ul>
+          <p class="notes">🎙️ Beyond visual proofs, the theorem can also be derived using algebraic methods. For instance, by placing a right triangle on a coordinate plane and using the distance formula, or by simplifying the areas in the geometric proof using variables 'a', 'b', and 'c', we arrive at the same powerful equation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Algebraic Steps</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Ladder</span> Against a Wall</h2>
+          <ul><li>A ladder leaning against a wall forms a right-angled triangle.</li><li>The wall is one leg, the ground is the other leg.</li><li>The ladder itself is the hypotenuse.</li></ul>
+          <p class="notes">🎙️ Think about a common scenario: a ladder leaning against a wall. The wall stands straight up, forming a 90-degree angle with the ground. The ladder, the wall, and the ground create a perfect right-angled triangle. We can use the theorem to find how high the ladder reaches or how far its base is from the wall.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">Ladder Scene</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Finding the Hypotenuse</span></h2>
+          <ul><li>Problem: A right triangle has legs of 3 cm and 4 cm.</li><li>We need to find the length of the hypotenuse.</li><li>Use the formula: a² + b² = c².</li></ul>
+          <p class="notes">🎙️ Let's work through an example. If the two legs of a right triangle are 3 cm and 4 cm long, how long is the hypotenuse? We simply plug these values into our formula. Remember, 'a' and 'b' are the legs, and 'c' is the hypotenuse.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify legs (a, b)</span></div><div class="step"><span class="snum">2</span><span>Substitute into a² + b² = c²</span></div><div class="step"><span class="snum">3</span><span>Calculate squares</span></div><div class="step"><span class="snum">4</span><span>Add the results</span></div><div class="step"><span class="snum">5</span><span>Find square root (c)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Building a Ramp</span></h2>
+          <ul><li>Constructing a ramp for accessibility.</li><li>The height of the ramp is one leg, the base length is the other.</li><li>The ramp surface itself is the hypotenuse.</li></ul>
+          <p class="notes">🎙️ Another practical application is in construction, like building a ramp. Whether it's for wheelchairs or vehicles, ramps are essentially hypotenuses of right triangles. Knowing the desired height and the available base length, engineers use the theorem to determine the exact length of the ramp material needed.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Ramp Construction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Finding a Leg</span></h2>
+          <ul><li>Problem: Hypotenuse is 10 cm, one leg is 6 cm.</li><li>We need to find the length of the other leg.</li><li>Rearrange the formula: a² = c² - b².</li></ul>
+          <p class="notes">🎙️ What if we know the hypotenuse and one leg, but need to find the other leg? The formula can be rearranged. For example, if the hypotenuse is 10 cm and one leg is 6 cm, we can find the missing leg by subtracting the square of the known leg from the square of the hypotenuse.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify hypotenuse (c) and known leg (b)</span></div><div class="step"><span class="snum">2</span><span>Substitute into a² = c² - b²</span></div><div class="step"><span class="snum">3</span><span>Calculate squares</span></div><div class="step"><span class="snum">4</span><span>Subtract the results</span></div><div class="step"><span class="snum">5</span><span>Find square root (a)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Pythagorean <span class="hl">Triplets</span></h2>
+          <ul><li>A set of three positive integers (a, b, c).</li><li>They satisfy the equation a² + b² = c².</li><li>Examples: (3, 4, 5), (5, 12, 13), (8, 15, 17).</li></ul>
+          <p class="notes">🎙️ Pythagorean triplets are special sets of three whole numbers that perfectly fit the theorem. If you have a triangle with sides matching these numbers, you know it's a right-angled triangle. They are very useful for quickly solving problems or identifying right triangles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>3️⃣</span><span>3️⃣</span><span>3️⃣</span></div><div class="vcap">Groups of Three</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Quick Question 1: <span class="hl">Identify</span> the Parts</h2>
+          <ul><li>In a right triangle with sides 5, 12, 13:</li><li>Which side is the hypotenuse?</li><li>Which sides are the legs?</li></ul>
+          <p class="notes">🎙️ Let's test our understanding. If you have a right triangle with sides measuring 5, 12, and 13 units, can you quickly identify which side is the hypotenuse and which two are the legs? Remember the definitions we discussed earlier.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick Question 2: <span class="hl">Calculate</span> Hypotenuse</h2>
+          <ul><li>A right triangle has legs of 6m and 8m.</li><li>What is the length of its hypotenuse?</li><li>Show your calculation steps.</li></ul>
+          <p class="notes">🎙️ Now, a calculation challenge. Imagine a right triangle with legs that are 6 meters and 8 meters long. Using the Baudhayana-Pythagoras theorem, what would be the length of its hypotenuse? Take a moment to work it out.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Question 3: <span class="hl">Calculate a Leg</span></h2>
+          <ul><li>The hypotenuse of a right triangle is 15cm.</li><li>One of its legs is 9cm. What is the length of the other leg?</li><li>Remember to rearrange the formula if needed.</li></ul>
+          <p class="notes">🎙️ Here's another one. If you know the hypotenuse is 15 cm and one leg is 9 cm, can you find the length of the other leg? This requires a slight adjustment to our formula. Think about how to isolate the unknown leg.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Question 4: Is it a <span class="hl">Right Triangle?</span></h2>
+          <ul><li>Are sides 7, 24, and 25 forming a right-angled triangle?</li><li>Verify using the Baudhayana-Pythagoras Theorem.</li><li>Check if a² + b² = c² holds true.</li></ul>
+          <p class="notes">🎙️ Finally, a verification question. If you are given three side lengths – 7, 24, and 25 – how can you determine if they can form a right-angled triangle? Use the theorem to check if the relationship between the squares of the sides holds true.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Applications in <span class="hl">Construction</span> and Architecture</h2>
+          <ul><li>Ensuring walls are perfectly vertical (right angles).</li><li>Calculating roof slopes and diagonal supports.</li><li>Designing stable structures like bridges and buildings.</li></ul>
+          <p class="notes">🎙️ The Baudhayana-Pythagoras theorem is indispensable in construction. Architects and engineers use it daily to ensure buildings are square, roofs have the correct pitch, and structures are stable. It's fundamental for creating safe and functional designs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👷</div><div class="vcap">Builder at Work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Applications in <span class="hl">Navigation</span> and Surveying</h2>
+          <ul><li>Calculating distances between two points on a map.</li><li>Determining positions using triangulation.</li><li>Used by pilots, sailors, and surveyors.</li></ul>
+          <p class="notes">🎙️ Beyond construction, this theorem is vital for navigation. Sailors use it to plot courses, and surveyors use it to measure land accurately. By forming imaginary right triangles, they can calculate unknown distances and positions, even across vast areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Compass for Direction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: What We Learned Today</h2>
+          <ul><li>Defined right-angled triangles and their parts.</li><li>Explored the contributions of Baudhayana and Pythagoras.</li><li>Understood the theorem: a² + b² = c².</li><li>Applied it to real-life problems and examples.</li></ul>
+          <p class="notes">🎙️ To quickly summarize, we started by understanding what makes a triangle 'right-angled' and named its sides. We then learned about the historical figures behind this incredible theorem and its mathematical statement. Finally, we saw how it applies to various real-world situations, from ladders to navigation.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>! Keep Exploring Math!</h2>
+          <ul><li>The Baudhayana-Pythagoras Theorem is a powerful tool.</li><li>It connects geometry with algebra beautifully.</li><li>Continue to observe and apply math around you!</li></ul>
+          <p class="notes">🎙️ Thank you for joining me on this mathematical exploration today! The Baudhayana-Pythagoras Theorem is a cornerstone of geometry, bridging concepts in a truly elegant way. Keep your eyes open, and you'll find math in countless places around you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 8 · Mathematics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

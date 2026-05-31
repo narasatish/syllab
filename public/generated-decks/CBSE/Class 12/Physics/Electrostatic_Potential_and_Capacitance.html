@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Electrostatic Potential and Capacitance — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to Electrostatic Potential and Capacitance!</h2>
+          <ul><li>Class 12 Physics: Chapter 2</li><li>CBSE Board Focus</li><li>Exam-Oriented Approach</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a crucial chapter in Class 12 Physics: Electrostatic Potential and Capacitance. This chapter is fundamental for your board exams and competitive tests.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Electrostatic <span class="hl">Potential</span> (V)</h2>
+          <ul><li>Work done per unit positive test charge.</li><li>Scalar quantity, SI unit: Volt (V).</li><li>V = W/q₀, where W is work done, q₀ is test charge.</li></ul>
+          <p class="notes">🎙️ Imagine bringing a tiny positive charge from infinity to a point in an electric field. The work done in this process, per unit charge, defines the electrostatic potential at that point. It's a scalar, meaning it only has magnitude, not direction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy per Charge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Electrostatic Potential <span class="hl">Difference</span> (ΔV)</h2>
+          <ul><li>Work done to move a unit positive charge from one point to another.</li><li>ΔV = V_B - V_A = W_AB / q₀.</li><li>Independent of the path taken.</li></ul>
+          <p class="notes">🎙️ Potential difference is the difference in potential between two points. It's the work required to move a charge between these points. Crucially, electrostatic force is conservative, so this work is path-independent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Potential Gap</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Potential due to a <span class="hl">Point Charge</span></h2>
+          <ul><li>Potential at a distance 'r' from a point charge 'q'.</li><li>V = kq/r, where k = 1/(4πε₀).</li><li>Positive for positive charge, negative for negative charge.</li></ul>
+          <p class="notes">🎙️ This is a fundamental formula. The potential decreases as you move further away from the charge. Remember to use the sign of the charge 'q' in your calculations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Source Charge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Potential from Point Charge</h2>
+          <ul><li>Q: Calculate potential 9 cm from a +3 nC charge.</li><li>Given: q = +3 × 10⁻⁹ C, r = 0.09 m.</li><li>V = (9 × 10⁹ Nm²/C²) × (3 × 10⁻⁹ C) / (0.09 m) = 300 V.</li></ul>
+          <p class="notes">🎙️ Let's apply the formula directly. Pay attention to units and conversions, especially nC to C and cm to m. A positive potential indicates a positive source charge.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Potential due to an Electric <span class="hl">Dipole</span></h2>
+          <ul><li>Potential at a point 'r' from the center of a dipole.</li><li>V = (kp cosθ) / r² (general point).</li><li>V = ±kp/r² (axial), V = 0 (equatorial).</li></ul>
+          <p class="notes">🎙️ The potential due to a dipole falls off as 1/r², unlike 1/r for a single point charge. This is because the charges are equal and opposite, leading to a faster decrease in net potential.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Positive &amp; Negative</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Equipotential</span> Surfaces</h2>
+          <ul><li>Surface where all points have the same electrostatic potential.</li><li>No work is done moving a charge on such a surface.</li><li>Electric field lines are always perpendicular to these surfaces.</li></ul>
+          <p class="notes">🎙️ Think of contour lines on a map, representing points of equal height. Equipotential surfaces are similar, but for electric potential. They are crucial for visualizing electric fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Same Potential</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Key <span class="hl">Properties</span> of Equipotential Surfaces</h2>
+          <ul><li>No two equipotential surfaces can intersect.</li><li>Electric field is always perpendicular to them.</li><li>Work done in moving a charge on an equipotential surface is zero.</li></ul>
+          <p class="notes">🎙️ These properties are frequently tested. If surfaces intersected, a point would have two different potentials, which is impossible. The perpendicularity of E-field is a direct consequence of zero work.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>No Intersection</span></div><div class="step"><span class="snum">2</span><span>E ⊥ Surface</span></div><div class="step"><span class="snum">3</span><span>W = 0</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Relation</span> between E and V</h2>
+          <ul><li>Electric field is the negative gradient of potential.</li><li>E = -dV/dr (for 1D variation).</li><li>The electric field points in the direction of decreasing potential.</li></ul>
+          <p class="notes">🎙️ This formula connects the vector electric field to the scalar potential. It tells us that where potential changes rapidly, the electric field is strong. The negative sign implies that E points from higher to lower potential.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↘️</div><div class="vcap">Potential Gradient</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: E from V</h2>
+          <ul><li>Q: Potential V = 3x² V. Find E-field at x=2m.</li><li>Eₓ = -dV/dx = -d(3x²)/dx = -6x.</li><li>At x=2m, Eₓ = -6(2) = -12 V/m. E = -12 î N/C.</li></ul>
+          <p class="notes">🎙️ This example shows how to calculate the electric field if the potential function is given. Remember the derivative and the negative sign. The unit V/m is equivalent to N/C.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Electrostatic Potential <span class="hl">Energy</span> (U)</h2>
+          <ul><li>Work done to assemble a system of charges.</li><li>Stored energy due to their positions in an electric field.</li><li>Scalar quantity, SI unit: Joule (J).</li></ul>
+          <p class="notes">🎙️ Potential energy is the energy possessed by a system of charges by virtue of their configuration. It's the work you have to do against the electrostatic forces to bring the charges to their current positions from infinity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">Stored Work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Potential Energy of Two Point Charges</h2>
+          <ul><li>Energy to bring q₁ and q₂ from infinity to 'r' separation.</li><li>U = (1/4πε₀) * (q₁q₂/r).</li><li>Can be positive (repulsion) or negative (attraction).</li></ul>
+          <p class="notes">🎙️ This formula calculates the interaction energy between two charges. If the charges have the same sign, U is positive, indicating work needs to be done *against* repulsion. If opposite, U is negative, meaning work is done *by* the field.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Interaction Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Potential Energy of <span class="hl">Multiple</span> Charges</h2>
+          <ul><li>Sum of potential energies for all unique pairs of charges.</li><li>For N charges, sum U_ij for all i &lt; j.</li><li>Example: For 3 charges (q₁, q₂, q₃), U = U₁₂ + U₁₃ + U₂₃.</li></ul>
+          <p class="notes">🎙️ When dealing with more than two charges, you must consider the interaction energy between *every possible pair* of charges. Be careful not to double-count pairs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Summing Pairs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Potential Energy of System</h2>
+          <ul><li>Q: Find U for 2µC at (0,0) and -4µC at (3m,0).</li><li>q₁ = 2 × 10⁻⁶ C, q₂ = -4 × 10⁻⁶ C, r = 3 m.</li><li>U = (9 × 10⁹) * (2 × 10⁻⁶) * (-4 × 10⁻⁶) / 3 = -0.024 J.</li></ul>
+          <p class="notes">🎙️ Here, one charge is positive and the other is negative, so we expect a negative potential energy, indicating attraction. Again, pay attention to units like microcoulombs.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Conductors</span> in Electrostatic Field</h2>
+          <ul><li>Inside a conductor, E-field is zero.</li><li>Net charge resides only on the surface.</li><li>Potential is constant throughout the volume and on the surface.</li></ul>
+          <p class="notes">🎙️ These are critical properties of conductors. Free charges inside a conductor redistribute until the electric field everywhere inside becomes zero, leading to a constant potential.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">E=0 Inside</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Electrostatic <span class="hl">Shielding</span> (Faraday Cage)</h2>
+          <ul><li>Protecting a region from external electric fields.</li><li>Achieved by enclosing the region within a conductor.</li><li>Applications: Sensitive instruments, protection during lightning.</li></ul>
+          <p class="notes">🎙️ The principle of zero electric field inside a conductor is used in electrostatic shielding. A Faraday cage effectively blocks external electric fields from penetrating inside, safeguarding its contents.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Protected Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Dielectrics</span> and Polarization</h2>
+          <ul><li>Insulating materials that can be polarized by E-field.</li><li>Polar dielectrics (permanent dipoles) and Non-polar (induced dipoles).</li><li>Polarization reduces the net electric field inside the material.</li></ul>
+          <p class="notes">🎙️ Dielectrics are insulators. When placed in an external electric field, their molecules align or form induced dipoles. This internal alignment creates an opposing electric field, reducing the net field within the dielectric.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Aligned Dipoles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Capacitance</span> (C)</h2>
+          <ul><li>Ability of a conductor to store electric charge.</li><li>C = Q/V, ratio of charge stored to potential difference.</li><li>Scalar quantity, SI unit: Farad (F).</li></ul>
+          <p class="notes">🎙️ Capacitance measures how much charge a conductor can store for a given potential difference. A larger capacitance means more charge can be stored at the same voltage. Farad is a very large unit.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Charge Storage</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Capacitance of a <span class="hl">Parallel Plate</span> Capacitor</h2>
+          <ul><li>C = ε₀A/d, where A is plate area, d is separation.</li><li>Depends on geometry, not charge or voltage.</li><li>Larger area, smaller separation -&gt; higher capacitance.</li></ul>
+          <p class="notes">🎙️ This is the most common type of capacitor. The formula clearly shows that capacitance is a geometric property. Increasing plate area or decreasing separation increases its ability to store charge.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗜️</div><div class="vcap">Area &amp; Distance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Effect of <span class="hl">Dielectric</span> on Capacitance</h2>
+          <ul><li>Introducing a dielectric increases capacitance.</li><li>C_dielectric = κC_air, where κ is dielectric constant (κ &gt; 1).</li><li>The dielectric reduces the E-field, hence potential, for same charge.</li></ul>
+          <p class="notes">🎙️ When a dielectric is inserted, it reduces the electric field between the plates, which in turn reduces the potential difference for a given charge. Since C=Q/V, a smaller V means a larger C.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Air Capacitor</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Dielectric Capacitor</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Capacitors in Series and Parallel</h2>
+          <ul><li>Series: 1/C_eq = 1/C₁ + 1/C₂ + ... (charge same, voltage divides).</li><li>Parallel: C_eq = C₁ + C₂ + ... (voltage same, charge divides).</li><li>Remember the opposite of resistors!</li></ul>
+          <p class="notes">🎙️ These are crucial formulas for circuit analysis. Remember that the rules for combining capacitors are opposite to those for resistors. Series connection reduces capacitance, parallel increases it.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Series: 1/Ceq = Σ(1/Ci)</span></div><div class="step"><span class="snum">2</span><span>Parallel: Ceq = ΣCi</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Capacitor Combinations</h2>
+          <ul><li>Q: Two 6µF capacitors are connected in series, then in parallel.</li><li>Series: 1/C_eq = 1/6 + 1/6 = 2/6 =&gt; C_eq = 3µF.</li><li>Parallel: C_eq = 6 + 6 = 12µF.</li></ul>
+          <p class="notes">🎙️ A straightforward application of the combination formulas. Notice how series connection reduces the overall capacitance, while parallel connection increases it.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Energy Stored</span> in a Capacitor</h2>
+          <ul><li>U = ½CV² = ½Q²/C = ½QV.</li><li>Energy is stored in the electric field between the plates.</li><li>Energy density (u) = ½ε₀E² (energy per unit volume).</li></ul>
+          <p class="notes">🎙️ A charged capacitor stores energy, which can be released quickly. This energy is actually stored in the electric field itself. The energy density formula is important for understanding energy distribution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Field Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>1. What is the SI unit of electrostatic potential?</li><li>2. Can two equipotential surfaces intersect? Why?</li><li>3. How does capacitance change if plate separation is doubled?</li></ul>
+          <p class="notes">🎙️ Time for a quick check of your understanding. Think about the definitions, properties, and formulas we've discussed. These are typical conceptual questions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Key Formulas</h2>
+          <ul><li>V = W/q₀, V_point = kq/r, V_dipole ~ 1/r².</li><li>E = -dV/dr, Equipotential surfaces ⊥ E.</li><li>U = kq₁q₂/r, U_capacitor = ½CV².</li><li>C = Q/V, C_parallel plate = ε₀A/d, C_dielectric = κC_air.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember these fundamental concepts and formulas. Practice derivations and numerical problems diligently to master this chapter for your exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Physics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

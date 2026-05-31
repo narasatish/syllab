@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Probability: A Deep Dive for Class 12 — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Probability</span>: Class 12 Mathematics</h2>
+          <ul><li>Mastering key concepts for CBSE Board Exams.</li><li>Focus on Conditional Probability, Bayes' Theorem, and Random Variables.</li><li>Practice with worked examples and common pitfalls.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey into the world of Probability, a crucial chapter for your Class 12 CBSE exams. We'll build upon your Class 11 knowledge and delve into advanced topics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Recap: <span class="hl">Foundations</span> of Probability (Class 11)</h2>
+          <ul><li>Experiment: An operation producing well-defined outcomes.</li><li>Sample Space (S): Set of all possible outcomes.</li><li>Event (E): A subset of the sample space.</li><li>P(E) = (Number of favorable outcomes) / (Total number of outcomes).</li></ul>
+          <p class="notes">🎙️ Before we move forward, let's quickly refresh our memory on the basic terms from Class 11. Remember, probability always lies between 0 and 1, inclusive. A strong foundation here is key.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Rolling a Die</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Conditional</span> Probability: The 'Given That' Scenario</h2>
+          <ul><li>Probability of an event occurring given that another event has already occurred.</li><li>Changes the sample space to the event that has occurred.</li><li>Represented as P(A|B) – Probability of A given B.</li></ul>
+          <p class="notes">🎙️ Imagine you're drawing cards. What's the probability of drawing a King, given that you've already drawn a face card? This 'given that' aspect is the essence of conditional probability. It restricts our universe of possibilities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">What if...?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Conditional Probability: The <span class="hl">Formula</span></h2>
+          <ul><li>P(A|B) = P(A ∩ B) / P(B), provided P(B) ≠ 0.</li><li>P(B|A) = P(A ∩ B) / P(A), provided P(A) ≠ 0.</li><li>P(A ∩ B) is the probability of both A and B occurring.</li></ul>
+          <p class="notes">🎙️ This formula is fundamental. It tells us that the probability of A happening, given B has happened, is the probability of both A and B happening, divided by the probability of B happening. Remember the condition P(B) cannot be zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Division is Key</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Worked <span class="hl">Example 1</span>: Conditional Probability</h2>
+          <ul><li>A family has two children. What is the probability that both children are boys, given that at least one of them is a boy?</li><li>S = {BB, BG, GB, GG}. Let A = {BB} and B = {BB, BG, GB}.</li><li>A ∩ B = {BB}. P(A ∩ B) = 1/4. P(B) = 3/4.</li><li>P(A|B) = P(A ∩ B) / P(B) = (1/4) / (3/4) = 1/3.</li></ul>
+          <p class="notes">🎙️ This is a classic problem. Notice how the 'given that' condition effectively reduces our sample space from four possibilities to just three. We are no longer considering the case of two girls.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👦</span><span>👦</span></div><div class="vcap">Two Boys</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Common Mistake 1: <span class="hl">Confusing</span> P(A|B) and P(B|A)</h2>
+          <ul><li>P(A|B) is NOT necessarily equal to P(B|A).</li><li>The event given as known changes the denominator.</li><li>Always clearly identify which event is 'given'.</li></ul>
+          <p class="notes">🎙️ This is a very common trap! Students often interchange P(A|B) and P(B|A) without realizing they represent different scenarios. Always read the question carefully to determine which event is the condition.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">P(A|B)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P(B|A)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Properties</span> of Conditional Probability</h2>
+          <ul><li>P(S|F) = 1, P(F|F) = 1 (where S is sample space, F is event).</li><li>P(A'|F) = 1 - P(A|F).</li><li>If A and B are mutually exclusive, P((A ∪ B)|F) = P(A|F) + P(B|F).</li></ul>
+          <p class="notes">🎙️ These properties are intuitive and follow directly from the definition. For instance, the probability of the entire sample space occurring, given that F has occurred, must be 1, because F is part of S.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Key Rules</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Multiplication</span> Theorem on Probability</h2>
+          <ul><li>Used to find the probability of the intersection of two events.</li><li>P(A ∩ B) = P(B)P(A|B) or P(A ∩ B) = P(A)P(B|A).</li><li>Derived directly from the conditional probability formula.</li></ul>
+          <p class="notes">🎙️ This theorem is simply a rearrangement of the conditional probability formula. It's incredibly useful when you know the conditional probability and want to find the probability of both events happening together.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Product Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked <span class="hl">Example 2</span>: Multiplication Theorem</h2>
+          <ul><li>A bag contains 5 red and 3 black balls. Two balls are drawn without replacement.</li><li>What is the probability that both balls are red?</li><li>Let R1 = first ball is red, R2 = second ball is red.</li><li>P(R1 ∩ R2) = P(R1) * P(R2|R1) = (5/8) * (4/7) = 20/56 = 5/14.</li></ul>
+          <p class="notes">🎙️ In this example, drawing the first red ball changes the total number of balls and the number of red balls remaining, hence the conditional probability for the second draw. This is a classic 'without replacement' problem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span></div><div class="vcap">Two Red Balls</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Independent</span> Events: No Influence</h2>
+          <ul><li>Two events A and B are independent if the occurrence of one does not affect the probability of the other.</li><li>Mathematically: P(A|B) = P(A) and P(B|A) = P(B).</li><li>If independent, P(A ∩ B) = P(A) * P(B).</li></ul>
+          <p class="notes">🎙️ Think of flipping a coin twice. The outcome of the first flip does not influence the outcome of the second flip. These are independent events. The simplified multiplication rule applies here.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">No Connection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Independent Events: <span class="hl">Conditions</span> and Properties</h2>
+          <ul><li>If A and B are independent, then A and B' are also independent.</li><li>A' and B are independent, and A' and B' are independent.</li><li>This property is useful for proving independence of complements.</li></ul>
+          <p class="notes">🎙️ These properties are quite powerful. If two events are independent, then their complements are also independent. This often simplifies calculations in problems involving 'at least one' or 'neither' scenarios.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Interlinked Properties</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked <span class="hl">Example 3</span>: Checking Independence</h2>
+          <ul><li>A die is thrown. Let A be the event 'an even number appears' and B be the event 'a number greater than 4 appears'.</li><li>P(A) = 3/6 = 1/2. P(B) = 2/6 = 1/3.</li><li>A ∩ B = {6}. P(A ∩ B) = 1/6.</li><li>Since P(A)P(B) = (1/2)(1/3) = 1/6 = P(A ∩ B), events A and B are independent.</li></ul>
+          <p class="notes">🎙️ To check for independence, always calculate P(A), P(B), and P(A ∩ B). If P(A ∩ B) equals the product of P(A) and P(B), then they are independent. Otherwise, they are dependent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span></div><div class="vcap">Single Die Roll</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Common <span class="hl">Mistake 2</span>: Independent vs. Mutually Exclusive</h2>
+          <ul><li>Independent: Occurrence of one does NOT affect the other. P(A ∩ B) = P(A)P(B).</li><li>Mutually Exclusive: Occurrence of one PREVENTS the other. P(A ∩ B) = 0.</li><li>These are distinct concepts; an event cannot generally be both (unless P(A) or P(B) is 0).</li></ul>
+          <p class="notes">🎙️ This is another crucial distinction. Mutually exclusive events cannot happen at the same time, while independent events simply don't influence each other. Don't confuse them during problem-solving.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Independent</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Mutually Exclusive</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check 1</span>: Conditional Probability</h2>
+          <ul><li>If P(A) = 0.6, P(B) = 0.3, and P(A ∩ B) = 0.2, what is P(A|B)?</li><li>P(A|B) = P(A ∩ B) / P(B) = 0.2 / 0.3 = 2/3.</li><li>Answer: Approximately 0.66.</li></ul>
+          <p class="notes">🎙️ Take a moment to apply the conditional probability formula we just learned. The correct calculation is P(A|B) = 0.2 / 0.3, which is 2/3 or approximately 0.66.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick <span class="hl">Check 2</span>: Independent Events</h2>
+          <ul><li>True or False: If two events A and B are independent, they must also be mutually exclusive.</li><li>Answer: False.</li><li>They are distinct concepts. Only if P(A) or P(B) is 0 can they be both.</li></ul>
+          <p class="notes">🎙️ This question tests your understanding of the difference between independence and mutual exclusivity. Remember, mutually exclusive means P(A ∩ B) = 0, while independent means P(A ∩ B) = P(A)P(B). These are generally incompatible.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Bayes'</span> Theorem: Reversing the Condition</h2>
+          <ul><li>Used when we know P(A|E) but want to find P(E|A).</li><li>Often involves 'prior' probabilities and 'posterior' probabilities.</li><li>Crucial for problems involving cause and effect, or diagnosis.</li></ul>
+          <p class="notes">🎙️ Bayes' Theorem is a powerful tool that allows us to update our beliefs about an event based on new evidence. It's about 'reversing' the conditional probability – finding the probability of the cause given the effect.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Reversing Roles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Bayes' Theorem: The <span class="hl">Formula</span></h2>
+          <ul><li>Let E₁, E₂, ..., E_n be a partition of the sample space.</li><li>Let A be any event with P(A) ≠ 0.</li><li>P(E_i|A) = [P(E_i)P(A|E_i)] / Σ[P(E_j)P(A|E_j)] for j=1 to n.</li><li>Denominator is P(A) using Total Probability Theorem.</li></ul>
+          <p class="notes">🎙️ This formula might look daunting, but it's logical. The numerator is the probability of the specific cause and effect occurring together. The denominator is the total probability of the effect occurring across all possible causes.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Prior P(E_i)</span></div><div class="step"><span class="snum">2</span><span>Likelihood P(A|E_i)</span></div><div class="step"><span class="snum">3</span><span>Evidence P(A)</span></div><div class="step"><span class="snum">4</span><span>Posterior P(E_i|A)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked <span class="hl">Example 4</span> (Part 1): Bayes' Theorem Setup</h2>
+          <ul><li>Bag 1: 2 red, 3 black balls. Bag 2: 4 red, 1 black ball.</li><li>A bag is chosen at random, and a red ball is drawn.</li><li>What is the probability that the ball came from Bag 1?</li><li>E1 = Bag 1 chosen, E2 = Bag 2 chosen. A = Red ball drawn.</li></ul>
+          <p class="notes">🎙️ First, we define our events. E1 and E2 form a partition because we must choose either Bag 1 or Bag 2. A is the event we observed. We want to find P(E1|A).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👜</span><span>👜</span></div><div class="vcap">Two Bags</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example 4 (Part 2): Calculating Probabilities</h2>
+          <ul><li>P(E1) = 1/2, P(E2) = 1/2 (since a bag is chosen at random).</li><li>P(A|E1) = 2/5 (prob of red from Bag 1).</li><li>P(A|E2) = 4/5 (prob of red from Bag 2).</li><li>P(A) = P(A|E1)P(E1) + P(A|E2)P(E2) = (2/5)(1/2) + (4/5)(1/2) = 1/5 + 2/5 = 3/5.</li></ul>
+          <p class="notes">🎙️ Here, we calculate the prior probabilities of choosing each bag and the likelihoods of drawing a red ball from each bag. Then, we use the Total Probability Theorem to find the overall probability of drawing a red ball.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Summing Probabilities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked Example 4 (Part 3): Applying <span class="hl">Bayes' Formula</span></h2>
+          <ul><li>P(E1|A) = [P(E1)P(A|E1)] / P(A).</li><li>P(E1|A) = [(1/2)(2/5)] / (3/5).</li><li>P(E1|A) = (1/5) / (3/5) = 1/3.</li><li>So, the probability the red ball came from Bag 1 is 1/3.</li></ul>
+          <p class="notes">🎙️ Finally, we plug all our calculated values into Bayes' formula. This gives us the 'posterior' probability – the updated probability that the ball came from Bag 1, now that we know a red ball was drawn.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Targeting the Cause</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Random Variables</span>: Quantifying Outcomes</h2>
+          <ul><li>A random variable (X) is a real-valued function whose domain is the sample space of a random experiment.</li><li>It assigns a numerical value to each outcome.</li><li>Can be discrete (countable values) or continuous (any value in an interval).</li></ul>
+          <p class="notes">🎙️ Until now, events were descriptive. Random variables allow us to attach a numerical value to the outcomes of an experiment, making them amenable to mathematical analysis. For Class 12, we primarily focus on discrete random variables.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Numbers from Events</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Probability <span class="hl">Distribution</span> of a Random Variable</h2>
+          <ul><li>A table or function that gives the probabilities for each possible value of a discrete random variable.</li><li>Requirements: P(X=x_i) ≥ 0 for all x_i, and ΣP(X=x_i) = 1.</li><li>Example: Number of heads in two coin tosses (X=0,1,2).</li></ul>
+          <p class="notes">🎙️ The probability distribution is essentially a map that tells us how likely each possible value of our random variable is. The sum of all these probabilities must always be 1, covering all possible outcomes.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">P(X=0)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P(X=1)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">P(X=2)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Mean (<span class="hl">Expectation</span>) of a Random Variable</h2>
+          <ul><li>The average value of a random variable over many trials.</li><li>Also known as the Expected Value, E(X) or μ (mu).</li><li>E(X) = Σ [x_i * P(X=x_i)].</li><li>Represents the 'center' of the probability distribution.</li></ul>
+          <p class="notes">🎙️ The expectation is what you would 'expect' to get, on average, if you repeated the experiment many times. It's a weighted average, where each value is weighted by its probability of occurrence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Variance</span> of a Random Variable: Spread</h2>
+          <ul><li>Measures the spread or dispersion of the random variable's values around its mean.</li><li>Var(X) = E(X²) - [E(X)]².</li><li>E(X²) = Σ [x_i² * P(X=x_i)].</li><li>Standard Deviation (σ) = √Var(X).</li></ul>
+          <p class="notes">🎙️ While the mean tells us the center, the variance tells us how much the values typically deviate from that center. A higher variance means greater spread. The standard deviation is often preferred as it's in the same units as X.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Measuring Spread</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Exam Tips for Probability</h2>
+          <ul><li>Conditional Probability: P(A|B) = P(A ∩ B) / P(B).</li><li>Multiplication Theorem: P(A ∩ B) = P(A)P(B|A).</li><li>Independent Events: P(A ∩ B) = P(A)P(B).</li><li>Bayes' Theorem: P(E_i|A) = [P(E_i)P(A|E_i)] / P(A).</li><li>Random Variables: E(X) = Σx_i P(X=x_i), Var(X) = E(X²) - [E(X)]².</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember to understand the definitions, not just memorize formulas. Practice a variety of problems, especially those involving Bayes' Theorem and random variables, as they are frequently tested in exams. Good luck!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Mathematics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

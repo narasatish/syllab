@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Solutions: A Deep Dive into Mixtures — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Solutions</span>: Chapter Overview</h2>
+          <ul><li>Understanding homogeneous mixtures.</li><li>Exploring various ways to express concentration.</li><li>Delving into factors affecting solubility.</li><li>Introducing Raoult's Law and ideal/non-ideal solutions.</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we begin our journey into the fascinating world of 'Solutions'. This chapter is fundamental for understanding many chemical processes and is crucial for your board exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Solutions</span>?</h2>
+          <ul><li>A homogeneous mixture of two or more components.</li><li>Uniform composition and properties throughout.</li><li>Components are indistinguishable at the molecular level.</li></ul>
+          <p class="notes">🎙️ A solution is not just any mixture; it's a special type where everything is perfectly blended. Think of sugar dissolving in water – you can't see the individual sugar particles anymore, right? That's homogeneity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Uniform Mix</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Components</span> of a Solution: Solute &amp; Solvent</h2>
+          <ul><li>**Solvent:** The component present in the largest quantity, determines physical state.</li><li>**Solute:** The component(s) present in smaller quantities, dissolved in the solvent.</li><li>Example: In salt water, water is the solvent and salt is the solute.</li></ul>
+          <p class="notes">🎙️ Identifying the solute and solvent is key. The solvent is usually the one doing the dissolving and sets the overall physical state of the solution. The solute is what gets dissolved.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Solute + Solvent</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Types</span> of Solutions Based on Physical State</h2>
+          <ul><li>Solutions can exist in solid, liquid, or gaseous states.</li><li>The physical state of the solvent dictates the state of the solution.</li><li>There are nine possible combinations of solute and solvent states.</li></ul>
+          <p class="notes">🎙️ It's a common misconception that solutions are always liquid. We encounter solid and gaseous solutions frequently in our daily lives. The solvent's state is the deciding factor for the solution's state.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solution_diagram.svg?width=500" data-fb="📊" alt="Solutions are homogeneous mixtures of solute and solvent. They are classified by concentra"/><div class="vcap">Solutions are homogeneous mixtures of solute and solvent. They are classified by concentra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Examples</span> of Different Solution Types</h2>
+          <ul><li>**Gas in Gas:** Air (Oxygen and other gases in Nitrogen).</li><li>**Liquid in Liquid:** Alcohol in water (Ethanol in water).</li><li>**Solid in Liquid:** Sugar in water (Glucose in water).</li><li>**Solid in Solid:** Alloys like Brass (Zinc in Copper).</li></ul>
+          <p class="notes">🎙️ These examples illustrate the wide range of solutions we encounter. From the air we breathe to the metals we use, solutions are everywhere. Remember that the solvent determines the solution's state.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span></div><div class="vcap">Real-world examples</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Expressing <span class="hl">Concentration</span> of Solutions</h2>
+          <ul><li>Concentration quantifies the amount of solute present in a given amount of solvent or solution.</li><li>It can be expressed qualitatively (dilute, concentrated) or quantitatively.</li><li>Quantitative methods are crucial for precise chemical work.</li></ul>
+          <p class="notes">🎙️ Knowing the concentration is vital for experiments, manufacturing, and even everyday tasks like cooking. We need precise ways to measure how much solute is actually present in our solution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">How much solute?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Mass Percentage</span> (w/w)</h2>
+          <ul><li>Defined as: (Mass of solute / Mass of solution) × 100.</li><li>Units: Expressed as a percentage (%).</li><li>Useful when both solute and solvent are solids or their masses are easily measured.</li></ul>
+          <p class="notes">🎙️ Mass percentage is a straightforward way to express concentration. If you have a 10% (w/w) sugar solution, it means 10 grams of sugar are present in 100 grams of the total solution. This is a common method in industrial applications.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass of solute/solution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Volume Percentage</span> (v/v)</h2>
+          <ul><li>Defined as: (Volume of solute / Volume of solution) × 100.</li><li>Units: Expressed as a percentage (%).</li><li>Primarily used for solutions of liquids in liquids.</li></ul>
+          <p class="notes">🎙️ Volume percentage is common for liquid-liquid mixtures, such as alcohol solutions. For example, a '40% alcohol by volume' beverage means 40 mL of alcohol per 100 mL of the total beverage. Remember that volumes are not always additive, so total volume is measured.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Volume of solute/solution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Mass by Volume</span> Percentage (w/v)</h2>
+          <ul><li>Defined as: (Mass of solute / Volume of solution) × 100.</li><li>Units: Often expressed as g/100 mL or simply %.</li><li>Widely used in medicine and pharmacy due to ease of measurement.</li></ul>
+          <p class="notes">🎙️ This concentration term is particularly useful in clinical and pharmaceutical settings. It allows for quick preparation of solutions where a specific mass of solute is needed in a certain volume of solution, like preparing intravenous fluids.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💊</div><div class="vcap">Pharmacy use</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Parts Per Million</span> (ppm)</h2>
+          <ul><li>Defined as: (Mass/Volume of solute / Mass/Volume of solution) × 10^6.</li><li>Used for extremely dilute solutions, where solute is present in trace amounts.</li><li>Common in environmental analysis (e.g., pollution levels) and water quality reports.</li></ul>
+          <p class="notes">🎙️ When you hear about 'parts per million' of a contaminant in water, it signifies a very small quantity. This unit helps us express these minuscule concentrations meaningfully, often avoiding very small decimal numbers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Trace amounts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Mole Fraction</span> (χ)</h2>
+          <ul><li>Defined as: Moles of one component / Total moles of all components in the solution.</li><li>It is a unitless quantity, as it's a ratio of moles.</li><li>The sum of mole fractions of all components in a solution is always equal to one.</li></ul>
+          <p class="notes">🎙️ Mole fraction is a very fundamental concentration term, especially useful in understanding the behavior of gases and colligative properties. It directly relates to the number of particles, not their mass or volume. Remember, it's a ratio, so no units!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Molar ratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Molarity</span> (M)</h2>
+          <ul><li>Defined as: Moles of solute / Volume of solution (in Litres).</li><li>Units: mol/L or M (Molar).</li><li>It is temperature dependent because volume changes with temperature.</li></ul>
+          <p class="notes">🎙️ Molarity is one of the most commonly used concentration terms in the lab. However, its temperature dependence means that a solution's molarity can slightly change if its temperature varies significantly. Always specify the temperature if precision is critical.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Depends on temperature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Molality</span> (m)</h2>
+          <ul><li>Defined as: Moles of solute / Mass of solvent (in kg).</li><li>Units: mol/kg or m (Molal).</li><li>It is temperature independent because mass does not change with temperature.</li></ul>
+          <p class="notes">🎙️ Molality is preferred over molarity for experiments where temperature fluctuations are expected, especially when studying colligative properties. Since it relies on mass of solvent, which is constant, molality remains unchanged with temperature.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❄️</div><div class="vcap">Independent of temperature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked <span class="hl">Example 1</span>: Concentration Calculations</h2>
+          <ul><li>Calculate the mass percentage and mole fraction of ethylene glycol (C2H6O2) in a solution containing 20% C2H6O2 by mass in water.</li><li>Given: Molar mass of C2H6O2 = 62 g/mol, Molar mass of H2O = 18 g/mol.</li></ul>
+          <p class="notes">🎙️ Let's walk through this problem step-by-step. First, assume a convenient mass for the solution. Then, use the given mass percentage to find the mass of solute and solvent, convert to moles, and finally calculate the mole fraction.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Assume 100g solution</span></div><div class="step"><span class="snum">2</span><span>Find mass solute/solvent</span></div><div class="step"><span class="snum">3</span><span>Calculate moles of each</span></div><div class="step"><span class="snum">4</span><span>Apply mass % &amp; mole fraction formulas</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Common <span class="hl">Mistakes</span>: Molarity vs. Molality</h2>
+          <ul><li>**Molarity:** Uses volume of *solution* in Litres. Temperature dependent.</li><li>**Molality:** Uses mass of *solvent* in kg. Temperature independent.</li><li>Confusing these two is a frequent source of error in calculations.</li></ul>
+          <p class="notes">🎙️ It's crucial to remember the distinction between molarity and molality. One depends on the volume of the entire solution, and the other on the mass of just the solvent. This difference impacts their temperature dependence and when they are best used.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Molarity (Vol. of Solution)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Molality (Mass of Solvent)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Solubility</span>: How Much Can Dissolve?</h2>
+          <ul><li>The maximum amount of solute that can dissolve in a given amount of solvent.</li><li>Forms a saturated solution at specific temperature and pressure.</li><li>Factors like nature of solute/solvent, temperature, and pressure influence solubility.</li></ul>
+          <p class="notes">🎙️ Solubility is a key property of solutions. Every substance has a limit to how much it can dissolve in another. Once that limit is reached, we have a saturated solution, and any additional solute will just settle at the bottom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Dissolving limit</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Factors Affecting Solubility: <span class="hl">Solids in Liquids</span></h2>
+          <ul><li>**Nature of Solute and Solvent:** 'Like dissolves like' principle (polar in polar, non-polar in non-polar).</li><li>**Temperature:** For endothermic dissolution, solubility increases with temperature; for exothermic, it decreases.</li><li>**Pressure:** Has negligible effect on the solubility of solids in liquids.</li></ul>
+          <p class="notes">🎙️ The 'like dissolves like' rule is fundamental here. Think about oil and water – they don't mix because one is non-polar and the other is polar. Temperature's effect depends on whether the dissolving process absorbs or releases heat.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature matters</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Factors Affecting Solubility: Gases in Liquids (<span class="hl">Henry's Law</span>)</h2>
+          <ul><li>**Henry's Law:** The partial pressure of the gas above the solution is proportional to its mole fraction in the solution.</li><li>Formula: p = K_H * χ (where p is partial pressure, K_H is Henry's constant, χ is mole fraction).</li><li>**Temperature:** Solubility of gases in liquids generally decreases with increasing temperature.</li></ul>
+          <p class="notes">🎙️ Henry's Law explains why carbonated drinks fizz more when you open the bottle – the pressure of CO2 above the liquid decreases, reducing its solubility. It also explains why aquatic life struggles in warmer waters, as oxygen solubility decreases.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥤</div><div class="vcap">Carbonated drinks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked <span class="hl">Example 2</span>: Henry's Law Calculation</h2>
+          <ul><li>If N2 gas is bubbled through water at 298 K, how many millimoles of N2 gas would dissolve in 1 litre of water?</li><li>Given: Partial pressure of N2 (P_N2) = 0.987 bar. Henry's Law constant for N2 (K_H) at 298 K = 76.48 kbar.</li></ul>
+          <p class="notes">🎙️ This problem requires careful unit conversion and application of Henry's Law. Remember that Henry's constant is often given in various units, so ensure consistency. We'll approximate the solution as mostly water to calculate moles of solvent.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Convert K_H to bar</span></div><div class="step"><span class="snum">2</span><span>Apply Henry's Law (χ = P/K_H)</span></div><div class="step"><span class="snum">3</span><span>Calculate moles of water</span></div><div class="step"><span class="snum">4</span><span>Find moles of N2 using mole fraction</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Vapour Pressure</span> of Liquid Solutions</h2>
+          <ul><li>The pressure exerted by the vapour in equilibrium with the liquid at a given temperature.</li><li>It depends on the nature of the liquid (intermolecular forces) and temperature.</li><li>Adding a solute affects the vapour pressure of the solvent.</li></ul>
+          <p class="notes">🎙️ Imagine a closed container with some liquid. Some liquid molecules escape into the gas phase, creating pressure. This is vapour pressure. When we add a solute, especially a non-volatile one, it changes the solvent's ability to vaporize.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Liquid turning to gas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Raoult's Law</span> (for Volatile Solutes)</h2>
+          <ul><li>States that for a solution of volatile liquids, the partial vapour pressure of each component is proportional to its mole fraction.</li><li>P_A = χ_A * P_A° and P_B = χ_B * P_B° (where P° is vapour pressure of pure component).</li><li>Total vapour pressure (P_total) = P_A + P_B.</li></ul>
+          <p class="notes">🎙️ Raoult's Law is a fundamental concept for ideal solutions. It tells us how the presence of another volatile component affects the vapour pressure of each component in the mixture. The more of a component, the higher its partial vapour pressure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Partial pressure relation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Raoult's Law (for <span class="hl">Non-Volatile Solutes</span>)</h2>
+          <ul><li>When a non-volatile solute is added, the vapour pressure of the solution is lower than that of the pure solvent.</li><li>P_solution = χ_solvent * P_solvent°.</li><li>This lowering of vapour pressure is a colligative property.</li></ul>
+          <p class="notes">🎙️ This is a very important application of Raoult's Law. The non-volatile solute particles occupy some surface area, reducing the number of solvent molecules that can escape into the vapour phase. This leads to a measurable decrease in vapour pressure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Vapour pressure lowers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Ideal and Non-Ideal Solutions</h2>
+          <ul><li>**Ideal Solutions:** Obey Raoult's Law over the entire range of concentrations.</li><li>**Ideal Solutions:** ΔH_mix = 0, ΔV_mix = 0 (no heat change, no volume change on mixing).</li><li>**Non-Ideal Solutions:** Deviate from Raoult's Law (positive or negative deviations).</li></ul>
+          <p class="notes">🎙️ Ideal solutions are theoretical constructs, but some solutions behave nearly ideally. Non-ideal solutions show deviations due to differences in intermolecular forces between solute-solvent, solute-solute, and solvent-solvent interactions. These deviations are crucial for understanding real-world mixtures.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ideal Solutions</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Non-Ideal Solutions</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Quick Check!</span></h2>
+          <ul><li>1. Which concentration term is independent of temperature?</li><li>2. State Henry's Law and give one application.</li><li>3. What are the key characteristics of an ideal solution?</li><li>4. Why does adding a non-volatile solute lower the vapor pressure of a solvent?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding of the concepts covered so far. Think about these questions, as they cover important definitions and principles that are frequently asked in exams. Take a moment to formulate your answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Next Steps</h2>
+          <ul><li>We defined solutions and their components (solute, solvent).</li><li>Explored various concentration terms (mass %, ppm, M, m, mole fraction).</li><li>Discussed factors affecting solubility of solids and gases (Henry's Law).</li><li>Understood vapour pressure and Raoult's Law for ideal and non-ideal solutions.</li></ul>
+          <p class="notes">🎙️ We've covered a lot of ground today, from the basics of what a solution is to how we quantify its composition and predict its vapour pressure behavior. In our next class, we will dive into the fascinating world of Colligative Properties, which depend only on the number of solute particles.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Chemistry</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

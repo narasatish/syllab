@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Combustion and Flame — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to '<span class="hl">Combustion</span> and Flame'!</h2>
+          <ul><li>Have you ever wondered what makes a fire burn?</li><li>Or why some things catch fire easily while others don't?</li><li>Let's explore the fascinating world of burning!</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! Today, we are starting a very interesting chapter: 'Combustion and Flame'. We see fire around us in many forms – from a small candle flame to a roaring bonfire. But what exactly is happening when something burns? Let's find out together.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Understanding <span class="hl">Combustion</span></h2>
+          <ul><li>Combustion is a chemical process.</li><li>A substance reacts with oxygen.</li><li>It produces heat and often light.</li></ul>
+          <p class="notes">🎙️ At its core, combustion is simply burning. It’s a chemical reaction where a substance combines with oxygen, usually from the air. The most noticeable outputs of this reaction are heat and often light, which we see as a flame or a glow. Think of burning wood in a campfire.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Burning process</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>What is a <span class="hl">Combustible</span> Substance?</h2>
+          <ul><li>Materials that undergo combustion.</li><li>They can catch fire and burn.</li><li>Examples: Wood, paper, petrol, LPG.</li></ul>
+          <p class="notes">🎙️ A combustible substance is any material that can burn. These are the 'fuels' for our combustion reactions. When you light a match, the wood of the matchstick is a combustible substance. Other common examples include paper, cloth, and cooking gas like LPG.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪵</span><span>🪵</span><span>🪵</span></div><div class="vcap">Wood, a combustible substance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Non-Combustible</span> Materials</h2>
+          <ul><li>Materials that do NOT burn.</li><li>They do not react with oxygen to produce heat and light.</li><li>Examples: Glass, stone, iron, water.</li></ul>
+          <p class="notes">🎙️ On the other hand, non-combustible materials are those that simply do not burn, no matter how much heat you apply. Try to burn a piece of glass or a stone – they will just get hot, but won't catch fire. This property is very important in fire safety.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Brick, a non-combustible material</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Conditions for Combustion: <span class="hl">Fuel</span></h2>
+          <ul><li>Presence of a combustible substance (fuel).</li><li>This is what actually burns.</li><li>No fuel, no fire!</li></ul>
+          <p class="notes">🎙️ For combustion to happen, we need three main things. The first and most obvious is the fuel itself – the combustible substance. If there's nothing to burn, then there can be no fire. Imagine trying to start a fire in an empty fireplace!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛽</div><div class="vcap">Fuel for burning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Conditions for Combustion: <span class="hl">Oxygen</span></h2>
+          <ul><li>Presence of a supporter of combustion (oxygen/air).</li><li>Oxygen helps the substance burn.</li><li>Cutting off air can extinguish fire.</li></ul>
+          <p class="notes">🎙️ The second condition is oxygen, usually supplied by the air around us. Oxygen acts as the supporter of combustion. You can observe this by lighting a candle and then covering it with a glass; the flame goes out as the oxygen inside the glass is used up.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Air/Oxygen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Conditions for Combustion: <span class="hl">Ignition Temperature</span></h2>
+          <ul><li>The minimum temperature a substance needs.</li><li>At this temperature, it catches fire.</li><li>Different substances have different ignition temperatures.</li></ul>
+          <p class="notes">🎙️ The third crucial condition is the ignition temperature. This is the lowest temperature at which a substance will start burning and continue to burn. Until a substance reaches its ignition temperature, it won't catch fire, even if fuel and oxygen are present.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature gauge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Real-life</span> Ignition Temperature</h2>
+          <ul><li>Kerosene has a lower ignition temperature than wood.</li><li>That's why kerosene catches fire more easily.</li><li>Paper has a very low ignition temperature.</li></ul>
+          <p class="notes">🎙️ Consider burning wood and kerosene. Kerosene oil catches fire much more easily than a piece of wood. This is because kerosene has a much lower ignition temperature compared to wood. This difference is why we need to be extra careful with fuels like kerosene.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Kerosene</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Wood</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>What are <span class="hl">Inflammable</span> Substances?</h2>
+          <ul><li>Substances with very low ignition temperature.</li><li>They catch fire easily with a small flame.</li><li>Examples: Petrol, alcohol, LPG, CNG.</li></ul>
+          <p class="notes">🎙️ Inflammable substances are a special category of combustible materials. They have extremely low ignition temperatures, meaning they can catch fire very easily, often with just a spark or a small flame. This makes them very dangerous and requires careful handling, like petrol at a fuel station.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Highly flammable</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Controlling Fire</span>: The Fire Triangle</h2>
+          <ul><li>Fire needs Fuel, Oxygen, and Heat (ignition temp).</li><li>Remove any one of these to extinguish a fire.</li><li>This concept is called the 'Fire Triangle'.</li></ul>
+          <p class="notes">🎙️ Since we know fire needs three things – fuel, oxygen, and heat – to exist, we can control or extinguish a fire by removing any one of these conditions. This is the fundamental principle behind all fire-fighting methods, often visualized as the 'Fire Triangle'.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Fuel</span></div><div class="step"><span class="snum">2</span><span>Oxygen</span></div><div class="step"><span class="snum">3</span><span>Heat</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Methods</span> of Fire Control</h2>
+          <ul><li>Removing the fuel: Stop the supply of combustible material.</li><li>Cutting off the air supply: Smothering the fire.</li><li>Cooling the combustible material: Lowering its temperature below ignition.</li></ul>
+          <p class="notes">🎙️ Firefighters use these principles. They might remove surrounding combustible materials, or more commonly, spray water to cool down the burning substance and cut off the oxygen supply. For electrical fires, they use different methods to avoid further hazards.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚒</div><div class="vcap">Firefighting</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Fire <span class="hl">Extinguishers</span></h2>
+          <ul><li>Devices used to put out small fires.</li><li>Often contain carbon dioxide (CO2).</li><li>CO2 cuts off oxygen and cools the substance.</li></ul>
+          <p class="notes">🎙️ Fire extinguishers are common tools for putting out small fires. Many of them contain carbon dioxide under pressure. When released, CO2 is heavier than oxygen, so it forms a blanket around the fire, cutting off the air supply. It also helps cool down the fuel, making it an effective fire-fighting agent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon"> extinguisher</div><div class="vcap">CO2 Fire Extinguisher</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Types of Combustion: <span class="hl">Rapid</span> Combustion</h2>
+          <ul><li>Combustion that takes place quickly.</li><li>Produces a large amount of heat and light.</li><li>Example: Burning of LPG in a gas stove.</li></ul>
+          <p class="notes">🎙️ There are different types of combustion. Rapid combustion is what we usually think of when we imagine something burning. It's a fast process, like lighting a match or turning on your gas stove. You immediately see a flame and feel the heat.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Combustion_types.svg?width=500" data-fb="⚡" alt="Combustion is chemical reaction of fuel with oxygen releasing heat (exothermic). Types: co"/><div class="vcap">Combustion is chemical reaction of fuel with oxygen releasing heat (exothermic). Types: co</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Types of Combustion: <span class="hl">Spontaneous</span> Combustion</h2>
+          <ul><li>Combustion that occurs on its own.</li><li>No external heat applied, happens due to self-heating.</li><li>Example: Forest fires, coal mine fires.</li></ul>
+          <p class="notes">🎙️ Spontaneous combustion is quite fascinating and dangerous. It happens when a substance suddenly bursts into flames without any obvious external cause, like a spark or a flame. This can occur due to gradual oxidation or heat build-up, leading to forest fires or fires in coal mines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Self-ignition</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Types of Combustion: <span class="hl">Explosion</span></h2>
+          <ul><li>Rapid combustion with sudden release of gas.</li><li>Produces a large amount of heat, light, and sound.</li><li>Example: Bursting of firecrackers on Diwali.</li></ul>
+          <p class="notes">🎙️ An explosion is an even more rapid and violent form of combustion. It not only produces heat and light but also a large amount of gas, creating a sudden pressure wave and a loud sound. Think about the fireworks you see during festivals – those are controlled explosions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💣</div><div class="vcap">Explosive reaction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>What is a <span class="hl">Flame</span>?</h2>
+          <ul><li>The visible, gaseous part of a fire.</li><li>Formed when vaporized substances burn.</li><li>Not all burning substances produce a flame.</li></ul>
+          <p class="notes">🎙️ When we see fire, we often see a flame. A flame is essentially the visible, glowing gas produced during combustion. It appears when the combustible substance first vaporizes, and then these vapours burn. But remember, not everything that burns produces a flame.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕯️</div><div class="vcap">Candle flame</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Substances that Produce Flame</h2>
+          <ul><li>Substances that vaporize during burning.</li><li>The vapours burn to form a flame.</li><li>Examples: Wax, kerosene, LPG.</li></ul>
+          <p class="notes">🎙️ Materials like wax in a candle, kerosene in a lamp, or LPG in your kitchen stove, all produce a flame. This is because when they are heated, they first turn into vapours, and it's these vapours that actually burn, creating the characteristic flame.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🕯️</span><span>🕯️</span><span>🕯️</span></div><div class="vcap">Wax, kerosene, LPG</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Substances that Do Not Produce Flame</h2>
+          <ul><li>Substances that do not vaporize easily.</li><li>They burn directly in their solid state.</li><li>Examples: Coal, charcoal.</li></ul>
+          <p class="notes">🎙️ Now, think about coal or charcoal. When they burn, you see a red glow and feel heat, but you don't typically see a flame. This is because these substances do not vaporize easily. They burn directly as solids, producing a glow rather than a visible flame.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚫</span><span>⚫</span><span>⚫</span></div><div class="vcap">Coal, charcoal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Structure</span> of a Candle Flame</h2>
+          <ul><li>A candle flame has different zones.</li><li>Inner zone: Darkest, unburnt wax vapours.</li><li>Middle zone: Luminous, partial combustion, yellow.</li><li>Outer zone: Non-luminous, complete combustion, hottest.</li></ul>
+          <p class="notes">🎙️ If you look closely at a candle flame, you'll notice it's not uniform. It has distinct zones. The inner zone is dark and contains unburnt wax vapours. The middle zone is yellow and bright due to incomplete combustion. The outermost zone is the hottest and almost invisible, where complete combustion occurs.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Inner (Dark)</span></div><div class="step"><span class="snum">2</span><span>Middle (Luminous)</span></div><div class="step"><span class="snum">3</span><span>Outer (Non-Luminous)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Fuel <span class="hl">Efficiency</span></h2>
+          <ul><li>The amount of heat energy produced by a fuel.</li><li>Measured when 1 kg of fuel is completely burnt.</li><li>Called 'Calorific Value', unit is kJ/kg.</li></ul>
+          <p class="notes">🎙️ Not all fuels produce the same amount of heat. Fuel efficiency is a way to compare how much energy different fuels can provide. It's measured by the calorific value, which tells us the amount of heat produced when a unit mass (usually 1 kg) of fuel is completely burned. A higher calorific value means more energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Energy measurement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Characteristics of an <span class="hl">Ideal Fuel</span></h2>
+          <ul><li>High calorific value (produces lots of heat).</li><li>Burns easily at a moderate rate.</li><li>Cheap, readily available, and safe to handle.</li><li>Does not produce harmful substances or pollution.</li></ul>
+          <p class="notes">🎙️ An ideal fuel would have many desirable qualities. It should give a lot of heat, be easy to store and transport, and burn at a manageable rate. Most importantly, it should be affordable, readily available, and not cause environmental pollution or health issues. Finding a truly 'ideal' fuel is a challenge.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Good qualities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Q1: What are the three essential conditions for combustion?</li><li>Q2: Give two examples of inflammable substances.</li></ul>
+          <p class="notes">🎙️ Alright class, let's do a quick check to see how much you've understood. Think about the conditions needed for fire, and some of those very easily burning substances we discussed. Take a moment to recall the answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Q3: Why is carbon dioxide (CO2) often used to extinguish electrical fires?</li><li>Q4: Which zone of a candle flame is the hottest?</li></ul>
+          <p class="notes">🎙️ Let's continue with a couple more questions. Remember our discussion on fire extinguishers and the different parts of a flame. These questions test your understanding of practical applications and flame structure.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Harmful Effects</span> of Burning Fuels</h2>
+          <ul><li>Air pollution: Release of unburnt carbon particles, CO, SO2.</li><li>Global warming: Increased CO2 leading to rise in Earth's temperature.</li><li>Acid rain: Oxides of sulphur and nitrogen dissolving in rain.</li></ul>
+          <p class="notes">🎙️ While fuels are essential, their burning has significant environmental drawbacks. The release of harmful gases and particles causes air pollution, contributing to respiratory diseases. Increased carbon dioxide leads to global warming, and oxides of sulphur and nitrogen cause acid rain, damaging buildings and ecosystems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Pollution from burning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Combustion and Flame</h2>
+          <ul><li>Combustion needs fuel, oxygen, and ignition temperature.</li><li>Inflammable substances have low ignition temperature.</li><li>Fire can be controlled by removing any condition.</li><li>Flames are formed by burning vapours; different zones exist.</li><li>Fuel efficiency and environmental impacts are crucial considerations.</li></ul>
+          <p class="notes">🎙️ To summarize, we've learned about the chemical process of combustion, the types of substances that burn, and the essential conditions required. We also explored how to control fire, the different types of combustion, the structure of a flame, and the importance of fuel efficiency. Finally, we touched upon the environmental challenges associated with burning fuels. Keep exploring and stay curious!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 8 · Science</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,28 +1,20 @@
 /**
- * generate-slides.ts — Batch-generate image-rich slide decks for every chapter,
- * then zip them class-wise. This does what the Gemini chat UI can't: call the
- * API programmatically, fetch real images, write files, and package zips.
+ * generate-slides.ts — Auto-generate clean, designed slide decks per chapter,
+ * matching the Gemini visual language (teal/orange theme, rounded white cards,
+ * icon boxes, comparison bars, friendly rounded font).
  *
- * Pipeline per chapter:
- *   1. Gemini generates a 25-slide deck as JSON (title, bullets, imageQuery, notes)
- *   2. For each slide, fetch a REAL photo from Pexels (free) matching imageQuery
- *   3. Render a clean, self-contained HTML deck (arrow-key navigation)
- *   4. Write to output/slides/<board>/Class N/<subject>/<chapter>.html
- *   5. Zip each class folder → output/zips/<board>-Class-N.zip
+ * Each slide gets a VISUAL chosen by the model:
+ *   • icon    → big emoji in a dashed rounded box (+ caption)   e.g. ↕ Height
+ *   • compare → row of cards with teal bars                      e.g. Longest/Medium/Shortest
+ *   • steps   → numbered cards
+ *   • image   → an Imagen illustration (only for real objects/scenes)
+ *   • none    → clean full-width text
+ * Most slides use CSS/emoji visuals (free, instant); Imagen is used sparingly,
+ * so cost stays low and the look is consistent.
  *
- * Setup (in syllab/.env.local):
- *   GEMINI_API_KEY=...        (required — same key the backend uses)
- *   PEXELS_API_KEY=...        (optional but recommended — free at pexels.com/api)
- *
- * Usage:
- *   npx tsx scripts/generate-slides.ts --board=CBSE --class=1
- *   npx tsx scripts/generate-slides.ts --board=CBSE --class=1-5      (range)
- *   npx tsx scripts/generate-slides.ts --all                        (everything)
- *   npx tsx scripts/generate-slides.ts --board=CBSE --class=10 --subject=Science
- *   add --zip to package each class folder into a .zip
- *   add --limit=5 to cap how many chapters (test run)
- *
- * Resumable: existing .html files are skipped, so you can re-run safely.
+ * Slides: 20 for Class 1-5, 25 for Class 6-12.
+ * Setup: GEMINI_API_KEY in .env.local (billing on for Imagen).
+ * Usage:  npx tsx scripts/generate-slides.ts --board=CBSE --class=1 --zip
  */
 
 import 'dotenv/config';
@@ -30,38 +22,38 @@ import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 import { execSync } from 'child_process';
 import { SYLLABUS } from '../src/data/syllabus';
+import { pickSlideImage } from '../src/lib/lessonImages';
 
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
-const PEXELS_KEY = process.env.PEXELS_API_KEY;
+const SUBJECT_EMOJI: Record<string, string> = {
+  Physics: '⚛️', Chemistry: '🧪', Biology: '🌿', Science: '🔬',
+  Mathematics: '🔢', English: '📖', 'The World Around Us': '🌍',
+  'Financial Literacy': '💰',
+};
 if (!GEMINI_KEY) { console.error('Missing GEMINI_API_KEY in .env.local'); process.exit(1); }
-if (!PEXELS_KEY) console.warn('⚠️  No PEXELS_API_KEY — slides will use coloured placeholders instead of real photos.\n');
+const TEXT_MODEL = 'gemini-2.5-flash';
+const IMAGE_MODEL = 'imagen-4.0-fast-generate-001';
 
-/* ── CLI args ─────────────────────────────────────────────────────────────── */
-const args = Object.fromEntries(process.argv.slice(2).map(a => {
-  const [k, v] = a.replace(/^--/, '').split('=');
-  return [k, v ?? 'true'];
-}));
+/* ── CLI ──────────────────────────────────────────────────────────────────── */
+const args = Object.fromEntries(process.argv.slice(2).map(a => { const [k, v] = a.replace(/^--/, '').split('='); return [k, v ?? 'true']; }));
 const wantAll = args.all === 'true';
 const boardArg = (args.board as string) || 'CBSE';
 const subjectArg = args.subject as string | undefined;
 const limit = args.limit ? parseInt(args.limit as string, 10) : Infinity;
 const doZip = args.zip === 'true';
-
 let classFilter: (n: number) => boolean = () => true;
 if (args.class) {
   const c = args.class as string;
   if (c.includes('-')) { const [a, b] = c.split('-').map(Number); classFilter = n => n >= a && n <= b; }
   else { const n = Number(c); classFilter = x => x === n; }
 }
-
 const chapters = SYLLABUS.filter(ch => {
   if (!wantAll && (ch.board || 'CBSE') !== boardArg) return false;
   if (!classFilter(Number(ch.classLevel))) return false;
   if (subjectArg && ch.subject !== subjectArg) return false;
   return true;
 }).slice(0, limit);
-
-console.log(`Generating ${chapters.length} chapter deck(s)...\n`);
+console.log(`Generating ${chapters.length} designed deck(s)...\n`);
 
 /* ── Helpers ──────────────────────────────────────────────────────────────── */
 const slug = (s: string) => s.replace(/[^a-zA-Z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 60);
@@ -69,139 +61,219 @@ const esc = (s: string) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, 
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
 async function gemini(prompt: string): Promise<any> {
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${GEMINI_KEY}`,
     { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.7 } }) }
-  );
-  if (!res.ok) throw new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 200)}`);
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.65 } }) });
+  if (!res.ok) throw new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 160)}`);
   const data = await res.json();
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
-  return JSON.parse(text);
+  return JSON.parse(data?.candidates?.[0]?.content?.parts?.[0]?.text || '{}');
 }
 
-const pexelsCache = new Map<string, string>();
-async function pexelsImage(query: string): Promise<string | null> {
-  if (!PEXELS_KEY || !query) return null;
-  if (pexelsCache.has(query)) return pexelsCache.get(query)!;
+async function imagen(prompt: string, attempt = 1): Promise<string | null> {
+  const styled = `Flat, modern, colourful children's educational illustration. Clean, friendly, simple shapes, plain white background, NO text or letters. Subject: ${prompt}`;
   try {
-    const res = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape`,
-      { headers: { Authorization: PEXELS_KEY } });
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${IMAGE_MODEL}:predict?key=${GEMINI_KEY}`,
+      { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ instances: [{ prompt: styled }], parameters: { sampleCount: 1, aspectRatio: '4:3' } }) });
+    if (res.status === 429 && attempt <= 4) { await sleep(5000 * attempt); return imagen(prompt, attempt + 1); }
     if (!res.ok) return null;
-    const data = await res.json();
-    const url = data?.photos?.[0]?.src?.large || null;
-    if (url) pexelsCache.set(query, url);
-    return url;
+    return (await res.json())?.predictions?.[0]?.bytesBase64Encoded || null;
   } catch { return null; }
 }
 
-function buildPrompt(ch: typeof SYLLABUS[number]): string {
+function buildPrompt(ch: typeof SYLLABUS[number], n: number): string {
   const cls = Number(ch.classLevel);
   const tone = cls <= 5
-    ? 'Class 1-5: very simple words, story-led, lots of imagery, real-life examples a child sees daily (pizza for fractions, mangoes for counting). Minimal text per slide.'
-    : cls <= 10
-    ? 'Class 6-10: clear explanations with one real-life example and a diagram idea per concept.'
-    : 'Class 11-12: exam-focused, accurate, with worked examples and common mistakes.';
-  return `You are an expert Indian school teacher. Create a 25-slide lesson as JSON.
+    ? 'Class 1-5: very simple words, story-led, one clear visual per slide, real-life examples a child sees daily. 1-3 short lines per slide.'
+    : cls <= 10 ? 'Class 6-10: clear explanations, a visual on most concept slides, one real example per concept.'
+    : 'Class 11-12: exam-focused, accurate, worked examples + common mistakes; visuals on key slides.';
+  return `You are an expert Indian teacher AND slide designer. Create a ${n}-slide lesson as JSON.
 Chapter: "${ch.title}"  Subject: ${ch.subject}  Class: ${ch.classLevel}  Board: ${ch.board || 'CBSE'}.
 Tone: ${tone}
-Return ONLY JSON: { "title": string, "slides": [ { "heading": string, "bullets": string[] (2-5 short points, NO markdown stars), "imageQuery": string (2-4 words to find a REAL photo for this slide, e.g. "green plant leaf"), "notes": string (2-3 sentences a teacher would say aloud) } ] }
-Exactly 25 slides. Slide 1 = title/hook. Include concept slides, real-life examples, worked examples, 3-4 quick questions, and a recap. Keep bullets concrete and age-appropriate.`;
+
+Return ONLY JSON: { "title": string, "slides": [ {
+  "heading": string,
+  "highlight": string,   // ONE word/short phrase from the heading to colour-accent (or "")
+  "bullets": string[],   // 1-4 short points, NO markdown
+  "visual": {
+     "type": "icon" | "emojiScene" | "compare" | "steps" | "none",
+     "icon": string,        // type=icon: ONE big relevant emoji (e.g. "📏","⏰","↕️")
+     "caption": string,     // type=icon/emojiScene: a short label (or "")
+     "emoji": string,       // type=emojiScene: the emoji to repeat (e.g. "🍎")
+     "count": number,       // type=emojiScene: how many to show (1-10) — great for counting/groups
+     "items": [ { "label": string, "value": number } ]  // type=compare(2-4, value 1-5 bar) or steps(ordered labels)
+  },
+  "notes": string        // 2-3 sentences the teacher says aloud
+} ] }
+
+DESIGN RULES (IMPORTANT — use ONLY these free visuals, never request photos):
+- "emojiScene" for counting / quantities / groups (e.g. show 5 apples) — pick a fitting emoji + count.
+- "icon" for a concept (a single big emoji in a box, e.g. ⏰ for time, ↕️ for height, 💰 for money).
+- "compare" for comparing sizes/amounts (bars). "steps" for a process/method.
+- "none" for title / question / recap slides.
+- Every concept slide should have a visual. Choose the emoji that best matches the idea.
+- Exactly ${n} slides. Slide 1 = title/hook. Include concept slides, real-life examples, worked examples, 3-4 quick questions, and a recap. Age-appropriate, concrete.`;
 }
 
-function renderHtml(deck: any, ch: typeof SYLLABUS[number], images: (string | null)[]): string {
-  const slidesHtml = (deck.slides || []).map((s: any, i: number) => {
-    const img = images[i];
+// A curated real image (from the vetted free libraries) with an emoji fallback.
+function renderRealImage(url: string, caption: string, fallback: string): string {
+  return `<div class="vbox imgbox"><img class="rimg" src="${esc(url)}" data-fb="${esc(fallback)}" alt="${esc(caption)}"/>${caption ? `<div class="vcap">${esc(caption)}</div>` : ''}</div>`;
+}
+
+function renderVisual(v: any): string {
+  if (!v) return '';
+  if (v.type === 'emojiScene' && v.emoji) {
+    const count = Math.max(1, Math.min(10, Number(v.count) || 1));
+    const items = Array.from({ length: count }, () => `<span>${esc(v.emoji)}</span>`).join('');
+    return `<div class="vbox dashed"><div class="scene">${items}</div>${v.caption ? `<div class="vcap">${esc(v.caption)}</div>` : ''}</div>`;
+  }
+  if (v.type === 'icon' && v.icon) {
+    return `<div class="vbox dashed"><div class="bigicon">${esc(v.icon)}</div>${v.caption ? `<div class="vcap">${esc(v.caption)}</div>` : ''}</div>`;
+  }
+  if (v.type === 'compare' && Array.isArray(v.items) && v.items.length) {
+    const max = Math.max(...v.items.map((i: any) => Number(i.value) || 1));
+    const cards = v.items.map((i: any) => {
+      const w = Math.max(18, Math.round(((Number(i.value) || 1) / max) * 100));
+      return `<div class="ccard"><div class="cbar" style="width:${w}%"></div><div class="clabel">${esc(i.label)}</div></div>`;
+    }).join('');
+    return `<div class="compare">${cards}</div>`;
+  }
+  if (v.type === 'steps' && Array.isArray(v.items) && v.items.length) {
+    const steps = v.items.map((i: any, k: number) => `<div class="step"><span class="snum">${k + 1}</span><span>${esc(i.label)}</span></div>`).join('');
+    return `<div class="steps">${steps}</div>`;
+  }
+  return '';
+}
+
+function renderHeading(h: string, hl: string): string {
+  if (hl && h.includes(hl)) {
+    const parts = h.split(hl);
+    return `${esc(parts[0])}<span class="hl">${esc(hl)}</span>${esc(parts.slice(1).join(hl))}`;
+  }
+  return esc(h);
+}
+
+function renderHtml(deck: any, ch: typeof SYLLABUS[number]): string {
+  const usedImg = new Set<string>();
+  const subjEmoji = SUBJECT_EMOJI[ch.subject] || '📘';
+  const slides = (deck.slides || []).map((s: any, i: number) => {
+    // Prefer a curated, free, SAFE real image when the slide content matches
+    // one (science diagrams / kid concept images). Never random web search.
+    let visual = '';
+    const text = `${s.heading || ''} ${(s.bullets || [])[0] || ''}`;
+    const img = i === 0 ? null : pickSlideImage(text, String(ch.classLevel), ch.subject);
+    if (img && !usedImg.has(img.url)) {
+      usedImg.add(img.url);
+      visual = renderRealImage(img.url, img.caption || '', s.visual?.icon || subjEmoji);
+    } else {
+      visual = renderVisual(s.visual);
+    }
     const bullets = (s.bullets || []).map((b: string) => `<li>${esc(b)}</li>`).join('');
-    return `<section class="slide">
-      <div class="slide-inner">
-        <div class="text">
+    const hasVisual = visual !== '';
+    return `<section class="slide"><div class="card ${hasVisual ? '' : 'solo'}">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ${hasVisual ? 'split' : ''}">
+        <div class="txt">
           <span class="num">${i + 1} / ${deck.slides.length}</span>
-          <h2>${esc(s.heading)}</h2>
-          <ul>${bullets}</ul>
+          <h2>${renderHeading(s.heading || '', s.highlight || '')}</h2>
+          ${bullets ? `<ul>${bullets}</ul>` : ''}
           ${s.notes ? `<p class="notes">🎙️ ${esc(s.notes)}</p>` : ''}
         </div>
-        ${img ? `<div class="img"><img src="${img}" alt="${esc(s.imageQuery || s.heading)}" loading="lazy"/></div>` : ''}
+        ${hasVisual ? `<div class="visual">${visual}</div>` : ''}
       </div>
-    </section>`;
+    </div></section>`;
   }).join('\n');
 
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>${esc(deck.title || ch.title)} — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,sans-serif}
-  body{background:#0f172a;color:#fff;overflow:hidden}
-  .slide{display:none;height:100vh;width:100vw;padding:5vh 6vw;background:linear-gradient(135deg,#4f46e5,#7c3aed)}
-  .slide.active{display:flex;align-items:center}
-  .slide-inner{display:flex;gap:5vw;align-items:center;width:100%;max-width:1200px;margin:auto}
-  .text{flex:1}
-  .num{font-size:12px;font-weight:800;letter-spacing:2px;opacity:.6;text-transform:uppercase}
-  h2{font-size:clamp(24px,4vw,44px);margin:10px 0 20px;line-height:1.1}
-  ul{list-style:none;display:flex;flex-direction:column;gap:14px}
-  li{font-size:clamp(15px,1.6vw,20px);line-height:1.5;padding-left:22px;position:relative;opacity:.95}
-  li:before{content:"›";position:absolute;left:0;font-weight:900;opacity:.5}
-  .notes{margin-top:22px;font-size:14px;opacity:.7;font-style:italic;border-left:3px solid rgba(255,255,255,.3);padding-left:12px}
-  .img{flex:1;max-width:46%}
-  .img img{width:100%;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-  .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(0,0,0,.25)}
-  button{background:#fff;color:#1e293b;border:0;border-radius:14px;padding:10px 18px;font-weight:800;cursor:pointer}
-  .brand{font-weight:900;opacity:.8;letter-spacing:1px}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
 </style></head><body>
-${slidesHtml}
-<div class="bar">
-  <button onclick="go(-1)">‹ Back</button>
-  <span class="brand">Syllab.in · ${esc(ch.board || 'CBSE')} Class ${ch.classLevel} · ${esc(ch.subject)}</span>
-  <button onclick="go(1)">Next ›</button>
-</div>
-<script>
-  let i=0;const s=[...document.querySelectorAll('.slide')];
-  function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
-  function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
-  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-  show(0);
-</script></body></html>`;
+${slides}
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · ${esc(ch.board || 'CBSE')} Class ${ch.classLevel} · ${esc(ch.subject)}</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>`;
 }
 
 /* ── Main ─────────────────────────────────────────────────────────────────── */
 (async () => {
-  const touchedClassDirs = new Set<string>();
-  let made = 0, skipped = 0, failed = 0;
-
+  const touched = new Set<string>();
+  let made = 0, skipped = 0, failed = 0, imgCount = 0;
   for (const ch of chapters) {
     const board = ch.board || 'CBSE';
-    const classDir = join('output', 'slides', board, `Class ${ch.classLevel}`);
+    const classDir = join('public', 'generated-decks', board, `Class ${ch.classLevel}`);
     const dir = join(classDir, slug(ch.subject));
-    const file = join(dir, `${slug(ch.title)}.html`);
-    touchedClassDirs.add(classDir);
-
+    const base = slug(ch.title);
+    const file = join(dir, `${base}.html`);
+    const imgDir = join(dir, `${base}_img`);
+    touched.add(classDir);
     if (existsSync(file)) { skipped++; continue; }
+    void imgDir; // (no images now — fully free, emoji/CSS visuals only)
+    const nSlides = Number(ch.classLevel) <= 5 ? 20 : 25;
     try {
-      process.stdout.write(`• ${board} C${ch.classLevel} ${ch.subject} — ${ch.title.slice(0, 40)} ... `);
-      const deck = await gemini(buildPrompt(ch));
-      const images = await Promise.all((deck.slides || []).map((s: any) => pexelsImage(s.imageQuery)));
+      process.stdout.write(`• ${board} C${ch.classLevel} ${ch.subject} — ${ch.title.slice(0, 40)} `);
+      const deck = await gemini(buildPrompt(ch, nSlides));
+      const slides = deck.slides || [];
       mkdirSync(dir, { recursive: true });
-      writeFileSync(file, renderHtml(deck, ch, images), 'utf8');
-      made++;
-      console.log('done');
-      await sleep(1200); // gentle rate limiting
-    } catch (e) {
-      failed++;
-      console.log('FAILED:', (e as Error).message);
-    }
+      writeFileSync(file, renderHtml(deck, ch), 'utf8');
+      made++; console.log(`✓ (${slides.length} slides)`);
+      await sleep(300); // gentle pacing for the free text tier
+    } catch (e) { failed++; console.log('FAILED:', (e as Error).message); }
   }
-
-  console.log(`\n✅ ${made} generated · ${skipped} skipped (existing) · ${failed} failed`);
-
+  console.log(`\n✅ ${made} decks · ${skipped} skipped · ${failed} failed · ₹0 (no paid images)`);
+  void imgCount; void imagen;
   if (doZip) {
     mkdirSync(join('output', 'zips'), { recursive: true });
-    for (const cd of touchedClassDirs) {
+    for (const cd of touched) {
       const name = cd.replace(/[\\/]/g, '-').replace('output-slides-', '');
-      const zip = join('output', 'zips', `${name}.zip`);
-      try {
-        execSync(`powershell -Command "Compress-Archive -Path '${cd}\\*' -DestinationPath '${zip}' -Force"`, { stdio: 'ignore' });
-        console.log(`📦 ${zip}`);
-      } catch (e) { console.log(`zip failed for ${cd}:`, (e as Error).message); }
+      try { execSync(`powershell -Command "Compress-Archive -Path '${cd}\\*' -DestinationPath 'output/zips/${name}.zip' -Force"`, { stdio: 'ignore' }); console.log(`📦 output/zips/${name}.zip`); }
+      catch (e) { console.log('zip failed', (e as Error).message); }
     }
   }
 })();

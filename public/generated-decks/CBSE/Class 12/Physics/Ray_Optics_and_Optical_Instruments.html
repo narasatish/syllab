@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ray Optics and Optical Instruments — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Ray Optics</span> and Optical Instruments</h2>
+          <ul><li>Explore how light interacts with mirrors and lenses.</li><li>Understand the principles behind vision and optical devices.</li><li>Crucial for understanding everyday phenomena and advanced physics.</li></ul>
+          <p class="notes">🎙️ Hello students! Today we begin our journey into Ray Optics, a fascinating branch of physics. We'll uncover the secrets of light and how it helps us see the world and build incredible instruments.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Introduction to <span class="hl">Ray Optics</span></h2>
+          <ul><li>Light travels in straight lines (rectilinear propagation).</li><li>A 'ray' is the path of light; a 'beam' is a bundle of rays.</li><li>Simplifies the study of reflection and refraction phenomena.</li></ul>
+          <p class="notes">🎙️ Ray optics treats light as rays, which are straight lines indicating the direction of light propagation. This approximation works well when the size of obstacles or apertures is much larger than the wavelength of light, making complex wave phenomena negligible.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Path of Light</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Reflection</span> of Light</h2>
+          <ul><li>Bouncing back of light when it strikes a surface.</li><li>Occurs at all interfaces between two different media.</li><li>Governed by specific laws, regardless of surface type.</li></ul>
+          <p class="notes">🎙️ Reflection is a fundamental property of light, allowing us to see objects. When light hits a surface, a part of it bounces back into the same medium. This phenomenon forms the basis for mirrors and shiny surfaces.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=500" data-fb="↩️" alt="Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra"/><div class="vcap">Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Laws</span> of Reflection</h2>
+          <ul><li>Angle of incidence (i) equals angle of reflection (r).</li><li>Incident ray, reflected ray, and normal lie in the same plane.</li><li>These laws hold true for all types of reflecting surfaces.</li></ul>
+          <p class="notes">🎙️ The laws of reflection are crucial for understanding how mirrors work. Remember that the normal is an imaginary line perpendicular to the surface at the point of incidence. These laws are universally applicable.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_in_plane_mirror.svg?width=500" data-fb="⚛️" alt="Light reflects off surfaces following two laws: angle of incidence equals angle of reflect"/><div class="vcap">Light reflects off surfaces following two laws: angle of incidence equals angle of reflect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Spherical Mirrors</span>: Concave &amp; Convex</h2>
+          <ul><li>Part of a hollow sphere whose one side is polished.</li><li>Concave mirror: Reflecting surface is curved inwards (converging).</li><li>Convex mirror: Reflecting surface is curved outwards (diverging).</li></ul>
+          <p class="notes">🎙️ Spherical mirrors are widely used in various applications, from shaving mirrors to rearview mirrors in vehicles. Their curvature determines how they reflect light and form images, either converging or diverging the rays.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Concave Mirror</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Convex Mirror</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Image Formation by Concave Mirror (Ray Tracing)</h2>
+          <ul><li>Ray parallel to principal axis passes through focus after reflection.</li><li>Ray passing through focus becomes parallel after reflection.</li><li>Ray passing through center of curvature retraces its path.</li></ul>
+          <p class="notes">🎙️ Mastering these three principal rays is essential for drawing accurate ray diagrams for concave mirrors. By intersecting any two of these reflected rays, you can precisely locate the image formed and determine its nature.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Concave_mirror.svg?width=500" data-fb="⚛️" alt="A concave mirror (converging mirror) reflects light inward toward a focal point. The type "/><div class="vcap">A concave mirror (converging mirror) reflects light inward toward a focal point. The type </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Mirror Formula</span> and Magnification</h2>
+          <ul><li>1/f = 1/v + 1/u (f = focal length, v = image distance, u = object distance).</li><li>Magnification (m) = h'/h = -v/u (h' = image height, h = object height).</li><li>Strict adherence to sign conventions is critical for correct calculations.</li></ul>
+          <p class="notes">🎙️ The mirror formula is a powerful tool for quantitative analysis of image formation. Remember to use the Cartesian sign convention consistently: distances measured against the direction of incident light are negative, and distances measured along are positive.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Formula for Mirrors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Concave Mirror</h2>
+          <ul><li>An object is placed 20 cm from a concave mirror with focal length 15 cm.</li><li>Calculate the position, nature, and magnification of the image.</li><li>Solution: u = -20 cm, f = -15 cm. 1/v = 1/f - 1/u = 1/(-15) - 1/(-20) = (-4+3)/60 = -1/60. So, v = -60 cm. Image is real, inverted, magnified. m = -v/u = -(-60)/(-20) = -3.</li></ul>
+          <p class="notes">🎙️ This example demonstrates the application of the mirror formula and magnification formula. Notice how the sign conventions lead to the correct interpretation of the image's characteristics: real, inverted, and magnified.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Refraction</span> of Light</h2>
+          <ul><li>Bending of light as it passes from one medium to another.</li><li>Caused by the change in speed of light in different media.</li><li>Responsible for phenomena like apparent depth and prisms.</li></ul>
+          <p class="notes">🎙️ Refraction is another fundamental property of light, occurring when light crosses the boundary between two transparent media. The extent of bending depends on the refractive indices of the two media and the angle of incidence.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Snells_law2.svg?width=500" data-fb="〰️" alt="Refraction is bending of light when passing between materials of different density. Occurs"/><div class="vcap">Refraction is bending of light when passing between materials of different density. Occurs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Laws of Refraction: <span class="hl">Snell's Law</span></h2>
+          <ul><li>Incident ray, refracted ray, and normal lie in the same plane.</li><li>n₁ sin i = n₂ sin r (n = refractive index, i = incidence, r = refraction).</li><li>Refractive index (n) = c/v (c = speed of light in vacuum, v = speed in medium).</li></ul>
+          <p class="notes">🎙️ Snell's Law is the quantitative description of refraction. It relates the angles of incidence and refraction to the refractive indices of the two media. A higher refractive index means light travels slower in that medium.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Medium 1</span></div><div class="step"><span class="snum">2</span><span>Normal</span></div><div class="step"><span class="snum">3</span><span>Medium 2</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Total Internal Reflection (<span class="hl">TIR</span>)</h2>
+          <ul><li>Light travels from a denser to a rarer medium.</li><li>Angle of incidence (i) is greater than the critical angle (c).</li><li>No refraction occurs; all light is reflected back into the denser medium.</li></ul>
+          <p class="notes">🎙️ Total Internal Reflection is a fascinating phenomenon where light cannot escape a denser medium if the angle of incidence exceeds a certain critical value. This principle has numerous practical applications in modern technology.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">No Light Escapes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Applications</span> of Total Internal Reflection</h2>
+          <ul><li>Optical fibers: Transmit data with minimal loss.</li><li>Mirage: Atmospheric phenomenon due to TIR.</li><li>Sparkling of diamonds: High refractive index and critical angle.</li><li>Prisms: Used in binoculars and periscopes for bending light.</li></ul>
+          <p class="notes">🎙️ TIR is not just a theoretical concept; it's practically applied in many fields. Optical fibers, for instance, are the backbone of modern communication, relying entirely on TIR to guide light signals over long distances.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Total_internal_reflection.svg?width=500" data-fb="⚛️" alt="Total internal reflection occurs when light traveling in a denser medium hits a less dense"/><div class="vcap">Total internal reflection occurs when light traveling in a denser medium hits a less dense</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Lenses</span>: Convex and Concave</h2>
+          <ul><li>Transparent optical devices with at least one curved surface.</li><li>Convex lens: Thicker in the middle, converges parallel rays to a point (focus).</li><li>Concave lens: Thinner in the middle, diverges parallel rays as if from a point.</li></ul>
+          <p class="notes">🎙️ Lenses are fundamental components of many optical instruments, from eyeglasses to telescopes. Their ability to converge or diverge light allows them to form real or virtual images, correcting vision or magnifying distant objects.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Convex Lens</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Concave Lens</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Image Formation by Convex Lens (Ray Tracing)</h2>
+          <ul><li>Ray parallel to principal axis passes through F₂ after refraction.</li><li>Ray passing through F₁ becomes parallel to principal axis.</li><li>Ray passing through optical center (O) goes undeviated.</li></ul>
+          <p class="notes">🎙️ Similar to mirrors, ray tracing for lenses helps visualize image formation. For a convex lens, these three principal rays are sufficient to determine the position, nature, and size of the image formed for any object position.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lens1.svg?width=500" data-fb="⚛️" alt="A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima"/><div class="vcap">A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Lens Maker's Formula &amp; <span class="hl">Lens Formula</span></h2>
+          <ul><li>Lens Maker's Formula: 1/f = (n₂/n₁ - 1)(1/R₁ - 1/R₂).</li><li>Lens Formula: 1/v - 1/u = 1/f.</li><li>Magnification (m) = h'/h = v/u. (Note: no negative sign for lenses).</li></ul>
+          <p class="notes">🎙️ The Lens Maker's Formula allows us to calculate the focal length of a lens based on its refractive index and radii of curvature. The Lens Formula, like the mirror formula, quantitatively relates object distance, image distance, and focal length.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Lens Calculations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Convex Lens</h2>
+          <ul><li>An object is placed 30 cm from a convex lens with focal length 10 cm.</li><li>Calculate the position, nature, and magnification of the image.</li><li>Solution: u = -30 cm, f = +10 cm. 1/v = 1/f + 1/u = 1/10 + 1/(-30) = (3-1)/30 = 2/30. So, v = +15 cm. Image is real, inverted, diminished. m = v/u = 15/(-30) = -0.5.</li></ul>
+          <p class="notes">🎙️ This example highlights the use of the lens formula and magnification for a convex lens. Pay close attention to the sign conventions, especially for the focal length of a convex lens being positive, and how it impacts the image characteristics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Power</span> of a Lens</h2>
+          <ul><li>Measure of the converging or diverging ability of a lens.</li><li>P = 1/f (f must be in meters).</li><li>Unit is Dioptre (D). Convex lens has positive power, concave has negative.</li></ul>
+          <p class="notes">🎙️ The power of a lens is a practical concept, especially in optometry. A lens with greater power bends light more strongly. Opticians prescribe lenses in dioptres, making it easy to understand their corrective strength.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Lens Strength</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Combination</span> of Thin Lenses</h2>
+          <ul><li>When multiple thin lenses are placed in contact.</li><li>Equivalent focal length: 1/F = 1/f₁ + 1/f₂ + ...</li><li>Equivalent power: P = P₁ + P₂ + ... (powers add algebraically).</li></ul>
+          <p class="notes">🎙️ Combining lenses is common in complex optical instruments like compound microscopes and telescopes. The simple addition of powers makes it straightforward to calculate the net effect of multiple lenses working together.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span></div><div class="vcap">Adding Lenses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>The <span class="hl">Human Eye</span>: An Optical Instrument</h2>
+          <ul><li>Natural optical system with cornea, lens, retina.</li><li>Lens adjusts its focal length (accommodation) to focus objects.</li><li>Image formed on retina is real, inverted, and diminished.</li></ul>
+          <p class="notes">🎙️ The human eye is an incredible biological optical instrument. Its ability to accommodate, or change its focal length, allows us to see objects clearly at various distances. The brain then processes the inverted image to perceive it upright.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👁️</div><div class="vcap">Our Natural Lens</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Defects</span> of Vision and Their Correction</h2>
+          <ul><li>Myopia (Nearsightedness): Distant objects appear blurred. Corrected by concave lens.</li><li>Hypermetropia (Farsightedness): Near objects appear blurred. Corrected by convex lens.</li><li>Presbyopia: Loss of accommodation with age. Corrected by bifocal lenses.</li></ul>
+          <p class="notes">🎙️ These common vision defects arise from the eye's inability to focus light correctly on the retina. Fortunately, these can be effectively corrected using appropriate spherical lenses, restoring clear vision.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Myopia</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hypermetropia</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Simple <span class="hl">Microscope</span> (Magnifying Glass)</h2>
+          <ul><li>A convex lens of short focal length.</li><li>Object placed between optical center and focus.</li><li>Forms a virtual, erect, and magnified image.</li></ul>
+          <p class="notes">🎙️ The simple microscope, or magnifying glass, is the most basic optical instrument for magnification. It works by creating a large virtual image, allowing the eye to view small objects in greater detail.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Magnifying Small Things</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Compound</span> Microscope</h2>
+          <ul><li>Uses two convex lenses: objective and eyepiece.</li><li>Objective forms a real, inverted, magnified intermediate image.</li><li>Eyepiece acts as a simple microscope to further magnify this image.</li></ul>
+          <p class="notes">🎙️ For higher magnification, a compound microscope is used. The two-stage magnification process allows for significantly larger overall magnification compared to a simple microscope, revealing intricate details of tiny specimens.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Objective Lens</span></div><div class="step"><span class="snum">2</span><span>Intermediate Image</span></div><div class="step"><span class="snum">3</span><span>Eyepiece Lens</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Astronomical <span class="hl">Telescope</span></h2>
+          <ul><li>Used to view distant astronomical objects.</li><li>Objective lens has large focal length and aperture.</li><li>Forms an inverted image; angular magnification is key.</li></ul>
+          <p class="notes">🎙️ Astronomical telescopes are designed to gather light from distant, faint objects and produce a magnified image. The large aperture of the objective lens is crucial for collecting more light and improving resolution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Seeing Far Away</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check &amp; Common <span class="hl">Mistakes</span></h2>
+          <ul><li>Sign Conventions: Always consistent (Cartesian system).</li><li>Units: Focal length in meters for power (Dioptre).</li><li>Ray Diagrams: Ensure accuracy for image location.</li><li>Formulas: Don't mix mirror and lens formulas.</li></ul>
+          <p class="notes">🎙️ To ace your exams, pay close attention to these common pitfalls. A small error in sign convention or unit conversion can lead to incorrect answers. Practice drawing ray diagrams until they are second nature.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Key Takeaways</h2>
+          <ul><li>Reflection &amp; Refraction laws are fundamental.</li><li>Mirrors and Lenses form images based on these laws.</li><li>TIR has vital applications (e.g., optical fibers).</li><li>Optical instruments extend our vision (eyes, microscopes, telescopes).</li></ul>
+          <p class="notes">🎙️ We've covered a vast and important chapter today. Remember the core principles of light's behavior and how they are harnessed in various optical devices. Review the formulas and practice numerical problems thoroughly for your exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Physics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

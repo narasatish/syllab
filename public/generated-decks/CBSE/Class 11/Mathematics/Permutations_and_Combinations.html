@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Permutations and Combinations — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Permutations</span> and Combinations!</h2>
+          <ul><li>Chapter: Permutations and Combinations</li><li>Subject: Mathematics</li><li>Class: 11, CBSE Board</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we embark on an exciting journey into the world of Permutations and Combinations, a fundamental chapter in Class 11 Mathematics. This topic is crucial for competitive exams and builds a strong foundation for higher studies.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Understanding <span class="hl">Arrangement</span> and Selection</h2>
+          <ul><li>Permutations: Deals with arrangements where order matters.</li><li>Combinations: Deals with selections where order does NOT matter.</li><li>Crucial for probability and advanced mathematics.</li></ul>
+          <p class="notes">🎙️ Permutations and Combinations are two distinct concepts that help us count the number of ways to arrange or select items. The key differentiator is whether the order of items is important or not. Mastering this distinction is vital for solving problems correctly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Think &amp; Choose</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>P&amp;C in <span class="hl">Everyday</span> Life</h2>
+          <ul><li>Arranging books on a shelf (Permutation).</li><li>Choosing a team from a group of players (Combination).</li><li>Forming passwords (Permutation).</li><li>Selecting pizza toppings (Combination).</li></ul>
+          <p class="notes">🎙️ From simple tasks like arranging books to complex scenarios like forming secure passwords, P&amp;C are all around us. Understanding these concepts helps us quantify possibilities in various situations. Think about how many different ways you can order a simple meal!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">Pizza Toppings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The <span class="hl">Foundation</span>: Fundamental Principle of Counting</h2>
+          <ul><li>A powerful tool to count possibilities without listing them all.</li><li>Consists of two main principles: Multiplication and Addition.</li><li>Forms the base for understanding permutations and combinations.</li></ul>
+          <p class="notes">🎙️ Before diving into P&amp;C formulas, we must grasp the Fundamental Principle of Counting. This principle provides a systematic way to count the number of outcomes for multi-stage events. It's the logical backbone for everything we'll learn today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Counting Rules</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Multiplication</span> Principle of Counting</h2>
+          <ul><li>If an event can occur in 'm' ways, AND another independent event can occur in 'n' ways, then both events can occur in m × n ways.</li><li>Used when tasks are performed in sequence.</li><li>Keywords: 'AND', 'followed by'.</li></ul>
+          <p class="notes">🎙️ The Multiplication Principle applies when you have a sequence of events, and you want to find the total number of ways all events can occur together. For example, if you have 3 shirts and 2 pants, you have 3 times 2, which is 6 different outfits.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Task 1 (m ways)</span></div><div class="step"><span class="snum">2</span><span>Task 2 (n ways)</span></div><div class="step"><span class="snum">3</span><span>Total: m x n ways</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Addition</span> Principle of Counting</h2>
+          <ul><li>If an event can occur in 'm' ways, OR another independent event can occur in 'n' ways, then either of the events can occur in m + n ways.</li><li>Used when tasks are mutually exclusive.</li><li>Keywords: 'OR', 'either/or'.</li></ul>
+          <p class="notes">🎙️ In contrast, the Addition Principle is used when you have mutually exclusive choices – you can do one thing OR another, but not both simultaneously. For instance, if you can choose to travel by bus (3 routes) or by train (2 routes), you have 3 plus 2, which is 5 total ways to travel.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Summing Possibilities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>FPC: Worked <span class="hl">Example</span></h2>
+          <ul><li>Question: How many 3-digit numbers can be formed using digits 1, 2, 3, 4, 5 if repetition of digits is allowed?</li><li>Solution: For the first digit, 5 choices. For the second, 5 choices. For the third, 5 choices.</li><li>Total ways = 5 × 5 × 5 = 125.</li></ul>
+          <p class="notes">🎙️ Let's apply the FPC. Since repetition is allowed, each position (hundreds, tens, units) has the full set of 5 digits available. We multiply the choices for each position because forming the 3-digit number involves a sequence of choices.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">3-Digit Number</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Introducing <span class="hl">Factorial</span> Notation (!)</h2>
+          <ul><li>Definition: The product of all positive integers less than or equal to a given positive integer 'n'.</li><li>Denoted by n! (read as 'n factorial').</li><li>n! = n × (n-1) × (n-2) × ... × 2 × 1.</li></ul>
+          <p class="notes">🎙️ Factorial notation is a shorthand that simplifies calculations in permutations and combinations. It represents the product of a descending sequence of positive integers. Remember that 0! is defined as 1, which is a common point of confusion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❗</div><div class="vcap">Product Sequence</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Properties and <span class="hl">Calculations</span> with Factorials</h2>
+          <ul><li>0! = 1, 1! = 1.</li><li>n! = n × (n-1)! (recursive property).</li><li>Example: Calculate 5! and 7! / 5!.</li><li>5! = 5 × 4 × 3 × 2 × 1 = 120. 7! / 5! = (7 × 6 × 5!) / 5! = 7 × 6 = 42.</li></ul>
+          <p class="notes">🎙️ Understanding the properties of factorials, especially the recursive one, helps in simplifying complex expressions. For instance, 7! divided by 5! can be easily solved by cancelling out the common 5! term, rather than calculating both large factorials separately.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Simplifying Factorials</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Permutations: <span class="hl">Order Matters</span>!</h2>
+          <ul><li>An arrangement of objects in a definite order.</li><li>If the order of selection or arrangement changes, it results in a different permutation.</li><li>Example: Arranging letters A, B, C. ABC is different from ACB.</li></ul>
+          <p class="notes">🎙️ Permutations are all about order. Think of it like a race: coming first, second, or third are distinct outcomes. When the arrangement of items creates a unique result, we are dealing with permutations. The specific position of each item is crucial.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Ordered Arrangement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Permutations of n distinct objects taken r at a time</h2>
+          <ul><li>Formula: P(n, r) or nPr = n! / (n-r)! where 0 ≤ r ≤ n.</li><li>'n' is the total number of distinct objects.</li><li>'r' is the number of objects to be arranged at a time.</li></ul>
+          <p class="notes">🎙️ This is the core formula for permutations when all objects are distinct. It tells us the number of ways to arrange 'r' items chosen from a set of 'n' distinct items. Remember that 'n' must always be greater than or equal to 'r'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Permutation Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>nPr: Worked <span class="hl">Example</span></h2>
+          <ul><li>Question: In how many ways can 3 students be arranged on 5 chairs?</li><li>Here, n = 5 (total chairs), r = 3 (students to arrange).</li><li>Solution: 5P3 = 5! / (5-3)! = 5! / 2! = (5 × 4 × 3 × 2!) / 2! = 5 × 4 × 3 = 60.</li></ul>
+          <p class="notes">🎙️ Let's solve this problem using the nPr formula. We have 5 distinct chairs and we want to arrange 3 distinct students. The order in which students sit matters, so it's a permutation. The calculation shows there are 60 distinct ways.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span></div><div class="vcap">Arranging Students</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Permutations with <span class="hl">Non-Distinct</span> Objects</h2>
+          <ul><li>When some objects are identical, the formula changes.</li><li>If there are n objects where p1 are of one kind, p2 of another, etc., then total permutations = n! / (p1! p2! ... pk!).</li><li>Example: Arranging letters of the word 'APPLE'.</li></ul>
+          <p class="notes">🎙️ When dealing with words like 'APPLE' or 'MISSISSIPPI', some letters repeat. If we simply used n!, we would overcount arrangements because swapping identical letters doesn't create a new arrangement. We divide by the factorials of the counts of repeated items to correct this.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Letters of APPLE</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Combinations: Order Does <span class="hl">NOT Matter</span>!</h2>
+          <ul><li>A selection of objects where the order of selection is irrelevant.</li><li>If the order changes, it's still considered the same combination.</li><li>Example: Choosing 2 friends from 3 (A, B, C). {A, B} is the same as {B, A}.</li></ul>
+          <p class="notes">🎙️ Combinations are about forming groups or sets where the internal arrangement doesn't matter. Picking a committee of three people is a combination because it doesn't matter who was chosen first, second, or third; the committee remains the same.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Unordered Selection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Combinations of n distinct objects taken r at a time</h2>
+          <ul><li>Formula: C(n, r) or nCr = n! / (r! * (n-r)!) where 0 ≤ r ≤ n.</li><li>'n' is the total number of distinct objects.</li><li>'r' is the number of objects to be selected at a time.</li></ul>
+          <p class="notes">🎙️ This is the formula for combinations. Notice the extra 'r!' in the denominator compared to the permutation formula. This 'r!' accounts for the fact that the 'r' selected items can be arranged in r! ways, and since order doesn't matter for combinations, we divide by these redundant arrangements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Combination Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Connecting</span> Permutations and Combinations</h2>
+          <ul><li>nPr = nCr * r! (The number of permutations is the number of combinations multiplied by the ways to arrange the selected items).</li><li>Alternatively, nCr = nPr / r!.</li><li>This relationship highlights that permutations are ordered combinations.</li></ul>
+          <p class="notes">🎙️ This relationship is crucial for understanding the fundamental difference and connection between permutations and combinations. It shows that for every unique combination of 'r' items, there are 'r!' ways to arrange them, thus forming 'r!' permutations.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Permutations (nPr)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Combinations (nCr)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>nCr: Worked <span class="hl">Example</span></h2>
+          <ul><li>Question: In how many ways can a committee of 3 members be selected from a group of 5 people?</li><li>Here, n = 5 (total people), r = 3 (members to select). Order does not matter.</li><li>Solution: 5C3 = 5! / (3! * (5-3)!) = 5! / (3! * 2!) = (5 × 4 × 3!) / (3! × 2 × 1) = (5 × 4) / 2 = 10.</li></ul>
+          <p class="notes">🎙️ This is a classic combination problem. We are selecting a group, and the order of selection doesn't change the committee itself. Using the nCr formula, we find there are 10 distinct ways to form a 3-member committee from 5 people.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👥</span><span>👥</span><span>👥</span><span>👥</span><span>👥</span></div><div class="vcap">Selecting a Committee</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Avoiding Common <span class="hl">Mistakes</span></h2>
+          <ul><li>Confusing Permutations and Combinations: Always ask, 'Does order matter?'</li><li>Incorrectly applying FPC (Multiplication vs. Addition).</li><li>Errors in factorial calculations, especially with 0! or simplifying fractions.</li><li>Not reading the question carefully for conditions like 'repetition allowed' or 'specific objects together'.</li></ul>
+          <p class="notes">🎙️ Many students stumble by mixing up P and C. Always pause and determine if the problem requires an ordered arrangement or an unordered selection. Also, be meticulous with your factorial calculations and pay close attention to the specific constraints given in the problem statement.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Watch Out!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Advanced Concept: <span class="hl">Circular</span> Permutations (Brief Introduction)</h2>
+          <ul><li>Arrangements in a circle where there's no fixed starting point.</li><li>If clockwise and anti-clockwise arrangements are distinct: (n-1)! ways.</li><li>If clockwise and anti-clockwise arrangements are considered same (e.g., necklace): (n-1)! / 2 ways.</li></ul>
+          <p class="notes">🎙️ Circular permutations are a special case where arrangements are around a circle. Since there's no distinct start or end, we fix one person's position and arrange the rest. The distinction between distinct and identical arrangements (like beads in a necklace) is important.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Round Table</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Strategy</span> for P&amp;C Problems</h2>
+          <ul><li>1. Understand the problem: What needs to be arranged/selected?</li><li>2. Identify 'n' (total items) and 'r' (items to be used).</li><li>3. Determine if order matters (Permutation) or not (Combination).</li><li>4. Check for repetitions or restrictions (e.g., 'at least', 'at most', 'together').</li><li>5. Apply the correct formula or FPC.</li></ul>
+          <p class="notes">🎙️ A systematic approach is key to solving P&amp;C problems. Don't rush into formulas. First, clearly understand what the question is asking, identify the type of problem, and then consider any special conditions before applying the appropriate mathematical tool.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Understand</span></div><div class="step"><span class="snum">2</span><span>Identify n, r</span></div><div class="step"><span class="snum">3</span><span>P or C?</span></div><div class="step"><span class="snum">4</span><span>Restrictions?</span></div><div class="step"><span class="snum">5</span><span>Solve!</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check: <span class="hl">Question</span> 1</h2>
+          <ul><li>In how many ways can the letters of the word 'MATHS' be arranged?</li><li>A) 5</li><li>B) 25</li><li>C) 120</li><li>D) 60</li></ul>
+          <p class="notes">🎙️ Take a moment to think about this. Does the order of letters matter? Are there any repeated letters? Once you've determined that, apply the correct principle or formula. This is a straightforward permutation problem.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check: <span class="hl">Question</span> 2</h2>
+          <ul><li>A team of 4 is to be chosen from 7 boys. In how many ways can this be done?</li><li>A) 210</li><li>B) 35</li><li>C) 24</li><li>D) 840</li></ul>
+          <p class="notes">🎙️ For this problem, consider if the order in which the boys are chosen for the team matters. If you pick John, then Mike, is it different from picking Mike, then John? This will tell you whether to use permutations or combinations.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check: <span class="hl">Question</span> 3</h2>
+          <ul><li>How many 2-digit numbers can be formed using digits 1, 2, 3 if repetition is NOT allowed?</li><li>A) 3</li><li>B) 6</li><li>C) 9</li><li>D) 12</li></ul>
+          <p class="notes">🎙️ Here, we're forming numbers, so order definitely matters. The crucial part is that repetition is NOT allowed. Think about the choices for the first digit and then for the second digit, considering the restriction.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check: <span class="hl">Question</span> 4</h2>
+          <ul><li>If nC2 = 10, what is the value of n?</li><li>A) 4</li><li>B) 5</li><li>C) 6</li><li>D) 7</li></ul>
+          <p class="notes">🎙️ This question requires you to use the combination formula and solve for 'n'. Recall the formula for nCr and set it equal to 10. You can either solve the quadratic equation or test the given options.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Recap: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>FPC (Multiplication &amp; Addition) forms the base for counting.</li><li>Factorials simplify product sequences.</li><li>Permutations: Order matters (nPr).</li><li>Combinations: Order does NOT matter (nCr).</li><li>Always identify if order matters and check for restrictions.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the core difference: Permutations are about arrangements, Combinations are about selections. Practice identifying 'n' and 'r', and whether order is important. Consistent practice will make you proficient in this chapter.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 11 · Mathematics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

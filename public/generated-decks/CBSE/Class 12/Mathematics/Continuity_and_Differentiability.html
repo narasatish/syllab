@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Continuity and Differentiability — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Continuity</span> and Differentiability: An Introduction</h2>
+          <ul><li>Welcome to Class 12 Mathematics</li><li>Chapter 5: Continuity and Differentiability</li><li>Essential for Calculus</li><li>CBSE Board Focus</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a crucial chapter in Calculus: Continuity and Differentiability. This forms the bedrock for understanding advanced mathematical concepts and is vital for your CBSE exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Why</span> Study Continuity and Differentiability?</h2>
+          <ul><li>Real-world phenomena</li><li>Engineering and Physics models</li><li>Optimization problems</li><li>Understanding rates of change</li></ul>
+          <p class="notes">🎙️ These concepts aren't just theoretical. They help us model smooth transitions in nature, predict motion, design efficient systems, and understand how quantities change over time, from stock prices to rocket trajectories.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Real-World Impact</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Recap: What is a <span class="hl">Function</span>?</h2>
+          <ul><li>A rule mapping input to output</li><li>Each input has exactly one output</li><li>Represented as y = f(x)</li><li>Domain and Range</li></ul>
+          <p class="notes">🎙️ Before we dive deeper, let's quickly recall functions. A function is like a machine: you put something in, and it gives you one specific thing out. Remember, for every input, there's only one output.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span></div><div class="vcap">Input to Output</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Recap: Understanding <span class="hl">Limits</span></h2>
+          <ul><li>Value a function 'approaches'</li><li>As input approaches a certain point</li><li>Not necessarily the function's value AT that point</li><li>Denoted as lim f(x) as x→a</li></ul>
+          <p class="notes">🎙️ Limits are about what happens *near* a point, not necessarily *at* the point itself. Imagine approaching a target; the limit is where you're headed, even if you never quite reach it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Approaching a Target</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Formal</span> Definition: Limits</h2>
+          <ul><li>Left-Hand Limit (LHL): x approaches 'a' from left (x &lt; a)</li><li>Right-Hand Limit (RHL): x approaches 'a' from right (x &gt; a)</li><li>Limit exists if LHL = RHL</li></ul>
+          <p class="notes">🎙️ For a limit to exist at a point, the function must approach the *same* value whether you come from the left side or the right side. If these two values are different, the limit does not exist.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">LHL</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">RHL</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Limit</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Continuity: An <span class="hl">Intuitive</span> Idea</h2>
+          <ul><li>Can you draw the graph without lifting your pen?</li><li>No breaks, no jumps, no holes</li><li>A smooth, unbroken curve</li><li>Think of a continuous road</li></ul>
+          <p class="notes">🎙️ Imagine drawing a function's graph. If you can draw it from one end to the other without ever lifting your pen from the paper, then the function is intuitively continuous. No sudden gaps or jumps.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Drawing Without Lifting Pen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Continuity: The <span class="hl">Formal</span> Definition</h2>
+          <ul><li>A function f(x) is continuous at x=a if:</li><li>1. f(a) is defined</li><li>2. lim f(x) as x→a exists</li><li>3. lim f(x) as x→a = f(a)</li></ul>
+          <p class="notes">🎙️ For a function to be continuous at a specific point 'a', three strict conditions must be met: the function must have a value there, the limit must exist there, and crucially, these two values must be identical.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>f(a) defined</span></div><div class="step"><span class="snum">2</span><span>Limit exists</span></div><div class="step"><span class="snum">3</span><span>Limit = f(a)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Visualising <span class="hl">Discontinuity</span></h2>
+          <ul><li>Jump Discontinuity: LHL ≠ RHL</li><li>Removable Discontinuity: Hole in graph (limit exists but ≠ f(a) or f(a) undefined)</li><li>Infinite Discontinuity: Vertical asymptote</li></ul>
+          <p class="notes">🎙️ When any of the three conditions for continuity fail, we have a discontinuity. Think of a road that suddenly ends, or has a missing bridge, or a sharp drop-off – these are analogous to different types of discontinuities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Breaks in the Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Continuity of <span class="hl">Polynomial</span> Functions</h2>
+          <ul><li>Functions like P(x) = ax^n + bx^(n-1) + ... + c</li><li>Always continuous for all real numbers</li><li>Their graphs are smooth curves</li><li>Examples: x^2, 3x+5, x^3-2x+1</li></ul>
+          <p class="notes">🎙️ Polynomial functions are the 'well-behaved' members of the function family. Their graphs are always smooth and unbroken, meaning they are continuous everywhere. You never have to worry about breaks or jumps with polynomials.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📈</span><span>📈</span><span>📈</span></div><div class="vcap">Smooth Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Continuity of <span class="hl">Rational</span> Functions</h2>
+          <ul><li>Functions of the form f(x) = P(x)/Q(x)</li><li>Continuous everywhere *except* where Q(x) = 0</li><li>Discontinuity occurs at roots of the denominator</li><li>Example: 1/x is discontinuous at x=0</li></ul>
+          <p class="notes">🎙️ Rational functions are continuous in their domain. The only points where they might be discontinuous are where the denominator becomes zero, as division by zero is undefined. These points often lead to vertical asymptotes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Watch the Denominator</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Worked <span class="hl">Example</span> 1: Checking Continuity</h2>
+          <ul><li>Problem: Check continuity of f(x) = { x+2 if x ≤ 1, x^2 if x &gt; 1 } at x=1</li><li>Step 1: Find f(1)</li><li>Step 2: Find LHL at x=1</li><li>Step 3: Find RHL at x=1; Solution: f(1)=3, LHL=3, RHL=1. Since LHL ≠ RHL, f(x) is discontinuous at x=1.</li></ul>
+          <p class="notes">🎙️ This example demonstrates the critical check: all three conditions must hold. Here, the LHL and RHL approach different values, immediately telling us that the function has a jump discontinuity at x=1.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>f(a)</span></div><div class="step"><span class="snum">2</span><span>LHL</span></div><div class="step"><span class="snum">3</span><span>RHL</span></div><div class="step"><span class="snum">4</span><span>Compare</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Finding 'k'</span> for Continuity</h2>
+          <ul><li>Problem: Find k if f(x) = { kx+1 if x ≤ 5, 3x-5 if x &gt; 5 } is continuous at x=5</li><li>For continuity, LHL = RHL = f(5)</li><li>LHL = lim (kx+1) as x→5- = 5k+1</li><li>RHL = lim (3x-5) as x→5+ = 3(5)-5 = 10; f(5) = 5k+1; Set 5k+1 = 10. Solve for k.</li></ul>
+          <p class="notes">🎙️ This is a common exam-style question. If a function is given as continuous, we can use the definition to set up an equation. By equating the LHL, RHL, and function value, we can solve for the unknown constant 'k'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Solving for the Unknown</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Properties</span> of Continuous Functions</h2>
+          <ul><li>If f and g are continuous at x=a, then:</li><li>f ± g is continuous at x=a</li><li>f * g is continuous at x=a; f / g is continuous at x=a (if g(a) ≠ 0)</li><li>(f o g) is continuous if f is continuous at g(a) and g is continuous at a</li></ul>
+          <p class="notes">🎙️ These properties are very useful. They mean that if you combine continuous functions through basic arithmetic operations or composition, the resulting function will also be continuous, provided the denominators aren't zero.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sum</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Product</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Quotient</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 1</h2>
+          <ul><li>Which of the following functions is NOT continuous at x=0?</li><li>(A) f(x) = sin(x)</li><li>(B) f(x) = |x|</li><li>(C) f(x) = 1/x; (D) f(x) = x^2; Answer: (C)</li></ul>
+          <p class="notes">🎙️ Take a moment to think about the graphs and definitions. Which one has a clear break or undefined point at x=0? The answer is (C) because division by zero makes it undefined at that point.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Differentiability: An <span class="hl">Intuitive</span> Idea</h2>
+          <ul><li>Can you draw a unique tangent line at every point?</li><li>No sharp corners, no cusps, no vertical tangents</li><li>A 'smooth' curve</li><li>Think of a car turning a corner smoothly</li></ul>
+          <p class="notes">🎙️ Intuitively, a function is differentiable if its graph is smooth, without any sharp points or corners. Imagine driving a car: differentiability means you can make a smooth turn at any point, without jerking the steering wheel.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Smooth Turn</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Differentiability: The <span class="hl">Formal</span> Definition</h2>
+          <ul><li>A function f(x) is differentiable at x=a if the derivative f'(a) exists</li><li>f'(a) = lim [f(a+h) - f(a)] / h as h→0</li><li>This limit must exist and be finite</li><li>Left-Hand Derivative (LHD) = Right-Hand Derivative (RHD)</li></ul>
+          <p class="notes">🎙️ Formally, differentiability means the limit of the difference quotient exists at that point. This implies that the slope of the tangent line is well-defined and unique, whether you approach from the left or the right.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">LHD</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">RHD</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Geometric</span> Meaning of Derivative</h2>
+          <ul><li>The derivative f'(a) represents the slope of the tangent line</li><li>To the curve y=f(x) at the point (a, f(a))</li><li>It measures the instantaneous rate of change</li><li>How fast y is changing with respect to x at that exact point</li></ul>
+          <p class="notes">🎙️ Geometrically, the derivative is simply the slope of the line that just touches the curve at a single point. This slope tells us how steeply the function is rising or falling at that precise instant.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Slope of the Tangent</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Differentiability <span class="hl">IMPLIES</span> Continuity</h2>
+          <ul><li>If a function is differentiable at a point, it MUST be continuous at that point</li><li>Differentiability is a stronger condition than continuity</li><li>Think: a smooth curve (differentiable) cannot have breaks (discontinuous)</li><li>The converse is NOT true</li></ul>
+          <p class="notes">🎙️ This is a key theorem! If a function is differentiable, it has no choice but to be continuous. A function cannot have a well-defined tangent if it has a jump or a hole. However, a continuous function might have sharp corners and thus not be differentiable.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Differentiable</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Continuous</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Visualising <span class="hl">Non-Differentiability</span></h2>
+          <ul><li>Sharp Corners/Cusps: e.g., f(x) = |x| at x=0</li><li>Vertical Tangents: e.g., f(x) = x^(1/3) at x=0</li><li>Discontinuities: If not continuous, cannot be differentiable</li><li>At these points, a unique tangent cannot be drawn.</li></ul>
+          <p class="notes">🎙️ Points of non-differentiability are where the graph isn't 'smooth'. A sharp corner means you can draw infinitely many tangent lines, not a unique one. A vertical tangent has an undefined slope, hence no finite derivative.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Problem Points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked Example 3: <span class="hl">Checking</span> Differentiability</h2>
+          <ul><li>Problem: Check differentiability of f(x) = |x| at x=0</li><li>Left-Hand Derivative (LHD) at x=0: lim [f(0+h)-f(0)]/h as h→0- = lim |h|/h as h→0- = -1</li><li>Right-Hand Derivative (RHD) at x=0: lim [f(0+h)-f(0)]/h as h→0+ = lim |h|/h as h→0+ = 1</li><li>Since LHD ≠ RHD, f(x) = |x| is not differentiable at x=0.</li></ul>
+          <p class="notes">🎙️ This is a classic example. Even though |x| is continuous at x=0, its sharp corner makes it non-differentiable. The LHD and RHD are different, indicating no unique tangent slope.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Check Continuity</span></div><div class="step"><span class="snum">2</span><span>Find LHD</span></div><div class="step"><span class="snum">3</span><span>Find RHD</span></div><div class="step"><span class="snum">4</span><span>Compare</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Worked Example 4: <span class="hl">Find 'a' and 'b'</span> for Differentiability</h2>
+          <ul><li>Problem: Find a and b if f(x) = { ax+b if x &lt; 1, x^2 if x ≥ 1 } is differentiable at x=1</li><li>Condition 1: Continuity at x=1 (LHL=RHL=f(1)) =&gt; a+b=1</li><li>Condition 2: Differentiability at x=1 (LHD=RHD)</li><li>LHD = a; RHD = 2x evaluated at x=1 = 2; So, a=2. Substitute 'a' into a+b=1 to find b.</li></ul>
+          <p class="notes">🎙️ For a piecewise function to be differentiable at the junction point, it must first be continuous there, and then its left and right derivatives must match. This gives us a system of equations to solve for the unknown constants.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Continuity &amp; Differentiability</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 2</h2>
+          <ul><li>At which point is the function f(x) = |x-2| NOT differentiable?</li><li>(A) x = 0</li><li>(B) x = 1</li><li>(C) x = 2</li><li>(D) x = 3; Answer: (C)</li></ul>
+          <p class="notes">🎙️ Recall the graph of the absolute value function. It creates a sharp corner where its argument becomes zero. For |x-2|, this happens when x-2 = 0. Think about that point.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 3</h2>
+          <ul><li>True or False: If a function is continuous at a point, it must be differentiable at that point.; Answer: False (e.g., |x| at x=0)</li><li>True or False: If a function is differentiable at a point, it must be continuous at that point.; Answer: True</li></ul>
+          <p class="notes">🎙️ This question tests your understanding of the relationship between continuity and differentiability. Remember the 'stronger condition' concept. Differentiability implies continuity, but not the other way around.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Applications</span> of Differentiability</h2>
+          <ul><li>Rates of Change: Velocity, acceleration, population growth</li><li>Optimization: Finding maximum/minimum values (e.g., profit, cost, area)</li><li>Curve Sketching: Identifying turning points, concavity</li><li>Physics and Engineering: Modeling motion, forces, fluid flow</li></ul>
+          <p class="notes">🎙️ Differentiability is not just a theoretical concept; it's a powerful tool! It allows us to analyze how things change, find optimal solutions, and understand the behavior of complex systems in science, engineering, and economics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚀</span><span>🚀</span><span>🚀</span><span>🚀</span></div><div class="vcap">Real-World Calculus</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Key Takeaways</h2>
+          <ul><li>Continuity: Graph without lifting pen (LHL=RHL=f(a))</li><li>Discontinuities: Jumps, holes, asymptotes</li><li>Differentiability: Smooth curve, unique tangent (LHD=RHD)</li><li>Differentiability implies Continuity (but not vice-versa); Practice worked examples and common mistakes!</li></ul>
+          <p class="notes">🎙️ We've covered the core ideas of continuity and differentiability. Remember the formal definitions and the crucial relationship between them. Consistent practice with problems, especially piecewise functions, will solidify your understanding for the exams. Keep learning!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Concepts Mastered</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Mathematics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

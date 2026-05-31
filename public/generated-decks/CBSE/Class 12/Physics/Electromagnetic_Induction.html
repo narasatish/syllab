@@ -1,0 +1,354 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Electromagnetic Induction — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Electromagnetic <span class="hl">Induction</span>: Unveiling the Connection</h2>
+          <ul><li>Discover how magnetism can generate electricity.</li><li>Explore Faraday's groundbreaking experiments.</li><li>Understand the principles behind generators and transformers.</li></ul>
+          <p class="notes">🎙️ Welcome, students! Today, we embark on a fascinating journey into Electromagnetic Induction, a cornerstone of modern technology. We'll uncover the elegant relationship between electricity and magnetism.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is Electromagnetic <span class="hl">Induction</span>?</h2>
+          <ul><li>The phenomenon of producing an induced electromotive force (EMF) and hence an induced current.</li><li>Achieved by changing the magnetic flux linked with a circuit.</li><li>Discovered by Michael Faraday in 1831.</li></ul>
+          <p class="notes">🎙️ Electromagnetic Induction is essentially the process where a changing magnetic field creates an electric current. Think of it as magnetism's way of 'inducing' electricity, a concept that revolutionized our world.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Electromagnetic_induction_-_solenoid_to_solenoid.svg?width=500" data-fb="⚡" alt="Electromagnetic induction is the generation of electric current by a changing magnetic fie"/><div class="vcap">Electromagnetic induction is the generation of electric current by a changing magnetic fie</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Understanding Magnetic <span class="hl">Flux</span> (ΦB)</h2>
+          <ul><li>The number of magnetic field lines passing normally through a given area.</li><li>Scalar quantity, SI unit: Weber (Wb).</li><li>Formula: ΦB = B⋅A = BA cosθ, where θ is the angle between B and A.</li></ul>
+          <p class="notes">🎙️ Magnetic flux is crucial. Imagine counting how many magnetic field lines pierce through a loop. The more lines, or the stronger the field, or the larger the area, the greater the flux. Its unit is the Weber.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Magnet0873.png?width=500" data-fb="🧲" alt="Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet"/><div class="vcap">Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Faraday's Experiment 1: <span class="hl">Magnet</span> &amp; Coil</h2>
+          <ul><li>A current is induced in the coil only when there is relative motion between the magnet and the coil.</li><li>No current flows when both are stationary.</li><li>Direction of current reverses when direction of motion reverses.</li></ul>
+          <p class="notes">🎙️ Faraday observed that simply having a magnet near a coil wasn't enough. It was the *change* in the magnetic field, caused by the relative motion, that generated the current. This was a critical insight.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Magnet moves towards coil</span></div><div class="step"><span class="snum">2</span><span>Magnet stationary</span></div><div class="step"><span class="snum">3</span><span>Magnet moves away</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Faraday's Experiment 2: <span class="hl">Two Coils</span></h2>
+          <ul><li>Current is induced in the secondary coil when the primary circuit is switched ON or OFF.</li><li>No induced current when primary current is steady.</li><li>Current also induced when primary coil moves relative to secondary coil.</li></ul>
+          <p class="notes">🎙️ Here, the changing magnetic field is produced by varying the current in a primary coil. When the current in the primary coil changes, the magnetic flux linked with the secondary coil changes, inducing a current.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Changing Current Induces</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Faraday's <span class="hl">First Law</span> of Electromagnetic Induction</h2>
+          <ul><li>Whenever the magnetic flux linked with a closed circuit changes, an EMF is induced in it.</li><li>The induced EMF lasts only as long as the change in magnetic flux continues.</li></ul>
+          <p class="notes">🎙️ This law establishes the fundamental condition for induction: a *change* in magnetic flux. Without a change, there's no induced EMF, and thus no induced current. It's all about dynamics, not static fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Flux Change = EMF</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Faraday's <span class="hl">Second Law</span> of Electromagnetic Induction</h2>
+          <ul><li>The magnitude of the induced EMF is directly proportional to the rate of change of magnetic flux linked with the circuit.</li><li>Mathematically: ε = -N (dΦB/dt).</li><li>N is the number of turns in the coil.</li></ul>
+          <p class="notes">🎙️ The second law quantifies the induced EMF. A faster change in flux means a larger induced EMF. The negative sign is crucial and leads us to Lenz's Law, which explains the direction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Rate of Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Lenz's Law</span>: Direction of Induced Current</h2>
+          <ul><li>The direction of the induced EMF or current is such that it opposes the cause producing it.</li><li>It's a direct consequence of the conservation of energy.</li><li>Helps determine the polarity of induced EMF and direction of induced current.</li></ul>
+          <p class="notes">🎙️ Lenz's Law is often tricky but vital. The induced current will always try to 'fight' the change that created it. If you push a magnet towards a coil, the coil will create a field to push the magnet back.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Opposes the Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Lenz's Law and <span class="hl">Conservation</span> of Energy</h2>
+          <ul><li>If the induced current aided the cause, mechanical energy would convert to electrical energy without effort.</li><li>This would violate the law of conservation of energy.</li><li>Work done against the opposing force is converted into electrical energy.</li></ul>
+          <p class="notes">🎙️ Imagine if the induced current *helped* the motion. We could get infinite energy! Lenz's law ensures that we must do work against the opposing force to induce current, thereby conserving energy. Mechanical work becomes electrical energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Energy Balance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Motional EMF</span>: Moving Conductor</h2>
+          <ul><li>EMF induced across a conductor moving in a uniform magnetic field.</li><li>Caused by the Lorentz force acting on the charge carriers within the conductor.</li><li>The charges accumulate at the ends, creating a potential difference.</li></ul>
+          <p class="notes">🎙️ When a conductor moves through a magnetic field, the free electrons inside experience a magnetic force. This force pushes them to one end, leaving the other end positively charged, thus setting up an EMF.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Moving Rod</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Motional EMF: <span class="hl">Derivation</span> (ε = Blv)</h2>
+          <ul><li>Consider a conductor of length 'l' moving with velocity 'v' perpendicular to magnetic field 'B'.</li><li>Force on a charge 'q': F = q(v x B).</li><li>EMF is work done per unit charge: ε = F⋅l/q = (qvB)l/q = Blv.</li></ul>
+          <p class="notes">🎙️ The derivation shows how the Lorentz force on individual charges leads to the overall EMF. Remember, this formula applies when B, l, and v are mutually perpendicular. Pay attention to the directions.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Lorentz Force</span></div><div class="step"><span class="snum">2</span><span>Charge Separation</span></div><div class="step"><span class="snum">3</span><span>Potential Difference</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Motional EMF Calculation</h2>
+          <ul><li>A 0.5 m long metallic rod moves at 2 m/s perpendicular to a 0.5 T magnetic field.</li><li>Calculate the induced EMF.</li><li>Solution: ε = Blv = 0.5 T * 0.5 m * 2 m/s = 0.5 V.</li></ul>
+          <p class="notes">🎙️ This is a straightforward application of the motional EMF formula. Always ensure your units are consistent (SI units) and that the directions are perpendicular as assumed by the formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Calculate EMF</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Faraday &amp; Lenz</h2>
+          <ul><li>Q1: What is the SI unit of magnetic flux?</li><li>Q2: Which law explains the direction of induced current?</li><li>Q3: If a coil is stationary in a changing magnetic field, is EMF induced?</li></ul>
+          <p class="notes">🎙️ Time for a quick check to reinforce our understanding. Think about the definitions and principles we just covered. These are common conceptual questions in exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Eddy Currents</span>: Induced Loops</h2>
+          <ul><li>Currents induced in bulk conductors when the magnetic flux linked with them changes.</li><li>Flow in closed loops within the conductor, resembling eddies in water.</li><li>Also known as Foucault currents.</li></ul>
+          <p class="notes">🎙️ Unlike currents in wires, eddy currents circulate within the solid material of a conductor. They are induced due to the changing magnetic flux within the conductor itself, often causing heating.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Swirling Currents</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Eddy Currents: <span class="hl">Uses &amp; Drawbacks</span></h2>
+          <ul><li>Applications: Electromagnetic damping, induction furnaces, speedometers, electric brakes.</li><li>Disadvantages: Energy loss as heat in transformers and motors.</li><li>Minimized by using laminated cores in transformers.</li></ul>
+          <p class="notes">🎙️ Eddy currents have both beneficial and detrimental effects. While useful in some technologies, their energy-dissipating nature means engineers must design around them in devices like transformers to improve efficiency.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Applications</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Disadvantages</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Self-Induction</span>: A Coil's Own Field</h2>
+          <ul><li>The phenomenon of induction of EMF in a single coil due to the change in current (and thus magnetic flux) in the same coil.</li><li>The induced EMF always opposes the change in current.</li><li>Analogous to inertia in mechanics.</li></ul>
+          <p class="notes">🎙️ When current changes in a coil, it creates a changing magnetic field *within itself*. This changing field then induces an EMF in the *same* coil, opposing the original change. It's a self-regulating effect.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Opposing Itself</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Self-Inductance</span> (L): The Inductor</h2>
+          <ul><li>A measure of a coil's opposition to changes in current.</li><li>Mathematically: ΦB = LI, where L is the coefficient of self-inductance.</li><li>Induced EMF: ε = -L (dI/dt). SI unit: Henry (H).</li></ul>
+          <p class="notes">🎙️ Self-inductance, denoted by 'L', is a property of the coil itself, depending on its geometry and the core material. A higher 'L' means the coil will resist changes in current more strongly. It's like the electrical equivalent of mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Coil's Property</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Mutual Induction</span>: Interacting Coils</h2>
+          <ul><li>The phenomenon of induction of EMF in a coil due to the change in current (and thus magnetic flux) in a *neighboring* coil.</li><li>The changing current in one coil creates a changing flux that links with the other coil.</li></ul>
+          <p class="notes">🎙️ Here, two coils are involved. A change in current in one coil, the primary, induces an EMF in the second coil, the secondary, because the magnetic field from the primary links with the secondary.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Coil Interaction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Mutual Inductance</span> (M): Coupling Coils</h2>
+          <ul><li>A measure of how effectively one coil can induce an EMF in a neighboring coil.</li><li>Mathematically: ΦB2 = MI1, where M is the coefficient of mutual inductance.</li><li>Induced EMF in secondary: ε2 = -M (dI1/dt). SI unit: Henry (H).</li></ul>
+          <p class="notes">🎙️ Mutual inductance 'M' quantifies this interaction. It depends on the geometry of both coils, their relative orientation, and the distance between them. It's also measured in Henrys, just like self-inductance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Coupling Strength</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Self-Induction</h2>
+          <ul><li>Current in a coil changes from 2A to 0A in 0.05s. Induced EMF is 8V.</li><li>Calculate self-inductance (L).</li><li>Solution: ε = -L (dI/dt) =&gt; 8 = -L * (0-2)/0.05 =&gt; L = 8 * 0.05 / 2 = 0.2 H.</li></ul>
+          <p class="notes">🎙️ This example demonstrates how to calculate self-inductance from given values of induced EMF and rate of current change. Remember the negative sign in Faraday's law, but often we deal with the magnitude for calculations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Calculate L</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">AC Generator</span>: Principle of Operation</h2>
+          <ul><li>Converts mechanical energy into electrical energy.</li><li>Principle: Electromagnetic Induction (Faraday's Law &amp; Motional EMF).</li><li>A coil rotates in a uniform magnetic field, continuously changing the magnetic flux.</li></ul>
+          <p class="notes">🎙️ The AC generator is a prime example of EMI in action. The continuous rotation of a coil causes a continuous change in magnetic flux, leading to a continuously induced EMF and current.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Mechanical to Electrical</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>AC Generator: <span class="hl">Working</span> &amp; Output</h2>
+          <ul><li>As the coil rotates, the angle between the area vector and magnetic field changes.</li><li>This causes the flux (BA cosθ) to change, inducing an EMF.</li><li>The induced EMF and current are sinusoidal, producing alternating current (AC).</li></ul>
+          <p class="notes">🎙️ The rotation directly translates to a sinusoidal variation of magnetic flux, which in turn generates a sinusoidal EMF. This is why power plants generate AC power, which is then transmitted to our homes.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Coil Rotates</span></div><div class="step"><span class="snum">2</span><span>Flux Changes</span></div><div class="step"><span class="snum">3</span><span>EMF Induced</span></div><div class="step"><span class="snum">4</span><span>AC Output</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Induction Types</h2>
+          <ul><li>Q1: What is the SI unit of self-inductance?</li><li>Q2: Name one application of eddy currents.</li><li>Q3: What type of current does an AC generator produce?</li></ul>
+          <p class="notes">🎙️ Another quick check to test your memory and understanding of the different types of induction and their practical aspects. These are important facts for your exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>EMI in <span class="hl">Real Life</span>: Everywhere!</h2>
+          <ul><li>Electric Generators: Powering our homes and industries.</li><li>Transformers: Stepping up/down voltage for transmission.</li><li>Induction Cooktops: Efficient, flameless cooking.</li><li>Metal Detectors: Security and treasure hunting.</li></ul>
+          <p class="notes">🎙️ Electromagnetic induction is not just a theoretical concept; it's deeply embedded in our daily lives. From the electricity that powers your devices to the security systems at airports, EMI is indispensable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Powering Our World</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Electromagnetic Induction</h2>
+          <ul><li>Magnetic flux change induces EMF (Faraday's Law).</li><li>Induced current opposes cause (Lenz's Law).</li><li>Motional EMF: Blv for moving conductors.</li><li>Self &amp; Mutual Induction: Coils resisting/interacting.</li><li>AC Generators: Mechanical to electrical conversion.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the core principles: changing flux, opposing forces, and how these lead to various forms of induction and their applications. Keep practicing problems!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · CBSE Class 12 · Physics</span>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>
