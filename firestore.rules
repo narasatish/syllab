@@ -117,6 +117,15 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    // ---------- USER PREFS (pinned chapters etc.) ----------
+    match /userPrefs/{userId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+      allow read, create, update: if isOwner();
+      allow delete: if false;
+    }
+
     // ---------- QUIZ SESSIONS ----------
     match /quizSessions/{userId} {
       function isOwner() {
