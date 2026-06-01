@@ -12,7 +12,7 @@
 
 import { Chapter, ClassLevel } from '../types';
 
-type Board = 'AP' | 'TS' | 'Karnataka' | 'Maharashtra';
+type Board = 'AP' | 'TS' | 'Karnataka' | 'Maharashtra' | 'UP' | 'Bihar' | 'Rajasthan' | 'MP';
 
 interface BoardSeed {
   board: Board;
@@ -105,11 +105,49 @@ const SEEDS: BoardSeed[] = [
   ] },
 ];
 
+/* ── NCERT-aligned states (UP/UPMSP, Bihar/BSEB, Rajasthan/RBSE, MP/MPBSE) ──
+   These boards follow the NCERT textbooks for Class 9-10 Maths & Science, so we
+   use the standard NCERT chapter lists (high confidence). */
+const NCERT_10_MATH = [
+  'Real Numbers', 'Polynomials', 'Pair of Linear Equations in Two Variables', 'Quadratic Equations',
+  'Arithmetic Progressions', 'Triangles', 'Coordinate Geometry', 'Introduction to Trigonometry',
+  'Some Applications of Trigonometry', 'Circles', 'Areas Related to Circles', 'Surface Areas and Volumes',
+  'Statistics', 'Probability',
+];
+const NCERT_9_MATH = [
+  'Number Systems', 'Polynomials', 'Coordinate Geometry', 'Linear Equations in Two Variables',
+  "Introduction to Euclid's Geometry", 'Lines and Angles', 'Triangles', 'Quadrilaterals',
+  "Heron's Formula", 'Surface Areas and Volumes', 'Statistics', 'Circles',
+];
+const NCERT_10_SCI = [
+  'Chemical Reactions and Equations', 'Acids, Bases and Salts', 'Metals and Non-metals',
+  'Carbon and its Compounds', 'Life Processes', 'Control and Coordination', 'How do Organisms Reproduce',
+  'Heredity', 'Light — Reflection and Refraction', 'The Human Eye and the Colourful World', 'Electricity',
+  'Magnetic Effects of Electric Current', 'Our Environment',
+];
+const NCERT_9_SCI = [
+  'Matter in Our Surroundings', 'Is Matter Around Us Pure', 'Atoms and Molecules', 'Structure of the Atom',
+  'The Fundamental Unit of Life', 'Tissues', 'Motion', 'Force and Laws of Motion', 'Gravitation',
+  'Work and Energy', 'Sound', 'Improvement in Food Resources',
+];
+for (const board of ['UP', 'Bihar', 'Rajasthan', 'MP'] as Board[]) {
+  SEEDS.push(
+    { board, cls: '10', subject: 'Mathematics', chapters: NCERT_10_MATH },
+    { board, cls: '9', subject: 'Mathematics', chapters: NCERT_9_MATH },
+    { board, cls: '10', subject: 'Science', chapters: NCERT_10_SCI },
+    { board, cls: '9', subject: 'Science', chapters: NCERT_9_SCI },
+  );
+}
+
 const BOARD_FULL: Record<Board, string> = {
   AP: 'Andhra Pradesh (SSC)',
   TS: 'Telangana (SSC)',
   Karnataka: 'Karnataka (SSLC)',
   Maharashtra: 'Maharashtra (SSC)',
+  UP: 'Uttar Pradesh (UP Board)',
+  Bihar: 'Bihar (BSEB)',
+  Rajasthan: 'Rajasthan (RBSE)',
+  MP: 'Madhya Pradesh (MPBSE)',
 };
 
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 28);
@@ -135,4 +173,8 @@ export const RESEARCH_SOURCES = {
   TS: 'https://scert.telangana.gov.in/',
   Karnataka: 'https://ktbs.kar.nic.in/',
   Maharashtra: 'https://ebalbharati.in/',
+  UP: 'https://upmsp.edu.in/',
+  Bihar: 'https://biharboardonline.bihar.gov.in/',
+  Rajasthan: 'https://rajeduboard.rajasthan.gov.in/',
+  MP: 'https://mpbse.nic.in/',
 };

@@ -23,7 +23,7 @@ export interface Chapter {
   subject: Subject;
   classLevel: ClassLevel;
   /** Education board. Undefined = CBSE/NCERT (the default content). */
-  board?: 'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra';
+  board?: 'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra' | 'UP' | 'Bihar' | 'Rajasthan' | 'MP';
   topics: string[];
   ncertUrl?: string;
   sourceBook?: string;

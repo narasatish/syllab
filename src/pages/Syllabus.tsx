@@ -485,7 +485,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   };
 
   const [search, setSearch] = useState(restoredView?.search || '');
-  const [selectedBoard, setSelectedBoard] = useState<'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra'>('CBSE');
+  const [selectedBoard, setSelectedBoard] = useState<'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra' | 'UP' | 'Bihar' | 'Rajasthan' | 'MP'>('CBSE');
   const [selectedSubject, setSelectedSubject] = useState<Subject | 'All'>(restoredView?.selectedSubject || 'All');
   const [selectedClass, setSelectedClass] = useState<ClassLevel | 'All'>(getInitialClass);
   // Track if user has manually tapped a class tab in this session — if so, don't override with Firestore sync
@@ -996,6 +996,10 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar flex-nowrap">
           {([
             { id: 'CBSE', label: 'CBSE / NCERT' },
+            { id: 'UP', label: 'UP Board' },
+            { id: 'Bihar', label: 'Bihar' },
+            { id: 'Rajasthan', label: 'Rajasthan' },
+            { id: 'MP', label: 'MP' },
             { id: 'AP', label: 'AP' },
             { id: 'TS', label: 'Telangana' },
             { id: 'Karnataka', label: 'Karnataka' },
