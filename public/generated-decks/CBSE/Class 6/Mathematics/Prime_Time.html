@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Prime Time: Understanding Prime &amp; Composite Numbers — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Prime Time — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Prime Time</span>: Understanding Prime &amp; Composite Numbers</h2>
-          <ul><li>Welcome to the world of numbers!</li><li>Today, we'll learn about special types of numbers.</li></ul>
-          <p class="notes">🎙️ Welcome, class! Today, we're diving into the fascinating world of numbers, specifically prime and composite numbers. Get ready for 'Prime Time'!</p>
+          <h2>Welcome to <span class="hl">Prime Time</span>!</h2>
+          <ul><li>Get ready to discover special numbers!</li><li>Learn about Prime and Composite Numbers.</li><li>Explore fun ways to identify them.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're going on an exciting adventure into the world of numbers. We'll uncover some very special types of numbers called 'Prime' and 'Composite' numbers. Get ready to think like mathematicians!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2><span class="hl">Building Blocks</span> of Numbers</h2>
-          <ul><li>How are numbers formed?</li><li>What are their basic components?</li></ul>
-          <p class="notes">🎙️ Just like a house is built with bricks, numbers can be thought of as being built from smaller numbers. We'll explore these 'building blocks' today.</p>
+          <h2><span class="hl">Numbers</span> All Around Us!</h2>
+          <ul><li>Used for counting, measuring, and identifying.</li><li>Whole numbers: 0, 1, 2, 3...</li><li>They are the foundation of mathematics.</li></ul>
+          <p class="notes">🎙️ Numbers are everywhere, from telling time to counting your friends. They help us understand quantities and order. We'll be focusing on whole numbers today, which are the basic building blocks of arithmetic.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Number Bricks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">The world of numbers!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 25</span>
           <h2>What are <span class="hl">Factors</span>?</h2>
-          <ul><li>Numbers that divide another number exactly.</li><li>No remainder left over.</li></ul>
-          <p class="notes">🎙️ Factors are like partners in multiplication. If you can divide a number by another number without anything left over, then that number is a factor.</p>
+          <ul><li>Numbers that divide another number exactly.</li><li>They leave no remainder.</li><li>Every number has at least two factors: 1 and itself.</li></ul>
+          <p class="notes">🎙️ Before we dive into prime numbers, let's quickly recall what factors are. Factors are like ingredients that make up a number. If you can divide a number by another number and get a perfect result without any leftover, then that number is a factor.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Division Partners</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Building blocks of a number</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Finding Factors of <span class="hl">12</span></h2>
-          <ul><li>1 x 12 = 12</li><li>2 x 6 = 12</li><li>3 x 4 = 12</li></ul>
-          <p class="notes">🎙️ Let's find the factors of 12. We look for pairs of numbers that multiply to give 12. So, the factors of 12 are 1, 2, 3, 4, 6, and 12.</p>
+          <h2>Let's Find <span class="hl">Factors</span> of 12!</h2>
+          <ul><li>Can 12 be divided by 1? Yes, 12 ÷ 1 = 12.</li><li>Can 12 be divided by 2? Yes, 12 ÷ 2 = 6.</li><li>Can 12 be divided by 3? Yes, 12 ÷ 3 = 4.</li><li>Factors of 12 are: 1, 2, 3, 4, 6, 12.</li></ul>
+          <p class="notes">🎙️ Imagine you have 12 boxes. You can arrange them in one row of 12, two rows of 6, three rows of 4, and so on. The numbers that represent these rows or columns are the factors. So, 1, 2, 3, 4, 6, and 12 are all factors of 12.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1 and 12</span></div><div class="step"><span class="snum">2</span><span>2 and 6</span></div><div class="step"><span class="snum">3</span><span>3 and 4</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">How many ways to group 12 boxes?</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>What are <span class="hl">Multiples</span>?</h2>
-          <ul><li>Results of multiplying a number by other whole numbers.</li><li>Like skip counting.</li></ul>
-          <p class="notes">🎙️ Multiples are what you get when you multiply a number by 1, 2, 3, and so on. It's like skip counting! For example, multiples of 2 are 2, 4, 6, 8...</p>
+          <h2><span class="hl">Even and Odd</span> Numbers</h2>
+          <ul><li>Even numbers are divisible by 2 (e.g., 2, 4, 6).</li><li>Odd numbers are not divisible by 2 (e.g., 1, 3, 5).</li><li>This is a quick recap, useful for understanding primes.</li></ul>
+          <p class="notes">🎙️ We've learned about even and odd numbers before. Even numbers can always be split into two equal groups, like pairs of socks. Odd numbers always have one left over. This basic concept will help us understand our next topic better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Repeated Addition</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">2️⃣</div><div class="vcap">Even numbers pair up, odd numbers have one left over.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Multiples of <span class="hl">5</span></h2>
-          <ul><li>5 x 1 = 5</li><li>5 x 2 = 10</li><li>5 x 3 = 15</li><li>5 x 4 = 20</li></ul>
-          <p class="notes">🎙️ If we count by fives, we get 5, 10, 15, 20, and so on. These are the multiples of 5. They go on forever!</p>
+          <h2>Introducing <span class="hl">Prime Numbers</span>!</h2>
+          <ul><li>They are unique and special.</li><li>Have a very specific property.</li><li>They are the 'atoms' of numbers.</li></ul>
+          <p class="notes">🎙️ Now, let's meet the stars of our show: Prime Numbers! These numbers are truly special because of how they are built. They are like the fundamental building blocks from which all other numbers can be made.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">Counting by Fives</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Special numbers!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Introducing <span class="hl">Prime Numbers</span></h2>
-          <ul><li>Have exactly two factors: 1 and themselves.</li><li>Cannot be divided evenly by other numbers (except 1 and itself).</li></ul>
-          <p class="notes">🎙️ Prime numbers are very special! They have only two friends: the number 1 and themselves. No other number can divide them perfectly.</p>
+          <h2>Prime Numbers: Only <span class="hl">Two Factors</span></h2>
+          <ul><li>A prime number has ONLY two factors.</li><li>These two factors are 1 and the number itself.</li><li>Examples: 2, 3, 5, 7, 11...</li></ul>
+          <p class="notes">🎙️ The defining characteristic of a prime number is that it can only be divided exactly by two numbers: 1 and itself. No other number can divide it without leaving a remainder. Think of them as numbers that are 'indivisible' by others.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Unique &amp; Indivisible</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span></div><div class="vcap">Always two factors</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Is <span class="hl">7</span> a Prime Number?</h2>
-          <ul><li>Factors of 7: 1 and 7.</li><li>Only two factors.</li><li>Yes, 7 is a prime number.</li></ul>
-          <p class="notes">🎙️ Let's check 7. Can we divide 7 by any number other than 1 and 7? No! So, 7 fits the definition perfectly. It's a prime number.</p>
+          <h2><span class="hl">First Few</span> Prime Numbers</h2>
+          <ul><li>2 is the smallest and only even prime number.</li><li>3, 5, 7 are also prime numbers.</li><li>Can you find the next prime number after 7?</li></ul>
+          <p class="notes">🎙️ Let's look at some examples. 2 has factors 1 and 2. 3 has factors 1 and 3. 5 has factors 1 and 5. Notice how each of these only has two factors. Remember, 2 is the only even number that is prime!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Is 7 divisible by 1? Yes</span></div><div class="step"><span class="snum">2</span><span>Is 7 divisible by 2? No</span></div><div class="step"><span class="snum">3</span><span>Is 7 divisible by 7? Yes</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">2, 3, 5, 7, 11, 13, 17, 19...</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Introducing <span class="hl">Composite Numbers</span></h2>
-          <ul><li>Have more than two factors.</li><li>Can be divided evenly by other numbers.</li></ul>
-          <p class="notes">🎙️ Composite numbers are the opposite of prime numbers. They are 'composed' of many factors, meaning they can be divided by more than just 1 and themselves.</p>
+          <h2><span class="hl">Composite Numbers</span>: More Than Two Factors</h2>
+          <ul><li>Numbers that have MORE than two factors.</li><li>They can be divided by 1, themselves, and other numbers.</li><li>Think of them as numbers made from smaller prime 'parts'.</li></ul>
+          <p class="notes">🎙️ On the other side of the coin, we have Composite Numbers. These are numbers that are not prime. They have more than just two factors, meaning they can be broken down or divided by other numbers besides 1 and themselves.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Many Parts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Numbers built from many parts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Is <span class="hl">9</span> a Composite Number?</h2>
-          <ul><li>Factors of 9: 1, 3, and 9.</li><li>More than two factors.</li><li>Yes, 9 is a composite number.</li></ul>
-          <p class="notes">🎙️ Let's look at 9. Its factors are 1, 3, and 9. Since it has three factors (more than two), 9 is a composite number.</p>
+          <h2>Composite Numbers: <span class="hl">Many Factors</span></h2>
+          <ul><li>Example: Factors of 4 are 1, 2, 4 (three factors).</li><li>Example: Factors of 6 are 1, 2, 3, 6 (four factors).</li><li>Any number that is not prime (except 1) is composite.</li></ul>
+          <p class="notes">🎙️ Let's take 4 as an example. It has factors 1, 2, and 4. Since it has three factors (more than two), 4 is a composite number. Similarly, 6 has factors 1, 2, 3, and 6, making it composite.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Is 9 divisible by 1? Yes</span></div><div class="step"><span class="snum">2</span><span>Is 9 divisible by 3? Yes</span></div><div class="step"><span class="snum">3</span><span>Is 9 divisible by 9? Yes</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">More than two factors</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>The Special Case of <span class="hl">Number 1</span></h2>
-          <ul><li>Has only ONE factor: itself.</li><li>Not prime (needs two factors).</li><li>Not composite (needs more than two factors).</li></ul>
-          <p class="notes">🎙️ Number 1 is unique! It only has one factor, which is 1 itself. Because it doesn't have exactly two factors, it's not prime. And because it doesn't have more than two factors, it's not composite. It's in a category of its own!</p>
+          <h2><span class="hl">First Few</span> Composite Numbers</h2>
+          <ul><li>The smallest composite number is 4.</li><li>Other examples: 6, 8, 9, 10, 12...</li><li>All even numbers greater than 2 are composite.</li></ul>
+          <p class="notes">🎙️ The smallest composite number is 4, because it has factors 1, 2, and 4. Numbers like 6, 8, and 9 also have more than two factors, so they are composite. Remember, any even number larger than 2 will always be composite because it will always have 2 as a factor, in addition to 1 and itself.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☝️</div><div class="vcap">One of a Kind</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">4, 6, 8, 9, 10...</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>How to <span class="hl">Find Prime Numbers</span>?</h2>
-          <ul><li>The Sieve of Eratosthenes helps us find primes up to a certain number.</li><li>It's a systematic way to identify primes.</li></ul>
-          <p class="notes">🎙️ Mathematicians developed clever ways to find prime numbers. One ancient and very useful method is called the Sieve of Eratosthenes. It's like a filter for numbers!</p>
+          <h2>The Unique <span class="hl">Number 1</span></h2>
+          <ul><li>Number 1 has only ONE factor: itself.</li><li>It does not fit the definition of prime (two factors).</li><li>It does not fit the definition of composite (more than two factors).</li><li>So, 1 is neither prime nor composite!</li></ul>
+          <p class="notes">🎙️ Number 1 is a very special case. It only has one factor, which is 1 itself. Because it doesn't have exactly two factors (like primes) or more than two factors (like composites), it stands alone. So, remember, 1 is neither a prime nor a composite number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Sieve Method</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">1️⃣</div><div class="vcap">Neither prime nor composite</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Sieve</span> of Eratosthenes (Simplified)</h2>
-          <ul><li>1. List numbers.</li><li>2. Cross out 1. Circle 2, cross out its multiples.</li><li>3. Circle next uncrossed number (3), cross out its multiples. Repeat.</li></ul>
-          <p class="notes">🎙️ Imagine a grid of numbers. You start by crossing out 1. Then, you circle 2, and cross out all numbers that are multiples of 2. Next, you find the smallest uncrossed number, which is 3, circle it, and cross out all its multiples. You keep doing this, and the circled numbers are your primes!</p>
+          <h2>Let's <span class="hl">Sort Numbers</span>!</h2>
+          <ul><li>Is 7 prime or composite?</li><li>Is 10 prime or composite?</li><li>Is 11 prime or composite?</li><li>Is 15 prime or composite?</li></ul>
+          <p class="notes">🎙️ Time for a quick exercise! For each number, think about its factors. If it only has 1 and itself as factors, it's prime. If it has more than two factors, it's composite. Let's try to sort these numbers together.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List numbers 1-20</span></div><div class="step"><span class="snum">2</span><span>Cross out 1</span></div><div class="step"><span class="snum">3</span><span>Circle 2, cross out 4,6,8...</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think and decide!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,59 +216,59 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Real-Life Example: <span class="hl">Arranging</span> Objects</h2>
-          <ul><li>7 candies: Only 1 row of 7 or 7 rows of 1. (Prime)</li><li>10 candies: 1x10, 2x5, 5x2, 10x1. (Composite)</li></ul>
-          <p class="notes">🎙️ Think about arranging candies. If you have 7 candies, you can only arrange them in one long row or seven single piles. That's a prime number. But if you have 10 candies, you can make rows of 1, 2, 5, or 10. That's a composite number!</p>
+          <h2>Finding Primes with the <span class="hl">Sieve</span>!</h2>
+          <ul><li>A method to find prime numbers.</li><li>Invented by Eratosthenes, an ancient Greek mathematician.</li><li>It's like filtering out the non-prime numbers.</li></ul>
+          <p class="notes">🎙️ Now, let's learn a super cool trick to find prime numbers up to a certain limit! It's called the Sieve of Eratosthenes, named after its inventor. Imagine you have a list of numbers, and you 'sieve' out all the composite ones, leaving only the primes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">7 candies (prime)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">A clever way to find primes</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>Is 13 a prime or composite number? Why?</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Think carefully about the factors of 13. Is it prime or composite? Be ready to explain your answer.</p>
+          <h2>Sieve Step 1: <span class="hl">Exclude 1</span></h2>
+          <ul><li>Write down numbers from 1 to 100 (or any limit).</li><li>Cross out number 1.</li><li>Remember, 1 is neither prime nor composite.</li></ul>
+          <p class="notes">🎙️ First, you'd write down all the numbers you want to check, say from 1 to 100. Then, the very first thing we do is cross out 1, because we just learned that it's neither prime nor composite. It doesn't fit in either category.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Cross out 1</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>List all the factors of 10.</li></ul>
-          <p class="notes">🎙️ Next question! What are all the numbers that can divide 10 exactly? List them out.</p>
+          <h2>Sieve Step 2: Circle 2, Cross <span class="hl">Multiples</span></h2>
+          <ul><li>Circle the first prime number, 2.</li><li>Cross out all multiples of 2 (4, 6, 8, 10...).</li><li>These are all composite numbers.</li></ul>
+          <p class="notes">🎙️ Next, we find the smallest uncrossed number, which is 2. Circle it, as it's our first prime. Then, systematically go through your list and cross out every multiple of 2 (4, 6, 8, 10, etc.). All these numbers are composite because they have 2 as a factor.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✔️</div><div class="vcap">Circle 2, then cross out 4, 6, 8, 10...</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 3</span></h2>
-          <ul><li>What is the smallest prime number?</li></ul>
-          <p class="notes">🎙️ This one might trick some of you! Remember our discussion about number 1 and the definition of a prime number. What's the smallest one?</p>
+          <h2>Sieve Step 3: Circle 3, Cross <span class="hl">Multiples</span></h2>
+          <ul><li>Find the next uncrossed number, 3.</li><li>Circle 3, as it's a prime number.</li><li>Cross out all multiples of 3 (6, 9, 12, 15...).</li></ul>
+          <p class="notes">🎙️ Now, move to the next uncrossed number, which is 3. Circle 3, because it's prime. Then, just like with 2, cross out all multiples of 3 that haven't been crossed out yet (like 9, 15, 21, etc.). Some might already be crossed from being multiples of 2.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">3️⃣</div><div class="vcap">Circle 3, then cross out 6, 9, 12, 15...</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 4</span></h2>
-          <ul><li>Is 28 a prime or composite number?</li></ul>
-          <p class="notes">🎙️ Last quick check! Consider 28. Does it have more than two factors? If so, it's composite. If only two, it's prime.</p>
+          <h2>Sieve Step 4: <span class="hl">Keep Going</span>!</h2>
+          <ul><li>Continue this process with the next uncrossed number (e.g., 5).</li><li>Circle it, then cross out all its multiples.</li><li>Repeat until all numbers are either circled or crossed out.</li></ul>
+          <p class="notes">🎙️ You continue this pattern. The next uncrossed number will be 5. Circle 5 and cross out its multiples. Then 7, circle 7 and cross out its multiples. You keep doing this until all numbers in your list are either circled (prime) or crossed out (composite).</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Repeat for 5, 7, 11...</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,69 +276,57 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Even and Odd</span> Numbers (A Quick Link)</h2>
-          <ul><li>Even numbers are divisible by 2.</li><li>Odd numbers are not divisible by 2.</li></ul>
-          <p class="notes">🎙️ Let's quickly recall even and odd numbers. Even numbers are always divisible by 2, while odd numbers leave a remainder of 1 when divided by 2. This links to our prime number discussion.</p>
+          <h2>Prime Numbers in <span class="hl">Daily Life</span></h2>
+          <ul><li>Imagine you have 7 apples.</li><li>You can only arrange them in one group of 7, or 7 groups of 1.</li><li>This is a prime number arrangement!</li></ul>
+          <p class="notes">🎙️ Prime numbers might seem abstract, but they appear in simple situations too. If you have 7 apples, you can't divide them evenly among 2, 3, or 4 friends without cutting them. You either give all 7 to one person, or one apple to each of seven people. That's a prime number in action!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Even</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Odd</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>The Unique Prime: <span class="hl">Number 2</span></h2>
-          <ul><li>It is the only even prime number.</li><li>All other even numbers are composite (divisible by 2).</li></ul>
-          <p class="notes">🎙️ Number 2 is super special! It's the only even number that is also prime. Every other even number has 2 as a factor, so it will always have more than two factors (1, 2, and itself), making it composite.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✌️</div><div class="vcap">Only Even Prime</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Prime Factorization</span></h2>
-          <ul><li>Breaking down a composite number into its prime factors.</li><li>Every composite number can be written as a unique product of prime numbers.</li></ul>
-          <p class="notes">🎙️ Now for an exciting concept: prime factorization! It's like taking a composite number and breaking it down into its fundamental prime 'building blocks'. Every composite number has a unique set of prime factors.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Factor Tree</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Method: <span class="hl">Factor Tree</span></h2>
-          <ul><li>Start with the number.</li><li>Find two factors.</li><li>Continue branching until all factors are prime.</li></ul>
-          <p class="notes">🎙️ The factor tree method is a visual way to do prime factorization. You start with your number at the top, and draw branches down to its factors. You keep going until all the numbers at the ends of your branches are prime numbers.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with the number</span></div><div class="step"><span class="snum">2</span><span>Find two factors (any)</span></div><div class="step"><span class="snum">3</span><span>Keep branching until all are prime</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Worked Example: Prime Factorization of <span class="hl">36</span></h2>
-          <ul><li>36 = 2 x 18</li><li>18 = 2 x 9</li><li>9 = 3 x 3</li></ul>
-          <p class="notes">🎙️ Let's try 36. We can write 36 as 2 multiplied by 18. 2 is prime, so we stop there. Now break 18 into 2 times 9. Again, 2 is prime. Finally, 9 breaks into 3 times 3. Both 3s are prime. So, the prime factors of 36 are 2, 2, 3, and 3.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>36 = 2 x 18</span></div><div class="step"><span class="snum">2</span><span>18 = 2 x 9</span></div><div class="step"><span class="snum">3</span><span>9 = 3 x 3</span></div><div class="step"><span class="snum">4</span><span>Prime Factors: 2 x 2 x 3 x 3</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">7 apples: only 1 group of 7 or 7 groups of 1</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Prime Time <span class="hl">Recap</span>!</h2>
-          <ul><li>Prime numbers: Exactly two factors (1 and itself).</li><li>Composite numbers: More than two factors.</li><li>1 is neither. 2 is the only even prime.</li></ul>
-          <p class="notes">🎙️ Great job today, everyone! We learned about prime numbers, which are numbers with only two factors, and composite numbers, which have more than two factors. Remember that 1 is special, and 2 is the only even prime.</p>
+          <span class="num">20 / 25</span>
+          <h2>Quick Check 1</h2>
+          <ul><li>Think about its factors.</li><li>Can it be divided by any number other than 1 and 13?</li><li>Yes / No</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. Take the number 13. Can you think of any number, other than 1 and 13, that divides 13 evenly? Try dividing it by 2, 3, 4, and so on. What do you find?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check 2</h2>
+          <ul><li>Start from 11.</li><li>Check each number for only two factors.</li><li>List them out.</li></ul>
+          <p class="notes">🎙️ Now, let's try to list some. Go through the numbers 11, 12, 13, 14, 15, 16, 17, 18, 19. For each, ask yourself: 'Does it have only 1 and itself as factors?' This will help you identify the primes.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check 3</h2>
+          <ul><li>Recall the definition of composite numbers.</li><li>Remember the special case of number 1.</li><li>Which number comes first that has more than two factors?</li></ul>
+          <p class="notes">🎙️ Think back to our definitions. We know 1 is special. What about 2 and 3? Are they prime or composite? What's the very next number after them, and how many factors does it have?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check 4</h2>
+          <ul><li>Consider the definition of even numbers.</li><li>Think about the smallest even number.</li><li>Is it prime or composite?</li></ul>
+          <p class="notes">🎙️ This is a common misconception! Remember what we said about the smallest even number. Does it fit the definition of a composite number? Or is it an exception to the rule?</p>
         </div>
         
       </div>
@@ -334,16 +335,29 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Keep <span class="hl">Exploring Primes</span>!</h2>
-          <ul><li>Why are prime numbers important?</li><li>How are they used in real life?</li></ul>
-          <p class="notes">🎙️ Prime numbers are not just a math concept; they are used in many advanced fields like computer security and cryptography! Keep thinking about them and how they form the very fabric of our number system. What other interesting facts can you find?</p>
+          <span class="num">24 / 25</span>
+          <h2>What We <span class="hl">Learned Today</span>!</h2>
+          <ul><li>Factors are numbers that divide another exactly.</li><li>Prime numbers have ONLY two factors (1 and itself).</li><li>Composite numbers have MORE than two factors.</li><li>Number 1 is neither prime nor composite.</li><li>The Sieve of Eratosthenes helps find primes.</li></ul>
+          <p class="notes">🎙️ Fantastic work everyone! Today, we've covered the exciting world of prime and composite numbers. We now know how to identify them, what makes them special, and even a clever ancient method to find them. These concepts are fundamental in mathematics!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think Further!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Key concepts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Exploring Numbers</span>!</h2>
+          <ul><li>Prime numbers are used in computer security!</li><li>They are the 'building blocks' of all whole numbers.</li><li>Practice finding factors and identifying primes!</li></ul>
+          <p class="notes">🎙️ The journey with numbers never truly ends! Prime numbers are not just for your textbook; they are used in advanced topics like cryptography, which keeps your online information safe. Keep practicing and exploring, and you'll discover even more amazing things about mathematics!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

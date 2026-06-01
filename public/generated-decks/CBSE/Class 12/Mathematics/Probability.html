@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Probability: A Deep Dive for Class 12 — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Mastering Probability for Class 12 CBSE — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Probability</span>: Class 12 Mathematics</h2>
-          <ul><li>Mastering key concepts for CBSE Board Exams.</li><li>Focus on Conditional Probability, Bayes' Theorem, and Random Variables.</li><li>Practice with worked examples and common pitfalls.</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey into the world of Probability, a crucial chapter for your Class 12 CBSE exams. We'll build upon your Class 11 knowledge and delve into advanced topics.</p>
+          <span class="num">1 / 30</span>
+          <h2>Welcome to <span class="hl">Probability</span>! Understanding Chance</h2>
+          <ul><li>Revisit Class 11 concepts to build a strong foundation.</li><li>Explore advanced topics: Conditional Probability, Bayes' Theorem.</li><li>Master Random Variables and Binomial Distribution for exams.</li><li>Focus on problem-solving techniques and common pitfalls.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Welcome to our session on Probability for Class 12. This chapter is crucial for your CBSE board exams and competitive tests. We'll build on your Class 11 knowledge and dive deep into new, exciting concepts.</p>
         </div>
         
       </div>
@@ -58,10 +71,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>Recap: <span class="hl">Foundations</span> of Probability (Class 11)</h2>
-          <ul><li>Experiment: An operation producing well-defined outcomes.</li><li>Sample Space (S): Set of all possible outcomes.</li><li>Event (E): A subset of the sample space.</li><li>P(E) = (Number of favorable outcomes) / (Total number of outcomes).</li></ul>
-          <p class="notes">🎙️ Before we move forward, let's quickly refresh our memory on the basic terms from Class 11. Remember, probability always lies between 0 and 1, inclusive. A strong foundation here is key.</p>
+          <span class="num">2 / 30</span>
+          <h2>Revisiting <span class="hl">Basics</span>: Sample Space &amp; Events</h2>
+          <ul><li>Sample Space (S): Set of all possible outcomes of an experiment.</li><li>Event (E): A subset of the sample space.</li><li>P(E) = (Number of favorable outcomes) / (Total number of outcomes).</li><li>0 ≤ P(E) ≤ 1 for any event E.</li></ul>
+          <p class="notes">🎙️ Before we jump into new topics, let's quickly recap what you learned in Class 11. Remember, probability is fundamentally about quantifying uncertainty. The sample space lists every possible result, and an event is a specific collection of those results.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Rolling a Die</div></div></div>
       </div>
@@ -70,70 +83,70 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2><span class="hl">Conditional</span> Probability: The 'Given That' Scenario</h2>
-          <ul><li>Probability of an event occurring given that another event has already occurred.</li><li>Changes the sample space to the event that has occurred.</li><li>Represented as P(A|B) – Probability of A given B.</li></ul>
-          <p class="notes">🎙️ Imagine you're drawing cards. What's the probability of drawing a King, given that you've already drawn a face card? This 'given that' aspect is the essence of conditional probability. It restricts our universe of possibilities.</p>
+          <span class="num">3 / 30</span>
+          <h2><span class="hl">Conditional Probability</span>: The 'Given That' Scenario</h2>
+          <ul><li>Probability of an event occurring, given that another event has already occurred.</li><li>It narrows down the sample space to the outcomes where the given event happened.</li><li>Denoted as P(A|B), read as 'Probability of A given B'.</li></ul>
+          <p class="notes">🎙️ Conditional probability is a core concept for Class 12. Think of it as adjusting our probability calculation based on new information. When we say 'given that', we are effectively changing our universe of possible outcomes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">What if...?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Dependent Events</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Conditional Probability: The <span class="hl">Formula</span></h2>
-          <ul><li>P(A|B) = P(A ∩ B) / P(B), provided P(B) ≠ 0.</li><li>P(B|A) = P(A ∩ B) / P(A), provided P(A) ≠ 0.</li><li>P(A ∩ B) is the probability of both A and B occurring.</li></ul>
-          <p class="notes">🎙️ This formula is fundamental. It tells us that the probability of A happening, given B has happened, is the probability of both A and B happening, divided by the probability of B happening. Remember the condition P(B) cannot be zero.</p>
+          <span class="num">4 / 30</span>
+          <h2>The <span class="hl">Formula</span>: P(A|B)</h2>
+          <ul><li>P(A|B) = P(A ∩ B) / P(B), provided P(B) ≠ 0.</li><li>P(A ∩ B) is the probability of both A and B occurring.</li><li>The denominator P(B) acts as the new reduced sample space.</li></ul>
+          <p class="notes">🎙️ This formula is fundamental. Always remember that the probability of the 'given' event, P(B), must not be zero. If P(B) is zero, it means event B can never happen, so it cannot be 'given'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Division is Key</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify events A and B</span></div><div class="step"><span class="snum">2</span><span>Find P(A ∩ B)</span></div><div class="step"><span class="snum">3</span><span>Find P(B)</span></div><div class="step"><span class="snum">4</span><span>Calculate P(A ∩ B) / P(B)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Worked <span class="hl">Example 1</span>: Conditional Probability</h2>
-          <ul><li>A family has two children. What is the probability that both children are boys, given that at least one of them is a boy?</li><li>S = {BB, BG, GB, GG}. Let A = {BB} and B = {BB, BG, GB}.</li><li>A ∩ B = {BB}. P(A ∩ B) = 1/4. P(B) = 3/4.</li><li>P(A|B) = P(A ∩ B) / P(B) = (1/4) / (3/4) = 1/3.</li></ul>
-          <p class="notes">🎙️ This is a classic problem. Notice how the 'given that' condition effectively reduces our sample space from four possibilities to just three. We are no longer considering the case of two girls.</p>
+          <span class="num">5 / 30</span>
+          <h2>Worked <span class="hl">Example 1</span>: Drawing Cards</h2>
+          <ul><li>A card is drawn from a well-shuffled deck of 52 cards.</li><li>Event A: The card drawn is a King.</li><li>Event B: The card drawn is a Face Card.</li><li>Find P(A|B).</li></ul>
+          <p class="notes">🎙️ Let's apply the formula to a classic card problem. First, identify the total number of Kings and Face Cards. Then, find the intersection – how many cards are both a King AND a Face Card. This will lead us to the conditional probability.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👦</span><span>👦</span></div><div class="vcap">Two Boys</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🃏</span><span>🃏</span><span>🃏</span></div><div class="vcap">Cards from a Deck</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Common Mistake 1: <span class="hl">Confusing</span> P(A|B) and P(B|A)</h2>
-          <ul><li>P(A|B) is NOT necessarily equal to P(B|A).</li><li>The event given as known changes the denominator.</li><li>Always clearly identify which event is 'given'.</li></ul>
-          <p class="notes">🎙️ This is a very common trap! Students often interchange P(A|B) and P(B|A) without realizing they represent different scenarios. Always read the question carefully to determine which event is the condition.</p>
+          <span class="num">6 / 30</span>
+          <h2><span class="hl">Solution</span>: Example 1 (Cards)</h2>
+          <ul><li>P(A ∩ B) = P(King and Face Card) = P(King) = 4/52.</li><li>P(B) = P(Face Card) = 12/52 (4 Kings, 4 Queens, 4 Jacks).</li><li>P(A|B) = (4/52) / (12/52) = 4/12 = 1/3.</li><li>Alternatively, out of 12 face cards, 4 are Kings.</li></ul>
+          <p class="notes">🎙️ Notice how the conditional probability is higher than the simple probability of drawing a King (4/52). This is because knowing it's a face card reduces our sample space, making a King more likely within that reduced set.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">P(A|B)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P(B|A)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct Solution</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Properties</span> of Conditional Probability</h2>
-          <ul><li>P(S|F) = 1, P(F|F) = 1 (where S is sample space, F is event).</li><li>P(A'|F) = 1 - P(A|F).</li><li>If A and B are mutually exclusive, P((A ∪ B)|F) = P(A|F) + P(B|F).</li></ul>
-          <p class="notes">🎙️ These properties are intuitive and follow directly from the definition. For instance, the probability of the entire sample space occurring, given that F has occurred, must be 1, because F is part of S.</p>
+          <span class="num">7 / 30</span>
+          <h2>Avoid These <span class="hl">Errors</span> in Conditional Probability</h2>
+          <ul><li>Confusing P(A|B) with P(B|A). They are generally not equal.</li><li>Using P(A) or P(B) in the numerator instead of P(A ∩ B).</li><li>Forgetting that P(B) must be non-zero in the denominator.</li><li>Not clearly defining events A and B before calculation.</li></ul>
+          <p class="notes">🎙️ Students often swap A and B in the conditional probability formula. Remember, the 'given' event is always in the denominator. Clearly label your events to avoid confusion, especially in complex problems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Key Rules</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Common Mistakes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2><span class="hl">Multiplication</span> Theorem on Probability</h2>
-          <ul><li>Used to find the probability of the intersection of two events.</li><li>P(A ∩ B) = P(B)P(A|B) or P(A ∩ B) = P(A)P(B|A).</li><li>Derived directly from the conditional probability formula.</li></ul>
-          <p class="notes">🎙️ This theorem is simply a rearrangement of the conditional probability formula. It's incredibly useful when you know the conditional probability and want to find the probability of both events happening together.</p>
+          <span class="num">8 / 30</span>
+          <h2><span class="hl">Multiplication Theorem</span> on Probability: P(A ∩ B)</h2>
+          <ul><li>Rearrangement of the conditional probability formula.</li><li>P(A ∩ B) = P(B) * P(A|B) or P(A ∩ B) = P(A) * P(B|A).</li><li>Used to find the probability of two events both occurring.</li><li>Especially useful when events are dependent.</li></ul>
+          <p class="notes">🎙️ The multiplication theorem is essentially the conditional probability formula rearranged. It allows us to calculate the probability of the intersection of two events, which means both events happening, by considering their dependence.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Product Rule</div></div></div>
       </div>
@@ -142,82 +155,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Worked <span class="hl">Example 2</span>: Multiplication Theorem</h2>
-          <ul><li>A bag contains 5 red and 3 black balls. Two balls are drawn without replacement.</li><li>What is the probability that both balls are red?</li><li>Let R1 = first ball is red, R2 = second ball is red.</li><li>P(R1 ∩ R2) = P(R1) * P(R2|R1) = (5/8) * (4/7) = 20/56 = 5/14.</li></ul>
-          <p class="notes">🎙️ In this example, drawing the first red ball changes the total number of balls and the number of red balls remaining, hence the conditional probability for the second draw. This is a classic 'without replacement' problem.</p>
+          <span class="num">9 / 30</span>
+          <h2><span class="hl">Applying</span> the Multiplication Theorem</h2>
+          <ul><li>Step 1: Define the two events whose joint probability is needed.</li><li>Step 2: Calculate the probability of the first event.</li><li>Step 3: Calculate the conditional probability of the second event, given the first.</li><li>Step 4: Multiply these two probabilities.</li></ul>
+          <p class="notes">🎙️ This theorem is very practical for 'without replacement' scenarios, where the outcome of the first draw affects the probabilities for the second draw. Follow these steps carefully to ensure accuracy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span></div><div class="vcap">Two Red Balls</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Define events</span></div><div class="step"><span class="snum">2</span><span>Find P(First)</span></div><div class="step"><span class="snum">3</span><span>Find P(Second | First)</span></div><div class="step"><span class="snum">4</span><span>Multiply: P(First) * P(Second | First)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Independent</span> Events: No Influence</h2>
-          <ul><li>Two events A and B are independent if the occurrence of one does not affect the probability of the other.</li><li>Mathematically: P(A|B) = P(A) and P(B|A) = P(B).</li><li>If independent, P(A ∩ B) = P(A) * P(B).</li></ul>
-          <p class="notes">🎙️ Think of flipping a coin twice. The outcome of the first flip does not influence the outcome of the second flip. These are independent events. The simplified multiplication rule applies here.</p>
+          <span class="num">10 / 30</span>
+          <h2>Worked <span class="hl">Example 2</span>: Balls in Bags</h2>
+          <ul><li>Bag 1: 4 red, 3 black balls. Bag 2: 3 red, 5 black balls.</li><li>A ball is drawn from Bag 1 and transferred to Bag 2.</li><li>Then, a ball is drawn from Bag 2.</li><li>What is the probability that the ball drawn from Bag 2 is red?</li></ul>
+          <p class="notes">🎙️ This problem involves sequential events and dependence. The composition of Bag 2 changes based on the ball transferred from Bag 1. We need to consider two cases for the transfer: a red ball or a black ball.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">No Connection</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span></div><div class="vcap">Two Bags of Balls</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Independent Events: <span class="hl">Conditions</span> and Properties</h2>
-          <ul><li>If A and B are independent, then A and B' are also independent.</li><li>A' and B are independent, and A' and B' are independent.</li><li>This property is useful for proving independence of complements.</li></ul>
-          <p class="notes">🎙️ These properties are quite powerful. If two events are independent, then their complements are also independent. This often simplifies calculations in problems involving 'at least one' or 'neither' scenarios.</p>
+          <span class="num">11 / 30</span>
+          <h2><span class="hl">Solution</span>: Example 2 (Balls in Bags)</h2>
+          <ul><li>Let R1 be Red from Bag 1, B1 be Black from Bag 1.</li><li>Let R2 be Red from Bag 2.</li><li>P(R2) = P(R1 ∩ R2) + P(B1 ∩ R2).</li><li>P(R2) = P(R1)P(R2|R1) + P(B1)P(R2|B1) = (4/7)*(4/9) + (3/7)*(3/9) = 16/63 + 9/63 = 25/63.</li></ul>
+          <p class="notes">🎙️ This example beautifully demonstrates how the multiplication theorem is used in conjunction with the law of total probability. We consider all possible ways to reach the desired outcome and sum their probabilities.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Interlinked Properties</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✔️</div><div class="vcap">Calculation Done</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Worked <span class="hl">Example 3</span>: Checking Independence</h2>
-          <ul><li>A die is thrown. Let A be the event 'an even number appears' and B be the event 'a number greater than 4 appears'.</li><li>P(A) = 3/6 = 1/2. P(B) = 2/6 = 1/3.</li><li>A ∩ B = {6}. P(A ∩ B) = 1/6.</li><li>Since P(A)P(B) = (1/2)(1/3) = 1/6 = P(A ∩ B), events A and B are independent.</li></ul>
-          <p class="notes">🎙️ To check for independence, always calculate P(A), P(B), and P(A ∩ B). If P(A ∩ B) equals the product of P(A) and P(B), then they are independent. Otherwise, they are dependent.</p>
+          <span class="num">12 / 30</span>
+          <h2><span class="hl">Independent Events</span>: No Influence</h2>
+          <ul><li>Two events A and B are independent if the occurrence of one does not affect the probability of the other.</li><li>Mathematically: P(A|B) = P(A) and P(B|A) = P(B).</li><li>This means the conditional probability is just the simple probability.</li><li>Examples: Tossing two coins, rolling two dice.</li></ul>
+          <p class="notes">🎙️ Independent events are much simpler to deal with because you don't need to consider how one event impacts the other. If knowing B happened doesn't change the likelihood of A, then A and B are independent.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span></div><div class="vcap">Single Die Roll</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P(A|B)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P(A)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Common <span class="hl">Mistake 2</span>: Independent vs. Mutually Exclusive</h2>
-          <ul><li>Independent: Occurrence of one does NOT affect the other. P(A ∩ B) = P(A)P(B).</li><li>Mutually Exclusive: Occurrence of one PREVENTS the other. P(A ∩ B) = 0.</li><li>These are distinct concepts; an event cannot generally be both (unless P(A) or P(B) is 0).</li></ul>
-          <p class="notes">🎙️ This is another crucial distinction. Mutually exclusive events cannot happen at the same time, while independent events simply don't influence each other. Don't confuse them during problem-solving.</p>
+          <span class="num">13 / 30</span>
+          <h2><span class="hl">Condition</span> for Independence: P(A ∩ B) = P(A)P(B)</h2>
+          <ul><li>This is the most common and useful test for independence.</li><li>If A and B are independent, then P(A ∩ B) = P(A) × P(B).</li><li>This is derived directly from the multiplication theorem.</li><li>Converse is also true: if P(A ∩ B) = P(A)P(B), then A and B are independent.</li></ul>
+          <p class="notes">🎙️ This formula is your go-to for checking independence. Remember, this applies *only* if they are independent. If they are dependent, you must use the conditional probability form of the multiplication theorem.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Independent</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Mutually Exclusive</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">No Interaction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 30</span>
+          <h2>Worked <span class="hl">Example 3</span>: Independent Events (Coin Tosses)</h2>
+          <ul><li>A fair coin is tossed twice.</li><li>Event A: First toss is a Head.</li><li>Event B: Second toss is a Head.</li><li>Are A and B independent?</li></ul>
+          <p class="notes">🎙️ Consider the sample space for two coin tosses. Calculate the individual probabilities of A and B, and the probability of their intersection. Then, use the independence condition to verify.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">Two Coin Tosses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 30</span>
+          <h2><span class="hl">Solution</span>: Example 3 (Coin Tosses)</h2>
+          <ul><li>Sample space S = {HH, HT, TH, TT}.</li><li>P(A) = P(First is H) = P({HH, HT}) = 2/4 = 1/2.</li><li>P(B) = P(Second is H) = P({HH, TH}) = 2/4 = 1/2.</li><li>P(A ∩ B) = P(Both are H) = P({HH}) = 1/4.</li><li>Since P(A)P(B) = (1/2)*(1/2) = 1/4 = P(A ∩ B), events A and B are independent.</li></ul>
+          <p class="notes">🎙️ This example confirms our intuition: the outcome of one coin toss does not affect the outcome of the next. This is a classic example of independent events. Make sure to clearly write out your sample space and events for clarity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Independent!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Quick <span class="hl">Check 1</span>: Conditional Probability</h2>
-          <ul><li>If P(A) = 0.6, P(B) = 0.3, and P(A ∩ B) = 0.2, what is P(A|B)?</li><li>P(A|B) = P(A ∩ B) / P(B) = 0.2 / 0.3 = 2/3.</li><li>Answer: Approximately 0.66.</li></ul>
-          <p class="notes">🎙️ Take a moment to apply the conditional probability formula we just learned. The correct calculation is P(A|B) = 0.2 / 0.3, which is 2/3 or approximately 0.66.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Quick <span class="hl">Check 2</span>: Independent Events</h2>
-          <ul><li>True or False: If two events A and B are independent, they must also be mutually exclusive.</li><li>Answer: False.</li><li>They are distinct concepts. Only if P(A) or P(B) is 0 can they be both.</li></ul>
-          <p class="notes">🎙️ This question tests your understanding of the difference between independence and mutual exclusivity. Remember, mutually exclusive means P(A ∩ B) = 0, while independent means P(A ∩ B) = P(A)P(B). These are generally incompatible.</p>
+          <span class="num">16 / 30</span>
+          <h2><span class="hl">Quick Check</span> 1: Test Your Understanding</h2>
+          <ul><li>1. If P(A)=0.6, P(B)=0.3, P(A∩B)=0.18, are A and B independent?</li><li>2. If P(A)=0.5, P(B|A)=0.4, find P(A∩B).</li><li>3. P(E)=0.7, P(F)=0.4, P(E∩F)=0.2. Find P(E|F).</li></ul>
+          <p class="notes">🎙️ Take a moment to solve these three quick questions. They cover conditional probability, the multiplication theorem, and independence. Jot down your answers and we'll review them briefly.</p>
         </div>
         
       </div>
@@ -226,124 +251,173 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Bayes'</span> Theorem: Reversing the Condition</h2>
-          <ul><li>Used when we know P(A|E) but want to find P(E|A).</li><li>Often involves 'prior' probabilities and 'posterior' probabilities.</li><li>Crucial for problems involving cause and effect, or diagnosis.</li></ul>
-          <p class="notes">🎙️ Bayes' Theorem is a powerful tool that allows us to update our beliefs about an event based on new evidence. It's about 'reversing' the conditional probability – finding the probability of the cause given the effect.</p>
+          <span class="num">17 / 30</span>
+          <h2><span class="hl">Bayes' Theorem</span>: Updating Beliefs with New Evidence</h2>
+          <ul><li>Used to calculate conditional probability when prior probabilities are known.</li><li>Allows us to update the probability of an event based on new information.</li><li>Crucial in fields like medical diagnosis, machine learning, and finance.</li><li>Often involves 'inverse probability': P(Cause|Effect).</li></ul>
+          <p class="notes">🎙️ Bayes' Theorem is a powerful tool that helps us reverse the conditional probability. Instead of P(Effect|Cause), we can find P(Cause|Effect). It's about how new evidence changes our initial belief about something.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Reversing Roles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Updating Probabilities</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Bayes' Theorem: The <span class="hl">Formula</span></h2>
-          <ul><li>Let E₁, E₂, ..., E_n be a partition of the sample space.</li><li>Let A be any event with P(A) ≠ 0.</li><li>P(E_i|A) = [P(E_i)P(A|E_i)] / Σ[P(E_j)P(A|E_j)] for j=1 to n.</li><li>Denominator is P(A) using Total Probability Theorem.</li></ul>
-          <p class="notes">🎙️ This formula might look daunting, but it's logical. The numerator is the probability of the specific cause and effect occurring together. The denominator is the total probability of the effect occurring across all possible causes.</p>
+          <span class="num">18 / 30</span>
+          <h2>The Bayes' Theorem <span class="hl">Formula</span></h2>
+          <ul><li>P(E₁|A) = [P(E₁)P(A|E₁)] / Σ [P(Eᵢ)P(A|Eᵢ)]</li><li>E₁, E₂, ..., Eₙ are mutually exclusive and exhaustive events (partitions of sample space).</li><li>A is any event that occurs with Eᵢ.</li><li>The denominator is P(A) by the Law of Total Probability.</li></ul>
+          <p class="notes">🎙️ This formula might look complex, but it's very systematic. The key is to correctly identify your 'causes' (Eᵢ) and the 'effect' (A). The denominator sums up the probability of event A happening through each of the possible causes.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Prior P(E_i)</span></div><div class="step"><span class="snum">2</span><span>Likelihood P(A|E_i)</span></div><div class="step"><span class="snum">3</span><span>Evidence P(A)</span></div><div class="step"><span class="snum">4</span><span>Posterior P(E_i|A)</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify partitions (Eᵢ)</span></div><div class="step"><span class="snum">2</span><span>Identify event A</span></div><div class="step"><span class="snum">3</span><span>Find P(Eᵢ) and P(A|Eᵢ)</span></div><div class="step"><span class="snum">4</span><span>Apply formula</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Worked <span class="hl">Example 4</span> (Part 1): Bayes' Theorem Setup</h2>
-          <ul><li>Bag 1: 2 red, 3 black balls. Bag 2: 4 red, 1 black ball.</li><li>A bag is chosen at random, and a red ball is drawn.</li><li>What is the probability that the ball came from Bag 1?</li><li>E1 = Bag 1 chosen, E2 = Bag 2 chosen. A = Red ball drawn.</li></ul>
-          <p class="notes">🎙️ First, we define our events. E1 and E2 form a partition because we must choose either Bag 1 or Bag 2. A is the event we observed. We want to find P(E1|A).</p>
+          <span class="num">19 / 30</span>
+          <h2>Worked <span class="hl">Example 4</span>: Medical Diagnosis</h2>
+          <ul><li>Disease D affects 1% of the population.</li><li>Test T is 90% accurate (P(T|D)=0.9) and 9% false positive (P(T|D')=0.09).</li><li>If a person tests positive (T), what is the probability they actually have the disease (D)? Find P(D|T).</li></ul>
+          <p class="notes">🎙️ This is a classic real-world application of Bayes' Theorem. We want to find the probability of having the disease given a positive test, which is often surprisingly different from the test's accuracy itself. Let D' be 'not having the disease'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👜</span><span>👜</span></div><div class="vcap">Two Bags</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🩺</span></div><div class="vcap">Medical Test</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Worked Example 4 (Part 2): Calculating Probabilities</h2>
-          <ul><li>P(E1) = 1/2, P(E2) = 1/2 (since a bag is chosen at random).</li><li>P(A|E1) = 2/5 (prob of red from Bag 1).</li><li>P(A|E2) = 4/5 (prob of red from Bag 2).</li><li>P(A) = P(A|E1)P(E1) + P(A|E2)P(E2) = (2/5)(1/2) + (4/5)(1/2) = 1/5 + 2/5 = 3/5.</li></ul>
-          <p class="notes">🎙️ Here, we calculate the prior probabilities of choosing each bag and the likelihoods of drawing a red ball from each bag. Then, we use the Total Probability Theorem to find the overall probability of drawing a red ball.</p>
+          <span class="num">20 / 30</span>
+          <h2><span class="hl">Solution</span>: Example 4 (Medical Diagnosis)</h2>
+          <ul><li>P(D) = 0.01, P(D') = 0.99.</li><li>P(T|D) = 0.90, P(T|D') = 0.09.</li><li>P(D|T) = [P(D)P(T|D)] / [P(D)P(T|D) + P(D')P(T|D')]</li><li>P(D|T) = [0.01 * 0.90] / [0.01 * 0.90 + 0.99 * 0.09] = 0.009 / (0.009 + 0.0891) = 0.009 / 0.0981 ≈ 0.0917.</li></ul>
+          <p class="notes">🎙️ Even with a 90% accurate test, the probability of actually having the disease given a positive result is only about 9.17%! This highlights the importance of prior probability and false positives, especially for rare diseases.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Summing Probabilities</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Low Actual Risk</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Worked Example 4 (Part 3): Applying <span class="hl">Bayes' Formula</span></h2>
-          <ul><li>P(E1|A) = [P(E1)P(A|E1)] / P(A).</li><li>P(E1|A) = [(1/2)(2/5)] / (3/5).</li><li>P(E1|A) = (1/5) / (3/5) = 1/3.</li><li>So, the probability the red ball came from Bag 1 is 1/3.</li></ul>
-          <p class="notes">🎙️ Finally, we plug all our calculated values into Bayes' formula. This gives us the 'posterior' probability – the updated probability that the ball came from Bag 1, now that we know a red ball was drawn.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Targeting the Cause</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
+          <span class="num">21 / 30</span>
           <h2><span class="hl">Random Variables</span>: Quantifying Outcomes</h2>
-          <ul><li>A random variable (X) is a real-valued function whose domain is the sample space of a random experiment.</li><li>It assigns a numerical value to each outcome.</li><li>Can be discrete (countable values) or continuous (any value in an interval).</li></ul>
-          <p class="notes">🎙️ Until now, events were descriptive. Random variables allow us to attach a numerical value to the outcomes of an experiment, making them amenable to mathematical analysis. For Class 12, we primarily focus on discrete random variables.</p>
+          <ul><li>A random variable (X) is a real-valued function whose domain is the sample space of a random experiment.</li><li>It assigns a numerical value to each outcome of the experiment.</li><li>Examples: Number of heads in coin tosses, sum of two dice, height of a student.</li></ul>
+          <p class="notes">🎙️ Until now, we've talked about events. A random variable takes those qualitative outcomes and turns them into numbers, which makes them easier to work with mathematically. It's a fundamental concept for probability distributions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Numbers from Events</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Mapping Outcomes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Probability <span class="hl">Distribution</span> of a Random Variable</h2>
-          <ul><li>A table or function that gives the probabilities for each possible value of a discrete random variable.</li><li>Requirements: P(X=x_i) ≥ 0 for all x_i, and ΣP(X=x_i) = 1.</li><li>Example: Number of heads in two coin tosses (X=0,1,2).</li></ul>
-          <p class="notes">🎙️ The probability distribution is essentially a map that tells us how likely each possible value of our random variable is. The sum of all these probabilities must always be 1, covering all possible outcomes.</p>
+          <span class="num">22 / 30</span>
+          <h2><span class="hl">Discrete vs. Continuous</span> Random Variables</h2>
+          <ul><li>Discrete RV: Takes on a finite or countably infinite number of values (e.g., number of heads, number of defects).</li><li>Continuous RV: Takes on any value within a given interval (e.g., height, weight, time).</li><li>Class 12 CBSE focuses primarily on Discrete Random Variables.</li></ul>
+          <p class="notes">🎙️ Understanding the difference is crucial. Discrete variables are typically counts, while continuous variables are measurements. For our syllabus, we'll mainly deal with discrete random variables and their distributions.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">P(X=0)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P(X=1)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">P(X=2)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Discrete (Countable)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Continuous (Measurable)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Mean (<span class="hl">Expectation</span>) of a Random Variable</h2>
-          <ul><li>The average value of a random variable over many trials.</li><li>Also known as the Expected Value, E(X) or μ (mu).</li><li>E(X) = Σ [x_i * P(X=x_i)].</li><li>Represents the 'center' of the probability distribution.</li></ul>
-          <p class="notes">🎙️ The expectation is what you would 'expect' to get, on average, if you repeated the experiment many times. It's a weighted average, where each value is weighted by its probability of occurrence.</p>
+          <span class="num">23 / 30</span>
+          <h2><span class="hl">Probability Distribution</span> of a Random Variable</h2>
+          <ul><li>A table or formula that lists all possible values a discrete random variable can take.</li><li>And their corresponding probabilities (P(X=x)).</li><li>Properties: 0 ≤ P(X=x) ≤ 1 for all x, and ΣP(X=x) = 1.</li></ul>
+          <p class="notes">🎙️ This distribution tells us exactly how the probability is 'spread out' among the possible values of the random variable. It's like a complete picture of the chances for each outcome.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Likelihoods</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Variance</span> of a Random Variable: Spread</h2>
-          <ul><li>Measures the spread or dispersion of the random variable's values around its mean.</li><li>Var(X) = E(X²) - [E(X)]².</li><li>E(X²) = Σ [x_i² * P(X=x_i)].</li><li>Standard Deviation (σ) = √Var(X).</li></ul>
-          <p class="notes">🎙️ While the mean tells us the center, the variance tells us how much the values typically deviate from that center. A higher variance means greater spread. The standard deviation is often preferred as it's in the same units as X.</p>
+          <span class="num">24 / 30</span>
+          <h2>Mean (Expectation) &amp; Variance of a Random Variable</h2>
+          <ul><li>Mean (E[X]): The average value of the random variable over many trials. E[X] = ΣxᵢP(X=xᵢ).</li><li>Variance (Var[X]): Measures the spread or dispersion of the distribution around the mean. Var[X] = E[X²] - (E[X])².</li><li>Standard Deviation (SD[X]) = √Var[X].</li></ul>
+          <p class="notes">🎙️ The mean gives us the central tendency, what we expect on average. Variance tells us how much the values typically deviate from that average. These are key descriptive statistics for a probability distribution.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Measuring Spread</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Calculate E[X]</span></div><div class="step"><span class="snum">2</span><span>Calculate E[X²]</span></div><div class="step"><span class="snum">3</span><span>Use Var[X] formula</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 30</span>
+          <h2><span class="hl">Bernoulli Trials</span> &amp; Binomial Distribution</h2>
+          <ul><li>Bernoulli Trial: A random experiment with only two possible outcomes, 'success' (p) or 'failure' (q=1-p).</li><li>Binomial Distribution: Applies to the number of successes in a fixed number (n) of independent Bernoulli trials.</li><li>Assumptions: Fixed number of trials, independent trials, only two outcomes, constant probability of success.</li></ul>
+          <p class="notes">🎙️ Bernoulli trials are the building blocks of the binomial distribution. Think of any situation where you repeat a simple 'yes/no' experiment multiple times, like flipping a coin repeatedly or checking items on an assembly line for defects.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅❌</div><div class="vcap">Success or Failure</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 30</span>
+          <h2>The Binomial Distribution <span class="hl">Formula</span></h2>
+          <ul><li>P(X=k) = C(n, k) * pᵏ * qⁿ⁻ᵏ</li><li>n: number of trials, k: number of successes (0 ≤ k ≤ n).</li><li>p: probability of success in a single trial.</li><li>q: probability of failure in a single trial (q = 1 - p).</li><li>C(n, k): Binomial coefficient, 'n choose k'.</li></ul>
+          <p class="notes">🎙️ This formula allows us to calculate the exact probability of getting 'k' successes in 'n' trials. It combines combinations (for the number of ways to get k successes) with the probabilities of success and failure.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify n, k, p, q</span></div><div class="step"><span class="snum">2</span><span>Calculate C(n, k)</span></div><div class="step"><span class="snum">3</span><span>Substitute into formula</span></div><div class="step"><span class="snum">4</span><span>Compute P(X=k)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">27 / 30</span>
+          <h2>Worked <span class="hl">Example 5</span>: Binomial Distribution (Dice Roll)</h2>
+          <ul><li>A die is thrown 5 times.</li><li>Getting an even number is considered a 'success'.</li><li>Find the probability of getting exactly 3 successes.</li></ul>
+          <p class="notes">🎙️ Let's break this down. What are 'n', 'k', 'p', and 'q' in this scenario? An even number on a die roll is 2, 4, or 6. Identify these parameters first, then apply the binomial formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span></div><div class="vcap">Five Dice Rolls</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">28 / 30</span>
+          <h2><span class="hl">Solution</span>: Example 5 (Dice Roll)</h2>
+          <ul><li>n = 5 (number of trials).</li><li>k = 3 (number of successes).</li><li>p = P(even number) = 3/6 = 1/2.</li><li>q = 1 - p = 1/2.</li><li>P(X=3) = C(5, 3) * (1/2)³ * (1/2)² = 10 * (1/8) * (1/4) = 10/32 = 5/16.</li></ul>
+          <p class="notes">🎙️ The probability of getting exactly three even numbers in five rolls is 5/16. This demonstrates how the binomial distribution can model repeated independent trials with two outcomes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">Success!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span> &amp; Exam Tips for Probability</h2>
-          <ul><li>Conditional Probability: P(A|B) = P(A ∩ B) / P(B).</li><li>Multiplication Theorem: P(A ∩ B) = P(A)P(B|A).</li><li>Independent Events: P(A ∩ B) = P(A)P(B).</li><li>Bayes' Theorem: P(E_i|A) = [P(E_i)P(A|E_i)] / P(A).</li><li>Random Variables: E(X) = Σx_i P(X=x_i), Var(X) = E(X²) - [E(X)]².</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember to understand the definitions, not just memorize formulas. Practice a variety of problems, especially those involving Bayes' Theorem and random variables, as they are frequently tested in exams. Good luck!</p>
+          <span class="num">29 / 30</span>
+          <h2><span class="hl">Quick Check</span> 2: Consolidate Your Learning</h2>
+          <ul><li>1. A coin is tossed 3 times. X = number of heads. List the probability distribution of X.</li><li>2. If E[X]=5 and E[X²]=30, find Var[X].</li><li>3. In a binomial distribution with n=4, p=0.5, find P(X=0).</li></ul>
+          <p class="notes">🎙️ These questions will help you reinforce your understanding of random variables, their mean and variance, and the binomial distribution. Work through them to solidify these concepts.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">30 / 30</span>
+          <h2><span class="hl">Recap</span> &amp; Exam Success Tips</h2>
+          <ul><li>Conditional Probability: P(A|B) = P(A∩B)/P(B).</li><li>Multiplication Theorem: P(A∩B) = P(A)P(B|A).</li><li>Independent Events: P(A∩B) = P(A)P(B).</li><li>Bayes' Theorem: P(E₁|A) = [P(E₁)P(A|E₁)] / P(A).</li><li>Random Variables &amp; Binomial Distribution: P(X=k) = C(n,k)pᵏqⁿ⁻ᵏ.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember to practice a variety of problems, pay attention to the wording (especially 'given that'), and clearly define your events and random variables. Mastery comes with consistent practice.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

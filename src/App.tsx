@@ -492,9 +492,9 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     ],
   },
   career: {
-    title: 'Free JEE Rank Predictor, NEET College Predictor & Stream Guide | Syllab.in',
-    description: 'Free JEE Main rank predictor (percentile to rank), JEE college predictor, NEET marks-to-rank & medical college predictor, and after-10th stream guidance for Indian students.',
-    keywords: 'JEE rank predictor free, JEE Main percentile to rank, JEE college predictor free, NEET rank predictor free, NEET college predictor, NEET marks vs rank 2026, which stream after 10th, career guidance after 10th 12th India, JoSAA cutoff predictor, MBBS college predictor India, engineering college predictor free',
+    title: 'Free Career Predictor: JEE/NEET Rank & College Predictor, Career Quiz & Exam Dates | Syllab.in',
+    description: 'Free career predictor for Indian students — JEE Main & state (EAMCET/KCET/MHT-CET/WBJEE) rank & college predictor, NEET marks-to-rank & MBBS college predictor (all categories), career explorer with salaries, an interest quiz to find your stream, the 2026 exam calendar and scholarships.',
+    keywords: 'career predictor free India, JEE rank predictor free, JEE Main percentile to rank, JEE college predictor free, NEET rank predictor free, NEET college predictor, MBBS college predictor India, EAMCET rank predictor, KCET college predictor, MHT-CET predictor, WBJEE predictor, career quiz after 10th, which stream after 10th, career options after 12th India, career salary India, 2026 exam dates JEE NEET CUET, scholarships for students India, JoSAA cutoff predictor',
     url: 'https://syllab.in/career-predictor',
   },
 };

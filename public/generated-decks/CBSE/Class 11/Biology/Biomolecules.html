@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Biomolecules: The Chemistry of Life — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Biomolecules: The Molecules of Life — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Biomolecules</span>!</h2>
-          <ul><li>Essential for life processes.</li><li>Explore the chemistry of living organisms.</li><li>Prepare for your CBSE Class 11 exams!</li></ul>
-          <p class="notes">🎙️ Hello students! Today we embark on a fascinating journey into the world of Biomolecules, the very foundation of life. Understanding these molecules is crucial for comprehending how living systems function, and it's a key topic for your Class 11 CBSE exams. Let's dive in!</p>
+          <h2>Chapter 9: <span class="hl">Biomolecules</span> - An Introduction</h2>
+          <ul><li>Explore the chemical building blocks of life.</li><li>Understand the structure and function of essential organic molecules.</li><li>Prepare for CBSE Class 11 Biology exams with key concepts.</li></ul>
+          <p class="notes">🎙️ Welcome to Chapter 9: Biomolecules! Today, we'll embark on a fascinating journey to discover the fundamental molecules that make up all living organisms. This chapter is crucial for understanding how life works at a molecular level and is a high-scoring topic in your exams.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What are <span class="hl">Biomolecules</span>?</h2>
-          <ul><li>Organic compounds found in living organisms.</li><li>Form the building blocks of cells and tissues.</li><li>Crucial for metabolism, growth, and reproduction.</li></ul>
-          <p class="notes">🎙️ Biomolecules are essentially the organic molecules that are produced by living organisms. They are vital for all the processes that occur within us, from building our cells to enabling complex chemical reactions. Think of them as the fundamental components that make life possible.</p>
+          <ul><li>Organic compounds present in living organisms.</li><li>Essential for life processes, growth, and maintenance.</li><li>Range from small, simple molecules to large, complex polymers.</li></ul>
+          <p class="notes">🎙️ Biomolecules are essentially the organic chemical compounds that constitute and are produced by living organisms. They are the very essence of life, performing myriad functions from storing energy to carrying genetic information. We'll categorize them based on their size and complexity.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Life's Building Blocks</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="🧬" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Chemical <span class="hl">Analysis</span> of Tissues</h2>
-          <ul><li>Grind tissue with trichloroacetic acid (TCA).</li><li>Filter to separate acid-soluble and acid-insoluble pools.</li><li>Further analysis identifies specific biomolecules.</li></ul>
-          <p class="notes">🎙️ To understand what our bodies are made of, scientists perform chemical analysis. A common method involves grinding tissue, say a piece of liver, with trichloroacetic acid. This process helps us separate the components into two main categories based on their solubility.</p>
+          <h2><span class="hl">Elemental Analysis</span> of Living Tissue</h2>
+          <ul><li>Burning a small piece of plant or animal tissue.</li><li>All carbon compounds oxidize to gaseous CO₂.</li><li>Remaining 'ash' contains inorganic elements (Ca, Mg, etc.).</li></ul>
+          <p class="notes">🎙️ To understand the chemical composition of living matter, scientists perform elemental analysis. This involves burning tissue to remove water and then oxidizing all carbon compounds, leaving behind an ash rich in inorganic elements. This method helps us identify the basic elements present in a living system.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Grind Tissue</span></div><div class="step"><span class="snum">2</span><span>Add TCA</span></div><div class="step"><span class="snum">3</span><span>Filter</span></div><div class="step"><span class="snum">4</span><span>Analyze Pools</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Animal_Cell.svg?width=500" data-fb="🌿" alt="Animal and plant cells are both eukaryotic but differ in key structures. Plants have cell "/><div class="vcap">Animal and plant cells are both eukaryotic but differ in key structures. Plants have cell </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Micromolecules</span> vs. Macromolecules</h2>
-          <ul><li>Acid-soluble pool: Small molecular weight (&lt;1000 Da).</li><li>Acid-insoluble pool: Large molecular weight (&gt;1000 Da).</li><li>Key distinction for classifying biomolecules.</li></ul>
-          <p class="notes">🎙️ The acid-soluble pool contains what we call micromolecules, which are generally smaller in size and molecular weight. The acid-insoluble pool, on the other hand, contains macromolecules, which are much larger. This distinction is fundamental to our study of biomolecules.</p>
+          <h2>Chemical Composition: <span class="hl">Organic vs. Inorganic</span></h2>
+          <ul><li>Living tissue has both organic (carbon-based) and inorganic compounds.</li><li>Inorganic components: Na⁺, K⁺, Ca²⁺, Mg²⁺, PO₄³⁻, SO₄²⁻.</li><li>Organic components: Carbohydrates, Proteins, Lipids, Nucleic Acids.</li></ul>
+          <p class="notes">🎙️ Our bodies are a complex blend of chemicals. While we often focus on the big organic molecules, don't forget the vital role of inorganic ions like sodium, potassium, and calcium. These maintain osmotic balance, nerve function, and bone structure, among other things.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span></div><div class="vcap">Diverse Chemical Mix</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Acid-soluble</span> vs. Acid-insoluble Pool</h2>
+          <ul><li>Grinding tissue with trichloroacetic acid (TCA).</li><li>Filtration separates into two fractions.</li><li>Acid-soluble: Micromolecules (MW &lt; 1000 Da).</li><li>Acid-insoluble: Macromolecules (MW &gt; 10000 Da).</li></ul>
+          <p class="notes">🎙️ This experiment is key to classifying biomolecules by size. The acid-soluble fraction contains smaller molecules like amino acids and simple sugars, while the acid-insoluble fraction holds the larger polymers like proteins and nucleic acids. This distinction helps us understand their differing roles.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Micromolecules</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Macromolecules</div></div></div></div>
       </div>
@@ -94,24 +119,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2><span class="hl">Micromolecules</span>: The Small Players</h2>
-          <ul><li>Low molecular weight (18-800 Da).</li><li>Examples: Amino acids, simple sugars, nucleotides, fatty acids.</li><li>Often serve as precursors or energy sources.</li></ul>
-          <p class="notes">🎙️ Micromolecules are the 'little guys' of the biomolecular world. They are small, easily soluble, and include essential components like amino acids, which build proteins, and simple sugars, which provide energy. They are the building blocks for larger structures.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Small &amp; Soluble</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Macromolecules</span>: The Big Builders</h2>
-          <ul><li>High molecular weight (10,000 Da and above).</li><li>Examples: Proteins, polysaccharides, nucleic acids, lipids (exception).</li><li>Form structural components and carry out complex functions.</li></ul>
-          <p class="notes">🎙️ Macromolecules are the 'giants' – large, complex molecules formed by linking many micromolecules together. Proteins, polysaccharides, and nucleic acids are true polymers. Lipids are an exception here; they are found in the acid-insoluble pool due to their insolubility, but their molecular weight doesn't strictly exceed 10,000 Da. This is a common point of confusion, so remember the exception!</p>
+          <h2><span class="hl">Micromolecules</span>: Building Blocks</h2>
+          <ul><li>Small molecular weight compounds (18 to 800 Daltons).</li><li>Include amino acids, monosaccharides, nucleotides, fatty acids.</li><li>Precursors for synthesizing macromolecules.</li></ul>
+          <p class="notes">🎙️ Micromolecules are the fundamental units from which all larger biomolecules are constructed. Think of them as the individual bricks that build a house. Understanding their basic structure is crucial for grasping the complexity of the macromolecules they form.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔗</span><span>🔗</span><span>🔗</span></div><div class="vcap">Large &amp; Complex</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Small but Mighty</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Primary Metabolites: <span class="hl">Essential</span> for Life</h2>
-          <ul><li>Directly involved in normal growth, development, and reproduction.</li><li>Found in all living cells, crucial for basic metabolic processes.</li><li>Examples: Amino acids, sugars, nucleotides, fatty acids.</li></ul>
-          <p class="notes">🎙️ Primary metabolites are the workhorses of the cell. They are directly involved in fundamental metabolic pathways that are absolutely essential for an organism's survival. Without these, life as we know it simply wouldn't exist. Think of them as the basic ingredients for living.</p>
+          <h2><span class="hl">Amino Acids</span>: Proteins' Monomers</h2>
+          <ul><li>Organic compounds with an amino group (-NH₂), carboxyl group (-COOH), hydrogen atom, and a variable 'R' group.</li><li>All attached to a central alpha-carbon atom.</li><li>Over 20 types, differing by their 'R' group.</li></ul>
+          <p class="notes">🎙️ Amino acids are the monomers of proteins. Their unique characteristic is the 'R' group, which can vary greatly, giving each amino acid its distinct chemical properties. This variation is what allows proteins to have such diverse structures and functions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Core Life Processes</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/GenericAminoAcid.svg?width=500" data-fb="⚛️" alt="Amino acids form proteins via peptide bonds; structure determines function via primary, se"/><div class="vcap">Amino acids form proteins via peptide bonds; structure determines function via primary, se</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Secondary</span> Metabolites: Unique Roles</h2>
-          <ul><li>Not directly involved in normal growth or development.</li><li>Specific to certain organisms, often for defense or signaling.</li><li>Examples: Alkaloids, terpenes, rubber, essential oils, toxins.</li></ul>
-          <p class="notes">🎙️ Secondary metabolites, in contrast, are not universally found and often have specialized roles, such as defense against predators or attracting pollinators. While not strictly essential for *individual* survival, they play crucial ecological roles and are often of great economic importance, for example, as drugs or spices.</p>
+          <h2>Amino Acids: <span class="hl">Types</span> and Classification</h2>
+          <ul><li>Based on 'R' group: acidic (e.g., Glutamic acid), basic (e.g., Lysine), neutral (e.g., Valine).</li><li>Essential amino acids: must be obtained from diet (e.g., Leucine, Isoleucine).</li><li>Non-essential amino acids: synthesized by the body.</li></ul>
+          <p class="notes">🎙️ The classification of amino acids is important. Knowing which ones are essential helps in understanding nutritional requirements. The 'R' group determines if an amino acid is acidic, basic, or neutral, which in turn influences the overall charge and folding of a protein.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Specialized Functions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🅰️</span><span>🅰️</span><span>🅰️</span></div><div class="vcap">Acidic, Basic, Neutral</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Carbohydrates</span>: Energy &amp; Structure</h2>
-          <ul><li>Organic compounds made of carbon, hydrogen, and oxygen.</li><li>General formula: (CH2O)n.</li><li>Primary source of energy and structural components.</li></ul>
-          <p class="notes">🎙️ Carbohydrates are perhaps the most well-known biomolecules, primarily recognized for their role as energy providers. But they also serve vital structural functions in plants and even in some animal tissues. They are essentially 'hydrates of carbon'.</p>
+          <h2><span class="hl">Proteins</span>: Polymers of Amino Acids</h2>
+          <ul><li>Long chains of amino acids linked by peptide bonds.</li><li>Peptide bond formed by dehydration synthesis between -COOH and -NH₂ groups.</li><li>Exhibit primary, secondary, tertiary, and quaternary structures.</li></ul>
+          <p class="notes">🎙️ Proteins are incredibly versatile macromolecules. The peptide bond is the covalent link that holds amino acids together, forming a polypeptide chain. The specific sequence of amino acids, and how this chain folds, determines the protein's final 3D structure and function.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="🍚" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Peptide Bond Formation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Monosaccharides</span>: Simple Sugars</h2>
-          <ul><li>Simplest carbohydrates, cannot be hydrolyzed further.</li><li>Sweet in taste, readily soluble in water.</li><li>Examples: Glucose, Fructose, Galactose, Ribose.</li></ul>
-          <p class="notes">🎙️ Monosaccharides are the basic units of carbohydrates. They are single sugar molecules, like glucose, which is the primary energy source for most living cells. They are sweet and dissolve easily in water, making them readily available for metabolic processes.</p>
+          <h2>Proteins: Diverse <span class="hl">Functions</span></h2>
+          <ul><li>Enzymes (e.g., Trypsin): Catalyze biochemical reactions.</li><li>Transport (e.g., Hemoglobin): Carry substances.</li><li>Structural (e.g., Collagen): Provide support.</li><li>Hormones (e.g., Insulin): Regulate body processes.</li></ul>
+          <p class="notes">🎙️ Proteins are often called the 'workhorses' of the cell due to their vast array of functions. From speeding up reactions as enzymes to forming the very structure of our tissues, their roles are indispensable for life. Remember these key examples for your exams.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍬</div><div class="vcap">Single Sugar Unit</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Versatile Roles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Disaccharides</span>: Two Sugars Together</h2>
-          <ul><li>Formed by two monosaccharide units joined by a glycosidic bond.</li><li>Sweet and soluble, like monosaccharides.</li><li>Examples: Sucrose (glucose+fructose), Lactose (glucose+galactose), Maltose (glucose+glucose).</li></ul>
-          <p class="notes">🎙️ Disaccharides are formed when two monosaccharides link together, typically through a dehydration reaction forming a glycosidic bond. Common examples include sucrose, our table sugar, and lactose, the sugar found in milk. Remember these specific combinations for your exams.</p>
+          <h2><span class="hl">Worked Example</span>: Identifying Amino Acid Type</h2>
+          <ul><li>Question: An amino acid has an R-group: -CH₂-CH₂-COOH. Classify it.</li><li>Solution: The R-group contains an extra carboxyl group (-COOH).</li><li>This makes the amino acid acidic.</li><li>Example: Glutamic acid.</li></ul>
+          <p class="notes">🎙️ When classifying amino acids, always look at the 'R' group. If it has an extra carboxyl group, it's acidic. If it has an extra amino group, it's basic. If it's mostly hydrocarbon, it's neutral. This is a common exam question, so practice identifying them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Glycosidic Bond</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Apply Your Knowledge</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Polysaccharides</span>: Complex Carbs</h2>
-          <ul><li>Long chains of many monosaccharide units.</li><li>Storage forms of energy and structural components.</li><li>Examples: Starch (plant energy), Glycogen (animal energy), Cellulose (plant structure).</li></ul>
-          <p class="notes">🎙️ Polysaccharides are large, complex carbohydrates made of hundreds or thousands of monosaccharide units. They serve crucial roles like energy storage, as seen with starch in plants and glycogen in animals, and structural support, like cellulose in plant cell walls. Note the different branching patterns and linkages.</p>
+          <h2><span class="hl">Common Mistake</span>: Essential vs. Non-essential</h2>
+          <ul><li>Mistake: Confusing essential amino acids with 'more important' ones.</li><li>Correction: 'Essential' means the body cannot synthesize them.</li><li>Both types are equally vital for protein synthesis and health.</li><li>Focus on remembering examples of essential amino acids.</li></ul>
+          <p class="notes">🎙️ This is a frequent point of confusion. Remember, 'essential' refers to dietary requirement, not a hierarchy of importance. All amino acids are crucial. Make sure you can list a few examples of essential amino acids like valine, leucine, isoleucine, lysine, and methionine.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Starch</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Glycogen</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cellulose</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid This Trap</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Proteins</span>: The Workhorses of the Cell</h2>
-          <ul><li>Most abundant biomolecules in living systems.</li><li>Polymers of amino acids linked by peptide bonds.</li><li>Perform diverse functions: enzymes, hormones, structural components.</li></ul>
-          <p class="notes">🎙️ Proteins are incredibly versatile molecules, performing almost every function within a cell. They are the 'workhorses' that do everything from catalyzing reactions to transporting molecules and providing structural support. Their functions are directly tied to their complex structures.</p>
+          <h2><span class="hl">Carbohydrates</span>: Energy and Structure</h2>
+          <ul><li>Composed of carbon, hydrogen, and oxygen (CH₂O)n.</li><li>Primary source of energy for living organisms.</li><li>Also serve structural roles in plants and some animals.</li></ul>
+          <p class="notes">🎙️ Carbohydrates are broadly known as sugars. They are our body's preferred fuel source. Beyond energy, they also play crucial structural roles, particularly in plants forming cell walls, and in insects as chitin.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Diverse Functions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍚</div><div class="vcap">Sugars and Starches</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Amino Acids</span>: Protein Building Blocks</h2>
-          <ul><li>Organic compounds with an amino group (-NH2) and a carboxyl group (-COOH).</li><li>Differ by their 'R' group (side chain).</li><li>20 common types, some are essential (dietary).</li></ul>
-          <p class="notes">🎙️ Amino acids are the monomers that make up proteins. Each amino acid has a central carbon atom bonded to an amino group, a carboxyl group, a hydrogen atom, and a unique side chain called the 'R' group. It's this R-group that gives each amino acid its specific properties.</p>
+          <h2><span class="hl">Monosaccharides</span>: Simple Sugars</h2>
+          <ul><li>Simplest form of carbohydrates, cannot be hydrolyzed further.</li><li>Examples: Glucose (blood sugar), Fructose (fruit sugar), Galactose.</li><li>Typically 3-7 carbon atoms, forming ring structures in aqueous solutions.</li></ul>
+          <p class="notes">🎙️ Monosaccharides are the basic building blocks of all other carbohydrates. Glucose is particularly important as the main energy source for cellular respiration. Remember their common examples and their general ring structure.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏗️</span><span>🏗️</span><span>🏗️</span><span>🏗️</span></div><div class="vcap">20 Varieties</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Glucose, Fructose, Galactose</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Peptide Bond</span> Formation</h2>
-          <ul><li>Amino acids link via a dehydration reaction.</li><li>Carboxyl group of one reacts with amino group of another.</li><li>Forms a strong covalent peptide bond, releasing water.</li></ul>
-          <p class="notes">🎙️ Proteins are formed when amino acids join together. This occurs through the formation of a peptide bond, a covalent bond formed between the carboxyl group of one amino acid and the amino group of another, with the removal of a water molecule. This process is crucial for protein synthesis.</p>
+          <h2>Disaccharides &amp; <span class="hl">Polysaccharides</span></h2>
+          <ul><li>Disaccharides: Two monosaccharides linked (e.g., Sucrose = Glucose + Fructose).</li><li>Polysaccharides: Long chains of many monosaccharides.</li><li>Storage: Starch (plants), Glycogen (animals).</li><li>Structural: Cellulose (plant cell walls).</li></ul>
+          <p class="notes">🎙️ Disaccharides are formed by linking two simple sugars, like sucrose in table sugar. Polysaccharides are much larger polymers, serving roles in energy storage (starch, glycogen) and structural support (cellulose). Understand the key differences and examples.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Amino Acid 1</span></div><div class="step"><span class="snum">2</span><span>Amino Acid 2</span></div><div class="step"><span class="snum">3</span><span>Water Removed</span></div><div class="step"><span class="snum">4</span><span>Peptide Bond</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛓️</div><div class="vcap">Linked Sugars</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Protein Structures: <span class="hl">Primary</span> &amp; Secondary</h2>
-          <ul><li>Primary: Linear sequence of amino acids.</li><li>Secondary: Local folding into alpha-helices or beta-pleated sheets.</li><li>Stabilized by hydrogen bonds within the polypeptide chain.</li></ul>
-          <p class="notes">🎙️ Proteins have hierarchical structures. The primary structure is simply the specific order of amino acids. The secondary structure involves local folding patterns like alpha-helices and beta-pleated sheets, stabilized by hydrogen bonds between the backbone atoms. These initial folds are critical.</p>
+          <h2><span class="hl">Lipids</span>: Diverse and Hydrophobic</h2>
+          <ul><li>Group of compounds insoluble in water but soluble in organic solvents.</li><li>Includes fatty acids, glycerol, triglycerides, phospholipids, steroids.</li><li>Characterized by long hydrocarbon chains.</li></ul>
+          <p class="notes">🎙️ Lipids are a very diverse group, but their defining characteristic is their hydrophobicity – they don't mix with water. This property is crucial for their roles in cell membranes and energy storage. They are essential for many biological functions.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Primary</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Secondary</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water-Repelling</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Protein Structures: <span class="hl">Tertiary</span> &amp; Quaternary</h2>
-          <ul><li>Tertiary: Overall 3D folding of a single polypeptide chain.</li><li>Stabilized by interactions between R-groups (ionic, H-bonds, disulfide).</li><li>Quaternary: Arrangement of multiple polypeptide subunits.</li></ul>
-          <p class="notes">🎙️ The tertiary structure is the complete three-dimensional shape of a single polypeptide, crucial for its function. The quaternary structure arises when multiple polypeptide chains, or subunits, assemble together to form a functional protein complex, like hemoglobin. Remember the forces stabilizing each level!</p>
+          <h2>Lipids: <span class="hl">Structure</span> and Examples</h2>
+          <ul><li>Fatty acids: Carboxyl group attached to a hydrocarbon chain (saturated/unsaturated).</li><li>Triglycerides: Glycerol molecule esterified with three fatty acids (fats/oils).</li><li>Phospholipids: Two fatty acids + phosphate group + glycerol (cell membranes).</li></ul>
+          <p class="notes">🎙️ Understanding the basic structure of different lipids is vital. Fatty acids are the building blocks. Triglycerides are for energy storage, while phospholipids are the primary components of cell membranes, forming a bilayer due to their amphipathic nature.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Complex 3D Forms</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧈</span><span>🧈</span><span>🧈</span></div><div class="vcap">Fats, Oils, Phospholipids</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Lipids</span>: Fats, Oils &amp; More</h2>
-          <ul><li>Diverse group of hydrophobic (water-insoluble) molecules.</li><li>Primarily composed of carbon and hydrogen.</li><li>Functions: energy storage, structural components (membranes), hormones.</li></ul>
-          <p class="notes">🎙️ Lipids are a fascinating group because of their defining characteristic: insolubility in water. This property is due to their high proportion of nonpolar hydrocarbon bonds. They are vital for long-term energy storage, forming cell membranes, and even acting as signaling molecules.</p>
+          <h2>Lipids: Crucial <span class="hl">Functions</span></h2>
+          <ul><li>Long-term energy storage (more efficient than carbohydrates).</li><li>Major component of cell membranes (phospholipids).</li><li>Insulation (thermal) and protection (cushioning organs).</li><li>Hormones (steroids like cholesterol, testosterone).</li></ul>
+          <p class="notes">🎙️ Lipids offer a concentrated form of energy storage, insulation against cold, and protection for vital organs. Their role in forming cell membranes is fundamental to cell structure, and steroid hormones derived from lipids regulate many body processes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥑</div><div class="vcap">Hydrophobic Molecules</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection &amp; Energy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Fatty Acids</span> &amp; Glycerol: Lipid Building Blocks</h2>
-          <ul><li>Fatty acids: Long hydrocarbon chains with a carboxyl group.</li><li>Glycerol: A three-carbon alcohol.</li><li>Triglycerides formed by esterification of 3 fatty acids to 1 glycerol.</li></ul>
-          <p class="notes">🎙️ While not strictly polymers in the same way as proteins or carbohydrates, many lipids are built from fatty acids and glycerol. Fatty acids can be saturated or unsaturated, impacting their physical properties. Triglycerides, the main form of energy storage, are formed from these two components.</p>
+          <h2><span class="hl">Nucleic Acids</span>: Genetic Information Carriers</h2>
+          <ul><li>DNA (Deoxyribonucleic Acid) and RNA (Ribonucleic Acid).</li><li>Polymers of nucleotide monomers.</li><li>Responsible for storing, transmitting, and expressing genetic information.</li></ul>
+          <p class="notes">🎙️ Nucleic acids are perhaps the most critical biomolecules, as they carry the genetic instructions for all living organisms. DNA is the primary genetic material, while RNA plays diverse roles in gene expression and regulation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Building Fats</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transcription_initiation.svg?width=500" data-fb="📜" alt="Transcription is synthesis of RNA from DNA template using RNA polymerase, occurring in thr"/><div class="vcap">Transcription is synthesis of RNA from DNA template using RNA polymerase, occurring in thr</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,47 +288,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Nucleic Acids</span>: Genetic Information</h2>
-          <ul><li>DNA (Deoxyribonucleic Acid) and RNA (Ribonucleic Acid).</li><li>Store and transmit genetic information.</li><li>Polymers of nucleotides.</li></ul>
-          <p class="notes">🎙️ Nucleic acids are the carriers of genetic information. DNA holds the blueprint for all cellular structures and activities, while RNA plays crucial roles in expressing that information. Understanding their structure is key to understanding heredity and gene expression.</p>
+          <h2><span class="hl">Nucleotides</span>: The Building Blocks</h2>
+          <ul><li>Each nucleotide has three components: a nitrogenous base, a pentose sugar, and a phosphate group.</li><li>Bases: Purines (Adenine, Guanine) and Pyrimidines (Cytosine, Thymine, Uracil).</li><li>Sugar: Deoxyribose in DNA, Ribose in RNA.</li></ul>
+          <p class="notes">🎙️ The structure of a nucleotide is fundamental. Remember the three parts: a base (A, T, C, G, U), a five-carbon sugar (deoxyribose or ribose), and a phosphate group. These link together to form the long chains of DNA and RNA.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Genetic Blueprint</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧩</span><span>🧩</span><span>🧩</span></div><div class="vcap">Base, Sugar, Phosphate</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Nucleotides</span> &amp; Nucleosides</h2>
-          <ul><li>Nucleotide = Nitrogenous base + Pentose sugar + Phosphate group.</li><li>Nucleoside = Nitrogenous base + Pentose sugar (no phosphate).</li><li>ATP is a nucleotide, critical for energy currency.</li></ul>
-          <p class="notes">🎙️ The building blocks of nucleic acids are nucleotides. A nucleotide is composed of three parts: a nitrogenous base, a five-carbon sugar (pentose), and a phosphate group. If you remove the phosphate group, you get a nucleoside. ATP, the energy currency of the cell, is a prime example of a nucleotide.</p>
+          <h2>Quick <span class="hl">Question 1</span>: Macromolecule Identification</h2>
+          <ul><li>Which of the following is NOT a macromolecule?</li><li>A) Protein</li><li>B) Polysaccharide</li><li>C) Lipid</li><li>D) Nucleic Acid</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the definition of macromolecules and their common examples. Remember the distinction made by the acid-soluble and acid-insoluble pools. The answer is C) Lipid, as individual lipids are generally micromolecules, though they can aggregate to form larger structures.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Nucleoside</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Nucleotide</div></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Enzymes</span>: Biological Catalysts</h2>
-          <ul><li>Mostly proteins, some RNA (ribozymes).</li><li>Speed up biochemical reactions without being consumed.</li><li>Highly specific to their substrates.</li></ul>
-          <p class="notes">🎙️ Enzymes are truly remarkable molecules. They act as biological catalysts, dramatically increasing the rate of chemical reactions in living systems. Without enzymes, most metabolic reactions would occur too slowly to sustain life. Remember, they are specific and remain unchanged after the reaction.</p>
+          <h2>Quick <span class="hl">Question 2</span>: Protein Bonds</h2>
+          <ul><li>What type of bond links amino acids together to form proteins?</li><li>A) Glycosidic bond</li><li>B) Ester bond</li><li>C) Peptide bond</li><li>D) Phosphodiester bond</li></ul>
+          <p class="notes">🎙️ Think back to the formation of proteins from amino acids. Each type of biomolecule polymer has a specific bond linking its monomers. The correct answer is C) Peptide bond. Glycosidic bonds are in carbohydrates, ester bonds in lipids, and phosphodiester bonds in nucleic acids.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Reaction Speed-Up</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Enzyme <span class="hl">Mechanism</span>: How They Work</h2>
-          <ul><li>Substrate binds to the enzyme's active site.</li><li>Forms an enzyme-substrate complex (ES complex).</li><li>Product released, enzyme is ready for new substrate.</li></ul>
-          <p class="notes">🎙️ Enzymes work by binding to specific molecules called substrates at a region called the active site. This binding forms an enzyme-substrate complex, which facilitates the conversion of the substrate into a product. The enzyme then releases the product and is free to catalyze another reaction.</p>
+          <h2>Quick <span class="hl">Question 3</span>: Storage Polysaccharide</h2>
+          <ul><li>Which of the following is a storage polysaccharide found in animals?</li><li>A) Starch</li><li>B) Cellulose</li><li>C) Glycogen</li><li>D) Chitin</li></ul>
+          <p class="notes">🎙️ Recall the different types of polysaccharides and their roles in plants versus animals. Starch is plant storage, cellulose is plant structure, and chitin is found in fungal cell walls and exoskeletons. The correct answer is C) Glycogen.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Enzyme + Substrate</span></div><div class="step"><span class="snum">2</span><span>ES Complex</span></div><div class="step"><span class="snum">3</span><span>EP Complex</span></div><div class="step"><span class="snum">4</span><span>Enzyme + Product</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -323,11 +336,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Factors</span> Affecting Enzyme Activity</h2>
-          <ul><li>Temperature: Optimal range, denaturation at high temps.</li><li>pH: Optimal pH, activity drops outside range.</li><li>Substrate Concentration: Increases activity up to saturation point.</li></ul>
-          <p class="notes">🎙️ Several environmental factors can significantly influence how well an enzyme functions. Temperature and pH are critical, as enzymes have an optimal range where they are most active. Beyond these ranges, they can lose their shape and activity, a process called denaturation. Substrate concentration also affects activity, up to a point where all active sites are saturated.</p>
+          <h2><span class="hl">Enzymes</span>: Biological Catalysts</h2>
+          <ul><li>Mostly proteins, function as biocatalysts.</li><li>Increase the rate of biochemical reactions without being consumed.</li><li>Highly specific for their substrates (Lock and Key model).</li><li>Activity is affected by temperature and pH.</li></ul>
+          <p class="notes">🎙️ Enzymes are vital for virtually all biological processes. They act as molecular machines, dramatically increasing reaction rates. Their specificity is key, meaning each enzyme typically acts on only one or a few specific molecules, much like a lock and key.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Temperature</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">pH</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Substrate Conc.</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Speeding Up Reactions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Quick <span class="hl">Recap</span> &amp; Practice Question</h2>
-          <ul><li>Biomolecules are essential organic components of life.</li><li>Categorized into micromolecules and macromolecules.</li><li>Carbohydrates, Proteins, Lipids, Nucleic Acids are key types.</li><li>Enzymes are vital biological catalysts.</li></ul>
-          <p class="notes">🎙️ We've covered a vast and crucial topic today. Remember the key definitions, examples, and functions of each biomolecule. Now, let's test your understanding with a quick question: Which of the following is a secondary metabolite: Glucose, Cellulose, Morphine, or Glycogen? Think about their roles.</p>
+          <h2><span class="hl">Recap</span>: Key Biomolecules and Their Roles</h2>
+          <ul><li>Proteins: Structure, enzymes, transport (made of amino acids).</li><li>Carbohydrates: Energy, structure (made of monosaccharides).</li><li>Lipids: Energy storage, membranes, hormones (fatty acids, glycerol).</li><li>Nucleic Acids: Genetic information (DNA, RNA, made of nucleotides).</li></ul>
+          <p class="notes">🎙️ In summary, we've covered the four major classes of biomolecules: proteins, carbohydrates, lipids, and nucleic acids. Remember their basic building blocks, key examples, and primary functions. Mastering these concepts is crucial for your understanding of biology and for exam success. Keep reviewing!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Biology</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Nuclei: The Heart of Matter — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Nuclei: Unveiling the Heart of the Atom — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 25</span>
-          <h2>Welcome to the World of <span class="hl">Nuclei!</span></h2>
-          <ul><li>Explore the fundamental building blocks of matter.</li><li>Uncover the forces that bind them together.</li><li>Understand nuclear reactions and their applications.</li></ul>
-          <p class="notes">🎙️ Good morning, everyone! Today, we embark on an exciting journey into the heart of the atom – the nucleus. This chapter is crucial for your CBSE exams and lays the foundation for advanced physics concepts.</p>
+          <span class="num">1 / 27</span>
+          <h2>Welcome to <span class="hl">Nuclei</span>: The Atomic Core</h2>
+          <ul><li>Exploring the fundamental building blocks of matter.</li><li>Understanding the structure and properties of the atomic nucleus.</li><li>Key concepts for Class 12 CBSE Physics exams.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we embark on a fascinating journey into the very heart of the atom: the nucleus. This chapter is crucial for your CBSE exams, so pay close attention to the concepts and worked examples.</p>
         </div>
         
       </div>
@@ -58,34 +71,46 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>The Heart of the Atom: <span class="hl">Nucleus</span></h2>
-          <ul><li>Central, dense part of an atom.</li><li>Discovered by Rutherford's alpha scattering experiment.</li><li>Composed of protons and neutrons (collectively called nucleons).</li></ul>
-          <p class="notes">🎙️ Remember, the nucleus is tiny compared to the atom, yet it contains almost all of the atom's mass. Rutherford's gold foil experiment was a pivotal moment in its discovery, revealing its concentrated positive charge.</p>
+          <span class="num">2 / 27</span>
+          <h2><span class="hl">Atomic Mass Unit</span> (amu)</h2>
+          <ul><li>Standard unit for expressing atomic and nuclear masses.</li><li>Defined as 1/12th the mass of a carbon-12 atom.</li><li>1 amu ≈ 1.6605 x 10⁻²⁷ kg.</li><li>Often denoted by 'u'.</li></ul>
+          <p class="notes">🎙️ Since nuclear masses are incredibly small, using kilograms directly is cumbersome. The atomic mass unit, or amu, provides a convenient scale. Remember its definition and conversion to kg.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Atom with a nucleus</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Precise Mass Measurement</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Nuclear <span class="hl">Composition</span>: Protons, Neutrons, Nucleons</h2>
-          <ul><li>Atomic Number (Z): Number of protons, defines the element.</li><li>Mass Number (A): Total number of protons and neutrons (nucleons).</li><li>Neutron Number (N): N = A - Z.</li></ul>
-          <p class="notes">🎙️ Protons carry a positive charge, neutrons are neutral. The atomic number Z determines the chemical identity of an element, while the mass number A tells us about its total nucleon count. These numbers are fundamental for describing any nucleus.</p>
+          <span class="num">3 / 27</span>
+          <h2><span class="hl">Composition</span> of the Nucleus</h2>
+          <ul><li>The nucleus is composed of protons and neutrons.</li><li>Protons carry a positive charge (+e), neutrons are neutral.</li><li>Both protons and neutrons are collectively called nucleons.</li><li>Strong nuclear force binds nucleons together.</li></ul>
+          <p class="notes">🎙️ Imagine the nucleus as a tiny, dense ball of protons and neutrons. These particles, called nucleons, are held together by the strongest force in nature: the strong nuclear force, overcoming electrostatic repulsion between protons.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Key Nuclear Numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span></div><div class="vcap">Nucleons in the Core</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Nuclear <span class="hl">Cousins</span>: Isotopes, Isobars, Isotones</h2>
-          <ul><li>Isotopes: Same Z, different A (e.g., ¹H, ²H, ³H).</li><li>Isobars: Same A, different Z (e.g., ¹⁴C, ¹⁴N).</li><li>Isotones: Same N, different Z (e.g., ³H, ⁴He).</li></ul>
-          <p class="notes">🎙️ These terms are often confused in exams, so pay close attention to the definitions. Isotopes are atoms of the same element, while isobars and isotones are different elements with specific nuclear similarities.</p>
+          <span class="num">4 / 27</span>
+          <h2><span class="hl">Atomic Number</span> (Z) and Mass Number (A)</h2>
+          <ul><li>Atomic Number (Z): Number of protons in the nucleus.</li><li>Determines the element's identity and chemical properties.</li><li>Mass Number (A): Total number of protons and neutrons (nucleons).</li><li>Number of neutrons = A - Z.</li></ul>
+          <p class="notes">🎙️ Z is like the element's ID card – it tells you what element it is. A tells you the total count of particles in the nucleus. These two numbers are fundamental to describing any nucleus.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Nuclear Identity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 27</span>
+          <h2><span class="hl">Isotopes</span>, Isobars, and Isotones</h2>
+          <ul><li>Isotopes: Same Z, different A (same element, different neutrons). E.g., ¹H, ²H, ³H.</li><li>Isobars: Same A, different Z (different elements, same mass number). E.g., ⁴⁰S, ⁴⁰Cl, ⁴⁰Ar.</li><li>Isotones: Same number of neutrons (A-Z), different Z and A. E.g., ¹⁴C and ¹⁶O (both have 8 neutrons).</li></ul>
+          <p class="notes">🎙️ These terms are crucial for classifying different types of nuclei. Understand the defining characteristic for each: Isotopes have the same Z, Isobars have the same A, and Isotones have the same number of neutrons.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Isotopes_diagram.svg?width=500" data-fb="⚛️" alt="Isotopes have same atomic number but different mass numbers (different neutrons). Isobars "/><div class="vcap">Isotopes have same atomic number but different mass numbers (different neutrons). Isobars </div></div></div>
       </div>
@@ -94,46 +119,46 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>How Big is a Nucleus? Nuclear <span class="hl">Size</span></h2>
-          <ul><li>Nuclear radius (R) is proportional to A¹/³.</li><li>Formula: R = R₀A¹/³, where R₀ is a constant (~1.2 fm).</li><li>Nuclear volume is proportional to the mass number A.</li></ul>
-          <p class="notes">🎙️ The fermi (fm) is a very small unit, 10⁻¹⁵ meters, highlighting how incredibly tiny nuclei are. This relationship R = R₀A¹/³ tells us that as the number of nucleons increases, the nucleus grows in volume.</p>
+          <span class="num">6 / 27</span>
+          <h2><span class="hl">Size</span> of the Nucleus</h2>
+          <ul><li>Nuclei are extremely small, typically 10⁻¹⁵ m (femtometers or fermis).</li><li>Experimentally determined using scattering experiments (e.g., Rutherford's alpha scattering).</li><li>Nuclear radius (R) is approximately proportional to A¹ᐟ³.</li><li>R = R₀ A¹ᐟ³, where R₀ ≈ 1.2 x 10⁻¹⁵ m (empirical constant).</li></ul>
+          <p class="notes">🎙️ The nucleus is incredibly tiny, much smaller than the atom itself. Remember the empirical formula for nuclear radius and the constant R₀. This relationship shows that as mass number increases, the nucleus gets larger, but not linearly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Nuclear Radius</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring the Tiny Nucleus</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Incredibly <span class="hl">Dense</span>: Nuclear Density</h2>
-          <ul><li>Nuclear density is extremely high (approx. 2.3 × 10¹⁷ kg/m³).</li><li>It is almost constant for all nuclei, independent of A.</li><li>This implies nucleons are packed tightly, like incompressible fluid.</li></ul>
-          <p class="notes">🎙️ Imagine if a teaspoon of nuclear matter weighed millions of tons! This incredible density is a key characteristic, indicating that the strong nuclear force effectively packs nucleons together regardless of the nucleus's size.</p>
+          <span class="num">7 / 27</span>
+          <h2>Nuclear <span class="hl">Density</span></h2>
+          <ul><li>Calculated by dividing nuclear mass by nuclear volume.</li><li>Nuclear mass ≈ A × mₚ (where mₚ is proton mass).</li><li>Nuclear volume ≈ (4/3)πR³ = (4/3)π(R₀A¹ᐟ³ )³ = (4/3)πR₀³A.</li><li>Nuclear density is approximately constant for all nuclei (≈ 2.3 x 10¹⁷ kg/m³).</li></ul>
+          <p class="notes">🎙️ One of the most astonishing facts about nuclei is their incredibly high and nearly constant density. This implies that nuclear matter is incompressible and packed extremely tightly, regardless of the element.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Nuclear Density</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Dense Nuclear Matter</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Mass and Energy: Two Sides of a Coin (<span class="hl">E=mc²</span>)</h2>
-          <ul><li>Einstein's famous mass-energy equivalence principle.</li><li>Mass can be converted into energy, and vice-versa.</li><li>E = mc², where c is the speed of light (3 × 10⁸ m/s).</li></ul>
-          <p class="notes">🎙️ This equation is revolutionary in nuclear physics. It explains why nuclear reactions release enormous amounts of energy – a small amount of mass is converted directly into energy, as we'll see next.</p>
+          <span class="num">8 / 27</span>
+          <h2>Mass-Energy Equivalence: <span class="hl">E=mc²</span></h2>
+          <ul><li>Einstein's famous equation relating mass and energy.</li><li>Mass can be converted into energy and vice-versa.</li><li>A small amount of mass corresponds to a huge amount of energy due to c² (speed of light squared).</li><li>Fundamental to understanding nuclear reactions and binding energy.</li></ul>
+          <p class="notes">🎙️ This equation is the cornerstone of nuclear physics. It tells us that mass is just another form of energy. When we talk about nuclear reactions, we are essentially talking about the conversion of a tiny bit of mass into a tremendous amount of energy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Einstein's Revelation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Mass into Energy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Where Did the Mass Go? <span class="hl">Mass Defect</span></h2>
-          <ul><li>The difference between the total mass of constituent nucleons and the actual mass of the nucleus.</li><li>Δm = [Zmp + (A-Z)mn] - M(A,Z).</li><li>This 'missing' mass is converted into binding energy.</li></ul>
-          <p class="notes">🎙️ When protons and neutrons combine to form a nucleus, some mass 'disappears'. This mass defect is not truly lost but transformed into the energy that holds the nucleus together. It's a direct application of E=mc².</p>
+          <span class="num">9 / 27</span>
+          <h2><span class="hl">Mass Defect</span> (Δm)</h2>
+          <ul><li>The difference between the sum of masses of individual nucleons and the actual mass of the nucleus.</li><li>Δm = [ Zmₚ + (A-Z)mₙ ] - M(A,Z) where M(A,Z) is actual nuclear mass.</li><li>This 'missing' mass is converted into energy to bind the nucleons together.</li><li>Always a positive value for stable nuclei.</li></ul>
+          <p class="notes">🎙️ If you weigh the individual protons and neutrons separately and then weigh the nucleus they form, you'll find the nucleus is slightly lighter. This difference, the mass defect, is critical for understanding nuclear stability.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Mass Loss</div></div></div>
       </div>
@@ -142,118 +167,82 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Holding it Together: Nuclear <span class="hl">Binding Energy</span></h2>
-          <ul><li>The energy required to separate all nucleons in a nucleus to infinity.</li><li>Calculated as E_b = Δm c².</li><li>A measure of the stability of a nucleus.</li></ul>
-          <p class="notes">🎙️ The greater the binding energy, the more stable the nucleus. This energy is released when a nucleus is formed, and conversely, it must be supplied to break the nucleus apart into its constituent protons and neutrons.</p>
+          <span class="num">10 / 27</span>
+          <h2><span class="hl">Binding Energy</span> (Eᵇ)</h2>
+          <ul><li>The energy required to break a nucleus into its constituent protons and neutrons.</li><li>It is the energy equivalent of the mass defect: Eᵇ = Δm c².</li><li>Also, the energy released when nucleons combine to form a nucleus.</li><li>Higher binding energy indicates a more stable nucleus.</li></ul>
+          <p class="notes">🎙️ The binding energy is essentially the 'glue' that holds the nucleus together. It's directly calculated from the mass defect using E=mc². A larger binding energy means the nucleus is more tightly bound and therefore more stable.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Nuclear Bonds</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Nuclear Strength</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Stability</span> Indicator: Binding Energy Per Nucleon</h2>
-          <ul><li>Binding energy per nucleon = E_b / A.</li><li>Higher value indicates greater stability.</li><li>Peaks around A=56 (Iron), explaining why iron is very stable.</li></ul>
-          <p class="notes">🎙️ The binding energy curve is a critical concept. It shows that medium-sized nuclei are the most stable. This curve also explains why both fission of heavy nuclei and fusion of light nuclei release energy.</p>
+          <span class="num">11 / 27</span>
+          <h2>Binding Energy <span class="hl">Per Nucleon</span></h2>
+          <ul><li>Binding Energy Per Nucleon (Eᵇ/A) = Eᵇ / A.</li><li>A measure of the stability of a nucleus.</li><li>Higher Eᵇ/A means greater stability.</li><li>The curve of Eᵇ/A vs. A peaks around A=56 (Iron), indicating maximum stability.</li></ul>
+          <p class="notes">🎙️ While total binding energy increases with A, the binding energy *per nucleon* gives us a better idea of individual nucleon stability. The peak at iron explains why iron is so stable and why both fission and fusion release energy.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Light Nuclei</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Medium Nuclei</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Heavy Nuclei</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Light nuclei (low Eᵇ/A)</span></div><div class="step"><span class="snum">2</span><span>Peak around Fe (max Eᵇ/A)</span></div><div class="step"><span class="snum">3</span><span>Heavy nuclei (decreasing Eᵇ/A)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 27</span>
+          <h2><span class="hl">Worked Example</span> 1: Mass Defect &amp; Binding Energy</h2>
+          <ul><li>Calculate the mass defect and binding energy for a Helium-4 nucleus (⁴₂He).</li><li>Given: m(⁴₂He) = 4.002603 u, mₚ = 1.007825 u, mₙ = 1.008665 u.</li><li>1 u = 931.5 MeV/c².</li></ul>
+          <p class="notes">🎙️ Let's work through a typical problem. First, identify the number of protons and neutrons. Then, calculate the total mass of the individual nucleons and compare it to the actual nuclear mass to find the mass defect.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 27</span>
+          <h2><span class="hl">Solution</span> to Example 1</h2>
+          <ul><li>For ⁴₂He: Z=2, N=2. Sum of individual masses = 2(1.007825 u) + 2(1.008665 u) = 4.032980 u.</li><li>Mass Defect (Δm) = 4.032980 u - 4.002603 u = 0.030377 u.</li><li>Binding Energy (Eᵇ) = Δm × 931.5 MeV/u = 0.030377 u × 931.5 MeV/u = 28.29 MeV.</li><li>Binding Energy per Nucleon = 28.29 MeV / 4 = 7.07 MeV/nucleon.</li></ul>
+          <p class="notes">🎙️ Make sure to use the correct masses for protons and neutrons. The conversion factor from amu to MeV is crucial here. A common mistake is forgetting to convert mass defect into energy using the correct factor.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Problem</span> Solving: Mass Defect &amp; Binding Energy</h2>
-          <ul><li>Calculate mass defect for Helium-4 (⁴₂He).</li><li>Given: mp=1.00727u, mn=1.00866u, M(⁴₂He)=4.00150u.</li><li>1u = 931.5 MeV/c².</li></ul>
-          <p class="notes">🎙️ Let's walk through this example step-by-step. First, sum the masses of 2 protons and 2 neutrons. Then, subtract the actual mass of the helium nucleus. Finally, convert this mass defect into energy using the conversion factor for atomic mass units.</p>
+          <span class="num">14 / 27</span>
+          <h2>Common Mistake: <span class="hl">Units</span> in E=mc²</h2>
+          <ul><li>Using mass in kg and c in m/s gives energy in Joules (J).</li><li>For nuclear physics, mass is often in amu (u) and energy in Mega-electron Volts (MeV).</li><li>Remember the conversion: 1 u = 931.5 MeV/c².</li><li>Do not mix units! Be consistent or convert appropriately.</li></ul>
+          <p class="notes">🎙️ This is a very frequent source of errors in exams. If your mass defect is in 'u', directly multiply by 931.5 MeV/u to get energy in MeV. If you convert 'u' to 'kg', then use E=mc² with c in m/s to get energy in Joules.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Calculate mass of constituents</span></div><div class="step"><span class="snum">2</span><span>2. Find Mass Defect (Δm)</span></div><div class="step"><span class="snum">3</span><span>3. Convert Δm to Binding Energy (E_b)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Unit Conversion Alert</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>The <span class="hl">Strongest Force</span>: Nuclear Force</h2>
-          <ul><li>Also known as the strong nuclear force.</li><li>Attracts nucleons together within the nucleus.</li><li>Overcomes the electrostatic repulsion between protons.</li></ul>
-          <p class="notes">🎙️ This is the most powerful fundamental force in nature! Without it, the positively charged protons would repel each other, and nuclei wouldn't exist. It's what holds everything in the nucleus together.</p>
+          <span class="num">15 / 27</span>
+          <h2><span class="hl">Radioactivity</span>: Spontaneous Nuclear Decay</h2>
+          <ul><li>The spontaneous emission of radiation (alpha, beta, gamma) from unstable nuclei.</li><li>Discovered by Henri Becquerel in 1896.</li><li>Occurs when nuclei are too large or have an unfavorable neutron-to-proton ratio.</li><li>Results in the transformation of one element into another (transmutation).</li></ul>
+          <p class="notes">🎙️ Radioactivity is nature's way for unstable nuclei to achieve stability. It's a spontaneous process, meaning we cannot predict when a particular nucleus will decay, but we can predict the rate of decay for a large sample.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strong Nuclear Force</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☢️</div><div class="vcap">Unstable Nuclei Decay</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Unveiling Nuclear Force <span class="hl">Properties</span></h2>
-          <ul><li>Short-range: Acts only over very small distances (~femtometers).</li><li>Charge-independent: Acts equally between p-p, n-n, p-n.</li><li>Saturation: Each nucleon interacts only with its nearest neighbors.</li><li>Non-central &amp; Spin-dependent.</li></ul>
-          <p class="notes">🎙️ Understanding these properties is crucial. The short-range nature explains why nuclei have a constant density. Saturation means adding more nucleons doesn't infinitely increase the binding energy per nucleon.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧲</span><span>🧲</span><span>🧲</span><span>🧲</span></div><div class="vcap">Key Force Traits</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Unstable Nuclei: <span class="hl">Radioactivity</span></h2>
-          <ul><li>Spontaneous disintegration of unstable atomic nuclei.</li><li>Discovered by Henri Becquerel.</li><li>Emits alpha (α), beta (β), or gamma (γ) radiations.</li></ul>
-          <p class="notes">🎙️ Not all nuclei are stable. Some are inherently unstable and transform into more stable configurations by emitting particles or energy. This process is called radioactivity, and it's a natural phenomenon.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☢️</div><div class="vcap">Radioactive Decay</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2><span class="hl">Alpha Decay</span>: Emission of Helium Nucleus</h2>
-          <ul><li>An unstable nucleus emits an alpha particle (⁴₂He nucleus).</li><li>Parent nucleus (X) transforms into a daughter nucleus (Y).</li><li>Atomic number (Z) decreases by 2, Mass number (A) decreases by 4.</li></ul>
-          <p class="notes">🎙️ Alpha decay primarily occurs in heavy nuclei to reduce their size and become more stable. The daughter nucleus is a completely different element with a lower atomic and mass number.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Alpha Particle Ejection</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Beta Decay</span>: Electron/Positron Emission</h2>
-          <ul><li>Beta-minus (β⁻) decay: Neutron converts to proton, emits electron (e⁻) and antineutrino (ν̄). Z increases by 1.</li><li>Beta-plus (β⁺) decay: Proton converts to neutron, emits positron (e⁺) and neutrino (ν). Z decreases by 1.</li><li>Mass number (A) remains unchanged in both types.</li></ul>
-          <p class="notes">🎙️ Beta decay involves the weak nuclear force. It helps nuclei achieve a more stable neutron-to-proton ratio. Note the emission of neutrinos or antineutrinos, which carry away energy and momentum.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Particle Transformation</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Gamma Decay</span>: Energy Release</h2>
-          <ul><li>Occurs when an excited nucleus drops to a lower energy state.</li><li>Emits high-energy photons (gamma rays).</li><li>No change in atomic number (Z) or mass number (A).</li></ul>
-          <p class="notes">🎙️ Gamma decay often follows alpha or beta decay, as the daughter nucleus might be left in an excited state. It's essentially the nucleus 'cooling down' by releasing excess energy, similar to how an excited electron emits light.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Energy Burst</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>The Law of Radioactive <span class="hl">Decay</span> (N = N₀e⁻λt)</h2>
-          <ul><li>The number of undecayed nuclei decreases exponentially with time.</li><li>N = N₀e⁻λt, where N₀ is initial nuclei, N is nuclei at time t, λ is decay constant.</li><li>Activity (R) = -dN/dt = λN.</li></ul>
-          <p class="notes">🎙️ This fundamental law describes the probabilistic nature of radioactive decay. The decay constant (lambda) is specific to each isotope and tells us how quickly it decays. Remember, we cannot predict when a single nucleus will decay, but we can predict the behavior of a large sample.</p>
+          <span class="num">16 / 27</span>
+          <h2>Laws of Radioactive <span class="hl">Decay</span></h2>
+          <ul><li>The rate of decay is proportional to the number of undecayed nuclei present.</li><li>dN/dt = -λN, where N is number of nuclei, λ is decay constant.</li><li>Integrated form: N(t) = N₀e^(-λt).</li><li>N₀ is initial number of nuclei, N(t) is number remaining at time t.</li></ul>
+          <p class="notes">🎙️ This exponential decay law is fundamental. It means that the more radioactive nuclei you have, the faster they decay. The decay constant (lambda) is characteristic of a particular radioactive isotope.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Radioactive_decay.svg?width=500" data-fb="⏳" alt="Radioactive decay follows exponential decay law; alpha/beta/gamma radiation emitted from u"/><div class="vcap">Radioactive decay follows exponential decay law; alpha/beta/gamma radiation emitted from u</div></div></div>
       </div>
@@ -262,58 +251,46 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Time for Decay: <span class="hl">Half-Life</span> &amp; Mean Life</h2>
-          <ul><li>Half-life (T½): Time taken for half of the radioactive nuclei to decay.</li><li>T½ = ln(2)/λ = 0.693/λ.</li><li>Mean life (τ): Average lifetime of a radioactive nucleus, τ = 1/λ.</li></ul>
-          <p class="notes">🎙️ Half-life is a very important concept for practical applications like carbon dating and nuclear waste management. It's the time after which the activity also reduces to half its initial value. Mean life is another way to characterize the decay rate.</p>
+          <span class="num">17 / 27</span>
+          <h2><span class="hl">Half-Life</span> (T½)</h2>
+          <ul><li>The time required for half of the radioactive nuclei in a sample to decay.</li><li>T½ = ln(2) / λ = 0.693 / λ.</li><li>After 'n' half-lives, the remaining fraction is (1/2)ⁿ.</li><li>A constant value for a given radionuclide.</li></ul>
+          <p class="notes">🎙️ Half-life is a very intuitive concept. It's the time it takes for the activity of a sample to drop by half. It's independent of the initial amount and external conditions, making it a reliable characteristic.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Decay Timelines</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕰️</div><div class="vcap">Time for Half to Decay</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Problem</span> Solving: Half-Life Calculation</h2>
-          <ul><li>A radioactive sample has a half-life of 10 days.</li><li>What fraction of the sample will remain after 30 days?</li><li>How much time is required for 75% of the sample to decay?</li></ul>
-          <p class="notes">🎙️ For the first part, simply count how many half-lives pass in 30 days. For the second part, if 75% decays, 25% remains. Think about how many half-lives it takes for a sample to reduce to 25%.</p>
+          <span class="num">18 / 27</span>
+          <h2><span class="hl">Mean Life</span> (τ)</h2>
+          <ul><li>The average lifetime of a radioactive nucleus.</li><li>τ = 1 / λ.</li><li>Related to half-life by τ = T½ / ln(2) = T½ / 0.693 ≈ 1.44 T½.</li><li>Represents the average duration for which an atom exists before decaying.</li></ul>
+          <p class="notes">🎙️ While half-life is about half the sample, mean life is the average lifespan of an individual nucleus. Both are inversely proportional to the decay constant, highlighting their relationship to the decay rate.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Determine number of half-lives</span></div><div class="step"><span class="snum">2</span><span>2. Calculate remaining fraction</span></div><div class="step"><span class="snum">3</span><span>3. Calculate time for 75% decay (2 half-lives)</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Splitting the Atom: Nuclear <span class="hl">Fission</span></h2>
-          <ul><li>Process where a heavy nucleus splits into two or more lighter nuclei.</li><li>Triggered by neutron bombardment (e.g., Uranium-235).</li><li>Releases a huge amount of energy and more neutrons, leading to a chain reaction.</li></ul>
-          <p class="notes">🎙️ Nuclear fission is the principle behind nuclear power plants and atomic bombs. The key is the release of additional neutrons, which can then go on to split other nuclei, creating a self-sustaining chain reaction.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Nuclear Splitting</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Merging Nuclei: Nuclear <span class="hl">Fusion</span></h2>
-          <ul><li>Process where two or more light nuclei combine to form a heavier nucleus.</li><li>Releases even more energy per nucleon than fission.</li><li>Requires extremely high temperatures and pressures (thermonuclear reactions).</li></ul>
-          <p class="notes">🎙️ Nuclear fusion is the power source of the Sun and other stars. It's considered a cleaner and more abundant energy source than fission, but achieving controlled fusion on Earth is a significant scientific challenge due to the extreme conditions required.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Fusion_de_2_noyaux_de_deuterium.svg?width=500" data-fb="☀️" alt="Nuclear fusion merges light nuclei (deuterium, tritium) into heavier nuclei, releasing eno"/><div class="vcap">Nuclear fusion merges light nuclei (deuterium, tritium) into heavier nuclei, releasing eno</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Average Lifetime</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check!</span> Test Your Understanding</h2>
-          <ul><li>1. What is the relation between nuclear radius and mass number?</li><li>2. Define mass defect and binding energy.</li><li>3. Which fundamental force is responsible for beta decay?</li><li>4. Differentiate between nuclear fission and fusion.</li></ul>
-          <p class="notes">🎙️ Take a moment to quickly answer these questions. They cover some of the most important concepts we've discussed today. If you can answer these confidently, you're on the right track!</p>
+          <span class="num">19 / 27</span>
+          <h2><span class="hl">Worked Example</span> 2: Half-Life Calculation</h2>
+          <ul><li>A radioactive substance has a half-life of 10 days.</li><li>What fraction of the original sample will remain after 30 days?</li><li>How many half-lives have passed?</li></ul>
+          <p class="notes">🎙️ Let's apply the half-life concept to a problem. This type of question frequently appears in exams and tests your understanding of exponential decay.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 27</span>
+          <h2><span class="hl">Solution</span> to Example 2</h2>
+          <ul><li>Number of half-lives (n) = Total time / Half-life = 30 days / 10 days = 3.</li><li>Fraction remaining = (1/2)ⁿ = (1/2)³ = 1/8.</li><li>So, 1/8th of the original sample will remain after 30 days.</li><li>Alternatively, N = N₀e^(-λt). First find λ = 0.693/10 = 0.0693 day⁻¹.</li></ul>
+          <p class="notes">🎙️ This problem is straightforward if you understand the concept of 'n' half-lives. You can also solve it using the exponential decay formula, but the half-life method is often quicker for these types of questions.</p>
         </div>
         
       </div>
@@ -322,28 +299,89 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Nuclei in Action: <span class="hl">Applications</span></h2>
-          <ul><li>Nuclear Power: Electricity generation (fission reactors).</li><li>Medicine: Diagnostics (PET scans, tracers) and therapy (radiotherapy).</li><li>Archaeology: Carbon dating for age determination.</li><li>Industry: Sterilization, quality control, smoke detectors.</li></ul>
-          <p class="notes">🎙️ Nuclear physics isn't just theoretical; it has profound real-world impacts. From powering our homes to saving lives in medicine and helping us understand history, the applications are vast and continue to expand.</p>
+          <span class="num">21 / 27</span>
+          <h2>Alpha (α) Decay</h2>
+          <ul><li>Emission of an alpha particle (⁴₂He nucleus) from a heavy unstable nucleus.</li><li>Parent nucleus (A,Z) transforms into daughter nucleus (A-4, Z-2).</li><li>Mass number A decreases by 4, Atomic number Z decreases by 2.</li><li>Example: ²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂He.</li></ul>
+          <p class="notes">🎙️ Alpha decay reduces both the mass number and atomic number of the parent nucleus. It's a common decay mode for very heavy nuclei to reduce their size and achieve greater stability.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔬</span><span>🔬</span><span>🔬</span><span>🔬</span></div><div class="vcap">Diverse Uses</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Heavy Parent Nucleus (A, Z)</span></div><div class="step"><span class="snum">2</span><span>Emits Alpha Particle (⁴₂He)</span></div><div class="step"><span class="snum">3</span><span>Daughter Nucleus (A-4, Z-2)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 27</span>
+          <h2>Beta (β) Decay (β⁻ and β⁺)</h2>
+          <ul><li>Beta-minus (β⁻) decay: Neutron converts to proton, electron (e⁻) and antineutrino (ν̄) emitted.</li><li>Parent (A,Z) → Daughter (A, Z+1). A is same, Z increases by 1. Example: ¹⁴₆C → ¹⁴₇N + e⁻ + ν̄.</li><li>Beta-plus (β⁺) decay: Proton converts to neutron, positron (e⁺) and neutrino (ν) emitted.</li><li>Parent (A,Z) → Daughter (A, Z-1). A is same, Z decreases by 1. Example: ²²₁₁Na → ²²₁₀Ne + e⁺ + ν.</li></ul>
+          <p class="notes">🎙️ Beta decay involves the transformation of a nucleon within the nucleus. The mass number remains constant, but the atomic number changes, leading to a different element. Remember the emission of neutrinos/antineutrinos for conservation laws.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Neutron (n) transforms</span></div><div class="step"><span class="snum">2</span><span>Proton (p) + Electron (e⁻) + Antineutrino (ν̄)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 27</span>
+          <h2>Gamma (γ) Decay</h2>
+          <ul><li>Emission of high-energy photons (gamma rays) from an excited nucleus.</li><li>Occurs when a nucleus, after alpha or beta decay, is left in an excited state.</li><li>No change in mass number (A) or atomic number (Z).</li><li>The nucleus simply transitions to a lower energy state.</li><li>Example: ⁶⁰₂₇Co* → ⁶⁰₂₇Co + γ (where * denotes excited state).</li></ul>
+          <p class="notes">🎙️ Gamma decay is different from alpha and beta decay as it doesn't change the identity of the nucleus. It's purely an energy transition, like an electron dropping to a lower orbital, but for the nucleus.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Energy Release</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span> &amp; What's Next?</h2>
-          <ul><li>We covered nuclear composition, size, and density.</li><li>Understood mass-energy equivalence, mass defect, and binding energy.</li><li>Explored radioactivity, decay laws, fission, and fusion.</li><li>Remember to practice numerical problems and conceptual questions!</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our chapter on Nuclei. It's a dense but fascinating topic. Make sure to revise the key definitions, formulas, and the properties of nuclear forces and decays. Keep practicing, and you'll master it!</p>
+          <span class="num">24 / 27</span>
+          <h2>Quick <span class="hl">Question 1</span>: Nuclear Classification</h2>
+          <ul><li>Which of the following pairs are isotopes?</li><li>a) ²³⁵U and ²³⁸U</li><li>b) ¹⁴C and ¹⁴N</li><li>c) ¹⁶O and ¹⁷O</li><li>d) Both a and c</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the definitions of isotopes, isobars, and isotones. Remember what defines an isotope and apply it to the given options.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 27</span>
+          <h2>Quick <span class="hl">Question 2</span>: Radioactive Decay</h2>
+          <ul><li>After 4 half-lives, what percentage of a radioactive sample remains?</li><li>a) 25%</li><li>b) 12.5%</li><li>c) 6.25%</li><li>d) 3.125%</li></ul>
+          <p class="notes">🎙️ This is a direct application of the half-life concept. Calculate the remaining fraction and then convert it to a percentage.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">26 / 27</span>
+          <h2><span class="hl">Applications</span> of Radioactivity</h2>
+          <ul><li>Medical: Cancer therapy (radiotherapy), diagnostic imaging (PET scans), sterilization of equipment.</li><li>Industrial: Thickness gauges, smoke detectors, carbon dating, tracing leaks in pipes.</li><li>Power Generation: Nuclear reactors for electricity.</li><li>Research: Tracers in biological and chemical studies.</li></ul>
+          <p class="notes">🎙️ Radioactivity, while often associated with danger, has numerous beneficial applications across various fields, from saving lives in medicine to generating electricity and aiding scientific research.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Real-World Uses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">27 / 27</span>
+          <h2><span class="hl">Recap</span>: Key Concepts of Nuclei</h2>
+          <ul><li>Atomic Mass Unit and Nuclear Composition (protons, neutrons).</li><li>Z, A, Isotopes, Isobars, Isotones.</li><li>Nuclear Size, Density, and Stability (Binding Energy, Eᵇ/A curve).</li><li>Radioactive Decay Law, Half-life, Mean Life.</li><li>Alpha, Beta, and Gamma Decays with their effects on Z and A.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the definitions, formulas, and the significance of each concept. Practice numerical problems, especially on mass defect, binding energy, and half-life, to master this chapter for your exams. Good luck!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

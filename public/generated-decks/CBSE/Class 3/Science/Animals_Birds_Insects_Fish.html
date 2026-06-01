@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Animals - Birds, Insects, Fish — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to Our <span class="hl">Animal</span> World!</h2>
-          <ul><li>We will learn about birds, insects, and fish today.</li></ul>
-          <p class="notes">🎙️ Namaste, little explorers! Today, we are going on an exciting journey to meet some amazing friends from the animal kingdom. Get ready to discover birds, insects, and fish!</p>
+          <h2>Welcome to the <span class="hl">Animal Kingdom</span>!</h2>
+          <ul><li>Let's explore the amazing world of animals.</li><li>We see them all around us, every day!</li></ul>
+          <p class="notes">🎙️ Good morning, children! Today, we are going on an exciting adventure to meet some wonderful friends from the animal kingdom. Get ready to learn about birds, insects, and fish!</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What are <span class="hl">Animals</span>?</h2>
-          <ul><li>Animals are living things.</li><li>They move, eat, and grow.</li></ul>
-          <p class="notes">🎙️ Just like us, animals are living beings. They need food to eat, they can move from one place to another, and they grow bigger over time.</p>
+          <h2>Animals are <span class="hl">Living Beings</span></h2>
+          <ul><li>Animals are like us, they breathe, eat, and grow.</li><li>They move from one place to another.</li></ul>
+          <p class="notes">🎙️ Just like plants and humans, animals are living things. They need food and water to live, and they can move around to find these things or to play.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🐾" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Many <span class="hl">Kinds</span> of Animals</h2>
-          <ul><li>Some animals are big.</li><li>Some animals are small.</li><li>They live in different places.</li></ul>
-          <p class="notes">🎙️ Look around you! You see so many different animals. Some are huge like elephants, and some are tiny like ants. They also live in different homes, like forests, water, or even our homes.</p>
+          <h2><span class="hl">Grouping</span> Our Animal Friends</h2>
+          <ul><li>We can group animals to understand them better.</li><li>Today, we will learn about Birds, Insects, and Fish.</li></ul>
+          <p class="notes">🎙️ Imagine you have many toys. You might put all your cars together, and all your dolls together. We do the same with animals to study them easily.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐘</span><span>🐘</span><span>🐘</span></div><div class="vcap">Big Animals</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Categories</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Let's Meet Our Feathered Friends: <span class="hl">Birds</span>!</h2>
-          <ul><li>Birds are special animals.</li><li>They have feathers and wings.</li></ul>
-          <p class="notes">🎙️ Our first group of animal friends are birds! Have you seen birds flying in the sky? They are truly special creatures with beautiful feathers and wings.</p>
+          <h2>Hello, <span class="hl">Birds</span>!</h2>
+          <ul><li>Birds are beautiful animals with feathers.</li><li>We see them flying in the sky or sitting on trees.</li></ul>
+          <p class="notes">🎙️ Look up in the sky, children! What do you often see flying high? Yes, birds! They are truly special creatures.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐦</div><div class="vcap">A Bird</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐦</span><span>🐦</span><span>🐦</span></div><div class="vcap">Many Birds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Birds Have <span class="hl">Feathers</span> and Wings</h2>
-          <ul><li>Feathers keep birds warm.</li><li>Wings help them fly.</li></ul>
-          <p class="notes">🎙️ Imagine wearing a warm coat; feathers do that for birds! They cover their body and keep them cozy. And those amazing wings? They are like their personal airplanes!</p>
+          <h2>Birds Have <span class="hl">Wings and Feathers</span></h2>
+          <ul><li>Their bodies are covered with soft feathers.</li><li>They have two wings to help them fly.</li></ul>
+          <p class="notes">🎙️ Feathers keep birds warm and help them fly. Their wings are like special arms designed just for flying!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪶</div><div class="vcap">A Feather</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/House_sparrow04.jpg?width=460" data-fb="🕊️" alt="Birds have feathers and can fly."/><div class="vcap">Birds have feathers and can fly.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Birds Lay <span class="hl">Eggs</span></h2>
-          <ul><li>Baby birds hatch from eggs.</li><li>Mothers keep the eggs safe and warm.</li></ul>
-          <p class="notes">🎙️ Birds don't have live babies like us. Instead, mother birds lay eggs, and after some time, cute little baby birds break out of the shell. It's like a magical surprise!</p>
+          <h2>Birds <span class="hl">Fly</span> in the Sky</h2>
+          <ul><li>Birds flap their wings up and down to fly.</li><li>Some birds can also hop and walk.</li></ul>
+          <p class="notes">🎙️ Imagine you are trying to fly, you would need to move your arms very fast! Birds do this with their strong wings to move through the air.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">Bird's Egg</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Flap wings</span></div><div class="step"><span class="snum">2</span><span>Lift off</span></div><div class="step"><span class="snum">3</span><span>Soar high</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Most Birds Can <span class="hl">Fly</span>!</h2>
-          <ul><li>They use their wings to soar high.</li><li>It's amazing to watch them!</li></ul>
-          <p class="notes">🎙️ One of the most wonderful things about birds is that most of them can fly! They flap their wings and glide through the air, reaching high up in the sky. It's like they have their own superpowers!</p>
+          <h2>Birds Build <span class="hl">Nests</span></h2>
+          <ul><li>Birds build their homes called nests.</li><li>They lay their eggs and raise babies in nests.</li></ul>
+          <p class="notes">🎙️ Birds are very clever builders! They use twigs, leaves, and mud to make cozy homes for their families, often high up in trees.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✈️</div><div class="vcap">Flying High</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">巢</div><div class="vcap">Bird's Home</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Birds We See <span class="hl">Every Day</span></h2>
-          <ul><li>Sparrow, Crow, Pigeon.</li><li>Can you name more?</li></ul>
-          <p class="notes">🎙️ Look outside your window! You might see a little sparrow hopping around, a black crow cawing, or a pigeon flying by. These are some common birds we see in India.</p>
+          <h2>What Do Birds <span class="hl">Eat</span>?</h2>
+          <ul><li>Some birds eat grains and seeds.</li><li>Others eat small insects or fruits.</li></ul>
+          <p class="notes">🎙️ Just like us, birds need food to grow big and strong. Different birds like different foods, some enjoy tiny worms, others love juicy berries.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐦</span><span>🐦</span><span>🐦</span></div><div class="vcap">Common Birds</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🔬" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Next Up: Tiny <span class="hl">Insects</span>!</h2>
-          <ul><li>Insects are usually very small animals.</li><li>They are found almost everywhere.</li></ul>
-          <p class="notes">🎙️ Now, let's shrink down and meet some really tiny creatures – insects! You might not notice them often, but they are all around us, in our gardens, parks, and even inside our homes.</p>
+          <h2>Meet the <span class="hl">Insects</span></h2>
+          <ul><li>Insects are small animals found almost everywhere.</li><li>Look closely, you might spot some!</li></ul>
+          <p class="notes">🎙️ Now, let's talk about even smaller friends! Insects are everywhere – in our gardens, parks, and even sometimes inside our homes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐜</div><div class="vcap">An Ant</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐞</span><span>🐞</span><span>🐞</span><span>🐞</span></div><div class="vcap">Small Insects</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -156,10 +169,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">10 / 20</span>
           <h2>Insects Have <span class="hl">Six Legs</span></h2>
-          <ul><li>All insects have 6 legs.</li><li>Their body has 3 parts.</li></ul>
-          <p class="notes">🎙️ How do we know if it's an insect? One big clue is that they always have six legs! Also, their body is divided into three main parts, like a tiny little puzzle.</p>
+          <ul><li>Most insects have six legs and a body divided into three parts.</li><li>They also have antennae.</li></ul>
+          <p class="notes">🎙️ Count the legs next time you see an ant or a grasshopper! You will usually find six. The antennae help them smell and feel.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐞</div><div class="vcap">Ladybug with 6 legs</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="🐜" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Insects Have <span class="hl">Antennae</span></h2>
-          <ul><li>Antennae help them feel and smell.</li><li>They are like tiny feelers.</li></ul>
-          <p class="notes">🎙️ Insects have two special feelers on their head called antennae. They use these antennae to touch things around them and to smell food or danger. It's like having super-sensitive fingers and nose!</p>
+          <h2>How Insects <span class="hl">Move</span></h2>
+          <ul><li>Many insects can fly with wings.</li><li>Others crawl, jump, or walk on their legs.</li></ul>
+          <p class="notes">🎙️ Some insects, like butterflies, have beautiful wings and can fly. Others, like ants, are busy crawling on the ground all day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦋</div><div class="vcap">Butterfly Antennae</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Flying Insects</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Crawling Insects</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>How Insects <span class="hl">Move</span></h2>
-          <ul><li>Some insects have wings and fly.</li><li>Others crawl on the ground.</li></ul>
-          <p class="notes">🎙️ Just like birds, some insects can fly, like butterflies and bees. But many others, like ants and worms, crawl on the ground using their many legs. They all have their own unique way of moving!</p>
+          <h2><span class="hl">Examples</span> of Insects</h2>
+          <ul><li>Butterflies, ants, bees, and mosquitoes are all insects.</li><li>Can you name more?</li></ul>
+          <p class="notes">🎙️ Think of the colorful butterfly fluttering around flowers, or the tiny ant marching in a line. These are all common insects we see daily.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Fly</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Crawl</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦋</span></div><div class="vcap">Butterfly</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Insects We See <span class="hl">Around Us</span></h2>
-          <ul><li>Butterfly, Mosquito, Ant.</li><li>Bees make honey!</li></ul>
-          <p class="notes">🎙️ Have you seen a colorful butterfly in a garden? Or maybe a tiny ant marching in a line? And don't forget the busy bees that give us yummy honey! These are all insects.</p>
+          <h2>Hello, <span class="hl">Fish</span>!</h2>
+          <ul><li>Fish are animals that live in water.</li><li>We can find them in rivers, ponds, and oceans.</li></ul>
+          <p class="notes">🎙️ Now, let's dive into the water to meet our next group of animal friends – the fish! They spend their whole lives swimming.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐝</span><span>🐝</span><span>🐝</span></div><div class="vcap">Common Insects</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐟</span><span>🐟</span><span>🐟</span></div><div class="vcap">Fish in Water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Our Watery Friends: <span class="hl">Fish</span>!</h2>
-          <ul><li>Fish live in water.</li><li>They are amazing swimmers.</li></ul>
-          <p class="notes">🎙️ Now, let's dive deep into the water and meet our next animal group – fish! Fish are incredible creatures that spend their whole lives in water, swimming gracefully.</p>
+          <h2>Fish Have <span class="hl">Fins and Gills</span></h2>
+          <ul><li>Fish have fins to help them swim.</li><li>They breathe using special parts called gills.</li></ul>
+          <p class="notes">🎙️ Fins are like the hands and feet of a fish, helping them steer and move. Gills are like our lungs, but they help fish breathe under water.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🐠" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Clown_fish_in_the_Andaman_Coral_Reef.jpg?width=480" data-fb="🐠" alt="Fish live and breathe in water."/><div class="vcap">Fish live and breathe in water.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Fish <span class="hl">Breathe</span> in Water</h2>
-          <ul><li>Fish use gills to breathe.</li><li>We use our nose and lungs.</li></ul>
-          <p class="notes">🎙️ How do fish breathe underwater? They have special organs called gills, which are like super filters that take oxygen from the water. We breathe air, but fish breathe water!</p>
+          <h2>Fish <span class="hl">Swim</span> in Water</h2>
+          <ul><li>Fish move their tails and fins to swim.</li><li>They glide smoothly through the water.</li></ul>
+          <p class="notes">🎙️ Watch a fish swim, it looks so graceful! Their tails push them forward, and their fins help them balance and change direction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐟</div><div class="vcap">Fish Gills</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Move tail</span></div><div class="step"><span class="snum">2</span><span>Use fins</span></div><div class="step"><span class="snum">3</span><span>Glide forward</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,47 +240,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Fish Always Live in <span class="hl">Water</span></h2>
-          <ul><li>Rivers, lakes, ponds, oceans.</li><li>Water is their home.</li></ul>
-          <p class="notes">🎙️ You will always find fish in water – whether it's a small pond, a big river, or the vast ocean. Water is their natural home where they find food and stay safe.</p>
+          <h2><span class="hl">Water</span> is Home for Fish</h2>
+          <ul><li>Fish need water to live and breathe.</li><li>They cannot live on land.</li></ul>
+          <p class="notes">🎙️ Just like we need air to breathe, fish need water. They are perfectly designed to live and thrive in aquatic environments.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Water Home</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Fish Have <span class="hl">Fins</span> and Scales</h2>
-          <ul><li>Fins help them swim and balance.</li><li>Scales protect their body.</li></ul>
-          <p class="notes">🎙️ Fish have fins, which are like their hands and feet, helping them move and steer in the water. Their bodies are covered with tiny, shiny scales, which act like a protective armor.</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>What covers a bird's body?</li><li>(a) Scales (b) Fur (c) Feathers</li></ul>
+          <p class="notes">🎙️ Let's see how much you remember! Think about what we just learned about birds. What makes their bodies soft and warm?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐡</div><div class="vcap">Fish Fins &amp; Scales</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Fish We <span class="hl">Know</span></h2>
-          <ul><li>Goldfish, Rohu, Tuna.</li><li>Many fish are tasty!</li></ul>
-          <p class="notes">🎙️ Have you seen a goldfish in an aquarium? Or maybe eaten a tasty fish curry? Rohu and Tuna are popular types of fish that people eat. There are so many different kinds of fish in the world!</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>How many legs do most insects have?</li><li>(a) Four (b) Six (c) Eight</li></ul>
+          <p class="notes">🎙️ Now, for our tiny insect friends. Do you remember how many legs they usually have?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Gold_ingots.jpg?width=460" data-fb="🔬" alt="Gold is a popular safe investment in India."/><div class="vcap">Gold is a popular safe investment in India.</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Time for a <span class="hl">Quick Check</span>!</h2>
-          <ul><li>How many legs does an insect have?</li><li>What do birds use to fly?</li><li>Where do fish live?</li></ul>
-          <p class="notes">🎙️ Alright, little scientists, let's see how much you remember! Think about the answers to these questions. You've learned so much today!</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>What do fish use to breathe underwater?</li><li>(a) Lungs (b) Gills (c) Nose</li></ul>
+          <p class="notes">🎙️ And finally, our underwater friends! What special parts do fish use to breathe in the water?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔬" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today!</h2>
-          <ul><li>Birds have feathers, wings, lay eggs.</li><li>Insects have 6 legs, antennae.</li><li>Fish live in water, have gills, fins, scales.</li></ul>
-          <p class="notes">🎙️ Fantastic job today! We learned that birds fly with wings, insects are tiny with six legs, and fish swim in water using gills and fins. Animals are truly wonderful!</p>
+          <h2>What We <span class="hl">Learned Today</span>!</h2>
+          <ul><li>We met Birds (feathers, wings).</li><li>Insects (six legs, antennae).</li><li>Fish (fins, gills).</li><li>Animals are all around us!</li></ul>
+          <p class="notes">🎙️ Wonderful job, everyone! Today, we explored the amazing world of birds, insects, and fish. Remember, every animal is special and has its own unique features.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

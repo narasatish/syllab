@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>The Dairy Farm: Maths Fun! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>The Dairy Farm: A Math Journey — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to The <span class="hl">Dairy Farm</span>!</h2>
-          <ul><li>Let's learn Maths with our farm friends!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting trip to a dairy farm. We will meet many animals and learn about milk, but guess what? We will also learn some cool Maths!</p>
+          <h2>Welcome to Our <span class="hl">Dairy Farm</span>!</h2>
+          <ul><li>Let's learn about cows and milk!</li><li>We will use math to understand the farm.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting trip to a Dairy Farm! Have you ever wondered where milk comes from? Let's find out and use some fun math along the way!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is a <span class="hl">Dairy Farm</span>?</h2>
-          <ul><li>It's a special place where cows live.</li><li>They give us fresh, yummy milk!</li></ul>
-          <p class="notes">🎙️ A dairy farm is like a home for cows. Farmers take care of them, and in return, the cows give us delicious milk every day.</p>
+          <ul><li>A place where cows live.</li><li>They give us fresh milk.</li><li>Milk is very healthy!</li></ul>
+          <p class="notes">🎙️ A dairy farm is like a special home for cows. Farmers take care of them. And in return, these lovely cows give us delicious, nutritious milk every day!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐄</div><div class="vcap">Happy Cows</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐄</div><div class="vcap">Our Friendly Cow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,8 +85,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 20</span>
           <h2><span class="hl">Counting</span> Our Cows</h2>
-          <ul><li>Let's count how many cows are in the field.</li><li>One, two, three...</li></ul>
-          <p class="notes">🎙️ Look at these happy cows! Counting is the first step in Maths. Let's count them together and see how many we have.</p>
+          <ul><li>Farmer Ramu has many cows.</li><li>Let's count them together!</li></ul>
+          <p class="notes">🎙️ Look! Here are some of Farmer Ramu's cows. Can you help me count how many there are? One, two, three... yes, there are seven happy cows!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Milk from <span class="hl">One Cow</span></h2>
-          <ul><li>Each cow gives milk every day.</li><li>We measure milk in 'litres'.</li></ul>
-          <p class="notes">🎙️ Just like we drink water in glasses, we measure milk in bigger containers called 'litres'. One cow can give many litres of milk!</p>
+          <h2>How Much <span class="hl">Milk</span>?</h2>
+          <ul><li>Cows give milk every day.</li><li>We measure milk in 'liters'.</li></ul>
+          <p class="notes">🎙️ After counting the cows, we need to know how much milk they give. We use a special word to measure liquids like milk. It's called a 'liter'. One liter is like a big bottle of milk you see in the shop.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Milk in a glass</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">One Liter of Milk</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">Adding Milk</span> Together</h2>
-          <ul><li>If one cow gives 5 litres of milk.</li><li>And another cow gives 4 litres.</li><li>How much milk do we have in total?</li></ul>
-          <p class="notes">🎙️ Imagine two cows. One gives 5 litres, and the other gives 4 litres. To find out the total, we add them up! 5 + 4 = 9 litres.</p>
+          <h2>Milk from <span class="hl">One Cow</span></h2>
+          <ul><li>One cow gives milk twice a day.</li><li>Let's say one cow gives 5 liters in the morning.</li></ul>
+          <p class="notes">🎙️ Each cow is special! Farmer Ramu knows how much milk each cow gives. Imagine one of his cows gives 5 liters of milk just in the morning. That's a lot of milk!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span></div><div class="vcap">Total Milk Litres</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span></div><div class="vcap">5 Liters from One Cow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">Rani's Milk</span></h2>
-          <ul><li>Rani's family bought 2 litres in the morning.</li><li>They bought 3 litres in the evening.</li><li>How many litres did they buy all day?</li></ul>
-          <p class="notes">🎙️ This is a real-life example of adding. Rani's mom buys milk twice a day. We can find the total by adding 2 litres and 3 litres.</p>
+          <h2>Milk from <span class="hl">Many Cows</span></h2>
+          <ul><li>If one cow gives 5 liters,</li><li>How much milk do 3 cows give?</li></ul>
+          <p class="notes">🎙️ If one cow gives 5 liters, and Farmer Ramu has 3 such cows, how much milk does he get in total? We can add 5 + 5 + 5, or simply multiply 3 x 5. That's 15 liters!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧</div><div class="vcap">Rani's Family</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span></div><div class="vcap">3 Cows x 5 Liters = 15 Liters</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Milk Used, <span class="hl">Milk Left</span></h2>
-          <ul><li>We had 8 litres of milk.</li><li>We used 3 litres to make tea and sweets.</li><li>How much milk is left now?</li></ul>
-          <p class="notes">🎙️ Sometimes we use some milk, and we want to know what's remaining. This is called subtraction. We start with 8 and take away 3.</p>
+          <h2><span class="hl">Adding</span> Milk Together</h2>
+          <ul><li>Farmer Ramu collects milk.</li><li>He needs to add milk from different cans.</li></ul>
+          <p class="notes">🎙️ Farmer Ramu collects milk in big cans. Sometimes he has milk from the morning and milk from the evening. To know the total, he needs to add them together. Let's see how!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span></div><div class="vcap">Milk Litres Remaining</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Addition Sign</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Making <span class="hl">Paneer</span></h2>
-          <ul><li>Mom had 10 litres of milk.</li><li>She used 4 litres to make tasty paneer.</li><li>How much milk is still there?</li></ul>
-          <p class="notes">🎙️ Paneer is yummy, right? To make it, we use milk. If Mom started with 10 litres and used 4, we subtract to find the remaining amount.</p>
+          <h2>Example: <span class="hl">Total Milk</span></h2>
+          <ul><li>Morning: 12 liters</li><li>Evening: 15 liters</li><li>Total Milk = ?</li></ul>
+          <p class="notes">🎙️ If Farmer Ramu gets 12 liters in the morning and 15 liters in the evening, we add them. First, add 2 and 5 to get 7. Then, add 1 and 1 to get 2. So, 12 + 15 equals 27 liters!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧀</div><div class="vcap">Tasty Paneer</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Write numbers one below other</span></div><div class="step"><span class="snum">2</span><span>Add the ones place (2+5=7)</span></div><div class="step"><span class="snum">3</span><span>Add the tens place (1+1=2)</span></div><div class="step"><span class="snum">4</span><span>Total milk is 27 liters</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Milk from <span class="hl">Many Cows</span></h2>
-          <ul><li>If each cow gives 6 litres of milk.</li><li>And we have 3 cows.</li><li>How much milk do we get in total?</li></ul>
-          <p class="notes">🎙️ When we have the same amount repeated many times, we can multiply. Here, 3 cows each give 6 litres. So, 3 times 6 litres.</p>
+          <h2>Milk Goes to <span class="hl">Town</span></h2>
+          <ul><li>The milk is packed carefully.</li><li>Then it travels to our homes!</li></ul>
+          <p class="notes">🎙️ Once all the milk is collected, it's put into special containers. A big truck then takes the fresh milk from the farm to the city, so we can buy it from shops!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐄</span><span>🐄</span><span>🐄</span></div><div class="vcap">Three Cows</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚚</div><div class="vcap">Milk Delivery Truck</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Milk for the Week</h2>
-          <ul><li>Our family drinks 2 litres of milk every day.</li><li>How much milk do we drink in 7 days (one week)?</li></ul>
-          <p class="notes">🎙️ There are 7 days in a week. If we drink 2 litres each day, we can multiply 2 litres by 7 days to find the total for the whole week.</p>
+          <h2>Selling Milk for <span class="hl">Money</span></h2>
+          <ul><li>Farmers sell milk to earn money.</li><li>Money helps them buy food for cows.</li></ul>
+          <p class="notes">🎙️ Farming is hard work, and farmers need money to run the farm. They sell the milk, and the money they earn helps them buy food for the cows, pay helpers, and keep the farm running.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">One Week</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Indian_Rupee_symbol.svg?width=320" data-fb="💰" alt="The rupee (₹) is our money."/><div class="vcap">The rupee (₹) is our money.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Sharing Milk Equally</h2>
-          <ul><li>We have 10 litres of milk.</li><li>We want to share it equally among 5 families.</li><li>How many litres does each family get?</li></ul>
-          <p class="notes">🎙️ When we divide, we share things fairly. We have 10 litres and 5 families. We need to find out how much each family gets if we split it evenly.</p>
+          <h2><span class="hl">Cost</span> of Milk</h2>
+          <ul><li>Each liter of milk has a price.</li><li>Let's say 1 liter costs ₹50.</li></ul>
+          <p class="notes">🎙️ Just like you buy a chocolate for ₹10, milk also has a price. For example, one liter of milk might cost ₹50. This price helps the farmer cover his expenses.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span></div><div class="vcap">Sharing Milk</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">₹50 for 1 Liter</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Sharing Butter</span></h2>
-          <ul><li>A big block of butter weighs 12 kg.</li><li>It needs to be packed into 3 equal packets.</li><li>How much does each packet weigh?</li></ul>
-          <p class="notes">🎙️ Butter is also a dairy product. If we have a big block and want to make smaller, equal packets, we use division. 12 kg divided by 3 packets.</p>
+          <h2>Calculating <span class="hl">Total Cost</span></h2>
+          <ul><li>If 1 liter costs ₹50,</li><li>How much for 4 liters?</li></ul>
+          <p class="notes">🎙️ To find out the total cost for many liters, we multiply! If one liter is ₹50, and you want 4 liters, you multiply ₹50 by 4. Let's practice this.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧈</div><div class="vcap">Block of Butter</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiplication Sign</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Measuring Milk: <span class="hl">Litres</span>!</h2>
-          <ul><li>Milk is measured in 'litres' (L).</li><li>Smaller amounts are in 'millilitres' (mL).</li><li>1 Litre = 1000 Millilitres.</li></ul>
-          <p class="notes">🎙️ You might have seen milk packets that say '1 L' or '500 mL'. These are units of measurement. Remember, 1 litre is a big amount, equal to 1000 millilitres.</p>
+          <h2>Example: <span class="hl">Total Money</span></h2>
+          <ul><li>Price per liter: ₹50</li><li>Quantity: 4 liters</li><li>Total Money = ?</li></ul>
+          <p class="notes">🎙️ If one liter is ₹50, and we buy 4 liters, we multiply 50 by 4. First, 4 times 0 is 0. Then, 4 times 5 is 20. So, 50 multiplied by 4 is ₹200. We need ₹200 for 4 liters of milk.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Units</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Write numbers (50 x 4)</span></div><div class="step"><span class="snum">2</span><span>Multiply ones place (4x0=0)</span></div><div class="step"><span class="snum">3</span><span>Multiply tens place (4x5=20)</span></div><div class="step"><span class="snum">4</span><span>Total money is ₹200</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,35 +216,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Comparing</span> Milk</h2>
-          <ul><li>Which container has more milk?</li><li>Which has less?</li></ul>
-          <p class="notes">🎙️ Look at these two containers. We can easily compare them to see which one holds more milk. Container A has more than Container B.</p>
+          <h2><span class="hl">Comparing</span> Milk Production</h2>
+          <ul><li>Some cows give more milk.</li><li>Some give a little less.</li></ul>
+          <p class="notes">🎙️ Not all cows give the same amount of milk. Look at Rani and Sweety. Rani gives 8 liters, and Sweety gives 6 liters. Rani gives more milk than Sweety.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Container A</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Container B</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cow Rani (8 L)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Cow Sweety (6 L)</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">Cost</span> of Milk</h2>
-          <ul><li>Milk costs money to buy.</li><li>We pay for each litre of milk.</li></ul>
-          <p class="notes">🎙️ Just like toys or food, milk also has a price. We need to know how much one litre costs to calculate the total bill.</p>
+          <h2>Quick <span class="hl">Question 1</span></h2>
+          <ul><li>Farmer Ramu has 5 brown cows and 3 white cows.</li><li>How many cows does he have in total?</li></ul>
+          <p class="notes">🎙️ Time for a quick challenge! If Farmer Ramu has 5 brown cows and 3 white cows, can you quickly tell me the total number of cows on his farm? Think about adding!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/2_Rupee_coin_India.jpg?width=440" data-fb="💰" alt="Learn money using real coins."/><div class="vcap">Learn money using real coins.</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">Buying</span> More Milk</h2>
-          <ul><li>One litre of milk costs ₹50.</li><li>How much will 3 litres cost?</li></ul>
-          <p class="notes">🎙️ This is a simple calculation. If one litre is ₹50, and you want 3 litres, you multiply the price by the quantity. So, 3 times 50 gives us 150 rupees.</p>
+          <h2>Quick <span class="hl">Question 2</span></h2>
+          <ul><li>If one milk bottle holds 2 liters,</li><li>How much milk do 4 such bottles hold?</li></ul>
+          <p class="notes">🎙️ Here's another one! If each milk bottle can hold 2 liters of milk, and you have 4 such bottles, how much milk do you have in total? Remember our multiplication lesson!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cost of 1 L = ₹50</span></div><div class="step"><span class="snum">2</span><span>For 3 L, multiply: 3 x ₹50</span></div><div class="step"><span class="snum">3</span><span>Total Cost = ₹150</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,23 +252,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 1!</h2>
-          <ul><li>There are 4 black cows and 3 brown cows.</li><li>How many cows are there in total?</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Can you quickly add the number of black cows and brown cows to find the total?</p>
+          <h2>Quick <span class="hl">Question 3</span></h2>
+          <ul><li>Cow Pinky gives 10 liters of milk.</li><li>Cow Daisy gives 7 liters of milk.</li><li>How many more liters does Pinky give than Daisy?</li></ul>
+          <p class="notes">🎙️ Last quick question! Pinky gives 10 liters and Daisy gives 7 liters. How much extra milk does Pinky give compared to Daisy? Think about subtraction!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 2!</h2>
-          <ul><li>We had 9 litres of milk.</li><li>We used 5 litres for lassi.</li><li>How many litres are left?</li></ul>
-          <p class="notes">🎙️ Another quick problem! If we start with 9 litres and use 5, what operation helps us find the remaining amount?</p>
+          <h2>What Cows <span class="hl">Eat</span></h2>
+          <ul><li>Cows need good food to make milk.</li><li>They eat grass, hay, and special grains.</li></ul>
+          <p class="notes">🎙️ To give us healthy milk, cows need to eat healthy food themselves! They love fresh green grass, dry hay, and sometimes special grains that give them energy. Farmers spend money on this food too!</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="🌾" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 3!</h2>
-          <ul><li>One milk packet costs ₹40.</li><li>How much will 2 packets cost?</li></ul>
-          <p class="notes">🎙️ Last question! If one packet is 40 rupees, and you buy two, how much money do you need?</p>
+          <h2>What We <span class="hl">Learned</span></h2>
+          <ul><li>We learned about dairy farms and cows.</li><li>We practiced adding, multiplying, and comparing milk.</li><li>We understood about liters and money.</li></ul>
+          <p class="notes">🎙️ Wow, what a journey we had at the dairy farm today! We learned so much about cows, milk, and how farmers use math every day. We practiced counting, adding, multiplying, and even comparing quantities.</p>
         </div>
         
       </div>
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today!</h2>
-          <ul><li>We learned to count farm animals.</li><li>We added, subtracted, multiplied, and divided milk amounts.</li><li>We understood litres and cost of milk.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much today! We visited the dairy farm and used all our Maths skills to understand milk, cows, and even money!</p>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep exploring the world with math!</li><li>See you next time!</li></ul>
+          <p class="notes">🎙️ Thank you for being such attentive and smart learners today! Remember, math is everywhere, even on a dairy farm. Keep observing and keep learning! See you in our next lesson!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

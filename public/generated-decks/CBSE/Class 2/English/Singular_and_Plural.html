@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Singular and Plural — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to our "Singular and Plural" <span class="hl">Adventure</span>!</h2>
-          <ul><li>Let's explore how things change when there's one or many!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure to learn about 'Singular' and 'Plural'. It's all about counting things around us!</p>
+          <h2>Welcome to <span class="hl">Singular and Plural</span>!</h2>
+          <ul><li>Get ready to learn about 'one' and 'many'.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting journey to learn about something very important in English: Singular and Plural. It's all about counting things around us!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is "<span class="hl">Singular</span>"?</h2>
-          <ul><li>"Singular" means only ONE thing.</li></ul>
-          <p class="notes">🎙️ Look! We see just one apple. When we talk about one thing, we call it 'Singular'. Can you say 'Singular'?</p>
+          <h2>One little star, many twinkling stars!</h2>
+          <ul><li>Look up at the night sky.</li><li>We see one moon, but many stars!</li></ul>
+          <p class="notes">🎙️ Imagine you are looking at the night sky. What do you see? One big moon, right? But then, there are so many tiny, twinkling stars! This is like our lesson today – one thing, and many things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span></div><div class="vcap">One Apple</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="📖" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">One</span> of Everything!</h2>
-          <ul><li>A single flower, one bird, one pencil.</li></ul>
-          <p class="notes">🎙️ Imagine you have one pencil in your hand. That's singular! Or one beautiful flower in a vase. It means just a single item.</p>
+          <h2>What is <span class="hl">Singular</span>?</h2>
+          <ul><li>Singular means ONE.</li><li>It is for one person, one animal, one place, or one thing.</li></ul>
+          <p class="notes">🎙️ When we talk about just one thing, we call it 'singular'. Think of it as 'single', like a single flower or a single toy. It always means only one.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span></div><div class="vcap">One Pencil</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☝️</span></div><div class="vcap">Just one!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>What is "<span class="hl">Plural</span>"?</h2>
-          <ul><li>"Plural" means MORE than one thing.</li></ul>
-          <p class="notes">🎙️ Now look! We have three apples. When we have many things, more than one, we call it 'Plural'. Can you say 'Plural'?</p>
+          <h2>Look! <span class="hl">One</span> of each!</h2>
+          <ul><li>A boy.</li><li>A tree.</li><li>A house.</li></ul>
+          <p class="notes">🎙️ Here are some examples of singular things. One boy, not many. One tree, not a forest. One house, not a colony. Can you think of one thing you see right now?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Three Apples</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👦</span></div><div class="vcap">One boy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">Many</span> of Everything!</h2>
-          <ul><li>Many flowers, many birds, many pencils.</li></ul>
-          <p class="notes">🎙️ If you have many pencils, maybe four or five, that's plural! If you see many birds flying, that's plural too. It means more than one.</p>
+          <h2>What is <span class="hl">Plural</span>?</h2>
+          <ul><li>Plural means MORE THAN ONE.</li><li>It is for many people, animals, places, or things.</li></ul>
+          <p class="notes">🎙️ Now, what if there are many things? Like many boys, or many trees? Then we call it 'plural'. Plural means more than one, it can be two, three, or even a hundred!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">Four Pencils</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span></div><div class="vcap">Many!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>One or <span class="hl">Many</span>?</h2>
-          <ul><li>Let's compare!</li></ul>
-          <p class="notes">🎙️ See the difference? 'One' is singular, and 'Many' is plural. We often add letters to make words plural.</p>
+          <h2>Look! <span class="hl">Many</span> of each!</h2>
+          <ul><li>Boys.</li><li>Trees.</li><li>Houses.</li></ul>
+          <p class="notes">🎙️ See the difference? Instead of 'a boy', we say 'boys'. Instead of 'a tree', we say 'trees'. This is how we show that there are many! We often add an 's' to the word.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">One</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Many</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👦</span><span>👦</span><span>👦</span></div><div class="vcap">Many boys</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,9 +132,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>The Magic of <span class="hl">'s'</span>!</h2>
-          <ul><li>Most words become plural by adding 's'.</li></ul>
-          <p class="notes">🎙️ Here's a little magic trick! For many words, to change them from singular to plural, we just add the letter 's' at the end. It's like a secret code!</p>
+          <h2>Most words just <span class="hl">add 's'</span>!</h2>
+          <ul><li>This is the most common rule.</li><li>We simply add 's' at the end of the word.</li></ul>
+          <p class="notes">🎙️ The easiest way to change a singular word to a plural word is to simply add the letter 's' to its end. Let's see some examples of this simple rule!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="➕" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Book becomes <span class="hl">Books</span>!</h2>
-          <ul><li>One book, many books.</li></ul>
-          <p class="notes">🎙️ If you have one 'book', and then you get two more, now you have many 'books'! We just added an 's'.</p>
+          <h2>One Apple, Many <span class="hl">Apples</span></h2>
+          <ul><li>Singular: Apple</li><li>Plural: Apples</li></ul>
+          <p class="notes">🎙️ If you have one apple, you say 'apple'. If you have three apples, you say 'apples'. Just add an 's'!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Books</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Apple</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Apples</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Cat becomes <span class="hl">Cats</span>!</h2>
-          <ul><li>One cat, many cats.</li></ul>
-          <p class="notes">🎙️ Imagine you see one 'cat'. Then, its friend comes along, and now you see two 'cats'! Just add 's'.</p>
+          <h2>One Book, Many <span class="hl">Books</span></h2>
+          <ul><li>Singular: Book</li><li>Plural: Books</li></ul>
+          <p class="notes">🎙️ You have one book to read, but your friend has many books in her bag. Book becomes books. Can you think of another word that just adds 's'?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐈</span><span>🐈</span></div><div class="vcap">Cats</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Book</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Books</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Sometimes we add <span class="hl">'es'</span>!</h2>
-          <ul><li>For words ending in 's', 'x', 'ch', 'sh'.</li></ul>
-          <p class="notes">🎙️ Sometimes, adding just 's' doesn't sound right. So, for some special words, we add 'es' instead! These words usually end with sounds like 's', 'x', 'ch', or 'sh'.</p>
+          <h2>Words ending in s, ss, sh, ch, x, z <span class="hl">add 'es'</span>!</h2>
+          <ul><li>If a word ends with 's', 'ss', 'sh', 'ch', 'x', or 'z',</li><li>We add 'es' to make it plural.</li></ul>
+          <p class="notes">🎙️ This is a special rule for some words. If a word ends with certain sounds, like 's' or 'sh', we add 'es' instead of just 's'. This helps us say the word properly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Add 'es'</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Special cases</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Bus becomes <span class="hl">Buses</span>!</h2>
-          <ul><li>One bus, many buses.</li></ul>
-          <p class="notes">🎙️ If you see one 'bus' at the stop, that's singular. But if many 'buses' are lined up, we add 'es' to make it plural: 'buses'.</p>
+          <h2>One Bus, Many <span class="hl">Buses</span></h2>
+          <ul><li>Singular: Bus (ends in 's')</li><li>Plural: Buses</li></ul>
+          <p class="notes">🎙️ Look at the word 'bus'. It ends with 's'. So, to make it plural, we add 'es'. One bus becomes two buses. Imagine many buses going to school!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚌</span><span>🚌</span></div><div class="vcap">Buses</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Bus</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Buses</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Box becomes <span class="hl">Boxes</span>!</h2>
-          <ul><li>One box, many boxes.</li></ul>
-          <p class="notes">🎙️ You have one 'box' with your toys. Then your friend brings two more 'boxes'! We say 'boxes' because 'box' ends with 'x'.</p>
+          <h2>One Watch, Many <span class="hl">Watches</span></h2>
+          <ul><li>Singular: Watch (ends in 'ch')</li><li>Plural: Watches</li></ul>
+          <p class="notes">🎙️ The word 'watch' ends with 'ch'. So, we add 'es' to make it plural. One watch on your hand, but maybe your dad has many watches! Watch becomes watches.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">Boxes</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Watch</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Watches</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,35 +204,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>How <span class="hl">many</span> are there?</h2>
-          <ul><li>Count and tell if it's singular or plural!</li></ul>
-          <p class="notes">🎙️ Look at these colourful balloons! How many do you see? Is it singular or plural? Yes, it's plural because there are many!</p>
+          <h2>Words ending in a consonant + 'y' change <span class="hl">'y' to 'ies'</span>!</h2>
+          <ul><li>If a word ends with a consonant letter (like b, c, d) followed by 'y',</li><li>We remove 'y' and add 'ies'.</li></ul>
+          <p class="notes">🎙️ This is another special rule! If a word ends with a 'y' and before the 'y' there is a consonant sound, we change the 'y' to 'i' and then add 'es'. It sounds a bit tricky, but it's fun!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Balloons!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Changing 'y'</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Is it Singular or <span class="hl">Plural</span>?</h2>
-          <ul><li>"Car"</li></ul>
-          <p class="notes">🎙️ Tell me, is the word 'car' singular or plural? Think about how many cars it means. The answer is singular!</p>
+          <h2>One Baby, Many <span class="hl">Babies</span></h2>
+          <ul><li>Singular: Baby (ends in 'by')</li><li>Plural: Babies</li></ul>
+          <p class="notes">🎙️ The word 'baby' ends with 'y', and before 'y' is 'b' (a consonant). So, we change 'y' to 'i' and add 'es'. One baby becomes many babies playing together!</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Baby</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Babies</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Make it <span class="hl">Plural</span>!</h2>
-          <ul><li>Change "Apple" to plural.</li></ul>
-          <p class="notes">🎙️ You have one 'apple'. How do you say it if you have many? Yes, you add 's' to make it 'apples'!</p>
+          <h2>One Story, Many <span class="hl">Stories</span></h2>
+          <ul><li>Singular: Story (ends in 'ry')</li><li>Plural: Stories</li></ul>
+          <p class="notes">🎙️ You love to hear one story, but your grandma knows many stories! 'Story' ends in 'y' with 'r' before it. So, it becomes 'stories'. It's like magic!</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Story</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Stories</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -227,9 +240,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Make it <span class="hl">Plural</span>!</h2>
-          <ul><li>Change "Watch" to plural.</li></ul>
-          <p class="notes">🎙️ You wear a 'watch' on your hand. If you have many, how do you say it? Remember the 'es' rule! It becomes 'watches'!</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which word is singular?</li><li>(a) Cats (b) Dog (c) Birds</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Look at these words. Which one talks about just ONE animal? Think carefully before you answer!</p>
         </div>
         
       </div>
@@ -239,51 +252,52 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Make it <span class="hl">Plural</span>!</h2>
-          <ul><li>Change "Chair" to plural.</li></ul>
-          <p class="notes">🎙️ You sit on a 'chair'. What do you call many of them? Yes, 'chairs'! We just add 's'.</p>
+          <h2>Let's make it <span class="hl">plural</span>!</h2>
+          <ul><li>Change 'chair' to plural.</li><li>(a) Chairs (b) Chaires (c) Chairies</li></ul>
+          <p class="notes">🎙️ Now, let's try to change a word! How would you make 'chair' plural? Remember the most common rule we learned first!</p>
         </div>
         
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2>Some Words are <span class="hl">Tricky</span>!</h2>
-          <ul><li>Man becomes Men, Child becomes Children.</li></ul>
-          <p class="notes">🎙️ Some words are a bit tricky and don't follow the 's' or 'es' rule. Like 'man' becomes 'men', and 'child' becomes 'children'. We will learn more about them later!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤯</div><div class="vcap">Surprise!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>What did we learn today?</h2>
-          <ul><li>Singular: One thing.</li><li>Plural: More than one.</li></ul>
-          <p class="notes">🎙️ So, remember! Singular is for one, and plural is for many. We mostly add 's' or 'es' to make words plural. You all did great today!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Summary</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Practicing</span>!</h2>
-          <ul><li>Look for singular and plural words everywhere!</li></ul>
-          <p class="notes">🎙️ Keep practicing by looking at things around you and thinking if they are singular or plural. Great job, everyone! See you next time!</p>
+          <span class="num">18 / 20</span>
+          <h2>What about <span class="hl">this one</span>?</h2>
+          <ul><li>Change 'box' to plural.</li><li>(a) Boxs (b) Boxes (c) Boxies</li></ul>
+          <p class="notes">🎙️ Here's a slightly trickier one! 'Box' ends with 'x'. Which rule applies here? Think about adding 'es'!</p>
         </div>
         
       </div>
     </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2><span class="hl">Last one</span>!</h2>
+          <ul><li>Change 'fairy' to plural.</li><li>(a) Fairys (b) Fairyes (c) Fairies</li></ul>
+          <p class="notes">🎙️ One last question for our quick check! The word 'fairy' ends with 'y' and has 'r' before it. How do we make it plural? Remember the 'y' to 'ies' rule!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2>What did we <span class="hl">learn</span> today?</h2>
+          <ul><li>Singular means ONE.</li><li>Plural means MORE THAN ONE.</li><li>Most words add 's'.</li><li>Words ending in s, ss, sh, ch, x, z add 'es'.</li><li>Words ending in consonant + 'y' change 'y' to 'ies'.</li></ul>
+          <p class="notes">🎙️ Wow, we learned so much today! We now know how to talk about one thing and many things. Keep practicing these rules, and you'll be a master of singular and plural!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Summary of rules</div></div></div>
+      </div>
+    </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

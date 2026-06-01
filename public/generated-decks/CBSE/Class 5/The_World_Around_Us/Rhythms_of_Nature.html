@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Rhythms of Nature — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Welcome to <span class="hl">Rhythms</span> of Nature!</h2>
-          <ul><li>Have you ever noticed things that happen again and again?</li><li>Like the sun coming up every morning?</li></ul>
-          <p class="notes">🎙️ Namaste, dear children! Today we will learn about something wonderful called 'Rhythms of Nature'. It's all about the beautiful patterns we see around us every day.</p>
+          <ul><li>Let's explore the repeating patterns around us.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting journey to discover the 'Rhythms of Nature'. Have you ever noticed how some things happen again and again, almost like a song? That's what we will learn about today.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What are <span class="hl">Rhythms</span>?</h2>
-          <ul><li>Rhythms are like a beat or a pattern.</li><li>They are things that happen regularly, again and again.</li><li>Like the tick-tock of a clock!</li></ul>
-          <p class="notes">🎙️ Imagine your favourite song. It has a beat, right? That beat repeats. Rhythms in nature are similar – they are repeating patterns that nature follows.</p>
+          <ul><li>Rhythms are like repeating patterns.</li><li>They happen again and again, over time.</li></ul>
+          <p class="notes">🎙️ Think about clapping your hands in a pattern – clap, clap, pause, clap, clap, pause. That's a rhythm! In nature, many things follow such repeating patterns. These patterns help everything on Earth work smoothly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Repeating Beat</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔁</div><div class="vcap">Repeat</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,33 +84,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Nature has its own <span class="hl">Clock</span>!</h2>
-          <ul><li>Nature follows a special clock, but without hands!</li><li>This clock tells plants and animals when to do things.</li><li>It helps everything stay in order.</li></ul>
-          <p class="notes">🎙️ Just like we have a clock to tell us when to eat or sleep, nature has its own invisible clock. It makes sure everything happens at the right time.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="⏰" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">4 / 20</span>
-          <h2><span class="hl">Day and Night</span> - Our First Rhythm</h2>
-          <ul><li>The most common rhythm we see is Day and Night.</li><li>It happens every single day, without fail!</li><li>Day brings light, and Night brings darkness.</li></ul>
-          <p class="notes">🎙️ Look outside! Is it day or night? This change is the simplest and most important rhythm. It's like nature's switch for light and dark.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Day</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Night</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">5 / 20</span>
-          <h2>What Happens During the <span class="hl">Day</span>?</h2>
-          <ul><li>The sun shines brightly!</li><li>Birds sing, children play, and we go to school.</li><li>Plants make their food using sunlight.</li></ul>
-          <p class="notes">🎙️ During the day, everything feels awake and active. The sun gives us light and energy to do all our activities. It's a busy time!</p>
+          <h2><span class="hl">Day and Night</span>: Our First Rhythm</h2>
+          <ul><li>Every day, we see the sun.</li><li>Every night, we see the moon and stars.</li></ul>
+          <p class="notes">🎙️ The most basic rhythm we all know is day and night. The sun shines brightly during the day, and then it gets dark, and the moon comes out at night. This happens without fail, every single day.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🌍" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
@@ -106,12 +95,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 20</span>
-          <h2>What Happens During the <span class="hl">Night</span>?</h2>
-          <ul><li>The sun sets, and the sky becomes dark.</li><li>The moon and stars appear.</li><li>Most people and animals sleep.</li></ul>
-          <p class="notes">🎙️ As the day ends, night arrives. It's a time for rest and quiet. Look up at the sky at night – you can see the beautiful moon and twinkling stars!</p>
+          <span class="num">4 / 20</span>
+          <h2>How Day and Night <span class="hl">Happen</span></h2>
+          <ul><li>Our Earth is like a spinning top.</li><li>It spins around and around, all the time.</li></ul>
+          <p class="notes">🎙️ Do you know why we have day and night? It's because our Earth is always spinning! Imagine you have a ball and a torch. If you shine the torch on one side of the ball, that side gets light, and the other side stays dark. As the ball spins, different parts get light.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌙</span><span>🌙</span><span>🌙</span></div><div class="vcap">Dark Night</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Earth Spins</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 20</span>
+          <h2>Earth's <span class="hl">Spin</span> Creates Day and Night</h2>
+          <ul><li>When your part of Earth faces the sun, it's day.</li><li>When it faces away, it's night time.</li></ul>
+          <p class="notes">🎙️ So, as our Earth spins, the part facing the sun experiences day, and the part facing away from the sun experiences night. This spinning takes about 24 hours, giving us one full day and night cycle. It's a perfect natural clock!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Earth faces Sun (Day)</span></div><div class="step"><span class="snum">2</span><span>Earth turns (Sunset)</span></div><div class="step"><span class="snum">3</span><span>Earth away from Sun (Night)</span></div><div class="step"><span class="snum">4</span><span>Earth turns back (Sunrise)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 20</span>
+          <h2>What We Do in the <span class="hl">Day</span></h2>
+          <ul><li>During the day, the sun gives us light and warmth.</li><li>We go to school, play with friends, and help at home.</li></ul>
+          <p class="notes">🎙️ Daytime is usually when we are most active. We wake up, get ready for school, learn new things, and play games outside. The bright sunshine helps us see everything clearly and gives us energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☀️</span><span>☀️</span><span>☀️</span></div><div class="vcap">Bright Sun</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>The <span class="hl">Sun</span> - Our Energy Source</h2>
-          <ul><li>The Sun is a very important star.</li><li>It gives us light and warmth every day.</li><li>Without the sun, there would be no life on Earth!</li></ul>
-          <p class="notes">🎙️ The sun is like a giant lamp and a heater for our planet! It provides all the light and heat we need to live and grow. It's truly amazing!</p>
+          <h2>What We Do at <span class="hl">Night</span></h2>
+          <ul><li>At night, the sky becomes dark.</li><li>We finish our day, eat dinner, and go to sleep.</li></ul>
+          <p class="notes">🎙️ Nighttime is for rest and quiet. After a busy day, we have dinner with our families, read stories, and then go to sleep. Our bodies need sleep to rest and get ready for the next day. The moon and stars light up the sky gently.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Warm Sun</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Cumulus_clouds_in_fair_weather.jpeg?width=500" data-fb="🌍" alt="Clouds bring us rain."/><div class="vcap">Clouds bring us rain.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Moon and Stars - Nighttime <span class="hl">Wonders</span></h2>
-          <ul><li>The Moon is our Earth's natural friend in the sky.</li><li>Stars are like tiny, sparkling diamonds far away.</li><li>They make the night sky look magical!</li></ul>
-          <p class="notes">🎙️ When the sun goes down, the moon and stars come out to play! They light up the dark sky and make it look so beautiful. Can you spot any constellations?</p>
+          <h2><span class="hl">Seasons</span>: Another Big Rhythm</h2>
+          <ul><li>After some months, the weather changes.</li><li>These big changes are called seasons.</li></ul>
+          <p class="notes">🎙️ Just like day and night, there's another wonderful rhythm in nature called seasons. Have you noticed that some parts of the year are hot, and some are cold, and some are rainy? These are the different seasons.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Twinkling Stars</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍂</div><div class="vcap">Changing Leaves</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Seasons</span> - Another Grand Rhythm</h2>
-          <ul><li>After day and night, seasons are big rhythms too!</li><li>The weather changes over a longer time.</li><li>We have different seasons like summer, monsoon, and winter.</li></ul>
-          <p class="notes">🎙️ Have you noticed how sometimes it's hot, sometimes it rains a lot, and sometimes it's cold? These are the seasons changing, following nature's rhythm.</p>
+          <h2>How Seasons <span class="hl">Happen</span></h2>
+          <ul><li>Earth also goes around the Sun.</li><li>This journey takes one full year.</li></ul>
+          <p class="notes">🎙️ Day and night happen because Earth spins. Seasons happen because Earth travels around the sun! Imagine Earth is like a tiny car driving around a giant playground (the sun). This long trip around the sun is what gives us our seasons.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Summer</span></div><div class="step"><span class="snum">2</span><span>Monsoon</span></div><div class="step"><span class="snum">3</span><span>Winter</span></div><div class="step"><span class="snum">4</span><span>Spring</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Earth's Orbit</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2><span class="hl">Summer</span> - Sunny and Hot!</h2>
-          <ul><li>Summer is the hottest season of the year.</li><li>We enjoy cold drinks, ice cream, and mangoes!</li><li>It's a great time for holidays and outdoor fun.</li></ul>
-          <p class="notes">🎙️ Oh, summer! It's when the sun shines brightest and we love to eat cool things like ice cream. Remember to drink lots of water to stay hydrated!</p>
+          <h2><span class="hl">Summer</span> Season</h2>
+          <ul><li>Summer is the hottest time of the year.</li><li>We enjoy cool drinks, ice cream, and vacations!</li></ul>
+          <p class="notes">🎙️ When our part of Earth is tilted towards the sun during its journey, we experience summer. The sun shines brightly, and the days are long. It's the perfect time for swimming and playing outdoors!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍦</span><span>🍦</span><span>🍦</span><span>🍦</span></div><div class="vcap">Yummy Ice Cream</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,9 +180,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Monsoon</span> - The Rainy Season</h2>
-          <ul><li>Monsoon brings lots of rain and cool weather.</li><li>The plants and trees become green and happy.</li><li>We love to make paper boats and splash in puddles!</li></ul>
-          <p class="notes">🎙️ After the heat of summer, monsoon comes with refreshing rain. It's wonderful to see everything turn green and fresh. Don't forget your umbrella!</p>
+          <h2><span class="hl">Monsoon</span> Season</h2>
+          <ul><li>Monsoon brings lots of rain.</li><li>It makes plants green and fills up rivers.</li></ul>
+          <p class="notes">🎙️ After the heat of summer, the monsoon season arrives with refreshing rain. This rain is very important for farmers and for all the plants and animals. Everything looks fresh and green after a good rain shower.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌍" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Winter</span> - Cold and Cozy</h2>
-          <ul><li>Winter is the coldest season.</li><li>We wear warm sweaters and enjoy hot drinks.</li><li>It's time for bonfires and cozy blankets.</li></ul>
-          <p class="notes">🎙️ Brrr! Winter makes us want to snuggle up in warm clothes. It's a great time to drink hot milk and enjoy festivals with family.</p>
+          <h2><span class="hl">Winter</span> Season</h2>
+          <ul><li>Winter is the coldest time of the year.</li><li>We wear warm sweaters and enjoy hot drinks.</li></ul>
+          <p class="notes">🎙️ When our part of Earth is tilted away from the sun, we have winter. The days are shorter, and the air is chilly. We love to snuggle in warm blankets and enjoy festivals during this cozy season.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧣</span><span>🧣</span><span>🧣</span></div><div class="vcap">Warm and Cozy</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❄️</span><span>❄️</span><span>❄️</span><span>❄️</span></div><div class="vcap">Cold Snowflakes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,33 +204,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Spring</span> - Blooming Beauty</h2>
-          <ul><li>Spring comes after winter, making everything fresh.</li><li>New leaves grow, and colourful flowers bloom.</li><li>The air feels pleasant and happy.</li></ul>
-          <p class="notes">🎙️ Spring is a beautiful season where nature wakes up! You see new life everywhere, and the smell of fresh flowers fills the air. It's a lovely time.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span></div><div class="vcap">Flowers Everywhere</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>Why are Rhythms <span class="hl">Important</span>?</h2>
-          <ul><li>Rhythms help everything in nature to live and grow.</li><li>They tell plants when to flower and animals when to sleep.</li><li>These patterns keep our Earth healthy and balanced.</li></ul>
-          <p class="notes">🎙️ Imagine if the sun never came up, or it rained all year! Rhythms are like nature's timetable, making sure everything happens at the right time for everyone.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Growth and Life</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2><span class="hl">Animals</span> Follow Rhythms Too!</h2>
-          <ul><li>Many animals sleep during the day and hunt at night.</li><li>Some animals travel far away when seasons change (migrate).</li><li>Birds build nests and lay eggs in spring.</li></ul>
-          <p class="notes">🎙️ Animals are very smart! They know exactly when to wake up, when to find food, and when to prepare for cold weather, all thanks to nature's rhythms.</p>
+          <h2><span class="hl">Animals</span> Follow Rhythms</h2>
+          <ul><li>Animals also have special rhythms.</li><li>Some sleep a lot in winter (hibernation).</li></ul>
+          <p class="notes">🎙️ It's not just us and the Earth that follow rhythms! Animals also have their own special patterns. For example, some animals, like bears, sleep for a very long time during winter to save energy. This is called hibernation.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🐻" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
@@ -226,12 +215,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2><span class="hl">Plants</span> Have Rhythms Too!</h2>
-          <ul><li>Plants open their leaves to the sun in the day.</li><li>Some flowers open in the morning and close at night.</li><li>Trees shed leaves in autumn and grow new ones in spring.</li></ul>
-          <p class="notes">🎙️ Plants also follow these natural beats. They know when to grow tall, when to make flowers, and when to rest. It's all part of the rhythm!</p>
+          <span class="num">14 / 20</span>
+          <h2><span class="hl">Plants</span> Also Have Rhythms</h2>
+          <ul><li>Plants grow, flower, and shed leaves.</li><li>These happen in different seasons.</li></ul>
+          <p class="notes">🎙️ Look at the trees around you! They also follow rhythms. In spring, new leaves grow; in summer, they are full and green; in autumn, leaves change colour and fall; and in winter, some trees stand bare. This is their annual rhythm.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>Our <span class="hl">Body's</span> Rhythms</h2>
+          <ul><li>Our bodies also have rhythms.</li><li>We feel hungry at certain times, and sleepy at night.</li></ul>
+          <p class="notes">🎙️ Even our own bodies follow rhythms! We usually feel hungry around meal times, and we naturally feel tired and want to sleep when it gets dark. These are our body's internal clocks, helping us stay healthy and energetic.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="😴" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>Why Rhythms are <span class="hl">Important</span></h2>
+          <ul><li>Rhythms help everything work smoothly.</li><li>They bring predictability to our lives.</li></ul>
+          <p class="notes">🎙️ Imagine if day and night didn't happen regularly, or if seasons came at random times! Life would be very confusing. Rhythms make nature predictable, helping plants, animals, and humans plan and adapt to the environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Working Together</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
-          <ul><li>What is the most common rhythm we see every day?</li><li>(Hint: It brings light and darkness!)</li></ul>
-          <p class="notes">🎙️ Time for a quick test of what we learned! Think about what happens every single day, without fail. What is that rhythm called?</p>
+          <h2>Quick <span class="hl">Question</span> 1</h2>
+          <ul><li>What causes day and night?</li><li>(a) Moon's light (b) Earth's spin (c) Sun's heat</li></ul>
+          <p class="notes">🎙️ Let's see if you were listening carefully! Think about what we discussed about how day and night are formed. Choose the best answer from the options given.</p>
         </div>
         
       </div>
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
-          <ul><li>Name any two seasons we talked about.</li><li>(Hint: One is hot, one is rainy, or one is cold!)</li></ul>
-          <p class="notes">🎙️ Great job! Here's another question. Can you remember the different times of the year we discussed, where the weather changes?</p>
+          <h2>Quick <span class="hl">Question</span> 2</h2>
+          <ul><li>Name one thing you do in the summer season.</li><li>(a) Wear warm sweaters (b) Play in the rain (c) Eat ice cream</li></ul>
+          <p class="notes">🎙️ Now, let's think about our favourite season, summer! What is one fun activity you often do when it's hot and sunny? Pick the option that fits best.</p>
         </div>
         
       </div>
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
-          <ul><li>Why are rhythms important for plants and animals?</li><li>(Hint: What do they help them do?)</li></ul>
-          <p class="notes">🎙️ Last question for our quick check! Why do you think these repeating patterns are so helpful for all the living things around us?</p>
+          <h2>Quick <span class="hl">Question</span> 3</h2>
+          <ul><li>What is it called when animals sleep for a long time in winter?</li><li>(a) Migration (b) Hibernation (c) Celebration</li></ul>
+          <p class="notes">🎙️ Remember our animal friends and their special rhythms? What was that long sleep in winter called? It helps them stay safe and warm when food is scarce.</p>
         </div>
         
       </div>
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Rhythms of Nature</h2>
-          <ul><li>Nature has beautiful rhythms like Day and Night.</li><li>Seasons (Summer, Monsoon, Winter, Spring) are also big rhythms.</li><li>These rhythms help all living things grow and thrive.</li><li>Nature's clock keeps everything in balance!</li></ul>
-          <p class="notes">🎙️ We've learned so much about the amazing rhythms of nature today! From the sun rising to the seasons changing, everything follows a wonderful pattern that keeps our world alive and beautiful.</p>
+          <h2><span class="hl">Recap</span> and Goodbye!</h2>
+          <ul><li>Nature has many rhythms: Day/Night, Seasons.</li><li>Animals and plants also follow rhythms.</li><li>Our bodies have rhythms too!</li><li>Rhythms help life on Earth.</li></ul>
+          <p class="notes">🎙️ Wow, we learned so much about the amazing rhythms of nature today! From the daily spin of our Earth to the yearly journey around the sun, everything follows a beautiful pattern. Keep observing the rhythms around you, and you'll discover even more wonders!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>The Wise Parrot — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>“The <span class="hl">Wise</span> Parrot” - A Story for You!</h2>
-          <ul><li>Let's read a fun story!</li><li>About a special parrot and its friends.</li></ul>
-          <p class="notes">🎙️ Hello, children! Today, we will read a wonderful story called 'The Wise Parrot'. It's about a very special bird and how it helped everyone.</p>
+          <h2>Welcome to “The <span class="hl">Wise</span> Parrot”!</h2>
+          <ul><li>What makes someone wise?</li><li>Let's find out in our story!</li></ul>
+          <p class="notes">🎙️ Hello, children! Today, we are going to read a very interesting story called 'The Wise Parrot'. It's a story about a special parrot and its friends. We will learn what it means to be wise.</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Meet Our Friend, The <span class="hl">Parrot</span>!</h2>
-          <ul><li>Once upon a time, there was a parrot.</li><li>It had bright green feathers.</li><li>It loved its home.</li></ul>
-          <p class="notes">🎙️ Look! This is our main character, a beautiful green parrot. Parrots are known for being smart and colourful, aren't they?</p>
+          <h2>Meet a Beautiful Green <span class="hl">Parrot</span></h2>
+          <ul><li>Once upon a time, in a big, green forest...</li><li>Lived a lovely green parrot.</li></ul>
+          <p class="notes">🎙️ Imagine a beautiful forest, full of tall trees and bright flowers. In this forest, there lived a parrot. It was very pretty with bright green feathers.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🦜" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>In a Big, Green <span class="hl">Forest</span></h2>
-          <ul><li>The parrot lived in a big forest.</li><li>Many tall trees grew there.</li><li>It was a happy place.</li></ul>
-          <p class="notes">🎙️ Our parrot lived in a big, green forest. Imagine all the tall trees and the fresh air. It was a perfect home for many animals.</p>
+          <h2><span class="hl">Home</span> in a Tall Tree</h2>
+          <ul><li>The parrot lived in a very tall tree.</li><li>It was its cozy home, high up in the branches.</li></ul>
+          <p class="notes">🎙️ This parrot had a nice home in one of the tallest trees. It felt safe and happy there. It could see all around the forest from its home.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Forest Home</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Many Animal <span class="hl">Friends</span></h2>
-          <ul><li>The parrot had many friends.</li><li>Monkeys, rabbits, and deer lived there.</li><li>They all played together.</li></ul>
-          <p class="notes">🎙️ In the forest, the parrot had many friends. There were playful monkeys, quick rabbits, and gentle deer. They all enjoyed living together.</p>
+          <h2>Many Forest <span class="hl">Friends</span></h2>
+          <ul><li>The parrot had many animal friends.</li><li>They played together every day in the forest.</li></ul>
+          <p class="notes">🎙️ The parrot was not alone. It had many friends like monkeys, deer, and rabbits. They all lived together and had fun playing games in the forest.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="📖" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>The Parrot Was Very <span class="hl">Wise</span></h2>
-          <ul><li>This parrot was not just any parrot.</li><li>It was very wise and clever.</li><li>It always thought carefully.</li></ul>
-          <p class="notes">🎙️ But our parrot was special. It was very wise. This means it was smart and knew how to think well and make good choices.</p>
+          <h2>A Very <span class="hl">Wise</span> Parrot</h2>
+          <ul><li>This parrot was not just pretty.</li><li>It was also very wise!</li></ul>
+          <p class="notes">🎙️ What made this parrot special was not just its beauty, but its wisdom. It was known for being very clever and knowing the right things to do. Let's find out what wisdom means.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Wise Mind</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Bright Idea</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>What Does “<span class="hl">Wise</span>” Mean?</h2>
-          <ul><li>Being wise means being smart.</li><li>You think before you act.</li><li>You know what is right.</li></ul>
-          <p class="notes">🎙️ Being wise means you have good sense and knowledge. You think before you do something, and you often know the best way to solve problems, just like our parrot.</p>
+          <h2>What is <span class="hl">Wisdom</span>?</h2>
+          <ul><li>Wisdom means knowing what is right.</li><li>It means making good choices and thinking smartly.</li></ul>
+          <p class="notes">🎙️ Wisdom is like having a superpower for your brain! It helps us understand things well and decide what is best to do, especially when things are difficult. It's about being clever and kind.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Good Ideas</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Thinking Smartly</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Oh No! <span class="hl">Trouble</span> Came!</h2>
-          <ul><li>One day, some hunters came.</li><li>They wanted to catch birds.</li><li>They spread a big net.</li></ul>
-          <p class="notes">🎙️ One sunny morning, trouble arrived. Some hunters came to the forest. They wanted to catch the birds and spread a big, hidden net.</p>
+          <h2>A Big <span class="hl">Storm</span> is Coming!</h2>
+          <ul><li>One day, dark clouds filled the sky.</li><li>A big storm was about to hit the forest.</li></ul>
+          <p class="notes">🎙️ One afternoon, the sky suddenly turned very dark. Heavy clouds gathered, and it looked like a big storm was coming. The wind started to blow strongly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Hunter's Net</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Cumulus_clouds_in_fair_weather.jpeg?width=500" data-fb="⛈️" alt="Clouds bring us rain."/><div class="vcap">Clouds bring us rain.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Everyone Was <span class="hl">Scared</span></h2>
-          <ul><li>All the birds were very scared.</li><li>They did not know what to do.</li><li>They were trapped in the net.</li></ul>
-          <p class="notes">🎙️ Many birds flew into the net and got trapped. They were all very scared and confused. They cried for help, but no one knew how to escape.</p>
+          <h2>Animals Felt <span class="hl">Scared</span></h2>
+          <ul><li>All the forest animals were afraid.</li><li>Where would they go to be safe?</li></ul>
+          <p class="notes">🎙️ The animals saw the dark clouds and felt very scared. They didn't know where to hide from the strong wind and heavy rain. They started running around, looking for shelter.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>😨</span><span>😨</span><span>😨</span><span>😨</span><span>😨</span><span>😨</span></div><div class="vcap">Scared Birds</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>😟</span><span>😟</span><span>😟</span><span>😟</span><span>😟</span></div><div class="vcap">Worried Animals</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>The Wise Parrot Had an <span class="hl">Idea</span>!</h2>
-          <ul><li>The wise parrot thought hard.</li><li>It had a clever plan.</li><li>To save all its friends.</li></ul>
-          <p class="notes">🎙️ While everyone was panicking, the wise parrot stayed calm. It thought and thought, and then a brilliant idea popped into its head to save everyone!</p>
+          <h2>The Parrot Had an <span class="hl">Idea</span>!</h2>
+          <ul><li>The wise parrot thought quickly.</li><li>“Let's find shelter!” it chirped loudly.</li></ul>
+          <p class="notes">🎙️ But the wise parrot didn't panic. It quickly thought of a plan to keep everyone safe. It knew exactly what they should do. It was time for its wisdom to shine.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Thinking Hard</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Thinking Brain</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>The Plan: <span class="hl">Step 1</span></h2>
-          <ul><li>The parrot told everyone the plan.</li><li>Act like you are all dead.</li><li>Do not move or make a sound.</li></ul>
-          <p class="notes">🎙️ The parrot whispered its plan to all the birds. 'When the hunters come,' it said, 'we must all pretend to be dead. Don't move a feather!'</p>
+          <h2>Finding a <span class="hl">Safe</span> Place</h2>
+          <ul><li>It led them to a big, hollow cave.</li><li>It was a perfect shelter from the storm.</li></ul>
+          <p class="notes">🎙️ The parrot quickly flew ahead and guided all its friends. It led them to a big cave that was hidden away. This cave was strong and would protect them from the storm.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Act Dead</span></div><div class="step"><span class="snum">2</span><span>2. Wait Quietly</span></div><div class="step"><span class="snum">3</span><span>3. Fly Together</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Safe Cave</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>The Plan: <span class="hl">Step 2</span></h2>
-          <ul><li>The hunters will think you are dead.</li><li>They will untie the net.</li><li>And throw you on the ground.</li></ul>
-          <p class="notes">🎙️ The parrot explained, 'The hunters will think we are all dead birds and won't want us. They will loosen the net and throw us out.'</p>
+          <h2>The Storm Was Very <span class="hl">Strong</span></h2>
+          <ul><li>Outside, the wind howled and rain poured.</li><li>Inside the cave, everyone was safe and dry.</li></ul>
+          <p class="notes">🎙️ Just as they entered the cave, the storm broke out. The wind howled loudly, and rain fell heavily. But inside the cave, all the animals were warm and safe. They were so relieved!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Act Dead</span></div><div class="step"><span class="snum">2</span><span>2. Wait Quietly</span></div><div class="step"><span class="snum">3</span><span>3. Fly Together</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌬️" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>The Plan: <span class="hl">Step 3</span></h2>
-          <ul><li>When I give the signal,</li><li>Fly away together, fast!</li><li>All at the same time!</li></ul>
-          <p class="notes">🎙️ And then, the most important part! 'When I shout, 'Now!', everyone flies up together, at the exact same moment. This will make it harder for the hunters to catch us.'</p>
+          <h2>Everyone Was <span class="hl">Safe</span>!</h2>
+          <ul><li>Thanks to the wise parrot, no one got hurt.</li><li>They were all grateful to their wise friend.</li></ul>
+          <p class="notes">🎙️ The storm passed, and the sun came out again. All the animals came out of the cave, happy and safe. They thanked the wise parrot for saving them. Its wisdom had helped everyone.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Act Dead</span></div><div class="step"><span class="snum">2</span><span>2. Wait Quietly</span></div><div class="step"><span class="snum">3</span><span>3. Fly Together</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>😊</span><span>😊</span><span>😊</span><span>😊</span><span>😊</span><span>😊</span><span>😊</span></div><div class="vcap">Happy &amp; Safe</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,83 +204,83 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>The Birds <span class="hl">Followed</span> the Plan</h2>
-          <ul><li>The birds listened to the parrot.</li><li>They all acted dead.</li><li>They waited patiently.</li></ul>
-          <p class="notes">🎙️ All the birds trusted the wise parrot. They followed the plan perfectly, pretending to be lifeless. The hunters came and saw them, thinking they were all dead.</p>
+          <h2>What Did We <span class="hl">Learn</span>?</h2>
+          <ul><li>The parrot used its wisdom.</li><li>It helped its friends in their time of need.</li></ul>
+          <p class="notes">🎙️ From this story, we learn that being wise is very important. The parrot didn't just think about itself; it used its smart thinking to help all its friends. This is a great lesson for us too.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐦</span><span>🐦</span><span>🐦</span><span>🐦</span><span>🐦</span><span>🐦</span><span>🐦</span></div><div class="vcap">Birds Flying Free</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Lesson Learned</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>The Hunters Were <span class="hl">Puzzled</span></h2>
-          <ul><li>The hunters picked up the net.</li><li>They saw the 'dead' birds.</li><li>They were surprised!</li></ul>
-          <p class="notes">🎙️ The hunters were confused. 'How can so many birds be dead?' they wondered. As they started to throw them out of the net, the parrot gave the signal!</p>
+          <h2>Quick <span class="hl">Question</span> 1</h2>
+          <ul><li>Where did the parrot live?</li><li>(a) A house</li><li>(b) A tall tree</li><li>(c) A river</li></ul>
+          <p class="notes">🎙️ Let's see if you remember the details of our story. Think carefully and choose the correct answer for this first question. Where was the parrot's home?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤨</div><div class="vcap">Confused Hunter</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Hooray! Everyone Was <span class="hl">Safe</span>!</h2>
-          <ul><li>All the birds flew up!</li><li>They flew high into the sky.</li><li>They thanked the wise parrot.</li></ul>
-          <p class="notes">🎙️ Just as planned, all the birds flew up together, making it impossible for the hunters to catch them. They were free! They cheered for the wise parrot.</p>
+          <h2>Quick <span class="hl">Question</span> 2</h2>
+          <ul><li>What special quality did the parrot have?</li><li>(a) It could sing</li><li>(b) It was wise</li><li>(c) It was very fast</li></ul>
+          <p class="notes">🎙️ Now for our second question. What was the most special thing about our parrot? What made it stand out from all the other animals? Think about the title of our story.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="🥳" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>Quick <span class="hl">Question</span> 3</h2>
+          <ul><li>What did the parrot do when the storm came?</li><li>(a) Flew away alone</li><li>(b) Hid alone in its tree</li><li>(c) Helped its friends find shelter</li></ul>
+          <p class="notes">🎙️ And finally, our third question. This is about the main part of our story. What important action did the wise parrot take when the big storm arrived? What did it do for its friends?</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2>What Did We Learn?</h2>
-          <ul><li>Wisdom helps solve problems.</li><li>Teamwork makes us strong.</li><li>Always think before you act.</li></ul>
-          <p class="notes">🎙️ From this story, we learn that being wise and thinking carefully can save us from trouble. And when we work together, we can overcome anything!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Important Lessons</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>Who was the main character in the story?</li><li>Was it a monkey, a rabbit, or a parrot?</li></ul>
-          <p class="notes">🎙️ Alright, children, let's see how well you remember the story! First question: Who was the main character?</p>
+          <h2><span class="hl">Wisdom</span> in Our Lives</h2>
+          <ul><li>We can also be wise every day!</li><li>Think before you act. Choose what is good and helpful.</li></ul>
+          <p class="notes">🎙️ Just like the parrot, we can all be wise in our daily lives. It means using our brains to make good decisions, not just for ourselves, but for others too. Let's look at some examples.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👧</div><div class="vcap">You Can Be Wise</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Another <span class="hl">Question</span>!</h2>
-          <ul><li>What special quality did the parrot have?</li><li>Was it strong, fast, or wise?</li></ul>
-          <p class="notes">🎙️ Great job with the first one! Here's the second question: What special quality made the parrot able to help its friends?</p>
+          <h2>Example: <span class="hl">Sharing</span> Toys Wisely</h2>
+          <ul><li>If two friends want one toy, what is wise?</li><li>Share it so both can play and be happy!</li></ul>
+          <p class="notes">🎙️ Imagine you and your friend both want to play with the same toy. What is the wise thing to do? Is it wise to keep it all for yourself, or is it wiser to share it so both of you can have fun? Sharing makes everyone happy.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Keep all</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Share</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Last <span class="hl">Question</span>!</h2>
-          <ul><li>How did the parrot save its friends?</li><li>Did it fight the hunters or make a clever plan?</li></ul>
-          <p class="notes">🎙️ And for our last question: How did the wise parrot manage to save all the other birds from the hunters?</p>
+          <h2>Example: <span class="hl">Helping</span> Friends Wisely</h2>
+          <ul><li>If a friend falls down, what is wise?</li><li>Help them up and ask if they are okay!</li></ul>
+          <p class="notes">🎙️ Another example: if you see your friend trip and fall, what should you do? The wise choice is to go to them, offer your hand, and help them get up. It shows you care and are thoughtful.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>See friend fall</span></div><div class="step"><span class="snum">2</span><span>Offer a hand</span></div><div class="step"><span class="snum">3</span><span>Help them up</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Story <span class="hl">Recap</span>!</h2>
-          <ul><li>We met a wise parrot.</li><li>It saved its friends from hunters.</li><li>It taught us about wisdom and teamwork.</li></ul>
-          <p class="notes">🎙️ So, we learned about the brave and wise parrot who used its brain to save its friends. Remember, being wise and working together can help us in many situations!</p>
+          <h2>Recap: Be <span class="hl">Wise</span>!</h2>
+          <ul><li>A wise person thinks, helps, and makes good choices.</li><li>You can be wise too, every single day!</li></ul>
+          <p class="notes">🎙️ So, remember the wise parrot! Being wise means being thoughtful, kind, and making good decisions. You have the power to be wise in your own life and help others. Keep thinking smartly!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

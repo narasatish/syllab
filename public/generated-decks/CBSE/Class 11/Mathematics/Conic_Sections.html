@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Conic Sections: Exploring Curves from a Cone — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Conic Sections: Exploring Curves of Power — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Conic Sections</span>: An Introduction</h2>
-          <ul><li>A fascinating chapter in geometry.</li><li>Foundation for advanced mathematics and physics.</li><li>Essential for Class 11 CBSE Board Exams.</li></ul>
-          <p class="notes">🎙️ Welcome to the world of Conic Sections! This chapter is not just about drawing curves, but understanding the geometry behind many natural phenomena and engineering marvels. We'll cover everything you need for your CBSE exams.</p>
+          <h2>Welcome to <span class="hl">Conic Sections</span>!</h2>
+          <ul><li>Discover fascinating geometric shapes.</li><li>Understand their formation from a simple cone.</li><li>Learn their equations and properties.</li><li>Prepare for board exams and competitive tests.</li></ul>
+          <p class="notes">🎙️ Hello Class 11! Today, we embark on an exciting journey into Conic Sections. These shapes are not just abstract math; they are fundamental to understanding the world around us, from satellite dishes to planetary orbits. Let's dive in!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What are <span class="hl">Conic Sections</span>?</h2>
-          <ul><li>Curves formed by the intersection of a plane and a double-napped cone.</li><li>Different angles of intersection lead to different curves.</li><li>A fundamental concept in analytical geometry.</li></ul>
-          <p class="notes">🎙️ Imagine a cone, like an ice cream cone, but extending infinitely in both directions. Now, imagine slicing through it with a flat plane. The shape formed at the intersection is what we call a conic section.</p>
+          <ul><li>Curves formed by the intersection of a plane and a double-napped cone.</li><li>The angle of the intersecting plane determines the shape.</li><li>Four main types: Circle, Ellipse, Parabola, Hyperbola.</li></ul>
+          <p class="notes">🎙️ Imagine a double cone, like two ice cream cones joined at their tips. When we slice this cone with a flat plane at different angles, the resulting cross-section is a conic section. Each angle gives us a unique and powerful curve.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Plane &amp; Cone</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Plane intersecting a cone</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>The <span class="hl">Double-Napped</span> Cone</h2>
-          <ul><li>A cone consists of two parts, called nappes.</li><li>Joined at a common vertex.</li><li>Formed by rotating a line (generator) around another fixed line (axis).</li></ul>
-          <p class="notes">🎙️ For understanding all conic sections, we need to consider a 'double-napped cone'. This is essentially two cones joined at their vertices, extending infinitely. The line around which the generator rotates is called the axis.</p>
+          <h2>Visualizing the <span class="hl">Double Cone</span></h2>
+          <ul><li>Two cones joined at their vertices.</li><li>Extends infinitely in both directions.</li><li>The axis passes through the vertices and centres of the bases.</li></ul>
+          <p class="notes">🎙️ It's crucial to visualize this double cone. The 'nappes' are the two parts above and below the vertex. The axis is the central line around which the cone is formed. The generating lines are the lines on the surface of the cone.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍦</div><div class="vcap">Two Cones</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗼</div><div class="vcap">Double cone structure</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>The <span class="hl">Four</span> Conic Sections: An Overview</h2>
-          <ul><li>Circle: Plane perpendicular to the axis.</li><li>Ellipse: Plane inclined, but not parallel to a generator.</li><li>Parabola: Plane parallel to a generator.</li><li>Hyperbola: Plane parallel to the axis, intersecting both nappes.</li></ul>
-          <p class="notes">🎙️ Depending on the angle at which the plane slices through the cone, we get four distinct shapes: the circle, ellipse, parabola, and hyperbola. Each has unique properties and equations.</p>
+          <h2><span class="hl">Types</span> of Conic Sections</h2>
+          <ul><li>Circle: Plane perpendicular to the axis.</li><li>Ellipse: Plane inclined to the axis, but not parallel to a generator.</li><li>Parabola: Plane parallel to a generator.</li><li>Hyperbola: Plane parallel to the axis, intersecting both nappes.</li></ul>
+          <p class="notes">🎙️ The key differentiator among these shapes is the angle at which the plane cuts the cone. A circle is formed by a horizontal cut, an ellipse by a slightly tilted cut, a parabola by a cut parallel to a generator, and a hyperbola by a vertical cut through both nappes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Types of Curves</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Circle</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Ellipse</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Parabola</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hyperbola</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Circle</span>: A Special Case</h2>
-          <ul><li>Formed when the cutting plane is perpendicular to the cone's axis.</li><li>It intersects only one nappe.</li><li>All points on the curve are equidistant from a central point.</li></ul>
-          <p class="notes">🎙️ A circle is the most familiar conic section. It's formed when the plane cuts the cone straight across, perfectly perpendicular to its central axis. This creates a perfectly round shape.</p>
+          <h2><span class="hl">Degenerate</span> Conic Sections</h2>
+          <ul><li>Occur when the plane passes through the vertex of the cone.</li><li>Result in simpler geometric figures.</li><li>Types: A Point, A Straight Line, A Pair of Intersecting Lines.</li></ul>
+          <p class="notes">🎙️ These are special cases. If the plane cuts exactly at the vertex, you don't get a curve but rather a point, a single line (if the plane is tangent to the cone), or two intersecting lines (if the plane cuts through both nappes at the vertex).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚪</div><div class="vcap">Perfect Round</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Vertex intersection</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Standard Equation</span> of a Circle</h2>
-          <ul><li>Equation: (x - h)² + (y - k)² = r²</li><li>(h, k) represents the coordinates of the center.</li><li>r represents the radius of the circle.</li></ul>
-          <p class="notes">🎙️ This is the general form for the equation of a circle. Remember that 'h' and 'k' define the center, and 'r' is the radius. If the center is at the origin (0,0), the equation simplifies to x² + y² = r².</p>
+          <h2>The <span class="hl">Circle</span> - Definition</h2>
+          <ul><li>A set of all points in a plane.</li><li>Equidistant from a fixed point called the 'centre'.</li><li>The fixed distance is called the 'radius'.</li></ul>
+          <p class="notes">🎙️ The circle is the simplest conic section and one you are very familiar with. Its definition is straightforward: every point on the circle is the same distance from its centre. This property is crucial for its equation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Center &amp; Radius</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Perfectly round</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,23 +132,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Example: <span class="hl">Finding Circle</span> Equation</h2>
-          <ul><li>Problem: Find the equation of a circle with center (2, -3) and radius 4.</li><li>Solution: Substitute values into (x - h)² + (y - k)² = r².</li><li>(x - 2)² + (y - (-3))² = 4² =&gt; (x - 2)² + (y + 3)² = 16.</li></ul>
-          <p class="notes">🎙️ This example shows a direct application of the standard equation. Simply plug in the given center coordinates and radius, and simplify. Always double-check your signs, especially with negative coordinates.</p>
+          <h2><span class="hl">Equation</span> of a Circle</h2>
+          <ul><li>Standard form: (x - h)² + (y - k)² = r².</li><li>Where (h, k) is the centre and 'r' is the radius.</li><li>If centre is at origin (0,0), equation is x² + y² = r².</li></ul>
+          <p class="notes">🎙️ This equation comes directly from the distance formula. The distance between any point (x,y) on the circle and the centre (h,k) is always equal to the radius 'r'. Squaring both sides removes the square root and gives us the standard form.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Step-by-Step</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Pick a point (x,y)</span></div><div class="step"><span class="snum">2</span><span>2. Centre (h,k), radius r</span></div><div class="step"><span class="snum">3</span><span>3. Distance formula</span></div><div class="step"><span class="snum">4</span><span>4. Square both sides</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Example: <span class="hl">From Equation</span> to Center &amp; Radius</h2>
-          <ul><li>Problem: Find the center and radius of the circle x² + y² - 6x + 4y - 3 = 0.</li><li>Solution: Use completing the square method.</li><li>(x² - 6x + 9) + (y² + 4y + 4) = 3 + 9 + 4 =&gt; (x - 3)² + (y + 2)² = 16.</li><li>Center: (3, -2), Radius: 4.</li></ul>
-          <p class="notes">🎙️ This is a common exam question. Remember to group x-terms and y-terms, then complete the square for both. The constant term on the right side will be r², so remember to take its square root for the radius.</p>
+          <h2>Worked <span class="hl">Example</span>: Circle</h2>
+          <ul><li>Find the equation of a circle with centre (3, -2) and radius 5.</li><li>Using (x - h)² + (y - k)² = r².</li><li>Substitute h=3, k=-2, r=5.</li><li>Result: (x - 3)² + (y + 2)² = 25.</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. Carefully substitute the values for h, k, and r. Remember that (y - (-2)) becomes (y + 2). Squaring the radius gives 25. This is a common type of question you'll encounter.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Rearrange terms</span></div><div class="step"><span class="snum">2</span><span>Complete the square</span></div><div class="step"><span class="snum">3</span><span>Identify center/radius</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Ellipse</span>: The Stretched Circle</h2>
-          <ul><li>Formed when the cutting plane is inclined to the axis.</li><li>It is NOT perpendicular to the axis and NOT parallel to a generator.</li><li>Intersects only one nappe, creating an oval shape.</li></ul>
-          <p class="notes">🎙️ An ellipse looks like a stretched circle. It's formed when the plane cuts the cone at an angle, but not so steeply that it becomes a parabola. It also only cuts through one part of the double-napped cone.</p>
+          <h2><span class="hl">Real-Life</span> Examples: Circle</h2>
+          <ul><li>Wheels and gears: Essential for transport and machinery.</li><li>Rings and coins: Everyday objects.</li><li>Orbits (simplified): Early models of planetary motion.</li></ul>
+          <p class="notes">🎙️ Circles are ubiquitous! From the wheels that move us to the gears in complex machines, their perfect symmetry and constant radius make them incredibly useful. Even though planetary orbits are ellipses, circles are often used as a first approximation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">Oval Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚙️</span><span>⚙️</span><span>⚙️</span><span>⚙️</span><span>⚙️</span></div><div class="vcap">Circles in motion</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Key Terms</span> of an Ellipse</h2>
-          <ul><li>Foci (F1, F2): Two fixed points inside the ellipse.</li><li>Major Axis: The longest diameter, passing through the foci.</li><li>Minor Axis: The shortest diameter, perpendicular to the major axis.</li><li>Vertices: Endpoints of the major axis.</li></ul>
-          <p class="notes">🎙️ Understanding these terms is crucial for working with ellipses. The foci are particularly important as they define the ellipse: the sum of the distances from any point on the ellipse to the two foci is constant.</p>
+          <h2>The <span class="hl">Parabola</span> - Definition</h2>
+          <ul><li>A set of all points in a plane.</li><li>Equidistant from a fixed point (focus) and a fixed line (directrix).</li><li>The vertex is the midpoint between the focus and the directrix.</li></ul>
+          <p class="notes">🎙️ The parabola is a bit more complex than a circle. Its definition involves both a point, the focus, and a line, the directrix. Every point on the parabola maintains an equal distance to both of these. This property gives it its characteristic U-shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Axes &amp; Foci</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏹</div><div class="vcap">Curved path</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Standard Equation</span> of an Ellipse</h2>
-          <ul><li>Horizontal Ellipse: x²/a² + y²/b² = 1 (a &gt; b, major axis along x-axis).</li><li>Vertical Ellipse: x²/b² + y²/a² = 1 (a &gt; b, major axis along y-axis).</li><li>a is semi-major axis, b is semi-minor axis. Relation: c² = a² - b² (c is distance from center to focus).</li></ul>
-          <p class="notes">🎙️ There are two standard forms, depending on whether the major axis is horizontal or vertical. Always remember that 'a' is associated with the semi-major axis and 'b' with the semi-minor axis. The relationship c² = a² - b² is vital for finding the foci.</p>
+          <h2>Standard <span class="hl">Equations</span> of Parabola</h2>
+          <ul><li>y² = 4ax (opens right, focus (a,0))</li><li>y² = -4ax (opens left, focus (-a,0))</li><li>x² = 4ay (opens up, focus (0,a))</li><li>x² = -4ay (opens down, focus (0,-a))</li></ul>
+          <p class="notes">🎙️ There are four standard forms of the parabola, depending on its orientation. It's crucial to remember which equation corresponds to which direction of opening and where the focus lies. The 'a' value is the distance from the vertex to the focus and also to the directrix.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Parameters</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">y²=4ax</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">y²=-4ax</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">x²=4ay</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">x²=-4ay</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Example: <span class="hl">Finding Ellipse</span> Equation</h2>
-          <ul><li>Problem: Foci at (±5, 0), major axis length 26.</li><li>Solution: Foci on x-axis =&gt; Horizontal Ellipse. c = 5. 2a = 26 =&gt; a = 13.</li><li>Use c² = a² - b² =&gt; 5² = 13² - b² =&gt; 25 = 169 - b² =&gt; b² = 144.</li><li>Equation: x²/169 + y²/144 = 1.</li></ul>
-          <p class="notes">🎙️ This example demonstrates how to derive the ellipse equation from given properties. First, determine the orientation, then use the given information to find 'a', 'c', and finally 'b²' using the relationship c² = a² - b².</p>
+          <h2><span class="hl">Key Terms</span> of Parabola</h2>
+          <ul><li>Focus (F): The fixed point.</li><li>Directrix (l): The fixed line.</li><li>Vertex (V): Midpoint between focus and directrix, on the axis.</li><li>Latus Rectum: Chord through the focus, perpendicular to the axis, length |4a|.</li></ul>
+          <p class="notes">🎙️ Understanding these terms is vital for solving problems. The vertex is the turning point of the parabola. The latus rectum helps in sketching the parabola accurately, as its length gives an idea of the width of the curve at the focus.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify axis</span></div><div class="step"><span class="snum">2</span><span>Find a and c</span></div><div class="step"><span class="snum">3</span><span>Calculate b²</span></div><div class="step"><span class="snum">4</span><span>Form equation</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Important points</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Parabola</span>: The Open Curve</h2>
-          <ul><li>Formed when the cutting plane is parallel to a generator of the cone.</li><li>Intersects only one nappe.</li><li>An open curve, extending infinitely in one direction.</li></ul>
-          <p class="notes">🎙️ A parabola is an open curve, unlike the circle and ellipse. It's formed when the plane slices through the cone exactly parallel to one of the cone's generating lines. Think of the path of a thrown ball.</p>
+          <h2>Worked <span class="hl">Example</span>: Parabola</h2>
+          <ul><li>Find the equation of a parabola with focus (0, 6) and directrix y = -6.</li><li>Since focus is (0,a) and directrix y=-a, it's x² = 4ay form.</li><li>Here, a = 6.</li><li>Result: x² = 4(6)y ⇒ x² = 24y.</li></ul>
+          <p class="notes">🎙️ Identify the type of parabola first. The focus (0,6) on the y-axis and directrix y=-6 tells us it's an upward-opening parabola of the form x² = 4ay. The value of 'a' is directly given by the coordinates of the focus. Substitute and simplify.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">U-Shape Curve</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Key Terms</span> of a Parabola</h2>
-          <ul><li>Focus (F): A fixed point not on the directrix.</li><li>Directrix: A fixed line not passing through the focus.</li><li>Vertex: The point where the parabola changes direction.</li><li>Latus Rectum: A line segment through the focus, perpendicular to the axis of symmetry.</li></ul>
-          <p class="notes">🎙️ The defining property of a parabola is that every point on it is equidistant from the focus and the directrix. The vertex is the turning point, and the latus rectum helps determine the width of the parabola.</p>
+          <h2><span class="hl">Real-Life</span> Examples: Parabola</h2>
+          <ul><li>Satellite dishes and car headlights: Reflective properties.</li><li>Projectile motion: Path of a thrown ball.</li><li>Suspension bridges: Shape of the main cables.</li></ul>
+          <p class="notes">🎙️ Parabolas have amazing reflective properties. All rays parallel to the axis reflect through the focus (like in satellite dishes), and all rays from the focus reflect parallel to the axis (like in car headlights). This makes them incredibly useful in optics and engineering.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Focus &amp; Directrix</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📡</span><span>📡</span><span>📡</span><span>📡</span></div><div class="vcap">Parabolic applications</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Standard Equations</span> of a Parabola</h2>
-          <ul><li>y² = 4ax (opens right, focus (a,0), directrix x = -a).</li><li>y² = -4ax (opens left, focus (-a,0), directrix x = a).</li><li>x² = 4ay (opens up, focus (0,a), directrix y = -a).</li><li>x² = -4ay (opens down, focus (0,-a), directrix y = a).</li></ul>
-          <p class="notes">🎙️ There are four standard forms, each corresponding to a different orientation (opening right, left, up, or down). The sign of 'a' and which variable is squared determine the orientation and location of the focus and directrix.</p>
+          <h2><span class="hl">Quick Check</span> 1 (Circle &amp; Parabola)</h2>
+          <ul><li>1. What is the radius of the circle x² + y² = 16?</li><li>2. Which way does the parabola y² = -8x open?</li><li>3. What is the focus of the parabola x² = 12y?</li></ul>
+          <p class="notes">🎙️ Take a moment to answer these questions. They test your basic understanding of the standard forms and key properties of circles and parabolas. Pause the video if you need more time. We will discuss the answers shortly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Orientation</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Example: <span class="hl">Finding Parabola</span> Equation</h2>
-          <ul><li>Problem: Find the equation of the parabola with focus (0, -3) and directrix y = 3.</li><li>Solution: Focus is (0, -a) and directrix is y = a =&gt; opens downwards. a = 3.</li><li>Standard equation for downward parabola: x² = -4ay.</li><li>Substitute a = 3: x² = -4(3)y =&gt; x² = -12y.</li></ul>
-          <p class="notes">🎙️ For parabolas, carefully identify the focus and directrix to determine the orientation and the value of 'a'. Once 'a' is known, simply substitute it into the correct standard equation.</p>
+          <h2>The <span class="hl">Ellipse</span> - Definition</h2>
+          <ul><li>A set of all points in a plane.</li><li>The sum of whose distances from two fixed points (foci) is constant.</li><li>Looks like a 'squashed' circle.</li></ul>
+          <p class="notes">🎙️ An ellipse has two foci, unlike a circle which has one centre. The defining property is that if you pick any point on the ellipse and measure its distance to each focus, then add those two distances, the total will always be the same constant value.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify orientation</span></div><div class="step"><span class="snum">2</span><span>Find 'a'</span></div><div class="step"><span class="snum">3</span><span>Choose equation</span></div><div class="step"><span class="snum">4</span><span>Substitute 'a'</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">Elongated shape</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Hyperbola</span>: The Two-Part Curve</h2>
-          <ul><li>Formed when the cutting plane is parallel to the axis of the cone.</li><li>Intersects both nappes of the double-napped cone.</li><li>Consists of two separate, unbounded branches.</li></ul>
-          <p class="notes">🎙️ The hyperbola is unique because it cuts through *both* nappes of the cone, resulting in two separate, mirror-image branches. This happens when the plane is parallel to the cone's axis.</p>
+          <h2>Standard <span class="hl">Equation</span> of Ellipse</h2>
+          <ul><li>Horizontal Ellipse: x²/a² + y²/b² = 1 (a &gt; b)</li><li>Vertical Ellipse: x²/b² + y²/a² = 1 (a &gt; b)</li><li>a: semi-major axis, b: semi-minor axis, c: distance from centre to focus.</li><li>Relation: c² = a² - b².</li></ul>
+          <p class="notes">🎙️ There are two standard forms, depending on whether the major axis is horizontal or vertical. Remember 'a' is always greater than 'b'. The relationship c² = a² - b² is crucial for finding the foci. The constant sum of distances is 2a.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Two Branches</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Define foci F1, F2</span></div><div class="step"><span class="snum">2</span><span>2. Point P(x,y) on ellipse</span></div><div class="step"><span class="snum">3</span><span>3. PF1 + PF2 = 2a</span></div><div class="step"><span class="snum">4</span><span>4. Simplify using distance formula</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Key Terms</span> of a Hyperbola</h2>
-          <ul><li>Foci (F1, F2): Two fixed points, one in each branch.</li><li>Vertices (V1, V2): Points where the hyperbola intersects its transverse axis.</li><li>Transverse Axis: The line segment connecting the two vertices.</li><li>Conjugate Axis: Perpendicular to the transverse axis, passing through the center.</li><li>Asymptotes: Lines that the hyperbola approaches but never touches.</li></ul>
-          <p class="notes">🎙️ Like the ellipse, the hyperbola also has foci, vertices, and axes. A key feature of hyperbolas are their asymptotes, which are guiding lines that the branches get closer and closer to as they extend infinitely.</p>
+          <h2><span class="hl">Key Terms</span> of Ellipse</h2>
+          <ul><li>Foci (F1, F2): The two fixed points.</li><li>Vertices: Endpoints of the major axis.</li><li>Major Axis (2a): Longest diameter.</li><li>Minor Axis (2b): Shortest diameter.</li><li>Eccentricity (e): c/a (0 &lt; e &lt; 1).</li></ul>
+          <p class="notes">🎙️ The major axis contains the foci and vertices. The minor axis is perpendicular to the major axis, passing through the centre. Eccentricity 'e' tells us how 'squashed' the ellipse is; an 'e' close to 0 means it's nearly a circle, while an 'e' close to 1 means it's very elongated.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Axes &amp; Foci</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Important features</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Standard Equation</span> of a Hyperbola</h2>
-          <ul><li>Horizontal Hyperbola: x²/a² - y²/b² = 1 (transverse axis along x-axis).</li><li>Vertical Hyperbola: y²/a² - x²/b² = 1 (transverse axis along y-axis).</li><li>a is semi-transverse axis, b is semi-conjugate axis. Relation: c² = a² + b² (c is distance from center to focus).</li></ul>
-          <p class="notes">🎙️ Notice the minus sign between the x² and y² terms – this is a key differentiator from the ellipse. Also, the relationship between a, b, and c for a hyperbola is c² = a² + b², which is different from the ellipse.</p>
+          <h2>Worked <span class="hl">Example</span>: Ellipse</h2>
+          <ul><li>Find the equation of an ellipse whose foci are (±5, 0) and vertices are (±13, 0).</li><li>Foci on x-axis means horizontal ellipse: x²/a² + y²/b² = 1.</li><li>From foci, c = 5. From vertices, a = 13.</li><li>Use c² = a² - b² to find b: 5² = 13² - b² ⇒ 25 = 169 - b² ⇒ b² = 144.</li><li>Result: x²/169 + y²/144 = 1.</li></ul>
+          <p class="notes">🎙️ First, identify the orientation (horizontal). Then extract 'c' from the foci and 'a' from the vertices. Use the fundamental relation c² = a² - b² to find b². Finally, substitute a² and b² into the standard equation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Subtraction</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Example: <span class="hl">Finding Hyperbola</span> Equation</h2>
-          <ul><li>Problem: Vertices (±7, 0), foci (±9, 0).</li><li>Solution: Vertices/Foci on x-axis =&gt; Horizontal Hyperbola. a = 7, c = 9.</li><li>Use c² = a² + b² =&gt; 9² = 7² + b² =&gt; 81 = 49 + b² =&gt; b² = 32.</li><li>Equation: x²/49 - y²/32 = 1.</li></ul>
-          <p class="notes">🎙️ Similar to the ellipse, identify the orientation first. Use the given vertices and foci to find 'a' and 'c', then use the relation c² = a² + b² to find 'b²'. Finally, substitute these values into the correct standard equation.</p>
+          <h2><span class="hl">Real-Life</span> Examples: Ellipse</h2>
+          <ul><li>Planetary orbits: Planets revolve around the Sun in elliptical paths.</li><li>Whispering galleries: Sound reflects from one focus to another.</li><li>Architectural designs: Arches and domes.</li></ul>
+          <p class="notes">🎙️ Kepler's laws of planetary motion state that planets orbit the Sun in ellipses, with the Sun at one focus. This is a monumental application of ellipses. Whispering galleries are fascinating examples of their acoustic properties.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify axis</span></div><div class="step"><span class="snum">2</span><span>Find a and c</span></div><div class="step"><span class="snum">3</span><span>Calculate b²</span></div><div class="step"><span class="snum">4</span><span>Form equation</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪐</span><span>🪐</span><span>🪐</span></div><div class="vcap">Ellipses in space</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick Check: <span class="hl">Identify</span> the Conic</h2>
-          <ul><li>1. x² + y² = 25</li><li>2. x²/9 + y²/16 = 1</li><li>3. y² = 8x</li><li>4. y²/4 - x²/9 = 1</li></ul>
-          <p class="notes">🎙️ Take a moment to look at these equations. Can you quickly tell which conic section each one represents? Pay attention to the signs and whether both x² and y² terms are present.</p>
+          <h2>The <span class="hl">Hyperbola</span> - Definition</h2>
+          <ul><li>A set of all points in a plane.</li><li>The absolute difference of whose distances from two fixed points (foci) is constant.</li><li>Consists of two separate, unbounded branches.</li></ul>
+          <p class="notes">🎙️ Similar to the ellipse, the hyperbola also involves two foci. However, instead of the sum of distances being constant, it's the *absolute difference* of the distances that remains constant. This leads to two separate branches that curve away from each other.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❓</span><span>❓</span><span>❓</span><span>❓</span></div><div class="vcap">What Am I?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Two distinct curves</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick Check: <span class="hl">Parameters</span></h2>
-          <ul><li>1. For x²/25 + y²/9 = 1, what are 'a' and 'b'?</li><li>2. For x² = -16y, what is the focus?</li><li>3. For (x-1)² + (y+2)² = 36, what is the center and radius?</li><li>4. For x²/4 - y²/5 = 1, what type of axis is along the x-axis?</li></ul>
-          <p class="notes">🎙️ Now, let's delve a bit deeper into the parameters. Can you extract the key information from these equations? This tests your understanding of the standard forms.</p>
+          <h2>Standard <span class="hl">Equation</span> of Hyperbola</h2>
+          <ul><li>Horizontal Hyperbola: x²/a² - y²/b² = 1 (foci on x-axis)</li><li>Vertical Hyperbola: y²/a² - x²/b² = 1 (foci on y-axis)</li><li>a: semi-transverse axis, b: semi-conjugate axis, c: distance from centre to focus.</li><li>Relation: c² = a² + b².</li></ul>
+          <p class="notes">🎙️ Notice the minus sign between the terms, which distinguishes it from the ellipse equation. Also, the relation between a, b, and c is c² = a² + b², unlike the ellipse. The 'a' value is associated with the positive term in the equation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧠</span><span>🧠</span><span>🧠</span><span>🧠</span></div><div class="vcap">Test Your Knowledge</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">x²/a² - y²/b² = 1</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">y²/a² - x²/b² = 1</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Conic Sections in <span class="hl">Real Life</span></h2>
-          <ul><li>Parabolic reflectors (headlights, satellite dishes).</li><li>Elliptical orbits (planets around the sun, satellites).</li><li>Hyperbolic trajectories (comets, space missions).</li><li>Circular paths (wheels, gears, clock faces).</li></ul>
-          <p class="notes">🎙️ Conic sections aren't just abstract mathematical concepts; they are everywhere around us! From the design of optical instruments to the paths of celestial bodies, understanding them helps us comprehend the world.</p>
+          <h2><span class="hl">Key Terms</span> of Hyperbola</h2>
+          <ul><li>Foci (F1, F2): The two fixed points.</li><li>Vertices: Endpoints of the transverse axis.</li><li>Transverse Axis (2a): Connects the two vertices.</li><li>Conjugate Axis (2b): Perpendicular to transverse axis.</li><li>Asymptotes: Lines that the hyperbola branches approach but never touch.</li><li>Eccentricity (e): c/a (e &gt; 1).</li></ul>
+          <p class="notes">🎙️ The transverse axis passes through the foci and vertices. The asymptotes are very important for sketching hyperbolas; they act as guides for the branches. The eccentricity 'e' is always greater than 1 for a hyperbola, indicating its open, unbounded nature.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Everywhere!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Distinctive features</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Exam Focus: <span class="hl">Common Mistakes</span> &amp; Tips</h2>
-          <ul><li>Confusing 'a' and 'b' in ellipse/hyperbola (a is always semi-major/transverse).</li><li>Incorrect signs when completing the square for circles.</li><li>Mixing up 'c²' relations: c² = a² - b² (ellipse) vs c² = a² + b² (hyperbola).</li><li>For parabolas, correctly identifying 'a' and orientation from focus/directrix.</li></ul>
-          <p class="notes">🎙️ These are some of the most frequent errors students make. Pay close attention to these details, especially the definitions of 'a' and 'b' and the 'c²' relationships. Practice is key to avoiding these pitfalls.</p>
+          <h2>Worked <span class="hl">Example</span>: Hyperbola</h2>
+          <ul><li>Find the equation of a hyperbola with foci (±4, 0) and vertices (±2, 0).</li><li>Foci on x-axis means horizontal hyperbola: x²/a² - y²/b² = 1.</li><li>From foci, c = 4. From vertices, a = 2.</li><li>Use c² = a² + b² to find b: 4² = 2² + b² ⇒ 16 = 4 + b² ⇒ b² = 12.</li><li>Result: x²/4 - y²/12 = 1.</li></ul>
+          <p class="notes">🎙️ Similar to the ellipse example, first identify the orientation. Extract 'c' from foci and 'a' from vertices. Use the hyperbola's specific relation c² = a² + b² to find b². Substitute a² and b² into the standard equation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Be Careful!</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Conic Sections</h2>
-          <ul><li>Conic sections are curves from a plane intersecting a double-napped cone.</li><li>Four types: Circle, Ellipse, Parabola, Hyperbola.</li><li>Each has a unique definition, standard equation, and key parameters.</li><li>Understanding these forms is crucial for solving problems and real-world applications.</li></ul>
-          <p class="notes">🎙️ We've covered the definitions, standard equations, and key properties of all four conic sections. Remember to practice identifying them from equations and deriving equations from given properties. Good luck with your exams!</p>
+          <h2>Recap &amp; <span class="hl">Exam Focus</span></h2>
+          <ul><li>Memorize definitions and standard equations for all conics.</li><li>Understand the relationship between a, b, c, and e for ellipse and hyperbola.</li><li>Practice deriving equations from given properties (foci, vertices, directrix, etc.).</li><li>Focus on common mistakes: signs in equations, correct 'a' and 'b' for ellipse/hyperbola.</li></ul>
+          <p class="notes">🎙️ Conic sections are a high-scoring topic for CBSE and competitive exams like JEE/NEET. A strong grasp of definitions, standard forms, and the interrelations of parameters like 'a', 'b', and 'c' is essential. Practice problem-solving to avoid common pitfalls, especially with signs and orientations.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

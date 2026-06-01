@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Some Unique Places — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to <span class="hl">Unique</span> Places!</h2>
-          <ul><li>Let's discover amazing spots!</li><li>Around our big, beautiful Earth.</li></ul>
-          <p class="notes">🎙️ Hello, children! Today, we will go on a fun journey around the world. We will learn about some very special places that are different from anywhere else.</p>
+          <h2>Our Amazing Earth!</h2>
+          <ul><li>Our planet Earth is full of wonders.</li><li>Some places are very special and different.</li></ul>
+          <p class="notes">🎙️ Hello, little explorers! Today, we are going on an exciting journey to discover some truly amazing places on our Earth. Get ready to learn about places that are very unique and beautiful!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What Makes a Place <span class="hl">Unique</span>?</h2>
-          <ul><li>They are one of a kind!</li><li>You won't find another exactly like it.</li></ul>
-          <p class="notes">🎙️ Imagine your favourite toy. Is it special to you? Unique places are like that, but for the whole world! They have something very special that makes them stand out.</p>
+          <h2>What is a <span class="hl">Unique Place</span>?</h2>
+          <ul><li>A unique place is special.</li><li>It is different from other places.</li><li>It has something that makes it stand out.</li></ul>
+          <p class="notes">🎙️ Think about your friends. Each friend is unique, right? They have special qualities. In the same way, some places on Earth are unique because they have very special features that you won't find everywhere.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Special Places</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Special place</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why Are They So <span class="hl">Special</span>?</h2>
-          <ul><li>They can be very old or very big.</li><li>Or have amazing nature.</li></ul>
-          <p class="notes">🎙️ Some places are special because people built them long, long ago. Others are special because nature made them in a wonderful way, like huge mountains or deep valleys.</p>
+          <h2>Hot <span class="hl">Deserts</span></h2>
+          <ul><li>Deserts are very hot and dry.</li><li>They have lots of sand.</li><li>Very little water is found here.</li></ul>
+          <p class="notes">🎙️ Imagine walking on hot sand under a strong sun, with no trees around and very little water to drink. That's a desert! Animals and plants here have learned to live with very little water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Precious Gems</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏜️</div><div class="vcap">Sandy Desert</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>The Great Wall of <span class="hl">China</span></h2>
-          <ul><li>A very, very long wall!</li><li>Built in China many years ago.</li></ul>
-          <p class="notes">🎙️ Our first stop is China! Have you ever seen a very long wall? The Great Wall of China is so long, it's like a giant snake winding over mountains and hills.</p>
+          <h2><span class="hl">Thar Desert</span> in India</h2>
+          <ul><li>The Thar Desert is in Rajasthan, India.</li><li>People here live in special mud houses.</li><li>Camels are very helpful for travel and work.</li></ul>
+          <p class="notes">🎙️ Our own country, India, has a big desert called the Thar Desert. It's a very unique place where camels are called the 'ships of the desert' because they help people travel across the sand.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Long Wall</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐪</div><div class="vcap">Camel in Thar</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>A Wall for <span class="hl">Protection</span>!</h2>
-          <ul><li>It was built to keep people safe.</li><li>Soldiers walked on it to guard the land.</li></ul>
-          <p class="notes">🎙️ Long, long ago, kings wanted to protect their land. So, they asked many people to build this huge wall. Imagine walking for days and days on this wall!</p>
+          <h2>Cold <span class="hl">Polar Regions</span></h2>
+          <ul><li>These places are extremely cold.</li><li>They are covered with ice and snow.</li><li>Animals like polar bears live here.</li></ul>
+          <p class="notes">🎙️ Now, let's go from hot to super cold! Polar regions are like giant refrigerators, always covered in thick ice and snow. It's so cold that only special animals can survive there.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♀️</div><div class="vcap">Walking Path</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥶</div><div class="vcap">Icy Cold</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>The <span class="hl">Pyramids</span> of Egypt</h2>
-          <ul><li>Big, pointy buildings in Egypt.</li><li>Built for kings and queens.</li></ul>
-          <p class="notes">🎙️ Next, we fly to Egypt! Here, we see giant triangle-shaped buildings called pyramids. They are very old and were built as special tombs for ancient kings and queens, called Pharaohs.</p>
+          <h2><span class="hl">Antarctica</span>: The Icy Land</h2>
+          <ul><li>Antarctica is at the South Pole.</li><li>No people live there permanently.</li><li>Many penguins call it home!</li></ul>
+          <p class="notes">🎙️ Antarctica is one of the coldest places on Earth. It's a huge continent of ice! You won't find cities or towns there, but you will find lots of cute penguins waddling around.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Giant Triangles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐧</div><div class="vcap">Penguin in Antarctica</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Home for <span class="hl">Kings</span></h2>
-          <ul><li>Inside, kings were kept safe.</li><li>They are a mystery of how they were built.</li></ul>
-          <p class="notes">🎙️ People worked very hard for many years to build these huge pyramids. Even today, we wonder how they moved such big stones to build them so perfectly!</p>
+          <h2>Tall <span class="hl">Mountains</span></h2>
+          <ul><li>Mountains are very high lands.</li><li>They have rocky tops.</li><li>Some mountains have snow all year.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a mountain? They are like giant bumps on the Earth's surface, reaching high into the sky. Climbing them can be a big adventure!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👑</div><div class="vcap">Royal Tombs</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">High Mountain</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>The Grand <span class="hl">Canyon</span>, USA</h2>
-          <ul><li>A very deep, wide valley.</li><li>Made by a river over millions of years.</li></ul>
-          <p class="notes">🎙️ Now, let's visit America! Imagine a giant crack in the Earth, so big and deep you can't see the bottom easily. That's the Grand Canyon! A river carved it out slowly, slowly.</p>
+          <h2><span class="hl">Himalayas</span>: Our Giants</h2>
+          <ul><li>The Himalayas are in the north of India.</li><li>They are the tallest mountains in the world.</li><li>It is very cold up in the mountains.</li></ul>
+          <p class="notes">🎙️ We are so lucky to have the mighty Himalayas in India! These mountains are so tall that their tops are always covered in snow, even in summer. They look like white crowns.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Deep Valley</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏔️</div><div class="vcap">Himalayan Peaks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Nature's Big <span class="hl">Carving</span></h2>
-          <ul><li>The Colorado River flowed here.</li><li>It slowly cut through the rock.</li></ul>
-          <p class="notes">🎙️ For a very, very long time, a river called the Colorado River kept flowing through this land. Like water dripping on a stone, it slowly cut the rock, making this huge, beautiful canyon.</p>
+          <h2>Green <span class="hl">Forests</span></h2>
+          <ul><li>Forests have many, many trees.</li><li>They are home to lots of animals.</li><li>Some get heavy rainfall.</li></ul>
+          <p class="notes">🎙️ Now let's imagine a place full of tall, green trees, where birds sing and animals play hide-and-seek. That's a forest! They are like giant lungs for our Earth, giving us fresh air.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">River Flow</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Mount <span class="hl">Everest</span>, Nepal</h2>
-          <ul><li>The tallest mountain in the world!</li><li>It touches the sky in Nepal.</li></ul>
-          <p class="notes">🎙️ Our next stop is Nepal, home to the highest mountain on Earth! Mount Everest stands so tall, its peak is often covered in snow and clouds. It feels like it's touching the sky!</p>
+          <h2><span class="hl">Sundarbans</span>: Home of Tigers</h2>
+          <ul><li>The Sundarbans are in West Bengal, India.</li><li>It's a special forest with mangrove trees.</li><li>Royal Bengal Tigers live here!</li></ul>
+          <p class="notes">🎙️ The Sundarbans is a very unique forest in India, famous for its mangrove trees that grow in salty water. It's also the only place where Royal Bengal Tigers swim in the water!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏔️</div><div class="vcap">Highest Peak</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🐅" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,23 +180,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Reaching for the <span class="hl">Sky</span></h2>
-          <ul><li>It is a challenge for brave climbers.</li><li>Always covered in snow and ice.</li></ul>
-          <p class="notes">🎙️ Imagine climbing a very, very tall hill. Mount Everest is much, much taller! Only very brave people try to climb to its top, and it's always very cold there.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>Which animal is called the 'ship of the desert'?</li><li>Is it a polar bear, a camel, or a penguin?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think back to our hot desert friends. Which animal helps people travel across the vast sands? Take a moment to think.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Up, Up, Up!</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🌍" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>The Amazon <span class="hl">Rainforest</span></h2>
-          <ul><li>A huge, green forest in South America.</li><li>Home to many animals and plants.</li></ul>
-          <p class="notes">🎙️ Let's go to South America! Here, we find the Amazon Rainforest, the biggest forest in the world! It's so green and full of life.</p>
+          <h2>Another <span class="hl">Question</span>!</h2>
+          <ul><li>Which place is covered in ice and home to penguins?</li><li>Is it the Himalayas, the Thar Desert, or Antarctica?</li></ul>
+          <p class="notes">🎙️ Let's test your memory again! We talked about a super cold place where cute penguins live. Can you remember its name? It's at the very bottom of the Earth.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌳" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,47 +204,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>A Home for <span class="hl">Animals</span></h2>
-          <ul><li>Monkeys, colourful birds, and jaguars live here.</li><li>Many unique plants grow here too.</li></ul>
-          <p class="notes">🎙️ This forest is like a big home for so many different animals. You can hear monkeys chattering and see colourful birds flying. It's a busy, lively place!</p>
+          <h2>Fiery <span class="hl">Volcanoes</span></h2>
+          <ul><li>Volcanoes are mountains that can erupt.</li><li>Hot, melted rock called lava comes out.</li><li>It's a very powerful sight!</li></ul>
+          <p class="notes">🎙️ Imagine a mountain that can sometimes rumble and then shoot out fire and hot liquid rock! These are volcanoes, and they are truly unique and powerful natural wonders.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🐒" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌋</div><div class="vcap">Erupting Volcano</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Can You <span class="hl">Guess</span>?</h2>
-          <ul><li>Which unique place is a very long wall?</li><li>A) Pyramids of Egypt</li><li>B) Great Wall of China</li><li>C) Grand Canyon</li></ul>
-          <p class="notes">🎙️ Time for a quick test! Out of the places we just learned about, which one is a very, very long wall that people built?</p>
+          <h2>How a Volcano <span class="hl">Works</span></h2>
+          <ul><li>Deep inside Earth, hot rock is called magma.</li><li>Magma pushes up through a crack.</li><li>It erupts and flows out as lava!</li></ul>
+          <p class="notes">🎙️ It's like a giant pressure cooker! Inside the Earth, there's super hot melted rock. When the pressure builds up, it finds a way out through a volcano, exploding to the surface as lava.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Magma inside</span></div><div class="step"><span class="snum">2</span><span>Pushes up</span></div><div class="step"><span class="snum">3</span><span>Lava flows out</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Another <span class="hl">Question</span>!</h2>
-          <ul><li>Which unique place is the tallest mountain?</li><li>A) Grand Canyon</li><li>B) Mount Everest</li><li>C) Amazon Rainforest</li></ul>
-          <p class="notes">🎙️ Good job on the last one! Now, try this: Which of these unique places is the highest mountain in the whole world?</p>
+          <h2>Deep Blue <span class="hl">Oceans</span></h2>
+          <ul><li>Oceans are huge bodies of salty water.</li><li>They are very, very deep.</li><li>Many strange and beautiful creatures live there.</li></ul>
+          <p class="notes">🎙️ Most of our Earth is covered by vast, deep oceans. They are like a whole other world underwater, with amazing fish, corals, and mysteries waiting to be discovered.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🐠" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">Last</span> One!</h2>
-          <ul><li>Which unique place is a huge green forest?</li><li>A) Pyramids of Egypt</li><li>B) Great Wall of China</li><li>C) Amazon Rainforest</li></ul>
-          <p class="notes">🎙️ You're doing great! One more question: Which of these amazing places is a very big, green forest, full of animals?</p>
+          <h2>How <span class="hl">Deep</span> is Deep?</h2>
+          <ul><li>Oceans are much deeper than any swimming pool.</li><li>Some parts are so deep, sunlight cannot reach.</li><li>It's like looking into a very dark well!</li></ul>
+          <p class="notes">🎙️ Imagine the deepest swimming pool you've seen. Now, imagine something many, many times deeper! That's how deep some parts of the ocean are. It's truly mind-boggling!</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Swimming Pool</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ocean</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,51 +252,52 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Different Kinds of <span class="hl">Unique</span></h2>
-          <ul><li>Some are made by people (Wall, Pyramids).</li><li>Some are made by nature (Canyon, Everest).</li></ul>
-          <p class="notes">🎙️ See how different all these unique places are? Some are amazing because people built them, and some are amazing because nature made them over a very long time.</p>
+          <h2>Dark <span class="hl">Caves</span></h2>
+          <ul><li>Caves are natural hollows in the ground or hills.</li><li>They can be very dark and cool inside.</li><li>Some have amazing rock formations.</li></ul>
+          <p class="notes">🎙️ Caves are like secret underground rooms made by nature! They can be dark and mysterious, and sometimes you find beautiful rock shapes inside them, like hanging icicles or pillars.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Wall (Length)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Pyramids (Age)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Canyon (Depth)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Everest (Height)</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2>Why <span class="hl">Protect</span> These Places?</h2>
-          <ul><li>They are treasures for everyone.</li><li>We must keep them safe and clean.</li></ul>
-          <p class="notes">🎙️ These special places are like gifts to us from history and nature. We must make sure they stay beautiful and safe for children in the future to also enjoy.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our Earth</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>How Can We <span class="hl">Help</span>?</h2>
-          <ul><li>Don't litter when you visit.</li><li>Tell others about these wonders.</li></ul>
-          <p class="notes">🎙️ Even we can help! If you ever visit such a place, remember not to throw trash. We can also tell our friends and family how amazing these places are!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Be Green</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦇</div><div class="vcap">Dark Cave</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2>What Did We <span class="hl">Learn</span>?</h2>
-          <ul><li>We learned about unique places.</li><li>Like the Great Wall, Pyramids, Grand Canyon, Everest, and Amazon.</li><li>They are special wonders of our world!</li></ul>
-          <p class="notes">🎙️ Today, we travelled around the world and met some truly unique places. Remember their stories and how important it is to cherish them. Our world is full of wonders!</p>
+          <span class="num">18 / 20</span>
+          <h2>Think and <span class="hl">Tell</span>!</h2>
+          <ul><li>Which unique place has many tall trees and animals?</li><li>Is it a desert, a forest, or a volcano?</li></ul>
+          <p class="notes">🎙️ Let's try another question! We talked about a place that is green and full of life, where many animals make their home. Can you recall its name?</p>
         </div>
         
       </div>
     </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>Last <span class="hl">Question</span>!</h2>
+          <ul><li>What hot, melted rock comes out of a volcano?</li><li>Is it water, sand, or lava?</li></ul>
+          <p class="notes">🎙️ One more question before our recap! Remember the fiery mountains? What is the name of the super hot, melted rock that flows out when they erupt?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2>What We <span class="hl">Learned</span> Today!</h2>
+          <ul><li>We explored Deserts and Polar Regions.</li><li>We saw Tall Mountains and Green Forests.</li><li>We learned about Fiery Volcanoes, Deep Oceans, and Dark Caves.</li></ul>
+          <p class="notes">🎙️ Wow, what a journey we had today! We travelled to so many unique and wonderful places on our Earth. Remember, our planet is full of amazing things to discover every day!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span></div><div class="vcap">Our Unique Earth</div></div></div>
+      </div>
+    </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

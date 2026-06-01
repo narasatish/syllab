@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Microorganisms - Friend and Foe — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Microorganisms</span>: Friend and Foe</h2>
-          <ul><li>Welcome Class 8 Science students!</li><li>Let's explore the tiny world around us.</li><li>Discover their roles in our lives!</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to understand the fascinating world of microorganisms. These tiny creatures are everywhere, and we'll learn how they can be both helpful and harmful.</p>
+          <h2>Welcome to the World of <span class="hl">Microorganisms</span>!</h2>
+          <ul><li>Explore tiny life forms all around us.</li><li>Discover their roles as both friends and foes.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into the microscopic world. We'll learn about the tiny living beings that are invisible to our naked eyes but play a huge part in our lives.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What are <span class="hl">Microorganisms</span>?</h2>
-          <ul><li>Tiny living organisms, invisible to the naked eye.</li><li>Can only be seen through a microscope.</li><li>Also called microbes.</li></ul>
-          <p class="notes">🎙️ Microorganisms are incredibly small living beings that you cannot see without a special instrument called a microscope. They are also commonly known as microbes, and they are literally all around us!</p>
+          <ul><li>Tiny living organisms, invisible to the naked eye.</li><li>Can only be seen with a microscope.</li><li>Found almost everywhere on Earth.</li></ul>
+          <p class="notes">🎙️ Microorganisms, also known as microbes, are incredibly small creatures. We need a special tool called a microscope to observe them, as they are too tiny to be seen with just our eyes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Microscope View</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="🔬" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Where do Microorganisms <span class="hl">Live</span>?</h2>
-          <ul><li>Found in air, water, soil, and inside our bodies.</li><li>Can survive extreme conditions: hot springs, deserts, icy cold.</li><li>Some live alone, others in colonies.</li></ul>
-          <p class="notes">🎙️ These tiny organisms are truly universal. From the deepest oceans to the highest mountains, from scorching hot springs to freezing cold deserts, microorganisms thrive everywhere. Some prefer to live independently, while others form large groups called colonies.</p>
+          <h2>Where do Microorganisms Live?</h2>
+          <ul><li>They can survive in all types of environments.</li><li>From icy cold climates to hot springs and deserts.</li><li>Also found inside the bodies of animals and humans.</li></ul>
+          <p class="notes">🎙️ It's amazing how adaptable microorganisms are! You can find them in the most extreme conditions, from the freezing poles to scorching hot deserts, and even deep inside the ocean or within our own bodies.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span><span>🌍</span></div><div class="vcap">Everywhere!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Habitat</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Major <span class="hl">Groups</span> of Microorganisms</h2>
-          <ul><li>Bacteria</li><li>Fungi</li><li>Protozoa</li><li>Algae</li><li>Viruses (a special category)</li></ul>
-          <p class="notes">🎙️ Microorganisms are broadly classified into five main groups. We will explore each of these groups individually, understanding their unique characteristics and examples. Viruses are often considered a distinct category due to their unique nature.</p>
+          <h2>Types of Microorganisms: <span class="hl">Bacteria</span></h2>
+          <ul><li>Single-celled organisms with a simple structure.</li><li>Can be rod-shaped, spherical, or spiral.</li><li>Example: Lactobacillus (found in curd).</li></ul>
+          <p class="notes">🎙️ Bacteria are among the most common types of microbes. They are single-celled and come in various shapes. Lactobacillus, for instance, is a bacterium essential for making curd from milk.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Bacteria</span></div><div class="step"><span class="snum">2</span><span>Fungi</span></div><div class="step"><span class="snum">3</span><span>Protozoa</span></div><div class="step"><span class="snum">4</span><span>Algae</span></div><div class="step"><span class="snum">5</span><span>Viruses</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Bacteria</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Bacteria</span>: The Simplest Forms</h2>
-          <ul><li>Single-celled organisms.</li><li>Vary in shape: rod-like, spherical, spiral.</li><li>Found almost everywhere, some are beneficial, some harmful.</li></ul>
-          <p class="notes">🎙️ Bacteria are among the simplest and most abundant forms of life. They are single-celled and come in various shapes like rods, spheres, and spirals. While some bacteria cause diseases, many are incredibly useful to us and the environment.</p>
+          <h2>Types of Microorganisms: <span class="hl">Fungi</span></h2>
+          <ul><li>Mostly multicellular organisms, but some are unicellular (like yeast).</li><li>Grow on dead and decaying matter.</li><li>Example: Yeast (used in bread making), Penicillium (source of antibiotic).</li></ul>
+          <p class="notes">🎙️ Fungi are another diverse group. While many are multicellular like mushrooms, yeast is a single-celled fungus crucial for baking. They play a vital role in decomposition.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Diverse Shapes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍄</div><div class="vcap">Fungi</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Fungi</span>: Diverse Decomposers</h2>
-          <ul><li>Mostly multicellular, but some are unicellular (e.g., yeast).</li><li>Obtain nutrients by decomposing dead organic matter.</li><li>Examples: Yeast, Moulds, Mushrooms.</li></ul>
-          <p class="notes">🎙️ Fungi include a wide range of organisms, from microscopic yeasts and moulds to the large mushrooms we see. They are crucial decomposers, breaking down dead plants and animals, returning nutrients to the soil. This makes them vital for ecosystems.</p>
+          <h2>Types of Microorganisms: <span class="hl">Protozoa</span></h2>
+          <ul><li>Single-celled animals, often found in water.</li><li>Some can move using pseudopods, flagella, or cilia.</li><li>Example: Amoeba, Plasmodium (causes malaria).</li></ul>
+          <p class="notes">🎙️ Protozoa are fascinating single-celled organisms that resemble tiny animals. Many live in water and can move around. Plasmodium, a protozoan, is unfortunately responsible for causing malaria.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍄</div><div class="vcap">Moulds &amp; Mushrooms</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Water Dwellers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Protozoa</span>: Animal-like Microbes</h2>
-          <ul><li>Mostly single-celled, animal-like organisms.</li><li>Can move independently and feed on other microbes.</li><li>Examples: Amoeba, Paramecium, Plasmodium.</li></ul>
-          <p class="notes">🎙️ Protozoa are single-celled organisms that share characteristics with animals, such as their ability to move and hunt for food. Many protozoa live in water, and some can cause diseases in humans and animals, like malaria caused by Plasmodium.</p>
+          <h2>Types of Microorganisms: <span class="hl">Algae</span></h2>
+          <ul><li>Plant-like organisms, mostly aquatic.</li><li>Can be unicellular or multicellular.</li><li>Perform photosynthesis, producing oxygen.</li><li>Example: Spirogyra, Chlamydomonas.</li></ul>
+          <p class="notes">🎙️ Algae are unique microbes because, like plants, they can perform photosynthesis. They are mostly found in water and are crucial for producing oxygen in our environment. Think of the green scum you sometimes see in ponds.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Dwellers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Photosynthetic</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,23 +144,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Algae</span>: Plant-like Microbes</h2>
-          <ul><li>Mostly aquatic, plant-like organisms.</li><li>Contain chlorophyll and perform photosynthesis.</li><li>Examples: Spirogyra, Chlamydomonas.</li></ul>
-          <p class="notes">🎙️ Algae are fascinating microorganisms that are primarily aquatic. Like plants, they contain chlorophyll and produce their own food through photosynthesis. They are a vital part of aquatic food chains and produce a significant portion of the Earth's oxygen.</p>
+          <h2>Types of Microorganisms: <span class="hl">Viruses</span></h2>
+          <ul><li>Are different from other microorganisms.</li><li>Reproduce only inside the host organism's cells.</li><li>Cause diseases like common cold, flu, polio, COVID-19.</li></ul>
+          <p class="notes">🎙️ Viruses are a special case; they are considered to be on the border of living and non-living. They can only multiply by invading the cells of other living organisms. Many common diseases, including the flu, are caused by viruses.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Photosynthesis</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Genetic Material</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Viruses</span>: The Borderline Cases</h2>
-          <ul><li>Extremely small, much smaller than bacteria.</li><li>Reproduce only inside the host organism's cells.</li><li>Examples: Common cold, Flu, HIV, COVID-19.</li></ul>
-          <p class="notes">🎙️ Viruses are unique because they are not considered truly 'living' outside a host cell. They are parasitic and can only multiply by invading the cells of other organisms. They cause a wide range of diseases, from the common cold to more severe illnesses like COVID-19.</p>
+          <h2>Quick Check 1! <span class="hl">Can you name them?</span></h2>
+          <ul><li>1. Which microorganism is used in making curd?</li><li>2. What tool is needed to see microbes?</li><li>3. Are viruses considered living organisms?</li></ul>
+          <p class="notes">🎙️ Alright class, let's quickly test our understanding. Think about what we just discussed and try to answer these questions. Don't worry if you don't get all of them right, we're still learning!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Host Dependent</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Friendly Microorganisms: <span class="hl">Food Production</span></h2>
-          <ul><li>Making curd from milk (Lactobacillus).</li><li>Baking bread and cakes (Yeast).</li><li>Producing cheese and fermented foods.</li></ul>
-          <p class="notes">🎙️ Now, let's explore the 'friend' side of microorganisms! Many are incredibly beneficial, especially in the food industry. Think about your favourite curd or a fluffy piece of bread – these are all made possible by the action of tiny microbes.</p>
+          <h2>Friendly Microorganisms: <span class="hl">Curd &amp; Bread</span> Making</h2>
+          <ul><li>Lactobacillus bacteria converts milk into curd.</li><li>Yeast ferments sugar in dough, producing CO2.</li><li>CO2 bubbles make bread fluffy and soft.</li></ul>
+          <p class="notes">🎙️ Microbes are incredibly useful in our kitchens! Lactobacillus bacteria are the unsung heroes behind delicious curd, while yeast makes our bread light and airy by releasing carbon dioxide gas during fermentation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍞</span><span>🍞</span><span>🍞</span></div><div class="vcap">Delicious Foods</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Milk + Lactobacillus</span></div><div class="step"><span class="snum">2</span><span>Curd Formation</span></div><div class="step"><span class="snum">3</span><span>Flour + Yeast</span></div><div class="step"><span class="snum">4</span><span>Dough Rises</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Making <span class="hl">Curd and Bread</span></h2>
-          <ul><li>Curd: Lactobacillus bacteria convert milk sugar (lactose) into lactic acid.</li><li>Bread: Yeast ferments sugars in dough, producing CO2 gas, making it rise.</li><li>These processes change texture and flavour.</li></ul>
-          <p class="notes">🎙️ The transformation of milk into curd is a classic example of bacterial action. Lactobacillus multiplies in milk, turning it into curd. Similarly, yeast plays a crucial role in baking, making bread soft and spongy by producing carbon dioxide gas during fermentation.</p>
+          <h2>Friendly Microorganisms: <span class="hl">Alcohol</span> Production</h2>
+          <ul><li>Yeast is used for commercial production of alcohol and wine.</li><li>It converts natural sugars in grains/fruits into alcohol and CO2.</li><li>This process is called fermentation.</li></ul>
+          <p class="notes">🎙️ Beyond baking, yeast also plays a crucial role in the production of alcoholic beverages. Louis Pasteur discovered this process, called fermentation, where yeast converts sugars into alcohol. This is a big industry!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Milk to Curd</span></div><div class="step"><span class="snum">2</span><span>Dough to Bread</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍇</div><div class="vcap">Fermentation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Commercial Use</span> of Microorganisms</h2>
-          <ul><li>Large-scale production of alcohol, wine, and beer.</li><li>Production of acetic acid (vinegar).</li><li>Yeast is used for fermentation of sugar into alcohol.</li></ul>
-          <p class="notes">🎙️ Microorganisms are not just for home cooking; they are essential in large-scale industrial processes too. Yeast, for example, is a key player in the fermentation of sugars to produce alcohol, which is then used to make beverages like wine and beer.</p>
+          <h2>Friendly Microorganisms: Medicinal Use - <span class="hl">Antibiotics</span></h2>
+          <ul><li>Medicines that stop or kill the growth of disease-causing microbes.</li><li>Produced from specific bacteria and fungi.</li><li>Example: Penicillin, discovered by Alexander Fleming from a fungus.</li></ul>
+          <p class="notes">🎙️ Microbes are lifesavers! Antibiotics are powerful medicines derived from certain bacteria and fungi. They target harmful microbes in our bodies without damaging our own cells, helping us recover from many bacterial infections.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍷</div><div class="vcap">Fermentation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💊</div><div class="vcap">Medicine</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Medicinal Use</span> of Microorganisms</h2>
-          <ul><li>Production of antibiotics to fight bacterial infections.</li><li>Preparation of vaccines to prevent diseases.</li><li>Saving countless lives worldwide.</li></ul>
-          <p class="notes">🎙️ Perhaps one of the most significant contributions of microorganisms is in medicine. They are the source of life-saving antibiotics and play a crucial role in developing vaccines, which protect us from various infectious diseases.</p>
+          <h2>Friendly Microorganisms: Medicinal Use - <span class="hl">Vaccines</span></h2>
+          <ul><li>Weakened or dead disease-causing microbes are introduced into the body.</li><li>The body produces antibodies to fight the disease.</li><li>These antibodies remain, providing lifelong protection.</li></ul>
+          <p class="notes">🎙️ Vaccines are another incredible medical advancement involving microbes. By introducing a harmless form of a pathogen, vaccines train our immune system to recognize and fight off future infections, keeping us safe from many diseases.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💊</div><div class="vcap">Healing Power</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💉</div><div class="vcap">Protection</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Antibiotics</span>: Fighting Bacterial Infections</h2>
-          <ul><li>Medicines that kill or stop the growth of disease-causing bacteria.</li><li>Discovered by Alexander Fleming (Penicillin).</li><li>Important to complete the full course as prescribed.</li></ul>
-          <p class="notes">🎙️ Antibiotics are powerful drugs that specifically target and destroy harmful bacteria without significantly harming our own cells. Penicillin, discovered by Alexander Fleming, was the first antibiotic and revolutionized medicine. Always remember to take antibiotics responsibly!</p>
+          <h2>Friendly Microorganisms: Environmental <span class="hl">Clean-up</span></h2>
+          <ul><li>Decompose organic waste and dead plants/animals.</li><li>Break down complex substances into simpler ones.</li><li>Help keep the environment clean and recycle nutrients.</li></ul>
+          <p class="notes">🎙️ Microbes are nature's clean-up crew! They act as decomposers, breaking down dead organic matter and waste. This process returns essential nutrients to the soil, making it fertile and keeping our environment healthy.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bacteria without Antibiotics</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Bacteria with Antibiotics</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Recycling</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Vaccines</span>: Preventing Diseases</h2>
-          <ul><li>Weakened or dead microbes introduced into the body.</li><li>Body produces antibodies to fight future infections.</li><li>Provides immunity against specific diseases.</li></ul>
-          <p class="notes">🎙️ Vaccines are a marvel of modern medicine. They expose our immune system to a harmless version of a pathogen, teaching it to recognize and fight the real infection if we encounter it later. This process builds immunity and prevents serious illness.</p>
+          <h2>Friendly Microorganisms: <span class="hl">Nitrogen Fixation</span></h2>
+          <ul><li>Certain bacteria (e.g., Rhizobium) convert atmospheric nitrogen into usable forms.</li><li>Essential for plant growth and soil fertility.</li><li>Found in the root nodules of leguminous plants.</li></ul>
+          <p class="notes">🎙️ Nitrogen is vital for plants, but they can't use it directly from the air. This is where friendly bacteria like Rhizobium come in! They 'fix' atmospheric nitrogen into a form plants can absorb, enriching the soil.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💉</div><div class="vcap">Building Immunity</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Nutrient Cycle</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Environmental Role</span>: Cleaning &amp; Fixing</h2>
-          <ul><li>Decomposition of organic waste, cleaning the environment.</li><li>Nitrogen fixation in soil, enhancing soil fertility.</li><li>Bioremediation: cleaning up oil spills and pollution.</li></ul>
-          <p class="notes">🎙️ Microorganisms are nature's recyclers and cleaners. They break down dead plants, animals, and waste, returning essential nutrients to the soil. They also play a critical role in nitrogen fixation, which is vital for plant growth, and can even help clean up pollution.</p>
+          <h2>Quick Check 2! <span class="hl">True or False?</span></h2>
+          <ul><li>1. Yeast is used to make bread rise. (T/F)</li><li>2. Antibiotics are used to treat viral infections. (T/F)</li><li>3. Microorganisms help in decomposing waste. (T/F)</li></ul>
+          <p class="notes">🎙️ Let's quickly check your understanding of the beneficial roles of microorganisms. Read each statement carefully and decide if it's true or false. This will help us reinforce what we've learned so far.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Nature's Cleaners</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Nitrogen Fixation</span>: A Vital Process</h2>
-          <ul><li>Atmospheric nitrogen (N2) is converted into usable forms (nitrates).</li><li>Done by bacteria like Rhizobium in legume roots and free-living bacteria.</li><li>Essential for plant growth and protein synthesis.</li></ul>
-          <p class="notes">🎙️ Nitrogen is an essential element for all living things, especially plants, but they cannot use it directly from the air. Nitrogen-fixing bacteria, like Rhizobium found in the root nodules of legumes, convert atmospheric nitrogen into a form plants can absorb, enriching the soil.</p>
+          <h2>Harmful Microorganisms: Disease-causing (<span class="hl">Pathogens</span>)</h2>
+          <ul><li>Microbes that cause diseases are called pathogens.</li><li>Can enter our body through air, water, food, or contact.</li><li>Disease can spread from an infected person to a healthy one (communicable diseases).</li></ul>
+          <p class="notes">🎙️ Unfortunately, not all microorganisms are our friends. Some are harmful and cause diseases in humans, animals, and plants. These disease-causing microbes are known as pathogens, and they can spread easily.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Atmospheric N2</span></div><div class="step"><span class="snum">2</span><span>Nitrogen-fixing bacteria</span></div><div class="step"><span class="snum">3</span><span>Usable Nitrogen for Plants</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤒</div><div class="vcap">Sickness</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Harmful Microorganisms</span>: The Foes</h2>
-          <ul><li>Microorganisms that cause diseases are called pathogens.</li><li>Can affect humans, animals, and plants.</li><li>Spread through air, water, food, or direct contact.</li></ul>
-          <p class="notes">🎙️ Unfortunately, not all microorganisms are our friends. Some are harmful and cause diseases. These disease-causing microbes are called pathogens, and they can make us, our animals, and even our crops sick.</p>
+          <h2>Harmful Microorganisms: <span class="hl">Human Diseases</span></h2>
+          <ul><li>Bacterial: Tuberculosis (TB), Cholera, Typhoid.</li><li>Viral: Common Cold, Flu, Polio, Measles.</li><li>Protozoal: Malaria, Dysentery.</li><li>Fungal: Ringworm, Athlete's foot.</li></ul>
+          <p class="notes">🎙️ Many common and serious human diseases are caused by different types of pathogens. It's important to understand which type of microbe causes which disease, as this helps in choosing the right treatment.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤒</span><span>🤒</span><span>🤒</span><span>🤒</span></div><div class="vcap">Causing Illness</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Bacteria</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Viruses</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Protozoa</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Fungi</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Communicable</span> Diseases: How They Spread</h2>
-          <ul><li>Diseases that can spread from an infected person to a healthy person.</li><li>Spread through air (cough/sneeze), water, food, or physical contact.</li><li>Examples: Common cold, Chickenpox, Tuberculosis.</li></ul>
-          <p class="notes">🎙️ Communicable diseases are those that can easily pass from one person to another. Understanding their modes of transmission – through air droplets, contaminated water or food, or direct contact – helps us take precautions to prevent their spread.</p>
+          <h2>Harmful Microorganisms: <span class="hl">Animal Diseases</span></h2>
+          <ul><li>Anthrax: A dangerous bacterial disease in cattle and humans.</li><li>Foot and Mouth Disease: A viral disease affecting cattle.</li><li>Many diseases can reduce livestock productivity and cause losses.</li></ul>
+          <p class="notes">🎙️ Animals are also susceptible to microbial diseases. Anthrax, caused by bacteria, and Foot and Mouth disease, caused by a virus, are serious concerns for farmers as they can severely impact livestock health and the economy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Easy Transmission</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐄</div><div class="vcap">Livestock</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Common <span class="hl">Human Diseases</span></h2>
-          <ul><li>Bacteria: Tuberculosis, Typhoid, Cholera.</li><li>Viruses: Common cold, Measles, Polio, Hepatitis A.</li><li>Protozoa: Malaria, Dysentery.</li></ul>
-          <p class="notes">🎙️ Here are some common diseases caused by different types of microorganisms. For example, tuberculosis is a bacterial disease, while measles is caused by a virus. Malaria is a well-known disease caused by a protozoan transmitted by mosquitoes.</p>
+          <h2>Harmful Microorganisms: <span class="hl">Plant Diseases</span></h2>
+          <ul><li>Microbes cause diseases in crops, reducing yield.</li><li>Example: Citrus Canker (bacteria) in citrus fruits.</li><li>Example: Rust of Wheat (fungi) in wheat crops.</li><li>Example: Yellow Vein Mosaic (virus) in bhindi (okra).</li></ul>
+          <p class="notes">🎙️ Our crops are not safe from harmful microbes either. Plant diseases caused by bacteria, fungi, and viruses can devastate harvests, leading to food shortages and economic losses for farmers. Protecting crops is crucial.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bacterial Diseases</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Viral Diseases</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Protozoal Diseases</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Crop Damage</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Diseases in <span class="hl">Animals &amp; Plants</span></h2>
-          <ul><li>Animals: Anthrax (bacteria), Foot and Mouth Disease (virus).</li><li>Plants: Citrus Canker (bacteria), Rust of Wheat (fungi), Yellow Vein Mosaic of Bhindi (virus).</li><li>Cause economic losses to farmers.</li></ul>
-          <p class="notes">🎙️ Microorganisms don't just affect humans; they also cause significant diseases in animals and plants. These diseases can lead to major economic losses for farmers, impacting food production and livestock health.</p>
+          <h2>Food <span class="hl">Preservation</span>: Why is it important?</h2>
+          <ul><li>Microorganisms can spoil food, making it unfit for consumption.</li><li>Spoilage causes bad smell, bad taste, and discoloration.</li><li>Preservation prevents microbial growth, extending food shelf life.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed food going bad? That's the work of microorganisms! Food preservation is vital to stop these microbes from spoiling our food, ensuring it stays safe and edible for longer.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Crop &amp; Livestock Loss</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🗑️" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,35 +312,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Food Poisoning</span>: A Microbial Threat</h2>
-          <ul><li>Caused by consuming food contaminated with microorganisms or their toxins.</li><li>Symptoms: vomiting, diarrhoea, abdominal pain.</li><li>Can be severe or even fatal.</li></ul>
-          <p class="notes">🎙️ Food poisoning is a serious condition caused by harmful microbes growing in our food. These microbes can produce toxins that make us very sick. It's crucial to handle and store food properly to prevent such contamination.</p>
+          <h2>Food Preservation <span class="hl">Methods</span></h2>
+          <ul><li>Chemical Method: Using salt or sugar (e.g., pickles, jams).</li><li>Oil and Vinegar: Prevents bacterial growth (e.g., pickles).</li><li>Heat and Cold Treatments: Pasteurization, refrigeration.</li><li>Storage: Airtight containers to prevent microbial access.</li></ul>
+          <p class="notes">🎙️ There are many ways we can preserve food at home and commercially. From adding salt to making pickles to pasteurizing milk, these methods are designed to inhibit or kill the microbes that cause spoilage.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤢</span><span>🤢</span><span>🤢</span></div><div class="vcap">Unsafe Food</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2><span class="hl">Food Preservation</span>: Protecting Our Food</h2>
-          <ul><li>Methods to prevent microbial growth and food spoilage.</li><li>Chemical methods (salt, sugar, oil, vinegar).</li><li>Physical methods (heating, cooling, pasteurization, drying).</li></ul>
-          <p class="notes">🎙️ To prevent food spoilage and food poisoning, we use various food preservation techniques. These methods either kill the microbes or create conditions that inhibit their growth, allowing food to be stored safely for longer periods.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥫</div><div class="vcap">Longer Shelf Life</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Salting/Sugaring</span></div><div class="step"><span class="snum">2</span><span>Oil/Vinegar</span></div><div class="step"><span class="snum">3</span><span>Heating/Cooling</span></div><div class="step"><span class="snum">4</span><span>Airtight Storage</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>1. Name two friendly microorganisms.</li><li>2. What are pathogens?</li><li>3. Give one example of a communicable disease.</li></ul>
-          <p class="notes">🎙️ Alright, students, let's quickly test your understanding! Think about the key terms and examples we've discussed. Take a moment to answer these questions in your mind.</p>
+          <span class="num">23 / 25</span>
+          <h2>Quick Check 3! <span class="hl">Fill in the Blanks</span>:</h2>
+          <ul><li>1. Diseases causing microorganisms are called _______.</li><li>2. Malaria is caused by a _______ (protozoan/virus).</li><li>3. Pasteurization involves heating milk to kill _______.</li></ul>
+          <p class="notes">🎙️ Let's do one final quick check to see how well you've grasped the harmful aspects and preservation techniques. Think carefully about the terms we've discussed and complete these sentences.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Microorganisms: <span class="hl">Friend or Foe?</span></h2>
+          <ul><li>Friends: Curd, bread, alcohol, antibiotics, vaccines, decomposition, nitrogen fixation.</li><li>Foes: Cause diseases in humans, animals, and plants, spoil food.</li><li>Understanding them helps us harness benefits and prevent harm.</li></ul>
+          <p class="notes">🎙️ So, are microorganisms friends or foes? The answer is both! They are indispensable for many processes vital to life and industry, yet some can cause severe harm. It's about recognizing their roles.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Friends</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Foes</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Microorganisms - Friends and Foes</h2>
-          <ul><li>Microbes are tiny, found everywhere, and grouped into bacteria, fungi, protozoa, algae, viruses.</li><li>Friends: Food production, medicine (antibiotics, vaccines), environmental cleaning, nitrogen fixation.</li><li>Foes: Cause diseases in humans, animals, plants, and lead to food poisoning.</li></ul>
-          <p class="notes">🎙️ To summarize, we've learned that microorganisms are a vast and diverse group. They play indispensable roles as our 'friends' in various aspects of life, from food to health and the environment. However, some are also 'foes,' causing diseases and food spoilage. Understanding them helps us harness their benefits and protect ourselves from harm.</p>
+          <h2>Conclusion: <span class="hl">Living</span> with Microbes</h2>
+          <ul><li>Microorganisms are an integral part of our world.</li><li>Good hygiene practices are key to preventing harmful microbes.</li><li>Further research continues to unlock their potential benefits.</li></ul>
+          <p class="notes">🎙️ In conclusion, microorganisms are everywhere, playing countless roles. By understanding them, we can leverage their friendly aspects and protect ourselves from their harmful ones. Always remember the importance of cleanliness and hygiene!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 8 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

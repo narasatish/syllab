@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Numbers up to 1000 — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to "Numbers up to <span class="hl">1000</span>"!</h2>
-          <ul><li>Let's explore big numbers together!</li><li>We will learn about hundreds and thousands.</li><li>It will be a fun journey!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure to learn about numbers that are bigger than what we already know. We will discover numbers all the way up to 1000. Are you ready for some number magic?</p>
+          <h2>Welcome to '<span class="hl">Numbers</span> Up to 1000'!</h2>
+          <ul><li>Hello, little mathematicians!</li><li>Let's explore the wonderful world of numbers together.</li></ul>
+          <p class="notes">🎙️ Hello, little mathematicians! Today, we're going on an exciting adventure to discover numbers, especially the big ones up to 1000. Numbers are everywhere – they help us know how many toys we have or how many friends are in our class!</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Do you remember numbers up to <span class="hl">100</span>?</h2>
-          <ul><li>We know numbers like 1, 10, 50, 99.</li><li>These numbers help us count many things.</li><li>They have Ones and Tens places.</li></ul>
-          <p class="notes">🎙️ Before we meet new big numbers, let's quickly remember our old friends. We have learned to count and write numbers up to 100. We know that 10 ones make one ten, and 10 tens make one hundred. Fantastic!</p>
+          <h2>Numbers are <span class="hl">Everywhere</span>!</h2>
+          <ul><li>We see numbers on clocks, phones, and calendars.</li><li>They tell us how old we are or how many sweets we can eat.</li></ul>
+          <p class="notes">🎙️ Look around you! Numbers are on the clock telling us time, on our parents' phones, and on the calendar showing the date. They are super important for daily life and help us understand quantities.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>What happens after <span class="hl">99</span>?</h2>
-          <ul><li>After 99 comes a very special number.</li><li>It is called One Hundred.</li><li>It is the smallest 3-digit number!</li></ul>
-          <p class="notes">🎙️ Imagine you have 99 shiny stars. If you get one more star, how many do you have? You have 100 stars! One Hundred is a big milestone, and it's the first number that needs three places to write it.</p>
+          <h2>What are <span class="hl">2-Digit</span> Numbers?</h2>
+          <ul><li>Numbers like 10, 25, 99 are 2-digit numbers.</li><li>They have a 'tens' place and a 'ones' place.</li></ul>
+          <p class="notes">🎙️ Remember our friends, the 2-digit numbers? They are made of two digits. The first digit tells us how many groups of ten, and the second tells us how many single ones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">10 groups of 10 apples = 100</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔟</div><div class="vcap">Tens and Ones</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Let's count in <span class="hl">Hundreds</span>!</h2>
-          <ul><li>We can count 100, 200, 300...</li><li>It's like counting 1, 2, 3 but with 'hundred' after it.</li><li>Up to 900!</li></ul>
-          <p class="notes">🎙️ It's fun to count by hundreds! Imagine you have one 100-rupee note, then two 100-rupee notes, then three... This is how we count 100, 200, 300, 400, 500, and so on. Each time, we are adding another group of 100.</p>
+          <h2>The <span class="hl">Biggest</span> 2-Digit Number</h2>
+          <ul><li>Can you guess the biggest 2-digit number?</li><li>It's 99! It has 9 tens and 9 ones.</li></ul>
+          <p class="notes">🎙️ Think about all the 2-digit numbers. Which one is the very last one before we move to something new? Yes, it's 99! It has 9 groups of ten and 9 single ones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">Five 100-rupee notes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">9️⃣9️⃣</div><div class="vcap">Ninety-Nine</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>The <span class="hl">Home</span> of 3-Digit Numbers</h2>
-          <ul><li>Every number has a special 'home' for its digits.</li><li>For 3-digit numbers, we have Ones, Tens, and Hundreds.</li><li>Hundreds is the newest, biggest place!</li></ul>
-          <p class="notes">🎙️ Just like you have a home with different rooms, numbers have places for their digits. For numbers like 123, the '3' lives in the Ones place, the '2' lives in the Tens place, and the '1' lives in the Hundreds place. This helps us understand the value of each digit.</p>
+          <h2>What Comes <span class="hl">After 99</span>?</h2>
+          <ul><li>When we add 1 to 99, we get a new number.</li><li>This new number is 100! A very special number.</li></ul>
+          <p class="notes">🎙️ Imagine you have 99 candies, and someone gives you one more. How many do you have now? You have 100! This is a very special number because it's the first number with three digits.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ones</span></div><div class="step"><span class="snum">2</span><span>Tens</span></div><div class="step"><span class="snum">3</span><span>Hundreds</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>99</span></div><div class="step"><span class="snum">2</span><span>+1</span></div><div class="step"><span class="snum">3</span><span>100</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>How to <span class="hl">Build</span> a 3-Digit Number?</h2>
-          <ul><li>We use digits from 0 to 9.</li><li>Put one digit in Hundreds, one in Tens, one in Ones.</li><li>For example, 2 hundreds, 3 tens, 4 ones makes 234.</li></ul>
-          <p class="notes">🎙️ It's like building with blocks! You pick a block for the Hundreds place, a block for the Tens place, and a block for the Ones place. Remember, the hundreds digit cannot be zero, otherwise, it would not be a 3-digit number. Let's try an example together.</p>
+          <h2>Meet 100: <span class="hl">One Hundred</span>!</h2>
+          <ul><li>100 is the first 3-digit number.</li><li>It means ten groups of ten.</li></ul>
+          <p class="notes">🎙️ 100 is a big milestone! It's like having ten bundles, and each bundle has ten sticks. So, ten tens make one hundred. It's a whole new way to count!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hundreds Digit</span></div><div class="step"><span class="snum">2</span><span>Tens Digit</span></div><div class="step"><span class="snum">3</span><span>Ones Digit</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span></div><div class="vcap">Ten groups of 10 make 100</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Let's <span class="hl">build</span> a number!</h2>
-          <ul><li>We have 5 Hundreds, 2 Tens, and 7 Ones.</li><li>Put them together: 5_ _.</li><li>Then 5_2_.</li><li>Finally, 527!</li></ul>
-          <p class="notes">🎙️ If we have 5 blocks of 100, 2 sticks of 10, and 7 single beads, what number do we get? We get five hundred and twenty-seven. The Hundreds digit is 5, the Tens digit is 2, and the Ones digit is 7. See, it's easy!</p>
+          <h2>New Friend: The <span class="hl">Hundreds Place</span>!</h2>
+          <ul><li>Now we have three places: Ones, Tens, and Hundreds.</li><li>The Hundreds place is on the left, for numbers like 100, 200, 300.</li></ul>
+          <p class="notes">🎙️ Just like we had a 'ones' house and a 'tens' house, now we have a 'hundreds' house! It's the biggest house on the left, for numbers like 1, 2, or 3 hundreds.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building 527</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">Hundreds, Tens, Ones</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>How to <span class="hl">Read</span> Big Numbers?</h2>
-          <ul><li>First, read the Hundreds digit and say 'hundred'.</li><li>Then, read the last two digits together as a 2-digit number.</li><li>Like 345 is 'Three hundred forty-five'.</li></ul>
-          <p class="notes">🎙️ Reading 3-digit numbers is simple! You just say the hundreds part first, and then say the rest of the number as you usually would. For example, for the number 678, we say 'Six hundred' and then 'seventy-eight'. So, it's 'Six hundred seventy-eight'.</p>
+          <h2>Let's See: <span class="hl">123</span></h2>
+          <ul><li>In 123: 1 is in the Hundreds place (100).</li><li>2 is in the Tens place (20).</li><li>3 is in the Ones place (3).</li></ul>
+          <p class="notes">🎙️ When we see 123, we can break it down. One hundred, two tens, and three ones. Each digit has its own special value because of its place.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Speaking numbers</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1 Hundred</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">2 Tens</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">3 Ones</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Let's <span class="hl">read</span> some numbers!</h2>
-          <ul><li>What is 700? Seven hundred.</li><li>What is 125? One hundred twenty-five.</li><li>What is 999? Nine hundred ninety-nine.</li></ul>
-          <p class="notes">🎙️ Here are some more examples to help us practice. Seven zero zero is Seven Hundred. One two five is One Hundred Twenty-Five. And the biggest 3-digit number, nine nine nine, is Nine Hundred Ninety-Nine. You are doing great!</p>
+          <h2><span class="hl">Reading</span> Our New Numbers</h2>
+          <ul><li>We read the hundreds first, then the tens and ones together.</li><li>Example: 245 is 'Two hundred forty-five'.</li></ul>
+          <p class="notes">🎙️ Reading 3-digit numbers is fun! First, say how many hundreds you see. Then, read the last two digits just like you read 2-digit numbers, for example, 'forty-five'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Reading practice</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Saying numbers aloud</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2><span class="hl">Stretching</span> Numbers Apart (Expanded Form)</h2>
-          <ul><li>We can break a number into its parts.</li><li>Show the value of each digit.</li><li>234 = 200 + 30 + 4.</li></ul>
-          <p class="notes">🎙️ Expanded form is like pulling a number apart to see what it's made of. Each digit has a value based on its place. For 234, the '2' is 200, the '3' is 30, and the '4' is 4. When we add them up, we get back our original number!</p>
+          <h2><span class="hl">Writing</span> Numbers: From Words to Digits</h2>
+          <ul><li>If you hear 'Three hundred seventeen', you write 317.</li><li>If you hear 'Five hundred two', you write 502 (don't forget the 0 for tens!).</li></ul>
+          <p class="notes">🎙️ Sometimes, someone might tell you a number in words, and you need to write it down. Listen carefully for the hundreds, then the tens and ones. If there are no tens, put a zero!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hundreds value</span></div><div class="step"><span class="snum">2</span><span>Tens value</span></div><div class="step"><span class="snum">3</span><span>Ones value</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Writing down numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Let's <span class="hl">expand</span> a number!</h2>
-          <ul><li>Take the number 456.</li><li>4 is in Hundreds place, so 400.</li><li>5 is in Tens place, so 50.</li><li>6 is in Ones place, so 6.</li><li>So, 456 = 400 + 50 + 6.</li></ul>
-          <p class="notes">🎙️ Let's try expanding the number 456. The 4 in the hundreds place means 400. The 5 in the tens place means 50. And the 6 in the ones place means just 6. So, 456 becomes 400 + 50 + 6. It's like seeing all the ingredients of a number.</p>
+          <h2><span class="hl">Expanded Form</span>: Stretch It Out!</h2>
+          <ul><li>Expanded form means showing the value of each digit.</li><li>Example: 456 = 400 + 50 + 6.</li></ul>
+          <p class="notes">🎙️ Expanded form is like taking a number and stretching it out to show what each part is worth. It helps us understand the number better by seeing the value of hundreds, tens, and ones separately.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔎</div><div class="vcap">Looking closely at 456</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>400</span></div><div class="step"><span class="snum">2</span><span>50</span></div><div class="step"><span class="snum">3</span><span>6</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Who is Bigger? <span class="hl">Comparing</span> Numbers!</h2>
-          <ul><li>We use &gt; (greater than), &lt; (less than), or = (equal to).</li><li>Start comparing from the Hundreds place.</li><li>If Hundreds are same, compare Tens, then Ones.</li></ul>
-          <p class="notes">🎙️ Comparing numbers helps us know which number is bigger or smaller. Always start by looking at the Hundreds digit first. If the hundreds are the same, then move to the Tens digit. If those are also the same, then look at the Ones digit. It's like finding the tallest person in a line!</p>
+          <h2>Where Do We See Big Numbers?</h2>
+          <ul><li>Pages in a book (e.g., 250 pages).</li><li>Money in a piggy bank (e.g., ₹500).</li><li>Distance to a friend's house (e.g., 150 km).</li></ul>
+          <p class="notes">🎙️ Big numbers are everywhere! When you read a storybook, it might have hundreds of pages. Your parents might have hundreds of rupees. Even the distance to another city can be hundreds of kilometers.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Number 1</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Number 2</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Books, Money, Distance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Let's <span class="hl">compare</span> 543 and 571.</h2>
-          <ul><li>Hundreds: 5 and 5 (same).</li><li>Tens: 4 and 7 (7 is bigger!).</li><li>So, 571 is greater than 543.</li></ul>
-          <p class="notes">🎙️ Let's compare 543 and 571. Both have 5 in the hundreds place, so we look at the tens. 543 has 4 tens, and 571 has 7 tens. Since 7 tens is bigger than 4 tens, 571 is the bigger number. So, 543 &lt; 571.</p>
+          <h2><span class="hl">Comparing</span> Numbers: Who is Bigger?</h2>
+          <ul><li>Start by comparing the Hundreds digit.</li><li>If hundreds are same, compare Tens. Then Ones.</li></ul>
+          <p class="notes">🎙️ To know which number is bigger or smaller, we start with the biggest place, the Hundreds. If the hundreds are the same, we move to the tens, and then the ones, like checking steps in order.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance for comparison</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Putting Numbers in <span class="hl">Order</span></h2>
-          <ul><li>We can arrange numbers from smallest to largest (ascending).</li><li>Or largest to smallest (descending).</li><li>Use comparison rules to help!</li></ul>
-          <p class="notes">🎙️ Ordering numbers is like arranging your toys from smallest to biggest, or tallest to shortest. Ascending order means going up, from small to big. Descending order means going down, from big to small. We use the same comparison rules we just learned to help us.</p>
+          <h2>Let's <span class="hl">Compare</span>: 345 and 321</h2>
+          <ul><li>Hundreds are same (3).</li><li>Tens: 4 is greater than 2.</li><li>So, 345 is greater than 321 (345 &gt; 321).</li></ul>
+          <p class="notes">🎙️ See how we first look at the hundreds? Both have 3 hundreds. So, we move to the tens. 4 tens is more than 2 tens, so 345 is definitely bigger than 321.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Smallest</span></div><div class="step"><span class="snum">2</span><span>Middle</span></div><div class="step"><span class="snum">3</span><span>Largest</span></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">345</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">321</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">Order</span> these: 215, 198, 230.</h2>
-          <ul><li>Smallest Hundreds: 198 (1 Hundred).</li><li>Next: 215 (2 Hundreds, 1 Ten).</li><li>Largest: 230 (2 Hundreds, 3 Tens).</li><li>Order: 198, 215, 230.</li></ul>
-          <p class="notes">🎙️ Let's order the numbers 215, 198, and 230 from smallest to largest. First, we look at the hundreds digit. 198 has 1 hundred, which is the smallest. Then, both 215 and 230 have 2 hundreds, so we look at the tens. 215 has 1 ten, and 230 has 3 tens. So, 215 comes before 230. The order is 198, 215, 230.</p>
+          <h2><span class="hl">Ordering</span> Numbers: Smallest to Biggest &amp; Biggest to Smallest</h2>
+          <ul><li>Ascending order: arrange numbers from smallest to largest (like climbing up stairs).</li><li>Descending order: arrange numbers from largest to smallest (like coming down stairs).</li></ul>
+          <p class="notes">🎙️ We can arrange numbers in two ways: from smallest to biggest, called ascending order, or from biggest to smallest, called descending order. It's like putting things in a line by their size.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️⬇️</div><div class="vcap">Arranging numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Up and Down Order</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Where do we see big numbers?</h2>
-          <ul><li>Page numbers in thick books (e.g., 345).</li><li>Money amounts (e.g., 500 rupees).</li><li>House numbers on a long street (e.g., 876).</li></ul>
-          <p class="notes">🎙️ Big numbers are everywhere around us! You see them in your storybooks as page numbers, on price tags in shops, and even on the houses in your neighbourhood. Knowing these numbers helps us understand the world better every day.</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>What is the place value of 7 in 782?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Look at the number 782. What place is the digit 7 sitting in? What is its value? Think about our 'hundreds house'!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏙️</div><div class="vcap">Numbers all around us</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>What number comes <span class="hl">after</span> 499?</h2>
-          <ul><li>Think about counting.</li><li>If 99 becomes 100, what about 499?</li></ul>
-          <p class="notes">🎙️ Time for a quick brain test! If you have 499 items and you add one more, what number do you get? Think carefully about what happens when you cross a 'hundred' mark. The answer is 500!</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Which number is smaller: 567 or 576?</li></ul>
+          <p class="notes">🎙️ Another question! We have two numbers: 567 and 576. Can you tell me which one is smaller? Remember our comparison rules, starting with the hundreds place!</p>
         </div>
         
       </div>
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Which number is <span class="hl">smaller</span>: 625 or 652?</h2>
-          <ul><li>Look at the Hundreds place first.</li><li>If they are same, look at the Tens place.</li><li>Then the Ones place.</li></ul>
-          <p class="notes">🎙️ Let's compare these two numbers. Both start with 6 in the hundreds place. So, we look at the tens. 625 has 2 tens, and 652 has 5 tens. Since 2 is smaller than 5, 625 is the smaller number. Great job!</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>Write 634 in expanded form.</li></ul>
+          <p class="notes">🎙️ Last quick question! Take the number 634. Can you write it in its expanded form? Show what each digit is worth separately.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Write 789 in <span class="hl">expanded form</span>.</h2>
-          <ul><li>What is the value of 7?</li><li>What is the value of 8?</li><li>What is the value of 9?</li></ul>
-          <p class="notes">🎙️ Can you stretch the number 789 for me? Remember, we break it down by the value of each digit. The 7 is in hundreds place, so 700. The 8 is in tens place, so 80. The 9 is in ones place, so 9. So, it's 700 + 80 + 9.</p>
+          <h2>Counting to <span class="hl">1000</span>!</h2>
+          <ul><li>We can count in hundreds: 100, 200, 300... all the way to 1000!</li><li>1000 is the smallest 4-digit number, meaning ten hundreds.</li></ul>
+          <p class="notes">🎙️ After 999, we reach 1000! It's like having ten bundles of 100. This is the first number with four digits, a very big and exciting number!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span></div><div class="vcap">Ten Hundreds make 1000</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What did we learn today?</h2>
-          <ul><li>We met numbers up to 1000.</li><li>Learned about Hundreds, Tens, and Ones.</li><li>We can build, read, expand, compare, and order these numbers!</li></ul>
-          <p class="notes">🎙️ Wow! We've covered so much today. We explored the world of 3-digit numbers, from 100 all the way up to 999. We learned about their special homes – the Hundreds, Tens, and Ones places. And now you can confidently build, read, stretch, compare, and order these numbers. You are all number superstars!</p>
+          <h2><span class="hl">Recap</span>: Our Number Journey!</h2>
+          <ul><li>We learned about 3-digit numbers and the Hundreds place.</li><li>Understood place value: Hundreds, Tens, Ones.</li><li>Practiced reading, writing, comparing, and ordering numbers up to 1000.</li></ul>
+          <p class="notes">🎙️ Wow, what a journey we had today! We explored the wonderful world of numbers up to 1000. We met hundreds, learned to break numbers apart, and put them back together. Keep practicing, and numbers will be your best friends!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

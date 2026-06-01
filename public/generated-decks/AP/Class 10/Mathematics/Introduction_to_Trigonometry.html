@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Introduction to Trigonometry — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Trigonometry</span>!</h2>
+          <ul><li>Unlocking the secrets of triangles and angles!</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're embarking on an exciting journey into a new branch of mathematics called Trigonometry. Get ready to discover how triangles hold many secrets!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Trigonometry</span>?</h2>
+          <ul><li>Study of relationships between sides and angles of triangles.</li><li>Comes from Greek words 'Trigonon' (triangle) and 'Metron' (measure).</li></ul>
+          <p class="notes">🎙️ Trigonometry literally means 'triangle measurement'. It's a fascinating field that helps us understand how the lengths of a triangle's sides relate to its angles. It's a key part of geometry and algebra.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Triangle Measurement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Why Study</span> Trigonometry?</h2>
+          <ul><li>Used in engineering, navigation, physics, and astronomy.</li><li>Helps measure heights, distances, and angles indirectly.</li></ul>
+          <p class="notes">🎙️ Trigonometry isn't just for textbooks! From helping pilots navigate planes to architects designing buildings, and even astronomers calculating distances to stars, it has countless real-world applications.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Real-World Use</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Focus on <span class="hl">Right-Angled</span> Triangles</h2>
+          <ul><li>Trigonometry primarily deals with right-angled triangles.</li><li>A right angle is exactly 90 degrees.</li></ul>
+          <p class="notes">🎙️ For our initial steps into trigonometry, we will concentrate on a special type of triangle: the right-angled triangle. Remember, this triangle has one angle that measures exactly 90 degrees.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">The Right Triangle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Sides</span> of a Right-Angled Triangle</h2>
+          <ul><li>Hypotenuse: Longest side, opposite the 90° angle.</li><li>Perpendicular (Opposite): Side opposite the reference angle.</li><li>Base (Adjacent): Side next to the reference angle (not hypotenuse).</li></ul>
+          <p class="notes">🎙️ Let's quickly recall the names of the sides. The hypotenuse is always opposite the right angle. The other two sides, perpendicular and base, depend on which acute angle we are focusing on.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hypotenuse</span></div><div class="step"><span class="snum">2</span><span>Perpendicular</span></div><div class="step"><span class="snum">3</span><span>Base</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Reference Angle</span> (θ)</h2>
+          <ul><li>We choose one of the two acute angles as our reference angle (often denoted by θ or A).</li><li>The 'Opposite' and 'Adjacent' sides are defined relative to this angle.</li></ul>
+          <p class="notes">🎙️ In trigonometry, we always pick one of the acute angles to work with. This is our 'reference angle'. The names 'opposite' and 'adjacent' sides will change if you pick a different reference angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle of Interest</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>The Idea of Trigonometric <span class="hl">Ratios</span></h2>
+          <ul><li>Ratios compare the lengths of two sides of a right-angled triangle.</li><li>These ratios remain constant for a given angle, regardless of triangle size.</li></ul>
+          <p class="notes">🎙️ Imagine scaling a triangle up or down; the side lengths change, but their ratios for a specific angle stay the same. This constant relationship is the core idea behind trigonometric ratios.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Side Comparisons</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Remembering the Ratios: <span class="hl">SOH CAH TOA</span></h2>
+          <ul><li>A helpful mnemonic to recall the three main ratios.</li><li>SOH: Sine = Opposite / Hypotenuse</li><li>CAH: Cosine = Adjacent / Hypotenuse</li><li>TOA: Tangent = Opposite / Adjacent</li></ul>
+          <p class="notes">🎙️ This is your secret weapon! SOH CAH TOA will help you remember the definitions of Sine, Cosine, and Tangent. Let's break down each one.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>SOH</span></div><div class="step"><span class="snum">2</span><span>CAH</span></div><div class="step"><span class="snum">3</span><span>TOA</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Sine</span> (Sin): Opposite / Hypotenuse</h2>
+          <ul><li>Sin θ = Length of side Opposite to θ / Length of Hypotenuse.</li><li>Example: If Opposite = 3, Hypotenuse = 5, then Sin θ = 3/5.</li></ul>
+          <p class="notes">🎙️ Sine tells us how tall the 'opposite' side is compared to the hypotenuse. Think of it as the 'vertical' component of the angle's reach. It's always a value between 0 and 1 for acute angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Opposite Side</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Cosine</span> (Cos): Adjacent / Hypotenuse</h2>
+          <ul><li>Cos θ = Length of side Adjacent to θ / Length of Hypotenuse.</li><li>Example: If Adjacent = 4, Hypotenuse = 5, then Cos θ = 4/5.</li></ul>
+          <p class="notes">🎙️ Cosine tells us how long the 'adjacent' side is compared to the hypotenuse. Think of it as the 'horizontal' component. Like Sine, it's also between 0 and 1 for acute angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Adjacent Side</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Tangent</span> (Tan): Opposite / Adjacent</h2>
+          <ul><li>Tan θ = Length of side Opposite to θ / Length of side Adjacent to θ.</li><li>Also, Tan θ = Sin θ / Cos θ.</li><li>Example: If Opposite = 3, Adjacent = 4, then Tan θ = 3/4.</li></ul>
+          <p class="notes">🎙️ Tangent gives us the ratio of the opposite side to the adjacent side. It's like measuring the 'steepness' or slope of the angle. It can be any positive value for acute angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">Slope Ratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Real-Life: Measuring <span class="hl">Tree Height</span></h2>
+          <ul><li>A boy stands 10m from a tree. The angle of elevation to the top is 30°.</li><li>Which ratio relates angle, adjacent side, and opposite (height)? Tangent!</li></ul>
+          <p class="notes">🎙️ Imagine you want to find the height of a tall tree without climbing it! If you know your distance from the tree and the angle you look up at, trigonometry can help you find its height using the Tangent ratio.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span></div><div class="vcap">Tall Tree</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example: Find <span class="hl">Missing Side</span></h2>
+          <ul><li>Given a right triangle with angle 30°, hypotenuse 10cm.</li><li>Find the side opposite to 30° (Perpendicular).</li><li>Use Sin 30° = Opposite / Hypotenuse.</li></ul>
+          <p class="notes">🎙️ Let's put our knowledge to use. We have an angle and the hypotenuse. We want to find the opposite side. Sine is the perfect ratio for this. Sin 30° is 1/2, so Opposite = 10 * (1/2) = 5 cm.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Given</span></div><div class="step"><span class="snum">2</span><span>Choose Ratio</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>In a right triangle, if the side opposite angle A is 8 and the hypotenuse is 10, what is Sin A?</li></ul>
+          <p class="notes">🎙️ Time for a quick mental check! Remember the definition of Sine. What would be the ratio of the opposite side to the hypotenuse in this case?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which trigonometric ratio uses the Adjacent side and the Hypotenuse?</li></ul>
+          <p class="notes">🎙️ Think back to SOH CAH TOA. Which part of the mnemonic helps us with Adjacent and Hypotenuse?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Introduction to <span class="hl">Reciprocal Ratios</span></h2>
+          <ul><li>Each main ratio has a reciprocal (inverse) ratio.</li><li>These are Cosecant, Secant, and Cotangent.</li><li>They are simply 1 divided by the primary ratio.</li></ul>
+          <p class="notes">🎙️ Just like 2 has a reciprocal of 1/2, our trigonometric ratios also have reciprocals. These are not new concepts but simply different ways of expressing the same side relationships.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Inverse Relationship</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Cosecant</span> (Csc): Hypotenuse / Opposite</h2>
+          <ul><li>Csc θ = Hypotenuse / Opposite.</li><li>It is the reciprocal of Sine: Csc θ = 1 / Sin θ.</li></ul>
+          <p class="notes">🎙️ Cosecant is the flip of Sine. If Sine tells us Opposite/Hypotenuse, then Cosecant tells us Hypotenuse/Opposite. It's useful in certain calculations and identities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Hypotenuse over Opposite</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Secant</span> (Sec): Hypotenuse / Adjacent</h2>
+          <ul><li>Sec θ = Hypotenuse / Adjacent.</li><li>It is the reciprocal of Cosine: Sec θ = 1 / Cos θ.</li></ul>
+          <p class="notes">🎙️ Similarly, Secant is the reciprocal of Cosine. If Cosine is Adjacent/Hypotenuse, then Secant is Hypotenuse/Adjacent. Notice the pattern – each reciprocal ratio flips the original fraction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Hypotenuse over Adjacent</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Cotangent</span> (Cot): Adjacent / Opposite</h2>
+          <ul><li>Cot θ = Adjacent / Opposite.</li><li>It is the reciprocal of Tangent: Cot θ = 1 / Tan θ.</li></ul>
+          <p class="notes">🎙️ And finally, Cotangent is the reciprocal of Tangent. It gives us the ratio of the adjacent side to the opposite side. It's also Cosine divided by Sine.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">Adjacent over Opposite</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Real-Life: <span class="hl">Ladder</span> Against a Wall</h2>
+          <ul><li>A ladder 5m long leans against a wall, making a 60° angle with the ground.</li><li>How far is the base of the ladder from the wall?</li><li>Which ratio relates angle, hypotenuse, and adjacent side? Cosine!</li></ul>
+          <p class="notes">🎙️ Imagine you're painting and need to place a ladder. If you know the ladder's length and the angle it makes with the ground, you can use trigonometry, specifically Cosine, to find how far its base should be from the wall for safety.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪜</span></div><div class="vcap">Leaning Ladder</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Worked Example: Using <span class="hl">Reciprocal Ratios</span></h2>
+          <ul><li>If Cos A = 3/5, find Sec A and Tan A.</li><li>First, find Sec A using the reciprocal relation.</li><li>Then, use Pythagoras theorem to find the opposite side and calculate Tan A.</li></ul>
+          <p class="notes">🎙️ Let's try an example. If we know one ratio, we can find its reciprocal directly. To find other ratios like Tan A, we might need to use the Pythagorean theorem to find the third side of the triangle first.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find Reciprocal</span></div><div class="step"><span class="snum">2</span><span>Find Missing Side</span></div><div class="step"><span class="snum">3</span><span>Calculate Other Ratio</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>If Sin A = 3/5, what is Cosec A?</li></ul>
+          <p class="notes">🎙️ This is a direct application of reciprocal ratios. What is the reciprocal of 3/5?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Introduction to <span class="hl">Special Angles</span></h2>
+          <ul><li>Certain angles have fixed, easy-to-remember trigonometric ratio values.</li><li>These include 0°, 30°, 45°, 60°, and 90°.</li><li>We will learn how to derive and use these values soon!</li></ul>
+          <p class="notes">🎙️ While angles can be any value, some angles like 30, 45, and 60 degrees appear very often and have special, exact values for their trigonometric ratios. Knowing these will be very helpful.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Key Angles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Recap: <span class="hl">Key Concepts</span></h2>
+          <ul><li>Trigonometry studies triangle side-angle relationships.</li><li>SOH CAH TOA defines Sin, Cos, Tan.</li><li>Reciprocal ratios are Cosec, Sec, Cot.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the definitions of the six ratios and the SOH CAH TOA mnemonic. These are the foundational building blocks for all of trigonometry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Core Ideas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>What's <span class="hl">Next</span> in Trigonometry?</h2>
+          <ul><li>Trigonometric Identities: Equations true for all angles.</li><li>Applications: Heights &amp; Distances, Solving complex problems.</li><li>Graphs of Trigonometric Functions.</li></ul>
+          <p class="notes">🎙️ This introduction is just the beginning! In future lessons, we'll explore trigonometric identities, delve deeper into real-world applications, and even look at the graphs of these functions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · AP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

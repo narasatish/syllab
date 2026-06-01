@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Living Creatures: Exploring their Characteristics — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,20 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2><span class="hl">Living Creatures</span>: Exploring their Characteristics</h2>
-          <ul><li>Welcome, young scientists!</li><li>Today, we embark on an exciting journey.</li><li>Discover what makes living things unique.</li></ul>
-          <p class="notes">🎙️ Namaste, everyone! Welcome to our science class. Today, we're going to become detectives and explore the fascinating world of living creatures all around us. Get ready to uncover their secrets!</p>
+          <ul><li>Welcome to our Science class!</li><li>Today, we'll discover what makes something alive.</li><li>Let's explore the amazing world around us!</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today we embark on an exciting journey to understand the fundamental differences between living and non-living things. By the end of this chapter, you'll be able to identify what makes a creature truly alive.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What makes something "<span class="hl">Alive</span>"?</h2>
+          <ul><li>Look around you!</li><li>What do you see that moves, grows, or eats?</li><li>How do you know it's alive and not just an object?</li></ul>
+          <p class="notes">🎙️ Think about a bird flying, a plant growing, or even yourself. What are some actions or features that these things share, but a rock or a table does not? Let's brainstorm some ideas together.</p>
         </div>
         
       </div>
@@ -58,24 +83,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>What Makes Something <span class="hl">Alive</span>?</h2>
-          <ul><li>They can grow and change.</li><li>They move on their own.</li><li>They need food, water, and air.</li></ul>
-          <p class="notes">🎙️ Look around you. You see plants, animals, and even yourself! What do all these have in common? They are alive! Living things show certain special features that non-living things do not.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">A growing plant</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Living <span class="hl">vs.</span> Non-Living Things</h2>
-          <ul><li>Living things have life.</li><li>Non-living things do not.</li><li>Can you tell the difference?</li></ul>
-          <p class="notes">🎙️ It's important to distinguish between living and non-living things. A chair, a rock, or a toy car are non-living. They don't grow, breathe, or move on their own. But a bird, a tree, or you, are living!</p>
+          <h2>Understanding <span class="hl">Living Things</span></h2>
+          <ul><li>Things that show specific life processes.</li><li>They are also called organisms.</li><li>From tiny bacteria to giant elephants.</li></ul>
+          <p class="notes">🎙️ Living things are all around us, from the smallest microbes we can't see to the largest animals. They all share certain characteristics that define them as alive. We will learn about these fascinating characteristics one by one.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Living</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Non-Living</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 25</span>
           <h2>Characteristic 1: <span class="hl">Growth</span></h2>
-          <ul><li>Living things increase in size.</li><li>They also develop and mature.</li><li>It's a gradual process.</li></ul>
-          <p class="notes">🎙️ The first amazing characteristic is growth. Think about a tiny seedling becoming a big tree, or a baby growing into an adult. This increase in size and complexity is what we call growth.</p>
+          <ul><li>Increase in size over time.</li><li>From a baby to an adult.</li><li>Plants grow taller, animals grow bigger.</li></ul>
+          <p class="notes">🎙️ One of the most noticeable characteristics of living things is that they grow. Think about how a tiny seed grows into a large tree, or how a human baby grows into an adult. This increase in size and complexity is a fundamental part of life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Getting bigger</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Seed</span></div><div class="step"><span class="snum">2</span><span>Sapling</span></div><div class="step"><span class="snum">3</span><span>Tree</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Example of <span class="hl">Growth</span></h2>
-          <ul><li>A small puppy grows into a large dog.</li><li>A child grows taller and heavier.</li><li>Plants sprout from seeds and become big.</li></ul>
-          <p class="notes">🎙️ You can see growth everywhere! From a tiny seed becoming a huge banyan tree to a little puppy transforming into a big, strong dog. Even you are growing every single day!</p>
+          <h2>Example of Growth: A <span class="hl">Plant's Journey</span></h2>
+          <ul><li>A small mango seed grows into a large mango tree.</li><li>It absorbs water and nutrients.</li><li>It uses sunlight to make food and grow.</li></ul>
+          <p class="notes">🎙️ A great example of growth is a plant. A tiny seed, given the right conditions like water, sunlight, and soil, will sprout and gradually grow into a tall, strong tree, bearing fruits and flowers. This transformation is a continuous process throughout its life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👶</span><span>👶</span><span>👶</span></div><div class="vcap">Baby to Adult</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_hormones.svg?width=500" data-fb="🌳" alt="Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel"/><div class="vcap">Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -108,10 +121,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">6 / 25</span>
           <h2>Characteristic 2: <span class="hl">Movement</span></h2>
-          <ul><li>Living things can move parts of their body.</li><li>Animals can move from one place to another.</li><li>Plants show movement towards light or water.</li></ul>
-          <p class="notes">🎙️ Another key feature is movement. Animals move around to find food, shelter, or escape danger. Plants also show movement, like turning their leaves towards the sun, even if they don't walk around.</p>
+          <ul><li>Ability to change position or place.</li><li>Animals move to find food or escape danger.</li><li>Plants show subtle movements like turning towards sun.</li></ul>
+          <p class="notes">🎙️ Living things have the ability to move. Animals move from one place to another using their legs, wings, or fins. Even plants, though rooted, show movements like their leaves turning towards the sun or flowers opening and closing.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Walking</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Moving</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Example of <span class="hl">Movement</span></h2>
-          <ul><li>Birds fly in the sky.</li><li>Fish swim in water.</li><li>Leaves of a touch-me-not plant close.</li></ul>
-          <p class="notes">🎙️ Think of a bird soaring high, or a fish gracefully swimming. These are clear examples of movement in animals. Even plants like the 'touch-me-not' show rapid movement when touched.</p>
+          <h2>Example of Movement: A <span class="hl">Bird in Flight</span></h2>
+          <ul><li>A bird flies from one tree to another.</li><li>It uses its wings to propel itself.</li><li>This movement helps it find food and build nests.</li></ul>
+          <p class="notes">🎙️ Observe birds flying high in the sky or hopping between branches. This active movement is crucial for their survival, allowing them to search for food, find mates, and escape from predators. It's a clear sign of life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span></div><div class="vcap">Flying butterflies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐦</span><span>🐦</span><span>🐦</span></div><div class="vcap">Flying Birds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,9 +144,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Characteristic 3: <span class="hl">Respiration</span></h2>
-          <ul><li>Living things breathe in air.</li><li>They use oxygen to get energy from food.</li><li>They release carbon dioxide.</li></ul>
-          <p class="notes">🎙️ Respiration is how living things get energy. We breathe in oxygen, which helps our bodies release energy from the food we eat. Then, we breathe out carbon dioxide, a waste gas.</p>
+          <h2>Characteristic 3: Need for <span class="hl">Food</span></h2>
+          <ul><li>All living things need energy to live and grow.</li><li>Food provides this energy.</li><li>Plants make their own food, animals eat other organisms.</li></ul>
+          <p class="notes">🎙️ Just like a car needs fuel, living things need food to get energy. This energy is used for all life processes, including growth, movement, and maintaining body functions. Plants are unique as they produce their own food using sunlight.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🍎" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Example of Food: <span class="hl">Humans Eating</span></h2>
+          <ul><li>Humans eat a variety of foods like fruits, vegetables, and grains.</li><li>This food is digested to release energy.</li><li>The energy helps us study, play, and grow.</li></ul>
+          <p class="notes">🎙️ Think about your breakfast, lunch, or dinner. We eat food to gain the energy needed for all our daily activities, from running and playing to thinking and learning. Without food, our bodies wouldn't have the fuel to function properly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍽️</span></div><div class="vcap">Mealtime</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Characteristic 4: <span class="hl">Respiration</span> (Breathing)</h2>
+          <ul><li>Process of taking in oxygen and giving out carbon dioxide.</li><li>Releases energy from food.</li><li>Occurs in all living things, even plants.</li></ul>
+          <p class="notes">🎙️ Respiration is often called breathing, but it's more than just taking air in and out. It's the process where living things use oxygen to break down food and release the stored energy. This happens continuously, day and night, in all living organisms.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Breathing</div></div></div>
       </div>
@@ -142,48 +179,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Example: <span class="hl">Respiration</span></h2>
-          <ul><li>Humans breathe through lungs.</li><li>Fish breathe through gills.</li><li>Plants breathe through tiny pores called stomata.</li></ul>
-          <p class="notes">🎙️ Different living things have different ways to respire. Humans use lungs, fish use gills, and even plants 'breathe' through tiny openings on their leaves called stomata, taking in and giving out gases.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐟</div><div class="vcap">Fish breathing with gills</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Characteristic 4: Response to <span class="hl">Stimuli</span></h2>
-          <ul><li>Living things react to changes around them.</li><li>These changes are called stimuli.</li><li>Responses help them survive.</li></ul>
-          <p class="notes">🎙️ Imagine touching something hot – you quickly pull your hand away! This reaction to a change (heat) is called responding to a stimulus. Living things constantly react to their environment.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Seeing and reacting</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Example: <span class="hl">Responding</span> to Stimuli</h2>
-          <ul><li>A plant turns towards sunlight.</li><li>You blink when dust enters your eye.</li><li>Animals run away from danger.</li></ul>
-          <p class="notes">🎙️ A sunflower turning to face the sun, or a deer running away when it hears a loud noise are perfect examples. Even your eyes blinking when something comes near is a response to a stimulus.</p>
+          <h2>Example of Respiration: <span class="hl">Fish Breathing</span></h2>
+          <ul><li>Fish use gills to breathe oxygen dissolved in water.</li><li>Water enters through their mouth and passes over gills.</li><li>Gills extract oxygen and release carbon dioxide.</li></ul>
+          <p class="notes">🎙️ Fish, living underwater, have a special way of breathing. They don't have lungs like us, but they have gills. Gills are feathery organs that absorb oxygen directly from the water, allowing the fish to respire and survive.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌻</div><div class="vcap">Sunflower following the sun</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐠</span><span>🐠</span></div><div class="vcap">Fish Gills</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Characteristic 5: <span class="hl">Excretion</span></h2>
-          <ul><li>Living things produce waste materials.</li><li>They need to remove these wastes.</li><li>Excretion is the process of waste removal.</li></ul>
-          <p class="notes">🎙️ Just like a factory produces waste products, living organisms also produce waste during their life processes. Excretion is the essential process of getting rid of these harmful waste materials from the body.</p>
+          <h2><span class="hl">Quick Check</span>! (Part 1)</h2>
+          <ul><li>True or False: All living things grow.</li><li>Which characteristic involves taking in oxygen?</li><li>Do non-living things need food?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Take a moment to think about the answers to these questions. This helps us reinforce what we've learned so far about the characteristics of living things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚽</div><div class="vcap">Waste removal</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Example of <span class="hl">Excretion</span></h2>
-          <ul><li>Humans sweat and urinate.</li><li>Plants release excess water vapor.</li><li>Animals release solid waste.</li></ul>
-          <p class="notes">🎙️ When you sweat, your body is excreting waste. Plants release extra water as vapour through their leaves, which is also a form of excretion. All living things have ways to remove waste.</p>
+          <h2>Characteristic 5: Response to <span class="hl">Stimuli</span></h2>
+          <ul><li>Ability to react to changes in the environment.</li><li>A stimulus is anything that causes a reaction.</li><li>Like light, sound, touch, or temperature.</li></ul>
+          <p class="notes">🎙️ Living things are aware of their surroundings and can react to changes. If it's too hot, we sweat. If we hear a loud noise, we might jump. These reactions to stimuli are essential for survival and protection.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Sweat droplets</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👂</div><div class="vcap">Reacting</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Characteristic 6: <span class="hl">Reproduction</span></h2>
-          <ul><li>Living things produce young ones.</li><li>This ensures the continuation of their kind.</li><li>It can be through eggs, seeds, or live birth.</li></ul>
-          <p class="notes">🎙️ Reproduction is the amazing ability of living organisms to create new individuals of their own species. This ensures that life continues from one generation to the next, preventing species from disappearing.</p>
+          <h2>Example of Response: <span class="hl">Touch-Me-Not Plant</span></h2>
+          <ul><li>The Mimosa Pudica plant (touch-me-not) folds its leaves when touched.</li><li>This is a rapid response to a physical stimulus.</li><li>It protects itself from potential harm.</li></ul>
+          <p class="notes">🎙️ A fascinating example is the 'touch-me-not' plant. When you gently touch its leaves, they quickly fold inward. This is a remarkable defense mechanism and a clear demonstration of how even plants respond to external stimuli.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧</div><div class="vcap">Family</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Mimosa</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,35 +228,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Example of <span class="hl">Reproduction</span></h2>
-          <ul><li>Birds lay eggs that hatch into chicks.</li><li>Animals give birth to babies.</li><li>Plants produce seeds that grow into new plants.</li></ul>
-          <p class="notes">🎙️ Think of a hen laying eggs, which then hatch into cute chicks. Or a mother dog giving birth to puppies. Even a tiny seed from a mango tree can grow into a new mango tree. These are all examples of reproduction.</p>
+          <h2>Characteristic 6: <span class="hl">Excretion</span></h2>
+          <ul><li>Removal of waste products from the body.</li><li>Waste can be harmful if not removed.</li><li>Animals excrete urine, sweat; plants release oxygen.</li></ul>
+          <p class="notes">🎙️ As living things carry out various life processes, waste products are generated. Excretion is the process by which these harmful waste materials are removed from the body, keeping the organism healthy and functioning properly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐣</span><span>🐣</span><span>🐣</span><span>🐣</span><span>🐣</span></div><div class="vcap">Hatching chicks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Waste Removal</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Quick Check 1: What <span class="hl">Characteristic</span> Is This?</h2>
-          <ul><li>A kitten drinks milk and grows bigger.</li><li>A rabbit quickly hops away from a fox.</li><li>A snake sheds its old skin.</li></ul>
-          <p class="notes">🎙️ Time for a quick check! For each statement, try to identify which characteristic of living things is being described. Think back to what we just learned.</p>
+          <h2>Example of Excretion: <span class="hl">Sweating</span></h2>
+          <ul><li>Humans sweat to remove excess water and salts.</li><li>Sweating also helps to cool down the body.</li><li>It's a way our body cleanses itself.</li></ul>
+          <p class="notes">🎙️ When we play or exercise, we often sweat. Sweating is an excretory process where our skin releases water and some dissolved salts. It not only removes waste but also plays a vital role in regulating our body temperature.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💦</span><span>💦</span><span>💦</span></div><div class="vcap">Sweat Droplets</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Quick Check 2: <span class="hl">True or False</span>?</h2>
-          <ul><li>All living things can fly. (T/F)</li><li>Plants do not respire. (T/F)</li><li>A robot is a living thing. (T/F)</li></ul>
-          <p class="notes">🎙️ Let's test your understanding further. Read each statement carefully and decide if it is true or false. Don't worry if you get one wrong, it's all part of learning!</p>
+          <h2>Characteristic 7: <span class="hl">Reproduction</span></h2>
+          <ul><li>Ability to produce young ones of their own kind.</li><li>Ensures the continuation of a species.</li><li>Can be sexual (two parents) or asexual (one parent).</li></ul>
+          <p class="notes">🎙️ Reproduction is the process by which living organisms create offspring. This characteristic is crucial for the survival of a species over generations. Without reproduction, a species would eventually die out.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">New Life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Habitat</span>: Home Sweet Home</h2>
-          <ul><li>The place where an organism lives is its habitat.</li><li>It provides food, water, shelter, and space.</li><li>Different organisms live in different habitats.</li></ul>
-          <p class="notes">🎙️ Every living creature needs a place to live, find food, and raise its young. This natural home is called its habitat. A habitat is like a living thing's personal apartment, providing everything it needs.</p>
+          <h2>Example of Reproduction: <span class="hl">Birds Laying Eggs</span></h2>
+          <ul><li>A hen lays eggs, from which chicks hatch.</li><li>This is how birds create new generations.</li><li>Ensures the population of birds continues.</li></ul>
+          <p class="notes">🎙️ A common example of reproduction is birds laying eggs. The eggs contain developing embryos, and after a period of incubation, baby chicks hatch, growing to become adult birds themselves. This cycle ensures the continuity of bird life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">A cozy home</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐣</span><span>🐣</span><span>🐣</span></div><div class="vcap">Hatching Chicks</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Different Types of <span class="hl">Habitats</span></h2>
-          <ul><li>Terrestrial habitats: on land (forests, deserts).</li><li>Aquatic habitats: in water (ponds, oceans).</li><li>Arboreal habitats: in trees.</li></ul>
-          <p class="notes">🎙️ Habitats can be broadly categorized. Terrestrial habitats are on land, like deserts or mountains. Aquatic habitats are in water, such as rivers or oceans. Some creatures even spend most of their lives in the air or trees!</p>
+          <h2><span class="hl">Quick Check</span>! (Part 2)</h2>
+          <ul><li>What is the folding of leaves in Mimosa Pudica an example of?</li><li>Name one waste product removed by humans.</li><li>Why is reproduction important for living things?</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Reflect on the last few characteristics we discussed. Think about the examples and how they demonstrate these vital life processes.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Biomes.svg?width=500" data-fb="🔬" alt="A habitat is the natural environment where an organism lives. Different habitats have uniq"/><div class="vcap">A habitat is the natural environment where an organism lives. Different habitats have uniq</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Adaptations</span>: Fitting into the Habitat</h2>
-          <ul><li>Special features that help an organism survive.</li><li>These features develop over many generations.</li><li>They can be physical or behavioural.</li></ul>
-          <p class="notes">🎙️ Living things don't just 'live' in their habitat; they are perfectly designed for it! Adaptations are special characteristics that help an organism survive and thrive in its specific environment. Think of a camel in a desert.</p>
+          <h2>What are <span class="hl">Non-Living Things</span>?</h2>
+          <ul><li>Objects that do not show any life processes.</li><li>They do not grow, move on their own, or need food.</li><li>Examples: rocks, tables, cars, clouds.</li></ul>
+          <p class="notes">🎙️ In contrast to living things, non-living things are inanimate. They don't breathe, eat, grow, or reproduce. A chair will remain a chair and won't suddenly grow taller or have baby chairs!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦒</div><div class="vcap">Long neck for high leaves</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗿</div><div class="vcap">Still Object</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,35 +300,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Example of <span class="hl">Adaptations</span></h2>
-          <ul><li>Camels have humps to store water and fat.</li><li>Fish have gills to breathe underwater.</li><li>Polar bears have thick fur for cold climates.</li></ul>
-          <p class="notes">🎙️ A cactus has thick, waxy skin and spines to prevent water loss in the desert. Fish have streamlined bodies and gills to move and breathe efficiently in water. These are all amazing adaptations!</p>
+          <h2>Living vs. Non-Living: A <span class="hl">Comparison</span></h2>
+          <ul><li>Living: Grow, Move, Eat, Breathe, Reproduce, Respond, Excrete.</li><li>Non-Living: Do not show these characteristics.</li><li>The key difference lies in life processes.</li></ul>
+          <p class="notes">🎙️ This slide summarizes the core differences. Remember, it's not just one characteristic but the combination of all these processes that defines something as living. Non-living things lack these complex functions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌵</div><div class="vcap">Cactus adapted to desert</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Question: What's the <span class="hl">Adaptation</span>?</h2>
-          <ul><li>Why do ducks have webbed feet?</li><li>How does a chameleon hide from predators?</li><li>What helps a bird fly?</li></ul>
-          <p class="notes">🎙️ Let's try to identify some adaptations. Think about the specific environment and lifestyle of these animals to understand why they have these unique features.</p>
-        </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Growth</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Movement</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Food</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Reproduction</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2><span class="hl">Recap</span>: The Wonderful World of Living Creatures</h2>
-          <ul><li>Living things show Growth, Movement, Respiration.</li><li>They Respond to Stimuli, Excrete waste, and Reproduce.</li><li>They live in specific Habitats and show Adaptations.</li></ul>
-          <p class="notes">🎙️ We've covered so much today! Remember the six key characteristics that define living things. Each one is vital for survival and shows the incredible complexity of life on Earth.</p>
+          <span class="num">22 / 25</span>
+          <h2>Worked Example: <span class="hl">Identifying</span> Living or Non-Living</h2>
+          <ul><li>Is a burning candle living or non-living?</li><li>It 'grows' shorter, 'consumes' wax, 'produces' light.</li><li>But it doesn't reproduce, respond to all stimuli, or excrete biologically.</li></ul>
+          <p class="notes">🎙️ A burning candle can be tricky! It seems to use fuel and change, but it doesn't possess all the characteristics of life. It's a chemical reaction, not a biological process. This shows why we need to consider all characteristics.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Growth</span></div><div class="step"><span class="snum">2</span><span>Movement</span></div><div class="step"><span class="snum">3</span><span>Respiration</span></div><div class="step"><span class="snum">4</span><span>Response</span></div><div class="step"><span class="snum">5</span><span>Excretion</span></div><div class="step"><span class="snum">6</span><span>Reproduction</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕯️</div><div class="vcap">Candle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>! (Part 3)</h2>
+          <ul><li>Is a river a living thing? Why or why not?</li><li>Can a robot be considered living? Explain.</li><li>Name two characteristics that a rock does NOT show.</li></ul>
+          <p class="notes">🎙️ Let's apply what we've learned to some common objects. Think critically about each example and use the seven characteristics we discussed to justify your answer.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -323,11 +336,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Why Study</span> Living Things?</h2>
-          <ul><li>To understand ourselves and our environment.</li><li>To appreciate biodiversity.</li><li>To protect nature and future generations.</li></ul>
-          <p class="notes">🎙️ Studying living things helps us understand how our world works, how we are connected to other species, and why it's so important to protect the incredible variety of life around us.</p>
+          <h2>Recap: The <span class="hl">Seven Characteristics</span> of Life</h2>
+          <ul><li>1. Growth: Increase in size.</li><li>2. Movement: Change in position.</li><li>3. Food: Need for energy.</li><li>4. Respiration: Breathing to release energy.</li><li>5. Response to Stimuli: Reacting to environment.</li><li>6. Excretion: Removing waste.</li><li>7. Reproduction: Producing young ones.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember these seven key characteristics. They are the fundamental processes that distinguish all living organisms from non-living matter. Each one plays a vital role in sustaining life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our diverse planet</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Life's Essentials</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span>!</h2>
-          <ul><li>Hope you enjoyed exploring living creatures!</li><li>Keep observing the world around you.</li><li>See you in the next class!</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our lesson on living creatures. I encourage you to keep observing the plants and animals around you and notice these characteristics. The world is full of wonders!</p>
+          <h2>Your Challenge: <span class="hl">Observe and Identify</span>!</h2>
+          <ul><li>Look at objects in your home or garden.</li><li>Try to classify them as living or non-living.</li><li>Explain your reasoning using the characteristics we learned!</li></ul>
+          <p class="notes">🎙️ For your homework, become a scientist! Observe the world around you with new eyes. Use the characteristics we discussed today to confidently identify and explain why something is living or non-living. Keep exploring!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

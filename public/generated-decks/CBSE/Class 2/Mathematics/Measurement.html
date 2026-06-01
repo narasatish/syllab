@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Measurement Fun! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Measurement — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to <span class="hl">Measurement</span>!</h2>
-          <ul><li>Hello little learners!</li><li>Today we will learn about 'Measurement'.</li><li>It's like finding out 'how much' or 'how long'!</li></ul>
-          <p class="notes">🎙️ Namaste children! I am so excited to start our new chapter today. We are going to learn all about 'Measurement'. It's a super useful skill that helps us understand the world around us better. Let's begin our adventure!</p>
+          <h2>Welcome to "<span class="hl">Measurement</span>"!</h2>
+          <ul><li>Let's learn how to measure things around us!</li><li>It's like finding out 'how much' or 'how big' something is.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today we are going to start a very interesting chapter called 'Measurement'. Have you ever wondered how we know if a toy car is longer than a pencil, or if a bag of apples is heavier than a feather? That's what measurement helps us find out!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Measurement</span>?</h2>
-          <ul><li>Measurement helps us know size, length, and weight.</li><li>It answers questions like 'How long?', 'How heavy?', 'How much?'</li><li>We use different tools to measure different things.</li></ul>
-          <p class="notes">🎙️ Imagine you want to know if your toy car is longer than your pencil. Or if your school bag is heavier than your lunchbox. Measurement helps us find these answers! We use special tools for each kind of measurement.</p>
+          <ul><li>It's finding out how long, how heavy, or how much something holds.</li><li>We use tools to measure things.</li></ul>
+          <p class="notes">🎙️ Measurement is like asking a question: 'How long is this table?', 'How much water can this jug hold?', or 'How heavy is this book?'. And then we find the answer! We use different tools for different types of measurement.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Tools</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring things</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,8 +85,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 20</span>
           <h2>Measuring <span class="hl">Length</span>: How Long?</h2>
-          <ul><li>Length tells us how long something is.</li><li>Is your pencil long or short?</li><li>Is your table wider than your chair?</li></ul>
-          <p class="notes">🎙️ First, let's talk about 'length'. When we measure length, we want to know how far one end of an object is from the other end. Think about your height – that's a kind of length too!</p>
+          <ul><li>Length tells us how long or short something is.</li><li>It also tells us how tall or small something is.</li></ul>
+          <p class="notes">🎙️ First, let's talk about 'Length'. When we measure length, we want to know how far one end of an object is from the other. Think about a snake – is it long or short? Or a building – is it tall or short?</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Length</div></div></div>
       </div>
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 20</span>
           <h2><span class="hl">Longer</span> or Shorter?</h2>
-          <ul><li>Look at these two items.</li><li>Which one is longer?</li><li>Which one is shorter?</li></ul>
-          <p class="notes">🎙️ Here we have a pencil and an eraser. Can you tell which one is longer and which one is shorter? We can easily see that the pencil is longer than the eraser. This is how we compare lengths.</p>
+          <ul><li>Look at these two pencils.</li><li>Which one is longer? Which one is shorter?</li></ul>
+          <p class="notes">🎙️ We often compare things. Here are two pencils. Can you tell which pencil is longer and which one is shorter just by looking? Yes, the yellow pencil is longer than the blue one, and the blue one is shorter.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Pencil</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Eraser</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Pencil A</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Pencil B</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Measuring with <span class="hl">Handspans</span></h2>
-          <ul><li>We can use our hands to measure length.</li><li>One handspan is from your thumb to your little finger.</li><li>Try measuring your desk with handspans!</li></ul>
-          <p class="notes">🎙️ Before we had rulers, people used their body parts to measure! A handspan is a common way. Put your hand flat on the table, spread your fingers, and measure how many times your hand fits across the table. That's its length in handspans.</p>
+          <h2><span class="hl">Taller</span> or Shorter?</h2>
+          <ul><li>Look at the two trees.</li><li>Which tree is taller? Which one is shorter?</li></ul>
+          <p class="notes">🎙️ The same idea applies to height. When we talk about how high something is from the ground, we say 'taller' or 'shorter'. The green tree is taller, and the brown tree is shorter. Good job!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✋</div><div class="vcap">Handspan</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔢" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Measuring with <span class="hl">Footspans</span></h2>
-          <ul><li>We can also use our feet to measure length.</li><li>One footspan is the length of your foot.</li><li>Try measuring your room with footspans!</li></ul>
-          <p class="notes">🎙️ Just like handspans, we can use our feet! Place one foot in front of the other, heel to toe, and count how many steps it takes to cross a room. This gives you the length in footspans. It's a fun way to measure!</p>
+          <h2>Measuring with Your <span class="hl">Body</span>!</h2>
+          <ul><li>Long ago, people used their hands and feet to measure.</li><li>This is called using 'non-standard' units.</li></ul>
+          <p class="notes">🎙️ Before rulers were invented, people used parts of their body to measure. You can try it too! Measure your table using your handspan – that's the distance from your thumb to your little finger. Or measure your room using your footspan!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦶</div><div class="vcap">Footspan</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="✋👣" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Why Do We Need <span class="hl">Same Tools</span>?</h2>
-          <ul><li>My hand is small, your dad's hand is big.</li><li>So, your handspans and his handspans will be different!</li><li>We need a 'standard' tool for everyone.</li></ul>
-          <p class="notes">🎙️ If I measure the table with my hand and you measure it with your hand, we might get different numbers. This is because our hands are different sizes! To make sure everyone gets the same measurement, we need a special tool that is the same for everyone.</p>
+          <h2>A Little <span class="hl">Problem</span>!</h2>
+          <ul><li>My hand is smaller than your hand.</li><li>So, my measurement will be different from yours!</li></ul>
+          <p class="notes">🎙️ But here's a problem: everyone's hands and feet are different sizes! If I measure a table with my hand, and you measure it with your hand, we might get different numbers. This can be confusing, right? We need something that is always the same for everyone.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Child's Hand</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Adult's Hand</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤷</span><span>🤷</span></div><div class="vcap">Different sizes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Meet the <span class="hl">Ruler</span>!</h2>
-          <ul><li>A ruler is a 'standard' tool for measuring length.</li><li>It has numbers and small lines.</li><li>We use 'centimetres' (cm) with a ruler.</li></ul>
-          <p class="notes">🎙️ This is a ruler! It's a very important tool. Everyone's ruler is the same, so we all get the same answer when we measure. The numbers on the ruler tell us the length in units called 'centimetres'.</p>
+          <h2>Standard Units: The <span class="hl">Centimeter</span> (cm)</h2>
+          <ul><li>To measure small things, we use 'centimeters'.</li><li>We write it as 'cm'.</li></ul>
+          <p class="notes">🎙️ To make sure everyone gets the same measurement, we use 'standard units'. For small things, like your pencil or a book, we use a unit called a 'centimeter'. You can see centimeters marked on your ruler. Look at the numbers on it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Ruler</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📏" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,23 +156,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Let's <span class="hl">Measure</span> a Pencil!</h2>
-          <ul><li>Place the pencil at the '0' mark on the ruler.</li><li>See where the other end of the pencil stops.</li><li>Read the number, that's its length in cm!</li></ul>
-          <p class="notes">🎙️ To measure with a ruler, always start at the '0' mark. Place the object right against the ruler. Then look at where the object ends and read the number. That number tells you how many centimetres long the object is. Easy peasy!</p>
+          <h2>Standard Units: The <span class="hl">Meter</span> (m)</h2>
+          <ul><li>To measure big things, we use 'meters'.</li><li>We write it as 'm'.</li></ul>
+          <p class="notes">🎙️ What about really big things, like the length of your classroom or the height of a door? For these, we use a bigger unit called a 'meter'. One meter is equal to 100 centimeters. We usually use a big measuring tape for meters.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start at 0</span></div><div class="step"><span class="snum">2</span><span>Align object</span></div><div class="step"><span class="snum">3</span><span>Read number</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Measuring Tape</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Measuring <span class="hl">Weight</span>: How Heavy?</h2>
-          <ul><li>Weight tells us how heavy something is.</li><li>Is an apple heavier than a feather?</li><li>We use a 'weighing scale' to measure weight.</li></ul>
-          <p class="notes">🎙️ Now let's talk about 'weight'. When we talk about weight, we want to know if something is heavy or light. We use a special tool called a weighing scale for this. You might have seen one in the market or at home.</p>
+          <h2>Time for a Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which unit would you use for your pencil? cm or m?</li><li>Which unit for the height of your house? cm or m?</li></ul>
+          <p class="notes">🎙️ Alright, let's see if you understood! Think about your pencil. Is it small or big? Would you use centimeters or meters to measure its length? And what about your house? Is it small or big? Which unit would be best?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Weighing Scale</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Heavier</span> or Lighter?</h2>
-          <ul><li>Look at the items on the scale.</li><li>Which one makes the scale go down more?</li><li>That one is heavier!</li></ul>
-          <p class="notes">🎙️ Imagine you put a book on one side of a balance scale and a leaf on the other. The book would make its side go down because it's much heavier! The leaf is lighter. This is how we compare weight.</p>
+          <h2>Measuring <span class="hl">Weight</span>: How Heavy?</h2>
+          <ul><li>Weight tells us how heavy or light something is.</li><li>We use a weighing scale to find weight.</li></ul>
+          <p class="notes">🎙️ Next, let's learn about 'Weight'. Weight tells us if something is heavy or light. Have you ever picked up a feather and then a big stone? The stone feels much heavier, right? We use a special tool called a weighing scale to measure weight.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="🔢" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="⚖️" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Measuring <span class="hl">Capacity</span>: How Much Can It Hold?</h2>
-          <ul><li>Capacity tells us how much a container can hold.</li><li>How much water can a glass hold?</li><li>How much milk can a bottle hold?</li></ul>
-          <p class="notes">🎙️ Our last type of measurement for today is 'capacity'. Capacity is about how much liquid or other substance a container can hold. Think about filling a glass with water or a bucket with sand.</p>
+          <h2><span class="hl">Heavier</span> or Lighter?</h2>
+          <ul><li>Look at the apple and the feather.</li><li>Which one is heavier? Which one is lighter?</li></ul>
+          <p class="notes">🎙️ Just like length, we can compare weights. An apple is much heavier than a feather. If you put them on a balance scale, the apple side would go down, and the feather side would go up. That's how we know!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Capacity</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Apple</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Feather</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,9 +204,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">More</span> or Less Water?</h2>
-          <ul><li>Look at the two containers.</li><li>Which one can hold more water?</li><li>Which one holds less water?</li></ul>
-          <p class="notes">🎙️ If you have a small glass and a big water bottle, which one can hold more water? The big bottle, right? So, the big bottle has more capacity, and the small glass has less capacity. This is how we compare capacity.</p>
+          <h2>Measuring with <span class="hl">Blocks</span>!</h2>
+          <ul><li>We can use small blocks to measure weight.</li><li>How many blocks balance the toy car?</li></ul>
+          <p class="notes">🎙️ Before standard scales, people might have used small, identical blocks to see how many blocks equal the weight of an object. If a toy car balances with 5 blocks, then its weight is '5 blocks'. It's a fun way to understand weight!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Using blocks to weigh</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>Standard Units: The <span class="hl">Kilogram</span> (kg)</h2>
+          <ul><li>To measure heavy things, we use 'kilograms'.</li><li>We write it as 'kg'.</li></ul>
+          <p class="notes">🎙️ For heavier things, like a bag of rice or your school bag, we use a standard unit called a 'kilogram'. You might see 'kg' written on food packets. One kilogram is equal to 1000 grams. Your parents might buy vegetables in kilograms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏋️</div><div class="vcap">Kilogram</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>Standard Units: The <span class="hl">Gram</span> (g)</h2>
+          <ul><li>To measure light things, we use 'grams'.</li><li>We write it as 'g'.</li></ul>
+          <p class="notes">🎙️ What about very light things, like a small candy or a pinch of salt? For these, we use a smaller unit called a 'gram'. Many small food items, like spices or small chocolates, have their weight written in grams.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍬</div><div class="vcap">Gram</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>Another Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which unit for a big watermelon? kg or g?</li><li>Which unit for a tiny paper clip? kg or g?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of weight units. Imagine a big, juicy watermelon. Would you measure its weight in kilograms or grams? And what about a very small paper clip? Which unit would be best for that?</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🔢" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
@@ -202,48 +251,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>Which is longer: your arm or your leg?</li><li>Think about it!</li><li>Share your answer!</li></ul>
-          <p class="notes">🎙️ Let's quickly test what we've learned! Think about your own body. Which part do you think is longer, your arm or your leg? Discuss with your friends or think about it yourself.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2>Another Quick <span class="hl">Question</span>!</h2>
-          <ul><li>Which is heavier: a feather or a brick?</li><li>Imagine holding them!</li><li>What do you think?</li></ul>
-          <p class="notes">🎙️ Here's another one! Imagine you have a tiny, soft feather and a hard, heavy brick. Which one would feel heavier in your hand? This is an easy one, I'm sure you know the answer!</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2>Last Quick <span class="hl">Question</span>!</h2>
-          <ul><li>Which can hold more water: a cup or a bucket?</li><li>Think about their sizes.</li><li>Tell me your answer!</li></ul>
-          <p class="notes">🎙️ And for our last quick question! If you want to fill something with water, would you choose a small cup or a big bucket to hold more? Which one has a bigger capacity? Great job thinking!</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Time to <span class="hl">Practice</span>! (Counting Units)</h2>
-          <ul><li>Look at the blocks.</li><li>How many blocks long is the line?</li><li>Count them carefully!</li></ul>
-          <p class="notes">🎙️ Sometimes we measure by counting smaller units. Here, imagine each box is one unit. How many boxes long is this line? Count each box one by one to find the total length in 'box units'.</p>
+          <h2>Measuring <span class="hl">Capacity</span>: How Much Can it Hold?</h2>
+          <ul><li>Capacity tells us how much liquid a container can hold.</li><li>Like water, milk, or juice.</li></ul>
+          <p class="notes">🎙️ Now, let's talk about 'Capacity'. Capacity is about how much liquid a container, like a bottle or a jug, can hold. Think about your water bottle. How much water can it hold? That's its capacity!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Capacity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,39 +264,40 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">Real-Life</span> Measurement</h2>
-          <ul><li>We measure things every day!</li><li>When your mom cooks, she measures ingredients.</li><li>When we buy clothes, we measure size.</li></ul>
-          <p class="notes">🎙️ Measurement is not just for school! It's all around us. Your tailor measures you for new clothes. When you bake a cake, you measure flour and sugar. Even when you play, you might measure how far you can jump!</p>
+          <h2><span class="hl">More</span> or Less Capacity?</h2>
+          <ul><li>Look at the two jugs.</li><li>Which jug can hold more water? Which one holds less?</li></ul>
+          <p class="notes">🎙️ We can also compare the capacity of different containers. If you have a big jug and a small cup, the big jug can hold much more water than the small cup. So, the big jug has more capacity, and the small cup has less capacity.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Everyday Life</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>What Did We Learn Today?</h2>
-          <ul><li>We learned about 'Length' (how long).</li><li>We learned about 'Weight' (how heavy).</li><li>We learned about 'Capacity' (how much it holds).</li><li>We also met the 'Ruler'!</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much today! We discovered how to measure length, weight, and capacity. We also learned why standard tools like the ruler are so important. You are all amazing measurers!</p>
-        </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Jug A</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Jug B</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Measuring</span>!</h2>
-          <ul><li>Look around you and measure things!</li><li>Use your hands, feet, or a ruler.</li><li>Measurement makes the world clear!</li></ul>
-          <p class="notes">🎙️ Keep practicing your measurement skills! Look at objects at home and try to guess their length, weight, or capacity. Then, if you have a ruler or scale, check your guesses. The more you practice, the better you'll become! Thank you!</p>
+          <span class="num">19 / 20</span>
+          <h2>Standard Unit: The <span class="hl">Litre</span> (L)</h2>
+          <ul><li>For liquids, we use 'litres' to measure capacity.</li><li>We write it as 'L'.</li></ul>
+          <p class="notes">🎙️ For measuring liquids like milk, water, or juice, we use a standard unit called a 'litre'. You often see 'L' written on milk cartons or juice boxes. One litre is a common amount for many drinks.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">You are a little scientist!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Litre</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2>What Did We Learn Today?</h2>
+          <ul><li>We measure Length (cm, m) for how long/tall.</li><li>We measure Weight (g, kg) for how heavy/light.</li><li>We measure Capacity (L) for how much liquid it holds.</li></ul>
+          <p class="notes">🎙️ Wow, we learned so many new things today! We learned about length, weight, and capacity. Remember, we use different units like centimeters, meters, grams, kilograms, and litres to measure different things. Keep exploring and measuring the world around you!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

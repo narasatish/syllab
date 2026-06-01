@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Inverse Trigonometric Functions — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 26</span>
-          <h2>Chapter 2: <span class="hl">Inverse</span> Trigonometric Functions</h2>
-          <ul><li>Welcome to Class 12 Mathematics!</li><li>Today, we explore a crucial topic: Inverse Trigonometric Functions.</li><li>These functions are essential for higher mathematics and competitive exams.</li></ul>
-          <p class="notes">🎙️ Good morning, students! Today we embark on Chapter 2, 'Inverse Trigonometric Functions'. This chapter is fundamental for understanding many advanced concepts in calculus and geometry, and it's a scoring topic for your CBSE board exams.</p>
+          <span class="num">1 / 25</span>
+          <h2>Inverse Trigonometric Functions: An <span class="hl">Introduction</span></h2>
+          <ul><li>Welcome to Chapter 2: Inverse Trigonometric Functions</li><li>Mathematics for Class 12, CBSE Board</li><li>Focus on exam-oriented concepts and problem-solving</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we're diving into a very important chapter: Inverse Trigonometric Functions. This topic is crucial for your board exams and forms a strong foundation for advanced mathematics. Let's start with the basics.</p>
         </div>
         
       </div>
@@ -58,286 +71,250 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 26</span>
-          <h2>Recap: Functions and Their <span class="hl">Inverses</span></h2>
-          <ul><li>A function f: A → B assigns each element of A to exactly one element of B.</li><li>An inverse function f⁻¹ exists if f is both one-one (injective) and onto (surjective).</li><li>The domain of f becomes the range of f⁻¹, and vice-versa.</li></ul>
-          <p class="notes">🎙️ Before diving into inverse trigonometric functions, let's quickly recall what an inverse function is. Remember, for an inverse to exist, the original function must be bijective – meaning it maps each input to a unique output and covers all possible outputs.</p>
+          <span class="num">2 / 25</span>
+          <h2>Understanding <span class="hl">Inverse</span> Functions</h2>
+          <ul><li>An inverse function 'reverses' the action of the original function.</li><li>If f(x) = y, then its inverse f⁻¹(y) = x.</li><li>Only one-to-one (injective) and onto (surjective) functions have inverses.</li><li>Graphically, an inverse is a reflection about the line y=x.</li></ul>
+          <p class="notes">🎙️ Think of an inverse function as undoing what the original function did. For a function to be invertible, it must pass both the horizontal and vertical line tests, meaning it's one-to-one and onto its codomain. This ensures a unique output for every input.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Reversing the Mapping</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Reversing an action</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 26</span>
-          <h2>Recap: <span class="hl">Trigonometric</span> Functions</h2>
-          <ul><li>Recall sin x, cos x, tan x, cosec x, sec x, cot x.</li><li>These functions are periodic, meaning they repeat their values.</li><li>They are many-one functions over their natural domains.</li></ul>
-          <p class="notes">🎙️ We are all familiar with the six basic trigonometric functions. It's important to remember their periodic nature, which means they take on the same value for multiple different angles. This characteristic will be key to understanding why we need to restrict their domains.</p>
+          <span class="num">3 / 25</span>
+          <h2>Revisiting Trigonometric Functions: <span class="hl">Domain &amp; Range</span></h2>
+          <ul><li>Recall basic trigonometric functions: sin(x), cos(x), tan(x).</li><li>Their natural domains are often all real numbers (with exceptions for tan/sec/cosec/cot).</li><li>Their ranges are usually restricted (e.g., sin x ∈ [-1, 1]).</li></ul>
+          <p class="notes">🎙️ Before we proceed to inverse trigonometric functions, a quick recap of the original functions' domains and ranges is essential. This understanding is critical as the domain of an inverse function is the range of the original function, and vice-versa.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angles and Ratios</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">sin x Range</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">cos x Range</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">tan x Range</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 26</span>
-          <h2>The <span class="hl">Challenge</span>: Inverting Trigonometric Functions</h2>
-          <ul><li>Trigonometric functions are periodic and many-one.</li><li>This means they do not have a unique inverse over their entire domain.</li><li>To define an inverse, we must restrict their domains to make them one-one and onto.</li></ul>
-          <p class="notes">🎙️ Here lies the core challenge: how do we find an inverse for a function that isn't one-to-one? The solution is to cleverly 'cut' the domain of the original trigonometric function so that within that specific interval, it behaves as a one-to-one and onto function. This restricted domain is crucial.</p>
+          <span class="num">4 / 25</span>
+          <h2>Why <span class="hl">Restrict Domains</span>?</h2>
+          <ul><li>Trigonometric functions are periodic, meaning they repeat their values.</li><li>This periodicity makes them NOT one-to-one over their entire domain.</li><li>To define an inverse, the function must be one-to-one and onto.</li><li>We restrict the domain to a 'principal value branch' where they are invertible.</li></ul>
+          <p class="notes">🎙️ Since trig functions are periodic, a single output value corresponds to infinitely many input values. To ensure a unique inverse, we must 'lock down' a specific interval of the domain where the function is one-to-one and covers its entire range. This chosen interval is crucial.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Why Restrict Domain?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Domain Restriction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 26</span>
-          <h2>Inverse Sine Function (<span class="hl">arcsin x</span> or sin⁻¹ x)</h2>
-          <ul><li>We define sin⁻¹ x as the angle whose sine is x.</li><li>The domain of sin⁻¹ x is [-1, 1].</li><li>To make sin x invertible, we restrict its domain to [-π/2, π/2].</li></ul>
-          <p class="notes">🎙️ The inverse sine function, denoted as arcsin x or sin⁻¹ x, gives us the angle whose sine value is x. For this inverse to be a true function, we must restrict the domain of the original sine function. The standard, or principal, branch for sine is from -π/2 to π/2.</p>
+          <span class="num">5 / 25</span>
+          <h2>Defining Inverse Sine Function: <span class="hl">arcsin(x)</span></h2>
+          <ul><li>Denoted as sin⁻¹(x) or arcsin(x).</li><li>If sin y = x, then y = sin⁻¹(x).</li><li>The domain of sin⁻¹(x) is the range of sin(x).</li><li>The range of sin⁻¹(x) is the restricted domain of sin(x).</li></ul>
+          <p class="notes">🎙️ The inverse sine function, arcsin(x), tells us the angle 'y' whose sine is 'x'. It's important to remember that sin⁻¹(x) does not mean 1/sin(x). The domain and range swap roles compared to the original function.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Finding the Angle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Inverse Sine Concept</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 26</span>
-          <h2><span class="hl">Domain and Range</span> of sin⁻¹ x</h2>
-          <ul><li>Domain: [-1, 1] (This is the range of sin x).</li><li>Range (Principal Value Branch): [-π/2, π/2] (This is the restricted domain of sin x).</li><li>The output of sin⁻¹ x is always an angle in radians.</li></ul>
-          <p class="notes">🎙️ Understanding the domain and range is absolutely critical for all inverse trigonometric functions. For sin⁻¹ x, the input 'x' must be between -1 and 1, inclusive. The output, which is the angle, will always lie between -π/2 and π/2, inclusive. This range is known as the principal value branch.</p>
+          <span class="num">6 / 25</span>
+          <h2>arcsin(x): Domain and <span class="hl">Principal Value Branch</span> (Range)</h2>
+          <ul><li>Domain of sin⁻¹(x): [-1, 1].</li><li>Range (Principal Value Branch) of sin⁻¹(x): [-π/2, π/2].</li><li>This specific range ensures a unique output for each input 'x'.</li></ul>
+          <p class="notes">🎙️ The input 'x' for arcsin(x) must always be between -1 and 1. The output 'y' (the angle) will always lie within the interval from -π/2 to π/2 radians, inclusive. This is the convention for the principal value.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Domain (Input)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Range (Output)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Domain</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Range</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 26</span>
-          <h2>Inverse Cosine Function (<span class="hl">arccos x</span> or cos⁻¹ x)</h2>
-          <ul><li>cos⁻¹ x is the angle whose cosine is x.</li><li>The domain of cos⁻¹ x is [-1, 1].</li><li>We restrict the domain of cos x to [0, π] to define its inverse.</li></ul>
-          <p class="notes">🎙️ Similarly, for the inverse cosine function, arccos x or cos⁻¹ x, we are looking for the angle whose cosine value is x. Again, the input 'x' must be within the range of the original cosine function, which is [-1, 1]. The restriction for the cosine function is different from sine, it's [0, π].</p>
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Graph</span> of arcsin(x)</h2>
+          <ul><li>The graph of y = sin⁻¹(x) is a reflection of y = sin(x) (restricted) about the line y = x.</li><li>It starts at (-1, -π/2) and ends at (1, π/2).</li><li>The function is monotonically increasing over its domain.</li></ul>
+          <p class="notes">🎙️ Imagine taking the segment of the sine wave from -π/2 to π/2 and flipping it across the y=x line. That's what the graph of arcsin(x) looks like. It's a smooth, upward-sloping curve.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬅️</div><div class="vcap">Angle for Cosine</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Visualizing arcsin(x)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 26</span>
-          <h2><span class="hl">Domain and Range</span> of cos⁻¹ x</h2>
-          <ul><li>Domain: [-1, 1] (Range of cos x).</li><li>Range (Principal Value Branch): [0, π] (Restricted domain of cos x).</li><li>The output angle is always non-negative.</li></ul>
-          <p class="notes">🎙️ For cos⁻¹ x, the domain is also [-1, 1]. However, its principal value branch, or range, is from 0 to π. This means the angle returned by cos⁻¹ x will always be positive or zero, and never negative. Keep these ranges in mind when solving problems.</p>
+          <span class="num">8 / 25</span>
+          <h2>Defining Inverse Cosine Function: <span class="hl">arccos(x)</span></h2>
+          <ul><li>Denoted as cos⁻¹(x) or arccos(x).</li><li>If cos y = x, then y = cos⁻¹(x).</li><li>The domain of cos⁻¹(x) is the range of cos(x).</li><li>The range of cos⁻¹(x) is the restricted domain of cos(x).</li></ul>
+          <p class="notes">🎙️ Similar to arcsin, arccos(x) provides the angle 'y' whose cosine is 'x'. We again need to carefully consider the restricted domain of the cosine function to ensure its invertibility. Pay attention to its specific principal value branch.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📈</span><span>📈</span><span>📈</span><span>📈</span><span>📈</span></div><div class="vcap">Understanding the Limits</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Inverse Cosine Concept</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 26</span>
-          <h2>Inverse Tangent Function (<span class="hl">arctan x</span> or tan⁻¹ x)</h2>
-          <ul><li>tan⁻¹ x is the angle whose tangent is x.</li><li>The domain of tan⁻¹ x is all real numbers, R.</li><li>We restrict the domain of tan x to (-π/2, π/2) for its inverse.</li></ul>
-          <p class="notes">🎙️ Now let's look at the inverse tangent function, arctan x or tan⁻¹ x. This function gives us the angle whose tangent is x. Unlike sine and cosine, the domain of tan⁻¹ x is all real numbers, as the range of tan x is all real numbers. The restricted domain for tan x is (-π/2, π/2), excluding the endpoints where tan x is undefined.</p>
+          <span class="num">9 / 25</span>
+          <h2>arccos(x): Domain and <span class="hl">Principal Value Branch</span> (Range)</h2>
+          <ul><li>Domain of cos⁻¹(x): [-1, 1].</li><li>Range (Principal Value Branch) of cos⁻¹(x): [0, π].</li><li>This range ensures a unique output for each input 'x'.</li></ul>
+          <p class="notes">🎙️ For arccos(x), the input 'x' is also between -1 and 1. However, the output angle 'y' lies within the interval from 0 to π radians, inclusive. This range differs from arcsin and is crucial for correct evaluations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">Angle for Tangent</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Domain</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Range</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 26</span>
-          <h2><span class="hl">Domain and Range</span> of tan⁻¹ x</h2>
-          <ul><li>Domain: R (Range of tan x).</li><li>Range (Principal Value Branch): (-π/2, π/2) (Restricted domain of tan x).</li><li>The output angle is strictly between -π/2 and π/2.</li></ul>
-          <p class="notes">🎙️ For tan⁻¹ x, the input 'x' can be any real number. The output angle will always be strictly between -π/2 and π/2, never including the endpoints. This means the principal value branch for tan⁻¹ x is an open interval. Pay attention to these open versus closed intervals.</p>
+          <span class="num">10 / 25</span>
+          <h2>Defining Inverse Tangent Function: <span class="hl">arctan(x)</span></h2>
+          <ul><li>Denoted as tan⁻¹(x) or arctan(x).</li><li>If tan y = x, then y = tan⁻¹(x).</li><li>The domain of tan⁻¹(x) is the range of tan(x).</li><li>The range of tan⁻¹(x) is the restricted domain of tan(x).</li></ul>
+          <p class="notes">🎙️ The arctan function gives the angle 'y' whose tangent is 'x'. Like sin and cos, we restrict the domain of the original tangent function to make it one-to-one and onto its range, allowing for a unique inverse.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📊</span><span>📊</span><span>📊</span><span>📊</span><span>📊</span></div><div class="vcap">Infinite Possibilities</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Inverse Tangent Concept</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 26</span>
-          <h2>Summary of <span class="hl">Principal Value</span> Branches</h2>
-          <ul><li>sin⁻¹ x: Domain [-1, 1], Range [-π/2, π/2]</li><li>cos⁻¹ x: Domain [-1, 1], Range [0, π]</li><li>tan⁻¹ x: Domain R, Range (-π/2, π/2)</li><li>These ranges are crucial for finding unique solutions.</li></ul>
-          <p class="notes">🎙️ This slide summarizes the principal value branches for the three main inverse trigonometric functions. It is absolutely essential to memorize these domains and ranges. They determine the valid inputs and the unique output angle you should provide when solving problems.</p>
+          <span class="num">11 / 25</span>
+          <h2>arctan(x): Domain and <span class="hl">Principal Value Branch</span> (Range)</h2>
+          <ul><li>Domain of tan⁻¹(x): (-∞, ∞) or R (all real numbers).</li><li>Range (Principal Value Branch) of tan⁻¹(x): (-π/2, π/2).</li><li>Note: The endpoints -π/2 and π/2 are NOT included in the range.</li></ul>
+          <p class="notes">🎙️ For arctan(x), the input 'x' can be any real number, which is a key difference from arcsin and arccos. The output angle 'y' lies strictly between -π/2 and π/2 radians, without including the endpoints.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">The Unique Branch</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">12 / 26</span>
-          <h2><span class="hl">Quick Check</span> 1: Domain &amp; Range</h2>
-          <ul><li>What is the domain of y = sin⁻¹(2x - 1)?</li><li>What is the range of y = cos⁻¹(x)?</li><li>Can tan⁻¹(x) ever be equal to π/2?</li></ul>
-          <p class="notes">🎙️ Let's quickly test your understanding. Take a moment to think about these questions. For the first one, remember the domain restriction for sin⁻¹ of an expression. For the third, recall if the endpoints are included in the range of tan⁻¹.</p>
-        </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Domain</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Range</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 26</span>
-          <h2>Inverse Cosecant Function (<span class="hl">cosec⁻¹ x</span>)</h2>
-          <ul><li>cosec⁻¹ x is the angle whose cosecant is x.</li><li>Domain: R - (-1, 1) or |x| ≥ 1.</li><li>Range: [-π/2, π/2] - {0}.</li></ul>
-          <p class="notes">🎙️ Moving to the reciprocal functions, cosec⁻¹ x is the inverse of cosec x. Its domain excludes values between -1 and 1. The range is similar to sin⁻¹ x, but it excludes 0 because cosec x is undefined at 0.</p>
+          <span class="num">12 / 25</span>
+          <h2>The Remaining Inverse Trigonometric Functions</h2>
+          <ul><li>We also have cosec⁻¹(x), sec⁻¹(x), and cot⁻¹(x).</li><li>Their definitions are analogous to sin⁻¹(x), cos⁻¹(x), and tan⁻¹(x).</li><li>It's crucial to learn and remember their specific domains and principal value branches.</li></ul>
+          <p class="notes">🎙️ While the first three are most common, do not overlook inverse cosecant, secant, and cotangent. Each has unique domain restrictions and principal value branches that must be memorized for accurate problem-solving.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Reciprocal of Sine</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Three More Functions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 26</span>
-          <h2>Inverse Secant Function (<span class="hl">sec⁻¹ x</span>)</h2>
-          <ul><li>sec⁻¹ x is the angle whose secant is x.</li><li>Domain: R - (-1, 1) or |x| ≥ 1.</li><li>Range: [0, π] - {π/2}.</li></ul>
-          <p class="notes">🎙️ Next, sec⁻¹ x is the inverse of sec x. Its domain is also |x| ≥ 1. The range is similar to cos⁻¹ x, but it excludes π/2 because sec x is undefined at π/2.</p>
+          <span class="num">13 / 25</span>
+          <h2>Understanding the <span class="hl">Principal Value</span> Branch (PVB)</h2>
+          <ul><li>The PVB is the specific range chosen for each inverse trigonometric function.</li><li>It ensures that for every valid input, there is a unique output angle.</li><li>Crucial for solving problems and evaluating expressions correctly.</li><li>Always express your answers within this defined branch.</li></ul>
+          <p class="notes">🎙️ The concept of the Principal Value Branch is fundamental. It's not just a definition, but a rule that dictates the correct answer when evaluating inverse trigonometric expressions. Failing to adhere to it is a common source of errors.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Reciprocal of Cosine</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔑</div><div class="vcap">Key Concept</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 26</span>
-          <h2>Inverse Cotangent Function (<span class="hl">cot⁻¹ x</span>)</h2>
-          <ul><li>cot⁻¹ x is the angle whose cotangent is x.</li><li>Domain: R (all real numbers).</li><li>Range: (0, π).</li></ul>
-          <p class="notes">🎙️ Finally, cot⁻¹ x is the inverse of cot x. Its domain is all real numbers, similar to tan⁻¹ x. Its range, however, is (0, π), an open interval, which is similar to cos⁻¹ x but excludes endpoints.</p>
+          <span class="num">14 / 25</span>
+          <h2>Worked Example 1: Principal Value of <span class="hl">sin⁻¹(1/2)</span></h2>
+          <ul><li>Let y = sin⁻¹(1/2).</li><li>This implies sin y = 1/2.</li><li>We know sin(π/6) = 1/2.</li><li>Since π/6 ∈ [-π/2, π/2] (the PVB of sin⁻¹), y = π/6.</li></ul>
+          <p class="notes">🎙️ To find the principal value, first set the expression equal to 'y'. Then, convert it into the corresponding trigonometric equation. Finally, identify the unique angle within the specified principal value branch that satisfies this equation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Reciprocal of Tangent</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Set y = ITF(x)</span></div><div class="step"><span class="snum">2</span><span>Rewrite as trig(y) = x</span></div><div class="step"><span class="snum">3</span><span>Find angle in PVB</span></div><div class="step"><span class="snum">4</span><span>State the answer</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 26</span>
-          <h2>Worked <span class="hl">Example 1</span>: Finding Principal Value</h2>
-          <ul><li>Find the principal value of sin⁻¹(1/√2).</li></ul>
-          <p class="notes">🎙️ Let's work through an example. To find the principal value, we set the expression equal to 'y'. Then we recall the standard angles for which sine takes that value. The final step is to ensure that the angle we found lies within the principal value branch for sin⁻¹.</p>
+          <span class="num">15 / 25</span>
+          <h2>Worked Example 2: Principal Value of <span class="hl">cos⁻¹(-1/2)</span></h2>
+          <ul><li>Let y = cos⁻¹(-1/2).</li><li>This implies cos y = -1/2.</li><li>We know cos(π/3) = 1/2. Since cos(π - θ) = -cos(θ), cos(π - π/3) = cos(2π/3) = -1/2.</li><li>Since 2π/3 ∈ [0, π] (the PVB of cos⁻¹), y = 2π/3.</li></ul>
+          <p class="notes">🎙️ For negative values in arccos, remember that its principal value branch is [0, π]. You'll often use quadrant rules or identities like cos(π - θ) = -cos(θ) to find the correct angle in the second quadrant.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Let y = sin⁻¹(1/√2).</span></div><div class="step"><span class="snum">2</span><span>This means sin y = 1/√2.</span></div><div class="step"><span class="snum">3</span><span>We know sin(π/4) = 1/√2.</span></div><div class="step"><span class="snum">4</span><span>Since π/4 ∈ [-π/2, π/2], the principal value is π/4.</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Set y = ITF(x)</span></div><div class="step"><span class="snum">2</span><span>Rewrite as trig(y) = x</span></div><div class="step"><span class="snum">3</span><span>Find angle in PVB</span></div><div class="step"><span class="snum">4</span><span>State the answer</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 26</span>
-          <h2>Worked <span class="hl">Example 2</span>: Finding Principal Value (Negative)</h2>
-          <ul><li>Find the principal value of cos⁻¹(-1/2).</li></ul>
-          <p class="notes">🎙️ This example involves a negative value. For cos⁻¹ of a negative number, the angle will be in the second quadrant. Remember that the principal value branch for cos⁻¹ is [0, π]. So, if cos y is negative, y must be greater than π/2.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Let y = cos⁻¹(-1/2).</span></div><div class="step"><span class="snum">2</span><span>So, cos y = -1/2.</span></div><div class="step"><span class="snum">3</span><span>We know cos(π/3) = 1/2. Cosine is negative in Q2.</span></div><div class="step"><span class="snum">4</span><span>Therefore, y = π - π/3 = 2π/3.</span></div><div class="step"><span class="snum">5</span><span>Since 2π/3 ∈ [0, π], the principal value is 2π/3.</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 26</span>
-          <h2>Worked Example 3: <span class="hl">Composite Function</span></h2>
-          <ul><li>Evaluate sin(tan⁻¹(1)).</li></ul>
-          <p class="notes">🎙️ This type of problem involves evaluating a composite function. First, determine the value of the inner inverse trigonometric function, ensuring it's within its principal value branch. Then, use that angle to evaluate the outer trigonometric function.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Let θ = tan⁻¹(1).</span></div><div class="step"><span class="snum">2</span><span>Then tan θ = 1. The principal value is θ = π/4.</span></div><div class="step"><span class="snum">3</span><span>Now we need to find sin(θ) = sin(π/4).</span></div><div class="step"><span class="snum">4</span><span>sin(π/4) = 1/√2.</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 26</span>
-          <h2><span class="hl">Properties</span> of Inverse Trigonometric Functions - Part 1</h2>
-          <ul><li>sin⁻¹(sin x) = x, if x ∈ [-π/2, π/2]</li><li>sin(sin⁻¹ x) = x, if x ∈ [-1, 1]</li><li>Similar properties hold for other inverse trig functions within their specific domains/ranges.</li></ul>
-          <p class="notes">🎙️ These are identity properties. It's crucial to note the conditions on 'x'. For example, sin⁻¹(sin x) is not always x; it is x only if x lies within the principal value branch of sin⁻¹.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Identity Relations</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 26</span>
-          <h2>Properties of Inverse Trigonometric Functions - Part 2</h2>
-          <ul><li>sin⁻¹ x + cos⁻¹ x = π/2, for x ∈ [-1, 1]</li><li>tan⁻¹ x + cot⁻¹ x = π/2, for x ∈ R</li><li>cosec⁻¹ x + sec⁻¹ x = π/2, for |x| ≥ 1</li></ul>
-          <p class="notes">🎙️ These properties are very useful for simplifying expressions and solving equations. They show a complementary relationship between pairs of inverse trigonometric functions. Make sure to remember the conditions for x.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Complementary Pairs</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 26</span>
-          <h2>Properties of Inverse Trigonometric Functions - Part 3</h2>
-          <ul><li>sin⁻¹(-x) = -sin⁻¹ x</li><li>cos⁻¹(-x) = π - cos⁻¹ x</li><li>tan⁻¹(-x) = -tan⁻¹ x</li><li>These properties help in handling negative arguments.</li></ul>
-          <p class="notes">🎙️ These properties are essential when dealing with negative inputs for inverse trigonometric functions. Notice the difference: sine and tangent are odd functions, while cosine behaves differently due to its principal value branch.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Handling Negatives</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 26</span>
-          <h2>Worked Example 4: <span class="hl">Using Properties</span></h2>
-          <ul><li>Simplify: sin⁻¹(1/2) + cos⁻¹(1/2).</li></ul>
-          <p class="notes">🎙️ This example demonstrates the power of using properties. Instead of calculating each inverse function separately and then adding, we can directly apply the property to get the answer quickly. Always check if the value of 'x' falls within the valid domain for the property.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>We know the property: sin⁻¹ x + cos⁻¹ x = π/2.</span></div><div class="step"><span class="snum">2</span><span>Here, x = 1/2, which is in [-1, 1].</span></div><div class="step"><span class="snum">3</span><span>Therefore, sin⁻¹(1/2) + cos⁻¹(1/2) = π/2.</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 26</span>
-          <h2>Real-Life <span class="hl">Applications</span></h2>
-          <ul><li>Navigation and GPS systems use inverse trig for positioning.</li><li>Physics (e.g., calculating angles of forces, projectile motion).</li><li>Engineering (e.g., structural design, signal processing).</li><li>Computer Graphics for rotations and transformations.</li></ul>
-          <p class="notes">🎙️ Inverse trigonometric functions aren't just abstract mathematical concepts; they have wide-ranging practical applications. From helping your phone navigate to designing bridges or creating realistic computer animations, ITFs are silently at work everywhere.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">ITF in the World</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">24 / 26</span>
+          <span class="num">16 / 25</span>
           <h2>Common <span class="hl">Mistakes</span> to Avoid</h2>
-          <ul><li>Confusing principal value branches (e.g., using [-π/2, π/2] for cos⁻¹ x).</li><li>Incorrectly applying properties outside their valid domains.</li><li>Assuming sin⁻¹(sin x) = x for all x (it's only for restricted x).</li><li>Algebraic errors when manipulating expressions.</li></ul>
-          <p class="notes">🎙️ To excel in this chapter, be mindful of these common pitfalls. The most frequent errors stem from not remembering the correct principal value branches or misapplying the properties. Always double-check the domain and range conditions.</p>
+          <ul><li>Confusing sin⁻¹(x) with (sin x)⁻¹ or 1/sin(x).</li><li>Not checking if the angle falls within the principal value branch.</li><li>Incorrectly applying properties or identities.</li><li>Forgetting domain restrictions for 'x' in the ITF expressions.</li></ul>
+          <p class="notes">🎙️ Be extremely careful with notation; sin⁻¹(x) is an inverse function, not a reciprocal. Always verify that your final answer for a principal value lies within the correct branch. Incorrect application of properties is another frequent error.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Steer Clear of Errors</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Warning Signs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Properties</span> of Inverse Trigonometric Functions (Set 1)</h2>
+          <ul><li>sin⁻¹(sin x) = x, if x ∈ [-π/2, π/2].</li><li>cos⁻¹(cos x) = x, if x ∈ [0, π].</li><li>tan⁻¹(tan x) = x, if x ∈ (-π/2, π/2).</li><li>Similar properties exist for cosec⁻¹, sec⁻¹, and cot⁻¹.</li></ul>
+          <p class="notes">🎙️ These properties seem straightforward, but the conditions on 'x' are absolutely vital. The output 'x' must be within the principal value branch of the *outer* inverse function for the identity to hold directly. If not, you need to simplify first.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Key Identities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example 3: Using Properties (<span class="hl">sin⁻¹(sin x)</span>)</h2>
+          <ul><li>Evaluate sin⁻¹(sin(2π/3)).</li><li>Note that 2π/3 is NOT in [-π/2, π/2].</li><li>We know sin(2π/3) = sin(π - π/3) = sin(π/3).</li><li>Since π/3 ∈ [-π/2, π/2], sin⁻¹(sin(2π/3)) = sin⁻¹(sin(π/3)) = π/3.</li></ul>
+          <p class="notes">🎙️ This example perfectly illustrates why checking the principal value branch is critical. If the given angle is outside the valid range, you must use trigonometric identities to find an equivalent angle that *does* lie within the principal value branch.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Check if x is in PVB</span></div><div class="step"><span class="snum">2</span><span>If not, simplify trig value</span></div><div class="step"><span class="snum">3</span><span>Find equivalent angle in PVB</span></div><div class="step"><span class="snum">4</span><span>Apply property</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Properties of Inverse Trigonometric Functions (<span class="hl">Set 2</span>)</h2>
+          <ul><li>sin⁻¹ x + cos⁻¹ x = π/2, for x ∈ [-1, 1].</li><li>tan⁻¹ x + cot⁻¹ x = π/2, for x ∈ R.</li><li>cosec⁻¹ x + sec⁻¹ x = π/2, for |x| ≥ 1.</li></ul>
+          <p class="notes">🎙️ These additive properties are extremely useful for simplifying complex expressions and solving equations in competitive exams. Always ensure that the value of 'x' satisfies the specified domain condition for each property to be valid.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Sum Identities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked Example 4: Using <span class="hl">Sum Properties</span></h2>
+          <ul><li>Evaluate tan⁻¹(√3) + cot⁻¹(√3).</li><li>Here, x = √3.</li><li>Since √3 ∈ R, we can directly apply the property tan⁻¹ x + cot⁻¹ x = π/2.</li><li>Therefore, tan⁻¹(√3) + cot⁻¹(√3) = π/2.</li></ul>
+          <p class="notes">🎙️ This example demonstrates a direct application of one of the sum properties. Once you correctly identify the property and verify that the input 'x' falls within its valid domain, the solution is immediate and simplifies calculations significantly.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify the property</span></div><div class="step"><span class="snum">2</span><span>Check domain condition for x</span></div><div class="step"><span class="snum">3</span><span>Apply the property directly</span></div><div class="step"><span class="snum">4</span><span>State the answer</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Inverse Trigonometric Functions in the <span class="hl">Real World</span></h2>
+          <ul><li>Navigation: Calculating angles for direction and position.</li><li>Engineering: Designing structures, electrical circuits, and robotics.</li><li>Physics: Analyzing wave phenomena, optics, and projectile trajectories.</li><li>Computer Graphics: Handling rotations, transformations, and 3D modeling.</li></ul>
+          <p class="notes">🎙️ ITFs are not just theoretical concepts; they are powerful tools used across various scientific and engineering disciplines. From guiding ships to rendering realistic graphics, these functions play a crucial role in solving real-world problems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Practical Applications</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 26</span>
-          <h2><span class="hl">Quick Check</span> 2: Property Application</h2>
-          <ul><li>Is tan⁻¹(-√3) = -π/3 correct?</li><li>What is the value of sin(cos⁻¹(3/5))?</li><li>If sin⁻¹(x) = y, then what is the range of y?</li></ul>
-          <p class="notes">🎙️ Let's do another quick check. For the first question, verify if the value falls within the principal branch. For the second, you might need to use a right-angled triangle or an identity. The third question tests your fundamental understanding of range.</p>
+          <span class="num">22 / 25</span>
+          <h2>Quick Question 1: <span class="hl">Evaluate</span></h2>
+          <ul><li>tan⁻¹(1) + cos⁻¹(1/2)</li></ul>
+          <p class="notes">🎙️ Take a moment to solve this. Remember to find the principal value for each inverse trigonometric term separately, keeping their respective principal value branches in mind, and then add them up.</p>
         </div>
         
       </div>
@@ -346,16 +323,41 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">26 / 26</span>
-          <h2><span class="hl">Recap</span>: Inverse Trigonometric Functions</h2>
-          <ul><li>Defined ITFs by restricting domains of trig functions.</li><li>Learned principal value branches for sin⁻¹, cos⁻¹, tan⁻¹ (and reciprocals).</li><li>Explored key properties for simplification and solving.</li><li>Understood real-world applications and common errors.</li></ul>
-          <p class="notes">🎙️ To summarize, we've covered the definition of inverse trigonometric functions, focusing on their restricted domains and principal value branches. We also looked at important properties that are invaluable for solving problems efficiently. Remember to practice regularly, paying close attention to the conditions and ranges.</p>
+          <span class="num">23 / 25</span>
+          <h2>Quick Question 2: <span class="hl">True or False</span>?</h2>
+          <ul><li>Is sin⁻¹(x) = 1/sin(x)? Explain your answer.</li></ul>
+          <p class="notes">🎙️ This question tests a very common misconception. Think carefully about the meaning of the superscript '-1' in the context of functions versus exponents. Provide a clear and concise explanation.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Question 3: <span class="hl">Principal Value</span></h2>
+          <ul><li>What is the principal value of cot⁻¹(-1/√3)?</li></ul>
+          <p class="notes">🎙️ For cot⁻¹(-x), remember its principal value branch is (0, π). You'll need to find an angle in this range whose cotangent is -1/√3. Consider the quadrant where cotangent is negative.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Recap: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>ITFs are inverses of restricted trigonometric functions.</li><li>Master the domains and principal value branches for all six ITFs.</li><li>Understand and correctly apply the various properties of ITFs.</li><li>Always be mindful of common mistakes, especially regarding notation and range.</li></ul>
+          <p class="notes">🎙️ We've covered the essential concepts of Inverse Trigonometric Functions. The most important lesson is to always consider the principal value branch and the domain restrictions when solving any problem. Consistent practice is the key to mastering this chapter for your exams!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

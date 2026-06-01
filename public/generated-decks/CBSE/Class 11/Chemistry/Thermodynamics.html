@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Thermodynamics: Understanding Energy Transformations — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Thermodynamics: Understanding Energy Changes — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Thermodynamics</span>!</h2>
-          <ul><li>Explore the fascinating world of energy and its transformations.</li><li>Understand why some reactions happen naturally and others don't.</li><li>Master key concepts for your Class 11 CBSE Chemistry exams.</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today, we embark on a crucial chapter in Chemistry: Thermodynamics. This topic is fundamental to understanding energy changes in physical and chemical processes, which is vital for your exams and future studies.</p>
+          <h2>Chapter 6: <span class="hl">Thermodynamics</span> - The Science of Energy</h2>
+          <ul><li>Explore the fundamental principles governing energy transformations.</li><li>Understand the spontaneity of chemical reactions.</li><li>Prepare for CBSE Class 11 Chemistry exams with key concepts and examples.</li></ul>
+          <p class="notes">🎙️ Welcome to the exciting chapter of Thermodynamics! This unit is crucial for understanding why chemical reactions occur and how energy is involved. We'll cover all the essential concepts for your Class 11 CBSE exams.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Thermodynamics</span>?</h2>
-          <ul><li>Branch of science dealing with heat and other forms of energy.</li><li>Studies the interconversion of different forms of energy.</li><li>Predicts the feasibility and direction of physical and chemical changes.</li></ul>
-          <p class="notes">🎙️ Thermodynamics is essentially the study of energy and how it moves and transforms. It helps us answer questions like: 'Will this reaction occur on its own?' and 'How much energy will be released or absorbed?'</p>
+          <ul><li>Branch of science dealing with heat and other forms of energy.</li><li>Studies the interconversion of different forms of energy.</li><li>Predicts the feasibility and spontaneity of a process.</li><li>Does NOT predict the rate of a reaction.</li></ul>
+          <p class="notes">🎙️ Thermodynamics, from Greek 'therme' (heat) and 'dynamis' (power), is all about energy. It helps us understand how heat, work, and other energy forms transform and interact in chemical and physical processes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Energy &amp; Heat</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Heat &amp; Energy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Key Terms: <span class="hl">System</span>, Surroundings, Boundary</h2>
-          <ul><li>System: Part of the universe chosen for study (e.g., a chemical reaction in a beaker).</li><li>Surroundings: Everything else in the universe outside the system.</li><li>Boundary: The real or imaginary surface separating the system from its surroundings.</li></ul>
-          <p class="notes">🎙️ To study energy changes precisely, we first need to define our 'system'. Imagine a reaction happening in a test tube; the chemicals inside are the system, the test tube and the air around it are the surroundings, and the test tube walls form the boundary.</p>
+          <h2>Key Terms: <span class="hl">System</span> and Surroundings</h2>
+          <ul><li>System: The part of the universe under thermodynamic study.</li><li>Surroundings: Everything else in the universe not part of the system.</li><li>Boundary: Separates the system from its surroundings (real or imaginary).</li></ul>
+          <p class="notes">🎙️ To study energy changes, we first need to define our area of interest. The 'system' is what we're focusing on, like a beaker with a reaction, and everything outside it is the 'surroundings'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Universe divided</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">System Boundary</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 25</span>
           <h2><span class="hl">Types</span> of Systems</h2>
-          <ul><li>Open System: Exchanges both energy and matter with surroundings.</li><li>Closed System: Exchanges energy but NOT matter with surroundings.</li><li>Isolated System: Exchanges NEITHER energy NOR matter with surroundings.</li></ul>
-          <p class="notes">🎙️ Understanding system types is crucial. An open cup of hot coffee is an open system. A sealed flask of hot coffee is a closed system. An ideal thermos flask is an isolated system, though truly isolated systems are difficult to achieve in practice.</p>
+          <ul><li>Open System: Exchanges both matter and energy with surroundings.</li><li>Closed System: Exchanges energy but NOT matter with surroundings.</li><li>Isolated System: Exchanges NEITHER matter NOR energy with surroundings.</li></ul>
+          <p class="notes">🎙️ Understanding system types is fundamental. Think of an open beaker of boiling water, a closed flask of boiling water, and a thermos flask as examples of open, closed, and isolated systems, respectively.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Open</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Closed</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Isolated</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Open System</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Closed System</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Isolated System</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Properties</span> of a System: Extensive vs. Intensive</h2>
-          <ul><li>Extensive Properties: Depend on the amount of matter (e.g., mass, volume, internal energy).</li><li>Intensive Properties: Independent of the amount of matter (e.g., temperature, pressure, density).</li><li>Ratio of two extensive properties is an intensive property (e.g., density = mass/volume).</li></ul>
-          <p class="notes">🎙️ This distinction is very important. If you take a small piece of a substance, its temperature remains the same, but its mass changes. So, temperature is intensive, and mass is extensive.</p>
+          <h2><span class="hl">State Functions</span> vs. Path Functions</h2>
+          <ul><li>State Function: Depends only on initial and final states, not path taken.</li><li>Examples: Internal Energy (U), Enthalpy (H), Entropy (S), Gibbs Free Energy (G).</li><li>Path Function: Depends on the path or manner in which the change occurs.</li><li>Examples: Heat (q), Work (w).</li></ul>
+          <p class="notes">🎙️ This distinction is crucial. Imagine climbing a mountain; your change in altitude is a state function, but the distance you walk depends on the path you choose, making it a path function. Same applies to energy.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Extensive</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Intensive</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">State Function</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Path Function</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">State Functions</span> vs. Path Functions</h2>
-          <ul><li>State Function: Property whose value depends only on the initial and final states of the system.</li><li>Independent of the path taken (e.g., Pressure, Volume, Temperature, Internal Energy, Enthalpy).</li><li>Path Function: Property whose value depends on the path taken between initial and final states.</li><li>Examples include Heat (q) and Work (w).</li></ul>
-          <p class="notes">🎙️ Imagine climbing a mountain. Your change in altitude (height) is a state function – it only depends on where you started and where you ended. However, the distance you walked to get there is a path function, as it depends on the specific trail you took.</p>
+          <h2><span class="hl">Extensive</span> vs. Intensive Properties</h2>
+          <ul><li>Extensive Properties: Depend on the amount of matter in the system.</li><li>Examples: Mass, Volume, Internal Energy, Enthalpy, Heat Capacity.</li><li>Intensive Properties: Independent of the amount of matter in the system.</li><li>Examples: Temperature, Pressure, Density, Viscosity, Molar Heat Capacity.</li></ul>
+          <p class="notes">🎙️ Think of it this way: if you take half of a substance, its mass and volume (extensive) will halve, but its temperature and density (intensive) will remain the same. This concept helps us categorize properties.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Path Matters</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Extensive</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Intensive</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -120,10 +133,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">7 / 25</span>
           <h2><span class="hl">Internal Energy</span> (U)</h2>
-          <ul><li>Sum of all forms of energy associated with the atoms and molecules of a system.</li><li>Includes kinetic energy (translational, rotational, vibrational) and potential energy (intermolecular forces).</li><li>An extensive property and a state function.</li></ul>
-          <p class="notes">🎙️ Internal energy is the total energy stored within a system. We cannot measure its absolute value, but we can measure the change in internal energy (ΔU) during a process. This change is what truly matters in thermodynamics.</p>
+          <ul><li>Total energy contained within a system (kinetic + potential energy of particles).</li><li>A state function; its absolute value cannot be determined.</li><li>Change in internal energy (ΔU) is measurable.</li><li>ΔU = q + w (First Law of Thermodynamics).</li></ul>
+          <p class="notes">🎙️ Internal energy is the sum of all forms of energy in a system. While we can't measure its absolute value, we can precisely determine the change in internal energy (ΔU) during a process, which is very useful.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Total Energy</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Total_internal_reflection.svg?width=500" data-fb="⚡" alt="Total internal reflection occurs when light traveling in a denser medium hits a less dense"/><div class="vcap">Total internal reflection occurs when light traveling in a denser medium hits a less dense</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -132,10 +145,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">8 / 25</span>
           <h2><span class="hl">First Law</span> of Thermodynamics</h2>
-          <ul><li>Also known as the Law of Conservation of Energy.</li><li>Energy can neither be created nor destroyed, only transformed.</li><li>Mathematical form: ΔU = q + w (where ΔU is change in internal energy, q is heat, w is work).</li></ul>
-          <p class="notes">🎙️ The First Law is a fundamental principle. It tells us that any change in the internal energy of a system must be accounted for by heat absorbed or released, and work done on or by the system. It's a simple energy balance equation.</p>
+          <ul><li>Energy can neither be created nor destroyed, only transformed.</li><li>Also known as the Law of Conservation of Energy.</li><li>Mathematical statement: ΔU = q + w.</li><li>ΔU = change in internal energy, q = heat, w = work.</li></ul>
+          <p class="notes">🎙️ The First Law is foundational. It tells us that any energy gained or lost by a system must come from or go to the surroundings. The total energy of the universe remains constant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Energy Balance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Conservation of Energy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,33 +156,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Work</span> (w) in Thermodynamics</h2>
-          <ul><li>Work is energy transferred when a force causes displacement.</li><li>In chemistry, we often consider pressure-volume (PV) work (expansion/compression).</li><li>Sign convention: w &gt; 0 (positive) when work is done ON the system (compression).</li><li>w &lt; 0 (negative) when work is done BY the system (expansion).</li></ul>
-          <p class="notes">🎙️ The sign convention for work is crucial for calculations. Remember, if the system expands, it does work on the surroundings, so its internal energy decreases, hence 'w' is negative. If the surroundings compress the system, work is done on the system, and 'w' is positive.</p>
+          <h2>Work (w) and Heat (q) <span class="hl">Conventions</span></h2>
+          <ul><li>Work done BY the system (expansion): w = -PΔV (negative).</li><li>Work done ON the system (compression): w = +PΔV (positive).</li><li>Heat absorbed BY the system (endothermic): q = positive.</li><li>Heat released BY the system (exothermic): q = negative.</li></ul>
+          <p class="notes">🎙️ These sign conventions are critical for correctly applying the First Law. Always remember: work done by the system is energy leaving the system, hence negative; heat absorbed by the system is energy entering, hence positive.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">PV Work</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2><span class="hl">Heat</span> (q) in Thermodynamics</h2>
-          <ul><li>Heat is energy transferred due to a temperature difference.</li><li>Sign convention: q &gt; 0 (positive) when heat is absorbed BY the system (endothermic).</li><li>q &lt; 0 (negative) when heat is released BY the system (exothermic).</li></ul>
-          <p class="notes">🎙️ Similar to work, heat also has a sign convention. If a reaction feels cold, it's absorbing heat from your hand (surroundings), so q is positive. If it feels hot, it's releasing heat, and q is negative. This helps us track energy flow.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Heat Flow</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Work BY System (Expansion)</span></div><div class="step"><span class="snum">2</span><span>Work ON System (Compression)</span></div><div class="step"><span class="snum">3</span><span>Heat Absorbed (Endothermic)</span></div><div class="step"><span class="snum">4</span><span>Heat Released (Exothermic)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">11 / 25</span>
+          <span class="num">10 / 25</span>
           <h2>Worked <span class="hl">Example 1</span>: First Law Application</h2>
-          <ul><li>Problem: A system absorbs 200 J of heat and does 150 J of work on the surroundings.</li><li>Calculate the change in internal energy (ΔU) of the system.</li><li>Solution: q = +200 J (absorbed), w = -150 J (work done BY system).</li><li>ΔU = q + w = (+200 J) + (-150 J) = +50 J.</li></ul>
-          <p class="notes">🎙️ This example directly applies the First Law. Pay close attention to the sign conventions for heat and work. 'Absorbs heat' means q is positive. 'Does work on surroundings' means w is negative. A positive ΔU means the system's internal energy increased.</p>
+          <ul><li>Problem: A system absorbs 500 J of heat and does 200 J of work.</li><li>Calculate the change in internal energy (ΔU) of the system.</li><li>Solution: q = +500 J (absorbed), w = -200 J (work done BY system).</li><li>ΔU = q + w = 500 J + (-200 J) = 300 J.</li></ul>
+          <p class="notes">🎙️ Let's apply the First Law. Remember the sign conventions: heat absorbed is positive, and work done by the system is negative. So, ΔU is 300 J, indicating an increase in the system's internal energy.</p>
         </div>
         
       </div>
@@ -178,12 +179,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
+          <span class="num">11 / 25</span>
           <h2><span class="hl">Enthalpy</span> (H)</h2>
-          <ul><li>A thermodynamic state function, useful for constant pressure processes.</li><li>Defined as H = U + PV (Internal Energy + Pressure × Volume).</li><li>Represents the total heat content of a system at constant pressure.</li></ul>
-          <p class="notes">🎙️ Enthalpy is extremely important in chemistry because many reactions occur at constant atmospheric pressure. It helps us directly relate heat changes to the system's energy content under these common conditions. It's also a state function, so its change depends only on initial and final states.</p>
+          <ul><li>Total heat content of a system at constant pressure.</li><li>Defined as H = U + PV (Internal energy + Pressure-Volume work).</li><li>A state function; its absolute value cannot be determined.</li><li>Change in enthalpy (ΔH) is measurable and very useful for reactions.</li></ul>
+          <p class="notes">🎙️ Enthalpy is particularly important in chemistry because most reactions occur at constant atmospheric pressure. ΔH directly gives us the heat absorbed or released under these common conditions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Heat Content</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat Content</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Enthalpy Change</span> (ΔH): Exothermic vs. Endothermic</h2>
+          <ul><li>Exothermic Reactions: Release heat to surroundings; ΔH is negative.</li><li>Endothermic Reactions: Absorb heat from surroundings; ΔH is positive.</li><li>ΔH = H_products - H_reactants.</li><li>At constant pressure, ΔH = q_p (heat at constant pressure).</li></ul>
+          <p class="notes">🎙️ This is a key concept. Exothermic reactions feel hot because they release energy, while endothermic reactions feel cold as they absorb energy. Many everyday processes are exothermic, like combustion.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Exothermic (ΔH &lt; 0)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Endothermic (ΔH &gt; 0)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Enthalpy Change</span> (ΔH)</h2>
-          <ul><li>ΔH = H_products - H_reactants.</li><li>Represents the heat absorbed or released during a reaction at constant pressure.</li><li>For reactions involving gases, ΔH = ΔU + Δn_g RT (where Δn_g is change in moles of gas).</li></ul>
-          <p class="notes">🎙️ ΔH is the most commonly measured thermodynamic quantity in chemistry. A negative ΔH indicates an exothermic reaction (heat released), and a positive ΔH indicates an endothermic reaction (heat absorbed). This is crucial for understanding reaction energetics.</p>
+          <h2>Standard Enthalpy of <span class="hl">Formation</span> (ΔfH°)</h2>
+          <ul><li>Enthalpy change when 1 mole of a compound is formed from its elements.</li><li>Elements must be in their most stable physical states (standard states).</li><li>Standard conditions: 298 K (25°C), 1 bar pressure.</li><li>ΔfH° of an element in its standard state is zero.</li></ul>
+          <p class="notes">🎙️ Standard enthalpy of formation is a reference point. It allows us to calculate the enthalpy change of any reaction using Hess's Law, as long as we know the ΔfH° values for all reactants and products.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Reaction Heat</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building Compounds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Exothermic vs. Endothermic <span class="hl">Reactions</span></h2>
-          <ul><li>Exothermic: Reactions that release heat to the surroundings (ΔH &lt; 0).</li><li>Endothermic: Reactions that absorb heat from the surroundings (ΔH &gt; 0).</li><li>Examples: Combustion (exothermic), Photosynthesis (endothermic).</li></ul>
-          <p class="notes">🎙️ This is a key concept. Exothermic reactions feel hot because they're releasing energy, like burning fuel. Endothermic reactions feel cold because they're taking energy from their surroundings, like dissolving certain salts in water.</p>
+          <h2>Standard Enthalpy of <span class="hl">Combustion</span> (ΔcH°)</h2>
+          <ul><li>Enthalpy change when 1 mole of a substance undergoes complete combustion.</li><li>Reacts with sufficient oxygen under standard conditions.</li><li>Always an exothermic process (ΔcH° is negative).</li><li>Used to determine calorific values of fuels.</li></ul>
+          <p class="notes">🎙️ Combustion reactions are essential for energy generation. The standard enthalpy of combustion helps us quantify the energy released when fuels burn, which is critical for industrial and biological processes.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Exothermic</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Endothermic</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Burning Reaction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -216,10 +229,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">15 / 25</span>
           <h2><span class="hl">Hess's Law</span> of Constant Heat Summation</h2>
-          <ul><li>States that the total enthalpy change for a reaction is the same, regardless of the path taken.</li><li>If a reaction can be expressed as a sum of several steps, the ΔH for the overall reaction is the sum of ΔH values for individual steps.</li><li>Allows calculation of ΔH for reactions that are difficult to measure directly.</li></ul>
-          <p class="notes">🎙️ Hess's Law is incredibly powerful. Since enthalpy is a state function, the overall change only depends on the initial and final states. This means we can add or subtract known reaction enthalpies to find the enthalpy of a target reaction, even if we can't perform it directly.</p>
+          <ul><li>If a reaction occurs in several steps, the total enthalpy change is the sum of enthalpy changes for each step.</li><li>It applies because enthalpy is a state function.</li><li>Allows calculation of ΔH for reactions difficult to measure directly.</li><li>Manipulate known reactions (reverse, multiply) to match target reaction.</li></ul>
+          <p class="notes">🎙️ Hess's Law is a powerful tool. It means that no matter how many steps a reaction takes, the overall energy change is the same as if it happened in one step. This is incredibly useful for complex reactions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Sum of Steps</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transformer3d_col3.svg?width=500" data-fb="➕" alt="A transformer changes AC voltage from one level to another using electromagnetic induction"/><div class="vcap">A transformer changes AC voltage from one level to another using electromagnetic induction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -227,9 +240,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Worked <span class="hl">Example 2</span>: Hess's Law</h2>
-          <ul><li>Given: C(s) + O₂(g) → CO₂(g), ΔH₁ = -393.5 kJ/mol</li><li>CO(g) + ½O₂(g) → CO₂(g), ΔH₂ = -283.0 kJ/mol</li><li>Calculate ΔH for C(s) + ½O₂(g) → CO(g).</li><li>Solution: Target = (Eq 1) - (Eq 2) =&gt; ΔH = ΔH₁ - ΔH₂ = (-393.5) - (-283.0) = -110.5 kJ/mol.</li></ul>
-          <p class="notes">🎙️ In this example, we manipulate the given equations to match our target reaction. If you reverse an equation, you change the sign of its ΔH. If you multiply an equation by a factor, you multiply its ΔH by the same factor. Then, simply sum them up.</p>
+          <h2>Worked <span class="hl">Example 2</span>: Applying Hess's Law</h2>
+          <ul><li>Target: C(s) + 2H₂(g) → CH₄(g); ΔH = ?</li><li>Given: (1) C(s) + O₂(g) → CO₂(g); ΔH₁ = -393.5 kJ</li><li>(2) H₂(g) + ½O₂(g) → H₂O(l); ΔH₂ = -285.8 kJ</li><li>(3) CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l); ΔH₃ = -890.3 kJ</li><li>Solution: (1) + 2*(2) + reverse(3) yields ΔH = -74.8 kJ.</li></ul>
+          <p class="notes">🎙️ To solve this, we combine the given equations. Equation (1) is kept as is. Equation (2) is multiplied by 2. Equation (3) is reversed, changing its sign. Summing these adjusted ΔH values gives the final answer.</p>
         </div>
         
       </div>
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Heat Capacity</span> (C)</h2>
-          <ul><li>Amount of heat required to raise the temperature of a substance by 1°C (or 1 K).</li><li>Units: J/K or J/°C.</li><li>Specific Heat Capacity (c): Heat required to raise temperature of 1 gram by 1°C (J/g·K).</li><li>Molar Heat Capacity (C_m): Heat required to raise temperature of 1 mole by 1°C (J/mol·K).</li></ul>
-          <p class="notes">🎙️ Heat capacity tells us how much heat energy a substance can 'store' for a given temperature change. Water has a high specific heat capacity, meaning it takes a lot of energy to heat it up, which is why it's used as a coolant.</p>
+          <h2><span class="hl">Spontaneity</span>: What Drives Reactions?</h2>
+          <ul><li>Spontaneous Process: Occurs without continuous external intervention.</li><li>Non-spontaneous Process: Requires continuous external energy input.</li><li>Spontaneity does NOT imply fast reaction rate.</li><li>Factors influencing spontaneity: Enthalpy (ΔH) and Entropy (ΔS).</li></ul>
+          <p class="notes">🎙️ A spontaneous process is one that happens naturally, like a ball rolling downhill. It doesn't mean it happens quickly; rust formation is spontaneous but slow. We need to understand what makes processes spontaneous.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature Change</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Natural Tendency</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Spontaneity</span></h2>
-          <ul><li>A spontaneous process occurs without external intervention.</li><li>Doesn't imply speed; a spontaneous reaction can be very slow (e.g., rusting).</li><li>Non-spontaneous processes require continuous energy input.</li></ul>
-          <p class="notes">🎙️ Spontaneity in thermodynamics simply refers to whether a process can occur on its own under given conditions. It has nothing to do with how fast it happens. A diamond converting to graphite is spontaneous but takes millions of years!</p>
+          <h2><span class="hl">Entropy</span> (S): Measure of Disorder</h2>
+          <ul><li>Measure of the randomness or disorder of a system.</li><li>A state function; units: J/K/mol.</li><li>Higher disorder = Higher entropy.</li><li>Solid &lt; Liquid &lt; Gas (in terms of entropy).</li></ul>
+          <p class="notes">🎙️ Entropy is often called the arrow of time because the universe naturally tends towards greater disorder. Understanding entropy helps us predict the direction of spontaneous change.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Natural Process</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Disorder &amp; Randomness</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Entropy</span> (S)</h2>
-          <ul><li>A measure of the disorder or randomness of a system.</li><li>Higher disorder means higher entropy.</li><li>Gases have higher entropy than liquids, which have higher entropy than solids.</li><li>A state function and an extensive property.</li></ul>
-          <p class="notes">🎙️ Entropy is a concept that often confuses students, but think of it as the degree of 'messiness' or 'randomness'. When you clean your room, you decrease its entropy. When you leave it, it naturally becomes messy again, increasing its entropy.</p>
+          <h2><span class="hl">Second Law</span> of Thermodynamics</h2>
+          <ul><li>For any spontaneous process, the total entropy of the universe increases.</li><li>ΔS_universe = ΔS_system + ΔS_surroundings &gt; 0 for spontaneous processes.</li><li>Systems tend towards states of higher probability (greater disorder).</li><li>Explains why heat flows from hot to cold, and gases expand.</li></ul>
+          <p class="notes">🎙️ The Second Law is profound. It dictates the direction of natural processes. While a system's entropy can decrease, it must be compensated by an even larger increase in the surroundings' entropy, ensuring the universe's overall entropy always rises.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Disorder</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Increasing Disorder</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Second Law</span> of Thermodynamics</h2>
-          <ul><li>States that for any spontaneous process, the total entropy of the universe must increase (ΔS_universe &gt; 0).</li><li>ΔS_universe = ΔS_system + ΔS_surroundings.</li><li>It sets the direction for all natural processes.</li></ul>
-          <p class="notes">🎙️ The Second Law is why heat flows from hot to cold, and why gas expands to fill a container. These processes increase the overall disorder of the universe. It's a powerful law that explains the directionality of time itself.</p>
+          <h2><span class="hl">Gibbs Free Energy</span> (G): Spontaneity Criterion</h2>
+          <ul><li>Combines enthalpy and entropy to predict spontaneity at constant T and P.</li><li>Defined as G = H - TS.</li><li>Change in Gibbs Free Energy: ΔG = ΔH - TΔS.</li><li>A state function; units: J/mol or kJ/mol.</li></ul>
+          <p class="notes">🎙️ Gibbs Free Energy is the ultimate tool for predicting spontaneity in chemical reactions under typical lab conditions. It balances the system's tendency to minimize energy (ΔH) and maximize disorder (ΔS).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Direction of Change</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Gibbs_free_energy.svg?width=500" data-fb="💡" alt="Gibbs free energy (ΔG = ΔH - TΔS) determines reaction spontaneity; negative ΔG indicates f"/><div class="vcap">Gibbs free energy (ΔG = ΔH - TΔS) determines reaction spontaneity; negative ΔG indicates f</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Gibbs Free Energy</span> (G)</h2>
-          <ul><li>A thermodynamic potential that measures the 'useful' or 'available' energy.</li><li>Criterion for spontaneity at constant temperature and pressure: ΔG = ΔH - TΔS.</li><li>If ΔG &lt; 0: Process is spontaneous.</li><li>If ΔG &gt; 0: Process is non-spontaneous.</li><li>If ΔG = 0: System is at equilibrium.</li></ul>
-          <p class="notes">🎙️ Gibbs Free Energy is the most practical tool for predicting spontaneity in chemistry. It combines the enthalpy (heat) and entropy (disorder) changes. A negative ΔG means the process will occur spontaneously under those conditions.</p>
+          <h2>Gibbs Free Energy and <span class="hl">Spontaneity</span></h2>
+          <ul><li>If ΔG &lt; 0: Process is spontaneous (favored).</li><li>If ΔG &gt; 0: Process is non-spontaneous (unfavored, spontaneous in reverse).</li><li>If ΔG = 0: Process is at equilibrium.</li><li>The sign of ΔG depends on ΔH, ΔS, and Temperature (T).</li></ul>
+          <p class="notes">🎙️ This table is crucial for exam questions. Remember, a negative ΔG means the reaction will proceed on its own. A positive ΔG means it won't, and you'd need to input energy for it to happen.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Gibbs_free_energy.svg?width=500" data-fb="💰" alt="Gibbs free energy (ΔG = ΔH - TΔS) determines reaction spontaneity; negative ΔG indicates f"/><div class="vcap">Gibbs free energy (ΔG = ΔH - TΔS) determines reaction spontaneity; negative ΔG indicates f</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">ΔG &lt; 0 (Spontaneous)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">ΔG &gt; 0 (Non-spontaneous)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">ΔG = 0 (Equilibrium)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -299,9 +312,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Worked <span class="hl">Example 3</span>: Gibbs Free Energy</h2>
-          <ul><li>Problem: For a reaction, ΔH = -120 kJ/mol and ΔS = -40 J/K·mol at 298 K.</li><li>Calculate ΔG and predict spontaneity.</li><li>Solution: ΔS = -0.040 kJ/K·mol (convert J to kJ).</li><li>ΔG = ΔH - TΔS = -120 kJ/mol - (298 K)(-0.040 kJ/K·mol)</li><li>ΔG = -120 kJ/mol + 11.92 kJ/mol = -108.08 kJ/mol.</li><li>Since ΔG &lt; 0, the reaction is spontaneous at 298 K.</li></ul>
-          <p class="notes">🎙️ This example shows how to calculate ΔG. Remember to ensure consistent units (kJ or J). A negative ΔG confirms spontaneity. Notice how the negative entropy change (making it less spontaneous) is outweighed by the highly negative enthalpy change (making it more spontaneous).</p>
+          <h2>Worked <span class="hl">Example 3</span>: Calculating ΔG</h2>
+          <ul><li>Problem: For a reaction, ΔH = -30 kJ/mol and ΔS = -50 J/K/mol at 298 K.</li><li>Calculate ΔG and determine spontaneity.</li><li>Solution: Convert ΔS to kJ/K/mol: -50 J/K/mol = -0.050 kJ/K/mol.</li><li>ΔG = ΔH - TΔS = -30 kJ/mol - (298 K)(-0.050 kJ/K/mol).</li><li>ΔG = -30 kJ/mol + 14.9 kJ/mol = -15.1 kJ/mol. Since ΔG &lt; 0, the reaction is spontaneous.</li></ul>
+          <p class="notes">🎙️ Always ensure your units for ΔH and TΔS are consistent before calculation, usually kJ/mol. Here, despite a negative ΔS, the negative ΔH is large enough to make ΔG negative, indicating spontaneity.</p>
         </div>
         
       </div>
@@ -312,8 +325,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">23 / 25</span>
           <h2><span class="hl">Quick Check</span> Questions</h2>
-          <ul><li>1. Is boiling water an endothermic or exothermic process?</li><li>2. What is the sign of ΔG for a spontaneous reaction?</li><li>3. Give an example of an extensive property.</li><li>4. State the mathematical form of the First Law of Thermodynamics.</li></ul>
-          <p class="notes">🎙️ Take a moment to answer these questions. They cover some fundamental concepts we've discussed. Pause the lesson if you need more time to think through your answers.</p>
+          <ul><li>1. Which of the following is an intensive property: a) Mass b) Volume c) Temperature d) Enthalpy?</li><li>2. For an endothermic reaction, is ΔH positive or negative?</li><li>3. If ΔG is positive, is the reaction spontaneous or non-spontaneous?</li><li>4. State the First Law of Thermodynamics in terms of internal energy, heat, and work.</li></ul>
+          <p class="notes">🎙️ Take a moment to answer these questions. They cover some of the core concepts we've discussed. Pause the slide if you need more time to think through your answers.</p>
         </div>
         
       </div>
@@ -324,26 +337,27 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">24 / 25</span>
           <h2>Common <span class="hl">Mistakes</span> &amp; Exam Tips</h2>
-          <ul><li>Sign Conventions: Always double-check signs for q, w, and ΔH/ΔG.</li><li>Units: Be careful with J vs. kJ, and ensure consistent units in calculations (especially for TΔS).</li><li>Definitions: Clearly understand state vs. path functions, extensive vs. intensive properties.</li><li>Hess's Law: Practice manipulating equations and their ΔH values correctly.</li></ul>
-          <p class="notes">🎙️ Many errors in thermodynamics stem from incorrect sign conventions or unit conversions. Practice regularly and pay attention to detail. Understanding the underlying definitions will help you avoid conceptual mistakes.</p>
+          <ul><li>Sign Conventions: Always be careful with 'q' and 'w' signs.</li><li>Units: Ensure consistency (e.g., J vs. kJ) for ΔG calculations.</li><li>State vs. Path Functions: Don't confuse them, especially for ΔU, ΔH, q, w.</li><li>Hess's Law: Practice manipulating equations and their ΔH values.</li></ul>
+          <p class="notes">🎙️ Many students lose marks due to these common errors. Pay close attention to unit conversions and sign conventions. Practice numerical problems regularly to solidify your understanding.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Study Smart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Avoid Pitfalls</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Thermodynamics: <span class="hl">Key Takeaways</span></h2>
-          <ul><li>Thermodynamics explains energy changes and spontaneity.</li><li>First Law: Energy conservation (ΔU = q + w).</li><li>Second Law: Entropy of universe increases for spontaneous processes (ΔS_universe &gt; 0).</li><li>Gibbs Free Energy (ΔG = ΔH - TΔS) predicts spontaneity at constant T, P.</li></ul>
-          <p class="notes">🎙️ You've now covered the core principles of thermodynamics. Remember these fundamental laws and equations. Practice applying them with various problems, and you'll be well-prepared for your exams. Keep exploring the world of energy!</p>
+          <h2><span class="hl">Recap</span>: Key Takeaways from Thermodynamics</h2>
+          <ul><li>Thermodynamics studies energy changes and spontaneity.</li><li>First Law: Energy conservation (ΔU = q + w).</li><li>Enthalpy (ΔH): Heat at constant pressure, indicates exo/endothermic.</li><li>Entropy (ΔS): Measure of disorder, universe tends to increasing ΔS.</li><li>Gibbs Free Energy (ΔG): Predicts spontaneity (ΔG = ΔH - TΔS).</li></ul>
+          <p class="notes">🎙️ You've now covered the core principles of Thermodynamics! Remember these key concepts and their interrelations. With practice, you'll master this crucial chapter for your CBSE exams.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Chapter Summary</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

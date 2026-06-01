@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Pair of Linear Equations in Two Variables — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to Pair of Linear Equations in Two Variables!</h2>
+          <ul><li>A foundational chapter in Algebra for Class 10.</li><li>Understand how two equations with two unknowns work together.</li><li>Learn to solve real-world problems using these equations.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're diving into an exciting topic: 'Pair of Linear Equations in Two Variables'. This chapter is super important for building your algebraic skills and solving practical problems.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is an <span class="hl">Equation</span>?</h2>
+          <ul><li>A mathematical statement showing two expressions are equal.</li><li>It always contains an 'equal to' sign (=).</li><li>Example: 3x + 5 = 11.</li></ul>
+          <p class="notes">🎙️ Think of an equation like a balanced scale. Whatever is on one side must be exactly equal to what's on the other side. If you change one side, you must change the other to maintain balance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balanced Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>What is a <span class="hl">Linear</span> Equation?</h2>
+          <ul><li>An equation where the highest power of any variable is 1.</li><li>When graphed, it always forms a straight line.</li><li>Example: 2x + 3 = 7.</li></ul>
+          <p class="notes">🎙️ The word 'linear' comes from 'line'. If you were to draw the graph of any linear equation, you would always get a perfectly straight line, never a curve. This is a key characteristic.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Linear Equation in <span class="hl">Two Variables</span></h2>
+          <ul><li>Contains two different variables, usually 'x' and 'y'.</li><li>Highest power of each variable is still 1.</li><li>General form: ax + by + c = 0 (where a, b, c are real numbers, and a ≠ 0, b ≠ 0).</li></ul>
+          <p class="notes">🎙️ Now, we add another variable! Instead of just 'x', we have 'x' and 'y'. This means we're looking for two unknown values that satisfy the equation. Remember, 'a' and 'b' cannot be zero simultaneously for it to be a two-variable equation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Two Unknowns</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The '<span class="hl">Pair</span>' Concept</h2>
+          <ul><li>We are studying two linear equations together.</li><li>These two equations relate the same two variables.</li><li>We're looking for values of x and y that satisfy BOTH equations simultaneously.</li></ul>
+          <p class="notes">🎙️ A 'pair' simply means two. So, instead of solving one equation, we will be working with two linear equations at the same time. The goal is to find a common solution that works for both.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📝</span><span>📝</span></div><div class="vcap">Two Equations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">General Form</span> of a Pair of Linear Equations</h2>
+          <ul><li>Equation 1: a₁x + b₁y + c₁ = 0</li><li>Equation 2: a₂x + b₂y + c₂ = 0</li><li>Here, a₁, b₁, c₁, a₂, b₂, c₂ are real numbers.</li></ul>
+          <p class="notes">🎙️ This is the standard way we write down a pair of linear equations. The subscripts '1' and '2' simply help us distinguish the coefficients and constants of the first equation from the second. Remember, a₁, b₁ cannot both be zero for the first equation, and similarly for a₂, b₂.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Standard Format</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Shopping</span> for Fruit</h2>
+          <ul><li>Scenario: You buy apples and bananas.</li><li>Day 1: 2 apples + 3 bananas cost ₹70.</li><li>Day 2: 3 apples + 2 bananas cost ₹80.</li><li>Can we find the price of one apple and one banana?</li></ul>
+          <p class="notes">🎙️ Imagine you're at the market. If you know the total cost for different combinations of fruits on two separate occasions, you can use a pair of linear equations to figure out the individual price of each fruit. This is a classic application!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Grocery Shopping</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>What is a <span class="hl">Solution</span> to a Pair of Equations?</h2>
+          <ul><li>A pair of values (x, y) that satisfies both equations.</li><li>When you substitute these values, both equations become true statements.</li><li>It represents the common point where the two lines 'meet'.</li></ul>
+          <p class="notes">🎙️ Finding a solution means finding the specific 'x' and 'y' values that work perfectly for both equations simultaneously. If you substitute these values, the left side of each equation will equal its right side. Geometrically, this is where their graphs intersect.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct Values</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Graphical</span> Representation</h2>
+          <ul><li>Each linear equation in two variables represents a straight line on a graph.</li><li>A pair of linear equations means we draw two lines.</li><li>The solution (if any) is the point(s) where these lines interact.</li></ul>
+          <p class="notes">🎙️ Plotting these equations on a coordinate plane gives us a visual understanding. Each equation becomes a line. The way these two lines behave relative to each other tells us about the nature of their solutions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Coordinate Plane</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Types of Lines</span> for a Pair of Equations</h2>
+          <ul><li>When two lines are drawn on a plane, there are three possibilities.</li><li>They can intersect at one point.</li><li>They can be parallel and never intersect.</li><li>They can be coincident (one line lies exactly on top of the other).</li></ul>
+          <p class="notes">🎙️ Think about any two straight lines you can draw on a piece of paper. These are the only three ways they can relate to each other. Each of these relationships corresponds to a different type of solution for our pair of equations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Line Interactions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Case 1: <span class="hl">Intersecting</span> Lines</h2>
+          <ul><li>The two lines cross each other at exactly one point.</li><li>This point of intersection is the unique solution to the pair of equations.</li><li>There is only one (x, y) pair that satisfies both equations.</li></ul>
+          <p class="notes">🎙️ When lines intersect, it's like two roads crossing. There's only one spot where they meet. This means our pair of equations has a single, unique solution – one specific value for 'x' and one for 'y'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Single Intersection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Condition</span> for Intersecting Lines</h2>
+          <ul><li>For a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0,</li><li>The lines are intersecting if: a₁/a₂ ≠ b₁/b₂.</li><li>This condition helps predict the nature of lines without graphing.</li></ul>
+          <p class="notes">🎙️ You don't always need to graph to know if lines will intersect! By comparing the ratios of their coefficients 'a' and 'b', we can tell immediately. If these ratios are not equal, the lines will definitely intersect.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Key Insight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Traffic</span> Intersection</h2>
+          <ul><li>Two roads crossing each other.</li><li>They meet at a single traffic signal point.</li><li>This point is the 'solution' where vehicles from both roads can meet.</li></ul>
+          <p class="notes">🎙️ Think of a busy crossroads or a traffic intersection. Each road represents a linear equation. The point where they cross is the unique solution where both 'paths' meet. This is a perfect real-world example of intersecting lines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚦</div><div class="vcap">Road Junction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Case 2: <span class="hl">Parallel</span> Lines</h2>
+          <ul><li>The two lines never meet, no matter how far they are extended.</li><li>They maintain a constant distance from each other.</li><li>Therefore, there is no common point, meaning no solution.</li></ul>
+          <p class="notes">🎙️ Parallel lines are like railway tracks – they run side-by-side forever but never cross. Since there's no point where they meet, there's no (x, y) solution that can satisfy both equations simultaneously.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛤️</div><div class="vcap">Railway Tracks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Condition</span> for Parallel Lines</h2>
+          <ul><li>For a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0,</li><li>The lines are parallel if: a₁/a₂ = b₁/b₂ ≠ c₁/c₂.</li><li>The slopes are equal, but y-intercepts are different.</li></ul>
+          <p class="notes">🎙️ Again, we can use ratios! If the ratio of 'a' coefficients is equal to the ratio of 'b' coefficients, but this is not equal to the ratio of 'c' constants, then the lines are parallel. This means they have the same 'steepness' but start at different points.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">No Entry</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Railway</span> Tracks</h2>
+          <ul><li>The two rails of a railway track run parallel.</li><li>They never meet or cross each other.</li><li>This ensures the train can move smoothly without derailment.</li></ul>
+          <p class="notes">🎙️ Railway tracks are an excellent example of parallel lines. They are designed never to meet. If they did, it would cause serious problems! Similarly, equations representing parallel lines have no common solution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚂</div><div class="vcap">Train on Tracks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Case 3: <span class="hl">Coincident</span> Lines</h2>
+          <ul><li>One line lies exactly on top of the other line.</li><li>They are essentially the same line.</li><li>Every point on the line is a common point, leading to infinitely many solutions.</li></ul>
+          <p class="notes">🎙️ Coincident lines are like drawing one line and then drawing another line exactly over it. They share every single point. This means there are an infinite number of (x, y) pairs that satisfy both equations, as they are effectively the same equation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♾️</div><div class="vcap">Infinite Solutions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Condition</span> for Coincident Lines</h2>
+          <ul><li>For a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0,</li><li>The lines are coincident if: a₁/a₂ = b₁/b₂ = c₁/c₂.</li><li>All corresponding ratios of coefficients and constants are equal.</li></ul>
+          <p class="notes">🎙️ When all three ratios – a₁, b₁, and c₁ to a₂, b₂, and c₂ respectively – are equal, then the lines are coincident. This means one equation is simply a multiple of the other, making them represent the same line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Perfect Match</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Overlapping</span> Paths</h2>
+          <ul><li>Two friends walking exactly on the same path.</li><li>Every step they take is a common point for both.</li><li>They share an infinite number of common locations.</li></ul>
+          <p class="notes">🎙️ Imagine two people walking exactly in the same footsteps, one directly behind the other. Every point on their path is common to both. This illustrates infinitely many solutions, as every point on the line is a solution for both equations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👣</div><div class="vcap">Shared Footsteps</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Consistency</span> of a Pair of Equations</h2>
+          <ul><li>Consistent: A pair of equations that has at least one solution.</li><li>Inconsistent: A pair of equations that has no solution.</li><li>This refers to whether a solution exists or not.</li></ul>
+          <p class="notes">🎙️ This concept classifies pairs of equations based on whether they have solutions. Intersecting and coincident lines are 'consistent' because they have at least one solution. Parallel lines are 'inconsistent' because they have no solution.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Consistent (Solutions exist)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Inconsistent (No solution)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Methods</span> to Solve a Pair of Linear Equations</h2>
+          <ul><li>Graphical Method: Plotting the lines and finding their intersection.</li><li>Algebraic Methods: Solving using mathematical operations.</li><li>Algebraic methods include Substitution, Elimination, and Cross-Multiplication.</li></ul>
+          <p class="notes">🎙️ We have two main approaches to solve these equations. The graphical method gives us a visual answer. Algebraic methods use step-by-step calculations to find the exact numerical solution without drawing graphs.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Graphical Method</span></div><div class="step"><span class="snum">2</span><span>Algebraic Methods</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check 1: <span class="hl">Identify</span> the Line Type</h2>
+          <ul><li>Consider the pair of equations:</li><li>x + 2y - 4 = 0</li><li>2x + 4y - 12 = 0</li><li>Are these lines intersecting, parallel, or coincident?</li></ul>
+          <p class="notes">🎙️ Take a moment to compare the ratios a₁/a₂, b₁/b₂, and c₁/c₂ for these two equations. Based on what we just learned, what kind of lines do you think these will represent? Discuss with your bench partner.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check 2: Identify <span class="hl">Consistency</span></h2>
+          <ul><li>Is the following pair of equations consistent or inconsistent?</li><li>3x + 2y = 5</li><li>2x - 3y = 7</li></ul>
+          <p class="notes">🎙️ For this pair, determine if a solution exists. Remember the conditions for intersecting, parallel, and coincident lines. If there's at least one solution, it's consistent. If no solution, it's inconsistent.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Worked Example: Solving by <span class="hl">Substitution</span></h2>
+          <ul><li>Equation 1: x + y = 14</li><li>Equation 2: x - y = 4</li><li>Step 1: Express one variable in terms of the other from one equation.</li></ul>
+          <p class="notes">🎙️ Let's solve this pair using the substitution method. From Equation 1, we can write x = 14 - y. Now, we will substitute this expression for 'x' into the second equation. This reduces the problem to a single variable.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Step 1: Isolate a variable</span></div><div class="step"><span class="snum">2</span><span>Step 2: Substitute into other equation</span></div><div class="step"><span class="snum">3</span><span>Step 3: Solve for remaining variable</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>A pair of linear equations involves two equations with two variables.</li><li>Lines can be Intersecting (unique solution), Parallel (no solution), or Coincident (infinite solutions).</li><li>Consistency means a solution exists; inconsistency means no solution.</li><li>We can solve them graphically or algebraically.</li></ul>
+          <p class="notes">🎙️ So, we've covered the basics of pairs of linear equations, their graphical representation, the conditions for different types of lines, and the concept of consistency. This forms the foundation for solving problems in this chapter. Keep practicing!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Knowledge Gained</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

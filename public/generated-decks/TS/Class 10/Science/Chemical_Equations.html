@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Chemical Equations — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Chemical Equations</span>: Understanding Reactions</h2>
+          <ul><li>Welcome to the world of chemistry!</li><li>Today, we'll learn how to write and interpret chemical reactions.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the heart of chemistry. We'll explore how scientists communicate chemical changes using a special language called chemical equations. Get ready to decode the secrets of reactions!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Chemical Change</span>?</h2>
+          <ul><li>A process where new substances with new properties are formed.</li><li>Bonds are broken and new bonds are formed.</li><li>Often irreversible.</li></ul>
+          <p class="notes">🎙️ Remember how we learned about changes around us? A chemical change is when the original substances transform into completely different ones. Think about burning paper – you can't turn the ash back into paper, right? That's a chemical change!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Periodic_table_of_elements.svg?width=500" data-fb="🧪" alt="Metals form positively charged ions by losing electrons. Reactive metals react with oxygen"/><div class="vcap">Metals form positively charged ions by losing electrons. Reactive metals react with oxygen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>How Do We Know a Chemical Change Happened?</h2>
+          <ul><li>Change in state, colour, or temperature.</li><li>Evolution of a gas (bubbles).</li><li>Formation of a precipitate (solid).</li></ul>
+          <p class="notes">🎙️ When a chemical change occurs, we often see clear signs. For example, when you mix baking soda and vinegar, you see bubbles – that's a gas being released! Or when iron rusts, its colour changes from silvery grey to reddish-brown.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Signs of reaction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Physical vs. Chemical Change</h2>
+          <ul><li>Physical: No new substances formed (e.g., melting ice).</li><li>Chemical: New substances formed (e.g., burning wood).</li></ul>
+          <p class="notes">🎙️ It's important to distinguish between these two. Melting an ice cube is physical – it's still water. But burning wood is chemical because you get ash and smoke, which are completely different from wood.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Combustion_reaction.svg?width=500" data-fb="🔬" alt="Physical changes alter properties without changing identity; chemical changes create new s"/><div class="vcap">Physical changes alter properties without changing identity; chemical changes create new s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>What is a <span class="hl">Chemical Equation</span>?</h2>
+          <ul><li>A symbolic representation of a chemical reaction.</li><li>Uses chemical formulae and symbols.</li><li>Shows reactants and products.</li></ul>
+          <p class="notes">🎙️ Instead of writing long sentences to describe a reaction, chemists use a shorthand. This shorthand is called a chemical equation. It's like a special language that quickly tells us what substances are reacting and what new substances are being formed.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Reaction in symbols</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Reactants and Products</span>: The Key Players</h2>
+          <ul><li>Reactants: Substances that undergo chemical change.</li><li>Products: New substances formed after the reaction.</li><li>Arrow (→) separates them, pointing towards products.</li></ul>
+          <p class="notes">🎙️ Think of it like cooking: the ingredients you start with are the 'reactants', and the delicious dish you end up with is the 'product'. The arrow in the equation shows the direction of the reaction, from reactants to products.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Reactants to Products</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Writing a <span class="hl">Word Equation</span></h2>
+          <ul><li>Step 1: Identify reactants and products.</li><li>Step 2: Write reactants on the left, products on the right.</li><li>Step 3: Use a '+' sign between multiple reactants/products.</li><li>Step 4: Use an arrow (→) in between.</li></ul>
+          <p class="notes">🎙️ Before we jump into complex symbols, let's start with words. A word equation is a simple way to represent a reaction using the names of the substances. It helps us clearly understand who is reacting with whom.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transformer3d_col3.svg?width=500" data-fb="🔬" alt="A transformer changes AC voltage from one level to another using electromagnetic induction"/><div class="vcap">A transformer changes AC voltage from one level to another using electromagnetic induction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Example: Burning <span class="hl">Magnesium Ribbon</span></h2>
+          <ul><li>Magnesium metal burns in air (oxygen).</li><li>Forms a white powder called Magnesium Oxide.</li></ul>
+          <p class="notes">🎙️ You might have seen this experiment in the lab. When magnesium ribbon is heated, it combines with oxygen from the air. The bright white light is a sign of a chemical change, and the white ash is our new product, magnesium oxide.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔥</span></div><div class="vcap">Magnesium + Oxygen → Magnesium Oxide</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Introduction to <span class="hl">Chemical Formulae</span></h2>
+          <ul><li>Shorthand notation for elements and compounds.</li><li>Represents the type and number of atoms.</li><li>e.g., O₂ for Oxygen, H₂O for Water.</li></ul>
+          <p class="notes">🎙️ To make our equations even more concise and universally understood, we use chemical formulae. These formulae tell us exactly which elements are present in a substance and in what proportions. It's like the DNA of a molecule!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Atomic building blocks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Writing a <span class="hl">Chemical Equation</span> (Formulae)</h2>
+          <ul><li>Step 1: Write the word equation first.</li><li>Step 2: Replace each substance with its chemical formula.</li><li>Step 3: Ensure correct subscripts for elements/compounds.</li></ul>
+          <p class="notes">🎙️ Now we're upgrading! Once you have the word equation, the next step is to substitute the names with their respective chemical formulae. This gives us a skeleton chemical equation, which is the foundation for balancing.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Word Equation</span></div><div class="step"><span class="snum">2</span><span>Replace with Formulae</span></div><div class="step"><span class="snum">3</span><span>Check Subscripts</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Example: Burning Magnesium Ribbon (<span class="hl">Formula Equation</span>)</h2>
+          <ul><li>Word Equation: Magnesium + Oxygen → Magnesium Oxide</li><li>Formula Equation: Mg + O₂ → MgO</li></ul>
+          <p class="notes">🎙️ So, our word equation 'Magnesium + Oxygen → Magnesium Oxide' now becomes 'Mg + O₂ → MgO'. Notice how much shorter and clearer it is? This is the power of chemical formulae!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span></div><div class="vcap">Mg + O₂ → MgO</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>The Law of <span class="hl">Conservation of Mass</span></h2>
+          <ul><li>Mass can neither be created nor destroyed in a chemical reaction.</li><li>Total mass of reactants = Total mass of products.</li><li>Number of atoms of each element must be equal on both sides.</li></ul>
+          <p class="notes">🎙️ This is a fundamental law in chemistry, given by Antoine Lavoisier. It means that during a reaction, atoms are simply rearranged, not lost or gained. This law is the core reason why we need to balance chemical equations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance is key</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Unbalanced vs. Balanced</span> Equations</h2>
+          <ul><li>Unbalanced: Unequal number of atoms of elements on both sides.</li><li>Balanced: Equal number of atoms of each element on both sides.</li></ul>
+          <p class="notes">🎙️ Look at our magnesium example: Mg + O₂ → MgO. On the left, we have 2 oxygen atoms, but only 1 on the right. This equation is unbalanced. To obey the Law of Conservation of Mass, we must balance it.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Unbalanced</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Balanced</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Why Do We Balance Chemical Equations?</h2>
+          <ul><li>To satisfy the Law of Conservation of Mass.</li><li>To accurately represent the stoichiometry of a reaction.</li><li>Essential for quantitative calculations in chemistry.</li></ul>
+          <p class="notes">🎙️ Balancing isn't just a mathematical exercise; it's crucial for understanding the true nature of a reaction. It tells us the exact ratio in which reactants combine and products are formed, which is vital for experiments and industrial processes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Ensuring accuracy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Steps to Balance a Chemical Equation (<span class="hl">Hit &amp; Trial</span>)</h2>
+          <ul><li>Step 1: Write the skeletal equation.</li><li>Step 2: List atoms of each element on both sides.</li><li>Step 3: Start balancing elements that appear only once.</li><li>Step 4: Balance polyatomic ions as a single unit (if any).</li><li>Step 5: Balance H and O atoms last.</li><li>Step 6: Check the balance.</li></ul>
+          <p class="notes">🎙️ The Hit and Trial method involves systematically adjusting the coefficients in front of the formulae until the number of atoms of each element is equal on both sides. It requires careful observation and a bit of practice.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Skeletal Eq.</span></div><div class="step"><span class="snum">2</span><span>List Atoms</span></div><div class="step"><span class="snum">3</span><span>Balance Unique</span></div><div class="step"><span class="snum">4</span><span>Balance H/O</span></div><div class="step"><span class="snum">5</span><span>Final Check</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Balancing Iron</span> and Steam</h2>
+          <ul><li>Initial: Fe + H₂O → Fe₃O₄ + H₂</li><li>Balanced: 3Fe + 4H₂O → Fe₃O₄ + 4H₂</li></ul>
+          <p class="notes">🎙️ Let's apply our steps. First, balance Fe. Then, balance O. Finally, balance H. Remember to only change the coefficients in front of the formulae, never the subscripts within the formulae. Take your time and verify each step.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚙️</span><span>⚙️</span><span>⚙️</span></div><div class="vcap">Iron reacting with steam</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example 2: Balancing <span class="hl">Methane Combustion</span></h2>
+          <ul><li>Initial: CH₄ + O₂ → CO₂ + H₂O</li><li>Balanced: CH₄ + 2O₂ → CO₂ + 2H₂O</li></ul>
+          <p class="notes">🎙️ Here, methane (CH₄) burns in oxygen to produce carbon dioxide and water. Start with carbon, then hydrogen, and finally oxygen. Oxygen often appears in multiple compounds, so it's usually balanced last.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔥</span><span>🔥</span></div><div class="vcap">Methane burning in oxygen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>What <span class="hl">Information</span> Does an Equation Give?</h2>
+          <ul><li>Names of reactants and products.</li><li>Formulae of reactants and products.</li><li>Relative number of moles/molecules involved.</li></ul>
+          <p class="notes">🎙️ A balanced chemical equation is a treasure trove of information. It tells us not just what reacts and what forms, but also in what proportions they do so. This is crucial for predicting reaction outcomes and quantities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">ℹ️</div><div class="vcap">Tells a story</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>More Informative Equations: <span class="hl">State Symbols</span></h2>
+          <ul><li>Represent physical states of reactants and products.</li><li>(s) for solid, (l) for liquid, (g) for gas, (aq) for aqueous solution.</li></ul>
+          <p class="notes">🎙️ To give even more detail, we add state symbols. For example, if a substance is dissolved in water, we write (aq) for 'aqueous'. This helps us visualize the reaction more accurately, whether it's a solid dissolving or a gas evolving.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Physical states</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>More Informative Equations: <span class="hl">Reaction Conditions</span></h2>
+          <ul><li>Temperature, pressure, catalyst shown above/below arrow.</li><li>e.g., Δ (delta) for heat, specific temperature/pressure values.</li></ul>
+          <p class="notes">🎙️ Some reactions only occur under specific conditions. We indicate these conditions, like heating, high pressure, or the presence of a catalyst, above or below the arrow. This makes the equation a complete recipe for the reaction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Specific conditions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check 1: <span class="hl">Reactants and Products</span></h2>
+          <ul><li>In the reaction: N₂(g) + 3H₂(g) → 2NH₃(g)</li><li>Identify the reactants and the product.</li></ul>
+          <p class="notes">🎙️ Take a moment to look at this equation. Can you identify which substances are reacting together and which new substance is being formed? Think about the arrow's direction.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check 2: <span class="hl">Balancing Act</span></h2>
+          <ul><li>Balance the following skeletal equation:</li><li>H₂ + Cl₂ → HCl</li></ul>
+          <p class="notes">🎙️ This is a simple one to test your balancing skills. Remember the Law of Conservation of Mass – make sure atoms of each element are equal on both sides.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check 3: <span class="hl">State Symbols</span></h2>
+          <ul><li>What does the symbol (aq) represent in a chemical equation?</li><li>Give an example.</li></ul>
+          <p class="notes">🎙️ We just discussed state symbols. Can you recall what (aq) stands for and perhaps think of a common example where you'd see it?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Respiration</span></h2>
+          <ul><li>Glucose (food) reacts with Oxygen in our bodies.</li><li>Produces Carbon Dioxide, Water, and Energy.</li><li>C₆H₁₂O₆(aq) + 6O₂(g) → 6CO₂(g) + 6H₂O(l) + Energy</li></ul>
+          <p class="notes">🎙️ Our bodies constantly perform chemical reactions! Respiration is a perfect example. We inhale oxygen, consume glucose, and our cells convert it into energy, releasing carbon dioxide and water. It's a balanced chemical equation happening inside you right now!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🌬️" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Recap: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>Chemical equations represent reactions symbolically.</li><li>Reactants become products (A + B → C + D).</li><li>Equations must be balanced (Conservation of Mass).</li><li>State symbols and conditions add more information.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that chemical equations are the language of chemistry. They help us understand, predict, and quantify chemical changes. Mastering them is a fundamental step in your scientific journey. Keep practicing!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Chemical_reaction.svg?width=500" data-fb="🔬" alt="Chemical reactions can be classified by the types of chemical changes involved. Five main "/><div class="vcap">Chemical reactions can be classified by the types of chemical changes involved. Five main </div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

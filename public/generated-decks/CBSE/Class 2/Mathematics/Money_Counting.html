@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Money Counting — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to "<span class="hl">Money Counting</span>"!</h2>
-          <ul><li>Today, we will learn about money!</li><li>It's fun to know how to count our Rupees.</li></ul>
-          <p class="notes">🎙️ Hello, little mathematicians! Today, we're starting a super exciting new chapter all about money. Get ready to learn how to count and understand our Indian Rupees!</p>
+          <h2>Welcome to <span class="hl">Money Counting</span>!</h2>
+          <ul><li>Let's learn about money!</li><li>It's fun and useful!</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure to learn about something we use every day: Money! Are you ready?</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Money</span>?</h2>
-          <ul><li>Money is special paper and metal.</li><li>We use money to buy things we need and want.</li></ul>
-          <p class="notes">🎙️ Have you ever seen your parents give someone special paper or coins when they buy something? That's money! It helps us get things like toys, food, and clothes.</p>
+          <ul><li>Money helps us buy things.</li><li>It comes in coins and notes.</li></ul>
+          <p class="notes">🎙️ Money is like a special ticket that helps us get the things we need and want, like toys, food, or books. We see money in two main forms: small, round coins and flat, rectangular notes.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/2_Rupee_coin_India.jpg?width=440" data-fb="💰" alt="Learn money using real coins."/><div class="vcap">Learn money using real coins.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Indian_Rupee_symbol.svg?width=320" data-fb="💰" alt="The rupee (₹) is our money."/><div class="vcap">The rupee (₹) is our money.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why Do We <span class="hl">Use Money</span>?</h2>
-          <ul><li>We use money to buy yummy chocolates and snacks.</li><li>We use it to get new toys, books, and clothes.</li></ul>
-          <p class="notes">🎙️ Imagine you want a delicious ice cream or a cool new pencil box. How do you get it? You give money to the shopkeeper, and they give you what you want! That's why money is so important.</p>
+          <h2><span class="hl">Why</span> Do We Need Money?</h2>
+          <ul><li>To buy yummy snacks.</li><li>To get new toys and books.</li><li>To pay for our bus ride.</li></ul>
+          <p class="notes">🎙️ Imagine you want a delicious chocolate bar or a new storybook. How do you get it? You use money! Money helps us exchange for things from shops and people.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Shopping Cart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛍️</div><div class="vcap">Shopping Bag</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Our <span class="hl">Indian Rupee</span> 🇮🇳</h2>
-          <ul><li>In India, our money is called Rupee.</li><li>We write it with a special symbol: ₹.</li></ul>
-          <p class="notes">🎙️ Just like every country has its own flag, it also has its own money! In our beautiful country, India, we call our money 'Rupee'. It has a unique sign that looks like a fancy 'R'.</p>
+          <h2>Meet Our Indian <span class="hl">Coins</span>!</h2>
+          <ul><li>Coins are small and round.</li><li>They are made of metal.</li><li>We have different values of coins.</li></ul>
+          <p class="notes">🎙️ In India, we use special coins. They are shiny and round. Each coin has a number on it, which tells us its value. Let's look at them one by one!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">India</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪙</div><div class="vcap">Indian Coin</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Meet Our Indian <span class="hl">Coins</span>!</h2>
-          <ul><li>Coins are small, round, and made of metal.</li><li>We have coins like ₹1, ₹2, ₹5, and ₹10.</li></ul>
-          <p class="notes">🎙️ Look at these shiny things! These are coins. They are hard and made of metal. You'll find them in different sizes and with different numbers on them, telling us their value.</p>
+          <h2>The <span class="hl">1 Rupee</span> Coin</h2>
+          <ul><li>This is a 1 Rupee coin.</li><li>It's the smallest value coin we often use.</li></ul>
+          <p class="notes">🎙️ See this coin? It has the number '1' on it. This means it is a One Rupee coin. It's like having one small piece of value.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span></div><div class="vcap">Different Coins</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span></div><div class="vcap">One Rupee Coin</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Meet Our Indian <span class="hl">Notes</span>!</h2>
-          <ul><li>Notes are made of special paper.</li><li>They come in different colours and sizes, like ₹10, ₹20, ₹50, ₹100.</li></ul>
-          <p class="notes">🎙️ And these are notes! They are soft and made of paper. Each note has a different colour and a big number on it, showing how much it is worth. You might see your parents use them a lot.</p>
+          <h2>The <span class="hl">2 Rupee</span> Coin</h2>
+          <ul><li>This is a 2 Rupee coin.</li><li>It has a value of two 1 Rupee coins.</li></ul>
+          <p class="notes">🎙️ Next, we have the 2 Rupee coin. It is worth two times a 1 Rupee coin. So, if you have one 2 Rupee coin, it's like having two 1 Rupee coins!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Indian_Rupee_symbol.svg?width=320" data-fb="🔢" alt="The rupee (₹) is India's money."/><div class="vcap">The rupee (₹) is India's money.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">Two Rupee Coins</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>This is a <span class="hl">One Rupee</span> Coin (₹1)</h2>
-          <ul><li>It's a small, round coin.</li><li>It has the number '1' written on it.</li></ul>
-          <p class="notes">🎙️ Can you spot the number '1' on this coin? This is our one rupee coin. It's often the smallest value coin you'll see. It's worth a little bit of money.</p>
+          <h2>The <span class="hl">5 Rupee</span> Coin</h2>
+          <ul><li>This is a 5 Rupee coin.</li><li>It is worth five 1 Rupee coins.</li></ul>
+          <p class="notes">🎙️ Wow, this is a 5 Rupee coin! It's bigger in value. You can buy more things with a 5 Rupee coin than with a 1 or 2 Rupee coin.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪙</div><div class="vcap">One Rupee Coin</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span></div><div class="vcap">Five Rupee Coins</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>This is a <span class="hl">Two Rupee</span> Coin (₹2)</h2>
-          <ul><li>This coin has the number '2' written on it.</li><li>It's a little bigger than a ₹1 coin.</li></ul>
-          <p class="notes">🎙️ Now, look at this one! It has the number '2'. This is a two rupee coin. It's worth more than a one rupee coin, so you can buy a little more with it.</p>
+          <h2>The <span class="hl">10 Rupee</span> Coin</h2>
+          <ul><li>This is a 10 Rupee coin.</li><li>It's our largest value coin.</li></ul>
+          <p class="notes">🎙️ And here is the 10 Rupee coin! It's the highest value coin we commonly use. It can buy even more things! Can you imagine ten 1 Rupee coins making one 10 Rupee coin?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🪙" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span><span>🪙</span></div><div class="vcap">Ten Rupee Coins</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>This is a <span class="hl">Five Rupee</span> Coin (₹5)</h2>
-          <ul><li>This coin has the number '5' written on it.</li><li>It's often yellow or golden in colour.</li></ul>
-          <p class="notes">🎙️ Can you find the number '5' here? This is a five rupee coin. It's quite common and very useful for buying small toys or snacks.</p>
+          <h2>Meet Our Indian <span class="hl">Notes</span>!</h2>
+          <ul><li>Notes are flat and rectangular.</li><li>They are made of paper.</li><li>They have bigger values than coins.</li></ul>
+          <p class="notes">🎙️ Now let's look at notes! Notes are made of special paper and are flat. They usually have bigger values than coins, so we can buy more expensive things with them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪙</div><div class="vcap">Five Rupee Coin</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💵</div><div class="vcap">Indian Note</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,21 +168,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>This is a <span class="hl">Ten Rupee</span> Coin (₹10)</h2>
-          <ul><li>This coin has the number '10' written on it.</li><li>It often has two different colours of metal.</li></ul>
-          <p class="notes">🎙️ This is our ten rupee coin! It's usually bigger than the other coins and sometimes has two different metal colours. It's worth the most among these coins.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪙</div><div class="vcap">Ten Rupee Coin</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>This is a <span class="hl">Ten Rupee</span> Note (₹10)</h2>
-          <ul><li>It's a small paper note.</li><li>It also has the number '10' written on it.</li></ul>
-          <p class="notes">🎙️ Moving on to notes! This is a ten rupee note. You can see the number '10' on it, just like the ten rupee coin. It's a common note you'll see.</p>
+          <h2>The <span class="hl">10 Rupee</span> Note</h2>
+          <ul><li>This is a 10 Rupee note.</li><li>It has the same value as a 10 Rupee coin.</li></ul>
+          <p class="notes">🎙️ This is a 10 Rupee note. You might have seen it. It's worth the same as our 10 Rupee coin, but it's paper. It's often used for small purchases.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">💵</div><div class="vcap">Ten Rupee Note</div></div></div>
       </div>
@@ -178,12 +179,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 20</span>
-          <h2>This is a <span class="hl">Twenty Rupee</span> Note (₹20)</h2>
-          <ul><li>It's a colourful paper note.</li><li>It has the number '20' written on it.</li></ul>
-          <p class="notes">🎙️ This bright green note is a twenty rupee note. It's worth more than a ten rupee note. With this, you can buy a little more or something slightly bigger.</p>
+          <span class="num">11 / 20</span>
+          <h2>The <span class="hl">20 Rupee</span> Note</h2>
+          <ul><li>This is a 20 Rupee note.</li><li>It's worth two 10 Rupee coins/notes.</li></ul>
+          <p class="notes">🎙️ Here is a 20 Rupee note. It has a slightly higher value. With this note, you can buy things that cost a little more.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💵</div><div class="vcap">Twenty Rupee Note</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💶</div><div class="vcap">Twenty Rupee Note</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2>The <span class="hl">50 Rupee</span> Note</h2>
+          <ul><li>This is a 50 Rupee note.</li><li>It's a common note for many purchases.</li></ul>
+          <p class="notes">🎙️ Look at this 50 Rupee note! It can buy even more things. Many times, when we go shopping, we use this note.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💷</div><div class="vcap">Fifty Rupee Note</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>This is a <span class="hl">Fifty Rupee</span> Note (₹50)</h2>
-          <ul><li>It's a bright blue paper note.</li><li>It has the number '50' written on it.</li></ul>
-          <p class="notes">🎙️ Look at this beautiful blue note! It's a fifty rupee note. It has a bigger value, so you can buy even bigger things with it, like a nice storybook.</p>
+          <h2>The <span class="hl">100 Rupee</span> Note</h2>
+          <ul><li>This is a 100 Rupee note.</li><li>It's a big value note!</li></ul>
+          <p class="notes">🎙️ And finally, the 100 Rupee note! This is a big value note. With this, you can buy many things or one expensive item. It's important to keep track of such notes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💵</div><div class="vcap">Fifty Rupee Note</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💴</div><div class="vcap">Hundred Rupee Note</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>This is a <span class="hl">Hundred Rupee</span> Note (₹100)</h2>
-          <ul><li>It's a purple paper note.</li><li>It has the number '100' written on it.</li></ul>
-          <p class="notes">🎙️ This is a hundred rupee note, a very common and useful note! It's worth a lot and helps us buy many things or more expensive items. It's a big number!</p>
+          <h2><span class="hl">Counting Money</span>: Let's Add!</h2>
+          <ul><li>We can add money to find the total.</li><li>Just add the numbers on the coins and notes.</li></ul>
+          <p class="notes">🎙️ Now that we know our coins and notes, let's learn to count them! Counting money means adding up all the values to find out how much money we have in total.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💵</div><div class="vcap">Hundred Rupee Note</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="➕" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Let's <span class="hl">Count Coins</span> Together!</h2>
-          <ul><li>If you have one ₹5 coin and one ₹2 coin.</li><li>How much money is it? ₹5 + ₹2 = ₹7.</li></ul>
-          <p class="notes">🎙️ Now, let's try counting! It's like adding numbers. If you have a five rupee coin and a two rupee coin, you just add their values to find the total amount of money you have.</p>
+          <h2>Example: <span class="hl">Adding Coins</span></h2>
+          
+          <p class="notes">🎙️ If you have one 5 Rupee coin and one 2 Rupee coin, how much money do you have? Just add 5 and 2. Five plus two makes seven! So, you have 7 Rupees.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">5 Rupee + 2 Rupee</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>You have a 5 Rupee coin</span></div><div class="step"><span class="snum">2</span><span>And a 2 Rupee coin</span></div><div class="step"><span class="snum">3</span><span>Total is 7 Rupees!</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>More <span class="hl">Coin Counting</span> Fun!</h2>
-          <ul><li>What if you have two ₹1 coins and one ₹5 coin?</li><li>₹1 + ₹1 + ₹5 = ₹7.</li></ul>
-          <p class="notes">🎙️ Here's another one! Imagine you have two one rupee coins and one five rupee coin. Add them all up carefully, one by one, to get the total amount of rupees.</p>
+          <h2>Example: <span class="hl">Adding Notes</span></h2>
+          
+          <p class="notes">🎙️ What if you have a 20 Rupee note and a 10 Rupee note? Add 20 and 10. Twenty plus ten equals thirty! So, you have 30 Rupees. It's just like adding numbers!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span><span>🪙</span></div><div class="vcap">1 Rupee + 1 Rupee + 5 Rupee</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>You have a 20 Rupee note</span></div><div class="step"><span class="snum">2</span><span>And a 10 Rupee note</span></div><div class="step"><span class="snum">3</span><span>Total is 30 Rupees!</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Counting Notes</span> is Easy!</h2>
-          <ul><li>If you have one ₹10 note and one ₹20 note.</li><li>How much money is it? ₹10 + ₹20 = ₹30.</li></ul>
-          <p class="notes">🎙️ Counting notes is just like counting coins! You simply add the numbers written on them. A ten rupee note and a twenty rupee note together make thirty rupees. See, it's simple!</p>
+          <h2>Money in Real Life: <span class="hl">Shopping</span>!</h2>
+          <ul><li>We use money to buy things in shops.</li><li>Always check the price tag.</li></ul>
+          <p class="notes">🎙️ When you go to a shop with your parents, you see price tags on everything. That's how much money you need to buy that item. Let's see an example.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💵</span><span>💵</span></div><div class="vcap">10 Rupee + 20 Rupee</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Shopping Cart</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">Buying</span> a Toy Car!</h2>
-          <ul><li>A toy car costs ₹25.</li><li>You have a ₹20 note and a ₹5 coin.</li><li>₹20 + ₹5 = ₹25. Yes! You can buy it!</li></ul>
-          <p class="notes">🎙️ Let's pretend you want to buy a cool toy car for twenty-five rupees. If you have a twenty rupee note and a five rupee coin, you have exactly enough money! You can buy your toy car!</p>
+          <h2>Activity: Buying an <span class="hl">Ice Cream</span></h2>
+          <ul><li>An ice cream costs 10 Rupees.</li><li>Which coin or note would you use?</li></ul>
+          <p class="notes">🎙️ Imagine you want to buy a yummy ice cream for 10 Rupees. Which coin or note would be perfect to pay for it? A 10 Rupee coin or a 10 Rupee note!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛍️</div><div class="vcap">Toy Car</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍦</span></div><div class="vcap">Ice Cream: 10 Rupees</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Time for Some Quick <span class="hl">Questions</span>!</h2>
-          <ul><li>Which is bigger, a ₹5 coin or a ₹10 coin?</li><li>How many ₹1 coins make ₹2?</li><li>What is ₹10 + ₹10?</li></ul>
-          <p class="notes">🎙️ Alright, champions! Let's see how much you've learned. Try to answer these quick questions in your mind. Think carefully about the values we just discussed.</p>
+          <h2>Quick Question: Which is <span class="hl">More</span>?</h2>
+          <ul><li>Which has a bigger value?</li><li>A 5 Rupee coin or a 10 Rupee note?</li></ul>
+          <p class="notes">🎙️ Look at these two. One is a 5 Rupee coin and the other is a 10 Rupee note. Which one can buy more things for you? The 10 Rupee note, right? Because 10 is bigger than 5.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">A 5 Rupee coin</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">A 10 Rupee note</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Let's <span class="hl">Recap</span> Our Money Journey!</h2>
-          <ul><li>Money (Rupee) is used to buy things.</li><li>We learned about coins (metal) and notes (paper).</li><li>We can recognize and count different money values.</li></ul>
-          <p class="notes">🎙️ Great job, everyone! Today, we had a wonderful journey learning all about Indian money – our Rupees! We saw different coins and notes and even practiced counting them. Keep practicing at home and you'll become a money expert!</p>
+          <h2>Time to <span class="hl">Recap</span>!</h2>
+          <ul><li>Money helps us buy things.</li><li>We have Indian coins (1, 2, 5, 10 Rupees).</li><li>We have Indian notes (10, 20, 50, 100 Rupees).</li><li>We can add money to find the total.</li></ul>
+          <p class="notes">🎙️ Great job, everyone! Today, we learned all about money. We saw different coins and notes, and how to count them. Remember to be careful with money and count it correctly!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

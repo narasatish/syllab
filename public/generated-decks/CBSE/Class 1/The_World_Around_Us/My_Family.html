@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>My Family — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2><span class="hl">Namaste</span>, Little Explorers!</h2>
-          <ul><li>Hello everyone!</li><li>Today, we will talk about someone very special.</li></ul>
-          <p class="notes">🎙️ Good morning, children! Let's start our lesson with a warm greeting. We are going to explore a very important topic today that touches all our lives.</p>
+          <h2>Welcome to Our <span class="hl">Family</span>!</h2>
+          <ul><li>Hello, little friends!</li><li>Today, we learn about family.</li></ul>
+          <p class="notes">🎙️ Hello, little friends! Today, we will learn about something very special and close to our hearts – our family! Let's begin our exciting journey together.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is a <span class="hl">Family</span>?</h2>
-          <ul><li>A family is a group of people.</li><li>They live together in one home.</li><li>They love and care for each other.</li></ul>
-          <p class="notes">🎙️ Imagine a home full of people who laugh and play together. That's what a family is! It's where we feel safe and loved always.</p>
+          <ul><li>A family is a group of people.</li><li>They love and care for each other.</li><li>They live together in one home.</li></ul>
+          <p class="notes">🎙️ A family is a group of people who love and care for each other. They live together in one home. Your family is very special!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">My Family</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home and Family</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Who is in My Family? - <span class="hl">Parents</span></h2>
-          <ul><li>My Mummy and Papa are my parents.</li><li>They take care of me every day.</li><li>They teach me new things.</li></ul>
-          <p class="notes">🎙️ Your Mummy and Papa are very special. They hug you, feed you, and help you learn. They are always there for you.</p>
+          <h2><span class="hl">Who</span> is in My Family?</h2>
+          <ul><li>Our family has many members.</li><li>Each person is important.</li></ul>
+          <p class="notes">🎙️ Your family has many members. Each person is important. Let's see who usually lives in our homes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧</span><span>👨‍👩‍👧</span><span>👨‍👩‍👧</span></div><div class="vcap">Mummy &amp; Papa</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span></div><div class="vcap">Family Members</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Who is in My Family? - <span class="hl">Siblings</span></h2>
-          <ul><li>I have a brother or a sister.</li><li>They are my siblings.</li><li>We play games and share toys.</li></ul>
-          <p class="notes">🎙️ Do you have a brother or a sister? They are your first friends! You can share your secrets and have so much fun together.</p>
+          <h2>Meet My <span class="hl">Parents</span></h2>
+          <ul><li>Your Papa (father) and Mama (mother) are your parents.</li><li>They take care of you.</li><li>They love you very much.</li></ul>
+          <p class="notes">🎙️ Your Papa (father) and Mama (mother) are your parents. They take care of you and love you very much. They work hard for the family.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👧👦</span><span>👧👦</span></div><div class="vcap">Brother &amp; Sister</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧</div><div class="vcap">Parents with child</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Meet My <span class="hl">Grandparents</span>!</h2>
-          <ul><li>My Mummy and Papa's parents are my grandparents.</li><li>They tell us wonderful stories.</li><li>They give us lots of love!</li></ul>
-          <p class="notes">🎙️ Grandparents are like a warm hug! They have so many stories from their childhood to share. We love listening to them, don't we?</p>
+          <h2>My Brothers and Sisters</h2>
+          <ul><li>If you have a brother or a sister, they are your siblings.</li><li>You play and share with them.</li><li>It's fun to have siblings!</li></ul>
+          <p class="notes">🎙️ If you have a brother or a sister, they are your siblings. You play and share toys with them. It's fun to have siblings!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👴👵</span><span>👴👵</span></div><div class="vcap">Grandpa &amp; Grandma</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👧👦</span><span>👧👦</span></div><div class="vcap">Brother and Sister</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>A <span class="hl">Small Family</span></h2>
-          <ul><li>Some families are small.</li><li>It means fewer people live together.</li><li>Like Mummy, Papa, and one or two children.</li></ul>
-          <p class="notes">🎙️ Imagine a small boat with just a few people. A small family is like that, with just parents and children. It's also called a nuclear family.</p>
+          <h2>Our Loving <span class="hl">Grandparents</span></h2>
+          <ul><li>Your parents' parents are your grandparents.</li><li>They tell you stories.</li><li>They give you lots of love.</li></ul>
+          <p class="notes">🎙️ Your parents' parents are your grandparents. They tell you stories and give you lots of love. They are wise and kind.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Small Family</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Big Family</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👵👴</div><div class="vcap">Grandparents</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>A <span class="hl">Big Family</span></h2>
-          <ul><li>Some families are big.</li><li>Many people live together.</li><li>Like grandparents, parents, children, uncles, aunts, and cousins.</li></ul>
-          <p class="notes">🎙️ Now imagine a big bus with many people! A big family, or a joint family, has many members living together. There's always someone to play with!</p>
+          <h2><span class="hl">Small</span> Family</h2>
+          <ul><li>Some families are small.</li><li>Parents and one or two children.</li><li>Also called a nuclear family.</li></ul>
+          <p class="notes">🎙️ Some families are small. A small family usually has parents and one or two children. They are also called a nuclear family.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Small Family</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Big Family</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧</span><span>👨‍👩‍👧</span><span>👨‍👩‍👧</span></div><div class="vcap">Small Family</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>What Do Families Do <span class="hl">Together</span>?</h2>
-          <ul><li>Families do many fun things.</li><li>They spend time with each other.</li><li>They create happy memories.</li></ul>
-          <p class="notes">🎙️ Our families are our first team! We do so many activities together, from simple talks to big celebrations. Every moment is special.</p>
+          <h2><span class="hl">Big</span> Family</h2>
+          <ul><li>Some families are big.</li><li>Parents, children, and grandparents live together.</li><li>Sometimes, uncles, aunts, and cousins too!</li></ul>
+          <p class="notes">🎙️ Some families are big. A big family has parents, children, and grandparents living together. Sometimes, uncles, aunts, and cousins also live together. This is called a joint family.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎉</div><div class="vcap">Family Fun</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦👵👴</span></div><div class="vcap">Big Family</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Helping</span> Each Other</h2>
-          <ul><li>We help our family members.</li><li>We can help Mummy set the table.</li><li>We can help Papa water the plants.</li></ul>
-          <p class="notes">🎙️ Helping is a way to show we care. Even small tasks like putting away your toys make a big difference. Everyone helps in a family.</p>
+          <h2>What <span class="hl">Do</span> Families Do Together?</h2>
+          <ul><li>Families do many things together.</li><li>They eat, play, and celebrate.</li><li>Doing things together makes the family stronger.</li></ul>
+          <p class="notes">🎙️ Families do many things together. They eat, play, and celebrate. Doing things together makes the family stronger.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Helping Hand</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Family Together</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2><span class="hl">Learning</span> Together</h2>
-          <ul><li>Families learn new things.</li><li>Mummy helps with homework.</li><li>Papa reads bedtime stories.</li></ul>
-          <p class="notes">🎙️ Learning is more fun when we do it together. Your family helps you learn about the world, read books, and even solve puzzles.</p>
+          <h2><span class="hl">Playing</span> Together</h2>
+          <ul><li>Families love to play games.</li><li>Maybe Ludo, carrom, or hide-and-seek.</li><li>Playing together is so much fun!</li></ul>
+          <p class="notes">🎙️ Families love to play games together. Maybe you play Ludo, carrom, or hide-and-seek. Playing together is so much fun!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Study Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚽</span><span>⚽</span><span>⚽</span></div><div class="vcap">Playing Games</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -168,10 +181,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">11 / 20</span>
           <h2><span class="hl">Eating</span> Together</h2>
-          <ul><li>Mealtime is family time.</li><li>We eat yummy food together.</li><li>We talk about our day.</li></ul>
-          <p class="notes">🎙️ Sharing a meal is a wonderful family tradition. It's a time to sit, relax, and talk about all the exciting things that happened during the day.</p>
+          <ul><li>Sharing meals is special family time.</li><li>Everyone sits, talks, and enjoys food.</li><li>It's a time for bonding.</li></ul>
+          <p class="notes">🎙️ Sharing meals is a special family time. Everyone sits together, talks, and enjoys delicious food. It's a time for bonding.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🍽️" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,35 +192,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Celebrating</span> Together</h2>
-          <ul><li>Families celebrate special days.</li><li>Birthdays, festivals, and weddings.</li><li>We wear new clothes and have fun!</li></ul>
-          <p class="notes">🎙️ Celebrations bring so much joy! Whether it's Diwali, Eid, Christmas, or a birthday, families come together to make these moments unforgettable.</p>
+          <h2>Celebrating <span class="hl">Festivals</span></h2>
+          <ul><li>Families celebrate festivals.</li><li>Like Diwali, Eid, Christmas, or Holi.</li><li>Happy times with new clothes and sweets!</li></ul>
+          <p class="notes">🎙️ Families celebrate festivals like Diwali, Eid, Christmas, or Holi. They wear new clothes, eat sweets, and have fun. These are happy times!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥳</div><div class="vcap">Celebration!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎉</div><div class="vcap">Festival Celebration</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 1</h2>
-          <ul><li>Who lives with you in your home?</li><li>Tell us their names!</li></ul>
-          <p class="notes">🎙️ Think about all the people you see every morning and evening. Who are they? Take a moment to think about your loved ones.</p>
+          <h2>Why is Family <span class="hl">Important</span>?</h2>
+          <ul><li>Our family protects us.</li><li>They help us and teach us good manners.</li><li>Family is where we feel safe and loved.</li></ul>
+          <p class="notes">🎙️ Our family protects us and helps us. They teach us good manners and values. Family is where we feel safe and loved.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Love and Care</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 2</h2>
-          <ul><li>What is one fun thing you do with your family?</li><li>Share your favourite activity!</li></ul>
-          <p class="notes">🎙️ Do you go to the park, watch movies, or play board games? What's that one special thing you love doing with your family?</p>
+          <h2><span class="hl">Helping</span> Each Other</h2>
+          <ul><li>Everyone in the family helps each other.</li><li>You can help by tidying toys.</li><li>Small helps make a big difference!</li></ul>
+          <p class="notes">🎙️ Everyone in the family helps each other. You can help by tidying your toys or setting the table. Small helps make a big difference!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Helping Hands</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -215,35 +228,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 3</h2>
-          <ul><li>Is your family a small family or a big family?</li><li>Why do you think so?</li></ul>
-          <p class="notes">🎙️ Count the number of people living in your home. Does it feel like a small group, or a big happy crowd? Tell us what you think.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>Who are your parents?</li></ul>
+          <p class="notes">🎙️ Think about it! Who are the two people who take care of you the most? They are your Papa and Mama.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Why is Family <span class="hl">Important</span>?</h2>
-          <ul><li>Family gives us love and support.</li><li>They teach us good values.</li><li>They are always there for us.</li></ul>
-          <p class="notes">🎙️ Our family is our first school and our biggest support system. They teach us to be kind, honest, and strong. They are our shelter.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>What is a small family?</li></ul>
+          <p class="notes">🎙️ Remember, a small family has parents and their children. Not too many people, just a few loving ones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤗</div><div class="vcap">Love &amp; Care</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Family Tree</span> Fun!</h2>
-          <ul><li>A family tree shows all our family members.</li><li>It connects us like branches of a tree.</li><li>It helps us know our relatives.</li></ul>
-          <p class="notes">🎙️ Just like a tree has many branches, a family tree shows how all your relatives are connected. It's a fun way to learn about your family's history.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>Name one thing you do with your family.</li></ul>
+          <p class="notes">🎙️ Do you play, eat, or celebrate with them? There are so many fun things to do together. Pick your favorite!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Making <span class="hl">Memories</span></h2>
-          <ul><li>We take photos with our family.</li><li>These photos help us remember happy times.</li><li>Every family has special stories.</li></ul>
-          <p class="notes">🎙️ Every photo tells a story! Family photos are like little treasures that remind us of all the wonderful times we've shared. Keep making new ones!</p>
+          <h2>Let's <span class="hl">Draw</span> Our Family!</h2>
+          <ul><li>Take out your drawing books!</li><li>Draw all the people in your family.</li><li>Show how much you love them!</li></ul>
+          <p class="notes">🎙️ Take out your drawing books! Draw all the people in your family. Show how much you love them in your drawing.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📸</div><div class="vcap">Family Photo</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖍️</div><div class="vcap">Drawing Time</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span>: My Family</h2>
-          <ul><li>A family loves and cares for each other.</li><li>Families can be small or big.</li><li>We help, learn, eat, and celebrate together.</li></ul>
-          <p class="notes">🎙️ So, we learned that family is all about love, support, and spending time together. No matter its size, every family is special and unique.</p>
+          <h2>What We <span class="hl">Learned</span> Today</h2>
+          <ul><li>We learned what a family is.</li><li>We met different family members.</li><li>We saw how families live and play together.</li></ul>
+          <p class="notes">🎙️ We learned about what a family is and who is in it. We also saw how families live and play together. Family is truly a gift!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Thank You</span>, My Dear Family!</h2>
-          <ul><li>Let's always cherish our families.</li><li>They are our greatest blessing.</li><li>See you next time!</li></ul>
-          <p class="notes">🎙️ Always remember to appreciate your family and the love they give you. Give them a big hug today! That concludes our lesson for today. Take care!</p>
+          <h2><span class="hl">Thank You</span>, Little Stars!</h2>
+          <ul><li>Always love and respect your family.</li><li>They are your first teachers and best friends.</li></ul>
+          <p class="notes">🎙️ Always remember to love and respect your family. They are your first teachers and your best friends. See you next time!</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🌟" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 1 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

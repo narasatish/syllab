@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Geometric Twins: Congruence — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Geometric Twins: <span class="hl">Congruence</span></h2>
-          <ul><li>Unlocking the secret of identical shapes</li><li>Discovering how figures can be exactly the same</li><li>A fundamental concept in geometry</li></ul>
-          <p class="notes">🎙️ Good morning, class! Today, we're embarking on an exciting journey into the world of 'Geometric Twins'. We'll learn about shapes that are not just similar, but absolutely identical. Get ready to explore the fascinating concept of Congruence!</p>
+          <h2>Geometric <span class="hl">Twins</span>: The World of Congruence</h2>
+          <ul><li>Introduction to identical shapes</li><li>Understanding "same size and same shape"</li><li>Exploring how we find geometric twins</li></ul>
+          <p class="notes">🎙️ Welcome to our exciting journey into the world of "Geometric Twins"! Today, we'll discover shapes that are exact copies of each other, learning what makes them identical.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are "Geometric <span class="hl">Twins</span>"?</h2>
-          <ul><li>Shapes that are exactly the same in size and shape</li><li>They can be placed one over the other perfectly</li><li>Think of two identical copies of a photo</li></ul>
-          <p class="notes">🎙️ When we talk about 'geometric twins', we mean figures that are an exact match. Imagine you have two identical coins. If you place one on top of the other, they cover each other perfectly, right? That's the essence of congruence.</p>
+          <h2>What Does "<span class="hl">Congruent</span>" Mean?</h2>
+          <ul><li>Exact copies of each other</li><li>Same size and same shape</li><li>Symbol: ≅</li></ul>
+          <p class="notes">🎙️ When two figures are congruent, it means they are identical in every way. Imagine two identical twins; they are congruent! They match perfectly when one is placed over the other.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Identical Twins</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Perfect Matches</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Understanding <span class="hl">Congruence</span></h2>
-          <ul><li>Derived from Latin: 'con' (together) and 'gruere' (to agree)</li><li>Means 'to agree together' or 'to coincide'</li><li>Two figures are congruent if they have the same size and the same shape</li></ul>
-          <p class="notes">🎙️ The word 'congruence' itself tells us a lot. It comes from Latin, meaning 'to agree together'. In geometry, it means two figures perfectly match. If you can superimpose one figure exactly onto another, they are congruent.</p>
+          <h2><span class="hl">Real-Life</span> Congruent Objects</h2>
+          <ul><li>Pages of the same textbook</li><li>Biscuits from the same pack</li><li>Two 5-rupee coins</li></ul>
+          <p class="notes">🎙️ Look around you! Many everyday objects are congruent. Think about the pages in your textbook – they are all the same size and shape, making them congruent figures.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Agreeing Together</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Same Biscuits</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Congruence of <span class="hl">Line Segments</span></h2>
-          <ul><li>Two line segments are congruent if they have the same length</li><li>The symbol for congruence is '≅'</li><li>If segment AB is congruent to segment CD, we write AB ≅ CD</li></ul>
-          <p class="notes">🎙️ Let's start with the simplest geometric figure: a line segment. Two line segments are congruent if, and only if, they have the exact same length. It doesn't matter how they are oriented; if their measures are equal, they are twins.</p>
+          <h2>Congruent <span class="hl">Line Segments</span></h2>
+          <ul><li>Two line segments are congruent if they have the same length.</li></ul>
+          <p class="notes">🎙️ If you have two rulers and measure two line segments, and both measure exactly 5 cm, then those two line segments are congruent. Length is the only factor we consider here.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Same Length</div></div></div>
       </div>
@@ -95,21 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Real-Life</span> Congruent Line Segments</h2>
-          <ul><li>The opposite edges of a standard ruler</li><li>Pencil leads of the same brand and length</li><li>The spokes of a bicycle wheel (from center to rim)</li></ul>
-          <p class="notes">🎙️ Think about everyday objects. If you have two brand new pencils of the same type, their lengths are identical. Or consider the opposite edges of your geometry box – they are congruent line segments. This concept is all around us!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">Identical Pencils</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Congruence of <span class="hl">Angles</span></h2>
-          <ul><li>Two angles are congruent if they have the same measure</li><li>The length of the arms does not affect congruence</li><li>If angle PQR is congruent to angle XYZ, we write ∠PQR ≅ ∠XYZ</li></ul>
-          <p class="notes">🎙️ Next, let's look at angles. For two angles to be congruent, their degree measures must be identical. Remember, the length of the lines forming the angle doesn't change its measure; only how 'open' or 'closed' it is matters.</p>
+          <h2>Congruent <span class="hl">Angles</span></h2>
+          <ul><li>Two angles are congruent if they have the same measure.</li></ul>
+          <p class="notes">🎙️ Similarly, for angles, if two angles both measure 60 degrees, then they are congruent. The length of their arms doesn't matter, only the opening between them.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Same Measure</div></div></div>
       </div>
@@ -118,12 +119,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Real-Life</span> Congruent Angles</h2>
-          <ul><li>The angles in a standard square tile (all 90°)</li><li>The angles formed by the hands of a clock at 3 PM and 9 AM (both 90°)</li><li>The angles at the corners of a rectangular door</li></ul>
-          <p class="notes">🎙️ Imagine a square floor tile. All its corner angles are 90 degrees, making them congruent. Or think about a clock: the angle formed by the hands at 3 PM is 90 degrees, and so is the one at 9 AM – they are congruent angles.</p>
+          <span class="num">6 / 25</span>
+          <h2>Congruent <span class="hl">Plane Figures</span></h2>
+          <ul><li>Two plane figures are congruent if one can be exactly superimposed on the other.</li></ul>
+          <p class="notes">🎙️ This is the general idea for any 2D shape. If you can pick up one shape and place it directly on top of another, and they match perfectly, then they are congruent.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Clock Angles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔲</div><div class="vcap">Perfect Overlay</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Focusing on Congruent <span class="hl">Triangles</span></h2>
+          <ul><li>Triangles are fundamental shapes in geometry</li><li>Special rules for triangle congruence</li></ul>
+          <p class="notes">🎙️ Triangles are super important! They are the building blocks for many other shapes. So, we'll spend a lot of time understanding when two triangles are congruent using specific rules.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Triangle Focus</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Congruence of <span class="hl">Plane Figures</span></h2>
-          <ul><li>Two plane figures are congruent if they have the same shape and the same size</li><li>One can be exactly superimposed on the other</li><li>This applies to squares, circles, triangles, and any other 2D shape</li></ul>
-          <p class="notes">🎙️ Extending this idea, any two-dimensional shape – be it a square, a circle, or an irregular polygon – is congruent if one can be perfectly placed over the other. They are exact replicas, sharing identical dimensions and form.</p>
+          <h2><span class="hl">Corresponding</span> Parts of Congruent Triangles (CPCTC)</h2>
+          <ul><li>If two triangles are congruent, then their corresponding parts are equal.</li></ul>
+          <p class="notes">🎙️ This is a crucial concept. It means if you know two triangles are congruent, you automatically know that all their matching sides and matching angles are also equal. We call this CPCTC.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Matching Shapes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Matching Parts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Real-Life</span> Congruent Plane Figures</h2>
-          <ul><li>Two identical postage stamps</li><li>A stack of same-sized biscuits</li><li>The pages of a new notebook</li></ul>
-          <p class="notes">🎙️ Think of a stack of new biscuits from the same packet. Each biscuit is a congruent plane figure to the others. Or the pages in your textbook – they all have the same rectangular shape and size, making them congruent.</p>
+          <h2>Activity: <span class="hl">Tracing</span> Triangles</h2>
+          <ul><li>1. Draw two triangles</li><li>2. Trace one triangle onto butter paper</li><li>3. Place the traced triangle over the other</li></ul>
+          <p class="notes">🎙️ This simple activity helps visualize congruence. If the traced triangle fits perfectly on the second one, they are congruent. It's like finding a perfect stencil!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Stack of Biscuits</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw</span></div><div class="step"><span class="snum">2</span><span>Trace</span></div><div class="step"><span class="snum">3</span><span>Overlay</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Why <span class="hl">Triangles</span> are Special</h2>
-          <ul><li>Triangles are the simplest polygons</li><li>They are rigid shapes, unlike squares or rectangles</li><li>Understanding triangle congruence is key to many geometric proofs</li></ul>
-          <p class="notes">🎙️ Triangles are incredibly important in geometry. They are the simplest closed figures and possess a unique rigidity. This makes their congruence particularly useful in engineering and architectural designs, as well as in proving other geometric properties.</p>
+          <h2>The Need for Congruence <span class="hl">Criteria</span></h2>
+          <ul><li>Tracing is not always practical</li><li>We need rules to prove congruence without tracing</li><li>These rules are called congruence criteria</li></ul>
+          <p class="notes">🎙️ While tracing is good for understanding, it's not always possible or precise. Imagine proving two huge triangles are congruent! We need mathematical rules, or criteria, to do this logically.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Strong Shapes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Rules for Proof</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Congruence of <span class="hl">Triangles</span></h2>
-          <ul><li>Two triangles are congruent if their corresponding parts (sides and angles) are equal</li><li>We don't need to check all 6 parts (3 sides, 3 angles)</li><li>Specific criteria help us determine congruence more easily</li></ul>
-          <p class="notes">🎙️ For two triangles to be congruent, every corresponding side must be equal, and every corresponding angle must be equal. However, we have some clever shortcuts, called criteria, that allow us to prove congruence by checking fewer parts.</p>
+          <h2>Criterion 1: <span class="hl">SSS</span> (Side-Side-Side) Rule</h2>
+          <ul><li>If three sides of one triangle are equal to the three corresponding sides of another triangle, then the triangles are congruent.</li></ul>
+          <p class="notes">🎙️ This rule is powerful! If you can measure all three sides of two triangles and find that they are exactly the same lengths, you don't need to check angles – the triangles are congruent.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Triangle 1</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Triangle 2</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏📏📏</div><div class="vcap">Sides Match</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">SSS</span> Congruence Criterion</h2>
-          <ul><li>If three sides of one triangle are equal to the three corresponding sides of another triangle</li><li>Then the two triangles are congruent</li><li>This means all angles will also be equal automatically</li></ul>
-          <p class="notes">🎙️ The SSS criterion is straightforward: if you can show that all three sides of one triangle are exactly the same length as the three corresponding sides of another triangle, then those triangles are congruent. You don't even need to check the angles!</p>
+          <h2>SSS Worked <span class="hl">Example</span></h2>
+          <ul><li>Triangle ABC and Triangle PQR</li><li>AB=PQ, BC=QR, CA=RP</li><li>Therefore, ΔABC ≅ ΔPQR (by SSS)</li></ul>
+          <p class="notes">🎙️ Let's see this in action. If we have two triangles, and we know that side AB equals side PQ, side BC equals side QR, and side CA equals side RP, then we can confidently say the triangles are congruent by the SSS rule.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">All Sides Match</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Solve It</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>SSS Worked <span class="hl">Example</span></h2>
-          <ul><li>Given ΔABC and ΔPQR</li><li>AB = PQ = 4 cm, BC = QR = 5 cm, CA = RP = 6 cm</li><li>By SSS criterion, ΔABC ≅ ΔPQR</li></ul>
-          <p class="notes">🎙️ Let's say we have two triangles. If we measure their sides and find that AB matches PQ, BC matches QR, and CA matches RP, then we can confidently declare them congruent using the SSS rule. It's like having two identical triangular pieces of cardboard.</p>
+          <h2>Criterion 2: <span class="hl">SAS</span> (Side-Angle-Side) Rule</h2>
+          <ul><li>If two sides and the *included* angle of one triangle are equal to the corresponding two sides and the included angle of another triangle, then the triangles are congruent.</li></ul>
+          <p class="notes">🎙️ Here, the order matters! The angle MUST be between the two sides. If you have two sides and the angle formed by them matching in both triangles, they are congruent.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Compare Side 1</span></div><div class="step"><span class="snum">2</span><span>Compare Side 2</span></div><div class="step"><span class="snum">3</span><span>Compare Side 3</span></div><div class="step"><span class="snum">4</span><span>Conclude Congruence</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏📐📏</div><div class="vcap">Side Angle Side</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">SAS</span> Congruence Criterion</h2>
-          <ul><li>If two sides and the *included angle* of one triangle are equal to the corresponding two sides and the *included angle* of another triangle</li><li>Then the two triangles are congruent</li><li>The angle must be between the two sides</li></ul>
-          <p class="notes">🎙️ The SAS criterion is powerful: if two sides and the angle *between* them (the included angle) in one triangle are equal to the corresponding parts in another, the triangles are congruent. The order here is crucial; the angle must be 'sandwiched' between the two sides.</p>
+          <h2>SAS Worked <span class="hl">Example</span></h2>
+          <ul><li>Triangle LMN and Triangle XYZ</li><li>LM=XY, ∠M=∠Y, MN=YZ</li><li>Therefore, ΔLMN ≅ ΔXYZ (by SAS)</li></ul>
+          <p class="notes">🎙️ Imagine two triangles where you know two sides and the angle between them. If these three parts match perfectly in both triangles, then they are congruent by the SAS rule. Remember, the angle must be the *included* angle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Included Angle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Solve It</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>SAS Worked <span class="hl">Example</span></h2>
-          <ul><li>Given ΔXYZ and ΔDEF</li><li>XY = DE = 5 cm, ∠Y = ∠E = 70°, YZ = EF = 6 cm</li><li>By SAS criterion, ΔXYZ ≅ ΔDEF</li></ul>
-          <p class="notes">🎙️ Consider two triangles where we know two sides and the angle between them. If XY equals DE, angle Y equals angle E, and YZ equals EF, then by SAS, these triangles are congruent. Always ensure the angle is indeed the one between the two known sides.</p>
+          <h2>Quick Check 1: <span class="hl">Which Rule?</span></h2>
+          <ul><li>1. Two triangles with all three sides given as equal. (SSS/SAS/ASA/RHS?)</li><li>2. Two triangles with two sides and the angle between them given as equal. (SSS/SAS/ASA/RHS?)</li></ul>
+          <p class="notes">🎙️ Take a moment to think! Based on what we've learned, can you identify which congruence rule applies in these scenarios? This helps solidify your understanding.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Compare Side 1</span></div><div class="step"><span class="snum">2</span><span>Compare Included Angle</span></div><div class="step"><span class="snum">3</span><span>Compare Side 2</span></div><div class="step"><span class="snum">4</span><span>Conclude Congruence</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">ASA</span> Congruence Criterion</h2>
-          <ul><li>If two angles and the *included side* of one triangle are equal to the corresponding two angles and the *included side* of another triangle</li><li>Then the two triangles are congruent</li><li>The side must be between the two angles</li></ul>
-          <p class="notes">🎙️ Similar to SAS, ASA focuses on two angles and the side *between* them (the included side). If these three corresponding parts match in two triangles, they are congruent. Again, the 'included' part is vital for this criterion.</p>
+          <h2>Criterion 3: <span class="hl">ASA</span> (Angle-Side-Angle) Rule</h2>
+          <ul><li>If two angles and the *included* side of one triangle are equal to the corresponding two angles and the included side of another triangle, then the triangles are congruent.</li></ul>
+          <p class="notes">🎙️ Similar to SAS, the side here MUST be between the two angles. If you have two angles and the side connecting their vertices matching in both triangles, they are congruent.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Included Side</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐📏📐</div><div class="vcap">Angle Side Angle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -240,10 +253,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">17 / 25</span>
           <h2>ASA Worked <span class="hl">Example</span></h2>
-          <ul><li>Given ΔLMN and ΔSTU</li><li>∠L = ∠S = 60°, LM = ST = 7 cm, ∠M = ∠T = 80°</li><li>By ASA criterion, ΔLMN ≅ ΔSTU</li></ul>
-          <p class="notes">🎙️ If we have two triangles where angle L matches angle S, the side LM matches ST, and angle M matches angle T, then we can use ASA to prove congruence. Notice how the side LM is exactly between angles L and M.</p>
+          <ul><li>Triangle DEF and Triangle GHI</li><li>∠E=∠H, EF=HI, ∠F=∠I</li><li>Therefore, ΔDEF ≅ ΔGHI (by ASA)</li></ul>
+          <p class="notes">🎙️ If we know two angles and the side that connects them in one triangle are equal to the corresponding two angles and included side in another, then the ASA rule proves their congruence.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Compare Angle 1</span></div><div class="step"><span class="snum">2</span><span>Compare Included Side</span></div><div class="step"><span class="snum">3</span><span>Compare Angle 2</span></div><div class="step"><span class="snum">4</span><span>Conclude Congruence</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Solve It</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">RHS</span> Congruence Criterion</h2>
-          <ul><li>Specific for *right-angled triangles* only</li><li>If the hypotenuse and one side of a right-angled triangle are equal to the hypotenuse and corresponding side of another right-angled triangle</li><li>Then the two triangles are congruent</li></ul>
-          <p class="notes">🎙️ RHS is a special criterion just for right-angled triangles. If both triangles have a right angle, and their hypotenuses are equal, and one pair of corresponding legs (sides) are also equal, then the triangles are congruent. Remember, this only applies to right triangles!</p>
+          <h2>Criterion 4: <span class="hl">RHS</span> (Right-angle-Hypotenuse-Side) Rule</h2>
+          <ul><li>For two right-angled triangles, if the hypotenuse and one side of one triangle are equal to the hypotenuse and one corresponding side of the other triangle, then the triangles are congruent.</li></ul>
+          <p class="notes">🎙️ This rule is specifically for right-angled triangles. You need to identify the right angle, the hypotenuse (the side opposite the right angle), and one other corresponding side.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Right Angle Match</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐📈📏</div><div class="vcap">Right Hypotenuse Side</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -264,10 +277,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">19 / 25</span>
           <h2>RHS Worked <span class="hl">Example</span></h2>
-          <ul><li>Given right-angled ΔPQR and ΔXYZ (right-angled at Q and Y)</li><li>Hypotenuse PR = XZ = 10 cm, Side QR = YZ = 6 cm</li><li>By RHS criterion, ΔPQR ≅ ΔXYZ</li></ul>
-          <p class="notes">🎙️ In two right triangles, if the hypotenuse of one matches the hypotenuse of the other, and one leg of the first matches a leg of the second, then they are congruent by RHS. This is a powerful shortcut for right triangles.</p>
+          <ul><li>Triangle PQR and Triangle STU (both right-angled at Q and T)</li><li>Hypotenuse PR = Hypotenuse SU</li><li>Side PQ = Side ST</li><li>Therefore, ΔPQR ≅ ΔSTU (by RHS)</li></ul>
+          <p class="notes">🎙️ Let's apply RHS. If you have two right-angled triangles, and their hypotenuses are equal, and one pair of corresponding legs are also equal, then the triangles are congruent.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Check Right Angle</span></div><div class="step"><span class="snum">2</span><span>Compare Hypotenuse</span></div><div class="step"><span class="snum">3</span><span>Compare One Side</span></div><div class="step"><span class="snum">4</span><span>Conclude Congruence</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Solve It</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,35 +288,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>Two circles are congruent if they have the same: A) radius, B) circumference, C) area, D) all of the above</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Think back to our discussion on congruence of plane figures. What characteristic makes two circles identical?</p>
+          <h2>Quick Check 2: <span class="hl">Identify</span> the Rule!</h2>
+          <ul><li>1. Two right-angled triangles with equal hypotenuses and one pair of equal legs. (SSS/SAS/ASA/RHS?)</li><li>2. Two triangles with two angles and the included side given as equal. (SSS/SAS/ASA/RHS?)</li></ul>
+          <p class="notes">🎙️ Another quick check! Remember the specific conditions for each rule. This will help you choose the correct criterion when solving problems and proving congruence.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>Which criterion cannot be used to prove triangle congruence: A) SSS, B) ASA, C) AAA, D) SAS</li></ul>
-          <p class="notes">🎙️ Remember the four criteria we just discussed for triangles. One of the options listed here is NOT a valid congruence rule. Which one is it?</p>
+          <h2>Common <span class="hl">Mistakes</span> &amp; Misconceptions</h2>
+          <ul><li>AAA (Angle-Angle-Angle) does NOT prove congruence</li><li>SSA (Side-Side-Angle) does NOT prove congruence</li></ul>
+          <p class="notes">🎙️ Be careful! Just because angles are equal (AAA) doesn't mean triangles are congruent (they could be similar). Also, SSA is not a valid congruence rule because it can lead to two different triangles.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid These</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 3</span></h2>
-          <ul><li>If ΔABC ≅ ΔPQR, which side corresponds to BC? A) PQ, B) QR, C) RP, D) AB</li></ul>
-          <p class="notes">🎙️ When two triangles are congruent, their corresponding parts are equal. If triangle ABC is congruent to triangle PQR, which side in PQR matches side BC?</p>
+          <h2>Why is Congruence <span class="hl">Important</span>?</h2>
+          <ul><li>Ensures uniformity in manufacturing</li><li>Used in architecture and design</li><li>Foundation for understanding similarity</li></ul>
+          <p class="notes">🎙️ Congruence is not just a classroom concept! It's vital in engineering, construction, and design to ensure parts fit together perfectly and structures are stable and uniform.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Real World Use</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,9 +324,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 4</span></h2>
-          <ul><li>RHS congruence criterion is applicable only for which type of triangles? A) Equilateral, B) Isosceles, C) Right-angled, D) Scalene</li></ul>
-          <p class="notes">🎙️ We learned about a special congruence criterion that applies only to a specific type of triangle. Can you recall which one it is?</p>
+          <h2><span class="hl">Practice</span> Problem: Which Rule Applies?</h2>
+          <ul><li>Given ΔABC and ΔXYZ with AB=XY, ∠B=∠Y, BC=YZ.</li><li>Are they congruent? If yes, by which rule?</li></ul>
+          <p class="notes">🎙️ Think carefully about the given information. Which parts are equal? Are they in the correct order for any of our congruence rules? Discuss your reasoning.</p>
         </div>
         
       </div>
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Congruent figures are exact copies (same size, same shape)</li><li>Line segments are congruent if they have equal length</li><li>Angles are congruent if they have equal measure</li><li>Four criteria for triangle congruence: SSS, SAS, ASA, RHS</li></ul>
-          <p class="notes">🎙️ Let's quickly review what we've learned today. Congruence means identical, whether it's line segments, angles, or entire shapes. And for triangles, we have four powerful rules to prove if they are geometric twins.</p>
+          <h2><span class="hl">Recap</span>: The Four Congruence Rules</h2>
+          <ul><li>SSS: Three Sides</li><li>SAS: Two Sides + Included Angle</li><li>ASA: Two Angles + Included Side</li><li>RHS: Right Angle + Hypotenuse + Side</li></ul>
+          <p class="notes">🎙️ Great job so far! Here’s a quick summary of the four powerful rules we learned today to prove triangle congruence. Master these, and you'll be a geometry pro!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Remembering Congruence</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">SSS</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">SAS</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">ASA</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">RHS</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Application &amp; <span class="hl">Practice</span></h2>
-          <ul><li>Congruence is used in architecture, engineering, and manufacturing</li><li>Helps ensure uniformity and precision in products</li><li>Practice identifying congruent figures and applying criteria</li></ul>
-          <p class="notes">🎙️ Understanding congruence isn't just for exams; it's vital in the real world. From designing buildings to mass-producing identical parts, congruence ensures everything fits perfectly. Keep practicing to master this essential geometric concept!</p>
+          <h2><span class="hl">Challenge</span>: Beyond Triangles!</h2>
+          <ul><li>Can two squares with the same perimeter be congruent? Why or why not?</li></ul>
+          <p class="notes">🎙️ We focused on triangles, but the idea of congruence applies to all shapes. Think about squares – what defines their shape and size? This is a great way to test your understanding of congruence.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Real-World Use</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

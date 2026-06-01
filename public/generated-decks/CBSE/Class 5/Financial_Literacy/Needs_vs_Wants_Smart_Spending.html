@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Needs vs Wants — Smart Spending — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome, <span class="hl">Smart Spenders</span>!</h2>
-          <ul><li>Let's learn to be smart with our money!</li><li>Discover how to spend wisely.</li></ul>
-          <p class="notes">🎙️ Hello, smart students! Today, we're going on an exciting adventure to learn about money. We will discover how to spend our money wisely, just like grown-ups do. Get ready to become a 'Smart Spender'!</p>
+          <h2>Welcome to <span class="hl">Smart Spending!</span></h2>
+          <ul><li>Let's learn about money.</li><li>How to make good choices.</li></ul>
+          <p class="notes">🎙️ Hello children! Today we are going on an exciting journey to learn about money and how to spend it smartly. It’s like being a detective for your own pocket money!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What are '<span class="hl">Needs</span>'?</h2>
-          <ul><li>Things we MUST have to live.</li><li>They keep us safe and healthy.</li><li>We cannot live happily without them.</li></ul>
-          <p class="notes">🎙️ Imagine you are hungry. What do you need? Food! Needs are like superpowers that keep us alive and well. They are the most important things in our life.</p>
+          <h2>What do we really <span class="hl">Need</span>?</h2>
+          <ul><li>Things we cannot live without.</li><li>They keep us safe and healthy.</li></ul>
+          <p class="notes">🎙️ Imagine you are on a deserted island. What are the first few things you would absolutely need to survive? These are called Needs. They are super important for our life and well-being.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home/Shelter</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Basic Needs</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Examples of <span class="hl">Needs</span></h2>
-          <ul><li>Food to eat when hungry.</li><li>Water to drink when thirsty.</li><li>Clothes to wear.</li><li>A house to live in.</li></ul>
-          <p class="notes">🎙️ Think about food, water, clothes, and a home. These are things you need every single day. They help you grow big and strong and stay safe.</p>
+          <h2>Our <span class="hl">Basic Needs</span></h2>
+          <ul><li>Everyone needs food to eat.</li><li>Water to drink every day.</li><li>And a home to live in.</li></ul>
+          <p class="notes">🎙️ These are the three big needs for almost everyone: food, water, and shelter. They are like the pillars that hold up our healthy and happy life. Without them, it's very difficult to live.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Food, Water, Shelter</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="👨‍👩‍👧‍👦" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Why Needs are <span class="hl">Important</span></h2>
-          <ul><li>They keep us healthy.</li><li>They keep us safe.</li><li>We cannot live happily without them.</li></ul>
-          <p class="notes">🎙️ Needs are like our bodyguards! They protect us and make sure we are healthy. Without enough food or a safe home, it's hard to learn and play.</p>
+          <h2><span class="hl">Food</span> is a Need</h2>
+          <ul><li>We need food to grow big and strong.</li><li>It gives us energy to play and learn.</li></ul>
+          <p class="notes">🎙️ Just like a plant needs water and sunlight, our bodies need food. It's our fuel! Eating healthy food helps us run, jump, think, and do all our daily activities.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Stay Safe &amp; Healthy</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Healthy Food</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,177 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>What are '<span class="hl">Wants</span>'?</h2>
-          <ul><li>Things we would LIKE to have.</li><li>They make life more fun.</li><li>We can live without them.</li></ul>
-          <p class="notes">🎙️ Now, let's talk about 'wants'. Wants are things that are nice to have, like a new toy or a yummy ice cream. They make us happy, but we don't *need* them to live.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">Gift/Desire</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 20</span>
-          <h2>Examples of <span class="hl">Wants</span></h2>
-          <ul><li>A new video game.</li><li>A big chocolate bar.</li><li>A fancy new toy car.</li><li>Going to a theme park.</li></ul>
-          <p class="notes">🎙️ Think about your favorite toy or a yummy treat you love. These are wants! They bring joy but are not essential for our survival. We can still be happy without them.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎮</span><span>🎮</span><span>🎮</span></div><div class="vcap">Fun things we desire</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2>Wants are <span class="hl">Fun</span>!</h2>
-          <ul><li>Wants make us happy.</li><li>They add joy to our life.</li><li>But we can live without them.</li></ul>
-          <p class="notes">🎙️ It's perfectly fine to want things! Wants make life exciting and give us something to look forward to. But remember, our needs come first.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥳</div><div class="vcap">Yay for fun!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Needs vs. Wants: The Big <span class="hl">Difference</span></h2>
-          <ul><li>Needs: Must have to live.</li><li>Wants: Nice to have, but not essential.</li></ul>
-          <p class="notes">🎙️ Look at the chart! Needs are super important, like a big pillar holding up our life. Wants are smaller, like pretty decorations. We need the pillar first!</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Needs</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Wants</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Rohan's Shopping Trip: Part 1</h2>
-          <ul><li>Rohan needs new school shoes.</li><li>His old ones are too small.</li><li>Mom buys him sturdy shoes.</li></ul>
-          <p class="notes">🎙️ Rohan's old school shoes were hurting his feet. His mom knew new shoes were a 'need' for him to go to school comfortably. So, they bought a strong, new pair.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👟</span></div><div class="vcap">New school shoes</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>Rohan's Shopping Trip: Part 2</h2>
-          <ul><li>Rohan sees a cool toy car.</li><li>He really wants it!</li><li>Mom says, 'Maybe next time.'</li></ul>
-          <p class="notes">🎙️ After buying shoes, Rohan saw a shiny toy car. He really, really wanted it! But his mom explained that they had enough money for his needs today. The toy car was a 'want'.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span></div><div class="vcap">A cool toy car</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 1</h2>
-          <ul><li>Eating healthy food every day.</li><li>Is this a Need or a Want?</li></ul>
-          <p class="notes">🎙️ Imagine you are very hungry. You need food to get energy and stay healthy. So, eating healthy food is definitely a 'need'!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥗</div><div class="vcap">Healthy Food</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 2</h2>
-          <ul><li>Buying a new remote control car.</li><li>Is this a Need or a Want?</li></ul>
-          <p class="notes">🎙️ A remote control car is super fun to play with! But do you *need* it to live and be healthy? No, it's something nice to have. So, it's a 'want'!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏎️</div><div class="vcap">Remote Control Car</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 3</h2>
-          <ul><li>Wearing a clean school uniform.</li><li>Is this a Need or a Want?</li></ul>
-          <p class="notes">🎙️ For school, you must wear a uniform. It's important for everyone to look neat and tidy. So, a school uniform is a 'need' for going to school.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">School Uniform</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>Why Know the <span class="hl">Difference</span>?</h2>
-          <ul><li>To spend money wisely.</li><li>To save for important things.</li><li>To make smart choices.</li></ul>
-          <p class="notes">🎙️ Knowing the difference helps us become smart spenders. We learn to buy what's truly important first. This way, we use our money in the best possible way.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/2_Rupee_coin_India.jpg?width=440" data-fb="🧠" alt="Learn money using real coins."/><div class="vcap">Learn money using real coins.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2>Smart Spending: How to <span class="hl">Decide</span></h2>
-          <ul><li>Step 1: Ask, 'Do I need this to live?'</li><li>Step 2: If yes, it's a Need.</li><li>Step 3: If no, it's a Want.</li></ul>
-          <p class="notes">🎙️ Here's a simple trick! Before you buy something, ask yourself: 'Do I really need this to be healthy and safe?' If the answer is yes, it's a need. If not, it's a want.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ask: Need to live?</span></div><div class="step"><span class="snum">2</span><span>Yes: It's a Need</span></div><div class="step"><span class="snum">3</span><span>No: It's a Want</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2><span class="hl">Saving</span> for a Big Want</h2>
-          <ul><li>You want a new bicycle.</li><li>It costs a lot of money.</li><li>Save your pocket money each week!</li></ul>
-          <p class="notes">🎙️ Sometimes, we have a big want, like a new bicycle. Instead of buying small wants every day, we can save our money. Slowly, our money pot grows, and we can buy that big want!</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Piggybank.jpg?width=420" data-fb="💰" alt="Saving a little regularly adds up to a lot!"/><div class="vcap">Saving a little regularly adds up to a lot!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2>Family <span class="hl">Budget</span>: Our Money Box</h2>
-          <ul><li>Families plan how to spend money.</li><li>Needs are paid for first.</li><li>Then, some money for wants.</li></ul>
-          <p class="notes">🎙️ Just like you plan your day, families plan their money. They make sure all needs are covered first, like food and rent. After that, if there's money left, they can enjoy some wants.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏦</div><div class="vcap">Family Money</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2><span class="hl">Practice</span> Time: 100 Rupees!</h2>
-          <ul><li>Option A: A new storybook (Want)</li><li>Option B: A healthy lunch (Need)</li></ul>
-          <p class="notes">🎙️ Imagine you have 100 rupees. A storybook is fun, but a healthy lunch is important for your energy. A smart spender would choose the lunch first, ensuring their need is met.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Storybook</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Healthy Lunch</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span>: Needs vs. Wants</h2>
-          <ul><li>Needs: Important for life (Food, Water).</li><li>Wants: Nice to have (Toys, Sweets).</li><li>Needs come before Wants!</li></ul>
-          <p class="notes">🎙️ Remember, needs are like the foundation of a house – essential! Wants are like the paint and decorations – they make it pretty, but the house must stand first. Always prioritize needs.</p>
+          <h2><span class="hl">Water</span> is a Need</h2>
+          <ul><li>We need water to drink every day.</li><li>It keeps our body working well.</li></ul>
+          <p class="notes">🎙️ Water is just as important as food. Our bodies are mostly made of water! Drinking enough water keeps us hydrated and helps all our body parts function properly. Always carry a water bottle!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="💰" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
@@ -274,16 +119,185 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2>Be a <span class="hl">Smart Spender</span>!</h2>
-          <ul><li>You are now a smart spender!</li><li>Always think: Need or Want?</li><li>Make wise choices with money!</li></ul>
-          <p class="notes">🎙️ Congratulations, little financial experts! You now know the secret to smart spending. Keep practicing this lesson every day, and you'll always make smart choices with your money. Well done!</p>
+          <span class="num">6 / 20</span>
+          <h2>A <span class="hl">Home</span> is a Need</h2>
+          <ul><li>We need a house or home to live in.</li><li>It protects us from sun, rain, and cold.</li></ul>
+          <p class="notes">🎙️ A home or shelter keeps us safe from bad weather and gives us a place to rest. It's where we feel secure and can be with our family. Everyone needs a safe place to call home.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">You're a Winner!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Safe Shelter</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 20</span>
+          <h2>What do we really <span class="hl">Want</span>?</h2>
+          <ul><li>Things that make us happy.</li><li>We can live without them.</li></ul>
+          <p class="notes">🎙️ Now, let's talk about Wants. These are things that are nice to have, they bring us joy, but we don't actually need them to survive. We can still be happy and healthy without them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">A Gift</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Our Fun <span class="hl">Wants</span></h2>
+          <ul><li>Toys, sweets, and games are Wants.</li><li>They are nice to have, but not needed to live.</li></ul>
+          <p class="notes">🎙️ Think about all the fun things you wish for – a new toy, a yummy chocolate, or a video game. These are all Wants! They add fun to our lives but are not essential for our basic survival.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span><span>🧸</span><span>🧸</span></div><div class="vcap">Fun Toys</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>A New <span class="hl">Toy Car</span> is a Want</h2>
+          <ul><li>It's fun to play with.</li><li>But you can live without it.</li></ul>
+          <p class="notes">🎙️ A toy car can give you hours of joy, but you don't need it to grow or stay healthy. It's a perfect example of something you desire but isn't a basic necessity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Toy Car</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 20</span>
+          <h2><span class="hl">Ice Cream</span> is a Want</h2>
+          <ul><li>It's a yummy treat!</li><li>But not needed for health every day.</li></ul>
+          <p class="notes">🎙️ Who doesn't love ice cream? It's delicious! But we know that eating too much ice cream isn't good for our health, and we certainly don't need it to live. So, it's a Want.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍦</span><span>🍦</span><span>🍦</span></div><div class="vcap">Sweet Treat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2>Needs vs. Wants: Can you tell?</h2>
+          <ul><li>Needs are for living.</li><li>Wants are for fun.</li></ul>
+          <p class="notes">🎙️ The main difference is their importance. Needs are like the foundation of a house – absolutely essential. Wants are like the decorations – they make the house look nice, but you can still live in it without them.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Needs</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Wants</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2>Why do we learn about Needs and Wants?</h2>
+          <ul><li>To make smart choices with money.</li><li>To save for important things.</li></ul>
+          <p class="notes">🎙️ Understanding Needs and Wants helps us become smart spenders. When we have limited money, knowing what's a Need helps us buy important things first. It helps us plan and save.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Indian_Rupee_symbol.svg?width=320" data-fb="🧠" alt="The rupee (₹) is our money."/><div class="vcap">The rupee (₹) is our money.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 20</span>
+          <h2><span class="hl">Rohan's Story</span>: New Shoes or a Toy?</h2>
+          <ul><li>Rohan needs new school shoes.</li><li>He also wants a cool remote control car.</li></ul>
+          <p class="notes">🎙️ Let's hear about Rohan. His old school shoes are too small, so he needs new ones. But he also saw a super cool toy car at the shop and really wants it. He has only enough money for one.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👟</div><div class="vcap">School Shoes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>Rohan Chooses <span class="hl">Needs First</span>!</h2>
+          <ul><li>Rohan chose the new shoes.</li><li>He knew shoes were more important.</li></ul>
+          <p class="notes">🎙️ Rohan thought carefully. He knew he needed shoes to go to school comfortably. The toy car was fun, but he could wait for it. He made a smart choice by putting his Need first!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Good Choice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>Question 1: Is a <span class="hl">School Uniform</span> a Need or a Want?</h2>
+          <ul><li>Think about going to school.</li><li>What is important for class?</li></ul>
+          <p class="notes">🎙️ Alright, children, let's test your understanding! Is your school uniform something you absolutely need for school, or is it something you just want for fun? Think about it!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>Question 2: Is a <span class="hl">Video Game</span> a Need or a Want?</h2>
+          <ul><li>Do you need it to live?</li><li>Does it keep you safe?</li></ul>
+          <p class="notes">🎙️ Next question! A new video game console or a fun new game. Is this a Need or a Want? Does it help you grow strong and healthy, or is it just for entertainment?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 20</span>
+          <h2>Question 3: Is a <span class="hl">Doctor's Visit</span> a Need or a Want?</h2>
+          <ul><li>What happens if you are sick?</li><li>Does it keep you healthy?</li></ul>
+          <p class="notes">🎙️ Last question! If you are feeling unwell, and your parents take you to the doctor, is that a Need or a Want? Does it help you feel better and stay healthy?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 20</span>
+          <h2>How to be a <span class="hl">Smart Spender</span>?</h2>
+          <ul><li>1. Think: Is it a Need or a Want?</li><li>2. Choose Needs first.</li><li>3. Save money for big Wants.</li></ul>
+          <p class="notes">🎙️ Here are three simple steps to become a super smart spender! First, always ask yourself if something is a Need or a Want. Second, always make sure your Needs are taken care of. And third, if you really want something big, start saving for it!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Need/Want</span></div><div class="step"><span class="snum">2</span><span>Prioritize Needs</span></div><div class="step"><span class="snum">3</span><span>Save for Wants</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>Let's <span class="hl">Remember</span>: Needs vs. Wants</h2>
+          <ul><li>Needs are things we must have.</li><li>Wants are things we wish to have.</li></ul>
+          <p class="notes">🎙️ Let's quickly recap what we learned today. Needs are the things that are absolutely essential for our life and health. Wants are the things that make us happy and add fun, but are not necessary for survival.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Must Have</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Nice to Have</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2>You are a <span class="hl">Smart Spender</span>!</h2>
+          <ul><li>Always think before you spend.</li><li>Make good choices with your money.</li></ul>
+          <p class="notes">🎙️ Great job everyone! Now you have the superpower to tell the difference between Needs and Wants. Use this power to make smart choices with your money and become a responsible and wise spender. Keep practicing!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Money Wisdom</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Financial Literacy</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Electrochemistry: Powering Reactions — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Electrochemistry: The Interface of Electricity and Chemistry — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to <span class="hl">Electrochemistry</span>!</h2>
-          <ul><li>Explore the fascinating world where electricity and chemistry meet.</li><li>Understand how chemical reactions produce electricity and vice-versa.</li><li>Crucial for batteries, corrosion prevention, and industrial processes.</li><li>Get ready for a scoring chapter in your CBSE Class 12 Chemistry!</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into Electrochemistry, a pivotal chapter for your board exams and competitive entrance tests. This topic connects fundamental chemical principles with real-world applications, making it both interesting and highly relevant.</p>
+          <ul><li>Explore the fascinating link between electricity and chemical reactions.</li><li>Understand how chemical energy can produce electrical energy and vice-versa.</li><li>Crucial for batteries, corrosion prevention, and industrial processes.</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we embark on an exciting journey into Electrochemistry, a vital branch of chemistry. This chapter connects two seemingly different fields: electricity and chemical reactions. We'll uncover how they interact and influence each other, which has profound implications in our daily lives.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Electrochemistry</span>?</h2>
-          <ul><li>Branch of chemistry dealing with the interconversion of chemical and electrical energy.</li><li>Studies reactions involving electron transfer (redox reactions).</li><li>Chemical energy transformed into electrical energy (e.g., batteries).</li><li>Electrical energy used to drive non-spontaneous chemical reactions (e.g., electrolysis).</li></ul>
-          <p class="notes">🎙️ Electrochemistry is fundamentally about energy transformation. It's the science behind why your phone battery works and how we can produce elements like aluminum from their ores. We'll be focusing heavily on redox reactions, so a quick recall of Class 11 concepts will be beneficial.</p>
+          <ul><li>Branch of chemistry studying the interconversion of electrical and chemical energy.</li><li>Deals with reactions involving electron transfer (redox reactions).</li><li>Focuses on processes occurring in electrochemical cells.</li></ul>
+          <p class="notes">🎙️ Electrochemistry is fundamentally about energy transformation. It investigates how chemical reactions can generate electricity and, conversely, how electrical energy can drive non-spontaneous chemical reactions. The core of these processes lies in redox reactions, where electrons are transferred between species.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Energy Conversion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡️</div><div class="vcap">Energy Interconversion</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 25</span>
           <h2><span class="hl">Electrochemical Cells</span>: The Basics</h2>
-          <ul><li>Devices that convert chemical energy to electrical energy or vice-versa.</li><li>Two main types: Galvanic (Voltaic) Cells and Electrolytic Cells.</li><li>Involve redox reactions occurring at two separate electrodes.</li><li>Key components: Anode (oxidation) and Cathode (reduction).</li></ul>
-          <p class="notes">🎙️ At the heart of electrochemistry are electrochemical cells. These are essentially two half-cells connected, where electron transfer drives the process. Understanding the distinction between galvanic and electrolytic cells is crucial for your exams.</p>
+          <ul><li>Devices that convert chemical energy into electrical energy or vice-versa.</li><li>Consist of two electrodes dipped in an electrolyte.</li><li>Two main types: Galvanic (Voltaic) and Electrolytic cells.</li></ul>
+          <p class="notes">🎙️ An electrochemical cell is the fundamental unit where these energy conversions take place. It typically involves two electrodes, usually metals, immersed in an ionic solution called an electrolyte. We categorize these cells based on the direction of energy conversion: Galvanic cells generate electricity, while Electrolytic cells consume it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">The Energy Converters</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">Energy Converters</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Galvanic (Voltaic) Cells: Generating Electricity</h2>
-          <ul><li>Convert chemical energy of spontaneous redox reactions into electrical energy.</li><li>Electrons flow from anode (negative terminal) to cathode (positive terminal) externally.</li><li>Example: Daniell Cell (Zinc-Copper cell).</li><li>Used in batteries and fuel cells.</li></ul>
-          <p class="notes">🎙️ Galvanic cells are essentially mini power plants. They harness the energy released from a naturally occurring redox reaction to produce an electric current. Think of a common battery – that's a galvanic cell in action.</p>
+          <h2><span class="hl">Galvanic</span> (Voltaic) Cells</h2>
+          <ul><li>Convert chemical energy of spontaneous redox reactions into electrical energy.</li><li>Also known as Voltaic cells.</li><li>Example: Daniell cell (Zn-Cu cell).</li></ul>
+          <p class="notes">🎙️ Galvanic cells are what we commonly associate with batteries. They harness the energy released from a spontaneous chemical reaction to produce an electric current. The Daniell cell, involving zinc and copper, is a classic and easy-to-understand example that we will study in detail.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Spontaneous Energy</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Chemical_reaction.svg?width=500" data-fb="🧪" alt="Chemical reactions can be classified by the types of chemical changes involved. Five main "/><div class="vcap">Chemical reactions can be classified by the types of chemical changes involved. Five main </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,9 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Components</span> of a Galvanic Cell</h2>
-          <ul><li>Anode: Electrode where oxidation occurs (negative terminal).</li><li>Cathode: Electrode where reduction occurs (positive terminal).</li><li>Electrolytes: Solutions containing ions for charge transfer.</li><li>Salt Bridge: Connects the two half-cells, maintaining electrical neutrality.</li></ul>
-          <p class="notes">🎙️ Each component plays a critical role. Oxidation at the anode releases electrons, which travel through the external circuit to the cathode where reduction takes place. The salt bridge is often overlooked but is vital for continuous operation.</p>
+          <h2><span class="hl">Construction</span> of a Galvanic Cell</h2>
+          <ul><li>Two half-cells: each with an electrode in an electrolyte.</li><li>Electrodes connected externally by a wire and a voltmeter.</li><li>Electrolyte solutions connected by a salt bridge.</li></ul>
+          <p class="notes">🎙️ A galvanic cell is built from two distinct half-cells. Each half-cell contains an electrode immersed in its respective electrolyte solution. These electrodes are then connected externally to allow electron flow, and the two electrolyte solutions are connected internally by a salt bridge to maintain electrical neutrality.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🧪" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
       </div>
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>The Role of the <span class="hl">Salt Bridge</span></h2>
-          <ul><li>Connects the two half-cells, allowing ion migration without mixing solutions.</li><li>Maintains electrical neutrality in both half-cells.</li><li>Prevents charge build-up, ensuring continuous electron flow.</li><li>Typically contains an inert electrolyte like KCl or KNO₃ in agar gel.</li></ul>
-          <p class="notes">🎙️ Without a salt bridge, the build-up of charges in the half-cells would quickly stop the reaction. The negative ions from the salt bridge migrate to the anode compartment, and positive ions to the cathode compartment, neutralizing the excess charges.</p>
+          <h2>Working of a <span class="hl">Daniell Cell</span></h2>
+          <ul><li>Anode (oxidation): Zinc loses electrons (Zn → Zn²⁺ + 2e⁻).</li><li>Cathode (reduction): Copper ions gain electrons (Cu²⁺ + 2e⁻ → Cu).</li><li>Electrons flow from anode to cathode through the external circuit.</li></ul>
+          <p class="notes">🎙️ In a Daniell cell, the zinc electrode acts as the anode, where oxidation occurs, releasing electrons. These electrons travel through the external wire to the copper electrode, which is the cathode. Here, copper ions from the solution accept these electrons and get reduced, depositing as copper metal. This electron flow constitutes the electric current.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Maintaining Balance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Electron Flow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Representation</span> of a Galvanic Cell</h2>
-          <ul><li>IUPAC convention for concise description of an electrochemical cell.</li><li>Anode (oxidation half-cell) on the left, Cathode (reduction half-cell) on the right.</li><li>Single vertical line (|) denotes phase boundary (e.g., metal/solution).</li><li>Double vertical line (||) represents the salt bridge.</li></ul>
-          <p class="notes">🎙️ This standardized notation is crucial for communicating cell information efficiently. For example, for a Daniell cell, it would be Zn(s) | Zn²⁺(aq) || Cu²⁺(aq) | Cu(s). Remember to always put the anode on the left.</p>
+          <h2>The <span class="hl">Salt Bridge</span>: Its Crucial Role</h2>
+          <ul><li>Connects the two half-cell solutions.</li><li>Contains an inert electrolyte (e.g., KCl, KNO₃ in agar-agar gel).</li><li>Maintains electrical neutrality in the half-cells by allowing ion migration.</li></ul>
+          <p class="notes">🎙️ The salt bridge is indispensable for the continuous operation of a galvanic cell. As reactions proceed, charge builds up in each half-cell – excess positive ions at the anode and depleted positive ions at the cathode. The salt bridge allows inert ions to migrate, neutralizing these charges and ensuring the electron flow continues by completing the internal circuit.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Cell Notation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌉</div><div class="vcap">Connecting Half-Cells</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,21 +144,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Example: The <span class="hl">Daniell Cell</span></h2>
-          <ul><li>Consists of a Zinc electrode in ZnSO₄ solution and a Copper electrode in CuSO₄ solution.</li><li>Anode: Zn(s) → Zn²⁺(aq) + 2e⁻ (Oxidation)</li><li>Cathode: Cu²⁺(aq) + 2e⁻ → Cu(s) (Reduction)</li><li>Overall reaction: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s).</li></ul>
-          <p class="notes">🎙️ The Daniell cell is the most common example of a galvanic cell. Understanding its working principle, including the electron flow and ion movement, is fundamental. Zinc is more reactive than copper, so it gets oxidized.</p>
+          <h2>Cell <span class="hl">Representation</span> (IUPAC Convention)</h2>
+          <ul><li>Anode (oxidation) on the left, Cathode (reduction) on the right.</li><li>Single vertical line (|) for phase boundary (electrode-electrolyte).</li><li>Double vertical line (||) for salt bridge.</li><li>Example: Zn(s) | Zn²⁺(aq, C₁) || Cu²⁺(aq, C₂) | Cu(s).</li></ul>
+          <p class="notes">🎙️ To uniformly describe electrochemical cells, we use a standard IUPAC notation. The anode, where oxidation occurs, is always written on the left, followed by its electrolyte. The cathode, where reduction occurs, is on the right. A single line denotes a phase boundary, and a double line represents the salt bridge, indicating the separation of the two half-cells while maintaining electrical contact.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚗️</div><div class="vcap">Classic Example</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Standard Notation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked <span class="hl">Example 1</span>: Cell Representation</h2>
+          <ul><li>Problem: Represent the cell formed by Mg electrode in 0.1 M MgSO₄ and Ag electrode in 0.01 M AgNO₃. Given: Mg is more reactive than Ag.</li><li>Solution: Mg will be oxidized (anode), Ag⁺ will be reduced (cathode).</li><li>Cell: Mg(s) | Mg²⁺(aq, 0.1 M) || Ag⁺(aq, 0.01 M) | Ag(s).</li></ul>
+          <p class="notes">🎙️ Let's apply the IUPAC convention. Since Magnesium is more reactive, it will lose electrons and act as the anode. Silver ions will gain electrons and form the cathode. Remember to include the concentrations of the electrolytes. This representation clearly outlines the components and their states within the electrochemical cell.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Electrode Potential</span> &amp; Standard Electrode Potential</h2>
-          <ul><li>Potential difference developed between the electrode and its electrolyte solution.</li><li>Arises due to charge separation at the interface.</li><li>Cannot be measured directly, only potential difference between two electrodes.</li><li>Standard Electrode Potential (E°): Measured at 298 K, 1 atm, 1 M concentration.</li></ul>
-          <p class="notes">🎙️ Every half-cell has an electrode potential, which reflects its tendency to gain or lose electrons. Since absolute potential cannot be measured, we use a reference electrode to determine relative potentials, which is what Standard Electrode Potential signifies.</p>
+          <span class="num">10 / 25</span>
+          <h2>Electrode <span class="hl">Potential</span></h2>
+          <ul><li>Potential difference developed between an electrode and its electrolyte solution.</li><li>Arises due to charge separation at the interface.</li><li>Standard Electrode Potential (E°): Measured under standard conditions (298 K, 1 atm, 1 M concentration).</li></ul>
+          <p class="notes">🎙️ When a metal electrode is immersed in its ion solution, a potential difference is established at the interface. This is known as the electrode potential. It's a measure of the tendency of an electrode to gain or lose electrons. To allow for comparison, we define the standard electrode potential, measured under specific, reproducible conditions.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Potential Difference</div></div></div>
       </div>
@@ -154,24 +179,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Standard Hydrogen Electrode (<span class="hl">SHE</span>)</h2>
-          <ul><li>Reference electrode with a defined potential of exactly 0.00 V at standard conditions.</li><li>Consists of a platinum electrode in 1 M H⁺ solution, with H₂ gas at 1 atm pressure.</li><li>Used to measure standard electrode potentials of other electrodes.</li><li>Can act as both anode or cathode depending on the connected half-cell.</li></ul>
-          <p class="notes">🎙️ The SHE is our universal benchmark. By connecting any unknown half-cell to the SHE, we can measure its standard electrode potential. Remember its components and the conditions under which its potential is defined as zero.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">The Reference Standard</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Measuring <span class="hl">Cell Potential</span> (EMF)</h2>
-          <ul><li>Electromotive Force (EMF) or Cell Potential (E_cell) is the potential difference between two electrodes.</li><li>E_cell = E_cathode - E_anode (both as standard reduction potentials).</li><li>A positive E_cell indicates a spontaneous reaction (Galvanic cell).</li><li>Always use standard reduction potentials from the electrochemical series.</li></ul>
-          <p class="notes">🎙️ This formula is critical for calculating the voltage produced by a galvanic cell. Always ensure you are using standard reduction potentials for both electrodes. The more positive the E_cell, the greater the driving force of the reaction.</p>
+          <h2>Standard Hydrogen Electrode (<span class="hl">SHE</span>)</h2>
+          <ul><li>Reference electrode used to measure standard electrode potentials of other electrodes.</li><li>Consists of a platinum electrode in 1 M H⁺ solution, with H₂ gas at 1 atm.</li><li>Its standard electrode potential is arbitrarily assigned as zero (E° = 0.00 V).</li></ul>
+          <p class="notes">🎙️ It's impossible to measure the absolute electrode potential of a single half-cell. Therefore, we need a reference. The Standard Hydrogen Electrode, or SHE, serves this purpose. By convention, its potential is set to zero, allowing us to measure and compare the potentials of all other electrodes relative to it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">EMF Calculation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Reference Point</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Worked <span class="hl">Example 1</span>: Calculating Cell EMF</h2>
-          <ul><li>Calculate E°_cell for the reaction: Mg(s) + 2Ag⁺(aq) → Mg²⁺(aq) + 2Ag(s)</li><li>Given: E°(Mg²⁺/Mg) = -2.37 V, E°(Ag⁺/Ag) = +0.80 V</li><li>Identify anode (oxidation) and cathode (reduction).</li><li>Anode: Mg → Mg²⁺ (oxidation), Cathode: Ag⁺ → Ag (reduction).</li></ul>
-          <p class="notes">🎙️ Here, Magnesium is oxidized, so it's the anode. Silver ions are reduced, making silver the cathode. Applying the formula E°_cell = E°_cathode - E°_anode, we get 0.80 V - (-2.37 V) = 3.17 V. A positive EMF confirms spontaneity.</p>
+          <h2><span class="hl">Measuring</span> Electrode Potential</h2>
+          <ul><li>Connect the half-cell of interest to a SHE.</li><li>Measure the potential difference using a voltmeter.</li><li>The measured potential difference is the standard electrode potential of the unknown half-cell.</li></ul>
+          <p class="notes">🎙️ To measure the standard electrode potential of any half-cell, we construct a galvanic cell by pairing it with a SHE. The potential difference recorded by the voltmeter is then directly the standard electrode potential of the unknown electrode, since the SHE's potential is zero. This simple method allows us to build the electrochemical series.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Step-by-Step</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Connect to SHE</span></div><div class="step"><span class="snum">2</span><span>Use Voltmeter</span></div><div class="step"><span class="snum">3</span><span>Read Potential</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Nernst Equation</span>: Non-Standard Conditions</h2>
-          <ul><li>Relates electrode potential or cell potential to concentrations of species.</li><li>E_cell = E°_cell - (RT/nF) ln Q, or E_cell = E°_cell - (0.0592/n) log Q at 298K.</li><li>Q is the reaction quotient, n is the number of electrons transferred.</li><li>R = gas constant, T = temperature in Kelvin, F = Faraday's constant.</li></ul>
-          <p class="notes">🎙️ The Nernst equation is vital because most real-world electrochemical processes don't occur under standard conditions. It allows us to calculate cell potentials when concentrations or partial pressures deviate from 1 M or 1 atm. Pay attention to the 'n' value and 'Q'.</p>
+          <h2>Electrochemical <span class="hl">Series</span></h2>
+          <ul><li>Arrangement of elements in increasing order of their standard reduction potentials.</li><li>Helps predict the relative oxidizing and reducing strengths of substances.</li><li>Elements higher in the series are stronger oxidizing agents; lower are stronger reducing agents.</li></ul>
+          <p class="notes">🎙️ The electrochemical series is a powerful tool. It's essentially a list of standard reduction potentials, ordered from most negative to most positive. This series allows us to predict the spontaneity of redox reactions, determining which species will be oxidized and which will be reduced when brought together. A higher position indicates a greater tendency to get reduced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Concentration Effects</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Electrochemical_series.svg?width=500" data-fb="🪜" alt="The electrochemical series ranks elements by reduction potential predicting spontaneity, c"/><div class="vcap">The electrochemical series ranks elements by reduction potential predicting spontaneity, c</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Applying</span> the Nernst Equation</h2>
-          <ul><li>For a half-cell: E = E° - (0.0592/n) log ([products]/[reactants]).</li><li>For a full cell: E_cell = E°_cell - (0.0592/n) log ([products]/[reactants])_overall.</li><li>Pure solids and liquids are not included in the expression for Q.</li><li>Crucial for understanding concentration cells and pH effects on potentials.</li></ul>
-          <p class="notes">🎙️ Remember that 'n' represents the total number of electrons exchanged in the balanced overall reaction. The reaction quotient 'Q' is calculated just like for chemical equilibrium, considering only aqueous species and gases. This equation is frequently tested.</p>
+          <h2><span class="hl">Nernst Equation</span>: Non-Standard Conditions</h2>
+          <ul><li>Relates electrode potential to concentration of ions and temperature.</li><li>E = E° - (RT/nF) ln Q  OR  E = E° - (0.0592/n) log Q (at 298 K).</li><li>Q = reaction quotient; n = number of electrons transferred; F = Faraday constant.</li></ul>
+          <p class="notes">🎙️ While standard electrode potentials are useful, most reactions don't occur under standard conditions. The Nernst equation allows us to calculate the electrode potential, or cell potential, under non-standard conditions, taking into account the actual concentrations of reactants and products, and temperature. It's a cornerstone for understanding real-world electrochemical systems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Practical Calculations</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Concentration Impact</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
           <h2>Worked <span class="hl">Example 2</span>: Nernst Equation</h2>
-          <ul><li>Calculate the electrode potential of a copper electrode in 0.1 M CuSO₄ solution at 298 K.</li><li>Given: E°(Cu²⁺/Cu) = +0.34 V.</li><li>Half-reaction: Cu²⁺(aq) + 2e⁻ → Cu(s). Here n = 2.</li><li>E = E° - (0.0592/n) log (1/[Cu²⁺]).</li></ul>
-          <p class="notes">🎙️ Using the Nernst equation: E = 0.34 - (0.0592/2) log (1/0.1). This simplifies to E = 0.34 - 0.0296 log(10) = 0.34 - 0.0296 = 0.3104 V. Notice how the potential changes with concentration.</p>
+          <ul><li>Problem: Calculate the electrode potential of a Cu electrode dipped in 0.1 M CuSO₄ solution at 298 K. Given E°(Cu²⁺/Cu) = +0.34 V.</li><li>Solution: Cu²⁺ + 2e⁻ → Cu. n=2. Q = 1/[Cu²⁺] = 1/0.1 = 10.</li><li>E = E° - (0.0592/n) log Q = 0.34 - (0.0592/2) log(10) = 0.34 - 0.0296 = 0.3104 V.</li></ul>
+          <p class="notes">🎙️ Here, we apply the Nernst equation to find the electrode potential under a non-standard concentration. Notice how the potential changes from the standard value due to the altered concentration of copper ions. This demonstrates the practical application of the Nernst equation in predicting cell behavior under various conditions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Nernst in Action</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Relation</span> between ΔG, E_cell, and K</h2>
-          <ul><li>Gibbs Free Energy (ΔG) and cell potential (E_cell) are related: ΔG = -nFE_cell.</li><li>For standard conditions: ΔG° = -nFE°_cell.</li><li>At equilibrium (E_cell = 0): ΔG° = -RT ln K, where K is the equilibrium constant.</li><li>Therefore, E°_cell = (RT/nF) ln K, or E°_cell = (0.0592/n) log K at 298K.</li></ul>
-          <p class="notes">🎙️ These equations beautifully link electrochemistry with thermodynamics. A negative ΔG corresponds to a positive E_cell, indicating spontaneity. A larger equilibrium constant K implies a greater driving force for the reaction, reflected in a higher E°_cell.</p>
+          <h2><span class="hl">Concentration</span> Cells</h2>
+          <ul><li>Galvanic cells where both half-cells have the same electrodes but different electrolyte concentrations.</li><li>Potential arises solely due to the difference in concentration.</li><li>Electrons flow from the lower concentration half-cell to the higher concentration one.</li></ul>
+          <p class="notes">🎙️ Concentration cells are a special type of galvanic cell where the driving force for electron flow isn't different chemical species, but rather a difference in the concentration of the same species. The system tries to equalize these concentrations, leading to a spontaneous flow of electrons and generation of a small potential difference. This is a direct application of the Nernst equation.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Gibbs_free_energy.svg?width=500" data-fb="🔗" alt="Gibbs free energy (ΔG = ΔH - TΔS) determines reaction spontaneity; negative ΔG indicates f"/><div class="vcap">Gibbs free energy (ΔG = ΔH - TΔS) determines reaction spontaneity; negative ΔG indicates f</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Unequal Concentrations</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Electrolytic Cells</span>: Driving Non-Spontaneous Reactions</h2>
-          <ul><li>Convert electrical energy into chemical energy to drive non-spontaneous reactions.</li><li>Requires an external power source (battery).</li><li>Anode is positive, cathode is negative (opposite to galvanic cells).</li><li>Examples: Electrolysis of water, molten NaCl, electroplating.</li></ul>
-          <p class="notes">🎙️ Unlike galvanic cells, electrolytic cells need a push to make reactions happen. We supply electrical energy to force a non-spontaneous redox reaction. This is crucial for industrial processes like the production of metals and chemicals.</p>
+          <h2><span class="hl">Electrolytic Cells</span></h2>
+          <ul><li>Convert electrical energy into chemical energy.</li><li>Non-spontaneous redox reactions are driven by external electrical energy.</li><li>Anode is positive, Cathode is negative (opposite of galvanic cells).</li></ul>
+          <p class="notes">🎙️ In contrast to galvanic cells, electrolytic cells require an external power source to operate. They force non-spontaneous chemical reactions to occur by supplying electrical energy. Think of electroplating or the production of elements like sodium and chlorine from molten salt. The polarity of electrodes is also reversed compared to galvanic cells.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔌</div><div class="vcap">External Power</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Electrical Energy</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Chemical Energy</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Galvanic vs. Electrolytic Cells: A <span class="hl">Comparison</span></h2>
-          <ul><li>Energy Conversion: Chemical to Electrical (Galvanic), Electrical to Chemical (Electrolytic).</li><li>Spontaneity: Spontaneous (Galvanic), Non-spontaneous (Electrolytic).</li><li>Anode Polarity: Negative (Galvanic), Positive (Electrolytic).</li><li>Cathode Polarity: Positive (Galvanic), Negative (Electrolytic).</li></ul>
-          <p class="notes">🎙️ This comparison table is extremely important for distinguishing between the two cell types. Remember, oxidation always occurs at the anode and reduction at the cathode, but the polarity changes depending on whether the cell is galvanic or electrolytic.</p>
+          <h2><span class="hl">Electrolysis</span>: Driving Non-Spontaneous Reactions</h2>
+          <ul><li>Process of chemical decomposition by passing electric current through an electrolyte.</li><li>Ions migrate to oppositely charged electrodes.</li><li>Example: Electrolysis of molten NaCl produces Na metal and Cl₂ gas.</li></ul>
+          <p class="notes">🎙️ Electrolysis is the core process occurring in an electrolytic cell. It involves breaking down a compound using electricity. For instance, in molten sodium chloride, Na⁺ ions move to the cathode and get reduced to sodium metal, while Cl⁻ ions move to the anode and get oxidized to chlorine gas. This is how many reactive elements are industrially produced.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Energy Conversion</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Spontaneity</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Anode Polarity</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Cathode Polarity</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="⚡️" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Faraday's Laws</span> of Electrolysis</h2>
-          <ul><li>Quantitative aspects of electrolysis, relating current to amount of substance.</li><li>Faraday's First Law: Mass deposited is proportional to charge passed.</li><li>Faraday's Second Law: Masses of substances deposited by same charge are proportional to their equivalent weights.</li><li>Faraday constant (F): Charge of one mole of electrons (96485 C/mol).</li></ul>
-          <p class="notes">🎙️ These laws, proposed by Michael Faraday, are fundamental to understanding how much product we can obtain from an electrolytic process. They are frequently tested with numerical problems, so practice is essential.</p>
+          <h2>Faraday's <span class="hl">First Law</span> of Electrolysis</h2>
+          <ul><li>The mass of a substance deposited or liberated at any electrode is directly proportional to the quantity of electricity passed through the electrolyte.</li><li>W ∝ Q  OR  W = ZQ = ZIt.</li><li>Z is the electrochemical equivalent (mass deposited by 1 Coulomb of charge).</li></ul>
+          <p class="notes">🎙️ Faraday's laws quantify the relationship between electricity and the amount of substance produced or consumed during electrolysis. The first law states that the more charge you pass through an electrolytic cell, the more material will be deposited or liberated at the electrodes. This is a direct proportionality, with Z being the constant of proportionality.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Electrolysis.svg?width=500" data-fb="⚖️" alt="Faraday's laws relate electrical charge to mass deposited/dissolved in electrolysis; Farad"/><div class="vcap">Faraday's laws relate electrical charge to mass deposited/dissolved in electrolysis; Farad</div></div></div>
       </div>
@@ -275,23 +288,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Faraday's <span class="hl">First Law</span> of Electrolysis</h2>
-          <ul><li>The mass (m) of a substance deposited or liberated at any electrode is directly proportional to the quantity of electricity (Q) passed through the electrolyte.</li><li>m ∝ Q, where Q = I × t (Current × Time).</li><li>m = ZIt, where Z is the electrochemical equivalent.</li><li>Z = Equivalent Weight / F = Molar Mass / (n × F).</li></ul>
-          <p class="notes">🎙️ This law provides a direct way to calculate the amount of substance produced. Remember that 'n' here refers to the number of electrons involved in the half-reaction for that specific substance. Make sure units are consistent (Amperes, seconds, Coulombs).</p>
+          <h2>Faraday's <span class="hl">Second Law</span> of Electrolysis</h2>
+          <ul><li>When the same quantity of electricity is passed through different electrolytes connected in series, the masses of the substances deposited/liberated are proportional to their chemical equivalent weights.</li><li>W₁/W₂ = E₁/E₂.</li><li>Chemical equivalent weight = Molar mass / n-factor (valency).</li></ul>
+          <p class="notes">🎙️ Faraday's second law extends the concept to multiple electrolytic cells connected in series, meaning the same quantity of charge passes through each. It states that the masses deposited will be in the ratio of their chemical equivalent weights. This law is crucial for understanding how different substances react to the same amount of electrical input.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass-Charge Relation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Equivalent Mass Relation</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
           <h2>Worked <span class="hl">Example 3</span>: Faraday's Law</h2>
-          <ul><li>A solution of AgNO₃ is electrolyzed for 10 minutes with a current of 1.5 Amperes.</li><li>Calculate the mass of silver deposited at the cathode.</li><li>Given: Molar mass of Ag = 108 g/mol, 1 F = 96485 C/mol.</li><li>Ag⁺ + e⁻ → Ag(s). Here n = 1.</li></ul>
-          <p class="notes">🎙️ First, calculate Q = I x t = 1.5 A x (10 x 60 s) = 900 C. Then, moles of electrons = Q/F = 900/96485. Since 1 mole of Ag requires 1 mole of electrons, mass of Ag = (900/96485) x 108 g = 1.008 g. This type of problem is very common.</p>
+          <ul><li>Problem: A solution of AgNO₃ is electrolyzed for 10 minutes with a current of 1.5 amperes. What mass of silver is deposited? (Molar mass of Ag = 108 g/mol, F = 96485 C/mol).</li><li>Solution: Q = It = 1.5 A × (10 × 60) s = 900 C.</li><li>Ag⁺ + e⁻ → Ag.  1 mol Ag (108g) requires 1 mol e⁻ (96485 C).</li><li>Mass of Ag = (108 g / 96485 C) × 900 C = 1.006 g.</li></ul>
+          <p class="notes">🎙️ This example demonstrates how to apply Faraday's first law. We first calculate the total charge passed, then use the stoichiometry of the reduction reaction and Faraday's constant to determine the mass of silver deposited. Remember that 1 mole of electrons carries a charge of 1 Faraday. Pay attention to units and conversions, especially time to seconds.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Electrolysis Calculation</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -300,22 +313,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">22 / 25</span>
           <h2><span class="hl">Corrosion</span>: An Electrochemical Phenomenon</h2>
-          <ul><li>Deterioration of a metal due to its reaction with its environment.</li><li>Primarily an electrochemical process (e.g., rusting of iron).</li><li>Anode: Metal oxidation (e.g., Fe → Fe²⁺ + 2e⁻).</li><li>Cathode: Reduction of O₂ in presence of H⁺ (e.g., O₂ + 4H⁺ + 4e⁻ → 2H₂O).</li></ul>
-          <p class="notes">🎙️ Corrosion is a significant problem, causing enormous economic losses. Rusting of iron is a classic example, requiring both oxygen and moisture. Understanding its electrochemical nature helps in developing effective prevention strategies.</p>
+          <ul><li>Slow eating away of a metal due to its reaction with environment (air, moisture).</li><li>Electrochemical process: Anodic (oxidation of metal) and Cathodic (reduction of O₂/H⁺) reactions.</li><li>Example: Rusting of iron (Fe → Fe²⁺ → Fe₂O₃.xH₂O).</li></ul>
+          <p class="notes">🎙️ Corrosion is a natural, destructive electrochemical process. It's essentially an uncontrolled oxidation of metals, often involving water and oxygen. Rusting of iron is the most common example, where iron acts as the anode, and oxygen in the presence of water acts as the cathode. Understanding its electrochemical nature is key to preventing it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Metal Degradation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🩹</div><div class="vcap">Metal Degradation</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Prevention</span> of Corrosion</h2>
-          <ul><li>Barrier Protection: Coating metal surface with paint, grease, or other metals (galvanizing).</li><li>Sacrificial Protection: Connecting a more active metal (e.g., Mg, Zn) to the iron.</li><li>Electrical Protection: Applying an external current to make the metal cathodic.</li><li>Using anti-rust solutions (inhibitors).</li></ul>
-          <p class="notes">🎙️ Preventing corrosion is crucial for extending the life of metallic structures. Galvanizing, where iron is coated with zinc, is a common example of sacrificial protection. Zinc is more easily oxidized than iron, protecting the iron.</p>
+          <h2>Quick <span class="hl">Check 1</span></h2>
+          <ul><li>1. Which type of cell converts chemical energy into electrical energy?</li><li>2. What is the function of a salt bridge in a galvanic cell?</li><li>3. Write the cell representation for a cell with Mg/Mg²⁺ and Cu/Cu²⁺, where Mg is oxidized.</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding of the initial concepts. Think about the primary function of each cell type and the specific role of the salt bridge. For the cell representation, remember the conventions for anode, cathode, and the salt bridge. Take a moment to formulate your answers.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Barrier Coating</span></div><div class="step"><span class="snum">2</span><span>Sacrificial Anode</span></div><div class="step"><span class="snum">3</span><span>Cathodic Protection</span></div><div class="step"><span class="snum">4</span><span>Inhibitors</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Test Your Understanding!</h2>
-          <ul><li>1. What is the function of a salt bridge?</li><li>2. How does an increase in reactant concentration affect cell potential (Nernst Eq.)?</li><li>3. Differentiate between anode polarity in galvanic and electrolytic cells.</li><li>4. State Faraday's First Law of Electrolysis.</li></ul>
-          <p class="notes">🎙️ Take a moment to answer these questions. They cover key concepts we've discussed today. If you can answer them confidently, you're on the right track! Think about the underlying principles for each.</p>
+          <h2>Quick <span class="hl">Check 2</span></h2>
+          <ul><li>1. What is the standard electrode potential of SHE?</li><li>2. How does the Nernst equation account for non-standard conditions?</li><li>3. State Faraday's First Law of Electrolysis.</li></ul>
+          <p class="notes">🎙️ Now, let's review some quantitative and conceptual aspects. Recall the reference point for electrode potentials, how concentration and temperature affect cell potential, and the direct relationship between charge and mass deposited in electrolysis. These are fundamental principles you should grasp thoroughly.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Key Concepts of Electrochemistry</h2>
-          <ul><li>Electrochemistry studies interconversion of chemical and electrical energy.</li><li>Galvanic Cells: Spontaneous reactions, chemical to electrical energy.</li><li>Electrolytic Cells: Non-spontaneous reactions, electrical to chemical energy.</li><li>Nernst Equation: Calculates E_cell under non-standard conditions.</li><li>Faraday's Laws: Quantify mass deposited during electrolysis.</li><li>Corrosion: Electrochemical degradation of metals.</li></ul>
-          <p class="notes">🎙️ We've covered a lot of ground today, from the basics of electrochemical cells to the quantitative aspects of electrolysis and real-world applications like corrosion. Master these concepts and practice numerical problems to excel in this chapter. Keep studying!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Electrochemistry studies electricity-chemistry interconversion.</li><li>Galvanic cells produce electricity; Electrolytic cells consume it.</li><li>Electrode potential and Nernst equation for non-standard conditions.</li><li>Faraday's Laws quantify electrolysis; Corrosion is an electrochemical process.</li></ul>
+          <p class="notes">🎙️ To summarize, we've covered the core principles of electrochemistry, distinguishing between galvanic and electrolytic cells, understanding electrode potentials, and how the Nernst equation helps us predict behavior under varying conditions. We also learned about Faraday's laws governing electrolysis and the electrochemical nature of corrosion. Keep these key concepts in mind as you prepare for your exams.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

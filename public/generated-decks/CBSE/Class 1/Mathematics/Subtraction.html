@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Let's Learn Subtraction! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Subtraction — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2><span class="hl">Hello</span>, Little Mathematicians!</h2>
-          <ul><li>Today, we will learn about 'taking away'.</li><li>It's a fun game with numbers!</li></ul>
-          <p class="notes">🎙️ Good morning, my dear students! I am so excited to start our new chapter today. We are going to learn a very important and fun concept called Subtraction. Get ready for some number adventures!</p>
+          <h2>Welcome to our <span class="hl">Subtraction</span> Class!</h2>
+          <ul><li>Today, we will learn about 'Subtraction'.</li><li>It's a fun way to count what is left.</li></ul>
+          <p class="notes">🎙️ Hello children! I am so excited to teach you about something very interesting today called Subtraction. It's like finding out how many things you have left after some are gone.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Subtraction</span>?</h2>
-          <ul><li>Subtraction means to 'take away' some things.</li><li>It tells us how many are 'left' or the 'difference'.</li></ul>
-          <p class="notes">🎙️ Imagine you have some toys, and you give a few to your friend. How many toys do you have now? That's what subtraction helps us find out! It's all about taking things away from a group.</p>
+          <ul><li>It means 'taking away' things.</li><li>We find out 'how many are left'.</li></ul>
+          <p class="notes">🎙️ Subtraction is a big word, but it just means we take some things away from a group. Then, we count what is still there.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Take Away</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Take Away!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Keywords</span> for Subtraction</h2>
-          <ul><li>When you hear 'take away', 'left', 'less', or 'difference', think subtraction!</li><li>These words are clues for us.</li></ul>
-          <p class="notes">🎙️ Just like we have special words for addition, we have special words for subtraction too. When you read a problem and see words like 'how many are left', or 'how many less', it's a big hint that you need to subtract!</p>
+          <h2><span class="hl">Taking Away</span> Apples!</h2>
+          <ul><li>Look! We have 5 yummy apples.</li><li>If we eat 2 apples, how many are left?</li></ul>
+          <p class="notes">🎙️ Imagine you have five bright red apples. If you eat two of them, how many do you think will be left for you to enjoy later?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Getting Less</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">5 yummy apples</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>The <span class="hl">Minus Sign</span>: Our Subtraction Friend</h2>
-          <ul><li>We use a special sign for subtraction.</li><li>It looks like a small sleeping line: '-'.</li></ul>
-          <p class="notes">🎙️ This little line is called the 'minus sign'. Whenever you see this sign between two numbers, it means you need to take away the second number from the first number. It's our special symbol for subtraction.</p>
+          <h2><span class="hl">How Many</span> Are Left?</h2>
+          <ul><li>When we take away, we ask 'How many are left?'.</li><li>This is what subtraction helps us find!</li></ul>
+          <p class="notes">🎙️ This is the most important question in subtraction. We always want to know what remains after something has been removed or gone.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 20</span>
+          <h2>The <span class="hl">Minus Sign</span> (-)</h2>
+          <ul><li>This is the special sign for subtraction.</li><li>It means 'take away' or 'minus'.</li></ul>
+          <p class="notes">🎙️ Just like the plus sign for adding, this little line is our minus sign. When you see it, you know you need to take things away.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Minus Sign</div></div></div>
       </div>
@@ -94,24 +119,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 20</span>
-          <h2>Story Time: <span class="hl">Apples</span> in the Basket!</h2>
-          <ul><li>Once upon a time, there were 5 yummy red apples in a basket.</li><li>Can you count them?</li></ul>
-          <p class="notes">🎙️ Let's imagine a fun story together! In a big, brown basket, there were five shiny, red apples. They looked so delicious! Let's count them together: one, two, three, four, five.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Story Time: <span class="hl">Eating</span> Apples!</h2>
-          <ul><li>My friend came and ate 2 apples.</li><li>Oh no! Two apples are gone.</li></ul>
-          <p class="notes">🎙️ Suddenly, my friend came along, feeling very hungry! My friend picked up two apples and ate them all up. Now, those two apples are not in the basket anymore.</p>
+          <h2><span class="hl">Toys</span> in the Basket</h2>
+          <ul><li>You have 7 toys in a basket.</li><li>You give 3 toys to your friend.</li><li>How many toys are left for you?</li></ul>
+          <p class="notes">🎙️ Think about your toy basket at home. If you share some of your toys with a friend, the number of toys you have changes, right?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">2 Eaten</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span></div><div class="vcap">7 toys</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,93 +132,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Story Time: Apples <span class="hl">Left</span>?</h2>
-          <ul><li>How many apples are left in the basket now?</li><li>We started with 5, took away 2. So, 5 - 2 = 3.</li></ul>
-          <p class="notes">🎙️ Let's count the apples that are still in the basket. One, two, three! So, we had 5 apples, and we took away 2 apples, which means 3 apples are left. This is how subtraction works!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">3 Apples Left</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Real-Life Example: <span class="hl">Balloons</span>!</h2>
-          <ul><li>You have 4 colourful balloons.</li><li>They are floating high in the sky.</li></ul>
-          <p class="notes">🎙️ Imagine you are at a party, and you are holding four beautiful, colourful balloons. They are so pretty and light, gently bouncing in the air. Let's count them: one, two, three, four.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">4 Balloons</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Real-Life Example: Balloons <span class="hl">Fly Away</span>!</h2>
-          <ul><li>Oh no! 2 balloons fly away into the sky.</li><li>They are gone now.</li></ul>
-          <p class="notes">🎙️ Suddenly, a gust of wind comes, and two of your balloons slip from your hand! They float higher and higher, disappearing into the blue sky. Now, those two balloons are not with you anymore.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span></div><div class="vcap">2 Flew Away</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>Real-Life Example: How Many Balloons <span class="hl">Left</span>?</h2>
-          <ul><li>How many balloons are you holding now?</li><li>4 - 2 = 2. You have 2 balloons left!</li></ul>
-          <p class="notes">🎙️ Let's count the balloons that are still in your hand. One, two! So, you started with 4 balloons, and 2 flew away. You are left with 2 balloons. Good job, you just did another subtraction!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span></div><div class="vcap">2 Balloons Left</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>Let's Subtract with Our <span class="hl">Fingers</span>!</h2>
-          <ul><li>Hold up 5 fingers on one hand.</li><li>This is a great way to count and subtract.</li></ul>
-          <p class="notes">🎙️ Our fingers are amazing tools for maths! Let's use them to practice subtraction. Everyone, hold up all five fingers on one of your hands. Make sure they are all stretched out.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">5 Fingers Up</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 20</span>
-          <h2><span class="hl">Subtracting</span> Fingers</h2>
-          <ul><li>Now, fold down 2 fingers.</li><li>Imagine you are 'taking away' 2 fingers.</li></ul>
-          <p class="notes">🎙️ Okay, from those five fingers, slowly fold down two of them. Push them into your palm so they are not sticking up anymore. You have now 'taken away' two fingers from the original five.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">Fold 2 Fingers</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 20</span>
-          <h2>How Many Fingers Are <span class="hl">Left</span>?</h2>
-          <ul><li>Count the fingers that are still standing up.</li><li>5 - 2 = 3. You have 3 fingers left up!</li></ul>
-          <p class="notes">🎙️ Now, let's count how many fingers are still pointing up. One, two, three! See, we started with 5, folded down 2, and we are left with 3. It's that simple!</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>Quick Question 1: <span class="hl">Birds</span> on a Tree</h2>
-          <ul><li>There were 6 birds sitting on a tree.</li><li>2 birds flew away. How many birds are left?</li></ul>
-          <p class="notes">🎙️ Look at these cute birds! Imagine 6 of them happily chirping on a branch. But then, two of them decided to fly off to find some food. Can you tell me how many birds are still on the tree?</p>
+          <h2><span class="hl">Birds</span> on a Branch</h2>
+          <ul><li>There were 6 birds on a tree branch.</li><li>2 birds flew away to another tree.</li><li>How many birds are still on the branch?</li></ul>
+          <p class="notes">🎙️ Look outside! Sometimes birds fly away from a group. Subtraction helps us count the birds that stay behind.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔢" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
@@ -214,36 +143,120 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2>Quick Question 2: Yummy <span class="hl">Chocolates</span>!</h2>
-          <ul><li>You have 7 chocolates in your box.</li><li>You eat 3 chocolates. How many are left?</li></ul>
-          <p class="notes">🎙️ Oh, delicious chocolates! You have 7 of them in your special box. You couldn't resist and ate 3 of them. How many sweet treats do you have left to enjoy later? Think carefully!</p>
+          <span class="num">8 / 20</span>
+          <h2><span class="hl">Apples</span> on the Tree</h2>
+          <ul><li>An apple tree had 8 apples.</li><li>3 apples fell down from the tree.</li><li>How many apples are still on the tree?</li></ul>
+          <p class="notes">🎙️ Imagine a big apple tree full of fruit. When some apples fall, we can use subtraction to find out how many are still hanging on the branches.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span></div><div class="vcap">7 Chocolates</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">8 apples</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>Counting <span class="hl">Backwards</span> to Subtract</h2>
+          <ul><li>To subtract, we can count backwards.</li><li>If we have 5 and take away 2, we count: 5... 4, 3! So, 5 - 2 = 3.</li></ul>
+          <p class="notes">🎙️ Counting backwards is a very helpful trick for subtraction. It's like going down steps, one by one, from a bigger number.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 20</span>
+          <h2>Subtracting with <span class="hl">Fingers</span></h2>
+          <ul><li>Let's do 5 - 2. Hold up 5 fingers.</li><li>Now, fold down 2 fingers.</li><li>How many fingers are left standing?</li></ul>
+          <p class="notes">🎙️ Your fingers are amazing tools for math! You can easily use them to show a number and then fold some down to subtract.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">5 fingers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2>Subtracting with <span class="hl">Lines</span></h2>
+          <ul><li>To do 6 - 3: First, draw 6 lines.</li><li>Then, cross out 3 of those lines.</li><li>Count the lines that are still there.</li></ul>
+          <p class="notes">🎙️ If you don't want to use your fingers, drawing lines is another super easy way to subtract. Just draw, cross out, and count!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw 6 lines: ||||||</span></div><div class="step"><span class="snum">2</span><span>Cross out 3: |||XXX</span></div><div class="step"><span class="snum">3</span><span>Count remaining: 3</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2>Pop the <span class="hl">Balloons</span>!</h2>
+          <ul><li>There were 7 balloons at a party.</li><li>3 balloons popped!</li><li>How many balloons are left? (7 - 3 = ?)</li></ul>
+          <p class="notes">🎙️ Imagine a fun party with lots of balloons. If some pop, we use subtraction to find out how many happy balloons are still floating.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">7 balloons</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 20</span>
+          <h2>Sharing <span class="hl">Candies</span></h2>
+          <ul><li>You had 9 yummy candies.</li><li>You ate 4 candies after lunch.</li><li>How many candies do you have now? (9 - 4 = ?)</li></ul>
+          <p class="notes">🎙️ Candies are so delicious! But if you eat some, you'll have fewer. Subtraction helps us know exactly how many are left for later.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">9 candies</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>Time for a Quick <span class="hl">Question</span>!</h2>
+          <ul><li>What is 4 - 1?</li></ul>
+          <p class="notes">🎙️ Let's see if you remember what we learned! Try to solve this simple one using your fingers or by counting backwards.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>Another Quick <span class="hl">Question</span>!</h2>
+          <ul><li>What is 8 - 3?</li></ul>
+          <p class="notes">🎙️ You're doing great! Use your fingers or draw lines to find the answer quickly. Take your time and think carefully.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick Question 3: <span class="hl">Flowers</span> in a Pot</h2>
-          <ul><li>There are 8 beautiful flowers in a pot.</li><li>Your friend picked 4 flowers. How many are left?</li></ul>
-          <p class="notes">🎙️ Imagine a lovely pot with 8 colourful flowers blooming brightly. Your friend comes to visit and picks 4 of them to make a small bouquet. How many flowers are still in the pot now?</p>
+          <h2>One <span class="hl">More!</span></h2>
+          <ul><li>What is 6 - 2?</li></ul>
+          <p class="notes">🎙️ Keep practicing! Every question you answer makes you better at subtraction. You are becoming a math star!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span></div><div class="vcap">8 Flowers</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Subtraction on a <span class="hl">Number Line</span></h2>
-          <ul><li>We can also subtract using a number line.</li><li>To subtract, we jump 'backwards' on the number line.</li></ul>
-          <p class="notes">🎙️ A number line is another super helpful tool for maths. When we add, we jump forward. But for subtraction, we do the opposite! We jump backwards, moving to smaller numbers.</p>
+          <h2><span class="hl">Last Question</span> for Now!</h2>
+          <ul><li>What is 10 - 5?</li></ul>
+          <p class="notes">🎙️ This is a fun one! Think about 10 fingers and taking away 5. How many are left? You can do it!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>0</span></div><div class="step"><span class="snum">2</span><span>1</span></div><div class="step"><span class="snum">3</span><span>2</span></div><div class="step"><span class="snum">4</span><span>3</span></div><div class="step"><span class="snum">5</span><span>4</span></div><div class="step"><span class="snum">6</span><span>5</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">Example</span>: 5 - 2 on a Number Line</h2>
-          <ul><li>Start at number 5.</li><li>Jump back 2 steps. Where do you land?</li><li>You land on 3! So, 5 - 2 = 3.</li></ul>
-          <p class="notes">🎙️ Let's try 5 minus 2. Find the number 5 on your number line. Now, take two jumps backwards, one jump for each number you are taking away. You will see that you land right on the number 3!</p>
+          <h2>A Cookie <span class="hl">Story</span>!</h2>
+          <ul><li>Mummy baked 10 yummy cookies.</li><li>My brother ate 4 cookies.</li><li>How many cookies were left for me?</li></ul>
+          <p class="notes">🎙️ Stories help us understand math better. Here's a yummy story about cookies and subtraction! Can you help figure out how many cookies are left?</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>0</span></div><div class="step"><span class="snum">2</span><span>1</span></div><div class="step"><span class="snum">3</span><span>2</span></div><div class="step"><span class="snum">4</span><span>3</span></div><div class="step"><span class="snum">5</span><span>4</span></div><div class="step"><span class="snum">6</span><span>5</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">10 cookies</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span>: What We Learned Today!</h2>
-          <ul><li>Subtraction means 'taking away'.</li><li>The sign for subtraction is '-'.</li><li>We can subtract using objects, fingers, or a number line.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much about subtraction today! Remember, it's all about making things less or finding out how many are left. Keep practicing, and you'll become a subtraction superstar!</p>
+          <h2><span class="hl">Key Ideas</span> to Remember</h2>
+          <ul><li>Subtraction means 'taking away'.</li><li>We use the minus (-) sign.</li><li>We find 'how many are left'.</li></ul>
+          <p class="notes">🎙️ These are the most important things to remember about subtraction. Keep them in your mind, and you'll always be good at it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Smart Brain</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Important!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Practicing</span> Subtraction!</h2>
-          <ul><li>Look for subtraction in your daily life.</li><li>Practice with your toys, fruits, or anything around you!</li><li>You are all amazing mathematicians!</li></ul>
-          <p class="notes">🎙️ Subtraction is everywhere! When you eat candies, when your friends leave the playground, or when you share your colours. Keep practicing these fun number games. I'm so proud of all your hard work today!</p>
+          <h2><span class="hl">Great Job</span>, Class!</h2>
+          <ul><li>You learned all about subtraction today!</li><li>Keep practicing 'taking away' things.</li><li>See you next time for more fun math!</li></ul>
+          <p class="notes">🎙️ You did an amazing job today learning about subtraction. Practice makes perfect, so keep taking things away in your mind and counting what's left! Goodbye, everyone!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 1 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

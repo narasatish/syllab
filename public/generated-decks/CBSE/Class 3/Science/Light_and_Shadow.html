@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Light and Shadow — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Light and Shadow: A Fun Journey! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to "Light and Shadow"!</h2>
-          <ul><li>Hello, little scientists!</li><li>Today, we will learn about light and shadows.</li><li>It's a magical topic!</li></ul>
-          <p class="notes">🎙️ Namaste, children! I'm so excited to take you on a fun journey today. We're going to explore something you see every day but might not have thought much about – light and shadows!</p>
+          <h2>Light and Shadow: A <span class="hl">Fun Journey!</span></h2>
+          <ul><li>Let's explore the magic around us!</li><li>See how light makes things visible.</li><li>Discover the secrets of shadows.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure to understand two very special friends: Light and Shadow. Have you ever wondered how we see things or why a dark shape follows you sometimes? Let's find out!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Light</span>?</h2>
-          <ul><li>Light helps us see everything around us.</li><li>Without light, it is dark.</li><li>We need light to play and read.</li></ul>
-          <p class="notes">🎙️ Imagine trying to find your toy in a dark room. It's so hard, right? That's because light helps our eyes see colors and shapes. It's like a superpower for our eyes!</p>
+          <ul><li>Light helps us see everything.</li><li>Without light, everything is dark.</li></ul>
+          <p class="notes">🎙️ Imagine if it was always dark! We wouldn't be able to see our toys, our friends, or even our books. Light is like a special helper that shows us the world around us. The biggest light we see every day is the Sun!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="💡" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="☀️" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,9 +84,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Where does <span class="hl">Light</span> come from?</h2>
-          <ul><li>The Sun is our biggest source of light.</li><li>Lamps and torches also give us light.</li><li>Fireflies give tiny lights too!</li></ul>
-          <p class="notes">🎙️ The sun is like a giant lamp in the sky, giving us light during the day. At night, we use lamps and torches. Even tiny fireflies have their own special light!</p>
+          <h2>Where Does Light Come From? (Part 1)</h2>
+          <ul><li>The Sun is a natural source of light.</li><li>Stars also give us light at night.</li></ul>
+          <p class="notes">🎙️ Some light comes from nature itself. The Sun is our brightest natural light. It helps plants grow and keeps us warm. At night, tiny stars twinkle and give us a little light too!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🔬" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Light Travels <span class="hl">Straight</span></h2>
-          <ul><li>Light always goes in a straight path.</li><li>It does not bend around corners.</li><li>Think of a torch beam!</li></ul>
-          <p class="notes">🎙️ Have you ever seen a torch beam? It goes straight ahead, right? Light is very disciplined, it doesn't like to turn corners unless something makes it bounce or bend.</p>
+          <h2>Where Does Light Come From? (Part 2)</h2>
+          <ul><li>People make some things that give light.</li><li>Like bulbs, torches, and candles.</li></ul>
+          <p class="notes">🎙️ Besides nature, we also have lights that people have created. Think about the lights in your home or the torch you use in the dark. These are man-made sources of light that help us see when the sun goes down.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡🔦</span><span>💡🔦</span></div><div class="vcap">Bulb and Torch</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>What is a <span class="hl">Shadow</span>?</h2>
-          <ul><li>A shadow is a dark patch.</li><li>It is formed when light is blocked.</li><li>Your own body can make a shadow!</li></ul>
-          <p class="notes">🎙️ When you stand in the sun, do you see a dark shape behind or in front of you? That's your shadow! It's like your silent friend following you.</p>
+          <h2>How Light <span class="hl">Helps Us See</span></h2>
+          <ul><li>Light bounces off things.</li><li>Then it comes to our eyes.</li><li>That's how we see colours and shapes!</li></ul>
+          <p class="notes">🎙️ Light is very clever! It travels from its source, hits an object like your toy car, and then bounces into your eyes. It's like light is showing you the way to see everything clearly. Isn't that amazing?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👤</div><div class="vcap">Person's Shadow</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">See with light</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>How is a Shadow <span class="hl">Formed</span>?</h2>
-          <ul><li>Light shines on an object.</li><li>The object blocks the light.</li><li>A dark shadow appears behind the object.</li></ul>
-          <p class="notes">🎙️ It's like playing hide-and-seek with light! When an object stands in light's way, the light can't pass through. So, a dark area forms where the light is stopped.</p>
+          <h2>What is a <span class="hl">Shadow</span>?</h2>
+          <ul><li>A shadow is a dark shape.</li><li>It appears when something blocks light.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a dark shape following you when you walk in the sun? That's your shadow! A shadow is formed when something stands in the way of light, stopping it from reaching a surface.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Light Source</span></div><div class="step"><span class="snum">2</span><span>Object</span></div><div class="step"><span class="snum">3</span><span>Shadow</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="👤" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Things that make <span class="hl">Shadows</span></h2>
-          <ul><li>Objects that block all light make clear shadows.</li><li>These are called opaque objects.</li><li>Like a book, a wall, or a tree.</li></ul>
-          <p class="notes">🎙️ Some things are like a strong wall for light; they don't let any light pass through them. These objects create very clear and strong shadows. Can you think of more?</p>
+          <h2>How a Shadow is <span class="hl">Made</span></h2>
+          <ul><li>Light shines from a source.</li><li>An object stands in the way.</li><li>A dark shape appears behind it.</li></ul>
+          <p class="notes">🎙️ It's like playing hide-and-seek with light! First, there's light. Then, something like you, or a tree, or a box, blocks that light. Because the light cannot pass through, a dark area forms behind the object, which is the shadow.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Opaque Objects</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Light Source</span></div><div class="step"><span class="snum">2</span><span>Object Blocks</span></div><div class="step"><span class="snum">3</span><span>Shadow Appears</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Not all Objects Make <span class="hl">Clear Shadows</span></h2>
-          <ul><li>Some objects let light pass through easily (transparent).</li><li>Like a clear glass window.</li><li>Some objects let some light pass (translucent).</li></ul>
-          <p class="notes">🎙️ Think about a clear glass. You can see right through it, right? So, light passes easily, and it makes no shadow. But a frosted glass lets some light through, making a faint shadow.</p>
+          <h2>Shadows <span class="hl">Need Light</span> to Form</h2>
+          <ul><li>No light, no shadow.</li><li>Shadows are friends of light!</li></ul>
+          <p class="notes">🎙️ This is a very important rule: shadows can only be made if there is light! If you are in a completely dark room, you won't see any shadows. Shadows are always there when light is around and gets blocked.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Opaque (Clear Shadow)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Transparent (No Shadow)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Translucent (Faint Shadow)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">With Light</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">No Light</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Our Own</span> Shadow!</h2>
-          <ul><li>Go outside on a sunny day.</li><li>Stand tall and look at your feet.</li><li>You will see your shadow friend!</li></ul>
-          <p class="notes">🎙️ This is the easiest way to see a shadow! Your body is an opaque object, so when the sun shines on you, your body blocks the light, and your shadow appears on the ground.</p>
+          <h2><span class="hl">Your Own</span> Shadow</h2>
+          <ul><li>Walk outside on a sunny day.</li><li>See your shadow follow you!</li><li>It copies your movements.</li></ul>
+          <p class="notes">🎙️ The easiest shadow to spot is your own! Next time you go out to play in the sun, look down. You'll see your shadow walking, running, and jumping with you. It's like your personal dark friend!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚶‍♂️</span><span>🚶‍♂️</span></div><div class="vcap">Child and Shadow</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♀️</div><div class="vcap">My shadow friend</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Shadow Changes <span class="hl">Size</span></h2>
-          <ul><li>Your shadow changes throughout the day.</li><li>It is long in the morning and evening.</li><li>It is short at noon.</li></ul>
-          <p class="notes">🎙️ Have you noticed your shadow looking like a giant in the morning and evening, but a dwarf at lunchtime? This is because the sun's position in the sky changes.</p>
+          <h2><span class="hl">Tree</span> Shadows</h2>
+          <ul><li>Trees also make shadows.</li><li>They give us cool shade.</li><li>Perfect for resting under!</li></ul>
+          <p class="notes">🎙️ Just like you, big trees also block sunlight and make shadows. That's why it feels cooler under a tree on a hot day. The tree's shadow acts like a big umbrella, keeping the sun's rays away from you.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Morning (Long Shadow)</span></div><div class="step"><span class="snum">2</span><span>Noon (Short Shadow)</span></div><div class="step"><span class="snum">3</span><span>Evening (Long Shadow)</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Why</span> Does Shadow Size Change?</h2>
-          <ul><li>The sun's position changes in the sky.</li><li>When the sun is low, shadows are long.</li><li>When the sun is high, shadows are short.</li></ul>
-          <p class="notes">🎙️ Think of it like this: if you shine a torch from the side, the shadow is long. If you shine it directly from above, the shadow is small. The sun does the same thing!</p>
+          <h2>Shadows Change Size (Part 1)</h2>
+          <ul><li>In the morning, the sun is low.</li><li>Your shadow looks very long!</li><li>Same in the evening.</li></ul>
+          <p class="notes">🎙️ Have you noticed that your shadow looks different at different times of the day? In the morning, when the sun is just coming up, your shadow can look super long, almost like a giant! It's the same when the sun is setting in the evening.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle of Sun</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌅</div><div class="vcap">Long morning shadow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,47 +192,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Shadow <span class="hl">Puppets</span>!</h2>
-          <ul><li>We can make fun shapes with our hands.</li><li>Shine a light on your hands on a wall.</li><li>Watch your hand shadows dance!</li></ul>
-          <p class="notes">🎙️ This is a super fun way to play with shadows! You can make animals or people with your hands. The light from a lamp or torch helps create these magical dancing shadows on the wall.</p>
+          <h2>Shadows Change Size (Part 2)</h2>
+          <ul><li>At noon, the sun is high above.</li><li>Your shadow becomes very short!</li><li>Sometimes it's right under you.</li></ul>
+          <p class="notes">🎙️ But when the sun is right above your head, around lunchtime, your shadow becomes tiny! Sometimes it's so short, it almost disappears right under your feet. This happens because the sun's light is coming straight down.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🎭" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Short noon shadow</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>What helps us see everything around us?</li><li>Is it sound, light, or air?</li></ul>
-          <p class="notes">🎙️ Alright, little explorers, let's see what you remember! Think about when it's dark and you can't see anything. What do you need to turn on to see?</p>
+          <h2>Objects and Light: <span class="hl">Opaque</span></h2>
+          <ul><li>Some things block all light.</li><li>We call them opaque objects.</li><li>Like a wall or a thick book.</li></ul>
+          <p class="notes">🎙️ Imagine a wall. Can you see through it? No, right? Objects that do not let any light pass through them are called opaque. These are the objects that make clear, dark shadows.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Wall blocks light</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Can light go through a book?</li><li>Can it go through a clear glass?</li></ul>
-          <p class="notes">🎙️ Think about the different objects we talked about. Some objects block light completely, and some let it pass through. Which ones were which?</p>
+          <h2>Objects and Light: <span class="hl">Transparent</span></h2>
+          <ul><li>Some things let all light pass.</li><li>We call them transparent objects.</li><li>Like clear glass or clean water.</li></ul>
+          <p class="notes">🎙️ Now, think about a window pane. You can see everything clearly through it! Objects that let almost all light pass through them are called transparent. They don't make shadows or make very, very faint ones.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪟</div><div class="vcap">Window lets light in</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Is your shadow longest at noon?</li><li>Or in the morning/evening?</li></ul>
-          <p class="notes">🎙️ Remember our discussion about the sun's position? When the sun is low in the sky, how does that affect your shadow's length?</p>
+          <h2>Objects and Light: <span class="hl">Translucent</span></h2>
+          <ul><li>Some things let only some light pass.</li><li>We call them translucent objects.</li><li>Like frosted glass or butter paper.</li></ul>
+          <p class="notes">🎙️ There's a third type too! Some objects let a little bit of light through, but not enough to see clearly. They make fuzzy or blurry shadows. Think of looking through frosted glass; you can see light but not clear shapes.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌫️</div><div class="vcap">Frosted glass</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,35 +240,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Let's Recap! <span class="hl">Light</span></h2>
-          <ul><li>Light helps us see.</li><li>The sun is a natural source of light.</li><li>Lamps and torches are man-made sources.</li></ul>
-          <p class="notes">🎙️ We learned that light is super important because it helps our eyes see the beautiful world. We get light from the sun, and also from things we make, like light bulbs.</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>What gives us light during the day?</li><li>Is it the Moon or the Sun?</li></ul>
+          <p class="notes">🎙️ Alright, let's see if you've been listening carefully! Think about what bright ball of light shines in the sky every morning and helps us see everything. Is it the Moon, or is it the Sun?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Recap Light</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔬" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Let's Recap! <span class="hl">Shadow</span></h2>
-          <ul><li>A shadow is a dark area.</li><li>It forms when an object blocks light.</li><li>Opaque objects make clear shadows.</li></ul>
-          <p class="notes">🎙️ And then we met our dark friend, the shadow! Remember, for a shadow to form, something needs to stand in the way of light, like you standing in the sun.</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>When is your shadow usually the longest?</li><li>Morning, Noon, or Evening?</li></ul>
+          <p class="notes">🎙️ Remember our discussion about shadow sizes? When does your shadow stretch out the most, making you look like a giant? Is it when the sun is just rising, high up, or setting?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👤</div><div class="vcap">Recap Shadow</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Let's Recap! Shadow <span class="hl">Size</span></h2>
-          <ul><li>Shadows change size during the day.</li><li>They are long in the morning and evening.</li><li>They are short at noon.</li></ul>
-          <p class="notes">🎙️ We also discovered that shadows love to play tricks with their size! They stretch out long when the sun is low and shrink when the sun is high up in the sky.</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>Can light pass through a brick wall?</li><li>Yes or No?</li></ul>
+          <p class="notes">🎙️ Think about the different types of objects we learned about. If light tries to go through a solid brick wall, what happens? Does it go through easily, or does the wall block it completely?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Recap Shadow Size</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Fun Fact! <span class="hl">Animals</span> and Shadows</h2>
-          <ul><li>Some animals use shadows to hide.</li><li>They blend into the shadows.</li><li>This helps them stay safe!</li></ul>
-          <p class="notes">🎙️ Did you know that some smart animals use shadows to their advantage? They hide in dark places where their shadows make them blend in, so other animals can't easily spot them!</p>
+          <h2><span class="hl">Fun</span> with Shadows!</h2>
+          <ul><li>You can make fun hand shadows!</li><li>Try making a dog or a bird.</li><li>All you need is a light and a wall!</li></ul>
+          <p class="notes">🎙️ Shadows are not just for learning; they are for fun too! You can use your hands to make amazing animal shapes on a wall with a light source behind you. It's a fun game to play with your friends and family.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🦉" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Hand shadow fun</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Exploring</span>!</h2>
-          <ul><li>Look for light and shadows around you.</li><li>Play with your own shadow!</li><li>See you next time!</li></ul>
-          <p class="notes">🎙️ You've been wonderful students today! Now you know all about light and shadows. Keep observing them in your daily life and have fun with your shadow friends! Bye-bye!</p>
+          <h2>What We <span class="hl">Learned</span> Today!</h2>
+          <ul><li>Light helps us see things.</li><li>Shadows form when light is blocked.</li><li>Shadows change size with the sun.</li><li>Objects can be opaque, transparent, or translucent.</li></ul>
+          <p class="notes">🎙️ Wow, we covered so much today! We learned that light is super important for us to see, and shadows are its playful friends that appear when light is stopped. We also saw how shadows change and how different objects behave with light. Great job, everyone!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

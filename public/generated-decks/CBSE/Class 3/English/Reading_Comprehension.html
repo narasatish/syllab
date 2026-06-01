@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Reading Comprehension — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Welcome to <span class="hl">Reading</span> Fun!</h2>
-          <ul><li>Let's learn to understand stories.</li><li>It's like solving a puzzle!</li></ul>
-          <p class="notes">🎙️ Hello, children! Today we are going on a fun journey. We will learn how to understand everything we read. It's like being a detective for stories!</p>
+          <ul><li>Let's learn to understand stories better.</li><li>It's like solving a puzzle!</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure. We will learn how to read stories and understand them super well. Are you ready?</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is Reading <span class="hl">Comprehension</span>?</h2>
-          <ul><li>It means understanding what you read.</li><li>Not just reading words, but knowing their meaning.</li></ul>
-          <p class="notes">🎙️ Reading comprehension is a big word, but it just means understanding. When you read a story, do you understand what is happening? That's comprehension!</p>
+          <h2>What is <span class="hl">Reading</span> Comprehension?</h2>
+          <ul><li>It means understanding what you read.</li><li>Like understanding a story your friend tells you.</li></ul>
+          <p class="notes">🎙️ Reading comprehension is simply understanding the meaning of what you read. It's not just saying the words, but knowing what the words mean together. Imagine your friend tells you a story; you listen and understand what happened, right? That's comprehension!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Understand books</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Understand stories</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why Read <span class="hl">Carefully</span>?</h2>
-          <ul><li>So you don't miss important parts.</li><li>So you can answer questions about the story.</li></ul>
-          <p class="notes">🎙️ Why is it important to read carefully? Because if you read too fast, you might miss something important. Reading carefully helps your brain understand everything.</p>
+          <h2>Why is it <span class="hl">important</span>?</h2>
+          <ul><li>You enjoy stories more.</li><li>You learn new things from books.</li><li>It helps you answer questions.</li></ul>
+          <p class="notes">🎙️ When you understand what you read, stories become more fun! You can imagine the characters and places. Also, books are full of knowledge, and reading comprehension helps you learn all those amazing things. It also helps you do well in your school work.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Think clearly</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Enjoying books</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>How to <span class="hl">Understand</span> a Story</h2>
-          <ul><li>There are easy steps to follow.</li><li>Let's learn them together!</li></ul>
-          <p class="notes">🎙️ It's easy to understand stories if we follow some simple steps. These steps are like a secret map to understanding. Let's look at them one by one.</p>
+          <h2><span class="hl">How</span> to Read a Story Well</h2>
+          <ul><li>Let's learn some simple steps.</li></ul>
+          <p class="notes">🎙️ There are some easy steps we can follow to become super readers. We will look at each step one by one. These steps will make reading very easy and fun for you.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Read</span></div><div class="step"><span class="snum">2</span><span>Think</span></div><div class="step"><span class="snum">3</span><span>Answer</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Read Carefully</span></div><div class="step"><span class="snum">2</span><span>Understand Words</span></div><div class="step"><span class="snum">3</span><span>Find Main Idea</span></div><div class="step"><span class="snum">4</span><span>Look for Details</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Step 1: Read <span class="hl">Every Word</span></h2>
-          <ul><li>Read slowly and clearly.</li><li>Don't skip any words!</li></ul>
-          <p class="notes">🎙️ The first step is to read every single word. Read slowly, like you are walking in a garden and looking at every flower. This helps your brain see everything.</p>
+          <h2>Step 1: Read <span class="hl">Carefully</span></h2>
+          <ul><li>Read slowly, not too fast.</li><li>Don't miss any words.</li><li>Like looking closely at a drawing.</li></ul>
+          <p class="notes">🎙️ The first step is to read every word carefully. Don't rush! Imagine you are looking at a beautiful drawing; you look at every line and colour. Reading carefully means you don't skip any part of the story.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Eyes on words</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧐</div><div class="vcap">Read slowly</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Step 2: <span class="hl">Think</span> About What You Read</h2>
-          <ul><li>Ask yourself: What is happening?</li><li>Who is in the story? What are they doing?</li></ul>
-          <p class="notes">🎙️ While you are reading, keep thinking. Ask yourself questions like, 'Who is this character?' or 'What are they doing now?' This helps you connect the ideas.</p>
+          <h2>Step 2: Understand <span class="hl">New Words</span></h2>
+          <ul><li>If you see a new word, try to guess its meaning.</li><li>Look at other words around it.</li><li>Like guessing what's in a gift box!</li></ul>
+          <p class="notes">🎙️ Sometimes, you might find a new word. Don't worry! Try to guess what it means from the other words in the sentence. It's like when you get a gift, you shake it and try to guess what's inside before opening it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think and ask</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Guess meaning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Step 3: <span class="hl">Answer</span> the Questions</h2>
-          <ul><li>After reading, answer questions.</li><li>Look back at the story if you forget.</li></ul>
-          <p class="notes">🎙️ After you finish reading, you might get some questions. Use what you remember from the story to answer them. If you are unsure, you can always read again.</p>
+          <h2>Step 3: Find the <span class="hl">Main Idea</span></h2>
+          <ul><li>What is the story mostly about?</li><li>What is the most important part?</li><li>Like finding the biggest fruit in a basket.</li></ul>
+          <p class="notes">🎙️ Every story has a main idea. It's like the biggest thing the story wants to tell you. After reading, ask yourself: 'What was this story mostly about?' Is it about a brave cat, or a happy family, or a lost toy? That's the main idea.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Write answers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">The big picture</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Following <span class="hl">Instructions</span></h2>
-          <ul><li>When you read instructions, you need to understand them.</li><li>Like making a paper boat!</li></ul>
-          <p class="notes">🎙️ We use reading comprehension every day! When your teacher tells you to do something, or you read how to play a game, you are using these skills. Imagine making a paper boat – you need to understand each step.</p>
+          <h2>Step 4: Look for <span class="hl">Details</span></h2>
+          <ul><li>Who are the characters?</li><li>What happened?</li><li>Where did it happen?</li><li>When did it happen?</li></ul>
+          <p class="notes">🎙️ Details are the small but important parts of the story. They tell us 'who' did something, 'what' happened, 'where' it happened, and 'when' it happened. These details help you build the whole picture in your mind, just like finding clues in a treasure hunt.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Fold paper</span></div><div class="step"><span class="snum">2</span><span>Make boat shape</span></div><div class="step"><span class="snum">3</span><span>Play!</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔎</div><div class="vcap">Find clues</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,33 +156,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Reading a <span class="hl">Recipe</span></h2>
-          <ul><li>To bake a cake, you need a recipe.</li><li>You must understand each step to make it yummy!</li></ul>
-          <p class="notes">🎙️ When Mummy or Papa bakes a cake, they read a recipe. If they don't understand the steps, the cake might not turn out right! So, understanding is very important.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🍳</div><div class="vcap">Chef cooking</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>Let's <span class="hl">Practice</span> Together!</h2>
-          <ul><li>We will read a short story.</li><li>Then we will answer some questions.</li></ul>
-          <p class="notes">🎙️ Now that we know the steps, let's try them out! We will read a very famous story together. Then we will see if we can answer questions about it.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>The Little Red <span class="hl">Hen</span> (Part 1)</h2>
-          <ul><li>Once upon a time, there lived a Little Red Hen.</li><li>She lived on a farm with her friends.</li></ul>
-          <p class="notes">🎙️ This is our story. Imagine a happy little hen living on a farm. She has many friends around her. Remember to read every word carefully.</p>
+          <h2>Let's <span class="hl">Practice</span>! Story Time!</h2>
+          <ul><li>Read this short story carefully.</li><li>Then we will answer some questions.</li></ul>
+          <p class="notes">🎙️ Alright, my little detectives! Now it's time to put our reading skills to the test. I have a short story for you. Read it very carefully, and then we will try to answer some questions based on it. Remember our steps!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📖" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
@@ -178,12 +167,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 20</span>
-          <h2>The Little <span class="hl">Red Hen</span> (Part 2)</h2>
-          <ul><li>One day, she found some wheat seeds.</li><li>She wanted to plant them.</li></ul>
-          <p class="notes">🎙️ The Little Red Hen found something special. Small wheat seeds! She thought, 'I should plant these.' She was very hard-working.</p>
+          <span class="num">10 / 20</span>
+          <h2>Story 1: The Hungry <span class="hl">Squirrel</span></h2>
+          <ul><li>One sunny morning, a little squirrel named Chiku woke up.</li><li>He was very hungry. He looked for nuts in the big oak tree.</li><li>He found three yummy acorns and ate them all happily.</li></ul>
+          <p class="notes">🎙️ Here is our first story. Read it once more. Imagine Chiku, the little squirrel, waking up and looking for his breakfast. What did he find? How many did he find? Think about these things as you read.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span><span>🌾</span><span>🌾</span></div><div class="vcap">Wheat seeds</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="📖" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2>Question 1: <span class="hl">Who</span> woke up hungry?</h2>
+          <ul><li>Was it a bird?</li><li>Was it Chiku the squirrel?</li><li>Was it a cat?</li></ul>
+          <p class="notes">🎙️ Now, let's answer our first question. Remember the details from the story. Who was the main character who woke up feeling hungry? Choose the correct answer from the options.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/House_sparrow04.jpg?width=460" data-fb="❓" alt="Birds have feathers and can fly."/><div class="vcap">Birds have feathers and can fly.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2>Question 2: <span class="hl">What</span> did Chiku look for?</h2>
+          <ul><li>Did he look for fruits?</li><li>Did he look for leaves?</li><li>Did he look for nuts?</li></ul>
+          <p class="notes">🎙️ Excellent! Let's move to the next question. What was Chiku's favourite food that he was searching for? Think back to where he was looking and what he found.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="❓" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>The Little Red Hen (Part 3)</h2>
-          <ul><li>Later, she made yummy bread from the wheat.</li><li>Her friends did not help her, but they wanted to eat the bread!</li></ul>
-          <p class="notes">🎙️ After a lot of work, the wheat grew, and the Hen made delicious bread. Her friends were a bit lazy and didn't help, but they all wanted to eat the bread!</p>
+          <h2>Question 3: <span class="hl">How many</span> acorns did he find?</h2>
+          <ul><li>He found two acorns.</li><li>He found three acorns.</li><li>He found four acorns.</li></ul>
+          <p class="notes">🎙️ And the last question for this story! How many yummy acorns did Chiku find and eat? Remember the number mentioned in the story. Counting is also a detail!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍞</span></div><div class="vcap">Yummy bread</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Count them!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Question 1: <span class="hl">Who</span> lived on the farm?</h2>
-          <ul><li>Think about the characters in the story.</li></ul>
-          <p class="notes">🎙️ Now, let's answer some questions. Look back at the story if you need a hint. Who was the main character living on the farm?</p>
+          <h2>Another Story! The <span class="hl">Red Ball</span></h2>
+          <ul><li>Let's read one more story together.</li><li>Remember all the steps we learned.</li></ul>
+          <p class="notes">🎙️ You all did so well with Chiku the squirrel! Let's try another story now. This one is about a little girl and her ball. Keep our reading steps in mind as you read.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Who?</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Answer: The Little Red <span class="hl">Hen</span>!</h2>
-          <ul><li>Yes, the Little Red Hen lived on the farm.</li><li>Her friends lived there too.</li></ul>
-          <p class="notes">🎙️ That's right! The Little Red Hen was the one who lived on the farm. And she had her friends living with her.</p>
+          <h2>Story 2: <span class="hl">Meera</span> and Her Ball</h2>
+          <ul><li>Meera had a bright red ball. She loved to play with it.</li><li>One day, she was playing in the park. The ball rolled away!</li><li>A kind boy named Rohan picked it up and gave it back to her.</li></ul>
+          <p class="notes">🎙️ Here is the story about Meera and her red ball. Read it carefully. Where was Meera playing? What happened to her ball? Who helped her? Try to remember these things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span></div><div class="vcap">Meera's red ball</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Question 2: <span class="hl">What</span> did the Hen find?</h2>
-          <ul><li>Remember what she found one day?</li></ul>
-          <p class="notes">🎙️ Here is another question. What did the Hen find one day that she wanted to plant? Think back to the second part of our story.</p>
+          <h2>Question 1: What <span class="hl">colour</span> was Meera's ball?</h2>
+          <ul><li>It was blue.</li><li>It was green.</li><li>It was red.</li></ul>
+          <p class="notes">🎙️ Time for questions about Meera's story! What was the colour of her favourite ball? This is a direct detail from the story. You got this!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">What?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Easy peasy!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,23 +252,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Answer: She found some wheat seeds.</h2>
-          <ul><li>She found small wheat seeds.</li><li>She planted them to grow more wheat.</li></ul>
-          <p class="notes">🎙️ Excellent! She found some wheat seeds. These seeds grew into big wheat plants, and then she used them to make bread.</p>
+          <h2>Question 2: <span class="hl">Where</span> was Meera playing?</h2>
+          <ul><li>She was playing at home.</li><li>She was playing in the park.</li><li>She was playing in school.</li></ul>
+          <p class="notes">🎙️ Next question! Do you remember where Meera was playing when her ball rolled away? The story tells us exactly where she was. Find that detail!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Location, location!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
-          <ul><li>What is the main idea of our story?</li><li>A) The hen loves to sleep. B) The hen is hardworking.</li></ul>
-          <p class="notes">🎙️ Let's do a quick check to see how well you understood. What do you think is the main message or idea of the story about the Little Red Hen?</p>
+          <h2>Question 3: <span class="hl">Who</span> helped Meera?</h2>
+          <ul><li>Her mother helped her.</li><li>A kind boy named Rohan helped her.</li><li>Her friend Radha helped her.</li></ul>
+          <p class="notes">🎙️ And the last question for Meera's story! Who was the kind person who found her ball and gave it back? The story mentions his name. Great job remembering the characters!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Remember the name</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
-          <ul><li>Did the Hen's friends help her plant the seeds?</li><li>A) Yes, they helped a lot. B) No, they did not help.</li></ul>
-          <p class="notes">🎙️ One last quick question! Think about the friends of the Little Red Hen. Did they help her with all the work, like planting the seeds or making the bread?</p>
+          <h2>Quick <span class="hl">Recap</span>: What did we learn?</h2>
+          <ul><li>Reading carefully helps us understand.</li><li>Finding the main idea and details is fun.</li><li>We can answer questions after reading.</li></ul>
+          <p class="notes">🎙️ Wow, you all are such smart readers! Let's quickly remember what we learned today. We learned that understanding what we read is called reading comprehension, and we also learned some amazing steps to help us do it well.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="📖" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Smart readers!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>We Learned About <span class="hl">Reading</span>!</h2>
-          <ul><li>We learned to read carefully.</li><li>We learned to think about the story.</li><li>We learned to answer questions.</li></ul>
-          <p class="notes">🎙️ You all did so well today! We learned how to be great story detectives. Always remember to read carefully, think about what you read, and then you can answer any question!</p>
+          <h2>Keep <span class="hl">Reading</span> and Exploring!</h2>
+          <ul><li>Read more stories every day.</li><li>Look for new words and their meanings.</li><li>Reading opens a world of magic!</li></ul>
+          <p class="notes">🎙️ Keep practicing your reading skills every day. Read stories, read books, read anything you find interesting! The more you read and understand, the smarter you become. Happy reading, everyone!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤩</span><span>🤩</span><span>🤩</span></div><div class="vcap">Happy Reading!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

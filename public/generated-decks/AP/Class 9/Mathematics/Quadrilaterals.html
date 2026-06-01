@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Quadrilaterals: Exploring Four-Sided Shapes — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Quadrilaterals</span>!</h2>
+          <ul><li>What are four-sided figures?</li><li>Types of quadrilaterals</li><li>Properties and real-life examples</li><li>Let's explore together!</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we're starting a fascinating chapter on Quadrilaterals. These are fundamental shapes in geometry that you see all around you. We'll learn about their definitions, properties, and how to identify them.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Quadrilateral</span>?</h2>
+          <ul><li>A polygon with four sides</li><li>Four vertices and four angles</li><li>Its name comes from 'quad' (four) and 'lateral' (sides)</li></ul>
+          <p class="notes">🎙️ A quadrilateral is simply any closed shape with exactly four straight sides. Think of it as a four-sided polygon. It will always have four corners, which we call vertices, and four interior angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">A 4-sided Polygon</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Elements</span> of a Quadrilateral</h2>
+          <ul><li>Four sides (e.g., AB, BC, CD, DA)</li><li>Four vertices (e.g., A, B, C, D)</li><li>Four interior angles (e.g., ∠A, ∠B, ∠C, ∠D)</li><li>Two diagonals (e.g., AC, BD)</li></ul>
+          <p class="notes">🎙️ Every quadrilateral has these basic parts. The sides connect the vertices, and the angles are formed at each vertex. Diagonals are lines that connect non-adjacent vertices, cutting across the shape.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Parts of a Quadrilateral</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Real-life</span> Quadrilaterals</h2>
+          <ul><li>Look around you!</li><li>Many everyday objects are quadrilaterals</li><li>From buildings to books, they're everywhere</li></ul>
+          <p class="notes">🎙️ Quadrilaterals are not just abstract shapes in a textbook; they are all around us. Think of a blackboard, a window pane, or even the screen you are looking at right now. These are all examples of quadrilaterals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖼️</span><span>🖼️</span><span>🖼️</span><span>🖼️</span></div><div class="vcap">Shapes Around Us</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Angle Sum Property</span> of a Quadrilateral</h2>
+          <ul><li>The sum of all interior angles is 360°</li><li>Similar to a triangle's 180° sum</li><li>This property holds true for ALL quadrilaterals</li></ul>
+          <p class="notes">🎙️ A very important property of any quadrilateral is that if you add up all its four interior angles, the total will always be 360 degrees. This is a fundamental rule we use to solve many problems involving quadrilaterals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Sum is 360°</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Worked Example 1: Finding <span class="hl">Missing Angles</span></h2>
+          <ul><li>Given three angles of a quadrilateral</li><li>Use the angle sum property (360°)</li><li>Subtract known angles from 360° to find the fourth</li></ul>
+          <p class="notes">🎙️ Let's try an example. If a quadrilateral has angles 70°, 80°, and 110°, how do we find the fourth angle? We add the three given angles, and then subtract that sum from 360 degrees to get our answer.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify known angles</span></div><div class="step"><span class="snum">2</span><span>Sum known angles</span></div><div class="step"><span class="snum">3</span><span>Subtract from 360°</span></div><div class="step"><span class="snum">4</span><span>State the missing angle</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Types</span> of Quadrilaterals</h2>
+          <ul><li>Quadrilaterals are classified by their properties</li><li>Parallel sides, equal sides, equal angles</li><li>Each type has unique characteristics</li></ul>
+          <p class="notes">🎙️ Just like families, quadrilaterals have different types based on their specific features. We will explore parallelograms, rectangles, rhombuses, squares, trapeziums, and kites. Each one has distinct properties that make it unique.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">A Family Tree</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Introducing the <span class="hl">Parallelogram</span></h2>
+          <ul><li>A quadrilateral with two pairs of parallel sides</li><li>Opposite sides are parallel to each other</li><li>It's a foundational type of quadrilateral</li></ul>
+          <p class="notes">🎙️ Our first special quadrilateral is the parallelogram. The key feature here is that its opposite sides are always parallel. This single property leads to many other interesting characteristics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Opposite Sides Parallel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Properties</span> of a Parallelogram</h2>
+          <ul><li>Opposite sides are equal in length</li><li>Opposite angles are equal</li><li>Consecutive angles are supplementary (add up to 180°)</li><li>Diagonals bisect each other</li></ul>
+          <p class="notes">🎙️ These are the four main properties that define a parallelogram. Remember, if a quadrilateral has any one of these properties, it is a parallelogram. For example, if its diagonals bisect each other, it must be a parallelogram.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Sides, Angles, Diagonals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Real-life</span> Parallelograms</h2>
+          <ul><li>Laptop screens when opened</li><li>Some types of adjustable lamps</li><li>Folding chairs often form parallelograms</li></ul>
+          <p class="notes">🎙️ You can find parallelograms in many mechanical designs where movement and stability are needed. For instance, the way a folding chair collapses and expands often relies on parallelogram structures. Even the shape of a tilted book can be a parallelogram.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span><span>🪑</span><span>🪑</span></div><div class="vcap">Common Examples</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Meet the <span class="hl">Rectangle</span></h2>
+          <ul><li>A parallelogram with all four angles equal to 90°</li><li>All rectangles are parallelograms</li><li>But not all parallelograms are rectangles</li></ul>
+          <p class="notes">🎙️ The rectangle is a very familiar shape. It's a special type of parallelogram where all its corners are right angles, or 90 degrees. This means it inherits all the properties of a parallelogram and has some extra ones too.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔲</div><div class="vcap">All Angles 90°</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Properties</span> of a Rectangle</h2>
+          <ul><li>All properties of a parallelogram apply</li><li>Each interior angle is 90°</li><li>Diagonals are equal in length</li></ul>
+          <p class="notes">🎙️ Since a rectangle is a parallelogram, its opposite sides are parallel and equal, and its diagonals bisect each other. Additionally, the defining feature is its right angles, and a unique property is that its diagonals are always the same length.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Diagonals are Equal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Understanding the <span class="hl">Rhombus</span></h2>
+          <ul><li>A parallelogram with all four sides equal in length</li><li>Often looks like a 'tilted' square</li><li>All rhombuses are parallelograms</li></ul>
+          <p class="notes">🎙️ Next, we have the rhombus. This is another type of parallelogram where all four sides are equal in length. Imagine taking a square and pushing on two opposite corners; that's what a rhombus looks like.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">All Sides Equal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Properties</span> of a Rhombus</h2>
+          <ul><li>All properties of a parallelogram apply</li><li>All four sides are equal</li><li>Diagonals bisect each other at right angles (90°)</li><li>Diagonals bisect the angles of the rhombus</li></ul>
+          <p class="notes">🎙️ Besides the parallelogram properties, a rhombus has two very special features related to its diagonals. Not only do they bisect each other, but they do so at a right angle, and they also divide the corner angles into two equal parts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Perpendicular Diagonals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>The Perfect <span class="hl">Square</span></h2>
+          <ul><li>A quadrilateral with all sides equal AND all angles 90°</li><li>It is a rectangle, a rhombus, and a parallelogram!</li><li>The most 'perfect' regular quadrilateral</li></ul>
+          <p class="notes">🎙️ The square is truly special because it combines the best features of both rectangles and rhombuses. It has all four sides equal and all four angles equal to 90 degrees. This makes it a highly symmetric and versatile shape.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">All Sides &amp; Angles Equal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Properties</span> of a Square</h2>
+          <ul><li>All properties of parallelograms, rectangles, and rhombuses apply</li><li>All sides are equal</li><li>All angles are 90°</li><li>Diagonals are equal, bisect each other at 90°, and bisect the angles</li></ul>
+          <p class="notes">🎙️ Because a square is a rectangle and a rhombus, it inherits all their properties. This means its diagonals are equal and bisect each other at right angles. It truly is the 'master' quadrilateral, possessing all the key traits.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭐</div><div class="vcap">All Properties Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Exploring the <span class="hl">Trapezium</span> (Trapezoid)</h2>
+          <ul><li>A quadrilateral with exactly one pair of parallel sides</li><li>The parallel sides are called bases</li><li>The non-parallel sides are called legs</li></ul>
+          <p class="notes">🎙️ Now let's look at the trapezium, also known as a trapezoid. Unlike a parallelogram, it only has one pair of parallel sides. These parallel sides are usually drawn horizontally and are called the bases of the trapezium.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">One Pair of Parallel Sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Soaring with the <span class="hl">Kite</span></h2>
+          <ul><li>A quadrilateral with two distinct pairs of equal-length adjacent sides</li><li>One diagonal is the perpendicular bisector of the other</li><li>The diagonals are perpendicular to each other</li></ul>
+          <p class="notes">🎙️ The kite is named after the flying toy! Its unique feature is that it has two pairs of equal-length sides, but these sides are adjacent, meaning they share a common vertex. Its diagonals are always perpendicular.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪁</div><div class="vcap">Adjacent Sides Equal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>A Special Trapezium: <span class="hl">Isosceles Trapezium</span></h2>
+          <ul><li>A trapezium where the non-parallel sides are equal in length</li><li>Base angles are equal (angles along the parallel sides)</li><li>Diagonals are also equal in length</li></ul>
+          <p class="notes">🎙️ Just like an isosceles triangle, an isosceles trapezium has two sides of equal length. In this case, it's the non-parallel sides that are equal. This leads to its base angles being equal and its diagonals also having equal lengths.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Non-parallel sides equal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Comparison</span> of Quadrilaterals</h2>
+          <ul><li>How do they relate to each other?</li><li>Squares are special rectangles and rhombuses</li><li>Rectangles and rhombuses are special parallelograms</li></ul>
+          <p class="notes">🎙️ It's important to understand the hierarchy and relationships between these shapes. Think of it as a family tree: a square is a child of both a rectangle and a rhombus, and both of them are children of a parallelogram. Trapeziums and kites are separate branches.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Parallelogram</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Rectangle</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Rhombus</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Square</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check 1: <span class="hl">Identify</span> the Shape!</h2>
+          <ul><li>A quadrilateral with only one pair of parallel sides.</li><li>What is it called?</li><li>Think about the definitions we just learned.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! If a quadrilateral has exactly one pair of parallel sides, what do we call it? Take a moment to recall the specific definition for this type of quadrilateral.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check 2: <span class="hl">True or False</span>?</h2>
+          <ul><li>Is every rhombus a square?</li><li>Consider the properties of each shape.</li><li>What makes a square unique compared to a rhombus?</li></ul>
+          <p class="notes">🎙️ Here's another question for you. Is it true that every rhombus is also a square? Think about the specific conditions that define a square. Does a rhombus always meet those conditions?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check 3: <span class="hl">Angle Sum</span> Problem</h2>
+          <ul><li>If three angles of a quadrilateral are 60°, 120°, 90°.</li><li>What is the measure of the fourth angle?</li><li>Apply the angle sum property.</li></ul>
+          <p class="notes">🎙️ Let's quickly solve an angle problem. If you know three angles of a quadrilateral, how would you find the fourth? Use the angle sum property we discussed earlier. Calculate the sum of the given angles and subtract from 360 degrees.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Proving a Property</span></h2>
+          <ul><li>Prove that the diagonals of a rectangle are equal.</li><li>Use congruent triangles (SAS, SSS, ASA, RHS).</li><li>A common type of question in exams.</li></ul>
+          <p class="notes">🎙️ Proof-based questions are very important. To prove that the diagonals of a rectangle are equal, we can use congruent triangles. By comparing triangles ABC and DCB, we can show they are congruent, leading to the equality of diagonals AC and DB.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw a rectangle ABCD</span></div><div class="step"><span class="snum">2</span><span>Consider triangles ABC and DCB</span></div><div class="step"><span class="snum">3</span><span>Show side-angle-side congruence</span></div><div class="step"><span class="snum">4</span><span>Conclude diagonals AC = DB</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>A quadrilateral has 4 sides and 4 angles (sum 360°)</li><li>Parallelograms: opposite sides parallel and equal</li><li>Rectangles: parallelogram with 90° angles, equal diagonals</li><li>Rhombus: parallelogram with equal sides, perpendicular diagonals</li><li>Square: all properties of rectangle and rhombus</li><li>Trapezium: one pair of parallel sides</li><li>Kite: two pairs of adjacent equal sides</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the basic definition of a quadrilateral and its angle sum property. Understand the specific properties that distinguish parallelograms, rectangles, rhombuses, squares, trapeziums, and kites. Keep practicing to master these concepts!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · AP Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

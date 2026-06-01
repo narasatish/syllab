@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Subtraction with Borrowing — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Subtraction with <span class="hl">Borrowing</span></h2>
-          <ul><li>Let's learn a new way to subtract!</li><li>Sometimes we need a little help from our numbers.</li></ul>
-          <p class="notes">🎙️ Hello, little mathematicians! Today, we're going on an exciting journey to learn something new about subtraction. It's like magic, but with numbers!</p>
+          <h2>Let's Learn Subtraction with <span class="hl">Borrowing</span>!</h2>
+          <ul><li>Welcome, little mathematicians!</li><li>Today, we will learn a special trick in subtraction.</li><li>It's like helping each other when we need more!</li></ul>
+          <p class="notes">🎙️ Namaste, children! Today we're going on an exciting math adventure. We'll learn a super helpful trick called 'borrowing' when we subtract numbers.</p>
         </div>
         
       </div>
@@ -61,9 +74,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Subtraction</span>?</h2>
           <ul><li>It means taking away.</li><li>We find out how many are left.</li></ul>
-          <p class="notes">🎙️ Remember subtraction? It's when we take some things away from a group. Like if you have 5 apples and eat 2, how many are left?</p>
+          <p class="notes">🎙️ Remember subtraction? It's like having some yummy apples and then eating a few. How many are left? That's subtraction!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">5 apples, take away 2</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">7 apples, take away 3</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>When Numbers Need <span class="hl">Help</span></h2>
-          <ul><li>What if you have 2 candies and need to give away 5?</li><li>You don't have enough, right?</li></ul>
-          <p class="notes">🎙️ Sometimes, when we try to subtract, the number we have is smaller than the number we need to take away. It's like trying to give 5 candies when you only have 2!</p>
+          <h2>Subtraction: When it's <span class="hl">Easy-Peasy</span>!</h2>
+          <ul><li>If the top number is bigger, we can subtract easily.</li><li>Example: 8 - 3 = 5</li></ul>
+          <p class="notes">🎙️ Sometimes, subtraction is very simple. If you have 8 balloons and 3 fly away, you can easily count how many are left. No problem!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🤔" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Ria at the <span class="hl">Sweet Shop</span></h2>
-          <ul><li>Ria had 32 yummy sweets.</li><li>Her friend asked for 15 sweets.</li></ul>
-          <p class="notes">🎙️ Let's imagine our friend Ria went to a sweet shop and bought 32 sweets. Her friend wanted 15 sweets. Can Ria give 15 sweets easily?</p>
+          <h2>Uh Oh! A Little <span class="hl">Problem</span>!</h2>
+          <ul><li>What if the top number is smaller than the bottom number?</li><li>Can we take away 7 from 3?</li></ul>
+          <p class="notes">🎙️ Imagine you have only 3 cookies, but your friend wants 7! Can you give 7 cookies if you only have 3? No, that's a problem, right? This is where our trick comes in!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Ria's Sweets</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">You have 3 cookies, but want to give 7!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,45 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Our Subtraction <span class="hl">Problem</span></h2>
-          <ul><li>We need to find 32 - 15.</li><li>Let's write it down in columns.</li></ul>
-          <p class="notes">🎙️ So, Ria has 32 sweets, and needs to give away 15. We write 32 on top and 15 below, aligning the ones and tens places.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Write it down</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 20</span>
-          <h2>Always Start with <span class="hl">Ones</span></h2>
-          <ul><li>We always begin subtracting from the Ones column.</li><li>Look at the numbers in the Ones place.</li></ul>
-          <p class="notes">🎙️ Just like we learned before, when we subtract two-digit numbers, we always start with the column on the right, which is the Ones column.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🔢" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2>Uh Oh! 2 is <span class="hl">Smaller</span> than 5</h2>
-          <ul><li>In the Ones column, we have 2 and 5.</li><li>Can we take 5 from 2? No!</li></ul>
-          <p class="notes">🎙️ Here's the tricky part! We have 2 in the ones place of 32, and we need to take away 5 from the ones place of 15. Since 2 is smaller than 5, we cannot subtract directly.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😟</div><div class="vcap">Not enough!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Ask for <span class="hl">Help</span> from Tens</h2>
-          <ul><li>When Ones can't subtract, they ask Tens for help.</li><li>Tens is our helpful neighbour!</li></ul>
-          <p class="notes">🎙️ When the Ones place doesn't have enough to give, it goes to its neighbour, the Tens place, and asks for some help. This is what we call 'borrowing'.</p>
+          <h2>Meet Our Helper: <span class="hl">Borrowing</span>!</h2>
+          <ul><li>When we don't have enough, we ask our neighbour for help.</li><li>Our neighbour will lend us some!</li></ul>
+          <p class="notes">🎙️ In math, when we don't have enough in the 'ones' place, we can ask our 'tens' neighbour for help. It's like borrowing something from a friend and returning it later.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Asking for help</div></div></div>
       </div>
@@ -142,12 +119,48 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Tens Gives <span class="hl">One Ten</span></h2>
-          <ul><li>The Tens place gives 1 Ten to the Ones place.</li><li>1 Ten is equal to 10 Ones.</li></ul>
-          <p class="notes">🎙️ The Tens place is very kind! It gives one of its 'tens' over to the Ones place. Remember, one ten is the same as ten ones.</p>
+          <span class="num">6 / 20</span>
+          <h2>Let's Recall: <span class="hl">Tens and Ones</span></h2>
+          <ul><li>Numbers are made of Tens and Ones.</li><li>23 means 2 Tens and 3 Ones.</li></ul>
+          <p class="notes">🎙️ Before we borrow, let's quickly remember Tens and Ones. A number like 23 means we have two bundles of ten and three loose ones. This is very important for borrowing!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔟</span></div><div class="vcap">1 Ten</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Place Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 20</span>
+          <h2>The "Borrowing" <span class="hl">Magic</span>!</h2>
+          <ul><li>When a Ten lends to Ones, it gives 1 Ten.</li><li>But 1 Ten becomes 10 Ones!</li></ul>
+          <p class="notes">🎙️ When the Tens place is kind and lends one of its Tens, it becomes one less. But that one Ten, when it goes to the Ones place, becomes 10 little Ones! So the Ones place gets much bigger!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Tens place gives 1 Ten</span></div><div class="step"><span class="snum">2</span><span>Tens place becomes 1 less</span></div><div class="step"><span class="snum">3</span><span>Ones place gets 10 more</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Let's Solve Together! Example 1</h2>
+          <ul><li>We want to find 33 minus 17.</li><li>Always start from the Ones place!</li></ul>
+          <p class="notes">🎙️ Let's try an example: 33 minus 17. Imagine you have 33 candies and you want to give away 17. We always start subtracting from the Ones place, which is on the right.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">33 candies, give away 17</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>Step 1: Look at the <span class="hl">Ones Place</span></h2>
+          <ul><li>We have 3 Ones, and we need to take away 7 Ones.</li><li>Can we do it? No!</li></ul>
+          <p class="notes">🎙️ Look at the Ones place. We have 3 on top and 7 below. Can we take 7 from 3? No, 3 is smaller than 7! So, what do we do? We ask our neighbour, the Tens place, for help!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:43%"></div><div class="clabel">Top Ones: 3</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bottom Ones: 7</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Tens Becomes <span class="hl">One Less</span></h2>
-          <ul><li>The Tens place had 3. It gave 1 Ten away.</li><li>So, 3 Tens become 2 Tens.</li></ul>
-          <p class="notes">🎙️ Since the Tens place gave away one of its tens, its value decreases by one. If it was 3 tens, it now becomes 2 tens.</p>
+          <h2>Step 2: <span class="hl">Borrow</span> from the Tens!</h2>
+          <ul><li>The Tens place (3) lends 1 Ten. It becomes 2 Tens.</li><li>The Ones place (3) gets 10 more! It becomes 13 Ones.</li></ul>
+          <p class="notes">🎙️ The 3 in the Tens place is kind. It gives away 1 Ten, so it becomes 2 Tens. Now, the 3 in the Ones place gets that 1 Ten, which is 10 Ones. So, 3 + 10 = 13 Ones!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Number goes down</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>3 Tens becomes 2 Tens</span></div><div class="step"><span class="snum">2</span><span>3 Ones becomes 13 Ones</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Ones Becomes <span class="hl">Bigger</span></h2>
-          <ul><li>The Ones place had 2. It got 10 Ones from Tens.</li><li>So, 2 + 10 = 12 Ones.</li></ul>
-          <p class="notes">🎙️ Now, the Ones place is happy! It had 2, and it got 10 more from the Tens place. So, 2 plus 10 makes 12. Now it has enough to subtract!</p>
+          <h2>Step 3: Subtract the Ones!</h2>
+          <ul><li>Now we have 13 Ones.</li><li>We can easily take away 7 Ones.</li><li>13 - 7 = 6.</li></ul>
+          <p class="notes">🎙️ Now that our Ones place has 13, we can subtract 7 easily! Count 13 stars and take away 7. How many are left? Yes, 6! Write 6 in the Ones place of your answer.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Number goes up</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">13 stars, take away 7</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Subtract</span> the Ones Now!</h2>
-          <ul><li>Now we have 12 Ones - 5 Ones.</li><li>12 - 5 = 7.</li></ul>
-          <p class="notes">🎙️ With 12 in the Ones place, we can easily take away 5. 12 minus 5 leaves us with 7. Write 7 in the Ones column of your answer.</p>
+          <h2>Step 4: Subtract the Tens!</h2>
+          <ul><li>Remember, the Tens place is now 2.</li><li>We take away 1 Ten from 2 Tens.</li><li>2 - 1 = 1.</li></ul>
+          <p class="notes">🎙️ Now let's move to the Tens place. Remember, the 3 Tens became 2 Tens because it lent one. So, we have 2 Tens minus 1 Ten. That leaves us with 1 Ten. Write 1 in the Tens place of your answer.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">7 left!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📏</span><span>📏</span></div><div class="vcap">2 rulers, take away 1</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Next, Subtract the <span class="hl">Tens</span></h2>
-          <ul><li>Remember, the Tens place is now 2.</li><li>Subtract 1 Ten from 2 Tens.</li></ul>
-          <p class="notes">🎙️ After finishing with the Ones column, we move to the Tens column. Don't forget that the Tens place changed from 3 to 2!</p>
+          <h2>We <span class="hl">Solved</span> It!</h2>
+          <ul><li>So, 33 - 17 = 16.</li><li>Great job, everyone!</li></ul>
+          <p class="notes">🎙️ So, 33 minus 17 is 16! See, borrowing helped us solve a tricky problem! You're all becoming subtraction experts!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ones (Done)</span></div><div class="step"><span class="snum">2</span><span>Tens (Next)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Our <span class="hl">Answer</span>: 32 - 15 = 17</h2>
-          <ul><li>2 Tens - 1 Ten = 1 Ten.</li><li>So, 32 - 15 = 17.</li></ul>
-          <p class="notes">🎙️ So, in the Tens column, we now have 2 minus 1, which equals 1. Put this 1 in the Tens column of your answer. Ria can give 17 sweets to her friend!</p>
+          <h2>Real Life: <span class="hl">Books</span> on the Shelf!</h2>
+          <ul><li>You have 42 storybooks.</li><li>You lend 15 to your friends.</li><li>How many are left?</li></ul>
+          <p class="notes">🎙️ Let's try another real-life example. You have 42 storybooks. You lend 15 to your friends. How many books do you have left? Think about borrowing to solve this!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Problem Solved!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">42 books, 15 lent</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,45 +228,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Let's Try <span class="hl">Another One</span>!</h2>
-          <ul><li>Let's subtract 28 from 45.</li><li>Remember the steps!</li></ul>
-          <p class="notes">🎙️ Great job! Let's try another problem together to make sure we understand. We'll subtract 28 from 45. Keep the steps of borrowing in mind.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✏️</div><div class="vcap">Practice Time</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2>45 - 28: <span class="hl">Ones Column</span></h2>
-          <ul><li>We have 5 and need to take away 8.</li><li>Borrow 1 Ten from 4 Tens. 5 becomes 15.</li></ul>
-          <p class="notes">🎙️ First, look at the Ones column: 5 minus 8. Since 5 is smaller, we borrow 1 Ten from the 4 in the Tens place. The 4 becomes 3, and the 5 becomes 15.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>5 &lt; 8, Borrow</span></div><div class="step"><span class="snum">2</span><span>4 becomes 3</span></div><div class="step"><span class="snum">3</span><span>5 becomes 15</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2>45 - 28: <span class="hl">Tens Column</span></h2>
-          <ul><li>Now, 15 - 8 = 7 (Ones).</li><li>Then, 3 - 2 = 1 (Tens).</li></ul>
-          <p class="notes">🎙️ After borrowing, we can subtract the Ones: 15 minus 8 is 7. Then, move to the Tens column. Remember, it's now 3 minus 2, which is 1. So, the answer is 17.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✔️</div><div class="vcap">Done!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2>Time for a Quick <span class="hl">Question</span>!</h2>
-          <ul><li>Solve: 53 - 27 = ?</li><li>Think about borrowing!</li></ul>
-          <p class="notes">🎙️ Alright, put on your thinking caps! Try to solve this problem on your own. Remember to start with the Ones column and borrow if needed.</p>
+          <h2>Time for <span class="hl">Practice</span>! Question 1</h2>
+          <ul><li>Solve: 54 - 28 = ?</li></ul>
+          <p class="notes">🎙️ Alright, little mathematicians, it's your turn! Try to solve this one on your own. Remember to start from the Ones place and borrow if needed!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
@@ -262,10 +239,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>Another <span class="hl">Challenge</span>!</h2>
-          <ul><li>Solve: 61 - 34 = ?</li><li>You can do it!</li></ul>
-          <p class="notes">🎙️ Here's one more practice question for you. Take your time, follow the steps, and you'll get the correct answer!</p>
+          <span class="num">16 / 20</span>
+          <h2>Time for <span class="hl">Practice</span>! Question 2</h2>
+          <ul><li>Solve: 61 - 35 = ?</li></ul>
+          <p class="notes">🎙️ Another one! Take your time, think about the steps we learned. You can do it!</p>
         </div>
         
       </div>
@@ -274,16 +251,53 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Subtraction with Borrowing</h2>
-          <ul><li>Start with Ones column.</li><li>If top digit is smaller, borrow from Tens.</li><li>Tens digit becomes one less.</li><li>Ones digit becomes 10 more.</li><li>Subtract Ones, then Tens.</li></ul>
-          <p class="notes">🎙️ Let's quickly review what we learned today. Always start with Ones. If you can't subtract, borrow from Tens. Remember how both digits change. Then, subtract!</p>
+          <span class="num">17 / 20</span>
+          <h2>Word Problem <span class="hl">Challenge</span>!</h2>
+          <ul><li>There are 70 birds on a tree.</li><li>23 birds fly away.</li><li>How many birds are left on the tree?</li></ul>
+          <p class="notes">🎙️ Here's a word problem! Read it carefully, find the numbers, and decide if you need to borrow. Good luck!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Things to Remember</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔢" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 20</span>
+          <h2>Quick Check! <span class="hl">True or False</span>?</h2>
+          <ul><li>When we borrow, the Tens place gets 10 more. (False)</li><li>When we borrow, the Ones place gets 10 more. (True)</li></ul>
+          <p class="notes">🎙️ Let's do a quick check! Is it true or false that when we borrow, the Tens place gets 10 more? No, the Tens place gives 10! What about the Ones place? Yes, the Ones place gets 10 more!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Think!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>Our Learning <span class="hl">Journey</span> Today!</h2>
+          <ul><li>We learned to subtract when the top number is smaller.</li><li>We used "Borrowing" from the Tens place.</li><li>The Tens place gives 1 Ten, becoming 1 less.</li><li>The Ones place gets 10 more!</li></ul>
+          <p class="notes">🎙️ Wow! What a great journey we had today! We learned a very important trick called borrowing in subtraction. It helps us solve problems where the top number in the Ones place is too small.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">New Knowledge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2>Keep <span class="hl">Practicing</span> and Shining!</h2>
+          <ul><li>Practice makes perfect!</li><li>Keep trying these sums.</li><li>You are all amazing mathematicians!</li></ul>
+          <p class="notes">🎙️ Remember, practice is key! The more you practice, the better you'll become at subtraction with borrowing. Keep up the great work, my little stars!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">You are a star!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

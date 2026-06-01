@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Similar Triangles — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to "<span class="hl">Similar Triangles</span>"!</h2>
+          <ul><li>Unlocking geometric secrets!</li><li>Class 10 Mathematics, TS Board</li><li>Let's explore shapes together!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of 'Similar Triangles'. This chapter is fundamental in understanding shapes and their properties in geometry. Get ready to discover how shapes can be the same but different!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Similar Figures</span>?</h2>
+          <ul><li>Same shape, different size.</li><li>One is an enlargement or reduction of the other.</li><li>Angles remain the same, sides change proportionally.</li></ul>
+          <p class="notes">🎙️ Imagine looking at a photo on your phone and then zooming in or out. The picture remains the same, but its size changes. That's the core idea behind similar figures – they maintain their shape but can vary in size.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔎</div><div class="vcap">Zooming In/Out</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Congruent vs. Similar: What's the <span class="hl">Difference</span>?</h2>
+          <ul><li>Congruent: Same shape AND same size.</li><li>Similar: Same shape, but DIFFERENT size.</li></ul>
+          <p class="notes">🎙️ This is a crucial distinction. Congruent figures are like identical twins – perfectly matching. Similar figures are like a family photo where everyone has the same pose but some are children and some are adults – same form, different scale.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Congruent</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Similar</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Why Study Similar Triangles? <span class="hl">Real-Life</span> Applications!</h2>
+          <ul><li>Measuring heights of tall objects indirectly.</li><li>Designing maps and architectural models.</li><li>Understanding perspective in art and photography.</li></ul>
+          <p class="notes">🎙️ Similar triangles aren't just for textbooks! They are powerful tools used by engineers, architects, and even artists. We can use them to measure things we can't physically reach, like the height of a mountain or a tall building.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Practical Uses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Conditions for Similarity: <span class="hl">Equal Angles</span> (AAA)</h2>
+          <ul><li>All corresponding angles must be equal.</li><li>If ∠A = ∠D, ∠B = ∠E, ∠C = ∠F, then ΔABC ~ ΔDEF.</li></ul>
+          <p class="notes">🎙️ The first key condition for two triangles to be similar is that their corresponding angles must be exactly the same. Imagine rotating and resizing one triangle; its angles won't change, only its side lengths.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Angle Match</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Conditions for Similarity: <span class="hl">Proportional Sides</span> (SSS)</h2>
+          <ul><li>Corresponding sides must be in the same ratio.</li><li>AB/DE = BC/EF = CA/FD = k (constant ratio).</li></ul>
+          <p class="notes">🎙️ The second condition involves the sides. If one triangle is a scaled version of another, then all its sides must have been scaled by the same factor. This means the ratio of corresponding sides will be constant.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Side Ratios</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Defining</span> Similar Triangles Formally</h2>
+          <ul><li>Two triangles are similar if:</li><li>1. Their corresponding angles are equal.</li><li>2. Their corresponding sides are in the same ratio.</li></ul>
+          <p class="notes">🎙️ So, combining both conditions, we get the formal definition. Both angles matching AND sides being proportional must hold true. We use the symbol '~' to denote similarity, for example, ΔABC ~ ΔDEF.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">The Definition</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Real-Life Example: Measuring Height with <span class="hl">Shadows</span></h2>
+          <ul><li>A pole casts a 10m shadow.</li><li>A 2m person casts a 1.5m shadow.</li><li>Find the pole's height.</li></ul>
+          <p class="notes">🎙️ This is a classic application. On a sunny day, the sun's rays are parallel, creating similar triangles between objects and their shadows. We can set up a proportion using the known heights and shadow lengths to find the unknown.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sunlight &amp; Shadows</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Activity: Let's Draw Similar Triangles!</h2>
+          <ul><li>Draw a triangle ABC.</li><li>Draw a line parallel to BC intersecting AB and AC at D and E.</li><li>Observe ΔADE and ΔABC.</li></ul>
+          <p class="notes">🎙️ Grab your pen and paper! This simple activity helps visualize similar triangles. When you draw a line parallel to one side of a triangle, it creates a smaller triangle that is similar to the original one. What do you notice about their angles and sides?</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw ΔABC</span></div><div class="step"><span class="snum">2</span><span>Draw line DE || BC</span></div><div class="step"><span class="snum">3</span><span>Compare ΔADE, ΔABC</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">AAA Similarity</span> Criterion (Angle-Angle-Angle)</h2>
+          <ul><li>If all three corresponding angles are equal, the triangles are similar.</li><li>Often simplified to AA Similarity (two angles imply the third).</li></ul>
+          <p class="notes">🎙️ This theorem states that if the three angles of one triangle are respectively equal to the three angles of another triangle, then the two triangles are similar. It's a powerful shortcut, as knowing just two angles are equal is often enough, because the third angle will automatically be equal.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Worked Example: Applying <span class="hl">AAA Similarity</span></h2>
+          <ul><li>Given ΔABC and ΔPQR:</li><li>∠A=40°, ∠B=60°, ∠P=40°, ∠Q=60°.</li><li>Are they similar? Why?</li></ul>
+          <p class="notes">🎙️ Let's solve this together. Since ∠A = ∠P and ∠B = ∠Q, by AA similarity, ΔABC is similar to ΔPQR. Remember, we don't even need to check the third angle, as the sum of angles in a triangle is always 180 degrees.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">SSS Similarity</span> Criterion (Side-Side-Side)</h2>
+          <ul><li>If corresponding sides are proportional, the triangles are similar.</li><li>AB/DE = BC/EF = CA/FD implies ΔABC ~ ΔDEF.</li></ul>
+          <p class="notes">🎙️ This criterion focuses purely on the sides. If you can show that all three pairs of corresponding sides have the same ratio, then the triangles are similar. This means one triangle is simply an enlargement or reduction of the other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Side Ratio Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example: Applying <span class="hl">SSS Similarity</span></h2>
+          <ul><li>ΔABC: AB=3, BC=4, CA=5.</li><li>ΔPQR: PQ=6, QR=8, RP=10.</li><li>Are they similar? Find the ratio.</li></ul>
+          <p class="notes">🎙️ Let's check the ratios: 3/6 = 1/2, 4/8 = 1/2, 5/10 = 1/2. Since all corresponding side ratios are equal to 1/2, by SSS similarity, ΔABC ~ ΔPQR. The ratio of similarity is 1:2.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">SAS Similarity</span> Criterion (Side-Angle-Side)</h2>
+          <ul><li>One angle equal, and the sides including that angle proportional.</li><li>If ∠A = ∠D AND AB/DE = AC/DF, then ΔABC ~ ΔDEF.</li></ul>
+          <p class="notes">🎙️ SAS similarity is a combination. You need one pair of equal corresponding angles, AND the two sides that 'include' or 'form' that angle must be proportional. This is a very common and useful criterion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐↔️</div><div class="vcap">Angle-Side Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Worked Example: Applying <span class="hl">SAS Similarity</span></h2>
+          <ul><li>ΔABC: AB=4, AC=6, ∠A=50°.</li><li>ΔPQR: PQ=8, PR=12, ∠P=50°.</li><li>Are they similar?</li></ul>
+          <p class="notes">🎙️ Here, ∠A = ∠P = 50°. Now check the sides including these angles: AB/PQ = 4/8 = 1/2. AC/PR = 6/12 = 1/2. Since the included angles are equal and the corresponding sides are proportional, by SAS similarity, ΔABC ~ ΔPQR.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Quick Check 1: Are these triangles similar?</h2>
+          <ul><li>Triangle 1: Angles 70°, 50°.</li><li>Triangle 2: Angles 70°, 60°.</li><li>Yes / No / Cannot say</li></ul>
+          <p class="notes">🎙️ Think about the AAA criterion. If two angles are known, can you determine the third? Compare the angles carefully. What's the third angle for Triangle 1? What about Triangle 2? Are they the same?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick Check 2: Find the missing side 'x'.</h2>
+          <ul><li>ΔABC ~ ΔDEF.</li><li>AB=3, BC=5, DE=6, EF=x.</li><li>x = ?</li></ul>
+          <p class="notes">🎙️ Since the triangles are similar, their corresponding sides must be proportional. Set up a ratio: AB/DE = BC/EF. Substitute the given values and solve for x. This is a direct application of the side proportionality rule.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Basic Proportionality Theorem (<span class="hl">BPT</span>) / Thales Theorem</h2>
+          <ul><li>If a line is drawn parallel to one side of a triangle, it divides the other two sides proportionally.</li><li>If DE || BC, then AD/DB = AE/EC.</li></ul>
+          <p class="notes">🎙️ This is a fundamental theorem! It tells us that when a line inside a triangle is parallel to one of its sides, it creates a smaller similar triangle and divides the other two sides into segments that are in proportion. This is extremely useful for finding unknown lengths.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Parallel Line Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: <span class="hl">Applying BPT</span></h2>
+          <ul><li>In ΔABC, DE || BC.</li><li>AD=3cm, DB=6cm, AE=2cm.</li><li>Find EC.</li></ul>
+          <p class="notes">🎙️ Using the BPT, we know that AD/DB = AE/EC. Substitute the given values: 3/6 = 2/EC. Now, solve this proportion for EC. You'll find that EC is 4 cm. This demonstrates how BPT helps us find unknown lengths.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Converse of Basic Proportionality Theorem</h2>
+          <ul><li>If a line divides any two sides of a triangle proportionally, then the line is parallel to the third side.</li><li>If AD/DB = AE/EC, then DE || BC.</li></ul>
+          <p class="notes">🎙️ The converse of BPT is equally important. It allows us to prove that a line segment is parallel to another side if we can show that it divides the other two sides in the same ratio. It's like working backwards from the BPT.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Proportionality Implies Parallel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Real-Life Example: Similar Triangles in <span class="hl">Bridge Design</span></h2>
+          <ul><li>Truss structures in bridges use similar triangles.</li><li>Ensures stability and efficient load distribution.</li><li>Scalable designs for different bridge lengths.</li></ul>
+          <p class="notes">🎙️ Engineers use similar triangles extensively in designing strong and stable structures like bridges and roofs. The triangular shapes distribute weight evenly and similar triangles allow them to scale designs up or down while maintaining structural integrity. It's geometry in action!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌉</div><div class="vcap">Strong Structures</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Areas</span> of Similar Triangles: What's the Relationship?</h2>
+          <ul><li>Ratio of areas = (ratio of corresponding sides)²</li><li>Area(ΔABC)/Area(ΔDEF) = (AB/DE)² = (BC/EF)² = (CA/FD)²</li></ul>
+          <p class="notes">🎙️ This is a very important property! When triangles are similar, the ratio of their areas is not just the ratio of their sides, but the square of the ratio of their corresponding sides. This makes sense because area is a two-dimensional measurement.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Area Scaling</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Worked Example: Calculating <span class="hl">Area Ratio</span></h2>
+          <ul><li>ΔABC ~ ΔPQR.</li><li>AB/PQ = 2/3.</li><li>Find Area(ΔABC) / Area(ΔPQR).</li></ul>
+          <p class="notes">🎙️ Using the theorem we just learned, the ratio of the areas will be the square of the ratio of their corresponding sides. So, (2/3) squared is 4/9. This means the area of ΔABC is 4/9ths the area of ΔPQR.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: What Did We Learn Today?</h2>
+          <ul><li>Similar figures have the same shape, different size.</li><li>AAA, SSS, SAS are criteria for similarity.</li><li>BPT and its converse for parallel lines and proportionality.</li><li>Ratio of areas is the square of the ratio of sides.</li></ul>
+          <p class="notes">🎙️ Excellent work, everyone! We covered a lot today. Remember, similar triangles are powerful tools for solving real-world problems. Keep practicing the criteria and theorems. Understanding these basics will build a strong foundation for future geometry topics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Key Concepts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Challenge</span> &amp; Next Steps!</h2>
+          <ul><li>Can two equilateral triangles of different sizes ever NOT be similar?</li><li>Practice problems from your textbook!</li><li>Prepare for advanced theorems on similar triangles.</li></ul>
+          <p class="notes">🎙️ Think about the properties of equilateral triangles and the similarity criteria. For your next steps, make sure to practice the exercises in your TS Board textbook to solidify your understanding. We'll explore more advanced concepts in our next class!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

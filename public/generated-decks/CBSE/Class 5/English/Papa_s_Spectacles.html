@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Papa's Spectacles — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to "<span class="hl">Papa's Spectacles</span>"!</h2>
-          <ul><li>Let's read a fun story!</li><li>About Papa and his special glasses.</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going to dive into a lovely story about a kind Papa and his very important spectacles. Get ready to enjoy a tale of a little mystery and a lot of love!</p>
+          <h2>Papa's <span class="hl">Spectacles</span>: A Fun Story!</h2>
+          <ul><li>Let's read a story today.</li><li>It's about Papa and his special glasses.</li></ul>
+          <p class="notes">🎙️ Hello, children! Today we will read a lovely story about a Papa and his spectacles. It's a fun adventure about finding something important. Let's begin our story!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>Meet <span class="hl">Papa</span>!</h2>
-          <ul><li>Papa is a kind man.</li><li>He loves to read books and newspapers.</li></ul>
-          <p class="notes">🎙️ This is Papa. He is a very sweet and gentle person. Every day, he enjoys reading stories and knowing what's happening in the world. Reading is his favorite hobby!</p>
+          <ul><li>This is Papa.</li><li>He loves to read books.</li></ul>
+          <p class="notes">🎙️ This is Papa. He is a kind and loving father. Papa loves to read books and newspapers every day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🦳</div><div class="vcap">Kind Papa</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👴</div><div class="vcap">Our kind Papa</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 20</span>
           <h2>What are <span class="hl">Spectacles</span>?</h2>
-          <ul><li>Spectacles are glasses.</li><li>They help us see things clearly.</li></ul>
-          <p class="notes">🎙️ Spectacles are also called eyeglasses. They are special glasses that some people wear to see things better. If something looks blurry, spectacles make it clear!</p>
+          <ul><li>Spectacles help us see clearly.</li><li>They are also called glasses.</li></ul>
+          <p class="notes">🎙️ Spectacles help people see things clearly. They are also called glasses. Many grandmas and grandpas wear them to read or see far away.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👓</div><div class="vcap">Eyeglasses</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👓</div><div class="vcap">Glasses for seeing</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Why Papa <span class="hl">Needs</span> His Spectacles</h2>
-          <ul><li>Papa's eyes are a bit weak.</li><li>He needs his spectacles to read.</li></ul>
-          <p class="notes">🎙️ Just like some of us need help to run fast, Papa needs help to see tiny letters. His spectacles are like magic tools that make everything sharp and easy to read for him.</p>
+          <h2>Papa <span class="hl">Needs</span> His Spectacles</h2>
+          <ul><li>Papa needs them to read.</li><li>Without them, words look blurry.</li></ul>
+          <p class="notes">🎙️ Papa needs his spectacles to read his books and the newspaper. Without them, the words look blurry. He cannot enjoy his reading time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Clear Sight</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📖</span><span>📖</span><span>📖</span></div><div class="vcap">Books for reading</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Papa's <span class="hl">Morning Joy</span></h2>
-          <ul><li>Every morning, Papa reads the newspaper.</li><li>He always wears his spectacles.</li></ul>
-          <p class="notes">🎙️ Imagine Papa sitting comfortably, sipping his tea, and reading the newspaper. This is how he starts his day, always with his spectacles firmly on his nose, helping him see every word.</p>
+          <h2>Oh No! Spectacles are <span class="hl">Missing</span>!</h2>
+          <ul><li>One day, Papa's spectacles were gone!</li><li>He looked everywhere.</li></ul>
+          <p class="notes">🎙️ One morning, Papa wanted to read. But his spectacles were not on the table! He looked everywhere, but they were gone.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📰</div><div class="vcap">Reading News</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Where are they?</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,69 +120,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Oh No! Spectacles are <span class="hl">Lost</span>!</h2>
-          <ul><li>One morning, Papa couldn't find them.</li><li>He looked everywhere, but they were gone!</li></ul>
-          <p class="notes">🎙️ One day, something unusual happened. Papa woke up, ready to read, but his spectacles were nowhere to be found! He felt a little worried, as he couldn't see anything properly without them.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😟</div><div class="vcap">Worried Papa</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2><span class="hl">Where</span> Could They Be?</h2>
-          <ul><li>Papa started searching.</li><li>He looked on his bed, and by his chair.</li></ul>
-          <p class="notes">🎙️ Papa began his search. He checked all the usual spots where he kept them. He looked on his bedside table, under his pillow, and next to his favorite armchair. But no spectacles!</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🔍" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Family <span class="hl">Helps</span> Papa</h2>
-          <ul><li>His children came to help.</li><li>They wanted to find Papa's spectacles too.</li></ul>
-          <p class="notes">🎙️ When Papa looked worried, his loving children came to his rescue. They knew how important the spectacles were to him, and they all joined the hunt to find them.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span></div><div class="vcap">Helping Hands</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Searching in the <span class="hl">Living Room</span></h2>
-          <ul><li>They searched under the sofa.</li><li>They looked behind the cushions.</li></ul>
-          <p class="notes">🎙️ The family started their search in the living room, a place where Papa often sat. They carefully checked under the big sofa and felt behind all the soft cushions, hoping to find the lost glasses.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛋️</div><div class="vcap">Sofa Search</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>Searching in the <span class="hl">Kitchen</span></h2>
-          <ul><li>Next, they checked the kitchen.</li><li>Maybe Papa took them there by mistake?</li></ul>
-          <p class="notes">🎙️ Sometimes, things end up in unexpected places! So, they moved their search to the kitchen. They looked near the breakfast table and on the counter, just in case Papa had left them there.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍳</div><div class="vcap">Kitchen Hunt</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>Where do you sometimes misplace your things?</li><li>Is it under your bed or on a shelf?</li></ul>
-          <p class="notes">🎙️ Think about it, children. Have you ever lost something important, like a pencil or a toy? Where do you usually find it? Sometimes, things are right in front of us!</p>
+          <h2>Where Do Things Go <span class="hl">Missing</span>?</h2>
+          <ul><li>Our things sometimes get lost too.</li><li>Like pencils or one sock!</li></ul>
+          <p class="notes">🎙️ Sometimes, our things go missing too, right? Like a pencil or one sock! It's tricky to find them sometimes. Let's think where they could be.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📖" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
@@ -178,12 +131,72 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 20</span>
-          <h2><span class="hl">Under the Bed</span></h2>
-          <ul><li>They looked under Papa's bed.</li><li>It's a common place for things to roll!</li></ul>
-          <p class="notes">🎙️ The children even looked under Papa's bed, a popular spot for small things to disappear. They peered into the dark corners, hoping to spot the shining spectacles there.</p>
+          <span class="num">7 / 20</span>
+          <h2>The Family Helps <span class="hl">Search</span></h2>
+          <ul><li>Papa's children, Rani and Raju, helped.</li><li>They wanted Papa to be happy.</li></ul>
+          <p class="notes">🎙️ Papa's children, Rani and Raju, wanted to help him. They knew Papa was sad without his spectacles. So, they started looking too!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛏️</div><div class="vcap">Bed Search</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Family helping</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Looking on the <span class="hl">Table</span></h2>
+          <ul><li>First, they looked on the dining table.</li><li>Papa often kept them there.</li></ul>
+          <p class="notes">🎙️ First, they looked on the dining table. Papa usually kept them there. But the spectacles were not there.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍽️</span><span>🍽️</span></div><div class="vcap">Dining table</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>Checking Under the <span class="hl">Sofa</span></h2>
+          <ul><li>Next, they checked under the sofa.</li><li>Small things often slip inside.</li></ul>
+          <p class="notes">🎙️ Next, they looked under the sofa cushions. Sometimes small things slip inside. But still, no spectacles!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛋️</div><div class="vcap">Under the sofa</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 20</span>
+          <h2>Near Papa's <span class="hl">Bedside</span></h2>
+          <ul><li>They looked near Papa's bed.</li><li>He reads there before sleeping.</li></ul>
+          <p class="notes">🎙️ They also checked near Papa's bed. He often reads before sleeping. But they weren't there either.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛏️</div><div class="vcap">Next to the bed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2>Be a Little <span class="hl">Detective</span>!</h2>
+          <ul><li>To find lost things, think like a detective.</li><li>Where did you last see it?</li></ul>
+          <p class="notes">🎙️ When something is lost, we need to think like a detective. Where did I see it last? What was I doing? This helps us find things.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕵️</div><div class="vcap">Think like a detective</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2>Rani Has a <span class="hl">Clever Idea</span>!</h2>
+          <ul><li>Rani remembered something.</li><li>Papa played with Rahul yesterday.</li></ul>
+          <p class="notes">🎙️ Rani remembered something. Papa was playing with his grandson, Rahul, yesterday. Rahul loves to play hide-and-seek.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">A bright idea</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>On the <span class="hl">Dining Table</span></h2>
-          <ul><li>They checked the dining table.</li><li>Papa often reads there too.</li></ul>
-          <p class="notes">🎙️ Papa sometimes reads while eating, so they also checked the dining table. They looked amongst the plates and glasses, but still, no spectacles were found. The mystery continued!</p>
+          <h2>The <span class="hl">Surprise</span> Spot!</h2>
+          <ul><li>They looked in Rahul's toy box.</li><li>And there they were! Next to a teddy bear!</li></ul>
+          <p class="notes">🎙️ Rani and Raju went to Rahul's toy box. And guess what? Papa's spectacles were inside, next to a teddy bear! Rahul must have played with them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Table Check</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧸</div><div class="vcap">Inside the toy box</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>A <span class="hl">Clever Idea</span>!</h2>
-          <ul><li>Papa's little daughter had an idea.</li><li>She looked at Papa very closely.</li></ul>
-          <p class="notes">🎙️ Just when everyone was feeling a bit tired, Papa's youngest daughter, a very clever little girl, looked at her Papa with new eyes. She had a thought, a very simple one!</p>
+          <h2>Papa is So <span class="hl">Happy</span>!</h2>
+          <ul><li>Papa was so relieved.</li><li>He hugged Rani and Raju.</li></ul>
+          <p class="notes">🎙️ Papa was so relieved and happy to get his spectacles back. He hugged Rani and Raju. Now he could read his newspaper again!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👧</div><div class="vcap">Smart Girl</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div><div class="vcap">Papa is smiling</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,35 +228,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">Found Them</span>! Where Were They?</h2>
-          <ul><li>The spectacles were on Papa's head!</li><li>He had pushed them up by mistake.</li></ul>
-          <p class="notes">🎙️ And guess what? The little girl giggled! The spectacles were not lost at all! Papa had simply pushed them up onto his head without realizing, and they were sitting there all along!</p>
+          <h2>What Did We <span class="hl">Learn</span>?</h2>
+          <ul><li>Helping family makes everyone happy.</li><li>Lost things can be in funny places!</li></ul>
+          <p class="notes">🎙️ We learned that helping our family makes everyone happy. And sometimes, lost things are in the funniest places! Always check where you last used it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤦‍♂️</div><div class="vcap">On His Head!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Learning new things</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Papa's <span class="hl">Big Smile</span></h2>
-          <ul><li>Papa laughed and thanked his family.</li><li>He was so happy to see clearly again.</li></ul>
-          <p class="notes">🎙️ Papa felt a little silly but mostly very happy. He thanked his clever daughter and his whole family for helping him. Now he could read his newspaper again with a big smile!</p>
+          <h2>Quick <span class="hl">Question</span> 1</h2>
+          <ul><li>Who lost his spectacles in the story?</li></ul>
+          <p class="notes">🎙️ Let's see if you remember the story! Think about who needed the spectacles to read his books.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div><div class="vcap">Happy Papa</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>What Did We <span class="hl">Learn</span>?</h2>
-          <ul><li>Sometimes, things are right in front of us.</li><li>Always check carefully!</li></ul>
-          <p class="notes">🎙️ This story teaches us a valuable lesson. Sometimes, when we lose something, it's actually very close by. We just need to look carefully and maybe ask for help!</p>
+          <h2>Quick <span class="hl">Question</span> 2</h2>
+          <ul><li>Who helped Papa find his spectacles?</li></ul>
+          <p class="notes">🎙️ Papa was sad, but his family helped him. Can you recall who helped him look for them?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Thinking Time</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Question Two</span>!</h2>
-          <ul><li>What did Papa need his spectacles for?</li><li>Was it for playing or for reading?</li></ul>
-          <p class="notes">🎙️ Let's test our memory! Can you remember why Papa needed his spectacles so much? Was it to play games, or for a different important activity?</p>
+          <h2>Quick <span class="hl">Question</span> 3</h2>
+          <ul><li>Where were Papa's spectacles finally found?</li></ul>
+          <p class="notes">🎙️ This was a tricky one! Remember the surprise spot where they found the spectacles.</p>
         </div>
         
       </div>
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Question Three</span>!</h2>
-          <ul><li>Who helped Papa find his spectacles?</li><li>Was it a friend or his family?</li></ul>
-          <p class="notes">🎙️ One last question! Who were the wonderful people who joined Papa in his search and finally found his lost spectacles? Think about the story!</p>
+          <h2><span class="hl">Recap</span>: Papa's Spectacles</h2>
+          <ul><li>Papa lost his reading spectacles.</li><li>Rani and Raju helped him search.</li><li>They found them in Rahul's toy box.</li><li>Papa was very happy!</li></ul>
+          <p class="notes">🎙️ We had a wonderful time reading about Papa's spectacles. It taught us about helping each other and being observant.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Papa's Spectacles</h2>
-          <ul><li>Papa lost his spectacles.</li><li>His family helped him search.</li><li>They were on his head all along!</li><li>Always look carefully!</li></ul>
-          <p class="notes">🎙️ So, we learned about Papa, his important spectacles, and the big search. Remember, sometimes the answer is simpler than we think, and it's always good to have family by your side!</p>
+          <h2><span class="hl">Thank You</span>, Children!</h2>
+          <ul><li>Hope you enjoyed the story!</li><li>See you next time!</li></ul>
+          <p class="notes">🎙️ That's the end of our story, 'Papa's Spectacles.' I hope you enjoyed it and learned something new today. See you next time!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👋</div><div class="vcap">Goodbye for now</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Chemical Kinetics: Understanding Reaction Speed — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Chemical Kinetics: Understanding Reaction Rates — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Chemical Kinetics</span>: Understanding Reaction Speed</h2>
-          <ul><li>How fast do reactions happen?</li><li>Why do some reactions take seconds, others years?</li><li>Predicting and controlling reaction rates.</li></ul>
-          <p class="notes">🎙️ Welcome to our deep dive into Chemical Kinetics, a fascinating branch of chemistry that answers the 'how fast' question about chemical reactions. Today, we'll explore the factors that influence reaction speeds and learn to quantify them.</p>
+          <h2>Chemical <span class="hl">Kinetics</span>: The Speed of Reactions</h2>
+          <ul><li>Study of reaction rates and their mechanisms.</li><li>Why some reactions are fast (explosions) and others slow (rusting).</li><li>Factors influencing reaction speed.</li><li>Predicting reaction pathways and optimizing processes.</li></ul>
+          <p class="notes">🎙️ Welcome to our chapter on Chemical Kinetics! This field of chemistry is all about understanding how fast chemical reactions occur and what factors can influence their speed. It's crucial for predicting reaction outcomes and designing efficient chemical processes.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is Chemical <span class="hl">Kinetics</span>?</h2>
-          <ul><li>Study of reaction rates.</li><li>Mechanisms of reactions.</li><li>Factors influencing rates.</li></ul>
-          <p class="notes">🎙️ Chemical Kinetics is all about understanding the speed at which reactants transform into products. It helps us not just measure the rate, but also understand the step-by-step pathway reactions take and what makes them faster or slower.</p>
+          <h2>What is Reaction <span class="hl">Rate</span>?</h2>
+          <ul><li>Change in concentration of reactant or product per unit time.</li><li>Expressed as Δ[Concentration]/Δt.</li><li>Units: mol L⁻¹ s⁻¹ or M s⁻¹.</li><li>Rate is always positive, even for reactant consumption.</li></ul>
+          <p class="notes">🎙️ The reaction rate quantifies how quickly reactants are consumed or products are formed. It's essentially the change in concentration over a specific time interval. Remember, by convention, the rate is always reported as a positive value.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Time &amp; Change</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reaction_Energy_Diagram_with_and_without_Catalyst.svg?width=500" data-fb="⏱️" alt="Reaction rate depends on collision frequency and activation energy. Arrhenius equation qua"/><div class="vcap">Reaction rate depends on collision frequency and activation energy. Arrhenius equation qua</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Why Study Kinetics? <span class="hl">Real-world</span> applications</h2>
-          <ul><li>Designing faster industrial processes.</li><li>Preserving food &amp; medicines.</li><li>Drug delivery and efficacy.</li><li>Environmental processes.</li></ul>
-          <p class="notes">🎙️ From manufacturing plastics to developing new drugs, kinetics is crucial. It allows us to optimize industrial reactions, ensure the stability of products, and even understand complex biological and environmental cycles.</p>
+          <h2>Average vs. <span class="hl">Instantaneous</span> Rate</h2>
+          <ul><li>Average Rate: Measured over a long time interval.</li><li>Average Rate = -Δ[R]/Δt or +Δ[P]/Δt.</li><li>Instantaneous Rate: Rate at a specific moment in time.</li><li>Instantaneous Rate = -d[R]/dt or +d[P]/dt (slope of tangent).</li></ul>
+          <p class="notes">🎙️ We distinguish between average rate, which is an overall rate over a period, and instantaneous rate, which gives us the precise speed at a single point in time. Instantaneous rate is often more useful for understanding reaction mechanisms.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚀</span><span>🚀</span><span>🚀</span></div><div class="vcap">Faster, Better, Safer</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Average</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Instantaneous</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Defining Reaction <span class="hl">Rate</span></h2>
-          <ul><li>Change in concentration of reactant/product.</li><li>Per unit time.</li><li>Expressed as -Δ[R]/Δt or +Δ[P]/Δt.</li></ul>
-          <p class="notes">🎙️ The rate of a reaction quantifies how quickly reactants are consumed or products are formed. It's essentially the change in concentration of a species divided by the time taken for that change.</p>
+          <h2><span class="hl">Stoichiometry</span> and Reaction Rate</h2>
+          <ul><li>Rates of consumption/formation depend on stoichiometric coefficients.</li><li>For aA + bB → cC + dD:</li><li>Rate = -1/a d[A]/dt = -1/b d[B]/dt = +1/c d[C]/dt = +1/d d[D]/dt.</li><li>Ensures a single, consistent rate for the overall reaction.</li></ul>
+          <p class="notes">🎙️ Stoichiometry plays a crucial role in relating the rates of individual species to the overall reaction rate. We divide by the stoichiometric coefficient to normalize the rate, ensuring a consistent value for the entire reaction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Concentration over Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚖️</span><span>⚖️</span><span>⚖️</span></div><div class="vcap">Balanced Reaction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Average vs. <span class="hl">Instantaneous</span> Rate</h2>
-          <ul><li>Average: Over a finite time interval.</li><li>Instantaneous: At a specific moment in time.</li><li>Instantaneous rate is the slope of tangent.</li></ul>
-          <p class="notes">🎙️ Imagine driving a car: your average speed over a journey is different from your speed at a specific moment. Similarly, average rate is calculated over a time period, while instantaneous rate is the rate at a precise point in time, often more relevant for understanding mechanisms.</p>
+          <h2><span class="hl">Factors</span> Affecting Reaction Rate</h2>
+          <ul><li>Concentration of Reactants.</li><li>Temperature.</li><li>Presence of a Catalyst.</li><li>Surface Area of Reactants (for heterogeneous reactions).</li></ul>
+          <p class="notes">🎙️ Several key factors can significantly alter how fast a reaction proceeds. Understanding these allows us to control and optimize reaction conditions, which is essential in industrial and laboratory settings.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Average Rate</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Instantaneous Rate</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Influencing Factors</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Units</span> of Reaction Rate</h2>
-          <ul><li>Concentration per unit time.</li><li>Commonly mol L⁻¹ s⁻¹.</li><li>For gases, atm s⁻¹ or bar s⁻¹.</li></ul>
-          <p class="notes">🎙️ Since rate involves change in concentration over time, its standard unit is moles per liter per second. For gaseous reactions, we often use pressure units like atmospheres or bars per second.</p>
+          <h2>Effect of <span class="hl">Concentration</span></h2>
+          <ul><li>Higher concentration, generally faster reaction.</li><li>More reactant molecules lead to more frequent collisions.</li><li>Directly incorporated into the Rate Law expression.</li><li>Not all reactions are equally sensitive to concentration changes.</li></ul>
+          <p class="notes">🎙️ Increasing the concentration of reactants typically increases the reaction rate. This is because there are more reactant particles per unit volume, leading to a higher probability of effective collisions, which are necessary for a reaction to occur.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Speed</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span></div><div class="vcap">More molecules, more collisions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Key <span class="hl">Factors</span> Affecting Rate</h2>
-          <ul><li>Concentration of reactants.</li><li>Temperature.</li><li>Presence of catalyst.</li><li>Surface area (for solids) &amp; Pressure (for gases).</li></ul>
-          <p class="notes">🎙️ Many factors can influence how fast a reaction proceeds. We'll explore four major ones today: the amount of reactants present, the temperature, the role of catalysts, and for specific reactions, surface area or pressure.</p>
+          <h2><span class="hl">Rate Law</span> Expression</h2>
+          <ul><li>Mathematical expression relating rate to reactant concentrations.</li><li>Rate = k[A]ˣ[B]ʸ.</li><li>Exponents x and y are orders with respect to A and B.</li><li>Determined experimentally, not from stoichiometric coefficients.</li></ul>
+          <p class="notes">🎙️ The Rate Law is a fundamental concept. It's an experimentally determined equation that shows how the reaction rate depends on the concentrations of reactants. Crucially, the exponents in the rate law are not necessarily the stoichiometric coefficients.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚙️</span><span>⚙️</span><span>⚙️</span><span>⚙️</span></div><div class="vcap">Rate Controllers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Mathematical Relation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Factor 1: <span class="hl">Concentration</span>'s Influence</h2>
-          <ul><li>Higher concentration, more collisions.</li><li>Increased collision frequency.</li><li>Leads to faster reaction rate.</li></ul>
-          <p class="notes">🎙️ Think of a crowded room. The more people there are, the more likely they are to bump into each other. Similarly, higher reactant concentration means more particles per unit volume, leading to more frequent collisions and thus a faster reaction.</p>
+          <h2>Rate <span class="hl">Constant</span> (k)</h2>
+          <ul><li>Proportionality constant in the rate law.</li><li>Independent of reactant concentrations.</li><li>Specific for a reaction at a given temperature.</li><li>Units depend on the overall order of the reaction.</li></ul>
+          <p class="notes">🎙️ The rate constant 'k' is a measure of the reaction's intrinsic speed. A larger 'k' means a faster reaction. Its value is unique for a particular reaction at a specific temperature and its units vary depending on the reaction order.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span></div><div class="vcap">More Particles, More Collisions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Proportionality Factor</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Factor 2: <span class="hl">Temperature</span>'s Influence</h2>
-          <ul><li>Higher temperature, higher kinetic energy.</li><li>More effective collisions.</li><li>Significant increase in rate (often doubles for every 10°C rise).</li></ul>
-          <p class="notes">🎙️ Increasing temperature gives reactant molecules more kinetic energy. This means they move faster and collide more forcefully. Crucially, a larger fraction of collisions will have energy equal to or greater than the activation energy, leading to a much faster rate.</p>
+          <h2><span class="hl">Order</span> of Reaction</h2>
+          <ul><li>Sum of the exponents in the rate law expression (x + y).</li><li>Can be zero, integer, or fractional.</li><li>Determined experimentally.</li><li>Indicates sensitivity of rate to concentration changes.</li></ul>
+          <p class="notes">🎙️ The order of reaction is a very important characteristic. It tells us how the rate changes when reactant concentrations are varied. Remember, it's an experimentally determined value and can be fractional or even zero.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Energy Boost</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Sum of Exponents</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Factor 3: Role of a <span class="hl">Catalyst</span></h2>
-          <ul><li>Substance that alters reaction rate.</li><li>Without being consumed.</li><li>Provides an alternate reaction pathway.</li></ul>
-          <p class="notes">🎙️ A catalyst is a remarkable substance that can significantly speed up a reaction without itself being used up. It does this by offering a different, lower-energy pathway for the reaction to occur, effectively reducing the activation energy.</p>
+          <h2><span class="hl">Molecularity</span> of a Reaction</h2>
+          <ul><li>Number of reacting species (atoms, ions, molecules) in an elementary step.</li><li>Always a positive integer (1, 2, or 3).</li><li>Cannot be zero, fractional, or greater than three.</li><li>Defined only for elementary reactions.</li></ul>
+          <p class="notes">🎙️ Molecularity refers to the number of molecules participating in a single step of a reaction mechanism. It's a theoretical concept, always a whole number, and applies only to elementary reactions, not complex ones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Speed Booster</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transformer3d_col3.svg?width=500" data-fb="🧪" alt="A transformer changes AC voltage from one level to another using electromagnetic induction"/><div class="vcap">A transformer changes AC voltage from one level to another using electromagnetic induction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Factor 4: <span class="hl">Surface Area</span> &amp; Pressure</h2>
-          <ul><li>Solids: Increased surface area, faster rate.</li><li>Gases: Increased pressure (concentration), faster rate.</li><li>More contact points for reaction.</li></ul>
-          <p class="notes">🎙️ For reactions involving solid reactants, breaking them into smaller pieces increases their surface area, providing more sites for reaction. For gaseous reactions, increasing pressure is equivalent to increasing concentration, leading to more frequent collisions.</p>
+          <h2>Order vs. Molecularity: Key <span class="hl">Differences</span></h2>
+          <ul><li>Order: Experimental, for elementary or complex reactions, can be 0/fractional.</li><li>Molecularity: Theoretical, only for elementary reactions, always integer.</li><li>Order refers to overall reaction; Molecularity to each step.</li><li>Order can change with conditions; Molecularity is fixed.</li></ul>
+          <p class="notes">🎙️ This slide highlights crucial distinctions. Order is an experimental observation, while molecularity is a theoretical concept based on the reaction mechanism. Students often confuse these, so it's important to differentiate clearly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Contact Matters</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Order</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Molecularity</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,57 +192,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>The <span class="hl">Rate Law</span> Expression</h2>
-          <ul><li>Mathematical relationship.</li><li>Relates rate to reactant concentrations.</li><li>Rate = k[A]ˣ[B]ʸ.</li></ul>
-          <p class="notes">🎙️ The rate law is a crucial mathematical expression that quantitatively links the reaction rate to the concentrations of the reactants. The exponents in the rate law, 'x' and 'y', are not necessarily the stoichiometric coefficients but are determined experimentally.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Mathematical Model</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Order</span> of Reaction</h2>
-          <ul><li>Sum of the powers of concentration terms.</li><li>In the rate law expression.</li><li>Determined experimentally, can be 0, 1, 2, or fractional.</li></ul>
-          <p class="notes">🎙️ The order of reaction tells us how the rate depends on the concentration of each reactant. It's the sum of the exponents in the rate law and is always determined experimentally, never from the balanced chemical equation directly.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Rate Law</span></div><div class="step"><span class="snum">2</span><span>Sum Exponents</span></div><div class="step"><span class="snum">3</span><span>Overall Order</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Molecularity</span> vs. Order</h2>
-          <ul><li>Molecularity: Number of reacting species in an elementary step.</li><li>Order: Sum of powers of concentration terms in rate law.</li><li>Molecularity is theoretical, Order is experimental.</li></ul>
-          <p class="notes">🎙️ This is a common point of confusion. Molecularity refers to the number of molecules involved in a single, elementary step of a reaction mechanism. Order, on the other hand, is an experimentally determined value that describes the overall concentration dependence of the rate.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Molecularity</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Order</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2><span class="hl">Worked Example</span>: Determining Rate Law</h2>
-          <ul><li>Given experimental data (initial rates vs. concentrations).</li><li>Determine reaction order for each reactant.</li><li>Write the overall rate law expression.</li></ul>
-          <p class="notes">🎙️ Let's work through an example to see how we determine the rate law from experimental data. We'll compare how the rate changes when the concentration of one reactant is varied while others are kept constant. This is a common exam question.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Problem Solving</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Zero Order</span> Reactions</h2>
-          <ul><li>Rate is independent of reactant concentration.</li><li>Rate = k[A]⁰ = k.</li><li>Integrated rate law: [A] = [A]₀ - kt.</li></ul>
-          <p class="notes">🎙️ In a zero-order reaction, the rate remains constant regardless of how much reactant is present, as long as there's some reactant. This often happens when the reaction is limited by something else, like the availability of active sites on a catalyst.</p>
+          <h2>Integrated Rate Equations: <span class="hl">Zero Order</span></h2>
+          <ul><li>Rate is independent of reactant concentration.</li><li>Rate = k.</li><li>Integrated form: [R] = [R]₀ - kt.</li><li>Plot of [R] vs. t is a straight line with slope -k.</li></ul>
+          <p class="notes">🎙️ For a zero-order reaction, the rate remains constant regardless of how much reactant is present. This is common when a catalyst surface is saturated or when one reactant is in vast excess. The integrated form allows us to calculate concentration at any time.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">0️⃣</div><div class="vcap">Constant Rate</div></div></div>
       </div>
@@ -238,10 +203,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">First Order</span> Reactions</h2>
-          <ul><li>Rate is directly proportional to reactant concentration.</li><li>Rate = k[A]¹.</li><li>Integrated rate law: ln[A] = ln[A]₀ - kt.</li></ul>
-          <p class="notes">🎙️ First-order reactions are very common, especially in radioactive decay. Here, the rate of reaction decreases as the reactant concentration decreases, meaning it's directly proportional to the amount of reactant present.</p>
+          <span class="num">13 / 25</span>
+          <h2>Integrated Rate Equations: <span class="hl">First Order</span></h2>
+          <ul><li>Rate is directly proportional to reactant concentration.</li><li>Rate = k[R].</li><li>Integrated form: ln[R] = ln[R]₀ - kt.</li><li>Plot of ln[R] vs. t is a straight line with slope -k.</li></ul>
+          <p class="notes">🎙️ First-order reactions are very common, especially in radioactive decay. The rate depends linearly on the concentration of one reactant. The integrated rate law is logarithmic, making a plot of ln[R] against time a straight line.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">1️⃣</div><div class="vcap">Proportional Rate</div></div></div>
       </div>
@@ -250,58 +215,46 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Worked Example: First Order <span class="hl">Half-life</span></h2>
-          <ul><li>Half-life (t₁/₂): Time for half of reactant to react.</li><li>For 1st order: t₁/₂ = 0.693/k.</li><li>Calculate half-life given rate constant 'k'.</li></ul>
-          <p class="notes">🎙️ Half-life is a very useful concept, especially for first-order reactions, as it's constant and independent of the initial concentration. This example will show you how to calculate it directly from the rate constant, a frequently asked topic.</p>
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Half-Life</span> (t₁/₂)</h2>
+          <ul><li>Time required for reactant concentration to reduce to half its initial value.</li><li>Zero Order: t₁/₂ = [R]₀ / 2k.</li><li>First Order: t₁/₂ = 0.693 / k (independent of initial concentration).</li><li>Useful for characterizing reaction speed.</li></ul>
+          <p class="notes">🎙️ Half-life is a practical measure of reaction speed. For first-order reactions, it's constant, which is a powerful characteristic. For zero-order, it depends on the initial concentration.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Time to Halve</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2><span class="hl">Quick Check</span>! Question 1</h2>
-          <ul><li>For a reaction 2A + B → C, if the rate law is Rate = k[A][B]², what is the overall order of the reaction?</li><li>A) 1</li><li>B) 2</li><li>C) 3</li><li>D) 4</li></ul>
-          <p class="notes">🎙️ Time for a quick check of your understanding! Remember the definition of overall order of reaction. Take a moment to calculate it based on the given rate law. The correct answer is C, as you sum the exponents: 1 + 2 = 3.</p>
+          <span class="num">15 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: First Order Half-Life</h2>
+          <ul><li>A first-order reaction has a rate constant of 5.5 × 10⁻¹⁴ s⁻¹.</li><li>Calculate its half-life.</li><li>Solution: t₁/₂ = 0.693 / k.</li><li>t₁/₂ = 0.693 / (5.5 × 10⁻¹⁴ s⁻¹) ≈ 1.26 × 10¹³ s.</li></ul>
+          <p class="notes">🎙️ Here's a straightforward application of the first-order half-life formula. Notice how the units cancel out to give seconds. This type of calculation is very common in exams.</p>
         </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Quick Check</span>! Question 2</h2>
-          <ul><li>Which of the following factors generally increases the rate of an endothermic reaction?</li><li>A) Decrease in temperature</li><li>B) Decrease in reactant concentration</li><li>C) Addition of a positive catalyst</li><li>D) Decrease in surface area</li></ul>
-          <p class="notes">🎙️ Another question to test your knowledge of factors affecting reaction rates. Consider each option carefully and recall how each factor influences reaction speed. The correct answer is C, as catalysts always increase reaction rates by lowering activation energy.</p>
-        </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify k</span></div><div class="step"><span class="snum">2</span><span>Apply formula</span></div><div class="step"><span class="snum">3</span><span>Calculate</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Arrhenius</span> Equation: Temperature &amp; Rate</h2>
-          <ul><li>Quantifies temperature's effect on rate constant 'k'.</li><li>k = A e⁻ᴱᵃ/ᴿᵀ.</li><li>A = Arrhenius factor, Eₐ = Activation energy.</li></ul>
-          <p class="notes">🎙️ The Arrhenius equation is a cornerstone of chemical kinetics, mathematically describing how the rate constant, and thus the reaction rate, changes with temperature. It introduces the concepts of activation energy and the frequency factor, both crucial for understanding reaction mechanisms.</p>
+          <span class="num">16 / 25</span>
+          <h2>Effect of <span class="hl">Temperature</span>: Arrhenius Equation</h2>
+          <ul><li>Rate generally increases with temperature.</li><li>Arrhenius equation: k = A e^(-Ea/RT).</li><li>Ea: Activation Energy (minimum energy for effective collision).</li><li>A: Arrhenius factor/Pre-exponential factor (frequency of collisions).</li></ul>
+          <p class="notes">🎙️ Temperature has a profound effect on reaction rates. The Arrhenius equation quantifies this relationship, introducing the crucial concept of activation energy, which is the energy barrier reactants must overcome to form products.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature's Formula</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Energy &amp; Heat</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Activation Energy</span> (Eₐ)</h2>
-          <ul><li>Minimum energy required for reactants to form products.</li><li>Energy barrier for a reaction.</li><li>Catalysts lower activation energy.</li></ul>
-          <p class="notes">🎙️ Think of activation energy as a hill that reactants must climb before they can transform into products. Only collisions with energy equal to or greater than this barrier will be effective in forming products, leading to a successful reaction.</p>
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Activation Energy</span> (Ea)</h2>
+          <ul><li>Minimum extra energy required by reacting molecules to form products.</li><li>Reactants must cross an energy barrier.</li><li>Higher Ea means slower reaction.</li><li>Catalysts lower Ea.</li></ul>
+          <p class="notes">🎙️ Think of activation energy as a hill that molecules must climb before they can react. Only a fraction of molecules possess enough energy to overcome this barrier at any given temperature. Catalysts work by providing an alternative, lower energy pathway.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Energy Barrier</div></div></div>
       </div>
@@ -310,12 +263,72 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2><span class="hl">Catalysis</span>: Mechanism &amp; Types</h2>
-          <ul><li>Homogeneous: Catalyst in same phase as reactants.</li><li>Heterogeneous: Catalyst in different phase.</li><li>Enzymes: Biological catalysts.</li></ul>
-          <p class="notes">🎙️ Catalysis is vital in industry and biology. Catalysts work by providing an alternative reaction pathway with a lower activation energy. We distinguish between homogeneous and heterogeneous catalysis based on the phases of reactants and catalyst, with enzymes being a key biological example.</p>
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Collision Theory</span></h2>
+          <ul><li>Reactant molecules must collide to react.</li><li>Collisions must have sufficient energy (Ea) to be effective.</li><li>Molecules must collide with proper orientation.</li><li>Explains factors like concentration and temperature.</li></ul>
+          <p class="notes">🎙️ Collision theory provides a microscopic view of reactions. It states that not all collisions lead to a reaction; only those with enough energy and proper orientation are effective. This helps explain why rates increase with concentration and temperature.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Reactants Adsorb</span></div><div class="step"><span class="snum">2</span><span>Reaction on Surface</span></div><div class="step"><span class="snum">3</span><span>Products Desorb</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💥</span><span>💥</span><span>💥</span><span>💥</span><span>💥</span></div><div class="vcap">Effective Collisions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Effect of <span class="hl">Catalyst</span></h2>
+          <ul><li>Substance that alters reaction rate without being consumed.</li><li>Provides an alternative reaction pathway with lower activation energy.</li><li>Does not change ΔG or equilibrium constant.</li><li>Positive catalysts increase rate; negative catalysts (inhibitors) decrease rate.</li></ul>
+          <p class="notes">🎙️ Catalysts are fascinating! They act as shortcuts, lowering the energy barrier, thereby speeding up reactions. Remember, they participate in the reaction but are regenerated, and they don't affect the thermodynamics of the reaction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Speed Booster</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Real-Life</span> Examples of Kinetics</h2>
+          <ul><li>Food spoilage (slow reaction, slowed by refrigeration).</li><li>Rusting of iron (slow oxidation, prevented by coating).</li><li>Enzyme activity in biology (biological catalysts).</li><li>Industrial production of ammonia (Haber process, optimized conditions).</li></ul>
+          <p class="notes">🎙️ Chemical kinetics isn't just theoretical; it's all around us! From preserving food to designing industrial processes and understanding biological functions, the principles of reaction rates are applied daily.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🧪" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Question 1</span>: Rate Law</h2>
+          <ul><li>For a reaction 2A + B → C, if the rate law is Rate = k[A]¹[B]⁰, what is the overall order?</li><li>A) 0</li><li>B) 1</li><li>C) 2</li><li>D) 3</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the definition of overall reaction order from the rate law expression. This is a common type of question that tests your understanding of the basics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Question 2</span>: Half-Life</h2>
+          <ul><li>Which order reaction has a half-life independent of initial concentration?</li><li>A) Zero Order</li><li>B) First Order</li><li>C) Second Order</li><li>D) All Orders</li></ul>
+          <p class="notes">🎙️ This question checks your memory of the half-life formulas for different reaction orders. Understanding this distinction is key for identifying reaction types from experimental data.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Question 3</span>: Catalyst Function</h2>
+          <ul><li>How does a catalyst increase the rate of a reaction?</li><li>A) Increases activation energy.</li><li>B) Increases temperature.</li><li>C) Provides an alternative pathway with lower activation energy.</li><li>D) Changes the equilibrium constant.</li></ul>
+          <p class="notes">🎙️ This question probes your understanding of how catalysts fundamentally work. It's important to remember what catalysts do and, just as importantly, what they do not do.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Chemical Kinetics</h2>
-          <ul><li>Rate of reaction &amp; its factors.</li><li>Rate Law, Order, Molecularity.</li><li>Integrated rate laws (0 &amp; 1st order).</li><li>Arrhenius Equation &amp; Activation Energy.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember, chemical kinetics helps us understand how fast reactions occur, what influences their speed, and how to mathematically describe their behavior using concepts like rate laws, reaction order, and activation energy. These are all crucial for your exams.</p>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Reaction rate: Change in concentration over time.</li><li>Rate Law: Experimental expression for rate dependence on concentration.</li><li>Order vs. Molecularity: Experimental vs. Theoretical.</li><li>Integrated Rate Laws &amp; Half-Life for 0 and 1st order.</li><li>Arrhenius Equation: Temperature, Activation Energy, Catalyst effect.</li></ul>
+          <p class="notes">🎙️ We've covered a lot in Chemical Kinetics! Remember these core concepts: defining rate, understanding the rate law and its components, and how temperature and catalysts influence reaction speed. Mastering these will help you ace your exams.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Practice Question</span> for Exam</h2>
-          <ul><li>The decomposition of N₂O₅(g) follows first-order kinetics with a rate constant of 5.0 × 10⁻⁴ s⁻¹ at 45°C.</li><li>Calculate the half-life period for this reaction.</li><li>What would be the time required for 80% completion of the reaction?</li></ul>
-          <p class="notes">🎙️ Here's a typical exam-style question combining concepts we've learned. Use the first-order integrated rate law and half-life formula to solve this problem. This will help you prepare for your CBSE board exams and solidify your understanding.</p>
+          <h2><span class="hl">Thank You</span> &amp; Best Wishes!</h2>
+          <ul><li>Practice numerical problems regularly.</li><li>Understand the graphs for integrated rate laws.</li><li>Focus on the differences between order and molecularity.</li><li>Good luck with your CBSE Class 12 Chemistry exams!</li></ul>
+          <p class="notes">🎙️ Thank you for your attention! Chemical Kinetics is a scoring chapter if you understand the concepts well and practice numerical problems diligently. Keep revising, and you'll do great!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎓</div><div class="vcap">Success Ahead</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

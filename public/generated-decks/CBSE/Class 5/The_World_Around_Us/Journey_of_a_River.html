@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Journey of a River — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to the <span class="hl">Journey</span> of a River!</h2>
-          <ul><li>Today, we will learn about rivers.</li><li>Let's follow a river from start to end!</li><li>It's like a grand adventure.</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we're going on an exciting journey. We will explore how a river begins, what it does along the way, and where it finally goes. Imagine you are a tiny drop of water in the mountains!</p>
+          <h2>Our <span class="hl">River</span> Friend</h2>
+          <ul><li>Rivers are like long, flowing paths of water.</li><li>They are very important for us.</li><li>Let's learn about their amazing journey!</li></ul>
+          <p class="notes">🎙️ Hello, children! Today, we are going to meet a very special friend – the River! Have you ever seen a river? It's a long, watery path that flows through land.</p>
         </div>
         
       </div>
@@ -59,21 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is a <span class="hl">River</span>?</h2>
-          <ul><li>A river is a big stream of water.</li><li>It flows naturally over land.</li><li>It never stops moving!</li></ul>
-          <p class="notes">🎙️ Think of a river as a very long, moving path of water. It's not a small pond; it keeps flowing and flowing, always moving forward. It's a natural wonder that helps many living things.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌊" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">3 / 20</span>
           <h2>Where Does a River <span class="hl">Start</span>?</h2>
-          <ul><li>A river usually starts in mountains.</li><li>Or from high hills.</li><li>This is called the 'Source'.</li></ul>
-          <p class="notes">🎙️ Most rivers begin their journey high up in the mountains or hills. It's like the birthplace of the river. The water here is often very cold and clean.</p>
+          <ul><li>Rivers usually begin high up in the mountains.</li><li>Imagine tall, snowy peaks!</li></ul>
+          <p class="notes">🎙️ Our river friend is born in big, tall mountains. These mountains are so high that their tops are covered in snow, like a white hat!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="⛰️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
@@ -82,12 +83,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 20</span>
-          <h2>How Does a River <span class="hl">Begin</span>?</h2>
-          <ul><li>It starts from melting snow.</li><li>Or from heavy rainfall.</li><li>Tiny drops join together.</li></ul>
-          <p class="notes">🎙️ Imagine snow melting on a mountain top, or heavy rain falling. These tiny drops of water come together. They form small trickles that begin to flow downwards.</p>
+          <span class="num">3 / 20</span>
+          <h2>Tiny Drops, Big Start</h2>
+          <ul><li>The sun melts the snow on mountains.</li><li>Rain also falls there.</li><li>These tiny drops become the river's first water.</li></ul>
+          <p class="notes">🎙️ When the sun shines, the snow on the mountains melts into tiny drops of water. Rain also adds more water. All these tiny drops come together to start our river's journey.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water Drops</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Melting Snow and Rain</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 20</span>
+          <h2><span class="hl">Small</span> Beginnings</h2>
+          <ul><li>The water flows down the mountain slopes.</li><li>It forms small, narrow streams.</li></ul>
+          <p class="notes">🎙️ These little drops don't stay still. They start to flow down the mountain, making tiny, thin paths of water. We call these 'streams'.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🏞️" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">Small Streams</span> Form</h2>
-          <ul><li>Many tiny trickles join.</li><li>They form small streams.</li><li>These streams are narrow and fast.</li></ul>
-          <p class="notes">🎙️ As more water joins, the trickles become bigger. They form small streams, like little watery paths. These streams often flow very quickly over rocks.</p>
+          <h2><span class="hl">Joining</span> Hands</h2>
+          <ul><li>Many small streams meet each other.</li><li>They join together to form a bigger stream.</li><li>It's like friends holding hands!</li></ul>
+          <p class="notes">🎙️ Imagine many small streams running down different parts of the mountain. They all flow towards each other and meet. When they join, they become one bigger stream, just like many small roads joining to make a big road.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Small Stream</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Small Stream</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bigger Stream</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Streams Grow <span class="hl">Bigger</span></h2>
-          <ul><li>More and more streams meet.</li><li>They join each other.</li><li>The water path becomes wider.</li></ul>
-          <p class="notes">🎙️ Just like many small roads join to make a bigger road, many small streams join together. When they combine, the water flow becomes stronger and the stream gets wider. This is how a river starts to form.</p>
+          <h2><span class="hl">Playful</span> River</h2>
+          <ul><li>In the mountains, the river flows very fast.</li><li>It tumbles over rocks and makes waterfalls.</li></ul>
+          <p class="notes">🎙️ When the river is high in the mountains, it's very energetic! It rushes down quickly, sometimes even jumping over rocks to create beautiful waterfalls. It's like a playful child!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Tiny Trickle</span></div><div class="step"><span class="snum">2</span><span>Small Stream</span></div><div class="step"><span class="snum">3</span><span>Bigger Stream</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Fast Flowing Water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>The River Flows <span class="hl">Downhill</span></h2>
-          <ul><li>Water always flows downwards.</li><li>It follows the slope of the land.</li><li>This is because of gravity.</li></ul>
-          <p class="notes">🎙️ Have you ever seen water flow from a tap? It always goes down. Rivers also flow downhill from the mountains, pulled by something called gravity. This keeps the river moving.</p>
+          <h2>River <span class="hl">Near</span> Us</h2>
+          <ul><li>Think about a river or stream near your home.</li><li>It might look calm or fast.</li></ul>
+          <p class="notes">🎙️ Many of us live near a river or a small stream. Have you ever visited one? Some rivers flow gently, while others might be rushing, especially after rain.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Flowing Down</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">House by a River</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>River <span class="hl">Carries Things</span></h2>
-          <ul><li>As it flows, it picks up things.</li><li>It carries soil, sand, and small stones.</li><li>These are called sediments.</li></ul>
-          <p class="notes">🎙️ Imagine a strong current! A river is so powerful that it can pick up and carry many things along its path. It carries tiny bits of soil and even small stones, moving them from one place to another.</p>
+          <h2>Reaching the <span class="hl">Plains</span></h2>
+          <ul><li>As the river leaves the mountains, it reaches flat land called plains.</li><li>Here, it flows slower and becomes wider.</li></ul>
+          <p class="notes">🎙️ After its adventurous journey in the mountains, the river comes down to the flat land where we live. Here, it doesn't have to rush so much. It spreads out and flows more calmly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪨</span><span>🪨</span><span>🪨</span></div><div class="vcap">Stones and Sand</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Flat Plains</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>River <span class="hl">Shapes</span> the Land</h2>
-          <ul><li>The river cuts through rocks.</li><li>It makes valleys and gorges.</li><li>It changes the look of the land.</li></ul>
-          <p class="notes">🎙️ Over many, many years, the flowing water of a river can be very strong. It slowly cuts into the land and rocks, creating beautiful valleys and deep gorges. Rivers are like nature's sculptors.</p>
+          <h2>Carrying <span class="hl">Treasures</span></h2>
+          <ul><li>The river carries small stones, sand, and good soil.</li><li>These are its gifts from the mountains.</li></ul>
+          <p class="notes">🎙️ As the river flows, it picks up many things from the land – tiny stones, sand, and rich soil. It carries these 'treasures' along its journey, making the land fertile.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="⛰️" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Oil_well.jpg?width=480" data-fb="🌍" alt="Crude oil prices affect petrol costs everywhere."/><div class="vcap">Crude oil prices affect petrol costs everywhere.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>River in the <span class="hl">Plains</span></h2>
-          <ul><li>When the river reaches flat land.</li><li>It flows slower and wider.</li><li>It makes gentle curves.</li></ul>
-          <p class="notes">🎙️ After rushing down the mountains, the river reaches flat plains. Here, it slows down and spreads out, becoming much wider. It often forms gentle, winding curves called meanders.</p>
+          <h2>How Rivers <span class="hl">Help</span> Us</h2>
+          <ul><li>We use river water for drinking and bathing.</li><li>Farmers use it to water their fields.</li></ul>
+          <p class="notes">🎙️ Rivers are like a big helping hand for us! We get fresh water from them to drink and to wash ourselves. Farmers also use this water to grow food for us.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Wide and Slow</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water for Life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Uses</span> of a River (Part 1)</h2>
-          <ul><li>Rivers give us drinking water.</li><li>Farmers use river water for crops.</li><li>It helps plants and animals live.</li></ul>
-          <p class="notes">🎙️ Rivers are very important for all living things. We drink river water after it's cleaned. Farmers use it to water their fields so we can have food. Many animals and plants also depend on rivers.</p>
+          <h2><span class="hl">More</span> Ways Rivers Help</h2>
+          <ul><li>Boats travel on rivers, carrying people and goods.</li><li>Rivers can also make electricity for our homes.</li></ul>
+          <p class="notes">🎙️ Rivers are also like roads for boats, helping people travel and carry things. And sometimes, big river water can be used to make electricity that lights up our houses!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water for Life</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Electricity and Transport</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Uses of a River (Part 2)</h2>
-          <ul><li>People travel on rivers in boats.</li><li>Rivers can make electricity.</li><li>They are places for fun and fishing.</li></ul>
-          <p class="notes">🎙️ Rivers are like natural highways for boats, helping people and goods move. We can also build dams on rivers to make electricity. And, of course, rivers are great for fishing and enjoying nature!</p>
+          <h2><span class="hl">People</span> and Rivers</h2>
+          <ul><li>Many cities and towns are built near rivers.</li><li>Rivers make the land green and good for living.</li></ul>
+          <p class="notes">🎙️ You will find many villages and big cities built right next to rivers. This is because rivers provide water, which is essential for people to live and grow food.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛶</div><div class="vcap">Boats and Fun</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏘️</div><div class="vcap">Town by a River</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>What is a <span class="hl">Tributary</span>?</h2>
-          <ul><li>A smaller river or stream.</li><li>It flows into a bigger river.</li><li>It adds more water to the main river.</li></ul>
-          <p class="notes">🎙️ Imagine a smaller friend joining a bigger friend on a journey. A tributary is a smaller river that flows into and joins a larger river. It helps make the main river even bigger and stronger.</p>
+          <h2>River's <span class="hl">Bends</span></h2>
+          <ul><li>In the plains, the river does not flow straight.</li><li>It makes many gentle curves and turns. These are called meanders.</li></ul>
+          <p class="notes">🎙️ When the river flows slowly on flat land, it doesn't go in a straight line. It starts to make beautiful, soft curves and turns, like a snake slithering across the ground. These curves are called meanders.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Joining Rivers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Winding River</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,59 +216,59 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>What is a <span class="hl">Delta</span>?</h2>
-          <ul><li>Near the end, the river slows down a lot.</li><li>It drops all the soil and sand it carried.</li><li>This forms a triangular land called a Delta.</li></ul>
-          <p class="notes">🎙️ When the river gets very slow near its end, it can't carry the soil and sand anymore. It drops all these things, forming a special piece of land shaped like a triangle. This is called a delta, and it's often very fertile.</p>
+          <h2>Time for a <span class="hl">Question</span>!</h2>
+          <ul><li>Where does a river usually begin its long journey?</li><li>A) In the desert</li><li>B) High in the mountains</li><li>C) In the middle of a city</li></ul>
+          <p class="notes">🎙️ Let's see if you remember! Where do most rivers start their exciting journey?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Triangular Land</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2><span class="hl">Another</span> Question!</h2>
+          <ul><li>Name two important ways rivers help people.</li></ul>
+          <p class="notes">🎙️ Think about all the ways our river friend helps us every day. Can you name two of them?</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2>Where Does a River <span class="hl">End</span>?</h2>
-          <ul><li>Most rivers flow into a sea.</li><li>Some flow into an ocean.</li><li>This is called the 'Mouth' of the river.</li></ul>
-          <p class="notes">🎙️ After its long, long journey, a river finally meets its destination. Most rivers flow into a big sea or a vast ocean. This place where the river water mixes with the sea water is called the mouth of the river.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Meeting the Sea</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 1</h2>
-          <ul><li>Where does a river usually start?</li><li>Is it in the mountains or in a desert?</li><li>Think about where the water comes from!</li></ul>
-          <p class="notes">🎙️ Let's check what we've learned! Can you remember where a river typically begins its journey? Is it in a hot, dry desert or high up in the cool mountains? Take a moment to think.</p>
+          <h2>The <span class="hl">End</span> of the Journey</h2>
+          <ul><li>After flowing for a very long distance, the river finally reaches the sea or ocean.</li></ul>
+          <p class="notes">🎙️ Our river friend has been flowing for a very, very long time! Finally, it reaches the biggest water body of all – the vast, blue sea or ocean. This is where its journey ends.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">River Meets the Sea</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 2</h2>
-          <ul><li>What does a river carry with it?</li><li>Does it carry toys or soil and stones?</li><li>Remember what it picks up on its way!</li></ul>
-          <p class="notes">🎙️ As the river flows, it's very powerful. What kind of things does it pick up and carry along its path? Does it carry heavy toys that children play with, or natural things like soil and small stones? Recall our discussion.</p>
+          <h2>What is a <span class="hl">Delta</span>?</h2>
+          <ul><li>Near the sea, the river slows down a lot.</li><li>It drops all the sand and soil it carried.</li><li>This forms new land called a delta.</li></ul>
+          <p class="notes">🎙️ Just before joining the sea, the river becomes very slow. It drops all the soil and sand it has been carrying for so long. This soil piles up and creates new land, often shaped like a triangle, which we call a delta.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏝️</div><div class="vcap">New Land Formed</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 3</h2>
-          <ul><li>Where does a river usually end its long journey?</li><li>Does it end in a small pond or a big sea/ocean?</li><li>Think about its final destination!</li></ul>
-          <p class="notes">🎙️ After travelling for miles and miles, every river reaches its final destination. Where does it typically end its long journey? Does it stop in a tiny pond, or does it flow into a vast sea or ocean? What do you remember?</p>
+          <h2>Keeping Rivers <span class="hl">Clean</span></h2>
+          <ul><li>We must not throw garbage or waste into rivers.</li><li>Clean rivers are healthy for everyone.</li></ul>
+          <p class="notes">🎙️ Rivers are so important to us and to all living things. It's our job to keep them clean and healthy. We should never throw trash or dirty things into the river.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Keep Rivers Clean</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span>: The River's Journey</h2>
-          <ul><li>Starts in mountains (Source).</li><li>Flows as streams, then a river.</li><li>Carries things, shapes land.</li><li>Ends in a sea/ocean (Mouth).</li></ul>
-          <p class="notes">🎙️ So, we've completed our river's journey! It starts as tiny drops in the mountains, grows into a mighty river, shapes the land, helps us in many ways, and finally meets the big sea. What an amazing trip!</p>
+          <h2><span class="hl">Last</span> Question!</h2>
+          <ul><li>What is the special new land formed by a river near the sea called?</li></ul>
+          <p class="notes">🎙️ Remember what we learned about the land formed when the river meets the sea? What is it called?</p>
         </div>
         
       </div>
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Let's <span class="hl">Protect</span> Our Rivers!</h2>
-          <ul><li>Rivers are very precious.</li><li>We must keep them clean.</li><li>Do not throw garbage in rivers.</li></ul>
-          <p class="notes">🎙️ Rivers give us so much! It's our duty to keep them clean and healthy. Let's promise to never throw garbage or pollute our rivers so they can continue to give life to everyone. Clean rivers mean a healthy Earth.</p>
+          <h2>Recap: The River's <span class="hl">Story</span></h2>
+          <ul><li>Starts in mountains.</li><li>Flows as streams.</li><li>Becomes a big river.</li><li>Helps us a lot.</li><li>Joins the sea.</li></ul>
+          <p class="notes">🎙️ Wow, what an amazing journey our river friend makes! From tiny drops in the mountains to a mighty river joining the sea, it helps so many of us along the way. Let's always appreciate and protect our rivers!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Clean Rivers</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Mountains</span></div><div class="step"><span class="snum">2</span><span>Streams</span></div><div class="step"><span class="snum">3</span><span>River</span></div><div class="step"><span class="snum">4</span><span>Sea</span></div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

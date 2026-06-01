@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Nutrition in Plants — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Nutrition</span> in Plants: How Plants Get Their Food!</h2>
-          <ul><li>Ever wondered how plants eat?</li><li>Let's explore the amazing world of plant nutrition!</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today, we're going to uncover a fascinating topic: how plants, the very foundation of our ecosystem, get the energy and nutrients they need to grow and thrive. It's not as simple as just watering them!</p>
+          <h2><span class="hl">Nutrition</span> in Plants</h2>
+          <ul><li>How do plants get their food?</li><li>Why is it important for them?</li><li>Let's explore the amazing world of plant nutrition!</li></ul>
+          <p class="notes">🎙️ Welcome, students! Today, we're going on an exciting journey to understand how plants, our green friends, get the energy they need to grow and thrive. Get ready to discover the secrets behind their food-making process!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Nutrition</span>?</h2>
-          <ul><li>The process of taking in food by an organism.</li><li>Utilizing it for growth, repair, and energy.</li><li>Essential for all living beings to survive.</li></ul>
-          <p class="notes">🎙️ Nutrition is basically how any living thing takes in and uses food. Just like we need food for energy to play and study, plants also need food to grow tall and strong, fix any damage, and carry out all their life processes.</p>
+          <ul><li>The process of taking in food and utilizing it.</li><li>Provides energy for growth, repair, and life processes.</li><li>Essential for all living organisms.</li></ul>
+          <p class="notes">🎙️ Nutrition is simply how living things get and use food. Just like we need food for energy to play and study, plants also need nutrients to grow tall and strong, fix any damage, and carry out all their essential functions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Food &amp; Energy</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🍎" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Two Main <span class="hl">Modes</span> of Nutrition</h2>
+          <h2><span class="hl">Modes</span> of Nutrition in Plants</h2>
           <ul><li>Autotrophic: Organisms make their own food.</li><li>Heterotrophic: Organisms depend on others for food.</li></ul>
-          <p class="notes">🎙️ There are two primary ways organisms obtain their food. Some, like plants, are incredible because they can produce their own food, which we call autotrophic. Others, including humans and animals, rely on consuming other organisms, which is heterotrophic.</p>
+          <p class="notes">🎙️ Plants primarily show two main ways of getting food. Most plants are 'autotrophic', meaning they are self-feeders. However, some plants are 'heterotrophic' and rely on other sources, just like animals do.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Autotrophic</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Heterotrophic</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Autotrophic</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Heterotrophic</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 25</span>
           <h2><span class="hl">Autotrophic</span> Nutrition: Self-Feeders</h2>
-          <ul><li>'Auto' means self, 'trophe' means nourishment.</li><li>Plants make their food using simple substances.</li><li>Example: Green plants use sunlight, water, and CO2.</li></ul>
-          <p class="notes">🎙️ Autotrophic nutrition literally means 'self-nourishing'. Green plants are the best example of autotrophs. They are like tiny food factories, capable of producing their own complex food from very basic raw materials found in their environment.</p>
+          <ul><li>Plants make their own food.</li><li>Using simple substances like water, carbon dioxide, and sunlight.</li><li>They are called producers.</li></ul>
+          <p class="notes">🎙️ Think of autotrophic plants as master chefs, creating their own delicious meals from basic ingredients. They use energy from the sun to convert simple raw materials into complex food molecules, making them the primary producers of our planet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Self-Nourishing</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Plant Power</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Photosynthesis</span>: The Food-Making Process</h2>
-          <ul><li>'Photo' means light, 'synthesis' means to combine.</li><li>Plants use sunlight energy to make food.</li><li>Converts light energy into chemical energy.</li></ul>
-          <p class="notes">🎙️ Photosynthesis is the magical process where plants create their food. It's like baking a cake, but instead of an oven, they use sunlight! They take simple ingredients and, with the help of light, transform them into sugary food for themselves and oxygen for us.</p>
+          <h2><span class="hl">Photosynthesis</span>: The Plant's Food Factory</h2>
+          <ul><li>The process by which green plants make their own food.</li><li>Using sunlight, water, and carbon dioxide.</li><li>Occurs mainly in the leaves.</li></ul>
+          <p class="notes">🎙️ Photosynthesis is a super important word! It means 'making with light'. It's the magical process where plants harness the sun's energy to produce their own food, essentially acting as tiny food factories powered by sunlight.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Photosynthesis_en.svg?width=500" data-fb="🔬" alt="Photosynthesis is the process by which plants convert light energy into chemical energy (g"/><div class="vcap">Photosynthesis is the process by which plants convert light energy into chemical energy (g</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Photosynthesis_en.svg?width=500" data-fb="☀️" alt="Photosynthesis is the process by which plants convert light energy into chemical energy (g"/><div class="vcap">Photosynthesis is the process by which plants convert light energy into chemical energy (g</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Ingredients</span> for Photosynthesis</h2>
-          <ul><li>Sunlight: The energy source.</li><li>Water: Absorbed from the soil.</li><li>Carbon Dioxide: Taken from the air.</li><li>Chlorophyll: The green pigment in leaves.</li></ul>
-          <p class="notes">🎙️ Just like a chef needs specific ingredients for a dish, plants need four main things for photosynthesis. They are sunlight for energy, water from the soil, carbon dioxide from the air, and a special green substance called chlorophyll.</p>
+          <h2>Key <span class="hl">Ingredients</span> for Photosynthesis</h2>
+          <ul><li>Sunlight: The energy source.</li><li>Carbon Dioxide: From the air.</li><li>Water &amp; Minerals: From the soil.</li><li>Chlorophyll: The green pigment.</li></ul>
+          <p class="notes">🎙️ Just like a chef needs specific items to cook a dish, plants also need a precise set of ingredients for photosynthesis. These include the energy from the sun, carbon dioxide from the air, water from the soil, and a special green substance called chlorophyll.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Raw Materials</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Mixing Ingredients</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -120,10 +133,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">7 / 25</span>
           <h2><span class="hl">Chlorophyll</span>: The Green Powerhouse</h2>
-          <ul><li>Green pigment found in plant leaves.</li><li>Captures sunlight energy.</li><li>Essential for the photosynthesis process.</li></ul>
-          <p class="notes">🎙️ Chlorophyll is what makes leaves green! But it's not just for colour; it's crucial because it acts like a tiny solar panel, absorbing the sun's energy. Without chlorophyll, plants cannot capture light and make food.</p>
+          <ul><li>Green pigment found in plant leaves.</li><li>Captures sunlight energy.</li><li>Essential for photosynthesis.</li></ul>
+          <p class="notes">🎙️ Chlorophyll is what makes leaves green! But it's not just for colour; it's a vital component that absorbs the sun's energy. Without chlorophyll, plants wouldn't be able to trap sunlight and begin the food-making process.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💚</div><div class="vcap">Light Absorber</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💚</div><div class="vcap">Green Pigment</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Stomata</span>: Tiny Breathing Pores</h2>
-          <ul><li>Small openings on the surface of leaves.</li><li>Allow carbon dioxide to enter the plant.</li><li>Also release oxygen and water vapour.</li></ul>
-          <p class="notes">🎙️ If you look closely at a leaf, you'd find tiny pores called stomata. These are like the plant's mouths, opening and closing to take in carbon dioxide from the atmosphere, which is a key ingredient for making food.</p>
+          <h2><span class="hl">Stomata</span>: Breathing for Plants</h2>
+          <ul><li>Tiny pores on the surface of leaves.</li><li>Allow carbon dioxide to enter the plant.</li><li>Also release oxygen and water vapour.</li></ul>
+          <p class="notes">🎙️ Imagine tiny mouths on the leaves! These are stomata, and they open and close to let carbon dioxide from the air enter the leaf. They are crucial for gas exchange, allowing plants to take in what they need and release what they don't.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Gas Exchange</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Air Exchange</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Roots</span>: The Water Absorbers</h2>
-          <ul><li>Anchor the plant firmly in the soil.</li><li>Absorb water and minerals from the soil.</li><li>Transport them up to the leaves.</li></ul>
-          <p class="notes">🎙️ Underground, the roots are constantly working. Their main job for photosynthesis is to soak up water and essential minerals from the soil. This water then travels all the way up through the stem to reach the leaves where food is made.</p>
+          <h2><span class="hl">Water &amp; Minerals</span>: From Soil to Leaf</h2>
+          <ul><li>Absorbed by roots from the soil.</li><li>Transported to leaves through 'pipes' (xylem).</li><li>Essential raw materials for growth.</li></ul>
+          <p class="notes">🎙️ Plants have an amazing plumbing system! Their roots act like sponges, soaking up water and dissolved minerals from the soil. This water then travels all the way up through special tubes in the stem to reach the leaves, where photosynthesis takes place.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Uptake</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚿</div><div class="vcap">Root Uptake</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Leaves</span>: The Plant's Food Factories</h2>
-          <ul><li>Main site for photosynthesis.</li><li>Contain chlorophyll and stomata.</li><li>Designed to efficiently capture sunlight.</li></ul>
-          <p class="notes">🎙️ Think of leaves as the plant's kitchen or factory. This is where all the ingredients – sunlight, water, and carbon dioxide – come together, and with the help of chlorophyll, the magical process of food production happens.</p>
+          <h2><span class="hl">Steps</span> of Photosynthesis</h2>
+          <ul><li>1. Roots absorb water and minerals.</li><li>2. Leaves take in carbon dioxide through stomata.</li><li>3. Chlorophyll captures sunlight energy.</li><li>4. Sunlight energy converts water and CO2 into glucose and oxygen.</li></ul>
+          <p class="notes">🎙️ Let's break down the journey of food-making. It starts with roots, moves to leaves for gas exchange, then the sun's energy is captured, and finally, all these ingredients combine to create food and release oxygen.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍃</div><div class="vcap">Food Production</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Water/Minerals</span></div><div class="step"><span class="snum">2</span><span>CO2 Intake</span></div><div class="step"><span class="snum">3</span><span>Sunlight Capture</span></div><div class="step"><span class="snum">4</span><span>Food Production</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Products</span> of Photosynthesis</h2>
-          <ul><li>Glucose (a type of sugar): The food for the plant.</li><li>Oxygen: Released into the atmosphere.</li><li>Glucose is stored as starch in various parts of the plant.</li></ul>
-          <p class="notes">🎙️ After photosynthesis, two main things are produced. First, glucose, which is the plant's food – a sugar that provides energy. Second, oxygen, which is vital for us to breathe, is released into the air as a byproduct.</p>
+          <h2>The Photosynthesis <span class="hl">Equation</span></h2>
+          <ul><li>Carbon Dioxide + Water (+ Sunlight) → Glucose + Oxygen</li><li>6CO₂ + 6H₂O (+ Sunlight) → C₆H₁₂O₆ + 6O₂</li><li>This summarizes the entire process.</li></ul>
+          <p class="notes">🎙️ This equation is like a recipe for photosynthesis! It shows us exactly what goes in (reactants) and what comes out (products). Remember that sunlight is the energy that powers this entire chemical transformation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Food for Plant</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Chemical Reaction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,21 +192,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Why Photosynthesis is Super Important</h2>
-          <ul><li>Provides food for plants, and indirectly for all living things.</li><li>Releases oxygen essential for respiration.</li><li>Maintains the balance of oxygen and carbon dioxide in the atmosphere.</li></ul>
-          <p class="notes">🎙️ Photosynthesis isn't just important for plants; it's fundamental for all life on Earth. It's the ultimate source of food for almost every organism, and it's responsible for the oxygen we breathe, making our planet habitable.</p>
+          <h2><span class="hl">Products</span> of Photosynthesis</h2>
+          <ul><li>Glucose (Sugar): The plant's food, used for energy or stored.</li><li>Oxygen: Released into the atmosphere, essential for us!</li><li>Starch: Stored form of glucose.</li></ul>
+          <p class="notes">🎙️ The plant's hard work results in two main products. First, glucose, which is its food source for energy. Second, oxygen, which is a life-giving gas that all animals, including humans, breathe!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Life Support</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span></div><div class="vcap">Plant Food (Glucose)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Real-Life Example: A <span class="hl">Mango Tree</span></h2>
+          <ul><li>A mango tree uses its leaves to perform photosynthesis.</li><li>It takes in CO2 from the air and water from the soil.</li><li>Produces sweet mangoes (stored food) and releases oxygen.</li></ul>
+          <p class="notes">🎙️ Think about a lush mango tree. Every part of it, especially its broad leaves, is a photosynthesis powerhouse. It's constantly converting sunlight into the energy that allows it to grow, bloom, and eventually give us those delicious mangoes!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥭</div><div class="vcap">Nature's Food Maker</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">13 / 25</span>
+          <span class="num">14 / 25</span>
           <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Which gas do plants take in for photosynthesis?</li><li>What is the green pigment in leaves called?</li></ul>
-          <p class="notes">🎙️ Let's see if you've been paying attention! Take a moment to think about these questions. The answers are carbon dioxide and chlorophyll, respectively. Great job if you got them right!</p>
+          <ul><li>1. What is the green pigment in leaves called?</li><li>2. Which gas do plants take in for photosynthesis?</li><li>3. True or False: Oxygen is a product of photosynthesis.</li></ul>
+          <p class="notes">🎙️ Time for a quick mental workout! Think back to what we've just learned about photosynthesis. These questions will help you see how well you've understood the basics of how plants make their food.</p>
         </div>
         
       </div>
@@ -202,24 +227,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Heterotrophic</span> Nutrition: Other-Feeders</h2>
-          <ul><li>'Hetero' means other, 'trophe' means nourishment.</li><li>Organisms that cannot make their own food.</li><li>Depend on other plants or animals for food.</li></ul>
-          <p class="notes">🎙️ Now, let's look at the other mode of nutrition. Heterotrophic organisms cannot produce their own food. They have to rely on consuming other living things, whether it's plants or other animals, to get their energy and nutrients.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐛</div><div class="vcap">Consuming Others</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Heterotrophic</span> Nutrition in Plants</h2>
-          <ul><li>Some plants also show heterotrophic modes.</li><li>Examples: Parasitic, Saprophytic, Insectivorous, Symbiotic.</li></ul>
-          <p class="notes">🎙️ While most plants are autotrophic, there are some fascinating exceptions that have evolved to get their food in different ways. We'll explore four main types of heterotrophic nutrition found in the plant kingdom.</p>
+          <h2><span class="hl">Heterotrophic</span> Nutrition: Plants That Don't Cook</h2>
+          <ul><li>Some plants cannot make their own food.</li><li>They depend on other organisms for nutrition.</li><li>These are less common but fascinating!</li></ul>
+          <p class="notes">🎙️ While most plants are self-sufficient, there are some intriguing exceptions. These plants are like guests at a dinner party, relying on others to provide their meals. Let's explore these unique plant types.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Parasitic</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Saprophytic</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Insectivorous</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Symbiotic</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧛</div><div class="vcap">Dependent Plants</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Parasitic</span> Plants: Living on Others</h2>
-          <ul><li>Obtain food from a host plant.</li><li>Harm the host plant in the process.</li><li>Example: Cuscuta (Amarbel) growing on a tree.</li></ul>
-          <p class="notes">🎙️ Parasitic plants are like unwelcome guests. They grow on another plant, called the host, and absorb nutrients directly from it, often weakening or even killing the host. Cuscuta, also known as Amarbel, is a common example you might have seen.</p>
+          <h2><span class="hl">Parasitic</span> Plants: The 'Hitchhikers'</h2>
+          <ul><li>Live on or in another plant (host) and derive nutrients.</li><li>Example: Cuscuta (Dodder plant) – a yellow, tubular plant.</li><li>They harm the host plant.</li></ul>
+          <p class="notes">🎙️ Parasitic plants are a bit like uninvited guests who stay and eat all your food! Cuscuta, or dodder, is a classic example. It wraps around a host plant and sucks out its nutrients, often weakening or even killing it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Host-Dependent</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Cuscuta (Dodder)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Saprophytic</span> Plants: Nature's Decomposers</h2>
-          <ul><li>Obtain nutrients from dead and decaying matter.</li><li>Play a vital role in recycling nutrients.</li><li>Example: Fungi like mushrooms and moulds.</li></ul>
-          <p class="notes">🎙️ Saprophytic plants, like mushrooms, are the clean-up crew of nature. They feed on dead organic material, breaking it down and returning valuable nutrients to the soil. Without them, our world would be piled high with dead leaves and organisms!</p>
+          <h2><span class="hl">Insectivorous</span> Plants: The 'Carnivores'</h2>
+          <ul><li>Trap and digest insects for nutrients, especially nitrogen.</li><li>Grow in nitrogen-deficient soils.</li><li>Examples: Pitcher Plant, Venus Flytrap.</li></ul>
+          <p class="notes">🎙️ These plants are truly amazing! They have evolved special structures to catch insects, supplementing their diet with nutrients like nitrogen, which they can't get enough of from their poor soil. The Pitcher Plant and Venus Flytrap are famous examples.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍄</div><div class="vcap">Feeds on Dead Matter</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪰</div><div class="vcap">Insect Trap</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,21 +264,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Insectivorous</span> Plants: Meat-Eating Plants</h2>
-          <ul><li>Trap and digest insects for nutrients.</li><li>Grow in nutrient-poor soils (especially nitrogen).</li><li>Example: Pitcher plant, Venus flytrap.</li></ul>
-          <p class="notes">🎙️ These plants are truly unique! Insectivorous plants catch insects to supplement their diet, especially to get nitrogen, which is scarce in the marshy soils where they often grow. The pitcher plant, with its trap-like leaf, is a perfect example.</p>
+          <h2><span class="hl">Saprophytic</span> Plants: Nature's Clean-Up Crew</h2>
+          <ul><li>Obtain nutrients from dead and decaying organic matter.</li><li>Release digestive juices to break down substances.</li><li>Examples: Mushrooms, Fungi.</li></ul>
+          <p class="notes">🎙️ Saprophytic plants, like mushrooms and other fungi, play a crucial role in nature. They feed on dead plants and animals, breaking them down and returning vital nutrients to the soil. They are essential for recycling in ecosystems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪰</div><div class="vcap">Insect Trapper</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍄</div><div class="vcap">Fungi</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>1. Name one parasitic plant.</li><li>2. Why do insectivorous plants eat insects?</li><li>3. From where do saprophytes get their food?</li></ul>
+          <p class="notes">🎙️ Let's see if you remember the different types of heterotrophic plants. Each one has a unique way of getting its food, showing the incredible diversity of life in the plant kingdom.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
+          <span class="num">20 / 25</span>
           <h2><span class="hl">Symbiotic</span> Relationship: Helping Each Other</h2>
-          <ul><li>Two different organisms live together.</li><li>Both organisms benefit from the association.</li><li>Example: Lichens (algae + fungus), Rhizobium in leguminous plants.</li></ul>
-          <p class="notes">🎙️ Symbiosis is a beautiful example of teamwork in nature. In this relationship, two different organisms live closely together, and both gain something positive from the interaction. Lichens, which are a partnership between an alga and a fungus, are a great example.</p>
+          <ul><li>Two different organisms live together and benefit each other.</li><li>Example 1: Lichens (algae + fungi).</li><li>Example 2: Rhizobium bacteria in leguminous plants.</li></ul>
+          <p class="notes">🎙️ Not all relationships are one-sided! In a symbiotic relationship, both organisms gain something. Lichens are a great example, where an alga makes food and a fungus provides shelter. Another is bacteria in legume roots, helping plants get nitrogen.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Mutual Benefit</div></div></div>
       </div>
@@ -274,24 +299,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>How Soil Nutrients are <span class="hl">Replenished</span></h2>
-          <ul><li>Plants continuously absorb nutrients from soil.</li><li>Soil can become deficient over time.</li><li>Farmers add fertilizers and manures.</li><li>Rhizobium bacteria fix atmospheric nitrogen.</li></ul>
-          <p class="notes">🎙️ As plants grow, they draw a lot of nutrients from the soil. To ensure the soil remains fertile for future crops, farmers add fertilizers and manures. Also, certain bacteria like Rhizobium naturally help by converting nitrogen from the air into a form plants can use.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Nutrient Cycling</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Name a plant that obtains food from a host plant.</li><li>Which type of plants feed on dead and decaying matter?</li></ul>
-          <p class="notes">🎙️ Time for another quick check! Think about the different types of heterotrophic plants we discussed. The answers are Cuscuta (or Amarbel) for the first, and saprophytic plants for the second. Well done!</p>
+          <h2><span class="hl">Replenishing</span> Nutrients in Soil</h2>
+          <ul><li>Plants continuously absorb nutrients, depleting the soil.</li><li>Farmers add fertilizers and manure to enrich soil.</li><li>Leguminous plants (e.g., peas, beans) fix nitrogen in soil.</li></ul>
+          <p class="notes">🎙️ Just like we need to refuel our bodies, soil needs to be refuelled with nutrients. Farmers use fertilizers and manure to put back what plants take out. Legumes are also amazing as they naturally enrich the soil with nitrogen.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Healthy Soil</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Real-Life: <span class="hl">Farmers</span> &amp; Healthy Soil</h2>
-          <ul><li>Farmers understand plant nutrition is key.</li><li>They use crop rotation to naturally enrich soil.</li><li>Add specific fertilizers for different crop needs.</li><li>Ensuring good harvests for our food supply.</li></ul>
-          <p class="notes">🎙️ This knowledge of plant nutrition is super practical for farmers. They manage soil health carefully, often rotating crops or adding fertilizers, to make sure their plants get all the nutrients they need, which ultimately helps feed all of us!</p>
+          <h2>Why Plant Nutrition <span class="hl">Matters</span></h2>
+          <ul><li>Provides energy for plant growth and reproduction.</li><li>Forms the base of almost all food chains.</li><li>Produces oxygen vital for most life on Earth.</li></ul>
+          <p class="notes">🎙️ Plant nutrition is not just important for plants; it's crucial for the entire planet! Without plants making their own food, there would be no food for herbivores, and subsequently no food for carnivores. Plus, they give us the air we breathe!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🌾</div><div class="vcap">Caring for Crops</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_hormones.svg?width=500" data-fb="🌍" alt="Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel"/><div class="vcap">Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,9 +324,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Key <span class="hl">Takeaways</span> from 'Nutrition in Plants'</h2>
-          <ul><li>Plants are mostly autotrophs, making food via photosynthesis.</li><li>Photosynthesis needs sunlight, water, CO2, and chlorophyll.</li><li>Some plants are heterotrophs (parasitic, saprophytic, insectivorous).</li><li>Soil nutrients need to be replenished for healthy plant growth.</li></ul>
-          <p class="notes">🎙️ To sum up, we learned that most plants are amazing self-feeders through photosynthesis. We also discovered some unique plants that get their food from others, and the importance of keeping our soil rich in nutrients for all plants.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>1. What is a symbiotic relationship?</li><li>2. How do farmers replenish soil nutrients?</li><li>3. What gas do plants release that we breathe?</li></ul>
+          <p class="notes">🎙️ Let's consolidate our learning with a final set of questions. These cover the broader concepts we've discussed, from mutual benefits in nature to how we help keep our soils healthy.</p>
         </div>
         
       </div>
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Challenge</span> Question!</h2>
-          <ul><li>Imagine a plant without chlorophyll. Can it perform photosynthesis? Why or why not?</li><li>What would happen to the oxygen levels in the atmosphere if all plants disappeared?</li></ul>
-          <p class="notes">🎙️ Here's a thought-provoking question for you. Think critically about the role of chlorophyll and the overall importance of plants. Discuss your answers with your classmates or teacher!</p>
+          <h2>Key <span class="hl">Takeaways</span>: Nutrition in Plants</h2>
+          <ul><li>Plants are mostly autotrophs, making food via photosynthesis.</li><li>Photosynthesis needs sunlight, CO2, water, and chlorophyll.</li><li>Some plants are heterotrophs (parasitic, insectivorous, saprophytic).</li><li>Symbiotic relationships and soil nutrient replenishment are vital.</li></ul>
+          <p class="notes">🎙️ To summarise, remember that most plants are incredible food-makers, using sunlight as their power source. We also learned about the fascinating exceptions and how plants interact with their environment and other organisms to survive and thrive.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank</span> You!</h2>
-          <ul><li>Hope you enjoyed learning about plant nutrition!</li><li>Keep exploring the wonders of science!</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our lesson on Nutrition in Plants. I hope you now have a clearer understanding of how these incredible organisms sustain themselves and, in turn, sustain us. Keep observing the plants around you!</p>
+          <h2><span class="hl">Thank You</span>! Any Questions?</h2>
+          <ul><li>Keep exploring the wonders of the plant kingdom!</li><li>Your curiosity helps you grow, just like plants!</li><li>Stay green, stay keen!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on plant nutrition. I hope you've enjoyed learning about how plants feed themselves and contribute so much to our world. Feel free to ask any questions you might have!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

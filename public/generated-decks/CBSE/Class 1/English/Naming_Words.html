@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Naming Words — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to '<span class="hl">Naming Words</span>'!</h2>
-          <ul><li>A fun journey begins today!</li><li>Let's learn about names for everything.</li></ul>
-          <p class="notes">🎙️ Hello, little learners! Today we are going on an exciting adventure to discover 'Naming Words'. Get ready to find names for everything around us!</p>
+          <h2>Welcome to "<span class="hl">Naming Words</span>"!</h2>
+          <ul><li>Let's learn about names!</li><li>Everything has a name.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on a fun adventure to learn about 'Naming Words.' These are very special words that help us talk about everything around us.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What are <span class="hl">Naming Words</span>?</h2>
-          <ul><li>Everything around us has a name.</li><li>These names are called Naming Words.</li></ul>
-          <p class="notes">🎙️ Just like you have a name, every person, animal, place, and thing has a name. These special names are what we call 'Naming Words'!</p>
+          <ul><li>Every person, place, animal, or thing has a name.</li><li>These names are called "Naming Words."</li><li>They help us know what we are talking about.</li></ul>
+          <p class="notes">🎙️ Look around you! You have a name, your school has a name, your pet has a name, and even your pencil has a name. All these names are what we call Naming Words.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">What's in a Name?</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="📚" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 20</span>
           <h2>Naming Words for <span class="hl">People</span></h2>
-          <ul><li>Look around! Everyone has a name.</li><li>Your mother, father, teacher – they all have names!</li></ul>
-          <p class="notes">🎙️ Think about the people you see every day. Your family, your friends, and even people you don't know, like a doctor or a police officer, all have names.</p>
+          <ul><li>People are all around us.</li><li>We give names to people.</li><li>Like "boy", "girl", "teacher", "mother".</li></ul>
+          <p class="notes">🎙️ Think about the people you see every day. Your mother, father, brother, sister, your friends, and your teacher are all people. Each of them has a name, and their roles also have naming words!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">People Everywhere</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Our Family and Friends</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Who</span> is this?</h2>
-          <ul><li>This is a teacher.</li><li>This is a doctor.</li></ul>
-          <p class="notes">🎙️ The words 'teacher' and 'doctor' are naming words because they tell us who someone is. Can you think of other naming words for people?</p>
+          <h2>Can you name these <span class="hl">people</span>?</h2>
+          <ul><li>A "doctor" helps us when we are sick.</li><li>A "postman" brings letters.</li><li>A "student" learns in school.</li></ul>
+          <p class="notes">🎙️ Here are some more examples of naming words for people. A doctor, a postman, and a student are all people. Can you think of other people you see daily?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">Teacher, Doctor</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👧</span><span>👧</span><span>👧</span></div><div class="vcap">Children learn</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,33 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Naming Words for <span class="hl">Animals</span></h2>
-          <ul><li>All animals have names too!</li><li>From tiny ants to big elephants.</li></ul>
-          <p class="notes">🎙️ Our animal friends also have names! A 'dog' is a naming word, a 'cat' is a naming word, and so is a 'lion' or a 'cow'.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="📖" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 20</span>
-          <h2>What <span class="hl">animal</span> is this?</h2>
-          <ul><li>This is a dog.</li><li>This is a cat.</li></ul>
-          <p class="notes">🎙️ The words 'dog' and 'cat' are naming words for animals. They help us know which animal we are talking about.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐶</span><span>🐶</span></div><div class="vcap">Dogs and Cats</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 20</span>
           <h2>Naming Words for <span class="hl">Places</span></h2>
-          <ul><li>Where do you go?</li><li>Places have names!</li></ul>
-          <p class="notes">🎙️ Think about all the places you visit. Your 'home' is a naming word, your 'school' is a naming word, and so is the 'park' where you play.</p>
+          <ul><li>Places are where we go or live.</li><li>Every place has a name.</li><li>Like "school", "park", "home", "market".</li></ul>
+          <p class="notes">🎙️ Now, let's talk about places. Your home is a place, your school is a place, and the park where you play is also a place. All these are naming words for different places.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Where We Go</div></div></div>
       </div>
@@ -130,12 +119,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Can you <span class="hl">name</span> these places?</h2>
-          <ul><li>This is a school.</li><li>This is a park.</li></ul>
-          <p class="notes">🎙️ The words 'school' and 'park' are naming words for places. They tell us where something is happening or where we are going.</p>
+          <span class="num">6 / 20</span>
+          <h2>Can you name these <span class="hl">places</span>?</h2>
+          <ul><li>We learn in a "school".</li><li>We play in a "park".</li><li>We buy things from a "shop".</li></ul>
+          <p class="notes">🎙️ Here are some pictures of places. School, park, and shop are all naming words for places. What is your favorite place to visit?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏫</span><span>🏫</span></div><div class="vcap">School, Park</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Places around us</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 20</span>
+          <h2>Naming Words for <span class="hl">Animals</span></h2>
+          <ul><li>Animals are living creatures.</li><li>Each animal has a name.</li><li>Like "dog", "cat", "elephant", "bird".</li></ul>
+          <p class="notes">🎙️ Animals are amazing! From tiny ants to huge elephants, they all have names. Dog, cat, bird, and lion are all naming words for animals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐾</div><div class="vcap">Our Animal Friends</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Can you name these <span class="hl">animals</span>?</h2>
+          <ul><li>A "cow" gives us milk.</li><li>A "fish" swims in water.</li><li>A "monkey" likes to jump.</li></ul>
+          <p class="notes">🎙️ Here are some more animal friends. A cow, a fish, and a monkey are all examples of naming words for animals. Can you bark like a dog or meow like a cat?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐕</span><span>🐕</span><span>🐕</span></div><div class="vcap">Pets and Farm Animals</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -144,10 +157,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">9 / 20</span>
           <h2>Naming Words for <span class="hl">Things</span></h2>
-          <ul><li>Everything you see and touch is a thing!</li><li>Your toys, books, and clothes are all things.</li></ul>
-          <p class="notes">🎙️ Look around your room! Your 'bed' is a naming word, your 'pencil' is a naming word, and even the 'sun' in the sky is a naming word.</p>
+          <ul><li>Things are objects around us.</li><li>They also have names.</li><li>Like "book", "table", "ball", "pencil".</li></ul>
+          <p class="notes">🎙️ Finally, let's look at things! Everything that is not a person, place, or animal is a thing. Your toys, your clothes, and your school supplies are all things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span><span>🧸</span><span>🧸</span></div><div class="vcap">Things We Use</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧸</div><div class="vcap">Everyday Objects</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,59 +168,59 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>What are these <span class="hl">things</span>?</h2>
-          <ul><li>This is a book.</li><li>This is a ball.</li></ul>
-          <p class="notes">🎙️ The words 'book' and 'ball' are naming words for things. They help us identify different objects around us.</p>
+          <h2>Can you name these <span class="hl">things</span>?</h2>
+          <ul><li>We write with a "pencil".</li><li>We read a "book".</li><li>We play with a "ball".</li></ul>
+          <p class="notes">🎙️ Look at these things! A pencil, a book, and a ball are common things we see and use every day. What is your favorite toy? That's a naming word too!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span></div><div class="vcap">Book, Ball</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">Things in our bag</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Naming Words are <span class="hl">Everywhere</span>!</h2>
-          <ul><li>People, Animals, Places, Things – all have names!</li><li>These names are Naming Words.</li></ul>
-          <p class="notes">🎙️ So, Naming Words help us talk about everything in our world! They are super important for us to understand each other.</p>
+          <h2>Quick Check: Find the <span class="hl">People</span>!</h2>
+          <ul><li>Which word names a person?</li><li>Choose between 'tree' and 'father'.</li></ul>
+          <p class="notes">🎙️ Let's do a quick check! Look at the words 'tree' and 'father'. Which one is a naming word for a person? Think about it carefully.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">World of Names</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Quick Check: Is '<span class="hl">tree</span>' a Naming Word?</h2>
-          <ul><li>Yes! A 'tree' is a thing.</li><li>So, 'tree' is a Naming Word.</li></ul>
-          <p class="notes">🎙️ A tree is something we can see and touch, it's a thing! So, 'tree' is definitely a naming word. Good job!</p>
+          <h2>Quick Check: Find the <span class="hl">Place</span>!</h2>
+          <ul><li>Which word names a place?</li><li>Choose between 'car' and 'hospital'.</li></ul>
+          <p class="notes">🎙️ Next question! Is 'car' a place, or is 'hospital' a place? Remember, a place is somewhere you can go.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Quick Check: Is '<span class="hl">run</span>' a Naming Word?</h2>
-          <ul><li>No! 'Run' is an action.</li><li>It is not a name for a person, animal, place, or thing.</li></ul>
-          <p class="notes">🎙️ 'Run' tells us what someone is doing, not what they are called. So, 'run' is not a naming word. We will learn about action words later!</p>
+          <h2>Quick Check: Find the <span class="hl">Animal</span>!</h2>
+          <ul><li>Which word names an animal?</li><li>Choose between 'chair' and 'tiger'.</li></ul>
+          <p class="notes">🎙️ Now for animals! Which of these two words is an animal: 'chair' or 'tiger'? I think you know this one easily!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Running Fast</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Activity: <span class="hl">Find</span> the Naming Word!</h2>
-          <ul><li>Which is the naming word?</li><li>Is it 'sing' or 'bird'?</li></ul>
-          <p class="notes">🎙️ Think carefully! 'Sing' is something you do, an action. 'Bird' is an animal, a living thing. So, 'bird' is the naming word!</p>
+          <h2>Quick Check: Find the <span class="hl">Thing</span>!</h2>
+          <ul><li>Which word names a thing?</li><li>Choose between 'teacher' and 'table'.</li></ul>
+          <p class="notes">🎙️ Last quick check! Is 'teacher' a thing, or is 'table' a thing? Remember, things are objects that are not people, places, or animals.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐦</span></div><div class="vcap">A Little Bird</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Activity: <span class="hl">Find</span> the Naming Word!</h2>
-          <ul><li>Which is the naming word?</li><li>Is it 'eat' or 'apple'?</li></ul>
-          <p class="notes">🎙️ 'Eat' is an action. 'Apple' is a fruit, a thing that you can hold and eat. So, 'apple' is the naming word here!</p>
+          <h2>Let's <span class="hl">Find</span> Naming Words!</h2>
+          <ul><li>Naming words are everywhere!</li><li>We can find them in sentences too.</li><li>Let's try some examples together.</li></ul>
+          <p class="notes">🎙️ Now that we know what naming words are, let's try to find them in sentences. It's like a treasure hunt for words!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span></div><div class="vcap">A Red Apple</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔎</div><div class="vcap">Searching for Names</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>More Names for <span class="hl">People</span></h2>
-          <ul><li>brother, sister</li><li>friend, baby</li></ul>
-          <p class="notes">🎙️ There are so many naming words for people! Think about your 'brother' or 'sister', or your best 'friend'. They are all naming words.</p>
+          <h2>Example 1: My <span class="hl">mother</span> loves me.</h2>
+          <ul><li>The word "mother" is a naming word.</li><li>It names a person.</li></ul>
+          <p class="notes">🎙️ In this sentence, "My mother loves me," the word "mother" is a naming word. It tells us about a person. Can you say "mother"?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span></div><div class="vcap">My Family &amp; Friends</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👩‍👧</div><div class="vcap">Mother and Child</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>More Names for <span class="hl">Animals</span></h2>
-          <ul><li>fish, elephant</li><li>monkey, cow</li></ul>
-          <p class="notes">🎙️ The animal kingdom is full of naming words! From a 'fish' swimming in water to a giant 'elephant', they all have names.</p>
+          <h2>Example 2: The <span class="hl">dog</span> ran in the park.</h2>
+          <ul><li>"Dog" is a naming word for an animal.</li><li>"Park" is a naming word for a place.</li></ul>
+          <p class="notes">🎙️ Here, we have two naming words! "Dog" is an animal, and "park" is a place. See how naming words help us understand the sentence better?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐘</span><span>🐘</span><span>🐘</span><span>🐘</span></div><div class="vcap">Big &amp; Small Animals</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐕🌳</div><div class="vcap">Dog in the park</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>More Names for <span class="hl">Places</span></h2>
-          <ul><li>shop, hospital</li><li>beach, home</li></ul>
-          <p class="notes">🎙️ We go to many different places. A 'shop' to buy things, a 'hospital' when we are sick, or the 'beach' for fun. These are all naming words for places.</p>
+          <h2>Example 3: The <span class="hl">boy</span> has a red ball.</h2>
+          <ul><li>"Boy" is a naming word for a person.</li><li>"Ball" is a naming word for a thing.</li></ul>
+          <p class="notes">🎙️ In this sentence, "boy" is a naming word for a person. And "ball" is a naming word for a thing. Great job finding them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Places to Visit</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👦⚽</div><div class="vcap">Boy with a Ball</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>More Names for <span class="hl">Things</span></h2>
-          <ul><li>chair, table</li><li>car, flower</li></ul>
-          <p class="notes">🎙️ Things are everywhere! The 'chair' you sit on, the 'table' you eat at, a 'car' that takes you places, or a beautiful 'flower'. All naming words!</p>
+          <h2><span class="hl">Recap</span>: What did we learn?</h2>
+          <ul><li>Naming words are names of:</li><li>People (boy, teacher)</li><li>Places (school, park)</li><li>Animals (dog, cat)</li><li>Things (book, table)</li></ul>
+          <p class="notes">🎙️ Wow, we learned so much today! Remember, naming words are all around us, helping us identify everything. They name people, places, animals, and things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span></div><div class="vcap">Things All Around</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Our Naming Words Journey</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>We Learned About <span class="hl">Naming Words</span>!</h2>
-          <ul><li>They are names for People, Animals, Places, and Things.</li><li>Keep looking for naming words all around you!</li></ul>
-          <p class="notes">🎙️ You did a wonderful job today! Remember, naming words help us understand the world better. Now, go and find all the naming words you can!</p>
+          <h2>Keep <span class="hl">Practicing</span> Naming Words!</h2>
+          <ul><li>Look around you!</li><li>Name everything you see.</li><li>You are a Naming Word expert!</li></ul>
+          <p class="notes">🎙️ You did an excellent job today! Keep practicing by looking around your house or classroom and naming everything you see. You'll become a Naming Word expert very soon!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Great Job!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">You are doing great!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 1 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Exploring Mixtures and their Separation — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Exploring <span class="hl">Mixtures</span> and their Separation</h2>
-          <ul><li>Welcome to our Science class!</li><li>Today, we dive into the world of mixtures.</li><li>We'll learn to identify and separate them.</li><li>Get ready for an exciting journey!</li></ul>
-          <p class="notes">🎙️ Namaste students! Today we begin a fascinating chapter in Science: 'Exploring Mixtures and their Separation'. We'll understand what mixtures are, how they differ, and most importantly, how we can separate their components in various useful ways. Let's start!</p>
+          <ul><li>What are mixtures made of?</li><li>Why is it important to separate them?</li><li>How do we separate different types of mixtures?</li></ul>
+          <p class="notes">🎙️ Good morning, class! Today, we embark on an exciting journey to understand the world of mixtures. We'll explore what makes them unique, why we often need to separate their components, and learn some fascinating techniques to do just that.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2><span class="hl">Pure Substances</span>: The Building Blocks</h2>
-          <ul><li>Made of only one type of particle.</li><li>Have a fixed composition.</li><li>Examples: Gold, Water (distilled), Oxygen.</li></ul>
-          <p class="notes">🎙️ Before we talk about mixtures, let's understand pure substances. A pure substance is something that consists of only one kind of particle throughout, meaning its composition is fixed and uniform. Think of pure gold or distilled water – they are consistent everywhere.</p>
+          <h2>What are <span class="hl">Mixtures</span>?</h2>
+          <ul><li>Formed when two or more substances are physically combined.</li><li>Components retain their original properties.</li><li>Can be separated by physical methods.</li></ul>
+          <p class="notes">🎙️ A mixture is essentially a blend of different things. Think of mixing water and salt; they are together, but the water is still water and the salt is still salt. Their individual properties don't change, and you can get them back apart.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Pure Gold</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water and Salt</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>What Happens When Things Mix?</h2>
-          <ul><li>Formed when two or more substances combine.</li><li>No chemical reaction occurs.</li><li>Components retain their original properties.</li></ul>
-          <p class="notes">🎙️ Now, what if we combine two or more pure substances? That's when we get a mixture! The key here is that the substances simply blend without undergoing any chemical change. Each component keeps its own original properties, unlike in a chemical compound.</p>
+          <h2>Types of Mixtures: <span class="hl">Homogeneous</span></h2>
+          <ul><li>Have a uniform composition throughout.</li><li>Components are not visibly distinct.</li><li>Appear as a single phase.</li></ul>
+          <p class="notes">🎙️ Homogeneous mixtures are like a perfectly blended smoothie – everything is evenly distributed. You can't see the individual ingredients anymore, and it looks the same no matter where you sample it. Examples include sugar dissolved in water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Mixing substances</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Uniform appearance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Homogeneous</span> Mixtures: Uniform Throughout</h2>
-          <ul><li>Components are uniformly distributed.</li><li>Cannot see individual components.</li><li>Examples: Salt solution, Air.</li></ul>
-          <p class="notes">🎙️ Mixtures can be broadly classified into two types. First, homogeneous mixtures. In these, the components are so perfectly mixed that you can't distinguish them individually, even under a microscope. The mixture has the same composition and properties throughout.</p>
+          <h2>Real-life Example: <span class="hl">Sugar Solution</span></h2>
+          <ul><li>Sugar dissolves completely in water.</li><li>The solution looks clear and uniform.</li><li>Sweetness is consistent throughout.</li></ul>
+          <p class="notes">🎙️ When you add sugar to water and stir it, the sugar particles spread out evenly and disappear, forming a sugar solution. This is a classic example of a homogeneous mixture because you can't tell where the sugar ends and the water begins.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Perfectly Blended</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☕</span><span>☕</span><span>☕</span><span>☕</span><span>☕</span></div><div class="vcap">Sugar dissolving in water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Real-Life Homogeneous Mixture: <span class="hl">Salt Solution</span></h2>
-          <ul><li>Salt dissolves completely in water.</li><li>Tastes salty everywhere.</li><li>Looks like clear water.</li></ul>
-          <p class="notes">🎙️ Think about dissolving salt in water. Once it's fully dissolved, you can't see the salt crystals anymore. The entire solution tastes uniformly salty, and it looks like clear water. This is a classic example of a homogeneous mixture.</p>
+          <h2>Types of Mixtures: <span class="hl">Heterogeneous</span></h2>
+          <ul><li>Have a non-uniform composition.</li><li>Components are visibly distinct.</li><li>Consist of two or more phases.</li></ul>
+          <p class="notes">🎙️ In contrast, heterogeneous mixtures are like a fruit salad – you can clearly see and distinguish all the different fruits. The components are not evenly mixed and often form separate layers or clumps. Think of sand and water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧂</span><span>🧂</span><span>🧂</span><span>🧂</span><span>🧂</span></div><div class="vcap">Salt dissolving</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Distinct parts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Heterogeneous</span> Mixtures: Uneven Distribution</h2>
-          <ul><li>Components are not uniformly distributed.</li><li>Can see individual components.</li><li>Examples: Sand and water, Oil and water.</li></ul>
-          <p class="notes">🎙️ On the other hand, we have heterogeneous mixtures. Here, the components are not uniformly distributed, and you can often see the distinct parts with your naked eye. The mixture's properties and composition might vary from one part to another.</p>
+          <h2>Real-life Example: <span class="hl">Oil and Water</span></h2>
+          <ul><li>Oil and water do not mix.</li><li>Oil forms a separate layer on top of water.</li><li>Clearly visible as two distinct phases.</li></ul>
+          <p class="notes">🎙️ A common example of a heterogeneous mixture is oil and water. No matter how much you shake them, the oil will eventually separate and float on top of the water, forming two distinct layers. You can easily see both components.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝🚫</div><div class="vcap">Uneven Mix</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Oil floating on water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,23 +132,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Real-Life Heterogeneous Mixture: <span class="hl">Sand and Water</span></h2>
-          <ul><li>Sand settles at the bottom.</li><li>Water remains on top.</li><li>Each part retains its identity.</li></ul>
-          <p class="notes">🎙️ Imagine mixing sand with water in a glass. You'll clearly see the sand particles separate from the water, often settling at the bottom. This clearly visible separation and uneven distribution makes it a heterogeneous mixture.</p>
+          <h2>Comparison: Homogeneous <span class="hl">vs.</span> Heterogeneous</h2>
+          <ul><li>Uniformity: Uniform vs. Non-uniform</li><li>Visibility: Not visible vs. Visibly distinct</li><li>Phases: Single phase vs. Multiple phases</li></ul>
+          <p class="notes">🎙️ To quickly recap, the main difference lies in how well the components are mixed. Homogeneous mixtures are perfectly uniform, while heterogeneous mixtures have visible, distinct parts. This distinction is crucial for understanding separation methods.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏖️</span><span>🏖️</span><span>🏖️</span></div><div class="vcap">Sand in Water</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Homogeneous Uniformity</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Heterogeneous Uniformity</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Identify the Mixture Type</h2>
-          <ul><li>Which type of mixture is air?</li><li>Is milk a homogeneous or heterogeneous mixture?</li><li>How about sugar dissolved in water?</li></ul>
-          <p class="notes">🎙️ Alright, let's quickly test your understanding. Take a moment to think about these common substances. Is air a homogeneous or heterogeneous mixture? What about milk? And what type of mixture is sugar dissolved in water?</p>
+          <h2>Why <span class="hl">Separate</span> Mixtures?</h2>
+          <ul><li>To obtain pure and useful substances.</li><li>To remove harmful or undesirable components.</li><li>To improve the quality or properties of a substance.</li></ul>
+          <p class="notes">🎙️ Separating mixtures is a fundamental process in science and daily life. We separate mixtures to get what we need, like pure water, or to remove what we don't want, like stones from rice. It's all about utility and safety.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Purification</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Solutions</span>: A Special Homogeneous Mixture</h2>
-          <ul><li>Homogeneous mixture of two or more substances.</li><li>Particles are very small (less than 1 nm).</li><li>Do not scatter light (Tyndall effect absent).</li></ul>
-          <p class="notes">🎙️ Now let's delve deeper into specific types of mixtures. A solution is a homogeneous mixture where the particles of the solute are extremely small, so small that they cannot be seen even with a powerful microscope. Because of their tiny size, they don't scatter light, which means light passes straight through.</p>
+          <h2>Basic Separation <span class="hl">Techniques</span></h2>
+          <ul><li>Handpicking</li><li>Sieving</li><li>Filtration</li><li>Evaporation</li><li>Decantation &amp; Sedimentation</li></ul>
+          <p class="notes">🎙️ There are many different ways to separate mixtures, depending on the properties of their components. Today, we'll focus on five common and relatively simple techniques that you might even use at home.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Clear Liquid</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Distillation_apparatus.svg?width=500" data-fb="🛠️" alt="Separation techniques are used to isolate components from mixtures. Different methods work"/><div class="vcap">Separation techniques are used to isolate components from mixtures. Different methods work</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Solute and Solvent</span>: The Solution Pair</h2>
-          <ul><li>Solute: The substance that dissolves.</li><li>Solvent: The substance that dissolves the solute.</li><li>Usually, solvent is present in a larger amount.</li></ul>
-          <p class="notes">🎙️ Every solution has two main parts: the solute and the solvent. The solute is the substance that gets dissolved, like salt or sugar. The solvent is the substance that does the dissolving, usually present in a larger quantity, like water. Water is often called the 'universal solvent'.</p>
+          <h2>Technique 1: <span class="hl">Handpicking</span></h2>
+          <ul><li>Used when components are large enough to be seen individually.</li><li>Separates based on differences in size, shape, or color.</li><li>A simple, manual method.</li></ul>
+          <p class="notes">🎙️ Handpicking is the most straightforward separation method. If the undesirable components are distinct and large enough, you can simply pick them out with your hands. It's often used in everyday cooking.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Solvent</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Solute</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Picking by hand</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Key Characteristics of Solutions</h2>
-          <ul><li>Stable (particles don't settle).</li><li>Particles pass through filter paper.</li><li>Transparent appearance.</li></ul>
-          <p class="notes">🎙️ Solutions exhibit specific properties. They are very stable, meaning the solute particles won't settle down over time. Their tiny particles can easily pass through filter paper, and they appear transparent because they don't scatter light. This makes them look clear and uniform.</p>
+          <h2>Real-life Example: Separating Stones from <span class="hl">Rice</span></h2>
+          <ul><li>Stones are larger and different in color from rice grains.</li><li>Easily spotted and removed by hand.</li><li>Ensures rice is clean and safe to eat.</li></ul>
+          <p class="notes">🎙️ Before cooking, it's common practice in many Indian households to handpick small stones or impurities from rice or pulses. This prevents accidental consumption of hard, unwanted particles and ensures a better meal.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Stable &amp; Clear</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span><span>🍚</span></div><div class="vcap">Rice with stones</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Suspensions</span>: Visible Particles</h2>
-          <ul><li>Heterogeneous mixture.</li><li>Particles are large enough to be seen with naked eye.</li><li>Particles settle down over time.</li></ul>
-          <p class="notes">🎙️ Next, we have suspensions. These are heterogeneous mixtures where the solid particles are large enough to be seen without a microscope. If you let a suspension stand for some time, the particles will eventually settle down at the bottom due to gravity.</p>
+          <h2>Technique 2: <span class="hl">Sieving</span></h2>
+          <ul><li>Separates solid components of different sizes.</li><li>Uses a sieve with specific pore sizes.</li><li>Smaller particles pass through, larger ones are retained.</li></ul>
+          <p class="notes">🎙️ Sieving is like handpicking but for smaller particles. It's ideal when you have a mixture of solids where one component is significantly larger than the other. The sieve acts as a physical barrier based on size.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Cloudy Mixture</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">筛</div><div class="vcap">Sieve</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Key Characteristics of Suspensions</h2>
-          <ul><li>Unstable (particles settle).</li><li>Particles do not pass through filter paper.</li><li>Scatter light (Tyndall effect observed).</li></ul>
-          <p class="notes">🎙️ Suspensions are unstable because their particles settle. Unlike solutions, the particles in a suspension are too large to pass through filter paper. Also, because of their size, they scatter a beam of light passing through them, a phenomenon known as the Tyndall effect, making the path of light visible.</p>
+          <h2>Real-life Example: Separating <span class="hl">Flour</span> from Bran</h2>
+          <ul><li>Flour is finer and passes through the sieve.</li><li>Coarser bran particles are left behind on the sieve.</li><li>Ensures smooth, fine flour for baking.</li></ul>
+          <p class="notes">🎙️ In the kitchen, sieving is often used to separate fine flour from coarser particles like bran or lumps. Builders also use large sieves to separate gravel from sand at construction sites, demonstrating its versatility.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Settling Particles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍞</span><span>🍞</span><span>🍞</span><span>🍞</span><span>🍞</span></div><div class="vcap">Sieving flour</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Colloids</span>: In-Between Solutions and Suspensions</h2>
-          <ul><li>Heterogeneous mixture (appears homogeneous).</li><li>Particle size is intermediate (1-100 nm).</li><li>Scatter light (Tyndall effect observed).</li></ul>
-          <p class="notes">🎙️ Colloids are fascinating because they appear homogeneous but are actually heterogeneous. Their particle size is larger than in solutions but smaller than in suspensions. This intermediate size allows them to scatter light, showing the Tyndall effect, but they don't settle down easily.</p>
+          <h2>Technique 3: <span class="hl">Filtration</span></h2>
+          <ul><li>Separates insoluble solids from liquids.</li><li>Uses a filter medium (e.g., filter paper, cloth).</li><li>Solid (residue) stays on the filter, liquid (filtrate) passes through.</li></ul>
+          <p class="notes">🎙️ Filtration is a crucial method for separating tiny solid particles that are suspended in a liquid and don't dissolve. The filter medium acts as a barrier, allowing only the liquid to pass through while trapping the solid.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Milky Appearance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Liquid passing through</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,21 +228,93 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Key Characteristics of Colloids</h2>
-          <ul><li>Stable (particles don't settle).</li><li>Particles pass through filter paper.</li><li>Show Brownian motion.</li></ul>
-          <p class="notes">🎙️ Colloids are quite stable; their particles don't settle over time. They are small enough to pass through ordinary filter paper. A unique property is Brownian motion, which is the zig-zag movement of colloidal particles, caused by collisions with molecules of the dispersion medium.</p>
+          <h2>Real-life Example: Making <span class="hl">Tea</span></h2>
+          <ul><li>Tea leaves are insoluble solids in water.</li><li>A tea strainer acts as a filter.</li><li>Separates brewed tea from the tea leaves.</li></ul>
+          <p class="notes">🎙️ After brewing tea, we use a strainer to separate the liquid tea from the solid tea leaves. This is a perfect example of filtration in our daily lives, ensuring we get a clear, drinkable beverage without the leaves.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light Scattering</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍵</span><span>🍵</span><span>🍵</span><span>🍵</span><span>🍵</span></div><div class="vcap">Straining tea</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Technique 4: <span class="hl">Evaporation</span></h2>
+          <ul><li>Separates a soluble solid from its liquid solvent.</li><li>The liquid turns into vapor, leaving the solid behind.</li><li>Requires heating the mixture.</li></ul>
+          <p class="notes">🎙️ Evaporation is used when one component of a mixture is a liquid that can easily turn into a gas, leaving a dissolved solid behind. It's based on the difference in boiling points between the solvent and the solute.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Heat and vapor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Real-life Example: Obtaining Salt from <span class="hl">Seawater</span></h2>
+          <ul><li>Seawater is a solution of salt dissolved in water.</li><li>Water evaporates under the sun's heat.</li><li>Salt is left behind in large salt pans.</li></ul>
+          <p class="notes">🎙️ This is a large-scale application you can see in coastal areas. Seawater is collected in shallow ponds, and the sun's energy causes the water to evaporate, leaving behind the valuable salt crystals. It's a natural separation process.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌊</span><span>🌊</span><span>🌊</span><span>🌊</span><span>🌊</span></div><div class="vcap">Salt pans</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Technique 5: <span class="hl">Decantation</span> and Sedimentation</h2>
+          <ul><li>Sedimentation: Heavier insoluble particles settle at the bottom.</li><li>Decantation: Gently pouring off the clear liquid without disturbing the settled solid.</li><li>Used for separating insoluble solids from liquids or immiscible liquids.</li></ul>
+          <p class="notes">🎙️ These two processes often go hand-in-hand. Sedimentation allows gravity to pull down heavier particles, and then decantation carefully removes the lighter liquid from the top. It's a simple yet effective method for coarse mixtures.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Settling over time</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real-life Example: Separating <span class="hl">Sand</span> from Water</h2>
+          <ul><li>Sand is heavier than water and insoluble.</li><li>Allows sand to settle at the bottom of the container.</li><li>Water can then be carefully poured off.</li></ul>
+          <p class="notes">🎙️ If you mix sand and water, the sand will eventually settle down to the bottom. Once settled, you can carefully tilt the container and pour out the water, leaving the sand behind. This is a perfect demonstration of sedimentation and decantation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Sand settling in water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Quick Check: <span class="hl">Classify</span> the Mixture</h2>
-          <ul><li>Is blood a solution, suspension, or colloid?</li><li>What about muddy water?</li><li>And pure vinegar?</li></ul>
-          <p class="notes">🎙️ Time for another quick check! Let's apply what we just learned. Think about blood – how would you classify it? What type of mixture is muddy water? And finally, consider pure vinegar. Which category does it fall into?</p>
+          <span class="num">20 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which separation method would you use to separate small pieces of iron from sand?</li></ul>
+          <p class="notes">🎙️ Time for a quick question! Think about the properties of iron. What unique property does it have that could help us separate it from sand? There's a special tool we use for this.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Is air a homogeneous or heterogeneous mixture? Why?</li></ul>
+          <p class="notes">🎙️ Consider the air around us. Can you see the different gases like nitrogen, oxygen, and carbon dioxide? Does it look the same everywhere you observe it? This will help you decide its type.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What technique is typically used to separate chalk powder (insoluble) from water?</li></ul>
+          <p class="notes">🎙️ Imagine you've mixed chalk powder with water. The chalk doesn't dissolve. Which method allows the liquid to pass through while trapping the solid particles? Think about making tea.</p>
         </div>
         
       </div>
@@ -238,84 +323,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Why <span class="hl">Separate</span>? The Need for Purity</h2>
-          <ul><li>To remove undesirable components.</li><li>To obtain useful components.</li><li>To purify substances for specific uses.</li></ul>
-          <p class="notes">🎙️ Now that we understand mixtures, let's explore why separating them is so important. We separate mixtures for several reasons: to remove harmful or unwanted substances, to extract valuable components, or simply to get a pure substance for a particular application, like in medicines or cooking.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚮</div><div class="vcap">Removing Impurities</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2><span class="hl">Evaporation</span>: Separating Solids from Liquids</h2>
-          <ul><li>Used to separate a volatile solvent from a non-volatile solute.</li><li>Liquid turns into vapor, leaving solid behind.</li><li>Example: Separating salt from water.</li></ul>
-          <p class="notes">🎙️ One common method is evaporation. This technique is perfect when you have a solid dissolved in a liquid, and the liquid evaporates easily. When you heat the mixture, the liquid turns into a gas and escapes, leaving the solid component behind. Think of drying clothes in the sun.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Saltwater</span></div><div class="step"><span class="snum">2</span><span>Heat</span></div><div class="step"><span class="snum">3</span><span>Salt Left</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Real-Life Evaporation: Salt from <span class="hl">Seawater</span></h2>
-          <ul><li>Seawater contains dissolved salt.</li><li>Sun's heat evaporates water.</li><li>Salt crystals are left behind in salt pans.</li></ul>
-          <p class="notes">🎙️ A fantastic real-world example of evaporation is how we get salt from seawater. Large shallow ponds called salt pans are filled with seawater. The sun's heat naturally evaporates the water over time, leaving behind the valuable salt crystals, which are then collected.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sun drying salt</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Centrifugation</span>: Spinning for Separation</h2>
-          <ul><li>Used to separate very fine suspended particles from a liquid.</li><li>Mixture is rotated at high speed.</li><li>Denser particles settle at the bottom.</li></ul>
-          <p class="notes">🎙️ Centrifugation is a clever method used for separating very fine particles suspended in a liquid, especially when filtration isn't practical. The mixture is spun rapidly in a centrifuge, creating a strong centrifugal force that pushes the denser particles to the bottom, separating them from the lighter liquid.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Rapid Spinning</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Real-Life Centrifugation: <span class="hl">Cream</span> from Milk</h2>
-          <ul><li>Milk is spun rapidly in a centrifuge.</li><li>Denser skimmed milk settles.</li><li>Lighter cream collects at the top.</li></ul>
-          <p class="notes">🎙️ A common application of centrifugation is in dairies to separate cream from milk. When milk is spun at high speed, the denser components, like skimmed milk, are forced to the bottom, while the lighter cream particles collect at the top, allowing for easy separation.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span></div><div class="vcap">Milk &amp; Cream</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Decantation and Filtration</span>: Pouring and Straining</h2>
-          <ul><li>Decantation: Pouring off liquid after solids settle.</li><li>Filtration: Using a filter medium to separate solids from liquids.</li></ul>
-          <p class="notes">🎙️ Decantation and filtration are two common methods for separating insoluble solids from liquids. Decantation involves simply pouring off the liquid once the solid particles have settled. Filtration, on the other hand, uses a filter paper or cloth to trap the solid particles while allowing the liquid to pass through.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Decantation</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Filtration</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Real-Life <span class="hl">Filtration</span>: Cleaning Muddy Water</h2>
-          <ul><li>Muddy water passed through filter paper.</li><li>Sand and mud particles are trapped.</li><li>Clear water (filtrate) passes through.</li></ul>
-          <p class="notes">🎙️ Consider muddy water. You can separate the mud and sand from the water using filtration. When you pour the muddy water through a filter paper set in a funnel, the solid impurities are retained on the paper, and you get clear water, called the filtrate, in the beaker below.</p>
+          <h2><span class="hl">Beyond</span> Basic: Other Methods</h2>
+          <ul><li>Distillation: Separates liquids with different boiling points.</li><li>Centrifugation: Separates very fine suspended particles.</li><li>Chromatography: Separates components based on differential adsorption.</li></ul>
+          <p class="notes">🎙️ While we focused on basic methods today, it's good to know that science offers many advanced techniques for more complex separations. These are used in labs and industries for highly specific needs, and you'll learn about them in higher classes.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Muddy Water</span></div><div class="step"><span class="snum">2</span><span>Filter Funnel</span></div><div class="step"><span class="snum">3</span><span>Clean Water</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Advanced techniques</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check: <span class="hl">Match</span> the Separation Method</h2>
-          <ul><li>Which method for separating iron filings from sand?</li><li>How to separate dyes from ink?</li><li>What about small stones from rice?</li></ul>
-          <p class="notes">🎙️ Let's do one last quick check on separation methods. Think about these scenarios: How would you separate iron filings from sand? Which method is suitable for separating different coloured dyes from ink? And what's the simplest way to separate small stones from rice?</p>
+          <h2>Chapter <span class="hl">Summary</span></h2>
+          <ul><li>Mixtures are physically combined substances (homogeneous or heterogeneous).</li><li>Separation is vital for purity, safety, and utility.</li><li>Key techniques: Handpicking, Sieving, Filtration, Evaporation, Decantation &amp; Sedimentation.</li></ul>
+          <p class="notes">🎙️ To summarize, we've learned about the two main types of mixtures and why separating them is so important. We also explored five practical methods, each suited for different types of mixtures based on their properties. Understanding these principles is key.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Summary</span>: Mixtures and Separation</h2>
-          <ul><li>Mixtures are combinations of substances.</li><li>Homogeneous vs. Heterogeneous.</li><li>Solutions, Suspensions, Colloids.</li><li>Various methods to separate mixtures.</li></ul>
-          <p class="notes">🎙️ To conclude, we've learned that mixtures are physical combinations of substances, classified as homogeneous or heterogeneous. We explored solutions, suspensions, and colloids based on particle size. And we discussed several practical methods like evaporation, centrifugation, decantation, and filtration to separate mixtures in our daily lives and industries. Keep exploring the science around you!</p>
+          <h2>Thank You! Any <span class="hl">Questions</span>?</h2>
+          <ul><li>Keep exploring the world around you!</li><li>Observe how mixtures are separated in daily life.</li></ul>
+          <p class="notes">🎙️ Thank you for your active participation today! I hope you now have a clear understanding of mixtures and their separation. Don't hesitate to ask any questions you might have, or share examples you've observed.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

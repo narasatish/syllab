@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Aldehydes, Ketones and Carboxylic Acids — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,17 +42,29 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Chapter 12</span>: Aldehydes, Ketones &amp; Carboxylic Acids</h2>
-          <ul><li>Welcome to Class 12 Chemistry!</li><li>Mastering Carbonyl Compounds for CBSE Exams</li><li>Focus on Concepts, Reactions, and Mechanisms</li></ul>
-          <p class="notes">🎙️ Namaste students! Today we embark on a crucial chapter in Organic Chemistry: Aldehydes, Ketones, and Carboxylic Acids. This chapter is highly important for your CBSE board exams, so pay close attention to the concepts and reactions we discuss.</p>
+          <h2>Chapter 12: <span class="hl">Aldehydes</span>, Ketones and Carboxylic Acids</h2>
+          <ul><li>Welcome to Class 12 Chemistry!</li><li>Today, we explore key organic compounds.</li><li>Focus on structure, nomenclature, and reactions.</li><li>Prepare for your CBSE exams with confidence.</li></ul>
+          <p class="notes">🎙️ Good morning, students! This chapter is crucial for understanding organic chemistry. We'll break down aldehydes, ketones, and carboxylic acids, making sure you grasp all the essential concepts and reactions for your upcoming exams.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Organic Chemistry Essentials</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Introduction: The <span class="hl">Carbonyl Group</span></h2>
-          <ul><li>Functional group: Carbon atom double-bonded to an oxygen atom (C=O)</li><li>Present in Aldehydes, Ketones, Carboxylic Acids, Esters, Amides, etc.</li><li>Highly polar due to electronegativity difference between C and O</li></ul>
-          <p class="notes">🎙️ The carbonyl group is the defining feature of this entire chapter. It's a carbon atom double-bonded to an oxygen atom. This group is highly polar, making these compounds very reactive and central to many organic transformations.</p>
+          <h2>Introduction to <span class="hl">Carbonyl</span> Compounds</h2>
+          <ul><li>All three classes share the Carbonyl group (C=O).</li><li>It's a polar group due to electronegativity difference.</li><li>Carbonyl carbon is electrophilic, oxygen is nucleophilic.</li><li>This polarity dictates their reactivity.</li></ul>
+          <p class="notes">🎙️ The carbonyl group is the heart of these compounds. Its polarity means the carbon atom is slightly positive, making it a target for electron-rich species, while the oxygen is slightly negative, attracting electron-deficient species.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">C=O: The Core</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">The C=O bond</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Nomenclature of <span class="hl">Aldehydes</span></h2>
-          <ul><li>IUPAC: Alkane name - 'e' + 'al' (e.g., Methanal, Ethanal)</li><li>Carbonyl carbon is always C1; longest chain includes C=O</li><li>Common names: Formaldehyde, Acetaldehyde</li></ul>
-          <p class="notes">🎙️ For aldehydes, the carbonyl carbon is always given the number 1. We replace the '-e' ending of the corresponding alkane with '-al'. Remember to practice both IUPAC and common names as both are frequently tested.</p>
+          <h2><span class="hl">Aldehydes</span>: The Terminal Carbonyl</h2>
+          <ul><li>Contain a -CHO group (R-CHO).</li><li>Carbonyl carbon is bonded to at least one hydrogen atom.</li><li>Always terminal in the carbon chain.</li><li>Examples: Methanal (Formaldehyde), Ethanal (Acetaldehyde).</li></ul>
+          <p class="notes">🎙️ Aldehydes are characterized by their carbonyl group being at the end of the carbon chain. This unique position gives them specific chemical properties, especially in oxidation reactions.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify longest chain</span></div><div class="step"><span class="snum">2</span><span>Number from -CHO end</span></div><div class="step"><span class="snum">3</span><span>Replace -e with -al</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Terminal -CHO group</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Nomenclature of <span class="hl">Ketones</span></h2>
-          <ul><li>IUPAC: Alkane name - 'e' + 'one' (e.g., Propanone, Butanone)</li><li>Number chain to give C=O the lowest possible number</li><li>Common names: Acetone (Propanone), Methyl ethyl ketone (Butanone)</li></ul>
-          <p class="notes">🎙️ Ketones have the carbonyl group within the carbon chain, not at the end. We number the chain to give the carbonyl carbon the lowest possible number. Propanone, commonly known as acetone, is the simplest ketone.</p>
+          <h2><span class="hl">Ketones</span>: The Internal Carbonyl</h2>
+          <ul><li>Contain a -CO- group (R-CO-R').</li><li>Carbonyl carbon is bonded to two alkyl or aryl groups.</li><li>Always internal in the carbon chain.</li><li>Examples: Propanone (Acetone), Butanone.</li></ul>
+          <p class="notes">🎙️ Unlike aldehydes, ketones have their carbonyl group flanked by two other carbon atoms. This structural difference impacts their reactivity, making them generally less reactive towards oxidation.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify longest chain</span></div><div class="step"><span class="snum">2</span><span>Number to give C=O lowest number</span></div><div class="step"><span class="snum">3</span><span>Replace -e with -one</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Internal -CO- group</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,23 +108,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Nomenclature of <span class="hl">Carboxylic Acids</span></h2>
-          <ul><li>IUPAC: Alkane name - 'e' + 'oic acid' (e.g., Methanoic acid, Ethanoic acid)</li><li>Carboxyl carbon (-COOH) is always C1</li><li>Common names: Formic acid, Acetic acid</li></ul>
-          <p class="notes">🎙️ Carboxylic acids are characterized by the -COOH group. Similar to aldehydes, the carboxyl carbon is always designated as C1. We replace the '-e' of the alkane with '-oic acid'. Formic acid and acetic acid are very common examples.</p>
+          <h2><span class="hl">Carboxylic</span> Acids: The -COOH Group</h2>
+          <ul><li>Contain a -COOH group (R-COOH).</li><li>A combination of carbonyl and hydroxyl groups.</li><li>Highly polar, capable of extensive hydrogen bonding.</li><li>Examples: Methanoic acid, Ethanoic acid.</li></ul>
+          <p class="notes">🎙️ Carboxylic acids are unique because they combine both a carbonyl and a hydroxyl group. This combination leads to strong intermolecular forces and makes them acidic, a key property we'll explore.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify longest chain</span></div><div class="step"><span class="snum">2</span><span>Carboxyl carbon is C1</span></div><div class="step"><span class="snum">3</span><span>Replace -e with -oic acid</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">The -COOH group</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Quick Check 1: <span class="hl">Naming Practice</span></h2>
-          <ul><li>Name the compound: CH3COCH2CH3</li><li>Name the compound: CH3CH(OH)COOH</li><li>What is the IUPAC name for Benzaldehyde?</li></ul>
-          <p class="notes">🎙️ Let's quickly test your understanding of nomenclature. Take a moment to name these compounds. The first is a ketone, the second is a hydroxy acid, and the third is an aromatic aldehyde. Pause and try to recall the rules.</p>
+          <h2><span class="hl">Nomenclature</span>: Aldehydes (IUPAC)</h2>
+          <ul><li>Longest carbon chain containing -CHO.</li><li>Replace '-e' of alkane with '-al'.</li><li>Numbering starts from carbonyl carbon (C-1).</li><li>Aromatic aldehydes named as benzaldehyde derivatives.</li></ul>
+          <p class="notes">🎙️ For aldehydes, remember that the aldehyde carbon is always assigned the number 1. This simplifies numbering and ensures consistent IUPAC naming across different structures.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify longest chain</span></div><div class="step"><span class="snum">2</span><span>Replace '-e' with '-al'</span></div><div class="step"><span class="snum">3</span><span>C-1 for -CHO carbon</span></div><div class="step"><span class="snum">4</span><span>Handle substituents</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Structure of Carbonyl Group: <span class="hl">Polarity</span> &amp; Reactivity</h2>
-          <ul><li>Carbonyl carbon is sp2 hybridized, trigonal planar geometry</li><li>C=O bond is polar: oxygen is more electronegative than carbon</li><li>Carbonyl carbon is electrophilic; carbonyl oxygen is nucleophilic</li></ul>
-          <p class="notes">🎙️ The carbonyl carbon is sp2 hybridized, leading to a trigonal planar geometry around it. The significant polarity of the C=O bond is key to its reactivity. The carbon acts as an electrophile, attracting nucleophiles, while the oxygen acts as a nucleophile.</p>
+          <h2>Nomenclature: <span class="hl">Ketones</span> (IUPAC)</h2>
+          <ul><li>Longest carbon chain containing -CO-.</li><li>Replace '-e' of alkane with '-one'.</li><li>Number to give carbonyl carbon lowest possible number.</li><li>Aromatic ketones named as phenone derivatives.</li></ul>
+          <p class="notes">🎙️ With ketones, the position of the carbonyl group must be indicated by a number if there are multiple possibilities. Always choose the numbering that gives the carbonyl carbon the lowest possible number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Polar C=O Bond</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify longest chain</span></div><div class="step"><span class="snum">2</span><span>Replace '-e' with '-one'</span></div><div class="step"><span class="snum">3</span><span>Lowest number for -CO-</span></div><div class="step"><span class="snum">4</span><span>Handle substituents</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Preparation of Aldehydes &amp; Ketones - I: <span class="hl">Oxidation</span> of Alcohols</h2>
-          <ul><li>Primary alcohols (1°) oxidize to aldehydes (using PCC)</li><li>Secondary alcohols (2°) oxidize to ketones (using CrO3, PCC, KMnO4)</li><li>Tertiary alcohols (3°) resist oxidation under mild conditions</li></ul>
-          <p class="notes">🎙️ Oxidation of alcohols is a fundamental method. Remember that primary alcohols give aldehydes, but you need a mild oxidizing agent like PCC to stop at the aldehyde stage. Secondary alcohols always give ketones. Tertiary alcohols are generally resistant to oxidation.</p>
+          <h2>Nomenclature: <span class="hl">Carboxylic Acids</span> (IUPAC)</h2>
+          <ul><li>Longest carbon chain containing -COOH.</li><li>Replace '-e' of alkane with '-oic acid'.</li><li>Numbering starts from carboxyl carbon (C-1).</li><li>Aromatic acids named as benzoic acid derivatives.</li></ul>
+          <p class="notes">🎙️ Similar to aldehydes, the carboxyl carbon in carboxylic acids is always C-1. This is a fundamental rule for their IUPAC naming. Practice naming various branched and cyclic structures.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1° Alcohol to Aldehyde</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">2° Alcohol to Ketone</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">3° Alcohol (no reaction)</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify longest chain</span></div><div class="step"><span class="snum">2</span><span>Replace '-e' with '-oic acid'</span></div><div class="step"><span class="snum">3</span><span>C-1 for -COOH carbon</span></div><div class="step"><span class="snum">4</span><span>Handle substituents</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Preparation of Aldehydes &amp; Ketones - II: <span class="hl">Ozonolysis</span> &amp; Hydration</h2>
-          <ul><li>Ozonolysis of alkenes followed by reductive workup gives aldehydes/ketones</li><li>Hydration of alkynes (H2SO4, HgSO4) gives ketones (except ethyne)</li><li>Ethyne hydration gives ethanal (acetaldehyde)</li></ul>
-          <p class="notes">🎙️ Ozonolysis is a powerful method to cleave double bonds and form carbonyl compounds. Hydration of alkynes is another important reaction; remember that only ethyne yields an aldehyde, all other alkynes give ketones due to Markovnikov's rule and tautomerism.</p>
+          <h2>Worked Example: <span class="hl">Naming</span> Organic Compounds</h2>
+          <ul><li>Name: CH₃CH₂COCH₃</li><li>Name: CH₃CH(Cl)CHO</li><li>Name: C₆H₅COOH</li><li>Name: CH₃CH(OH)CH₂COOH</li></ul>
+          <p class="notes">🎙️ Let's apply what we've learned. For the first compound, it's a ketone, so it's Butan-2-one. The second is an aldehyde with a chloro substituent, so 2-Chloropropanal. The third is Benzoic acid, and the last is 3-Hydroxybutanoic acid. Pay attention to numbering and functional group priority.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Addition Reactions</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="🧪" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Preparation of Aldehydes - III: <span class="hl">Rosenmund</span> &amp; Stephen Reactions</h2>
-          <ul><li>Rosenmund reduction: Acyl chlorides reduced to aldehydes using H2/Pd-BaSO4</li><li>BaSO4 acts as a poison to prevent further reduction to alcohol</li><li>Stephen reaction: Nitriles reduced to imines, then hydrolyzed to aldehydes</li></ul>
-          <p class="notes">🎙️ These are named reactions specifically for aldehyde synthesis. Rosenmund reduction is excellent for converting acyl chlorides to aldehydes, with BaSO4 crucial for preventing over-reduction. The Stephen reaction uses SnCl2/HCl to reduce nitriles.</p>
+          <h2>Preparation: <span class="hl">Oxidation</span> of Alcohols</h2>
+          <ul><li>Primary alcohols oxidize to aldehydes, then carboxylic acids.</li><li>Secondary alcohols oxidize to ketones.</li><li>Tertiary alcohols do not oxidize easily.</li><li>Controlled oxidation is key for aldehydes (e.g., PCC).</li></ul>
+          <p class="notes">🎙️ This is a very common method. Remember that strong oxidizing agents will convert primary alcohols directly to carboxylic acids. For aldehydes, we need milder agents like PCC (Pyridinium Chlorochromate) to stop at the aldehyde stage.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Specific Reductions</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Primary Alcohol</span></div><div class="step"><span class="snum">2</span><span>Aldehyde</span></div><div class="step"><span class="snum">3</span><span>Carboxylic Acid</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Preparation of <span class="hl">Ketones</span> - IV: From Acyl Chlorides &amp; Nitriles</h2>
-          <ul><li>From Acyl Chlorides: React with dialkylcadmium (R2Cd), formed from Grignard</li><li>From Nitriles: React with Grignard reagents, followed by hydrolysis</li><li>Friedel-Crafts acylation: Benzene reacts with acyl chloride in presence of AlCl3</li></ul>
-          <p class="notes">🎙️ Ketones can be prepared from acyl chlorides by reacting them with organocadmium compounds, which are less reactive than Grignard reagents. Grignard reagents also react with nitriles to form ketones after hydrolysis. Don't forget Friedel-Crafts acylation for aromatic ketones.</p>
+          <h2>Preparation: <span class="hl">Ozonolysis</span> of Alkenes</h2>
+          <ul><li>Alkenes react with ozone (O₃) to form ozonides.</li><li>Ozonides are then cleaved by Zn/H₂O or NaBH₄.</li><li>Forms aldehydes and/or ketones, depending on alkene structure.</li><li>Useful for determining alkene structure.</li></ul>
+          <p class="notes">🎙️ Ozonolysis is a powerful reaction for synthesizing aldehydes and ketones from alkenes. The type of product formed depends on the substitution pattern around the double bond of the starting alkene.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Aromatic &amp; Aliphatic Ketones</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alkene + O₃</span></div><div class="step"><span class="snum">2</span><span>Ozonide formation</span></div><div class="step"><span class="snum">3</span><span>Reductive cleavage</span></div><div class="step"><span class="snum">4</span><span>Aldehydes/Ketones</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Physical Properties</span>: Aldehydes &amp; Ketones</h2>
-          <ul><li>Lower members (methanal, ethanal) are gases/volatile liquids</li><li>Higher members are liquids or solids</li><li>Boiling points are higher than non-polar compounds of similar mass (due to polarity)</li><li>Solubility in water decreases with increasing chain length</li></ul>
-          <p class="notes">🎙️ Aldehydes and ketones have higher boiling points than non-polar compounds of comparable molecular mass due to dipole-dipole interactions. However, they are lower than alcohols because they cannot form intermolecular hydrogen bonds. Solubility decreases as the non-polar alkyl part increases.</p>
+          <h2><span class="hl">Preparation</span>: Carboxylic Acids</h2>
+          <ul><li>Oxidation of primary alcohols and aldehydes (strong oxidants).</li><li>Hydrolysis of nitriles (R-CN) in acidic or basic medium.</li><li>Grignard reagents with CO₂ followed by hydrolysis.</li><li>Hydrolysis of acyl halides and esters.</li></ul>
+          <p class="notes">🎙️ Carboxylic acids can be prepared through various routes. Remember that the oxidation of primary alcohols and aldehydes requires strong oxidizing agents like KMnO₄ or K₂Cr₂O₇. Nitrile hydrolysis is also a common and important method.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">BP: Alkane</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">BP: Aldehyde/Ketone</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">BP: Alcohol</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alcohol/Aldehyde Oxidation</span></div><div class="step"><span class="snum">2</span><span>Nitrile Hydrolysis</span></div><div class="step"><span class="snum">3</span><span>Grignard + CO₂</span></div><div class="step"><span class="snum">4</span><span>Ester Hydrolysis</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Chemical Reactions: <span class="hl">Nucleophilic Addition</span> Reactions (NAR)</h2>
-          <ul><li>Characteristic reaction of aldehydes and ketones</li><li>Due to electrophilic nature of carbonyl carbon</li><li>Aldehydes are generally more reactive than ketones (less steric hindrance, less electron donation)</li></ul>
-          <p class="notes">🎙️ Nucleophilic addition is the most important reaction type for aldehydes and ketones. The electrophilic carbon is attacked by a nucleophile. Remember that aldehydes are generally more reactive than ketones due to both electronic and steric factors.</p>
+          <h2>Physical Properties: <span class="hl">Boiling Points</span></h2>
+          <ul><li>Carboxylic acids &gt; Alcohols &gt; Ketones ≈ Aldehydes.</li><li>Carboxylic acids form strong hydrogen-bonded dimers.</li><li>Alcohols form intermolecular H-bonds.</li><li>Aldehydes/Ketones have dipole-dipole interactions, no H-bonds.</li></ul>
+          <p class="notes">🎙️ The ability to form hydrogen bonds significantly impacts boiling points. Carboxylic acids form very stable dimers, leading to exceptionally high boiling points compared to aldehydes and ketones of similar molecular mass.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Addition Mechanism</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Carboxylic Acids</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Alcohols</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Ketones</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Aldehydes</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>NAR - Examples I: Addition of <span class="hl">HCN &amp; NaHSO3</span></h2>
-          <ul><li>Addition of Hydrogen Cyanide (HCN): Forms cyanohydrins</li><li>Cyanohydrins are important intermediates for further synthesis</li><li>Addition of Sodium Hydrogen Sulphite (NaHSO3): Forms crystalline bisulphite adducts</li></ul>
-          <p class="notes">🎙️ The addition of HCN is a key reaction, forming cyanohydrins which can be hydrolyzed to alpha-hydroxy acids. The addition of sodium bisulphite forms a crystalline product, often used for purification of aldehydes and ketones.</p>
+          <h2>Physical Properties: <span class="hl">Solubility</span> in Water</h2>
+          <ul><li>Lower members (up to 4 carbons) are soluble in water.</li><li>Due to hydrogen bonding with water molecules.</li><li>Solubility decreases rapidly with increasing chain length.</li><li>Hydrophobic alkyl part dominates at longer chains.</li></ul>
+          <p class="notes">🎙️ The smaller molecules of aldehydes, ketones, and carboxylic acids can form hydrogen bonds with water, making them soluble. However, as the non-polar hydrocarbon chain gets longer, it starts to repel water, reducing solubility.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔗</span><span>🔗</span><span>🔗</span></div><div class="vcap">Adding New Bonds</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Hydrogen bonding with water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,35 +228,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>NAR - Examples II: Addition of <span class="hl">Grignard Reagents</span></h2>
-          <ul><li>Grignard reagents (RMgX) act as nucleophiles (R-)</li><li>Formaldehyde gives primary alcohols</li><li>Other aldehydes give secondary alcohols</li><li>Ketones give tertiary alcohols</li></ul>
-          <p class="notes">🎙️ Grignard reagents are powerful nucleophiles. This reaction is extremely versatile for synthesizing primary, secondary, and tertiary alcohols by carefully choosing the starting carbonyl compound. Remember the type of alcohol formed from each class of carbonyl.</p>
+          <h2>Chemical Reactions: <span class="hl">Nucleophilic Addition</span></h2>
+          <ul><li>Characteristic reaction of aldehydes and ketones.</li><li>Electrophilic carbonyl carbon attacked by nucleophiles.</li><li>Aldehydes are more reactive than ketones.</li><li>Steric and electronic factors explain reactivity difference.</li></ul>
+          <p class="notes">🎙️ Nucleophilic addition is central to understanding aldehyde and ketone chemistry. The electron-deficient carbon is the site of attack. Aldehydes are generally more reactive due to less steric hindrance and less electron-donating effect from alkyl groups.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Formaldehyde</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Other Aldehyde</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ketone</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Worked Example: NAR <span class="hl">Mechanism</span></h2>
-          <ul><li>Step 1: Nucleophile attacks electrophilic carbonyl carbon</li><li>Step 2: Pi-bond breaks, electrons shift to oxygen, forming alkoxide ion</li><li>Step 3: Alkoxide ion protonated by H+ to form the final product</li></ul>
-          <p class="notes">🎙️ Let's walk through a general mechanism for nucleophilic addition. First, the nucleophile attacks the partially positive carbonyl carbon. This pushes the pi-electrons onto the oxygen, forming an alkoxide intermediate. Finally, the alkoxide is protonated to yield the stable product.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Nucleophilic attack</span></div><div class="step"><span class="snum">2</span><span>Alkoxide formation</span></div><div class="step"><span class="snum">3</span><span>Protonation</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Chemical_reaction.svg?width=500" data-fb="🧪" alt="Chemical reactions can be classified by the types of chemical changes involved. Five main "/><div class="vcap">Chemical reactions can be classified by the types of chemical changes involved. Five main </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Reaction Products</span></h2>
-          <ul><li>What is the product of propanal + HCN?</li><li>What alcohol is formed when ethanal reacts with CH3MgBr?</li><li>Identify the product of propanone + NaHSO3.</li></ul>
-          <p class="notes">🎙️ Time for another quick check. Apply your knowledge of nucleophilic addition reactions to predict the products of these specific reactions. Think about the nature of the reactants and the general mechanism we just discussed.</p>
+          <span class="num">16 / 25</span>
+          <h2>Worked Example: <span class="hl">Aldol Condensation</span></h2>
+          <ul><li>Aldehydes/ketones with α-hydrogens react.</li><li>Forms β-hydroxy aldehydes/ketones (aldols).</li><li>Followed by dehydration to α,β-unsaturated carbonyls.</li><li>Base-catalyzed or acid-catalyzed.</li></ul>
+          <p class="notes">🎙️ Aldol condensation is a powerful carbon-carbon bond forming reaction. It requires at least one alpha-hydrogen on the carbonyl compound. Be careful with the conditions, as heating can lead to dehydration and formation of the unsaturated product.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Chemical Reactions: <span class="hl">Oxidation</span> - Aldehydes vs. Ketones</h2>
+          <ul><li>Aldehydes are easily oxidized to carboxylic acids.</li><li>Ketones resist oxidation under mild conditions.</li><li>Aldehydes have an oxidizable H-atom on the carbonyl carbon.</li><li>Ketones require strong conditions, C-C bond cleavage occurs.</li></ul>
+          <p class="notes">🎙️ This difference in oxidation reactivity is a key distinction between aldehydes and ketones. It's the basis for several important identification tests. Remember, the presence of the hydrogen atom directly attached to the carbonyl carbon in aldehydes is the reason for their easy oxidation.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Aldehydes</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Ketones</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Preparation of Carboxylic Acids - I: From Primary Alcohols &amp; Aldehydes</h2>
-          <ul><li>Primary alcohols (1°) oxidize to carboxylic acids (strong oxidizing agents)</li><li>Aldehydes oxidize to carboxylic acids (mild or strong oxidizing agents)</li><li>Common oxidizing agents: KMnO4, K2Cr2O7, CrO3</li></ul>
-          <p class="notes">🎙️ Carboxylic acids can be prepared by the oxidation of primary alcohols or aldehydes. Unlike aldehyde synthesis, here we use strong oxidizing agents like KMnO4 or K2Cr2O7 to ensure complete oxidation to the carboxylic acid.</p>
+          <h2><span class="hl">Distinguishing</span> Aldehydes: Tollens' &amp; Fehling's Tests</h2>
+          <ul><li>Tollens' Test: Forms 'silver mirror' with aldehydes.</li><li>Fehling's Test: Produces red precipitate (Cu₂O) with aldehydes.</li><li>Both tests rely on aldehyde's easy oxidation.</li><li>Ketones do not give positive results with these reagents.</li></ul>
+          <p class="notes">🎙️ These are classic qualitative tests in organic chemistry. A positive Tollens' test gives a shiny silver mirror, while Fehling's test results in a brick-red precipitate. These are reliable ways to differentiate aldehydes from ketones.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1° Alcohol</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Aldehyde</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Lab Tests</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Preparation of Carboxylic Acids - II: From <span class="hl">Nitriles</span>, Grignard Reagents</h2>
-          <ul><li>From Nitriles: Hydrolysis of nitriles (R-CN) in acidic or basic conditions</li><li>From Grignard Reagents: Reaction with carbon dioxide (CO2), followed by hydrolysis</li><li>From Acyl Halides and Anhydrides: Hydrolysis gives carboxylic acids</li></ul>
-          <p class="notes">🎙️ Hydrolysis of nitriles is a good way to extend the carbon chain. The reaction of Grignard reagents with carbon dioxide is another excellent method, increasing the carbon chain by one carbon atom. Acyl halides and anhydrides also readily hydrolyze to carboxylic acids.</p>
+          <h2><span class="hl">Acidity</span> of Carboxylic Acids</h2>
+          <ul><li>More acidic than alcohols and phenols.</li><li>Due to resonance stabilization of carboxylate anion (RCOO⁻).</li><li>Electron-withdrawing groups increase acidity.</li><li>Electron-donating groups decrease acidity.</li></ul>
+          <p class="notes">🎙️ The acidity of carboxylic acids is a direct consequence of the stability of their conjugate base, the carboxylate ion. The negative charge is delocalized over two electronegative oxygen atoms, making it very stable. This is a crucial concept for exams.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Building Blocks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">H+ donation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Physical Properties: Carboxylic Acids - <span class="hl">Acidity</span> &amp; Boiling Point</h2>
-          <ul><li>Higher boiling points than aldehydes, ketones, and even alcohols (due to strong H-bonding)</li><li>Form dimeric structures in vapor phase and non-polar solvents</li><li>Soluble in water for lower members (up to 4 carbons) due to H-bonding</li></ul>
-          <p class="notes">🎙️ Carboxylic acids have exceptionally high boiling points because they can form strong intermolecular hydrogen bonds, even forming stable dimeric structures. Their solubility in water is also due to hydrogen bonding, but it decreases as the non-polar alkyl chain grows.</p>
+          <h2>Reactions: <span class="hl">Esterification</span></h2>
+          <ul><li>Carboxylic acids react with alcohols to form esters.</li><li>Catalyzed by mineral acids (e.g., H₂SO₄).</li><li>Reversible reaction, equilibrium shifted by removing water.</li><li>Esters are known for their pleasant fruity smells.</li></ul>
+          <p class="notes">🎙️ Esterification is an important reaction for synthesizing esters, which are widely used in perfumes and food flavorings. Remember it's a condensation reaction where water is eliminated, and it's reversible.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">BP: Aldehyde</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">BP: Alcohol</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">BP: Carboxylic Acid</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Carboxylic Acid + Alcohol</span></div><div class="step"><span class="snum">2</span><span>Acid Catalyst</span></div><div class="step"><span class="snum">3</span><span>Ester + Water</span></div><div class="step"><span class="snum">4</span><span>Reversible Reaction</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,35 +300,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Chemical Reactions - Carboxylic Acids I: <span class="hl">Acidity</span> &amp; Salt Formation</h2>
-          <ul><li>Acidic nature: Donate H+ ion, forming carboxylate ion</li><li>Stabilized by resonance, making them stronger acids than alcohols</li><li>React with bases (NaOH), carbonates (Na2CO3), and bicarbonates (NaHCO3) to form salts</li></ul>
-          <p class="notes">🎙️ The acidity of carboxylic acids is a crucial property, attributed to the resonance stabilization of the carboxylate anion. This makes them stronger acids than alcohols. They readily react with bases, carbonates, and bicarbonates, producing CO2 with the latter two.</p>
+          <h2>Real-life <span class="hl">Applications</span></h2>
+          <ul><li>Formaldehyde: Preservative, polymer synthesis.</li><li>Acetone: Solvent in nail polish remover, paint thinner.</li><li>Acetic Acid: Vinegar (food preservative), industrial chemical.</li><li>Esters: Fragrances, flavors, solvents.</li></ul>
+          <p class="notes">🎙️ These compounds are not just textbook concepts; they are everywhere around us! From the food we eat to the products we use daily, their applications are vast and varied. Understanding their properties helps us appreciate their utility.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Resonance Stability</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Everyday Uses</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Chemical Reactions - Carboxylic Acids II: <span class="hl">Esterification</span> &amp; Decarboxylation</h2>
-          <ul><li>Esterification: Reaction with alcohols in presence of acid catalyst to form esters</li><li>Decarboxylation: Removal of CO2, typically by heating with soda lime (NaOH + CaO)</li><li>Reduction: To primary alcohols using LiAlH4 (strong reducing agent)</li></ul>
-          <p class="notes">🎙️ Esterification is a very important reaction, forming pleasant-smelling esters. Decarboxylation is useful for shortening a carbon chain. Remember that carboxylic acids are resistant to mild reducing agents and require strong ones like LiAlH4 for reduction to alcohols.</p>
+          <h2><span class="hl">Quick Check</span>! Question 1</h2>
+          <ul><li>Which of the following does NOT undergo Aldol condensation?</li><li>A) Ethanal</li><li>B) Propanone</li><li>C) Benzaldehyde</li><li>D) Butanal</li></ul>
+          <p class="notes">🎙️ Think back to the requirement for Aldol condensation. Which of these compounds lacks the necessary structural feature? The correct answer is C) Benzaldehyde, as it does not have any alpha-hydrogens.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔄</span><span>🔄</span><span>🔄</span><span>🔄</span></div><div class="vcap">Transformations</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Real-Life <span class="hl">Applications</span>: Aldehydes, Ketones, Carboxylic Acids</h2>
-          <ul><li>Formaldehyde: Preservative, polymer synthesis (Bakelite)</li><li>Acetone: Solvent, nail polish remover</li><li>Acetic acid: Vinegar, chemical reagent</li><li>Citric acid: Food additive, sour taste</li></ul>
-          <p class="notes">🎙️ These compounds are not just theoretical; they are all around us! Formaldehyde is used in preserving biological specimens and making plastics. Acetone is a common solvent. Acetic acid is the main component of vinegar, and citric acid gives many fruits their sour taste.</p>
+          <h2><span class="hl">Quick Check</span>! Question 2</h2>
+          <ul><li>Arrange the following in increasing order of boiling points:</li><li>Ethanal, Ethanol, Ethanoic Acid</li><li>A) Ethanal &lt; Ethanol &lt; Ethanoic Acid</li><li>B) Ethanol &lt; Ethanal &lt; Ethanoic Acid</li><li>C) Ethanoic Acid &lt; Ethanol &lt; Ethanal</li><li>D) Ethanal &lt; Ethanoic Acid &lt; Ethanol</li></ul>
+          <p class="notes">🎙️ Recall the intermolecular forces present in each compound. Ethanoic acid forms dimers, ethanol forms hydrogen bonds, and ethanal only has dipole-dipole interactions. The correct order is A) Ethanal &lt; Ethanol &lt; Ethanoic Acid.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Everyday Chemistry</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -323,11 +336,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Common Mistakes &amp; <span class="hl">Exam Tips</span></h2>
-          <ul><li>Distinguish between oxidation of 1° alcohol to aldehyde vs. carboxylic acid</li><li>Understand reactivity order: Aldehyde &gt; Ketone (NAR)</li><li>Practice named reactions and their specific reagents</li><li>Focus on mechanisms for key reactions (e.g., NAR, esterification)</li></ul>
-          <p class="notes">🎙️ Be careful with distinguishing between mild and strong oxidizing agents. Always remember that aldehydes are more reactive than ketones in nucleophilic addition. Master the named reactions and their specific reagents, and practice drawing reaction mechanisms step-by-step for better understanding and recall.</p>
+          <h2>Common <span class="hl">Mistakes</span> &amp; Exam Tips</h2>
+          <ul><li>Confusing oxidation levels of alcohols/aldehydes/acids.</li><li>Forgetting α-hydrogens for Aldol/Cannizzaro reactions.</li><li>Incorrectly applying Tollens'/Fehling's tests.</li><li>Practice IUPAC nomenclature thoroughly.</li></ul>
+          <p class="notes">🎙️ Students often mix up the conditions for various reactions or forget the specific requirements. Pay close attention to the presence of alpha-hydrogens, oxidizing/reducing agents, and reaction conditions. Practice naming and reaction mechanisms diligently.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Smart Study</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Avoid these pitfalls!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Key Concepts at a Glance</h2>
-          <ul><li>Nomenclature of Aldehydes, Ketones, Carboxylic Acids</li><li>Preparation methods for all three classes</li><li>Physical properties (Boiling point, Solubility)</li><li>Chemical reactions: NAR for A/K; Acidity, Esterification for CA</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! We started with nomenclature, moved on to various preparation methods, discussed their physical properties, and explored their characteristic chemical reactions. Make sure to revise all these points thoroughly. Keep practicing and you will excel!</p>
+          <h2><span class="hl">Recap</span> &amp; Key Takeaways</h2>
+          <ul><li>Aldehydes, Ketones, Carboxylic Acids all contain C=O group.</li><li>Distinguished by position and nature of substituents.</li><li>Unique preparation methods and chemical reactions.</li><li>Master nomenclature, physical properties, and key reactions.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the core concepts: the carbonyl group, the differences between aldehydes, ketones, and carboxylic acids, and their characteristic reactions like nucleophilic addition, oxidation, and esterification. Keep practicing, and you'll excel!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

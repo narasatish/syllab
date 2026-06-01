@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>The Water Cycle — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>The <span class="hl">Water Cycle</span></h2>
-          <ul><li>Welcome, Class 4!</li><li>Let's learn about water's amazing journey.</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an amazing journey to understand something very special about water. Have you ever wondered where the rain comes from or where the water in puddles goes? Let's find out!</p>
+          <h2>Welcome to The <span class="hl">Water Cycle</span>!</h2>
+          <ul><li>Where does all the water go?</li><li>Let's find out about a secret journey!</li></ul>
+          <p class="notes">🎙️ Hello, little explorers! Today, we're going to learn about something super important that happens all around us, all the time. It's the amazing journey of water, called The Water Cycle! Have you ever wondered where rain comes from, or why puddles disappear? We'll discover all these secrets together.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>The <span class="hl">Journey</span> of Water</h2>
-          <ul><li>Water keeps moving all the time.</li><li>It goes up to the sky and comes down to Earth.</li><li>This continuous journey is called the Water Cycle.</li></ul>
-          <p class="notes">🎙️ Imagine water as a little explorer, always on the move! It travels from the earth to the sky and then back again. This continuous journey, like a big circle, is what we call the Water Cycle.</p>
+          <h2>Water is <span class="hl">Everywhere</span>!</h2>
+          <ul><li>We drink water every day.</li><li>Plants and animals need water too.</li></ul>
+          <p class="notes">🎙️ Water is so important for all living things. We need it to drink and stay healthy. Plants need water to grow big and strong, and animals need it to survive. Look around you, water is truly everywhere!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔄" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="💧" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>The <span class="hl">Sun's Warm</span> Hug</h2>
-          <ul><li>The sun is very powerful and warm.</li><li>It makes the water in rivers, lakes, and oceans warm.</li></ul>
-          <p class="notes">🎙️ Our friendly sun plays a very important role. Just like the sun makes us feel warm, it also makes the water in big oceans, rivers, and even small puddles warm. This warmth is the first step in water's big adventure.</p>
+          <h2>Where do we <span class="hl">see Water</span>?</h2>
+          <ul><li>In rivers, lakes, and oceans.</li><li>In rain and even in clouds!</li></ul>
+          <p class="notes">🎙️ You can see water in many places. Think about the big rivers you cross, or the lakes you visit. And of course, when it rains, water falls from the sky! Even the clouds are made of water, though we can't drink them.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="☀️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌊</span><span>🌊</span><span>🌊</span></div><div class="vcap">Rivers, lakes, oceans</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Evaporation</span> - Water Goes Up!</h2>
-          <ul><li>When water gets warm, it turns into a gas.</li><li>This gas is called water vapour.</li><li>Water vapour is very light and invisible. It goes up into the sky.</li></ul>
-          <p class="notes">🎙️ When water gets warm enough, something magical happens! It changes from liquid water into an invisible gas called water vapour. Think of it like water going 'poof!' and flying up into the sky. This process is called Evaporation.</p>
+          <h2>Water <span class="hl">Never Stays Still</span>!</h2>
+          <ul><li>Water goes on a big adventure.</li><li>It keeps moving in a circle.</li></ul>
+          <p class="notes">🎙️ The most amazing thing about water is that it never stops moving! It's like a little adventurer, always travelling. This journey is a continuous circle, and that's why we call it a 'cycle'.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="⬆️" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Always moving!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">Wet Clothes</span> Dry</h2>
-          <ul><li>When we hang wet clothes, they become dry.</li><li>The water from the clothes goes into the air.</li><li>This is an example of evaporation.</li></ul>
-          <p class="notes">🎙️ Have you ever seen your mom hang wet clothes out in the sun? After some time, the clothes become dry. Where did all the water go? It evaporated! The sun's warmth turned the water into vapour, and it went up into the air.</p>
+          <h2>Step 1: <span class="hl">Evaporation</span> - Water Becomes Vapour!</h2>
+          <ul><li>The sun heats water in rivers and lakes.</li><li>Water turns into a gas called vapour and goes up.</li></ul>
+          <p class="notes">🎙️ Our water story begins with the sun! When the sun shines brightly, it heats up the water in rivers, lakes, and oceans. This heat makes the water change into a gas, like steam, which we call water vapour. This vapour is very light and floats up into the sky.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👕</span><span>👕</span><span>👕</span></div><div class="vcap">Drying clothes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Water goes up!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">Puddles Vanish</span>!</h2>
-          <ul><li>After rain, puddles form on the road.</li><li>When the sun shines, the puddles disappear.</li><li>The water evaporates and goes up.</li></ul>
-          <p class="notes">🎙️ Remember when it rains, and you see puddles everywhere? But if the sun comes out, the puddles slowly shrink and then disappear. That's evaporation at work again! The sun helps the water in the puddles turn into vapour and rise.</p>
+          <h2><span class="hl">Puddles</span> Disappear!</h2>
+          <ul><li>After rain, puddles dry up.</li><li>The sun's heat makes water turn into vapour.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a puddle after it rains? After some time, the puddle disappears! Where did the water go? The sun's heat made it evaporate, turning into vapour and rising into the air. This is evaporation happening right before your eyes!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏞️</span></div><div class="vcap">Disappearing puddle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☀️</span></div><div class="vcap">Sun dries puddles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2><span class="hl">Condensation</span> - Vapour Turns Cold</h2>
-          <ul><li>High up in the sky, it is very cold.</li><li>The warm water vapour gets cold there.</li><li>It turns back into tiny water droplets.</li></ul>
-          <p class="notes">🎙️ Now, imagine our water vapour traveling very high up in the sky. It's like going to a very cold place! When the warm vapour meets the cold air, it gets chilly and changes back into tiny, tiny drops of water. This process is called Condensation.</p>
+          <h2><span class="hl">Wet Clothes</span> Dry Up!</h2>
+          <ul><li>When we hang wet clothes, they dry.</li><li>Water evaporates and goes into the air.</li></ul>
+          <p class="notes">🎙️ Think about your wet clothes after they are washed. When Mummy hangs them out in the sun, they become dry. The water from the clothes evaporates because of the sun's heat and the wind, leaving your clothes dry and fresh.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">Clothes drying</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Drops on a <span class="hl">Cold Glass</span></h2>
-          <ul><li>Take a cold drink out of the fridge.</li><li>You see tiny water drops on the outside of the glass.</li><li>This is an example of condensation.</li></ul>
-          <p class="notes">🎙️ Here's a fun way to see condensation! If you take a very cold glass of water out on a warm day, you'll soon see tiny water droplets forming on the outside of the glass. The water vapour in the air touched the cold glass and turned back into liquid water.</p>
+          <h2>Step 2: <span class="hl">Condensation</span> - Vapour Becomes Water Again!</h2>
+          <ul><li>Vapour rises high in the sky.</li><li>It gets cold and turns back into tiny water drops.</li></ul>
+          <p class="notes">🎙️ As the water vapour goes higher and higher in the sky, it gets very cold. When it gets cold, the vapour doesn't want to be a gas anymore! It changes back into tiny, tiny drops of water. This process is called condensation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span></div><div class="vcap">Cold glass with drops</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Clouds form</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Clouds are Born</span>!</h2>
-          <ul><li>Many tiny water drops come together.</li><li>They form big, fluffy clouds in the sky.</li></ul>
-          <p class="notes">🎙️ When many, many of these tiny water droplets come together, they form what we see as clouds! So, clouds are not fluffy cotton candy; they are actually made of millions of tiny water droplets floating in the sky.</p>
+          <h2>How <span class="hl">Clouds</span> Are Made!</h2>
+          <ul><li>Tiny water drops join together.</li><li>They form big, fluffy clouds.</li></ul>
+          <p class="notes">🎙️ Those tiny water drops, formed from condensation, start to stick together. Many, many drops join hands and form what we see as clouds in the sky! So, clouds are actually collections of millions of tiny water droplets.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☁️</span><span>☁️</span><span>☁️</span></div><div class="vcap">Clouds forming</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☁️</span><span>☁️</span><span>☁️</span></div><div class="vcap">Many tiny drops</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Clouds <span class="hl">Get Full</span></h2>
-          <ul><li>As more and more water drops join, the clouds get bigger.</li><li>They become heavy with a lot of water.</li></ul>
-          <p class="notes">🎙️ Imagine a cloud like a sponge. As it collects more and more water droplets, it gets heavier and heavier. It's like the cloud is slowly filling up with water, waiting for the right moment.</p>
+          <h2>Water on a <span class="hl">Cold Glass</span>!</h2>
+          <ul><li>See tiny drops on a cold glass?</li><li>Air vapour touches the cold glass and turns to water.</li></ul>
+          <p class="notes">🎙️ Here's a fun experiment you can do! Pour a cold drink into a glass. After a while, you'll see tiny water drops on the outside of the glass. This is condensation! The water vapour in the air touches the cold glass and turns into liquid water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Cold glass</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Precipitation</span> - Water Falls Back</h2>
-          <ul><li>When clouds get too heavy, they cannot hold the water anymore.</li><li>The water falls back to Earth.</li><li>This is called precipitation.</li></ul>
-          <p class="notes">🎙️ Finally, when the clouds become too heavy to hold all the water, they release it! The water falls back to the Earth in different forms. This falling of water from the sky is called Precipitation.</p>
+          <h2>Step 3: <span class="hl">Precipitation</span> - Water Falls Down!</h2>
+          <ul><li>Clouds get too heavy with water drops.</li><li>Water falls back to Earth as rain, snow, or hail.</li></ul>
+          <p class="notes">🎙️ When the clouds gather too many water drops, they become very, very heavy. They can't hold all the water anymore! So, the water falls back down to Earth. This falling water is called precipitation. It can be rain, snow, or even hail.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌧️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌧️</div><div class="vcap">Water falls</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Different Kinds</span> of Precipitation</h2>
-          <ul><li>Water can fall as rain, snow, or hail.</li><li>We mostly see rain in our areas.</li></ul>
-          <p class="notes">🎙️ Precipitation can be many things! Most often, we see it as rain. But in very cold places, it can fall as snow, which looks like white flakes. Sometimes, it can even fall as hard ice balls called hail. All these are forms of precipitation.</p>
+          <h2>The Joy of <span class="hl">Rain</span>!</h2>
+          <ul><li>Rain is the most common way water falls.</li><li>It fills rivers, lakes, and helps plants grow.</li></ul>
+          <p class="notes">🎙️ The most common type of precipitation we see is rain. Rain is so important! It waters our farms, fills our rivers and lakes, and helps all the plants and trees grow. We love the sound and smell of fresh rain!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rain</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Snow</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Hail</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☔</span></div><div class="vcap">Rainy day</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Water <span class="hl">Collects</span> on Earth</h2>
-          <ul><li>The fallen water collects in rivers, lakes, and oceans.</li><li>Some water also goes into the ground.</li></ul>
-          <p class="notes">🎙️ Once the water falls back to Earth, it doesn't just disappear. It collects in big bodies of water like rivers, lakes, and the vast oceans. Some of it also soaks into the ground, becoming groundwater.</p>
+          <h2><span class="hl">Other Ways</span> Water Falls!</h2>
+          <ul><li>In very cold places, water falls as snow.</li><li>Sometimes, it falls as small ice balls called hail.</li></ul>
+          <p class="notes">🎙️ While rain is common, in very cold places, the water drops freeze and fall as soft, white snow. Sometimes, if the clouds are very cold, water can fall as tiny, hard balls of ice, which we call hail. All these are forms of precipitation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rain</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Snow</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Hail</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,9 +216,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>The Cycle <span class="hl">Never Stops</span>!</h2>
-          <ul><li>The collected water gets warm again.</li><li>It evaporates and goes up to the sky.</li><li>The journey starts all over again!</li></ul>
-          <p class="notes">🎙️ And guess what? The water that collected in rivers and oceans gets warmed by the sun again! It evaporates, goes up, forms clouds, falls as rain, and collects again. This amazing cycle keeps going on and on, forever!</p>
+          <h2>Step 4: <span class="hl">Collection</span> - Water Gathers!</h2>
+          <ul><li>Fallen water collects in rivers.</li><li>It flows into lakes and oceans.</li></ul>
+          <p class="notes">🎙️ After the water falls back to Earth as rain or snow, it doesn't just stay there. It starts to collect! It flows over the land, forming small streams that join to become bigger rivers. These rivers then carry the water to lakes and the vast oceans.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water gathers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>Water Finds Its <span class="hl">Home</span>!</h2>
+          <ul><li>Rainwater flows into streams and rivers.</li><li>Eventually, it all goes back to the big oceans.</li></ul>
+          <p class="notes">🎙️ So, all the water that falls down finds its way back to its 'home' in the big water bodies. From streams to rivers, and finally to the oceans, the water gathers, ready to start its journey all over again. The cycle never truly ends!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌊</span><span>🌊</span></div><div class="vcap">Rivers to oceans</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>The <span class="hl">Water Cycle</span> Story!</h2>
+          <ul><li>Evaporation: Water goes up.</li><li>Condensation: Clouds form.</li><li>Precipitation: Water falls down.</li><li>Collection: Water gathers.</li></ul>
+          <p class="notes">🎙️ Let's quickly remember the whole story of the water cycle. First, water goes up (Evaporation). Then, clouds are made (Condensation). Next, water falls down (Precipitation). And finally, water gathers (Collection). And then, the cycle starts again!</p>
         </div>
         <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Evaporation</span></div><div class="step"><span class="snum">2</span><span>Condensation</span></div><div class="step"><span class="snum">3</span><span>Precipitation</span></div><div class="step"><span class="snum">4</span><span>Collection</span></div></div></div>
       </div>
@@ -214,34 +251,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2><span class="hl">Question Time</span>! (1/4)</h2>
-          <ul><li>What makes water turn into vapour and go up into the sky?</li></ul>
-          <p class="notes">🎙️ Alright, my little scientists, let's see how much you remember! What is the main thing that helps water change into vapour and rise up into the sky? (Pause for answers, then reveal: The Sun's heat!)</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2><span class="hl">Question Time</span>! (2/4)</h2>
-          <ul><li>What is it called when water vapour turns back into tiny water drops?</li></ul>
-          <p class="notes">🎙️ Next question! When the water vapour goes high up and gets cold, it turns back into tiny water drops. What is this process called? (Pause for answers, then reveal: Condensation!)</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Question Time</span>! (3/4)</h2>
-          <ul><li>What do we call water falling from the clouds as rain or snow?</li></ul>
-          <p class="notes">🎙️ One more question! When the clouds get very heavy and water falls down to the Earth as rain or snow, what is that called? (Pause for answers, then reveal: Precipitation!)</p>
+          <h2>Quick Question 1: What makes water <span class="hl">go up</span>?</h2>
+          <ul><li>Is it the wind?</li><li>Is it the sun's heat?</li><li>Is it the moon?</li></ul>
+          <p class="notes">🎙️ Think back to when we talked about puddles disappearing or clothes drying. What was the main thing that made the water turn into vapour and rise? Take a moment to think about the answer.</p>
         </div>
         
       </div>
@@ -251,9 +264,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">Question Time</span>! (4/4)</h2>
-          <ul><li>Where does the water go after it falls as rain?</li></ul>
-          <p class="notes">🎙️ Last question! After the rain falls, where does all that water go? Where does it collect? (Pause for answers, then reveal: Rivers, lakes, oceans, and into the ground!)</p>
+          <h2>Quick Question 2: What do we call water <span class="hl">falling</span> from clouds?</h2>
+          <ul><li>Evaporation?</li><li>Condensation?</li><li>Precipitation?</li></ul>
+          <p class="notes">🎙️ When the clouds get too heavy and release the water, what is that process called? Remember the different ways water can fall from the sky. Choose the correct word.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>Quick Question 3: Why are clouds <span class="hl">heavy</span>?</h2>
+          <ul><li>They are full of tiny water drops.</li><li>They are full of air.</li><li>They are full of sunshine.</li></ul>
+          <p class="notes">🎙️ We learned that clouds are made of something very special. What fills the clouds and makes them so heavy that they can't hold it anymore? Think about what happens during condensation.</p>
         </div>
         
       </div>
@@ -262,28 +287,17 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>Recap: Our <span class="hl">Water Cycle</span> Journey</h2>
-          <ul><li>Evaporation: Water goes up to the sky.</li><li>Condensation: Clouds form from water vapour.</li><li>Precipitation: Water falls down as rain.</li><li>Collection: Water gathers in rivers and oceans.</li></ul>
-          <p class="notes">🎙️ Let's quickly remember our journey! First, water goes up (Evaporation). Then, it forms clouds (Condensation). Next, it falls down as rain (Precipitation). And finally, it gathers in rivers and lakes (Collection). This is our amazing Water Cycle!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Why is the Water Cycle <span class="hl">Important</span>?</h2>
-          <ul><li>The water cycle gives us fresh water to drink.</li><li>It helps plants and trees grow all around us.</li><li>It keeps our Earth alive and green!</li></ul>
-          <p class="notes">🎙️ Why is this cycle so important? Because it brings us fresh water to drink and helps all the plants and trees grow. Without the water cycle, life on Earth would not be possible! So, let's appreciate this wonderful cycle.</p>
+          <h2>The <span class="hl">Amazing</span> Water Cycle!</h2>
+          <ul><li>Water keeps moving all the time.</li><li>It gives us fresh water to live.</li><li>Let's save water!</li></ul>
+          <p class="notes">🎙️ The water cycle is truly amazing because it continuously provides fresh water for everyone on Earth. It's a natural process that keeps our planet alive and healthy. Remember, water is precious, so let's always try to save it and not waste it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

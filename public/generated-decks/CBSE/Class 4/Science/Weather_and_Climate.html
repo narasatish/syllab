@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Weather and Climate — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to <span class="hl">Weather</span> Wonders!</h2>
-          <ul><li>Look outside your window!</li><li>Is it sunny or cloudy today?</li><li>Let's learn about weather and climate!</li></ul>
-          <p class="notes">🎙️ Hello, my dear children! Today we are going on an exciting journey to explore the world around us. Have you ever wondered why some days are hot and some are cold? Let's find out!</p>
+          <h2>Welcome to <span class="hl">Weather</span> and Climate!</h2>
+          <ul><li>Let's learn about the sky above us!</li><li>How it changes every day and over many years.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going to learn about something we see and feel every single day – the weather! We will also talk about 'climate', which is like the long story of weather.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Weather</span>?</h2>
-          <ul><li>Weather is what the sky and air are like right now.</li><li>It tells us if it's hot, cold, rainy, or sunny.</li><li>It changes very quickly!</li></ul>
-          <p class="notes">🎙️ Imagine looking out of your window right now. What do you see? Is the sun shining brightly, or are there dark clouds? That's the weather! It's like the sky's mood, and it can change in just a few hours.</p>
+          <ul><li>Weather is what the sky and air are like right now.</li><li>It can change many times in one day!</li></ul>
+          <p class="notes">🎙️ Imagine you look out of your window. Is it sunny? Is it cloudy? Is it raining? That's the weather! It's like the mood of the sky, and it can change very quickly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌦️</div><div class="vcap">Changing Sky</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Cumulus_clouds_in_fair_weather.jpeg?width=500" data-fb="☀️" alt="Clouds bring us rain."/><div class="vcap">Clouds bring us rain.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Weather <span class="hl">Changes</span> Every Day!</h2>
-          <ul><li>One day it can be sunny.</li><li>The next day it can be rainy.</li><li>Weather doesn't stay the same.</li></ul>
-          <p class="notes">🎙️ Think about your clothes. You wear different clothes on different days, right? That's because the weather keeps changing. Sometimes you need a raincoat, sometimes sunglasses!</p>
+          <h2>Look! A <span class="hl">Sunny</span> Day!</h2>
+          <ul><li>The sun shines brightly in the sky.</li><li>It feels warm and happy!</li></ul>
+          <p class="notes">🎙️ On a sunny day, the sun is high up, making everything bright. We love to play outside when it's sunny, don't we? It makes us feel warm and cheerful.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🔄" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🔬" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>A Bright <span class="hl">Sunny</span> Day</h2>
-          <ul><li>The sun shines high in the sky.</li><li>It feels warm and bright.</li><li>We can play outside!</li></ul>
-          <p class="notes">🎙️ On a sunny day, everything looks so happy and bright. The sun gives us light and warmth. It's the perfect day to go to the park or play cricket!</p>
+          <h2>Sometimes it's <span class="hl">Cloudy</span>!</h2>
+          <ul><li>Big white or grey clouds cover the sun.</li><li>It might feel a little cooler.</li></ul>
+          <p class="notes">🎙️ Then, sometimes, big fluffy clouds come and hide the sun. The sky looks a bit grey, and it might not be as hot. These clouds can look like cotton balls floating in the sky.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sunny Day</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔬" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>A Cool <span class="hl">Rainy</span> Day</h2>
-          <ul><li>Dark clouds fill the sky.</li><li>Water falls from the sky as rain.</li><li>We use umbrellas and raincoats.</li></ul>
-          <p class="notes">🎙️ After a hot day, sometimes the clouds come and bring rain. The air feels cool and fresh. Remember to carry your umbrella if it looks like rain!</p>
+          <h2>Splish, Splash! A <span class="hl">Rainy</span> Day!</h2>
+          <ul><li>Water drops fall from the clouds.</li><li>We use umbrellas and raincoats!</li></ul>
+          <p class="notes">🎙️ And what happens when the clouds get very full of water? Yes, it rains! We hear the pitter-patter sound, and everything gets wet. It's fun to jump in puddles, but don't forget your umbrella!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌧️" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🔬" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>A Breezy <span class="hl">Windy</span> Day</h2>
-          <ul><li>We feel the air moving fast.</li><li>Leaves dance on trees.</li><li>Kites fly high in the sky!</li></ul>
-          <p class="notes">🎙️ Can you feel the wind blowing sometimes? It makes the trees sway and can even make your hair fly! It's a great day to fly a kite or watch clothes dry quickly on the line.</p>
+          <h2>Whoosh! A <span class="hl">Windy</span> Day!</h2>
+          <ul><li>The air moves fast, we call it wind.</li><li>Leaves dance and clothes fly on the line!</li></ul>
+          <p class="notes">🎙️ Have you ever felt the wind pushing you? That's a windy day! The air moves quickly, making trees sway and kites fly high. It feels cool and refreshing sometimes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Windy Day</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Blowing Wind</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>What Makes Weather <span class="hl">Change</span>?</h2>
-          <ul><li>The Sun, wind, and clouds make weather change.</li><li>They work together to create different days.</li><li>These are weather elements.</li></ul>
-          <p class="notes">🎙️ It's like a big team working together! The sun gives heat, the wind blows, and the clouds bring rain. All these things together decide what kind of weather we will have today.</p>
+          <h2>Weather <span class="hl">Changes</span> All Day Long!</h2>
+          <ul><li>Morning might be cool and fresh.</li><li>Noon gets warm and bright.</li><li>Evening becomes cooler again.</li></ul>
+          <p class="notes">🎙️ Weather is a real quick-changer! In the morning, it might be a bit chilly. By lunchtime, the sun is strong, and it's hot. Then, as evening comes, it cools down again.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Weather Makers</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Morning 🌅</span></div><div class="step"><span class="snum">2</span><span>Noon ☀️</span></div><div class="step"><span class="snum">3</span><span>Evening 🌆</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,9 +144,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>The <span class="hl">Sun</span> Makes it Hot!</h2>
-          <ul><li>The Sun is a giant ball of fire.</li><li>It gives us heat and light.</li><li>More sun means hotter weather!</li></ul>
-          <p class="notes">🎙️ The sun is super powerful! When it shines directly on us for a long time, it makes the day very hot. That's why we drink lots of water and wear light clothes on sunny days.</p>
+          <h2>Why Does Weather Change? The <span class="hl">Sun</span>!</h2>
+          <ul><li>The sun warms our Earth.</li><li>Different amounts of sun make different weather.</li></ul>
+          <p class="notes">🎙️ The biggest reason for weather changes is our sun! It's like a giant heater in the sky. When the sun shines strongly, it's hot. When clouds block it, it's cooler.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌞</div><div class="vcap">Sun's Heat</div></div></div>
       </div>
@@ -143,9 +156,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Wind</span> Blows Things Around!</h2>
-          <ul><li>Wind is moving air.</li><li>Gentle wind is a breeze.</li><li>Strong wind is a storm!</li></ul>
-          <p class="notes">🎙️ You can't see the wind, but you can feel it and see what it does! A gentle breeze feels nice, but sometimes the wind can be very strong and make trees bend.</p>
+          <h2>Why Does Weather Change? <span class="hl">Wind</span>!</h2>
+          <ul><li>Wind moves air around the Earth.</li><li>It can bring cool air or warm air.</li></ul>
+          <p class="notes">🎙️ Wind is simply air moving. This moving air can carry warmth from one place to another, or bring cool breezes. It helps spread clouds and even rain sometimes!</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Moving Air</div></div></div>
       </div>
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2><span class="hl">Clouds</span> Bring Rain!</h2>
-          <ul><li>Clouds are like fluffy cotton balls in the sky.</li><li>They carry tiny water drops.</li><li>When clouds get full, it rains!</li></ul>
-          <p class="notes">🎙️ Look up at the sky! Sometimes you see white, fluffy clouds, and sometimes dark, grey ones. The dark clouds are full of water and are ready to give us a shower!</p>
+          <h2>Why Does Weather Change? <span class="hl">Clouds</span> &amp; Rain!</h2>
+          <ul><li>Clouds are like water storage in the sky.</li><li>They bring rain, making the weather wet.</li></ul>
+          <p class="notes">🎙️ Clouds are made of tiny water droplets or ice crystals. When these droplets become heavy, they fall as rain, snow, or hail, completely changing the weather from dry to wet!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Rainy Clouds</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Drops</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -168,10 +181,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">11 / 20</span>
           <h2>What is <span class="hl">Climate</span>?</h2>
-          <ul><li>Climate is the usual weather of a place.</li><li>It's like the 'average mood' of a place.</li><li>It stays the same for many, many years.</li></ul>
-          <p class="notes">🎙️ Now let's learn about climate. Imagine if you visited a place, and every time you went there, it was always hot. That's its climate! Climate is the general weather pattern of a region over a very long time.</p>
+          <ul><li>Climate is the usual weather of a place.</li><li>It's like the weather story for many, many years.</li></ul>
+          <p class="notes">🎙️ Now, let's talk about 'climate'. Climate is not just what happens today. It's what kind of weather a place usually has for a very long time, like 20 or 30 years.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Overall Weather</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Earth's Climate</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Weather <span class="hl">vs.</span> Climate</h2>
-          <ul><li>Weather is 'what you get' today.</li><li>Climate is 'what you expect' generally.</li><li>Weather changes fast, climate changes slow.</li></ul>
-          <p class="notes">🎙️ This is important! Weather is like your mood today – happy, sad, or sleepy. Climate is like your personality – generally cheerful or generally calm. Weather is short-term, climate is long-term.</p>
+          <h2>Weather vs. Climate: What's the <span class="hl">Difference</span>?</h2>
+          <ul><li>Weather: what you see today or this week.</li><li>Climate: what you expect over many years.</li></ul>
+          <p class="notes">🎙️ Think of it this way: Weather is like what dress you wear today. Climate is like the type of clothes you have in your cupboard for the whole year, knowing if it's mostly hot or cold where you live.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Weather (Today)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Climate (Always)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Weather (Today)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Climate (Many Years)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Climate Stays for a <span class="hl">Long Time</span></h2>
-          <ul><li>Climate is measured over 30 years or more.</li><li>It tells us what clothes people usually wear.</li><li>It affects the plants and animals there.</li></ul>
-          <p class="notes">🎙️ Imagine your grandparents telling you about the weather when they were young. If it was always hot in their village, it means their village has a hot climate. Climate helps us know what to expect from a place.</p>
+          <h2><span class="hl">Hot</span> Climates: Deserts!</h2>
+          <ul><li>Places like deserts are hot and dry.</li><li>The sun shines almost every day!</li></ul>
+          <p class="notes">🎙️ Some places on Earth are always hot, like deserts. They get a lot of sunshine and very little rain, year after year. People there wear light clothes.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="⏳" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏜️</span><span>🏜️</span><span>🏜️</span></div><div class="vcap">Hot Desert</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Hot Climate</span>: Desert Fun!</h2>
-          <ul><li>Places like deserts have a hot climate.</li><li>It is sunny and dry almost all the time.</li><li>Camels live in hot climates!</li></ul>
-          <p class="notes">🎙️ Think of a desert. It's always hot and has very little rain. That's why you see special plants like cacti and animals like camels that can live without much water.</p>
+          <h2><span class="hl">Cold</span> Climates: Mountains!</h2>
+          <ul><li>Places like high mountains are very cold.</li><li>They get lots of snow and ice!</li></ul>
+          <p class="notes">🎙️ On the other hand, places like high mountains have a cold climate. It's usually chilly, and they often get snow, even in summer. People wear warm, thick clothes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏜️</div><div class="vcap">Desert Climate</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏔️</span><span>🏔️</span><span>🏔️</span></div><div class="vcap">Cold Mountains</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">Cold Climate</span>: Snowy Mountains!</h2>
-          <ul><li>Places like mountains have a cold climate.</li><li>It is usually very cold and snowy.</li><li>We need warm woollen clothes here.</li></ul>
-          <p class="notes">🎙️ Now imagine high mountains like the Himalayas. It's always very cold there, and often covered in snow. People wear thick jackets and warm hats to stay cosy.</p>
+          <h2><span class="hl">Moderate</span> Climates: Not Too Hot, Not Too Cold!</h2>
+          <ul><li>Some places have a climate that is neither too hot nor too cold.</li><li>They have pleasant weather for most of the year.</li></ul>
+          <p class="notes">🎙️ Then there are places with a moderate climate. This means it's not super hot like a desert, and not super cold like the mountains. It's usually quite pleasant and balanced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏔️</div><div class="vcap">Mountain Climate</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Balanced Weather</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">Wet Climate</span>: Green Forests!</h2>
-          <ul><li>Some places get a lot of rain.</li><li>They have a wet climate.</li><li>Many trees and animals live in these green forests.</li></ul>
-          <p class="notes">🎙️ Some parts of India, especially near the coasts or in thick forests, get a lot of rain throughout the year. This makes everything very green and lush, and many kinds of plants and animals thrive there.</p>
+          <h2>Let's <span class="hl">Test</span> Our Knowledge!</h2>
+          <ul><li>Is it weather or climate if it is raining right now?</li></ul>
+          <p class="notes">🎙️ Alright, my smart students! Let's see if you can answer these quick questions. Think carefully about what we just learned.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Forest Climate</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Is weather what you expect or what you get today?</li><li>A. What you expect</li><li>B. What you get today</li></ul>
-          <p class="notes">🎙️ Time for a quick test! Think carefully about what we just learned. Is weather something that happens right now, or something that is always true for a place?</p>
+          <h2>Another <span class="hl">Question</span>!</h2>
+          <ul><li>What kind of weather makes you want to fly a kite?</li></ul>
+          <p class="notes">🎙️ Here's another one! Imagine you want to go out and fly your beautiful kite. What kind of weather would be perfect for that?</p>
         </div>
         
       </div>
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Another Quick <span class="hl">Check</span>!</h2>
-          <ul><li>What helps clouds bring rain?</li><li>A. Sun</li><li>B. Wind</li><li>C. Water drops</li></ul>
-          <p class="notes">🎙️ Remember our discussion about clouds? What do they carry that eventually falls as rain?</p>
+          <h2><span class="hl">Last</span> Question!</h2>
+          <ul><li>Delhi has very hot summers and cold winters. Is this weather or climate?</li></ul>
+          <p class="notes">🎙️ This is a tricky one! Think about Delhi's summers and winters. Does this describe what happens for just one day, or what usually happens every year?</p>
         </div>
         
       </div>
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Last Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Which climate is usually hot and dry?</li><li>A. Cold Climate</li><li>B. Wet Climate</li><li>C. Hot Climate</li></ul>
-          <p class="notes">🎙️ Think about the different types of climates we discussed. Which one is best known for being very warm with little water?</p>
+          <h2>Time for a Quick <span class="hl">Recap</span>!</h2>
+          <ul><li>Weather is what happens daily.</li><li>Climate is the usual weather for many years.</li></ul>
+          <p class="notes">🎙️ Great job, everyone! Let's quickly remember the main things we learned today. Weather changes often, but climate is like the long-term story of a place's weather.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today!</h2>
-          <ul><li>Weather changes daily (sunny, rainy, windy).</li><li>Climate is the usual weather for many years.</li><li>Sun, wind, and clouds affect weather.</li></ul>
-          <p class="notes">🎙️ Great job, everyone! Today we discovered the difference between weather, which changes often, and climate, which stays the same for a long time. We also learned about the sun, wind, and clouds that make our weather so interesting!</p>
+          <h2>Remember This <span class="hl">Always</span>!</h2>
+          <ul><li>We *feel* the weather every day.</li><li>We *live* in a certain climate.</li></ul>
+          <p class="notes">🎙️ So, next time you look out the window, you'll know exactly what you're seeing and feeling! The weather is what you experience right now, and the climate is the bigger picture of where you live. Keep exploring!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div><div class="vcap">Happy Learning</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

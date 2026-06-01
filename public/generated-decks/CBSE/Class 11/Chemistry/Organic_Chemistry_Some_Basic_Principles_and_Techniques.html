@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Organic Chemistry - Some Basic Principles and Techniques — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Organic Chemistry</span>!</h2>
-          <ul><li>What is it?</li><li>Why study it?</li><li>The chemistry of life.</li></ul>
-          <p class="notes">🎙️ Greetings students! Today we embark on an exciting journey into Organic Chemistry, a fundamental branch that underpins much of what we experience daily. We'll cover basic principles and techniques essential for your understanding.</p>
+          <h2>Welcome to <span class="hl">Organic Chemistry</span>: The Chemistry of Life!</h2>
+          <ul><li>Explore the fundamental principles of carbon compounds.</li><li>Understand the unique properties that make carbon so special.</li><li>Learn essential techniques for naming and classifying organic molecules.</li><li>Prepare for advanced topics and competitive exams.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we embark on an exciting journey into the world of Organic Chemistry, a branch that is crucial for understanding life itself. This chapter lays the groundwork for all future organic chemistry concepts you'll encounter, so let's pay close attention to the basics.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Organic Chemistry: <span class="hl">Everywhere</span> You Look!</h2>
-          <ul><li>Fuels and Energy</li><li>Medicines and Healthcare</li><li>Polymers and Materials</li><li>Food and Agriculture</li></ul>
-          <p class="notes">🎙️ From the clothes we wear to the food we eat, organic compounds are integral. Understanding them helps us innovate in medicine, create new materials, and develop sustainable energy sources.</p>
+          <h2>What is <span class="hl">Organic Chemistry</span>?</h2>
+          <ul><li>The study of hydrocarbons and their derivatives.</li><li>Deals with compounds primarily containing carbon and hydrogen.</li><li>Encompasses millions of known compounds due to carbon's unique properties.</li></ul>
+          <p class="notes">🎙️ Organic chemistry is essentially the study of carbon-containing compounds. From the simplest methane to complex proteins and DNA, carbon is the central atom. Its ability to form stable bonds with itself and other elements leads to an incredible diversity of molecules.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💊</span><span>💊</span><span>💊</span><span>💊</span></div><div class="vcap">Everyday products</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="🧪" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Carbon's Special Abilities</span>: Tetravalency &amp; Catenation</h2>
-          <ul><li>Tetravalency: forms 4 stable covalent bonds</li><li>Catenation: unique self-linking property</li><li>Forms long chains, branched structures, and rings</li></ul>
-          <p class="notes">🎙️ Carbon is truly unique! Its ability to form four stable bonds (tetravalency) and link with other carbon atoms (catenation) allows for an incredible diversity of compounds, forming the backbone of life.</p>
+          <h2><span class="hl">Carbon's</span> Special Properties: Tetravalency &amp; Catenation</h2>
+          <ul><li>**Tetravalency:** Carbon forms four covalent bonds.</li><li>**Catenation:** Ability to form long chains and rings with itself.</li><li>Strong C-C and C-H bonds contribute to stability.</li></ul>
+          <p class="notes">🎙️ Carbon's tetravalency allows it to form a wide array of structures, while catenation is its unique ability to link with other carbon atoms. This self-linking property is why we see such vast and complex organic molecules, from straight chains to intricate branched structures and rings.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Carbon's bonding power</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Chains &amp; Rings</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Carbon's Geometry: sp3, sp2, sp <span class="hl">Hybridization</span></h2>
-          <ul><li>sp3: tetrahedral, single bonds, 109.5°</li><li>sp2: trigonal planar, one double bond, 120°</li><li>sp: linear, one triple bond or two double bonds, 180°</li></ul>
-          <p class="notes">🎙️ Hybridization explains the geometry and bonding patterns around carbon. Understanding sp3, sp2, and sp helps predict molecular shapes and reactivity, crucial for organic reactions.</p>
+          <h2><span class="hl">Hybridization</span> in Organic Compounds: sp³, sp², sp</h2>
+          <ul><li>**sp³ Hybridization:** Single bonds, tetrahedral geometry (e.g., alkanes).</li><li>**sp² Hybridization:** Double bonds, trigonal planar geometry (e.g., alkenes).</li><li>**sp Hybridization:** Triple bonds, linear geometry (e.g., alkynes).</li></ul>
+          <p class="notes">🎙️ Hybridization is a key concept that explains the bonding and geometry around carbon atoms. The type of hybridization directly influences the bond angles and the overall shape of the molecule. Understanding this helps predict reactivity and physical properties.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">sp3 (single)</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">sp2 (double)</div></div><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">sp (triple)</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>sp³ (Tetrahedral)</span></div><div class="step"><span class="snum">2</span><span>sp² (Trigonal Planar)</span></div><div class="step"><span class="snum">3</span><span>sp (Linear)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Worked Example: Identify <span class="hl">Hybridization States</span></h2>
-          <ul><li>For CH3-CH=CH2 (Propene):</li><li>Identify hybridization of each carbon atom.</li></ul>
-          <p class="notes">🎙️ Let's apply what we just learned. Remember to count the number of sigma bonds and lone pairs around each carbon atom to determine its hybridization. This is a common exam question!</p>
+          <h2><span class="hl">Shapes</span> of Organic Molecules &amp; Bond Angles</h2>
+          <ul><li>Molecular geometry is determined by hybridization and VSEPR theory.</li><li>sp³ carbons lead to tetrahedral shape (approx. 109.5° bond angle).</li><li>sp² carbons lead to trigonal planar shape (approx. 120° bond angle).</li><li>sp carbons lead to linear shape (180° bond angle).</li></ul>
+          <p class="notes">🎙️ The three-dimensional arrangement of atoms, or molecular shape, is crucial for how molecules interact. For example, the precise angles in a protein molecule determine its function. Remember these standard bond angles based on hybridization.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>C1 (CH3) - sp3 (4 sigma bonds)</span></div><div class="step"><span class="snum">2</span><span>C2 (CH=) - sp2 (3 sigma bonds)</span></div><div class="step"><span class="snum">3</span><span>C3 (=CH2) - sp2 (3 sigma bonds)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Molecular Geometry</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Representing Molecules: <span class="hl">Dash &amp; Condensed</span> Structures</h2>
-          <ul><li>Dash Structure: Shows all atoms and bonds explicitly.</li><li>Condensed Structure: Omits some bonds, groups atoms together.</li><li>Example: Ethane (C2H6)</li></ul>
-          <p class="notes">🎙️ Organic molecules can be complex, so we use different ways to draw them. Dash structures show every bond, while condensed structures offer a more compact way to represent them, especially for larger molecules.</p>
+          <h2><span class="hl">Classification</span> of Organic Compounds</h2>
+          <ul><li>**Acyclic/Open-chain:** Straight or branched chains (e.g., alkanes).</li><li>**Cyclic/Closed-chain:** Carbon atoms form rings.</li><li>**Alicyclic:** Ring compounds resembling open-chain aliphatic compounds.</li><li>**Aromatic:** Special stability due to delocalized pi electrons (e.g., benzene).</li></ul>
+          <p class="notes">🎙️ Organic compounds are broadly classified based on their carbon skeleton. This classification helps us organize the vast number of organic molecules and predict their general behavior. Aromatic compounds, with their unique stability, form a very important class.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Drawing molecules</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Acyclic</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Alicyclic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Aromatic</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>The Shorthand: <span class="hl">Bond-Line</span> Structures</h2>
-          <ul><li>Carbons are implied at line ends and vertices.</li><li>Hydrogens attached to carbon are not shown (implied).</li><li>Heteroatoms (O, N, S, halogens) and their attached hydrogens are shown.</li></ul>
-          <p class="notes">🎙️ Bond-line structures are the most common and efficient way to draw organic molecules. Master this, as it's essential for quickly sketching reactions and mechanisms in exams.</p>
+          <h2><span class="hl">Functional Groups</span>: The Heart of Reactivity</h2>
+          <ul><li>An atom or group of atoms responsible for the characteristic chemical reactions of organic compounds.</li><li>Examples: -OH (hydroxyl), -CHO (aldehyde), -COOH (carboxyl).</li><li>The rest of the molecule is often referred to as the 'alkyl' or 'aryl' group.</li></ul>
+          <p class="notes">🎙️ Functional groups are the reactive centers of organic molecules. They dictate how a compound will behave chemically, regardless of the size of the carbon chain it's attached to. Identifying functional groups is the first step in understanding organic reactions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Simplified drawing</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Organic_functional_groups.svg?width=500" data-fb="🧪" alt="Functional groups are specific atom groups (-OH, -CHO, -CO-, -COOH, -NH₂) that determine r"/><div class="vcap">Functional groups are specific atom groups (-OH, -CHO, -CO-, -COOH, -NH₂) that determine r</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,23 +144,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Classification</span> of Organic Compounds: An Overview</h2>
-          <ul><li>Acyclic (Open Chain): Straight or branched chains.</li><li>Cyclic (Closed Chain): Carbon atoms form rings.</li><li>Aromatic: Special type of cyclic compound with enhanced stability (e.g., Benzene).</li></ul>
-          <p class="notes">🎙️ Organic compounds are broadly classified based on their carbon skeleton. This classification helps us predict general properties and reactivity, making it easier to study vast numbers of compounds.</p>
+          <h2>IUPAC Nomenclature: Basic Rules for Naming</h2>
+          <ul><li>Identify the longest continuous carbon chain (parent chain).</li><li>Number the parent chain to give substituents/functional groups the lowest possible numbers.</li><li>Identify and name substituents, arranging them alphabetically.</li><li>Combine prefix, parent chain, and suffix to form the full name.</li></ul>
+          <p class="notes">🎙️ The International Union of Pure and Applied Chemistry (IUPAC) provides a systematic way to name organic compounds. Mastering these rules is essential for clear communication in chemistry. Always follow the priority rules for numbering and functional groups.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭕</span><span>⭕</span><span>⭕</span></div><div class="vcap">Ring structures</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find Parent Chain</span></div><div class="step"><span class="snum">2</span><span>Number Atoms</span></div><div class="step"><span class="snum">3</span><span>Name Substituents</span></div><div class="step"><span class="snum">4</span><span>Construct Name</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Functional Groups</span>: Key to Chemical Properties</h2>
-          <ul><li>Specific atoms or groups of atoms.</li><li>Determine the characteristic chemical reactions of a molecule.</li><li>Examples: -OH (alcohol), -COOH (carboxylic acid), -CHO (aldehyde).</li></ul>
-          <p class="notes">🎙️ Functional groups are the most important part of an organic molecule; they dictate how a compound will react. Recognizing them is the first step in understanding organic reactions.</p>
+          <h2>Worked Example: <span class="hl">Naming Alkanes</span></h2>
+          <ul><li>**Structure:** CH₃-CH(CH₃)-CH₂-CH₃</li><li>**Step 1:** Longest chain is 4 carbons (butane).</li><li>**Step 2:** Methyl group at position 2 (from left).</li><li>**IUPAC Name:** 2-Methylbutane</li></ul>
+          <p class="notes">🎙️ Let's practice with a simple branched alkane. First, identify the longest continuous carbon chain, which gives us the parent name 'butane'. Then, locate and number the substituent, in this case, a methyl group, ensuring it gets the lowest possible number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔑</div><div class="vcap">Unlocking reactivity</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -155,23 +168,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Quick Check</span> 1: Basic Concepts</h2>
-          <ul><li>1. What is the hybridization of carbon in C2H4 (ethene)?</li><li>2. Draw the bond-line structure for pentane.</li><li>3. Name a functional group containing nitrogen.</li></ul>
-          <p class="notes">🎙️ Take a moment to test your understanding of the foundational concepts we've covered. These are quick checks to ensure you're grasping the basics before we move to more complex topics.</p>
+          <h2>Worked Example: Naming <span class="hl">Unsaturated Hydrocarbons</span></h2>
+          <ul><li>**Structure:** CH₃-CH=CH-CH₂-CH₃</li><li>**Step 1:** Longest chain containing double bond is 5 carbons (pentene).</li><li>**Step 2:** Number from the end closer to the double bond (position 2).</li><li>**IUPAC Name:** Pent-2-ene</li></ul>
+          <p class="notes">🎙️ When dealing with alkenes or alkynes, the double or triple bond must be included in the parent chain and given the lowest possible number. Here, the double bond starts at carbon 2, giving us pent-2-ene. Remember to indicate the position of the multiple bond.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Naming Organic Compounds: The <span class="hl">IUPAC System</span></h2>
-          <ul><li>International Union of Pure and Applied Chemistry.</li><li>Provides systematic rules for naming compounds.</li><li>Ensures clear and unambiguous communication worldwide.</li></ul>
-          <p class="notes">🎙️ The International Union of Pure and Applied Chemistry (IUPAC) provides a universal system for naming compounds. This prevents confusion and allows scientists worldwide to communicate effectively about specific molecules.</p>
+          <h2>Worked Example: Naming Compounds with <span class="hl">Functional Groups</span></h2>
+          <ul><li>**Structure:** CH₃-CH₂-CH(OH)-CH₃</li><li>**Step 1:** Longest chain containing -OH group is 4 carbons (butan-).</li><li>**Step 2:** Number from end giving -OH lowest number (position 2).</li><li>**IUPAC Name:** Butan-2-ol</li></ul>
+          <p class="notes">🎙️ For compounds with functional groups, the functional group dictates the suffix and must be given priority in numbering. In this example, the hydroxyl group (-OH) is at position 2, making it butan-2-ol. Always prioritize the main functional group.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="📝" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>IUPAC Naming: <span class="hl">Alkanes</span> (Saturated Hydrocarbons)</h2>
-          <ul><li>Identify the longest continuous carbon chain (parent chain).</li><li>Number the parent chain to give substituents the lowest possible numbers.</li><li>Name and position substituents in alphabetical order.</li></ul>
-          <p class="notes">🎙️ Naming alkanes is the starting point for IUPAC nomenclature. Focus on identifying the longest continuous carbon chain and correctly numbering it to give substituents the lowest possible numbers.</p>
+          <h2><span class="hl">Isomerism</span>: Same Formula, Different Structures</h2>
+          <ul><li>Compounds with the same molecular formula but different structural or spatial arrangements.</li><li>Leads to different physical and chemical properties.</li><li>Two main types: Structural Isomerism and Stereoisomerism.</li></ul>
+          <p class="notes">🎙️ Isomerism is a fascinating concept where compounds share the same elemental composition but are distinct molecules. This difference in arrangement, even subtle, can lead to vastly different properties, which is critical in drug design and materials science.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Find longest chain</span></div><div class="step"><span class="snum">2</span><span>2. Number chain</span></div><div class="step"><span class="snum">3</span><span>3. Name substituents</span></div><div class="step"><span class="snum">4</span><span>4. Assemble name</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Similar, Yet Different</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>IUPAC Naming: <span class="hl">Alkenes &amp; Alkynes</span> (Unsaturated)</h2>
-          <ul><li>Parent chain must contain the double or triple bond.</li><li>Number the chain to give the multiple bond the lowest possible number.</li><li>Suffixes: -ene for double bonds, -yne for triple bonds.</li></ul>
-          <p class="notes">🎙️ For alkenes and alkynes, the multiple bond takes priority in numbering the parent chain. This ensures its position is clearly indicated in the name, which is crucial for distinguishing isomers.</p>
+          <h2><span class="hl">Structural Isomerism</span>: Chain, Position, Functional Group</h2>
+          <ul><li>**Chain Isomerism:** Different carbon skeleton arrangements (e.g., n-butane vs. isobutane).</li><li>**Position Isomerism:** Different positions of functional group or substituent (e.g., propan-1-ol vs. propan-2-ol).</li><li>**Functional Group Isomerism:** Different functional groups (e.g., ethanol vs. dimethylether).</li></ul>
+          <p class="notes">🎙️ Structural isomers differ in the connectivity of their atoms. Chain isomers have different branching, position isomers have the same functional group at a different spot, and functional group isomers have completely different functional groups despite the same formula. These are fundamental distinctions.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Alkene (C=C)</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Alkyne (C≡C)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Chain</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Position</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Functional</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Isomerism</span>: Molecules with Identical Formulas</h2>
-          <ul><li>Compounds with the same molecular formula.</li><li>Different structural or spatial arrangement of atoms.</li><li>Leads to distinct physical and chemical properties.</li></ul>
-          <p class="notes">🎙️ Isomerism is a fascinating concept where compounds with the exact same atoms can have different arrangements, leading to distinct physical and chemical properties. It highlights the importance of structure.</p>
+          <h2>Stereoisomerism: Geometrical (Cis-Trans)</h2>
+          <ul><li>Arises due to restricted rotation around a double bond or in a ring.</li><li>**Cis-isomer:** Identical groups on the same side of the double bond.</li><li>**Trans-isomer:** Identical groups on opposite sides of the double bond.</li></ul>
+          <p class="notes">🎙️ Geometrical isomerism, also known as cis-trans isomerism, occurs when there's a lack of free rotation. The relative positions of substituents around a double bond or in a cyclic structure lead to distinct molecules with different properties. This is common in alkenes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Molecular twins</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Same vs. Opposite</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Structural Isomerism</span>: Chain, Position, Functional</h2>
-          <ul><li>Chain Isomerism: Different carbon skeleton arrangement.</li><li>Position Isomerism: Different position of functional group or substituent.</li><li>Functional Group Isomerism: Different functional groups.</li></ul>
-          <p class="notes">🎙️ Structural isomers are the easiest to identify as they have clear differences in how atoms are connected. Mastering these types is key for many exam questions.</p>
+          <h2>Stereoisomerism: <span class="hl">Optical Isomerism</span> (Chirality)</h2>
+          <ul><li>Molecules that are non-superimposable mirror images of each other (enantiomers).</li><li>Requires a chiral center (carbon atom bonded to four different groups).</li><li>Enantiomers rotate plane-polarized light in opposite directions.</li></ul>
+          <p class="notes">🎙️ Optical isomerism is vital in biochemistry and pharmaceuticals. A molecule is chiral if it cannot be superimposed on its mirror image, much like your left and right hands. The presence of a chiral carbon is usually the key indicator. Enantiomers have identical physical properties except for their interaction with plane-polarized light.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Chain</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Position</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Functional</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Optical_isomers_tartaric_acid.svg?width=500" data-fb="✋" alt="Chiral molecules with asymmetric carbon rotate plane-polarized light; enantiomers (mirror "/><div class="vcap">Chiral molecules with asymmetric carbon rotate plane-polarized light; enantiomers (mirror </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Worked Example: Draw Structural Isomers</h2>
-          <ul><li>Draw all possible structural isomers for C4H10 (butane).</li></ul>
-          <p class="notes">🎙️ Let's work through an example. For C4H10, we can have a straight chain or a branched chain. Remember, each distinct structure counts as a separate isomer.</p>
+          <h2><span class="hl">Homologous Series</span>: Families of Compounds</h2>
+          <ul><li>A series of compounds with the same functional group and similar chemical properties.</li><li>Each successive member differs by a -CH₂- group.</li><li>General formula applicable to all members (e.g., CnH2n+2 for alkanes).</li><li>Gradual change in physical properties (e.g., boiling point) with increasing molecular mass.</li></ul>
+          <p class="notes">🎙️ Homologous series are like families of organic compounds. Members share the same functional group, leading to similar chemical reactions. As you move up the series, physical properties like boiling point and density show a gradual, predictable change due to increasing molecular mass.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. n-Butane (straight chain)</span></div><div class="step"><span class="snum">2</span><span>2. Isobutane (2-methylpropane, branched chain)</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Straight-chain_alkanes.svg?width=500" data-fb="🧪" alt="A homologous series is a group of compounds with similar chemical properties differing by "/><div class="vcap">A homologous series is a group of compounds with similar chemical properties differing by </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Electron Displacement</span> Effects: Shaping Reactivity</h2>
-          <ul><li>Influence electron density within a molecule.</li><li>Affect stability of reaction intermediates and reactivity.</li><li>Key effects: Inductive, Resonance (Mesomeric), Hyperconjugation.</li></ul>
-          <p class="notes">🎙️ These effects describe how electrons are distributed within a molecule. They are crucial for understanding why certain reactions occur and why some molecules are more stable or reactive than others.</p>
+          <h2>Reaction Mechanisms: <span class="hl">Bond Fission</span></h2>
+          <ul><li>**Homolytic Fission:** Symmetrical breaking of a covalent bond, each atom takes one electron.</li><li>Forms highly reactive **free radicals** (species with unpaired electrons).</li><li>**Heterolytic Fission:** Unsymmetrical breaking of a covalent bond, one atom takes both electrons.</li><li>Forms **ions** (carbocations or carbanions).</li></ul>
+          <p class="notes">🎙️ Understanding how bonds break is fundamental to reaction mechanisms. Homolytic fission typically occurs under UV light or heat, leading to free radical reactions. Heterolytic fission is more common in polar solvents and leads to ionic reactions, which are often faster.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electron flow</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/SN2_mechanism.svg?width=500" data-fb="🧪" alt="SN1 vs SN2 mechanisms show how nucleophiles displace leaving groups through different path"/><div class="vcap">SN1 vs SN2 mechanisms show how nucleophiles displace leaving groups through different path</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Inductive Effect</span>: Through Sigma Bonds</h2>
-          <ul><li>Permanent electron displacement along a sigma bond.</li><li>Caused by difference in electronegativity.</li><li>+I groups (electron-donating), -I groups (electron-withdrawing).</li></ul>
-          <p class="notes">🎙️ The inductive effect is a permanent electron displacement along a sigma bond due to the difference in electronegativity. It can either be electron-donating (+I) or electron-withdrawing (-I).</p>
+          <h2>Reactive <span class="hl">Intermediates</span>: Carbocations, Carbanions, Free Radicals</h2>
+          <ul><li>**Carbocation:** Carbon atom with a positive charge and only three bonds (electron deficient).</li><li>**Carbanion:** Carbon atom with a negative charge and a lone pair of electrons (electron rich).</li><li>**Free Radical:** Carbon atom with an unpaired electron (highly reactive).</li><li>Stability order: Tertiary &gt; Secondary &gt; Primary for carbocations and free radicals; Primary &gt; Secondary &gt; Tertiary for carbanions.</li></ul>
+          <p class="notes">🎙️ These intermediates are short-lived, highly reactive species formed during the course of a reaction. Their stability significantly influences the reaction pathway and product formation. Knowing their relative stabilities is key to predicting reaction outcomes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Electron pushing/pulling</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Short-Lived &amp; Reactive</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Resonance Effect</span> (Mesomeric Effect): Delocalization via Pi Bonds</h2>
-          <ul><li>Delocalization of pi (π) electrons in conjugated systems.</li><li>Leads to increased stability (resonance stabilization).</li><li>Represented by multiple resonance structures.</li></ul>
-          <p class="notes">🎙️ The resonance effect, also known as the mesomeric effect, involves the delocalization of pi electrons in conjugated systems. This delocalization adds stability to molecules and is represented by drawing multiple resonance structures.</p>
+          <h2>Electron Displacement Effects: <span class="hl">Inductive Effect</span></h2>
+          <ul><li>Permanent displacement of sigma (σ) electrons along a carbon chain.</li><li>Caused by the difference in electronegativity between atoms.</li><li>**-I Effect:** Electron-withdrawing groups (e.g., -NO₂, -Cl).</li><li>**+I Effect:** Electron-donating groups (e.g., -CH₃, -C₂H₅).</li></ul>
+          <p class="notes">🎙️ The inductive effect is a permanent electronic effect that influences the electron density in a molecule. It's a 'through-bond' effect that decreases rapidly with distance. It plays a significant role in determining the acidity, basicity, and reactivity of organic compounds.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>↔️</span><span>↔️</span><span>↔️</span></div><div class="vcap">Electron movement</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Electron Pull/Push</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Hyperconjugation</span>: Stabilizing Alkyl Groups</h2>
-          <ul><li>Interaction of sigma (σ) electrons with an adjacent π-system or empty p-orbital.</li><li>Often called 'no-bond resonance'.</li><li>Stabilizes carbocations, free radicals, and alkenes.</li></ul>
-          <p class="notes">🎙️ Hyperconjugation is a weaker but significant stabilizing effect. It involves the overlap of sigma bond orbitals with adjacent empty p-orbitals or pi orbitals, leading to partial double bond character.</p>
+          <h2>Electron Displacement Effects: <span class="hl">Resonance Effect</span></h2>
+          <ul><li>Delocalization of pi (π) electrons or lone pairs over conjugated systems.</li><li>Represented by multiple resonance structures (contributing structures).</li><li>The actual molecule is a resonance hybrid, more stable than any single structure.</li><li>**+R Effect:** Electron-donating groups (e.g., -OH, -NH₂).</li><li>**-R Effect:** Electron-withdrawing groups (e.g., -NO₂, -CHO).</li></ul>
+          <p class="notes">🎙️ Resonance, also known as mesomeric effect, involves the delocalization of electrons within a molecule, often in systems with alternating single and double bonds. This delocalization stabilizes the molecule and influences its reactivity, especially in aromatic compounds. Remember to use double-headed arrows for resonance structures.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Subtle stabilization</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Electron Delocalization</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -287,35 +300,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Quick Check</span> 2: Electron Effects &amp; Resonance</h2>
-          <ul><li>1. Identify the -I group in CH3COOH (acetic acid).</li><li>2. Draw two resonance structures for the carboxylate ion (RCOO-).</li><li>3. Which electron displacement effect primarily stabilizes carbocations by alkyl groups?</li></ul>
-          <p class="notes">🎙️ Let's quickly review the electron displacement effects. Being able to identify these effects and draw resonance structures is vital for understanding reaction mechanisms.</p>
+          <h2>Quick Check: <span class="hl">Functional Groups</span></h2>
+          <ul><li>Identify the functional group(s) present in the following compound:</li><li>CH₃-CO-CH₂-COOH</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of functional groups. Take a moment to look at the structure and pinpoint the characteristic groups present. This is a fundamental skill for all organic chemists.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Fleeting Species: <span class="hl">Reaction Intermediates</span></h2>
-          <ul><li>Short-lived, highly reactive species formed during a reaction.</li><li>Carbocations: positively charged carbon (electron deficient).</li><li>Carbanions: negatively charged carbon (electron rich).</li><li>Free Radicals: carbon with an unpaired electron.</li></ul>
-          <p class="notes">🎙️ Organic reactions often proceed through unstable, short-lived species called intermediates. Understanding their structure and stability helps us predict the course of a reaction.</p>
+          <h2>Quick Check: <span class="hl">IUPAC Naming</span></h2>
+          <ul><li>Provide the IUPAC name for the following compound:</li><li>CH₃-CH₂-CH(CH₃)-CH₂-CH₂-OH</li></ul>
+          <p class="notes">🎙️ Now, let's apply the IUPAC rules we discussed. Remember to identify the longest chain containing the functional group and number it correctly to give the functional group the lowest possible number. Don't forget any substituents!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Carbocation (+)</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Carbanion (-)</div></div><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Free Radical (•)</div></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Purifying</span> Organic Compounds: Distillation &amp; Crystallisation</h2>
-          <ul><li>Distillation: Separates liquids based on differences in boiling points.</li><li>Crystallisation: Separates solids based on differences in solubility.</li><li>Other methods: Sublimation, Chromatography.</li></ul>
-          <p class="notes">🎙️ In the lab, organic compounds often need purification. Distillation and crystallization are two common and effective methods used to obtain pure substances from mixtures.</p>
+          <h2>Quick Check: <span class="hl">Isomerism</span></h2>
+          <ul><li>What type of isomerism is exhibited by n-pentane and 2,2-dimethylpropane?</li><li>A) Chain Isomerism</li><li>B) Position Isomerism</li><li>C) Functional Group Isomerism</li><li>D) Metamerism</li></ul>
+          <p class="notes">🎙️ Consider the structures of n-pentane and 2,2-dimethylpropane. Both have the molecular formula C₅H₁₂. How do their carbon skeletons differ? This will help you determine the correct type of isomerism.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Dissolve impure solid in hot solvent</span></div><div class="step"><span class="snum">2</span><span>2. Cool slowly to form crystals</span></div><div class="step"><span class="snum">3</span><span>3. Filter pure crystals</span></div><div class="step"><span class="snum">4</span><span>4. Dry the crystals</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -323,11 +336,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Qualitative Analysis</span>: Identifying Elements Present</h2>
-          <ul><li>Detection of Carbon and Hydrogen: Combustion test.</li><li>Detection of Nitrogen, Sulfur, Halogens: Lassaigne's test (fusion with Na).</li><li>Specific tests for detected elements (e.g., Prussian blue for N).</li></ul>
-          <p class="notes">🎙️ Before quantitative analysis, we need to know which elements are present. Qualitative tests like Lassaigne's test are crucial for identifying nitrogen, sulfur, and halogens in an organic compound.</p>
+          <h2><span class="hl">Why Study</span> Organic Chemistry? Real-World Impact</h2>
+          <ul><li>**Medicine:** Drug synthesis, pharmaceuticals (e.g., antibiotics, pain relievers).</li><li>**Materials:** Polymers, plastics, synthetic fibers (e.g., nylon, polyester).</li><li>**Agriculture:** Pesticides, herbicides, fertilizers.</li><li>**Everyday Life:** Fuels, cosmetics, dyes, food additives.</li></ul>
+          <p class="notes">🎙️ Organic chemistry isn't just about formulas and reactions; it's about understanding the world around us. From the clothes we wear to the medicines that heal us and the food we eat, organic compounds are everywhere. It's a field with immense practical applications and career opportunities.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Elemental detection</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Impact on World</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter Recap &amp; <span class="hl">Exam Focus</span></h2>
-          <ul><li>Carbon's unique nature, hybridization &amp; structural representations.</li><li>IUPAC Nomenclature for alkanes, alkenes, alkynes, and simple functional groups.</li><li>Isomerism (structural types) &amp; drawing isomers.</li><li>Electron displacement effects: Inductive, Resonance, Hyperconjugation.</li><li>Basics of purification techniques and qualitative analysis.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember to practice naming, drawing isomers, and identifying electron effects. These are high-yield topics for your exams. Good luck with your studies!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Carbon's unique properties (tetravalency, catenation) lead to diverse structures.</li><li>Hybridization (sp³, sp², sp) determines molecular geometry.</li><li>IUPAC nomenclature provides a systematic way to name compounds.</li><li>Isomerism (structural, stereoisomerism) explains compounds with same formula but different properties.</li><li>Reaction intermediates (carbocations, carbanions, free radicals) dictate reaction pathways.</li><li>Electron displacement effects (inductive, resonance) influence reactivity and stability.</li></ul>
+          <p class="notes">🎙️ We've covered a lot of ground today, from the basic definition of organic chemistry to key concepts like hybridization, nomenclature, isomerism, and reaction mechanisms. These foundational principles are vital for your success in higher organic chemistry. Keep practicing these concepts for a strong understanding.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

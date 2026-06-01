@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Mathematical Modelling — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to Mathematical <span class="hl">Modelling</span>!</h2>
+          <ul><li>Explore how math helps understand the real world.</li><li>Learn to solve everyday problems using mathematical tools.</li><li>Discover the power of numbers and equations.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're embarking on an exciting journey into Mathematical Modelling. This chapter will show us how mathematics isn't just about numbers on a page, but a powerful tool to understand and solve real-world challenges around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is Mathematical <span class="hl">Modelling</span>?</h2>
+          <ul><li>Using mathematics to describe real-world situations.</li><li>Translating a problem into mathematical terms.</li><li>Finding solutions using mathematical techniques.</li></ul>
+          <p class="notes">🎙️ Mathematical modelling is essentially like building a simplified mathematical version of a real-world problem. We take a complex situation, identify the key elements, and express them using equations, graphs, or other mathematical structures. This allows us to analyze the problem in a structured way.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Thinking with Math</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Why</span> Do We Need Mathematical Modelling?</h2>
+          <ul><li>To predict future events.</li><li>To understand complex systems.</li><li>To make informed decisions.</li><li>To solve practical problems efficiently.</li></ul>
+          <p class="notes">🎙️ We need mathematical modelling because it helps us gain deeper insights into phenomena, from predicting weather patterns to designing bridges. It allows us to simulate scenarios, test ideas without real-world risks, and ultimately make better, more informed decisions in various fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Gaining Insight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The <span class="hl">Five</span> Key Steps in Modelling</h2>
+          <ul><li>A systematic approach to problem-solving.</li><li>Each step builds upon the previous one.</li><li>Ensures a thorough and accurate solution.</li></ul>
+          <p class="notes">🎙️ Mathematical modelling isn't a random process; it follows a clear, structured path. There are five main steps that we'll explore today. These steps guide us from understanding the initial problem all the way to verifying our solution.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Understand Problem</span></div><div class="step"><span class="snum">2</span><span>Formulate Model</span></div><div class="step"><span class="snum">3</span><span>Solve Model</span></div><div class="step"><span class="snum">4</span><span>Interpret Solution</span></div><div class="step"><span class="snum">5</span><span>Validate Model</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Step 1: <span class="hl">Understand</span> the Problem</h2>
+          <ul><li>Identify the goal of the problem.</li><li>Collect relevant information and data.</li><li>Define variables and assumptions clearly.</li><li>Simplify if necessary, without losing core meaning.</li></ul>
+          <p class="notes">🎙️ The first and crucial step is to fully understand what the problem is asking. We need to clearly define what we want to find out, gather all available information, and make any necessary assumptions to simplify the problem into a manageable form. This foundation is key to building an effective model.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">What's the Question?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Example: Predicting Ball Flight - <span class="hl">Problem</span></h2>
+          <ul><li>A cricketer hits a ball.</li><li>We want to predict where it will land.</li><li>Factors: initial speed, angle, gravity, air resistance.</li></ul>
+          <p class="notes">🎙️ Imagine a cricket match where a batsman hits the ball. Our problem is to predict exactly where that ball will land. To do this, we need to consider various factors like how fast it was hit, the angle of the shot, the force of gravity pulling it down, and even air resistance slowing it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏏</div><div class="vcap">Cricket Shot</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Step 2: <span class="hl">Formulate</span> the Mathematical Model</h2>
+          <ul><li>Translate the problem into mathematical equations.</li><li>Choose appropriate mathematical concepts (e.g., algebra, geometry).</li><li>Define relationships between variables.</li><li>Create a system of equations or a function.</li></ul>
+          <p class="notes">🎙️ Once we understand the problem, the next step is to convert it into the language of mathematics. This involves selecting the right mathematical tools, like algebraic equations or geometric principles, to describe the relationships between the different parts of our problem. We're essentially writing down the rules of our real-world scenario using math.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Building Equations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Example: Ball Flight - <span class="hl">Formulating</span> the Model</h2>
+          <ul><li>Use projectile motion equations.</li><li>Variables: distance (x), height (y), time (t).</li><li>Equations involve initial velocity, angle, and 'g' for gravity.</li><li>Ignoring air resistance for simplicity (initial assumption).</li></ul>
+          <p class="notes">🎙️ For our cricket ball example, we'd use the equations of projectile motion. These equations relate the ball's horizontal distance and vertical height to its initial speed, launch angle, and the constant acceleration due to gravity. For a first model, we might simplify by ignoring air resistance to make calculations easier.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Path of a Projectile</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Step 3: <span class="hl">Solve</span> the Mathematical Model</h2>
+          <ul><li>Apply mathematical techniques to find a solution.</li><li>Use algebra, calculus, or numerical methods.</li><li>Obtain specific values or a general solution.</li><li>Perform calculations accurately.</li></ul>
+          <p class="notes">🎙️ After formulating our equations, the next logical step is to solve them. This is where we apply all our mathematical skills – whether it's solving linear equations, quadratic equations, or using more advanced methods. The goal is to find the numerical values or the general relationships that answer our initial problem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Finding the Answer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Example: Ball Flight - <span class="hl">Solving</span> the Model</h2>
+          <ul><li>Substitute initial values (speed, angle) into equations.</li><li>Calculate the time the ball is in the air.</li><li>Determine the horizontal distance covered at that time.</li><li>Find the point where height (y) becomes zero.</li></ul>
+          <p class="notes">🎙️ For our cricket ball, we would plug in the actual initial speed and angle into our projectile motion equations. We would then solve for the time it takes for the ball to hit the ground (where its height is zero) and then use that time to calculate the total horizontal distance it travelled. This gives us the predicted landing spot.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Calculating Trajectory</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Step 4: <span class="hl">Interpret</span> the Solution</h2>
+          <ul><li>Translate the mathematical solution back to the real world.</li><li>Explain what the numbers mean in context.</li><li>Check if the solution makes logical sense.</li><li>Answer the original problem in plain language.</li></ul>
+          <p class="notes">🎙️ Solving the equations gives us numbers, but those numbers need to make sense in the real world. This step is about interpreting what our mathematical solution actually means in the context of our original problem. Does the answer seem reasonable? We explain the results in simple terms, relating them back to the real-world scenario.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Explaining Results</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Example: Ball Flight - <span class="hl">Interpreting</span> the Solution</h2>
+          <ul><li>The calculated 'x' value is the landing distance.</li><li>Example: 'The ball will land 75 meters from the batsman'.</li><li>This tells the fielder where to position themselves.</li><li>The 'y' values form the parabolic path.</li></ul>
+          <p class="notes">🎙️ If our calculation for the cricket ball gives us 'x = 75 meters', we interpret this as 'the ball will land 75 meters away from the batsman'. This information is incredibly useful for a fielder, telling them exactly where to run to catch the ball. The 'y' values at different 'x' points describe the actual curved path the ball takes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏟️</div><div class="vcap">On the Field</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Step 5: <span class="hl">Validate</span> the Model</h2>
+          <ul><li>Compare the model's prediction with actual observations.</li><li>Check if the assumptions made were reasonable.</li><li>Refine the model if predictions are inaccurate.</li><li>Ensure the model is reliable for future use.</li></ul>
+          <p class="notes">🎙️ The final step is crucial: validation. We must compare our model's predictions with what actually happens in the real world. If the predictions don't match reality, it means our model needs refinement. We might need to adjust our assumptions, include more factors, or even choose a different mathematical approach until the model is accurate and reliable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Testing the Model</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Example: Ball Flight - <span class="hl">Validating</span> the Model</h2>
+          <ul><li>Observe where the ball actually lands in a game.</li><li>Compare this actual distance to our predicted 75 meters.</li><li>If it's close, the model is good.</li><li>If far off, re-evaluate assumptions (e.g., add air resistance).</li></ul>
+          <p class="notes">🎙️ For our cricket ball, validation means watching where the ball actually lands after being hit and comparing that to our calculated 75 meters. If the ball lands at 74 or 76 meters, our model is pretty good. But if it lands at 50 meters, we know something is wrong, and we might need to go back and include factors like air resistance, which we initially ignored.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👁️‍🗨️</div><div class="vcap">Comparing Reality</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Types of Mathematical Models: <span class="hl">Linear</span></h2>
+          <ul><li>Describes a straight-line relationship.</li><li>Change in one variable causes a proportional change in another.</li><li>Represented by equations like y = mx + c.</li><li>Useful for constant rates of change.</li></ul>
+          <p class="notes">🎙️ One common type of model is a linear model. This is used when there's a direct, straight-line relationship between two variables. For example, if you increase one quantity, the other increases or decreases at a constant rate. Think of it like a graph that forms a straight line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Cab Fare</span> Calculation</h2>
+          <ul><li>Cab fare often has a fixed charge plus a charge per kilometer.</li><li>This is a classic linear relationship.</li><li>Fare = (Rate per km × Distance) + Fixed Charge.</li></ul>
+          <p class="notes">🎙️ A perfect example of a linear model is calculating a cab fare. There's usually a basic fixed charge just for starting the ride, and then an additional charge that depends directly on how many kilometers you travel. So, the total fare increases steadily with distance, forming a linear relationship.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚕</span><span>🚕</span><span>🚕</span></div><div class="vcap">Cabs on the Road</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Worked Example</span>: Calculating Cab Fare</h2>
+          <ul><li>Fixed charge = ₹50.</li><li>Charge per km = ₹15.</li><li>Distance travelled = 10 km.</li><li>Total Fare = 50 + (15 × 10) = ₹200.</li></ul>
+          <p class="notes">🎙️ Let's put this into practice. If a cab has a fixed charge of ₹50 and charges ₹15 per kilometer, and you travel 10 kilometers, how much will you pay? We use our linear model: ₹50 (fixed) + (₹15/km * 10 km) = ₹50 + ₹150 = ₹200. This simple calculation gives us the total fare.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Total Cost</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Types of Mathematical Models: <span class="hl">Quadratic</span></h2>
+          <ul><li>Describes a parabolic or 'U' shaped relationship.</li><li>Involves a variable raised to the power of two (x²).</li><li>Represented by equations like y = ax² + bx + c.</li><li>Useful for areas, projectile motion, optimization.</li></ul>
+          <p class="notes">🎙️ Another important type of model is a quadratic model. Unlike linear models, these describe relationships that are curved, often forming a 'U' shape called a parabola. They involve variables squared, and are very useful for problems involving areas, the path of thrown objects, or finding maximum/minimum values.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Curved Graph</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Area</span> of a Garden</h2>
+          <ul><li>The area of a square garden is side × side.</li><li>If side length is 'x', Area = x².</li><li>This is a quadratic relationship.</li><li>Doubling the side quadruples the area.</li></ul>
+          <p class="notes">🎙️ Consider the area of a square garden. If the side length is 'x', the area is 'x multiplied by x', or x squared. This is a quadratic relationship. Notice how if you double the side length, the area doesn't just double, it actually becomes four times larger! This shows the non-linear nature of quadratic models.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Garden Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Question 1: What is the <span class="hl">first step</span> in mathematical modelling?</h2>
+          <ul><li>A) Solve the Model</li><li>B) Interpret the Solution</li><li>C) Understand the Problem</li><li>D) Validate the Model</li></ul>
+          <p class="notes">🎙️ Alright class, let's test our understanding! From the five steps we discussed, which one comes first? Think about what you need to do before you can even begin to set up equations or find answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Question 2: Which type of model is best for a constant rate of change?</h2>
+          <ul><li>A) Quadratic Model</li><li>B) Exponential Model</li><li>C) Linear Model</li><li>D) Logarithmic Model</li></ul>
+          <p class="notes">🎙️ Next question! If you have a situation where one quantity increases or decreases at a steady, unchanging rate in relation to another, what kind of mathematical model would be most appropriate to describe that relationship?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Question 3: Why is <span class="hl">Validation</span> an important step in modelling?</h2>
+          <ul><li>A) To make the model more complex</li><li>B) To ensure the model's predictions are accurate</li><li>C) To make the calculations faster</li><li>D) To simplify the problem further</li></ul>
+          <p class="notes">🎙️ And for our final quick question: We talked about validating the model. Why is this particular step so critical in the entire mathematical modelling process? What is its main purpose?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Where is Modelling <span class="hl">Used</span>?</h2>
+          <ul><li>Science: Predicting weather, epidemics.</li><li>Engineering: Designing bridges, aircraft.</li><li>Economics: Forecasting markets, pricing strategies.</li><li>Medicine: Drug dosage, disease spread.</li></ul>
+          <p class="notes">🎙️ Mathematical modelling is not confined to textbooks; it's a fundamental tool across countless fields. From predicting natural disasters in science to optimizing logistics in business, engineers designing complex structures, or doctors understanding disease spread, modelling provides vital insights and solutions everywhere.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Science</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Engineering</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Economics</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Medicine</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Benefits</span> of Mathematical Modelling</h2>
+          <ul><li>Provides clarity and understanding.</li><li>Enables predictions and forecasts.</li><li>Supports decision-making.</li><li>Helps optimize processes and resources.</li></ul>
+          <p class="notes">🎙️ The benefits of mathematical modelling are immense. It helps us simplify complex problems, gain a clear understanding, and make informed predictions about future outcomes. Ultimately, it empowers us to make better decisions and optimize various real-world processes, leading to more efficient and effective solutions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Achieving Goals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Mathematical Modelling</h2>
+          <ul><li>Modelling uses math to solve real problems.</li><li>Five steps: Understand, Formulate, Solve, Interpret, Validate.</li><li>Linear and Quadratic models are common types.</li><li>It's a powerful tool in many fields.</li></ul>
+          <p class="notes">🎙️ To quickly recap, we learned that mathematical modelling is a systematic way to tackle real-world problems using mathematical tools. Remember the five crucial steps, and how different types of models like linear and quadratic help us describe various relationships. This skill is incredibly valuable and applicable across almost every aspect of our lives.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

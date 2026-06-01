@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Describing Motion Around Us — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Describing <span class="hl">Motion</span> Around Us</h2>
-          <ul><li>Ever wondered how things move?</li><li>Let's explore the science behind everyday movements.</li></ul>
-          <p class="notes">🎙️ Good morning, everyone! Today, we're going to start an exciting new chapter: 'Describing Motion Around Us'. Have you ever thought about how a car moves, or how you walk to school? Motion is everywhere, and today we'll learn how to understand and describe it scientifically.</p>
+          <h2>Welcome to 'Describing <span class="hl">Motion</span> Around Us'</h2>
+          <ul><li>Let's explore how things move!</li><li>Understand the basics of how we describe movement.</li><li>From everyday observations to scientific terms.</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! Today we begin an exciting chapter about motion. We see things moving all the time, from a car on the road to a bird in the sky. Have you ever wondered how we describe this movement scientifically?</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Motion</span>?</h2>
-          <ul><li>An object is in motion if its position changes with respect to a stationary object (reference point).</li><li>Everything in the universe is in motion, even if it seems still!</li></ul>
-          <p class="notes">🎙️ Motion simply means changing your place. If you move from one spot to another, you are in motion. Even the Earth is constantly moving around the Sun, and we are moving with it!</p>
+          <ul><li>An object is in motion if its position changes with time.</li><li>Motion is relative to an observer or a reference point.</li></ul>
+          <p class="notes">🎙️ Simply put, if something changes where it is over time, it's in motion. But motion isn't absolute; it always depends on who is observing it and from where. We need a fixed point to judge if something is moving.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Changing position</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Changing Position</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Rest vs. Motion: A <span class="hl">Relative</span> Concept</h2>
-          <ul><li>An object is at rest if its position does not change with respect to a reference point.</li><li>Rest and motion are relative terms; an object can be at rest for one observer and in motion for another.</li></ul>
-          <p class="notes">🎙️ Imagine you're sitting in a moving bus. For you, the person next to you is at rest. But for someone standing outside the bus, both of you are in motion. This shows that rest and motion depend on your point of view, or your 'reference point'.</p>
+          <h2>The Importance of a <span class="hl">Reference Point</span></h2>
+          <ul><li>A reference point is a fixed place or object.</li><li>It helps us determine if another object is moving or at rest.</li><li>Think of it as your starting point for observation.</li></ul>
+          <p class="notes">🎙️ Imagine you're on a train. Are you moving? Yes, compared to the ground outside. But are you moving compared to the person sitting next to you? No. The ground or the person next to you acts as a reference point. A tree or a building often serves as a good reference point.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">At Rest (for you)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">In Motion (for me)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Fixed Point</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Types</span> of Motion: An Overview</h2>
-          <ul><li>Motion can be classified based on the path an object takes.</li><li>We'll explore three main types: Translational, Rotational, and Oscillatory.</li></ul>
-          <p class="notes">🎙️ Objects can move in many different ways. A car moves in a straight line, a fan spins, and a swing moves back and forth. Each of these represents a different type of motion, and we'll look at them one by one.</p>
+          <h2>Rest vs. Motion: A <span class="hl">Relative</span> Concept</h2>
+          <ul><li>An object is at rest if its position does not change relative to a reference point.</li><li>An object is in motion if its position changes relative to a reference point.</li></ul>
+          <p class="notes">🎙️ So, rest and motion are not absolute. A person sitting in a moving bus is at rest with respect to other passengers but in motion with respect to a person standing outside the bus. This relativity is a fundamental concept in physics.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Translational</span></div><div class="step"><span class="snum">2</span><span>Rotational</span></div><div class="step"><span class="snum">3</span><span>Oscillatory</span></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">At Rest</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">In Motion</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Translational</span> Motion</h2>
-          <ul><li>When an object moves from one point to another, changing its position.</li><li>Can be rectilinear (straight line) or curvilinear (curved path).</li></ul>
-          <p class="notes">🎙️ Translational motion is like moving from point A to point B. Think of a car driving down a road, or a ball rolling on the ground. It can be in a perfectly straight line, or it can follow a curved path, like a car turning a corner.</p>
+          <h2>Exploring <span class="hl">Types</span> of Motion</h2>
+          <ul><li>Motion can be simple or complex.</li><li>We will look at motion in a straight line, circular motion, and oscillatory motion.</li><li>Each type has unique characteristics.</li></ul>
+          <p class="notes">🎙️ Objects move in various ways. Some move straight, some in circles, and some back and forth. Understanding these basic types helps us describe more complex movements later on. Today we'll focus mostly on straight-line motion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Moving across</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_harmonic_oscillator.gif?width=500" data-fb="🔄" alt="SHM is periodic motion where restoring force is proportional to displacement. Displacement"/><div class="vcap">SHM is periodic motion where restoring force is proportional to displacement. Displacement</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Rotational</span> Motion</h2>
-          <ul><li>When an object spins around a fixed axis.</li><li>All points on the object move in circles around the axis.</li></ul>
-          <p class="notes">🎙️ Rotational motion is about spinning. A ceiling fan blades rotate around a central axis. A spinning top also shows rotational motion. The object itself doesn't change its overall position, but its parts are moving in circles.</p>
+          <h2><span class="hl">Uniform</span> Motion</h2>
+          <ul><li>An object covers equal distances in equal intervals of time.</li><li>Its speed remains constant throughout the journey.</li><li>Example: A car moving on a straight, empty highway at a constant speed.</li></ul>
+          <p class="notes">🎙️ In uniform motion, an object maintains a steady pace. If it travels 10 meters in the first second, it will travel another 10 meters in the next second, and so on. This means there's no change in its speed or direction.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Rotational_motion.svg?width=500" data-fb="🔄" alt="Rotational motion involves objects spinning about an axis. Key concepts include moment of "/><div class="vcap">Rotational motion involves objects spinning about an axis. Key concepts include moment of </div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Constant Pace</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Oscillatory</span>/Vibratory Motion</h2>
-          <ul><li>When an object moves back and forth repeatedly about a fixed position (mean position).</li><li>Examples include a pendulum or a plucked guitar string.</li></ul>
-          <p class="notes">🎙️ Oscillatory motion is like a 'to and fro' movement. A swing moving back and forth, or the pendulum of a clock, are perfect examples. When the motion is very fast and small, we often call it vibratory motion, like a ringing bell.</p>
+          <h2><span class="hl">Non-Uniform</span> Motion</h2>
+          <ul><li>An object covers unequal distances in equal intervals of time.</li><li>Its speed changes during the journey.</li><li>Example: A car moving in heavy traffic, speeding up and slowing down.</li></ul>
+          <p class="notes">🎙️ Most of the motion we observe in daily life is non-uniform. Think about walking in a crowded market or riding a bicycle uphill. Your speed is constantly changing, meaning you cover different distances in the same time intervals.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Back and forth</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">Changing Pace</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,23 +144,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Scalar</span> Quantities</h2>
-          <ul><li>Quantities that have only magnitude (size or amount).</li><li>They do not have a direction associated with them.</li><li>Examples: Distance, Speed, Mass, Time, Temperature.</li></ul>
-          <p class="notes">🎙️ In physics, we measure many things. Some measurements only tell us 'how much' or 'how big'. For example, if I say '5 kilograms', you know the mass, but there's no direction. These are called scalar quantities.</p>
+          <h2>Uniform vs. Non-Uniform Motion: A <span class="hl">Comparison</span></h2>
+          <ul><li>Uniform: Constant speed, straight path.</li><li>Non-Uniform: Varying speed, or changing direction, or both.</li></ul>
+          <p class="notes">🎙️ Imagine a train on a clear track versus a car in a city. The train often exhibits uniform motion for long stretches, while the car in the city is constantly in non-uniform motion due to stops, turns, and varying traffic.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Just a value</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Uniform Motion</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Non-Uniform Motion</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Vector</span> Quantities</h2>
-          <ul><li>Quantities that have both magnitude and direction.</li><li>The direction is crucial for understanding these quantities.</li><li>Examples: Displacement, Velocity, Force, Acceleration.</li></ul>
-          <p class="notes">🎙️ Other measurements need both a 'how much' and a 'which way'. If I say 'move 5 steps', it's not complete. I need to say 'move 5 steps to the North'. These quantities, which include direction, are called vector quantities.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Is a pendulum swinging back and forth an example of uniform or non-uniform motion?</li><li>Why?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about this. Does the pendulum cover equal distances in equal time intervals? Does its speed remain constant throughout its swing? Discuss with your bench partner if you like.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Value AND direction</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Distance</span></h2>
-          <ul><li>The total path length covered by an object.</li><li>It is a scalar quantity.</li><li>Always positive, never zero or negative for a moving object.</li></ul>
-          <p class="notes">🎙️ Distance is simply how much ground an object has covered, regardless of the direction. If you walk 2 km to the shop and then 2 km back home, the total distance you covered is 4 km. It's the full length of your journey.</p>
+          <h2>Describing Motion: <span class="hl">Distance</span></h2>
+          <ul><li>Distance is the total path length covered by an object.</li><li>It is a scalar quantity, meaning it only has magnitude (a value).</li><li>Unit: metre (m).</li></ul>
+          <p class="notes">🎙️ When you walk from your home to school, the total length of the path you take is the distance. It doesn't matter if you took detours or walked in circles; it's simply the total ground covered. We don't care about the direction here.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👣</span><span>👣</span><span>👣</span><span>👣</span><span>👣</span><span>👣</span><span>👣</span></div><div class="vcap">Total steps taken</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Path Length</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Displacement</span></h2>
-          <ul><li>The shortest straight-line distance between the initial and final positions of an object.</li><li>It is a vector quantity (has magnitude and direction).</li><li>Can be positive, negative, or zero.</li></ul>
-          <p class="notes">🎙️ Displacement is like drawing a straight line from where you started to where you ended up. If you walk 2 km to the shop and 2 km back home, your final position is the same as your initial position. So, your displacement is zero, even though you covered a distance.</p>
+          <h2>Describing Motion: <span class="hl">Displacement</span></h2>
+          <ul><li>Displacement is the shortest straight-line distance between the initial and final positions.</li><li>It is a vector quantity, meaning it has both magnitude and direction.</li><li>Unit: metre (m).</li></ul>
+          <p class="notes">🎙️ Displacement is more about 'how far are you from where you started?' and 'in what direction?'. If you walk 5m East and then 5m West, your distance is 10m, but your displacement is 0m because you're back at the start.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Start to end</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Shortest Path</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,35 +192,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Distance <span class="hl">vs.</span> Displacement</h2>
-          <ul><li>Distance: Total path length (Scalar).</li><li>Displacement: Shortest path from start to end (Vector).</li></ul>
-          <p class="notes">🎙️ Let's clarify with an example. If you walk around a circular park and come back to your starting point, your distance covered is the circumference of the park. But your displacement is zero because your start and end points are the same. Displacement cares about the net change in position.</p>
+          <h2>Distance vs. Displacement: An <span class="hl">Example</span></h2>
+          <ul><li>Imagine walking from point A to point B.</li><li>Path 1 (curved) = Distance</li><li>Path 2 (straight) = Displacement</li></ul>
+          <p class="notes">🎙️ Look at the visual. If you take a long, winding path to reach your friend's house, that's the distance. But the displacement is just a straight line from your house to your friend's house, ignoring the actual path taken.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Distance</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Displacement</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 1</h2>
-          <ul><li>A car travels 10 km East, then turns around and travels 5 km West.</li><li>What is the total distance covered?</li><li>What is its displacement?</li></ul>
-          <p class="notes">🎙️ Alright, time for a quick check. Think carefully about the definitions of distance and displacement for this scenario. Remember, distance is total path, displacement is shortest path from start to end with direction.</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚶</span><span>🚶</span><span>🚶</span></div><div class="vcap">Paths taken</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Speed</span></h2>
-          <ul><li>The rate at which an object covers distance.</li><li>Formula: Speed = Distance / Time.</li><li>It is a scalar quantity, measured in m/s or km/h.</li></ul>
-          <p class="notes">🎙️ Speed tells us how quickly an object is moving. If you cover a lot of distance in a short amount of time, you have high speed. It only tells us the magnitude of how fast, not the direction.</p>
+          <span class="num">13 / 25</span>
+          <h2>Distance vs. Displacement: Key <span class="hl">Differences</span></h2>
+          <ul><li>Distance is scalar, Displacement is vector.</li><li>Distance can never be zero or negative, Displacement can be zero, positive, or negative.</li><li>Distance is path-dependent, Displacement is path-independent.</li></ul>
+          <p class="notes">🎙️ These differences are crucial. Remember, distance tells you 'how much ground was covered', while displacement tells you 'how far and in what direction is the final position from the initial position'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">How fast?</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Distance</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Displacement</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>A farmer walks along the boundary of a square field of side 10 m in 40 s.</li><li>What will be the magnitude of displacement of the farmer at the end of 2 minutes 20 seconds?</li></ul>
+          <p class="notes">🎙️ This requires a bit of calculation! First, figure out how many rounds the farmer completes. Then, based on the final position, determine the displacement. Remember, 2 minutes 20 seconds is 140 seconds.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Uniform</span> Speed</h2>
-          <ul><li>An object has uniform speed if it covers equal distances in equal intervals of time.</li><li>Even if the time intervals are very small.</li><li>Example: A car moving at a constant 60 km/h on a straight highway.</li></ul>
-          <p class="notes">🎙️ When an object moves at a constant speed, we say it has uniform speed. This means it's not speeding up or slowing down. For example, a train moving at a consistent pace on a track, covering the same distance every minute.</p>
+          <h2>Describing Motion: <span class="hl">Speed</span></h2>
+          <ul><li>Speed is the rate at which an object covers distance.</li><li>Formula: Speed = Distance / Time.</li><li>It is a scalar quantity. Unit: metre per second (m/s).</li></ul>
+          <p class="notes">🎙️ Speed tells us how fast an object is moving. If a car covers a large distance in a short amount of time, its speed is high. It only cares about the magnitude of movement, not the direction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">Steady movement</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">How Fast?</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Non-Uniform</span> Speed</h2>
-          <ul><li>An object has non-uniform speed if it covers unequal distances in equal intervals of time.</li><li>This happens when an object speeds up or slows down.</li><li>Example: A car moving in crowded city traffic.</li></ul>
-          <p class="notes">🎙️ Most motion we see in daily life is non-uniform. Think about driving in city traffic – you constantly speed up, slow down, and stop. You cover different distances in the same amount of time, showing non-uniform speed.</p>
+          <h2>Describing Motion: <span class="hl">Velocity</span></h2>
+          <ul><li>Velocity is the rate of change of displacement.</li><li>Formula: Velocity = Displacement / Time.</li><li>It is a vector quantity, having both magnitude (speed) and direction. Unit: metre per second (m/s).</li></ul>
+          <p class="notes">🎙️ Velocity is more specific than speed. It not only tells you how fast you're going but also in which direction. For example, '50 km/h North' is a velocity, while '50 km/h' is just a speed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚦</span><span>🚦</span><span>🚦</span></div><div class="vcap">Changing pace</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Speed with Direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Velocity</span></h2>
-          <ul><li>The rate of change of an object's displacement.</li><li>Formula: Velocity = Displacement / Time.</li><li>It is a vector quantity, measured in m/s or km/h, with direction.</li></ul>
-          <p class="notes">🎙️ Velocity is like speed, but with a crucial addition: direction. It tells us how fast an object is moving AND in what direction. So, '60 km/h North' is a velocity, while '60 km/h' is just a speed.</p>
+          <h2><span class="hl">Average Speed</span></h2>
+          <ul><li>When an object travels at varying speeds, we calculate average speed.</li><li>Formula: Average Speed = Total Distance / Total Time.</li><li>Used for non-uniform motion over a duration.</li></ul>
+          <p class="notes">🎙️ In real-world scenarios, objects rarely move at a constant speed. Average speed helps us describe the overall rate of motion during a journey, even if there were stops or changes in speed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">How fast AND where?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Overall Pace</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Uniform</span> Velocity</h2>
-          <ul><li>An object has uniform velocity if it covers equal displacements in equal intervals of time.</li><li>This means both its speed and direction remain constant.</li><li>Example: An airplane flying at a constant speed in a straight line.</li></ul>
-          <p class="notes">🎙️ For velocity to be uniform, both the speed and the direction must not change. If a car is moving at a constant speed but turning a corner, its velocity is changing because its direction is changing. So, uniform velocity is quite specific.</p>
+          <h2><span class="hl">Average Velocity</span></h2>
+          <ul><li>For non-uniform motion, average velocity is the total displacement divided by total time.</li><li>Formula: Average Velocity = Total Displacement / Total Time.</li><li>Can also be calculated as (Initial Velocity + Final Velocity) / 2 for uniform acceleration.</li></ul>
+          <p class="notes">🎙️ Just like average speed, average velocity accounts for changes in motion. It's crucial because it considers the overall change in position and direction from start to finish, not just the path taken.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚂</span><span>🚂</span><span>🚂</span></div><div class="vcap">Steady speed, steady direction</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Velocity_graph.svg?width=500" data-fb="🧭" alt="Velocity-time graphs show how an object's velocity changes over time. The slope represents"/><div class="vcap">Velocity-time graphs show how an object's velocity changes over time. The slope represents</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,35 +276,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Non-Uniform</span> Velocity</h2>
-          <ul><li>An object has non-uniform velocity if either its speed, its direction, or both change.</li><li>Most real-world motions are non-uniform velocity.</li><li>Example: A car accelerating, or a car taking a turn at constant speed.</li></ul>
-          <p class="notes">🎙️ Non-uniform velocity is much more common. If you speed up, slow down, or even just turn, your velocity is changing. Even if your speedometer shows a constant speed, if you're turning, your velocity is not uniform.</p>
+          <h2>Worked <span class="hl">Example</span>: Calculating Average Speed</h2>
+          <ul><li>A car travels 100 km in 2 hours and then another 50 km in 1 hour.</li><li>Calculate its average speed.</li></ul>
+          <p class="notes">🎙️ This is a straightforward application of the average speed formula. Always remember to add up all the distances and all the times separately before dividing them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎢</span><span>🎢</span><span>🎢</span></div><div class="vcap">Changing speed OR direction</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Speed <span class="hl">vs.</span> Velocity</h2>
-          <ul><li>Speed: Scalar, rate of distance covered.</li><li>Velocity: Vector, rate of displacement.</li></ul>
-          <p class="notes">🎙️ The key difference is direction. Speed tells you 'how fast'. Velocity tells you 'how fast and in what direction'. Understanding this distinction is fundamental in describing motion accurately.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Speed (Magnitude)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Velocity (Magnitude + Direction)</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Total Distance = 100 km + 50 km = 150 km</span></div><div class="step"><span class="snum">2</span><span>Total Time = 2 hours + 1 hour = 3 hours</span></div><div class="step"><span class="snum">3</span><span>Average Speed = 150 km / 3 hours = 50 km/h</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 2</h2>
-          <ul><li>Which of these describes a change in velocity?</li><li>a) A car speeding up.</li><li>b) A car slowing down.</li><li>c) A car turning a corner at constant speed.</li><li>d) All of the above.</li></ul>
-          <p class="notes">🎙️ Let's test your understanding of velocity. Remember what makes velocity change. Is it just speed, or is direction also a factor?</p>
+          <span class="num">20 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Can an object have zero displacement but non-zero distance?</li><li>Can an object have non-zero speed but zero average velocity?</li></ul>
+          <p class="notes">🎙️ Consider a full round trip for the first question. For the second, think about the definition of average velocity, which depends on displacement.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Describing Motion: <span class="hl">Acceleration</span></h2>
+          <ul><li>Acceleration is the rate of change of velocity.</li><li>Formula: Acceleration = (Final Velocity - Initial Velocity) / Time.</li><li>It is a vector quantity. Unit: metre per second squared (m/s²).</li></ul>
+          <p class="notes">🎙️ Acceleration tells us how quickly an object's velocity is changing. This change can be an increase in speed, a decrease in speed (deceleration), or even a change in direction while maintaining constant speed.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Change in Velocity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Acceleration</span></h2>
-          <ul><li>The rate of change of velocity.</li><li>Formula: Acceleration = (Final Velocity - Initial Velocity) / Time.</li><li>It is a vector quantity, measured in m/s².</li></ul>
-          <p class="notes">🎙️ Acceleration is how quickly your velocity changes. If you press the accelerator pedal in a car, you increase its speed, and thus its velocity, meaning you are accelerating. If you brake, you are also accelerating, but in the opposite direction.</p>
+          <h2><span class="hl">Types</span> of Acceleration</h2>
+          <ul><li>Positive: Velocity increases (speeding up).</li><li>Negative (Deceleration): Velocity decreases (slowing down).</li><li>Zero: Velocity is constant (uniform motion).</li></ul>
+          <p class="notes">🎙️ When a car speeds up, it has positive acceleration. When it brakes, it experiences negative acceleration or deceleration. If it cruises at a constant speed in a straight line, its acceleration is zero.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Changing velocity</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Positive</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Negative</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Zero</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Types</span> of Acceleration</h2>
-          <ul><li>Positive Acceleration: Velocity increases in the direction of motion.</li><li>Negative Acceleration (Deceleration/Retardation): Velocity decreases (slowing down).</li><li>Zero Acceleration: Velocity is constant (uniform velocity).</li></ul>
-          <p class="notes">🎙️ Acceleration isn't just about speeding up. If you're slowing down, it's called negative acceleration or deceleration. And if your velocity isn't changing at all, then your acceleration is zero – you're moving at a constant velocity.</p>
+          <h2>Worked <span class="hl">Example</span>: Calculating Acceleration</h2>
+          <ul><li>A bus increases its speed from 36 km/h to 72 km/h in 10 seconds.</li><li>Calculate its acceleration.</li></ul>
+          <p class="notes">🎙️ Remember to always convert units to a consistent system (SI units are preferred) before plugging them into formulas. Here, converting km/h to m/s is the first crucial step.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Positive Accel.</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Negative Accel.</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Zero Accel.</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Convert speeds to m/s: 36 km/h = 10 m/s; 72 km/h = 20 m/s</span></div><div class="step"><span class="snum">2</span><span>Initial velocity (u) = 10 m/s, Final velocity (v) = 20 m/s, Time (t) = 10 s</span></div><div class="step"><span class="snum">3</span><span>Acceleration (a) = (v - u) / t = (20 - 10) / 10 = 1 m/s²</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Speed Calculation</h2>
-          <ul><li>A train travels 120 km in 2 hours.</li><li>Calculate its average speed.</li><li>Solution: Speed = Distance / Time = 120 km / 2 hours = 60 km/h.</li></ul>
-          <p class="notes">🎙️ Let's apply what we've learned. Here's a simple problem to calculate speed. Always remember the formula and the units. This helps us understand real-world scenarios better.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the acceleration of a body moving with uniform velocity?</li><li>Give an example of negative acceleration in daily life.</li></ul>
+          <p class="notes">🎙️ Think about the definition of acceleration – it's the rate of change of velocity. If velocity isn't changing, what does that imply for acceleration? For the second part, imagine a common scenario where something slows down.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Putting formulas to use</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Motion is relative; Rest and Motion depend on the reference point.</li><li>Distance (Scalar) vs. Displacement (Vector).</li><li>Speed (Scalar) vs. Velocity (Vector).</li><li>Acceleration is the rate of change of velocity.</li></ul>
-          <p class="notes">🎙️ Today, we've covered the fundamental concepts of motion. Remember the difference between scalar and vector quantities, and how distance and speed relate to displacement and velocity. These are the building blocks for understanding more complex motion in physics.</p>
+          <h2>Chapter <span class="hl">Recap</span>: Describing Motion Around Us</h2>
+          <ul><li>Motion is relative and needs a reference point.</li><li>Distance (scalar) vs. Displacement (vector).</li><li>Speed (scalar) vs. Velocity (vector).</li><li>Acceleration is the rate of change of velocity.</li></ul>
+          <p class="notes">🎙️ We've covered the fundamental concepts needed to describe motion precisely. Understanding these terms – distance, displacement, speed, velocity, and acceleration – forms the basis for studying more advanced topics in physics. Keep practicing with examples!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Quadratic Equations: Class 10 Mathematics (CBSE) — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Quadratic Equations - Class 10 Mathematics (CBSE) — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Welcome</span> to Quadratic Equations!</h2>
-          <ul><li>A fascinating journey into the world of algebra.</li><li>Understand equations of degree two.</li><li>Learn how to solve real-life problems.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter on Quadratic Equations. This topic is super important, not just for your exams, but also for understanding many real-world situations. Let's dive in!</p>
+          <h2>Welcome to <span class="hl">Quadratic</span> Equations!</h2>
+          <ul><li>Get ready to explore a fascinating topic in Maths!</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we're diving into a very important chapter: Quadratic Equations. These equations are not just for textbooks; they help us understand many real-world situations.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is an <span class="hl">Equation</span>?</h2>
-          <ul><li>A mathematical statement showing two expressions are equal.</li><li>Contains an equals sign (=).</li><li>Often involves variables (like x, y).</li></ul>
-          <p class="notes">🎙️ Think of an equation like a balanced scale. Whatever is on one side must be exactly equal to what's on the other. It's a way to find unknown values, represented by variables.</p>
+          <h2>A Quick Look at <span class="hl">Polynomials</span></h2>
+          <ul><li>Expressions with variables and constants.</li><li>Powers of variables are whole numbers.</li></ul>
+          <p class="notes">🎙️ Before we tackle quadratic equations, let's quickly recall what polynomials are. They are algebraic expressions where the powers of the variables are always non-negative integers, like 0, 1, 2, and so on.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Algebraic Expressions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Linear</span> Equations: A Quick Recap</h2>
-          <ul><li>An equation with the highest power of the variable as 1.</li><li>Standard form: ax + b = 0 (where a ≠ 0).</li><li>Example: 2x + 5 = 0.</li></ul>
-          <p class="notes">🎙️ You've already studied linear equations in earlier classes. Remember, 'linear' means it forms a straight line when graphed, and the variable 'x' has a power of 1.</p>
+          <h2><span class="hl">Degree</span> Matters: Linear vs. Quadratic</h2>
+          <ul><li>Linear: Highest power is 1.</li><li>Quadratic: Highest power is 2.</li></ul>
+          <p class="notes">🎙️ The 'degree' of a polynomial is its highest power. If the highest power of the variable is 1, it's a linear polynomial. But if the highest power is 2, it's a quadratic polynomial, which is our focus today!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Linear (ax+b)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Quadratic (ax²+bx+c)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Introducing <span class="hl">Polynomials</span></h2>
-          <ul><li>An expression with one or more terms.</li><li>Terms are added or subtracted.</li><li>Variables have non-negative integer powers.</li></ul>
-          <p class="notes">🎙️ Polynomials are like building blocks of algebra. They are expressions made up of terms, where each term is a product of a constant and one or more variables raised to whole number powers.</p>
+          <h2>What is a <span class="hl">Quadratic Equation</span>?</h2>
+          <ul><li>An equation of degree 2.</li><li>Standard form: ax² + bx + c = 0.</li><li>'a' cannot be zero.</li></ul>
+          <p class="notes">🎙️ A quadratic equation is simply a quadratic polynomial set equal to zero. The 'a' coefficient is crucial; if 'a' were zero, the x² term would vanish, and it would no longer be quadratic.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Many Terms</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balanced Equation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Degree</span> of a Polynomial</h2>
-          <ul><li>The highest power of the variable in the polynomial.</li><li>Determines the type of polynomial.</li><li>Example: 3x² + 2x - 1 has a degree of 2.</li></ul>
-          <p class="notes">🎙️ The degree is like the 'rank' of the polynomial. It's simply the largest exponent of the variable you see in any term. This degree helps us classify different types of polynomials.</p>
+          <h2><span class="hl">Real-World</span> Power of Quadratics</h2>
+          <ul><li>Model curved paths.</li><li>Calculate areas and heights.</li><li>Used in engineering and physics.</li></ul>
+          <p class="notes">🎙️ Quadratic equations are incredibly useful! They help us describe phenomena like the path of a thrown ball, design bridges, or even calculate the optimal dimensions for a garden. Let's look at some examples.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Highest Power</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Everyday Applications</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>What is a <span class="hl">Quadratic</span> Polynomial?</h2>
-          <ul><li>A polynomial with degree 2.</li><li>Example: x² + 5x + 6.</li><li>The term 'quad' means square, referring to the x² term.</li></ul>
-          <p class="notes">🎙️ A quadratic polynomial is special because its highest power is 2. The word 'quadratic' comes from the Latin word 'quadratus' meaning square, which refers to the 'x-squared' term.</p>
+          <h2><span class="hl">Area</span> of a Rectangular Plot</h2>
+          <ul><li>Length = (width + 3) meters.</li><li>Area = 108 sq meters.</li><li>Find width.</li></ul>
+          <p class="notes">🎙️ Imagine you have a rectangular plot of land. If its length is 3 meters more than its width, and the total area is 108 square meters, we can use a quadratic equation to find the exact dimensions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">2️⃣</div><div class="vcap">Degree Two</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📏</span><span>📏</span><span>📏</span><span>📏</span></div><div class="vcap">Measuring Area</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Defining</span> a Quadratic Equation</h2>
-          <ul><li>When a quadratic polynomial is set to zero.</li><li>Standard form: ax² + bx + c = 0.</li><li>Here, a, b, c are real numbers, and a ≠ 0.</li></ul>
-          <p class="notes">🎙️ So, when we take a quadratic polynomial and make it equal to zero, it becomes a quadratic equation. The 'a' cannot be zero, otherwise, the x² term vanishes, and it becomes a linear equation!</p>
+          <h2>The <span class="hl">Path</span> of a Thrown Ball</h2>
+          <ul><li>Height changes over time.</li><li>Forms a parabolic path.</li><li>Can be modeled by a quadratic equation.</li></ul>
+          <p class="notes">🎙️ When you throw a ball, it follows a curved path called a parabola. The height of the ball at any given time can be accurately described using a quadratic equation, helping us predict its motion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Standard Form</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Ball's Trajectory</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Real-Life</span> Example: Area of a Plot</h2>
-          <ul><li>A rectangular plot has an area of 300 m².</li><li>Its length is 1 meter more than twice its breadth.</li><li>How can we find the dimensions?</li></ul>
-          <p class="notes">🎙️ Imagine you want to buy a plot of land. If we let the breadth be 'x' meters, then the length would be (2x+1) meters. Since Area = Length × Breadth, we get x(2x+1) = 300. This simplifies to 2x² + x - 300 = 0, which is a quadratic equation!</p>
+          <h2>What are the <span class="hl">Roots</span>?</h2>
+          <ul><li>Values of 'x' that satisfy the equation.</li><li>Also called solutions or zeros.</li><li>Graphically, where parabola crosses x-axis.</li></ul>
+          <p class="notes">🎙️ The 'roots' of a quadratic equation are the special values of 'x' that make the equation true. Think of them as the answers or solutions to our quadratic puzzle. A quadratic equation can have up to two roots.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">House Plot</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Finding Solutions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Checking</span> if an Equation is Quadratic: Example 1</h2>
-          <ul><li>Is (x+1)² = 2(x-3) a quadratic equation?</li><li>Expand both sides of the equation.</li><li>Simplify and check the highest power of x.</li></ul>
-          <p class="notes">🎙️ Let's try an example. First, expand the left side using the (a+b)² formula. Then, distribute on the right side. Bring all terms to one side and simplify. We see the highest power of 'x' is 2, so yes, it is a quadratic equation.</p>
+          <h2>Finding Roots by <span class="hl">Factorisation</span></h2>
+          <ul><li>Split the middle term 'bx'.</li><li>Group terms to find common factors.</li><li>Set each factor to zero to find roots.</li></ul>
+          <p class="notes">🎙️ Factorisation is a common method to solve quadratic equations. We try to rewrite the middle term 'bx' in such a way that we can factor out common terms from the expression.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>(x+1)² = x² + 2x + 1</span></div><div class="step"><span class="snum">2</span><span>2(x-3) = 2x - 6</span></div><div class="step"><span class="snum">3</span><span>x² + 2x + 1 = 2x - 6</span></div><div class="step"><span class="snum">4</span><span>x² + 7 = 0</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Standard Form</span></div><div class="step"><span class="snum">2</span><span>Split Middle Term</span></div><div class="step"><span class="snum">3</span><span>Factor by Grouping</span></div><div class="step"><span class="snum">4</span><span>Set Factors to Zero</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Checking</span> if an Equation is Quadratic: Example 2</h2>
-          <ul><li>Is x(x+1) + 8 = (x+2)(x-2) a quadratic equation?</li><li>Expand and simplify both sides.</li><li>Look for the x² term.</li></ul>
-          <p class="notes">🎙️ For this example, expand x(x+1) and use the (a+b)(a-b) identity for the right side. When we bring all terms to one side, the x² terms cancel out. This leaves us with a linear equation, not a quadratic one.</p>
+          <h2><span class="hl">Example</span>: x² + 5x + 6 = 0</h2>
+          <ul><li>Split 5x into 2x + 3x.</li><li>Factor (x+2)(x+3)=0.</li><li>Roots are x = -2, x = -3.</li></ul>
+          <p class="notes">🎙️ Here, we need two numbers that multiply to 6 and add to 5. These are 2 and 3. Once we split the middle term, we can factor by grouping to get our two factors, and then easily find the roots.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>LHS: x² + x + 8</span></div><div class="step"><span class="snum">2</span><span>RHS: x² - 4 (using a²-b²)</span></div><div class="step"><span class="snum">3</span><span>x² + x + 8 = x² - 4</span></div><div class="step"><span class="snum">4</span><span>x + 12 = 0</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>x²+2x+3x+6=0</span></div><div class="step"><span class="snum">2</span><span>x(x+2)+3(x+2)=0</span></div><div class="step"><span class="snum">3</span><span>(x+2)(x+3)=0</span></div><div class="step"><span class="snum">4</span><span>x=-2 or x=-3</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,23 +180,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Roots</span> of a Quadratic Equation</h2>
-          <ul><li>The values of the variable that satisfy the equation.</li><li>Also called 'solutions' or 'zeros'.</li><li>A quadratic equation has at most two roots.</li></ul>
-          <p class="notes">🎙️ The roots are the specific numbers you can substitute for 'x' that make the equation true. Since the highest power is 2, a quadratic equation can have up to two distinct roots, or sometimes one repeated root, or no real roots.</p>
+          <h2><span class="hl">Example</span>: 2x² - 5x + 3 = 0</h2>
+          <ul><li>Product ac = 6. Sum b = -5.</li><li>Split -5x into -2x - 3x.</li><li>Roots are x = 1, x = 3/2.</li></ul>
+          <p class="notes">🎙️ In this example, 'a' is not 1. We look for two numbers whose product is (a*c) = 6 and whose sum is 'b' = -5. These numbers are -2 and -3. Follow the same steps to find the roots.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Finding Solutions</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>2x²-2x-3x+3=0</span></div><div class="step"><span class="snum">2</span><span>2x(x-1)-3(x-1)=0</span></div><div class="step"><span class="snum">3</span><span>(2x-3)(x-1)=0</span></div><div class="step"><span class="snum">4</span><span>x=3/2 or x=1</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Method 1: Finding Roots by <span class="hl">Factorisation</span></h2>
-          <ul><li>Express the quadratic polynomial as a product of two linear factors.</li><li>Set each factor to zero to find the roots.</li><li>Relies on the 'zero product rule'.</li></ul>
-          <p class="notes">🎙️ Factorisation is a common method. We break down the quadratic expression into two simpler linear expressions multiplied together. If their product is zero, then at least one of them must be zero, which helps us find the roots.</p>
+          <h2>Time for <span class="hl">Practice</span>!</h2>
+          <ul><li>Find the roots of x² - 7x + 12 = 0 by factorisation.</li></ul>
+          <p class="notes">🎙️ Alright, students, let's try one on your own! Take a moment to apply the factorisation method to solve this quadratic equation. Remember to look for two numbers that multiply to 12 and add to -7.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Breaking Apart</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Worked <span class="hl">Example 1</span> (Factorisation)</h2>
-          <ul><li>Solve: x² - 3x - 10 = 0</li><li>Find two numbers that multiply to -10 and add to -3.</li><li>Split the middle term and factor by grouping.</li></ul>
-          <p class="notes">🎙️ Here, the two numbers are -5 and 2. We rewrite the middle term (-3x) as (-5x + 2x). Then, we group the terms and factor out common parts. Finally, we set each factor to zero to get our two roots.</p>
+          <h2><span class="hl">Completing the Square</span> Method</h2>
+          <ul><li>Transform into (x+k)² = d form.</li><li>Add (b/2a)² to both sides.</li><li>Take square root to solve.</li></ul>
+          <p class="notes">🎙️ This method is a bit more involved but is very powerful. The goal is to manipulate the equation so that one side becomes a perfect square trinomial, making it easier to isolate 'x'.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>x² - 5x + 2x - 10 = 0</span></div><div class="step"><span class="snum">2</span><span>x(x - 5) + 2(x - 5) = 0</span></div><div class="step"><span class="snum">3</span><span>(x - 5)(x + 2) = 0</span></div><div class="step"><span class="snum">4</span><span>x - 5 = 0 or x + 2 = 0</span></div><div class="step"><span class="snum">5</span><span>x = 5 or x = -2</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Move 'c' term</span></div><div class="step"><span class="snum">2</span><span>Divide by 'a'</span></div><div class="step"><span class="snum">3</span><span>Add (b/2)² to both sides</span></div><div class="step"><span class="snum">4</span><span>Factor left side</span></div><div class="step"><span class="snum">5</span><span>Take square root</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Worked <span class="hl">Example 2</span> (Factorisation)</h2>
-          <ul><li>Solve: 2x² + x - 6 = 0</li><li>Multiply 'a' and 'c' (2 * -6 = -12).</li><li>Find two numbers that multiply to -12 and add to 1.</li></ul>
-          <p class="notes">🎙️ In this example, the numbers are 4 and -3. We split the middle term 'x' into '4x - 3x'. Then, we group and factor. This method is called 'splitting the middle term' and is very effective for factorisation.</p>
+          <h2><span class="hl">Example</span>: x² + 4x - 5 = 0</h2>
+          <ul><li>x² + 4x = 5.</li><li>Add (4/2)² = 4 to both sides.</li><li>(x+2)² = 9.</li><li>Roots are x = 1, x = -5.</li></ul>
+          <p class="notes">🎙️ Here, 'a' is 1, which simplifies things. We move the constant term, then add the square of half the coefficient of 'x' to both sides to complete the square. Then, we take the square root.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>2x² + 4x - 3x - 6 = 0</span></div><div class="step"><span class="snum">2</span><span>2x(x + 2) - 3(x + 2) = 0</span></div><div class="step"><span class="snum">3</span><span>(2x - 3)(x + 2) = 0</span></div><div class="step"><span class="snum">4</span><span>2x - 3 = 0 or x + 2 = 0</span></div><div class="step"><span class="snum">5</span><span>x = 3/2 or x = -2</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>x²+4x = 5</span></div><div class="step"><span class="snum">2</span><span>x²+4x+4 = 5+4</span></div><div class="step"><span class="snum">3</span><span>(x+2)² = 9</span></div><div class="step"><span class="snum">4</span><span>x+2 = ±3</span></div><div class="step"><span class="snum">5</span><span>x=1 or x=-5</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -215,57 +228,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Quick <span class="hl">Question 1</span></h2>
-          <ul><li>Is (x+1)² = 2(x-3) a quadratic equation?</li><li>Think about the highest power of 'x' after simplification.</li><li>Take a moment to solve it on your own.</li></ul>
-          <p class="notes">🎙️ Alright, students, let's test your understanding. Try to simplify this equation and determine if it fits the standard form of a quadratic equation. Remember the conditions for 'a', 'b', and 'c'.</p>
+          <h2>Your Turn to <span class="hl">Complete the Square</span>!</h2>
+          <ul><li>Solve 2x² + 8x - 10 = 0 using the completing the square method.</li></ul>
+          <p class="notes">🎙️ Now, try this one. Remember to first divide the entire equation by the coefficient of x², which is 2 in this case, before proceeding with completing the square. Good luck!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Quick <span class="hl">Question 2</span></h2>
-          <ul><li>Find the roots of x² - 9 = 0.</li><li>Can you use a simple algebraic identity here?</li><li>Remember, there can be two roots!</li></ul>
-          <p class="notes">🎙️ Here's another quick one. This equation looks a bit different, but it's still quadratic. Think about the identity a² - b² = (a-b)(a+b). How can you apply that to find the roots?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Method 2: <span class="hl">Completing</span> the Square</h2>
-          <ul><li>Transform the equation into the form (x + k)² = d.</li><li>Makes one side a perfect square trinomial.</li><li>Allows finding roots by taking square roots.</li></ul>
-          <p class="notes">🎙️ This method is a bit more involved but very powerful. We manipulate the equation to create a perfect square on one side, which then allows us to easily isolate 'x' by taking the square root of both sides. It's like building a perfect square visually!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Perfect Square</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Worked <span class="hl">Example</span> (Completing the Square)</h2>
-          <ul><li>Solve: 2x² - 7x + 3 = 0</li><li>Divide by 'a' (2) to make x² coefficient 1.</li><li>Add (b/2)² to both sides to complete the square.</li></ul>
-          <p class="notes">🎙️ First, divide the entire equation by 2. Then, move the constant term to the right. To complete the square, we add (half of the coefficient of x, squared) to both sides. This creates a perfect square trinomial on the left. Then, take the square root of both sides and solve for x.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>x² - (7/2)x + 3/2 = 0</span></div><div class="step"><span class="snum">2</span><span>x² - (7/2)x = -3/2</span></div><div class="step"><span class="snum">3</span><span>x² - (7/2)x + (7/4)² = -3/2 + (7/4)²</span></div><div class="step"><span class="snum">4</span><span>(x - 7/4)² = -3/2 + 49/16 = 25/16</span></div><div class="step"><span class="snum">5</span><span>x - 7/4 = ±5/4 =&gt; x = 12/4 or 2/4</span></div><div class="step"><span class="snum">6</span><span>x = 3 or x = 1/2</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Method 3: The Quadratic <span class="hl">Formula</span></h2>
-          <ul><li>A universal formula to find roots of ax² + bx + c = 0.</li><li>Roots are given by: x = [-b ± √(b² - 4ac)] / 2a.</li><li>Works for all quadratic equations.</li></ul>
-          <p class="notes">🎙️ This is perhaps the most famous and powerful method. The quadratic formula is derived by applying the method of completing the square to the general form ax² + bx + c = 0. It's a direct way to find the roots, no matter how complex the numbers are.</p>
+          <h2>Introducing the <span class="hl">Quadratic Formula</span></h2>
+          <ul><li>A universal formula to find roots.</li><li>Works for ALL quadratic equations.</li><li>Derived from completing the square.</li></ul>
+          <p class="notes">🎙️ This is perhaps the most famous method! The quadratic formula is a direct way to find the roots of any quadratic equation, no matter how complex it seems. It's a lifesaver when factorisation or completing the square are difficult.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Universal Solution</div></div></div>
       </div>
@@ -274,12 +251,48 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Worked <span class="hl">Example</span> (Quadratic Formula)</h2>
-          <ul><li>Solve: 2x² + x - 6 = 0</li><li>Identify a, b, and c.</li><li>Substitute values into the quadratic formula.</li></ul>
-          <p class="notes">🎙️ Here, a=2, b=1, and c=-6. Carefully substitute these values into the formula. Pay close attention to the signs, especially inside the square root. Calculate the term under the square root first, then simplify to find the two roots.</p>
+          <span class="num">17 / 25</span>
+          <h2>The Mighty Quadratic <span class="hl">Formula</span>!</h2>
+          <ul><li>x = [-b ± √(b² - 4ac)] / 2a.</li><li>'a', 'b', 'c' are coefficients from ax² + bx + c = 0.</li></ul>
+          <p class="notes">🎙️ Memorise this formula! It gives you the two roots of a quadratic equation directly. Just identify the values of 'a', 'b', and 'c' from your equation, plug them into the formula, and calculate.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a=2, b=1, c=-6</span></div><div class="step"><span class="snum">2</span><span>x = [-1 ± √(1² - 4(2)(-6))] / (2*2)</span></div><div class="step"><span class="snum">3</span><span>x = [-1 ± √(1 + 48)] / 4</span></div><div class="step"><span class="snum">4</span><span>x = [-1 ± √49] / 4</span></div><div class="step"><span class="snum">5</span><span>x = [-1 ± 7] / 4</span></div><div class="step"><span class="snum">6</span><span>x = 6/4 or x = -8/4</span></div><div class="step"><span class="snum">7</span><span>x = 3/2 or x = -2</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">The Magic Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Example</span>: 2x² + 3x - 5 = 0</h2>
+          <ul><li>a=2, b=3, c=-5.</li><li>Substitute into formula.</li><li>Roots are x = 1, x = -5/2.</li></ul>
+          <p class="notes">🎙️ Let's apply the formula! Here, a=2, b=3, and c=-5. Carefully substitute these values into the quadratic formula and perform the calculations step-by-step to arrive at the two roots.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a, b, c</span></div><div class="step"><span class="snum">2</span><span>Substitute into formula</span></div><div class="step"><span class="snum">3</span><span>Calculate discriminant</span></div><div class="step"><span class="snum">4</span><span>Find two roots</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Formula <span class="hl">Challenge</span>!</h2>
+          <ul><li>Use the Quadratic Formula to solve 3x² - 7x + 2 = 0.</li></ul>
+          <p class="notes">🎙️ Now it's your turn to use the quadratic formula. Identify 'a', 'b', and 'c' correctly, substitute them into the formula, and compute the roots. This method is very efficient once you get the hang of it.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Understanding the <span class="hl">Nature of Roots</span></h2>
+          <ul><li>The term b² - 4ac is called the Discriminant (D).</li><li>D tells us about the type of roots.</li></ul>
+          <p class="notes">🎙️ The part under the square root in the quadratic formula, b² - 4ac, is very important! It's called the Discriminant, and its value tells us whether the roots are real or not, and if they are distinct or equal.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">What Kind of Roots?</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Nature of Roots: The <span class="hl">Discriminant</span></h2>
-          <ul><li>The expression b² - 4ac is called the discriminant (D).</li><li>It determines the nature of the roots.</li><li>No need to solve the equation completely.</li></ul>
-          <p class="notes">🎙️ The part under the square root in the quadratic formula, b² - 4ac, is very important. We call it the discriminant because it 'discriminates' or tells us about the type of roots without actually solving for them.</p>
+          <h2>Two <span class="hl">Distinct Real Roots</span> (D &gt; 0)</h2>
+          <ul><li>If D is positive (D &gt; 0).</li><li>Two different real numbers as roots.</li><li>The parabola intersects x-axis at two points.</li></ul>
+          <p class="notes">🎙️ When the discriminant is greater than zero, it means we have a positive number under the square root. This results in two distinct, or different, real number solutions for 'x'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Deciding Factor</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✌️</span><span>✌️</span></div><div class="vcap">Two Different Solutions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Cases</span> of the Discriminant (D)</h2>
-          <ul><li>D &gt; 0: Two distinct real roots.</li><li>D = 0: Two equal real roots (one repeated root).</li><li>D &lt; 0: No real roots (roots are imaginary).</li></ul>
-          <p class="notes">🎙️ If D is positive, you get two different real numbers as roots. If D is exactly zero, the ± part vanishes, giving one repeated real root. If D is negative, you cannot take the square root of a negative number in real numbers, so there are no real roots.</p>
+          <h2>Two <span class="hl">Equal Real Roots</span> (D = 0)</h2>
+          <ul><li>If D is zero (D = 0).</li><li>Both roots are the same real number.</li><li>The parabola touches x-axis at one point.</li></ul>
+          <p class="notes">🎙️ If the discriminant is exactly zero, the square root term vanishes. This means both parts of the formula (with + and -) yield the same result, giving us two equal real roots.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">D &gt; 0</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">D = 0</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">D &lt; 0</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤝</span><span>🤝</span></div><div class="vcap">Two Identical Solutions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,11 +324,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Real-Life</span> Example: Ball Thrown Upwards</h2>
-          <ul><li>Height of a ball: h = 5t - t² (t is time).</li><li>When does the ball hit the ground (h=0)?</li><li>0 = 5t - t² =&gt; t² - 5t = 0.</li></ul>
-          <p class="notes">🎙️ Quadratic equations model projectile motion. If we set the height 'h' to zero, we are looking for the time 't' when the ball is on the ground. This gives us a quadratic equation t(t-5) = 0, which means t=0 (start) or t=5 (lands after 5 seconds).</p>
+          <h2><span class="hl">No Real Roots</span> (D &lt; 0)</h2>
+          <ul><li>If D is negative (D &lt; 0).</li><li>No real number solutions.</li><li>The parabola does not intersect x-axis.</li></ul>
+          <p class="notes">🎙️ When the discriminant is less than zero, we have a negative number under the square root. In real numbers, we cannot take the square root of a negative number, so there are no real roots in this case.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏀</div><div class="vcap">Ball Trajectory</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚫</span></div><div class="vcap">No Real Solutions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick <span class="hl">Question 3</span></h2>
-          <ul><li>Find the nature of the roots for x² + 4x + 4 = 0.</li><li>Calculate the discriminant (D = b² - 4ac).</li><li>What does the value of D tell you?</li></ul>
-          <p class="notes">🎙️ Here's your final quick question. Without solving the equation, can you tell me what kind of roots it has? Remember the discriminant and its three cases. Identify a, b, c, and then calculate D.</p>
+          <h2>Test Your <span class="hl">Discriminant</span> Knowledge!</h2>
+          <ul><li>Determine the nature of roots for x² - 4x + 4 = 0.</li></ul>
+          <p class="notes">🎙️ Let's see if you've understood the concept of the discriminant. Calculate D for this equation and tell me what kind of roots it has. Remember the three cases we just discussed!</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Quadratic Equations</h2>
-          <ul><li>Standard form: ax² + bx + c = 0 (a≠0).</li><li>Methods to solve: Factorisation, Completing the Square, Quadratic Formula.</li><li>Discriminant (D=b²-4ac) tells the nature of roots.</li></ul>
-          <p class="notes">🎙️ Excellent work today, students! We've covered what quadratic equations are, their standard form, and three powerful methods to find their roots. We also learned about the discriminant, which helps us understand the nature of these roots. Keep practicing!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Quadratic Equations</h2>
+          <ul><li>Standard form: ax²+bx+c=0.</li><li>Methods: Factorisation, Completing the Square, Quadratic Formula.</li><li>Discriminant (D=b²-4ac) tells nature of roots.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! We learned what quadratic equations are, why they're important, and three powerful methods to solve them. We also explored how the discriminant helps us understand the nature of their roots.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Plants Around Us — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to '<span class="hl">Plants</span> Around Us'!</h2>
-          <ul><li>Let's learn about our green friends!</li><li>They are everywhere!</li></ul>
-          <p class="notes">🎙️ Hello, little explorers! Today, we are going on an exciting journey to discover the amazing world of plants. Get ready to meet our green friends!</p>
+          <h2>Hello Friends! Let's Explore <span class="hl">Plants</span>!</h2>
+          <ul><li>Welcome to our new chapter!</li><li>Today we will learn about plants.</li><li>They are all around us!</li></ul>
+          <p class="notes">🎙️ Namaste, little explorers! Today we are going on an exciting journey to learn about the wonderful world of plants. Plants are living things that make our world beautiful and green.</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What are <span class="hl">Plants</span>?</h2>
-          <ul><li>Plants are living things.</li><li>They grow big and strong.</li></ul>
-          <p class="notes">🎙️ Just like us, plants are alive! They need food and water to grow. Some grow very tall, and some stay small.</p>
+          <ul><li>Plants are living things.</li><li>Just like you and me!</li><li>They grow, eat, and need water.</li></ul>
+          <p class="notes">🎙️ Look at this little plant! It's just like a baby, it needs food, water, and sunlight to grow big and strong. Plants are amazing living beings that add so much to our lives.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌱" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 20</span>
           <h2><span class="hl">Where</span> do we see Plants?</h2>
-          <ul><li>We see plants in our gardens.</li><li>We see them in parks and forests.</li></ul>
-          <p class="notes">🎙️ Look around you! You can see plants almost everywhere. They make our world beautiful and green.</p>
+          <ul><li>We see plants everywhere!</li><li>In our gardens and parks.</li><li>Even on the roadside!</li></ul>
+          <p class="notes">🎙️ Close your eyes and think, where have you seen plants today? Perhaps in your school playground, or the park where you play. Plants make our surroundings look beautiful and fresh.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Plants everywhere!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Plants all around us</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Big Plants: <span class="hl">Trees</span>!</h2>
-          <ul><li>Trees are very big and tall.</li><li>They have a thick, woody stem called a trunk.</li></ul>
-          <p class="notes">🎙️ The biggest plants are called trees! They stand tall and strong, like giants. Their strong trunks help them stand firm.</p>
+          <h2>Big Plants: <span class="hl">Trees</span></h2>
+          <ul><li>Some plants are very big.</li><li>They are called Trees.</li><li>Trees have strong, woody stems.</li></ul>
+          <p class="notes">🎙️ Have you seen really tall plants with thick trunks? Those are trees! They stand strong and tall like giants, giving us shade and fruits. Think about the big tree near your house.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌲</div><div class="vcap">A tall tree</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">A big strong tree</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -96,10 +109,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">5 / 20</span>
           <h2><span class="hl">Examples</span> of Trees</h2>
-          <ul><li>Mango trees give us yummy mangoes.</li><li>Banyan trees have many branches.</li></ul>
-          <p class="notes">🎙️ Think of a mango tree! It's so tall and gives us sweet fruits. The Banyan tree is also a huge tree with many roots hanging down.</p>
+          <ul><li>Mango tree gives us yummy mangoes.</li><li>Banyan tree has roots hanging down.</li><li>Neem tree is very useful.</li></ul>
+          <p class="notes">🎙️ Imagine biting into a sweet mango! That comes from a mango tree. Banyan trees are very old and big, often seen in villages. Neem trees are known for their medicinal properties.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥭</span><span>🥭</span><span>🥭</span></div><div class="vcap">Yummy mangoes from a tree</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥭</span><span>🥭</span><span>🥭</span></div><div class="vcap">Yummy Mangoes from a tree</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Small Plants: <span class="hl">Shrubs</span>!</h2>
-          <ul><li>Shrubs are smaller than trees.</li><li>They have many woody branches close to the ground.</li></ul>
-          <p class="notes">🎙️ Now, let's look at plants that are not as tall as trees, but still have strong stems. These are called shrubs. They look bushy!</p>
+          <h2>Small Plants: <span class="hl">Shrubs</span></h2>
+          <ul><li>Some plants are smaller than trees.</li><li>They are called Shrubs.</li><li>Shrubs are bushy plants with many branches.</li></ul>
+          <p class="notes">🎙️ Now, let's talk about plants that are not as tall as trees but are still quite big. These are shrubs. They have many branches growing from near the ground, making them look bushy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">A bushy shrub</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">A small bushy shrub</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -120,10 +133,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">7 / 20</span>
           <h2><span class="hl">Examples</span> of Shrubs</h2>
-          <ul><li>Rose plants have beautiful flowers.</li><li>Tulsi plants are used for medicines.</li></ul>
-          <p class="notes">🎙️ Do you know the rose plant? It's a shrub! And the Tulsi plant, which our grandmothers often use, is also a shrub.</p>
+          <ul><li>Rose plant gives beautiful flowers.</li><li>Tulsi plant is used in medicines.</li><li>Hibiscus plant has colourful flowers.</li></ul>
+          <p class="notes">🎙️ Think of a rose plant in a garden. It's not as tall as a tree, but it has many branches and lovely flowers. Tulsi is a special plant often found in Indian homes, used for health.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌹</span><span>🌹</span><span>🌹</span></div><div class="vcap">Beautiful rose flowers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌹</span><span>🌹</span><span>🌹</span></div><div class="vcap">Beautiful Rose flowers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Very Small Plants: <span class="hl">Herbs</span>!</h2>
-          <ul><li>Herbs are very small plants.</li><li>They have soft, green stems.</li></ul>
-          <p class="notes">🎙️ Now, let's talk about the smallest plants. They are called herbs. Their stems are soft, not woody like trees or shrubs.</p>
+          <h2>Very Small Plants: <span class="hl">Herbs</span></h2>
+          <ul><li>Some plants are very, very small.</li><li>They are called Herbs.</li><li>Herbs have soft, green stems.</li></ul>
+          <p class="notes">🎙️ Now, let's look at the smallest plants! These are herbs. They have very soft stems that you can easily bend. They often grow close to the ground.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍀</div><div class="vcap">A tiny herb</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">A tiny herb plant</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -144,10 +157,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">9 / 20</span>
           <h2><span class="hl">Examples</span> of Herbs</h2>
-          <ul><li>Mint leaves make our food fresh.</li><li>Coriander adds flavour to dishes.</li></ul>
-          <p class="notes">🎙️ Think about the mint leaves in your chutney or the coriander sprinkled on your food. These are herbs!</p>
+          <ul><li>Mint leaves make our food fresh.</li><li>Coriander is used in many dishes.</li><li>Spinach is a healthy leafy vegetable.</li></ul>
+          <p class="notes">🎙️ Do you like mint chutney? Mint comes from a herb! Coriander is another herb that adds flavour to our food. Spinach is a herb that we eat as a vegetable, it makes us strong.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Fresh green herbs</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="🌍" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Plants that Climb: <span class="hl">Climbers</span>!</h2>
-          <ul><li>Climbers have weak stems.</li><li>They need support to grow upwards.</li></ul>
-          <p class="notes">🎙️ Some plants can't stand on their own because their stems are too weak. They need help, like a wall or another plant, to climb up!</p>
+          <h2>Comparing Plant <span class="hl">Sizes</span></h2>
+          <ul><li>Plants come in different sizes.</li><li>Trees are the biggest.</li><li>Herbs are the smallest.</li></ul>
+          <p class="notes">🎙️ See how different plants have different heights? Trees are like big brothers, shrubs are like middle brothers, and herbs are like little babies. Each has its own special place.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">A ladder for climbing</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Trees</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Shrubs</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Herbs</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Examples</span> of Climbers</h2>
-          <ul><li>Money Plant climbs on sticks or walls.</li><li>Pea plants climb to find sunlight.</li></ul>
-          <p class="notes">🎙️ Have you seen a Money Plant at home? It wraps around a stick or grows up a wall. Pea plants also climb to reach for the sun.</p>
+          <h2>Plants that Climb: <span class="hl">Climbers</span></h2>
+          <ul><li>Some plants have weak stems.</li><li>They need support to grow up.</li><li>These are called Climbers.</li></ul>
+          <p class="notes">🎙️ Imagine a baby trying to stand up, it needs support, right? Climber plants are like that. Their stems are too weak to stand on their own, so they hold onto other plants or walls to grow upwards.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/2_Rupee_coin_India.jpg?width=440" data-fb="🌍" alt="Learn money using real coins."/><div class="vcap">Learn money using real coins.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">A plant climbing up</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Plants that Creep: <span class="hl">Creepers</span>!</h2>
-          <ul><li>Creepers also have weak stems.</li><li>They grow along the ground.</li></ul>
-          <p class="notes">🎙️ Just like climbers, creepers have weak stems. But instead of climbing up, they spread and grow along the ground.</p>
+          <h2><span class="hl">Examples</span> of Climbers</h2>
+          <ul><li>Money plant makes our homes green.</li><li>Pea plant gives us yummy peas.</li><li>Grapevine gives us sweet grapes.</li></ul>
+          <p class="notes">🎙️ You might have a money plant in your house; it wraps around a stick or string to grow. Pea plants and grapevines also climb up to reach the sunlight and bear fruits.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛤️</div><div class="vcap">A path on the ground</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Indian_Rupee_symbol.svg?width=320" data-fb="🌍" alt="The rupee (₹) is our money."/><div class="vcap">The rupee (₹) is our money.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Examples</span> of Creepers</h2>
-          <ul><li>Pumpkin plants grow big pumpkins on the ground.</li><li>Watermelon plants spread out wide.</li></ul>
-          <p class="notes">🎙️ Think of a big pumpkin! It grows on a creeper plant that spreads on the ground. Watermelons also grow this way.</p>
+          <h2>Plants that Creep: <span class="hl">Creepers</span></h2>
+          <ul><li>Some plants also have weak stems.</li><li>But they spread on the ground.</li><li>These are called Creepers.</li></ul>
+          <p class="notes">🎙️ Unlike climbers that go up, creepers spread out. Their fruits are often heavy, so they cannot climb. They just lie down and spread themselves along the ground.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍉</span><span>🍉</span><span>🍉</span></div><div class="vcap">Watermelons growing on the ground</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">A plant spreading sideways</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>What is a very big plant called?</li><li>Is it a herb or a tree?</li></ul>
-          <p class="notes">🎙️ Let's see if you remember! What do we call those really tall and strong plants? Is it a tiny herb or a giant tree?</p>
+          <h2><span class="hl">Examples</span> of Creepers</h2>
+          <ul><li>Watermelon grows big on the ground.</li><li>Pumpkin also creeps on the ground.</li><li>Muskmelon is another creeper.</li></ul>
+          <p class="notes">🎙️ Think of a big, round watermelon. It's too heavy to hang from a climbing plant, so it grows on a creeper on the ground. Pumpkins and muskmelons are also examples of creepers.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌍" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -215,9 +228,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Which plant needs support to grow up?</li><li>Is it a creeper or a climber?</li></ul>
-          <p class="notes">🎙️ Now, another question! Which type of plant needs a helping hand to grow tall, instead of just lying on the ground?</p>
+          <h2>Quick <span class="hl">Question</span> 1!</h2>
+          <ul><li>Which of these is a TREE?</li><li>A) Rose plant</li><li>B) Mango tree</li><li>C) Mint plant</li></ul>
+          <p class="notes">🎙️ Let's test your memory! Look at the options and think about what we learned about trees. Which one grows very tall and has a strong trunk?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>Quick <span class="hl">Question</span> 2!</h2>
+          <ul><li>Which of these is a CREEPER?</li><li>A) Banyan tree</li><li>B) Money plant</li><li>C) Watermelon plant</li></ul>
+          <p class="notes">🎙️ Great job on the last question! Now, for the next one. Remember the plants that spread on the ground because their fruits are heavy. Which one is it?</p>
         </div>
         
       </div>
@@ -226,22 +251,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2>What do Plants Give Us?</h2>
-          <ul><li>Plants give us fruits and vegetables.</li><li>They give us grains like rice and wheat.</li></ul>
-          <p class="notes">🎙️ Plants are so kind! They give us so much to eat. All the yummy fruits, vegetables, and grains we eat come from plants.</p>
+          <span class="num">17 / 20</span>
+          <h2>What do Plants give us? (<span class="hl">Food</span>)</h2>
+          <ul><li>Plants give us fruits and vegetables.</li><li>Like apples, bananas, spinach, and carrots.</li><li>They are very healthy for us!</li></ul>
+          <p class="notes">🎙️ Plants are amazing because they give us so much! The most important thing they give us is food. All the delicious fruits and vegetables we eat come from plants. They keep us strong and healthy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Yummy fruits from plants</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Yummy apple</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2>What <span class="hl">else</span> do Plants Give Us?</h2>
-          <ul><li>Plants give us fresh air to breathe.</li><li>They give us shade from the sun.</li></ul>
-          <p class="notes">🎙️ Besides food, plants give us clean, fresh air, which is very important for us to breathe. They also offer cool shade on a hot sunny day.</p>
+          <span class="num">18 / 20</span>
+          <h2>What <span class="hl">else</span> do Plants give us?</h2>
+          <ul><li>Plants give us fresh air to breathe.</li><li>They give us wood for furniture.</li><li>They make our world beautiful!</li></ul>
+          <p class="notes">🎙️ Beyond food, plants are like nature's air conditioners! They help us breathe by giving out fresh air. We also use wood from trees to make tables, chairs, and even our pencils.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Fresh air</div></div></div>
       </div>
@@ -250,24 +275,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2>How to <span class="hl">Care</span> for Plants?</h2>
-          <ul><li>Water them regularly.</li><li>Make sure they get sunlight.</li></ul>
-          <p class="notes">🎙️ Plants are our friends, so we must take good care of them. Remember to water them every day and make sure they get enough sunshine to grow.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Watering a plant</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span>: Types of Plants</h2>
-          <ul><li>We learned about Trees, Shrubs, and Herbs.</li><li>We also met Climbers and Creepers.</li></ul>
-          <p class="notes">🎙️ Today, we explored the wonderful world of plants! We saw how some are big like trees, some are bushy like shrubs, and some are tiny like herbs. We also learned about plants that climb and plants that creep.</p>
+          <h2>How to <span class="hl">Care</span> for Plants?</h2>
+          <ul><li>Plants need our love and care.</li><li>We should water them regularly.</li><li>Give them sunlight and good soil.</li></ul>
+          <p class="notes">🎙️ Just like we care for our pets, we should also care for plants. Remember to water them every day, especially when it's hot. Make sure they get enough sunlight to grow big and happy.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Trees</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Shrubs</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Herbs</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Give Water</span></div><div class="step"><span class="snum">2</span><span>Give Sunlight</span></div><div class="step"><span class="snum">3</span><span>Good Soil</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Thank You</span>, Little Gardeners!</h2>
-          <ul><li>Keep exploring the green world!</li><li>Let's protect our plants.</li></ul>
-          <p class="notes">🎙️ You all did a great job learning about plants today! Remember to always be kind to plants, as they give us so much. Keep exploring and loving nature!</p>
+          <h2><span class="hl">Recap</span>: Plants Around Us</h2>
+          <ul><li>We learned about Trees, Shrubs, Herbs.</li><li>And also Climbers and Creepers.</li><li>Plants give us food, air, and beauty!</li></ul>
+          <p class="notes">🎙️ Wow, we learned so much today about plants! From the giant trees to tiny herbs, and the ones that climb or creep. Remember to always appreciate and care for the wonderful plants around us. Thank you!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 1 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

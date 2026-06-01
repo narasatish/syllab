@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>The Mystery of Food — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>The Mystery of Food!</h2>
-          <ul><li>Have you ever wondered why we eat?</li><li>Let's solve the mystery of food together!</li></ul>
-          <p class="notes">🎙️ Hello, children! Today we are going on an exciting journey to uncover 'The Mystery of Food'. We eat food every day, but do we truly understand why it's so important? Let's find out!</p>
+          <h2>The <span class="hl">Mystery</span> of Food!</h2>
+          <ul><li>Have you ever wondered why we eat food?</li><li>What magic does food do for our body?</li></ul>
+          <p class="notes">🎙️ Hello, children! Today, we are going on an adventure to solve 'The Mystery of Food'. Let's find out all about the yummy things we eat every day and why they are so important.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is <span class="hl">Food</span>?</h2>
-          <ul><li>Food is anything we eat and drink.</li><li>It comes in many shapes, sizes, and colours.</li></ul>
-          <p class="notes">🎙️ Food is simply what we put into our bodies to keep us going. Think of all the delicious things you eat – fruits, vegetables, rice, roti. All of these are food!</p>
+          <h2>Food gives us <span class="hl">Energy</span>!</h2>
+          <ul><li>Food helps us play all day.</li><li>It helps us run, jump, and study.</li></ul>
+          <p class="notes">🎙️ Just like a car needs petrol to run, our body needs food to get energy. This energy helps us play, study, and do all our favourite activities without feeling tired.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Yummy Food</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="⚡" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,21 +84,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why Do We Need Food? (<span class="hl">Energy</span>)</h2>
-          <ul><li>Food gives us energy to play and run.</li><li>It helps us study and do our homework.</li></ul>
-          <p class="notes">🎙️ Imagine a car needing petrol to run. Our body needs food for energy! Without food, we would feel tired and wouldn't be able to play or learn properly. Food gives us the power to do everything.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Power Up!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">4 / 20</span>
-          <h2>Food Helps Us <span class="hl">Grow</span></h2>
-          <ul><li>Food helps our bones and muscles grow strong.</li><li>It makes us taller and bigger every day.</li></ul>
-          <p class="notes">🎙️ Look at how much you've grown since you were a baby! Food is like a magic potion that helps you grow. It builds new cells and makes your body parts bigger and stronger.</p>
+          <h2>Food helps us <span class="hl">Grow Big</span>!</h2>
+          <ul><li>Food makes us taller.</li><li>It makes us stronger every day.</li></ul>
+          <p class="notes">🎙️ Look at your old clothes! They might be small now. That's because you are growing! Food helps our bones and muscles grow, making us taller and stronger every day.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Growing Tall</div></div></div>
       </div>
@@ -94,12 +95,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 20</span>
-          <h2>Food Keeps Us <span class="hl">Healthy</span></h2>
-          <ul><li>Food protects us from falling sick.</li><li>It helps our body repair itself if we get a small cut.</li></ul>
-          <p class="notes">🎙️ When we eat good food, our body becomes like a superhero, fighting off germs and illnesses. If you get a small bruise or cut, food helps your body heal quickly too.</p>
+          <span class="num">4 / 20</span>
+          <h2>Food keeps us <span class="hl">Healthy</span>!</h2>
+          <ul><li>Food stops us from getting sick.</li><li>It helps our body fight germs.</li></ul>
+          <p class="notes">🎙️ Sometimes, tiny germs try to make us sick. But don't worry! Good food builds a shield inside our body to fight these germs, keeping us healthy and happy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Healthy Heart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Body Shield</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 20</span>
+          <h2>Many <span class="hl">Kinds</span> of Food</h2>
+          <ul><li>Not all food is the same.</li><li>Each food does a special job for our body.</li></ul>
+          <p class="notes">🎙️ Just like we have different toys for different games, we have different kinds of food. Each food has a special power or job to do for our body.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Different Foods</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Different <span class="hl">Kinds</span> of Food</h2>
-          <ul><li>Not all food is the same.</li><li>Each kind helps us in a special way.</li></ul>
-          <p class="notes">🎙️ Just like there are different types of toys, there are different types of food. Each type has a unique job to do inside our body. Let's explore them!</p>
+          <h2><span class="hl">Energy</span> Foods</h2>
+          <ul><li>These foods give us power to work.</li><li>They help us play and feel active.</li></ul>
+          <p class="notes">🎙️ Some foods are like fuel for our body. They give us a quick boost of energy so we can run fast, play games, and concentrate in class without feeling tired.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Variety of Food</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Run Fast</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2><span class="hl">Energy</span>-Giving Foods</h2>
-          <ul><li>These foods give us power to work and play.</li><li>Examples: Rice, bread, potatoes, butter.</li></ul>
-          <p class="notes">🎙️ Think of these as the fuel for your body. When you eat rice or a potato, you're filling up your energy tank to run and jump all day long!</p>
+          <h2><span class="hl">Body-Building</span> Foods</h2>
+          <ul><li>These foods help our muscles grow.</li><li>They make us strong and repair our body.</li></ul>
+          <p class="notes">🎙️ If you want to grow big and strong like a superhero, you need body-building foods. They help repair our body and build new muscles and bones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍞</span><span>🍞</span><span>🍞</span></div><div class="vcap">Energy Boosters</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="💪" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2><span class="hl">Body-Building</span> Foods</h2>
-          <ul><li>These foods help us grow strong muscles and bones.</li><li>Examples: Milk, eggs, pulses (dal), chicken.</li></ul>
-          <p class="notes">🎙️ These foods are like the bricks and cement for your body. They help you grow tall and make your muscles and bones super strong. That's why milk is so important!</p>
+          <h2><span class="hl">Protective</span> Foods</h2>
+          <ul><li>These foods keep us safe.</li><li>They protect us from illness and sickness.</li></ul>
+          <p class="notes">🎙️ Imagine these foods as our body's little doctors. They protect us from falling sick and help our body stay healthy and full of life, like a colourful rainbow.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="🌍" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Healthy &amp; Bright</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Protective</span> Foods</h2>
-          <ul><li>These foods keep us safe from illness and germs.</li><li>Examples: Fruits and green vegetables.</li></ul>
-          <p class="notes">🎙️ These are your body's shield! Fruits and vegetables are full of good things that protect you from getting sick. Remember to eat your greens!</p>
+          <h2><span class="hl">Examples</span> of Energy Foods</h2>
+          <ul><li>Roti, rice, bread, and potatoes.</li><li>These are full of energy for us!</li></ul>
+          <p class="notes">🎙️ Think about what you eat for lunch. Rice, roti, or bread are great examples of energy foods. They give you the power to learn new things and have fun.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥦</span><span>🥦</span><span>🥦</span></div><div class="vcap">Germ Fighters</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍚</span><span>🍚</span><span>🍚</span></div><div class="vcap">Rice &amp; Roti</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>What is a <span class="hl">Balanced Diet</span>?</h2>
-          <ul><li>Eating the right amount of all food types.</li><li>It's like a superhero meal, giving you everything!</li></ul>
-          <p class="notes">🎙️ A balanced diet means eating a little bit of energy food, body-building food, and protective food every day. It's like a perfect mix to keep you super healthy and strong.</p>
+          <h2><span class="hl">Examples</span> of Body-Building Foods</h2>
+          <ul><li>Dal, eggs, milk, and chicken.</li><li>They help you grow big and strong!</li></ul>
+          <p class="notes">🎙️ Do you like to drink milk or eat dal? These foods are super important for making your muscles strong and helping you grow taller every day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance is Key</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥚</span><span>🥚</span><span>🥚</span></div><div class="vcap">Eggs &amp; Dal</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>A Balanced Meal <span class="hl">Example</span></h2>
-          <ul><li>Roti (energy), Dal (body-building), Sabzi (protective).</li><li>Add a little curd or salad for extra goodness!</li></ul>
-          <p class="notes">🎙️ Look at your thali! It often has roti, dal, and sabzi. This is a great example of a balanced meal because it has foods from all the different groups we talked about.</p>
+          <h2><span class="hl">Examples</span> of Protective Foods</h2>
+          <ul><li>Fruits and vegetables are protective.</li><li>Eat a colourful plate to stay healthy!</li></ul>
+          <p class="notes">🎙️ Mummy always tells you to eat your vegetables and fruits, right? That's because they are full of vitamins and minerals that keep you healthy and protect you from colds.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍛</span></div><div class="vcap">A Perfect Plate</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="🌍" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Where Does Our Food Come From?</h2>
-          <ul><li>Many foods come from plants.</li><li>Fruits, vegetables, grains like wheat and rice.</li></ul>
-          <p class="notes">🎙️ Think of an apple growing on a tree, or rice growing in a field. Many of our favourite foods start as tiny seeds and grow into big plants, giving us delicious food.</p>
+          <h2>Food from <span class="hl">Plants</span></h2>
+          <ul><li>Many foods grow on plants.</li><li>Like fruits, vegetables, and grains.</li></ul>
+          <p class="notes">🎙️ Look around your garden! Many of the foods we eat, like mangoes, spinach, and wheat, come from plants. Plants are like nature's kitchen!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌱" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,9 +204,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Food From <span class="hl">Animals</span></h2>
-          <ul><li>Some foods we get from animals.</li><li>Milk, eggs, and meat come from animals.</li></ul>
-          <p class="notes">🎙️ Cows give us milk, hens give us eggs, and some animals give us meat. These are also very important foods for our health and growth.</p>
+          <h2>Food from <span class="hl">Animals</span></h2>
+          <ul><li>Some foods come from animals.</li><li>Like milk, eggs, and meat.</li></ul>
+          <p class="notes">🎙️ Animals also give us delicious food. Cows give us milk, hens give us eggs, and some animals give us meat. They are also important sources of food for us.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🐄" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Food's <span class="hl">Journey</span>: Farm to Plate</h2>
-          <ul><li>Farmers grow our food with love and hard work.</li><li>Then it travels to our homes to be cooked.</li></ul>
-          <p class="notes">🎙️ It's a long journey for food! From the farm where it's grown, to the market where it's sold, and finally to our kitchen where it's cooked into a tasty meal. Let's thank the farmers!</p>
+          <h2>What is a <span class="hl">Balanced Diet</span>?</h2>
+          <ul><li>Eating a little bit of all food types.</li><li>It's like a food team working together!</li></ul>
+          <p class="notes">🎙️ A balanced diet means eating a mix of energy foods, body-building foods, and protective foods. It's like making sure all your body's friends are there to help.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Farmer grows food</span></div><div class="step"><span class="snum">2</span><span>Harvesting</span></div><div class="step"><span class="snum">3</span><span>Transport to market</span></div><div class="step"><span class="snum">4</span><span>Cooking at home</span></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Energy</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Body-Building</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Protective</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Good Eating Habits</h2>
-          <ul><li>Always wash your hands before eating.</li><li>Chew your food slowly and properly.</li></ul>
-          <p class="notes">🎙️ Having good eating habits is just as important as eating good food. Washing hands keeps away germs, and chewing slowly helps your stomach digest food better.</p>
+          <h2>Why Eat a Balanced Diet?</h2>
+          <ul><li>It gives all the nutrients our body needs.</li><li>Keeps us strong, healthy, and smart.</li></ul>
+          <p class="notes">🎙️ Eating a balanced diet ensures our body gets everything it needs to function perfectly. It helps us stay active, learn well, and feel good every day, making us shine bright!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧼</div><div class="vcap">Clean Hands</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Shine Bright</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">More Good</span> Eating Habits</h2>
-          <ul><li>Don't waste food, take only what you can eat.</li><li>Eat your meals on time every day.</li></ul>
-          <p class="notes">🎙️ Many people don't have enough food, so we should never waste it. Also, eating at regular times helps your body stay healthy and energetic throughout the day.</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>What kind of food gives us energy to play?</li></ul>
+          <p class="notes">🎙️ Let's test our memory! Can you tell me which foods are best for giving us energy to run and jump? Think about what you eat before playing!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Eat on Time</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Which food gives you energy to play?</li><li>(Apple / Rice / Milk)</li></ul>
-          <p class="notes">🎙️ Time for a quick quiz! Think back to what we learned. Which of these foods is best for giving you lots of energy to run around?</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>Which foods help you grow taller and stronger?</li></ul>
+          <p class="notes">🎙️ Great job! Now, which foods should we eat if we want to grow big and strong like our favourite cartoon characters? Think about milk and eggs!</p>
         </div>
         
       </div>
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Where does milk come from?</li><li>(Plant / Animal)</li></ul>
-          <p class="notes">🎙️ Here's another question! Do you remember if milk grows on a plant or if we get it from an animal? Think about where you see milk being produced.</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>Where do most fruits and vegetables come from?</li></ul>
+          <p class="notes">🎙️ One last question! Do fruits and vegetables, like mangoes and spinach, come from plants or animals? Think about where they grow!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Name one body-building food.</li><li>(Hint: It makes your muscles strong!)</li></ul>
-          <p class="notes">🎙️ Can you recall any food that helps build your body and make you strong? There are a few examples we discussed earlier. Try to remember one!</p>
+          <h2>Keep Your Food <span class="hl">Clean</span>!</h2>
+          <ul><li>Always wash your hands before eating.</li><li>Wash fruits and vegetables too.</li></ul>
+          <p class="notes">🎙️ Before you eat, it's super important to wash your hands with soap and water. This washes away any tiny germs that might be hiding on your hands and keeps you healthy.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧼</div><div class="vcap">Wash Hands</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Recap: The Mystery <span class="hl">Solved</span>!</h2>
-          <ul><li>Food gives energy, helps us grow, and keeps us healthy.</li><li>Eat a balanced diet from plants and animals.</li><li>Follow good eating habits and don't waste food!</li></ul>
-          <p class="notes">🎙️ We've solved the mystery of food! Now you know why food is so important and how to eat smartly to stay healthy and happy. Remember these lessons every time you eat!</p>
+          <h2>The Mystery <span class="hl">Solved</span>!</h2>
+          <ul><li>Food gives us energy, helps us grow, and keeps us healthy.</li><li>Eat a balanced diet from plants and animals. Always keep food clean!</li></ul>
+          <p class="notes">🎙️ Hooray! We have solved the mystery of food! Remember, food is our friend. Eat well, stay healthy, and keep shining bright with all the energy you have!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

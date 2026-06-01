@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>The Frog — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Our Amazing Froggy Friends! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to “The <span class="hl">Frog</span>”</h2>
-          <ul><li>Let's learn about a jumping friend!</li><li>A creature that loves water.</li></ul>
-          <p class="notes">🎙️ Hello, children! Today, we are going to meet a very special friend from the animal kingdom. Can you guess who it is? It's the frog!</p>
+          <h2>Welcome to 'The <span class="hl">Frog</span>' Story!</h2>
+          <ul><li>Hello, everyone!</li><li>Today, we will learn about a special animal.</li><li>It's our little green friend, the frog!</li></ul>
+          <p class="notes">🎙️ Good morning, children! I am so excited to start our new chapter, 'The Frog'. Let's open our minds and hearts to learn about these fascinating creatures.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is a <span class="hl">Frog</span>?</h2>
-          <ul><li>A frog is a small animal.</li><li>It can live both in water and on land.</li></ul>
-          <p class="notes">🎙️ Look at this cute little frog! Frogs are amphibians, which means they are special animals that can live in two places: in the water and on the land.</p>
+          <h2>Meet Our Green <span class="hl">Friend</span>!</h2>
+          <ul><li>This is a frog!</li><li>Frogs are small animals.</li><li>They are often green or brown.</li></ul>
+          <p class="notes">🎙️ Look at this cute frog! Have you ever seen a frog? They have smooth skin and big eyes, perfect for looking around.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🐸" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐸</div><div class="vcap">A happy frog</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Where do Frogs <span class="hl">Live</span>?</h2>
-          <ul><li>Frogs love ponds and lakes.</li><li>They like places with lots of water.</li></ul>
-          <p class="notes">🎙️ Frogs are often found near water bodies like ponds, rivers, and even puddles after rain. They need water to keep their skin moist and for laying eggs.</p>
+          <h2>Where Do Frogs <span class="hl">Live</span>?</h2>
+          <ul><li>Frogs love water!</li><li>They live near ponds, lakes, and rivers.</li><li>Sometimes, you can find them in puddles too.</li></ul>
+          <p class="notes">🎙️ Frogs need water to live and play. They often sit on lily pads or on the banks of a pond, waiting for their next meal.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water for Frogs</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="📖" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>What do Frogs <span class="hl">Look Like</span>?</h2>
-          <ul><li>Most frogs are green or brown.</li><li>They have smooth, wet skin.</li><li>Big eyes help them see well.</li></ul>
-          <p class="notes">🎙️ Have you seen a frog? They are usually green or brown, which helps them hide in plants and mud. Their skin is smooth and feels a bit wet.</p>
+          <h2>What Do Frogs <span class="hl">Eat</span>?</h2>
+          <ul><li>Frogs are insect eaters.</li><li>They love to catch flies, mosquitoes, and worms.</li><li>They use their long, sticky tongue!</li></ul>
+          <p class="notes">🎙️ Imagine a frog waiting patiently, and then *zap*! Its tongue shoots out super fast to catch a tasty insect. It's like a superhero skill!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💚</div><div class="vcap">Green Skin</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦟</div><div class="vcap">Yummy insects</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Frogs Have <span class="hl">Strong Legs</span></h2>
-          <ul><li>Frogs have long, strong back legs.</li><li>These legs help them jump far!</li><li>They also help them swim fast.</li></ul>
-          <p class="notes">🎙️ A frog's legs are amazing! Their powerful back legs are perfect for jumping very high and far away. They can also push water to swim quickly.</p>
+          <h2>How Do Frogs <span class="hl">Move</span>?</h2>
+          <ul><li>Frogs have strong back legs.</li><li>They use them to hop and jump very far.</li><li>They can also swim very well!</li></ul>
+          <p class="notes">🎙️ Frogs are amazing jumpers! They can leap many times their own body length. And in water, they use their webbed feet to paddle quickly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦵</div><div class="vcap">Jumping Legs</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤸</div><div class="vcap">Jump and hop!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Why do Frogs <span class="hl">Love Water</span>?</h2>
-          <ul><li>Frogs need water to keep their skin wet.</li><li>They can breathe a little through their skin.</li><li>They also lay their eggs in water.</li></ul>
-          <p class="notes">🎙️ Water is very important for frogs. It helps them breathe and keeps their skin from drying out. They can't live long without water.</p>
+          <h2>The Frog <span class="hl">Life Cycle</span>!</h2>
+          <ul><li>Frogs change a lot as they grow.</li><li>It's like a magical journey!</li><li>Let's see the steps.</li></ul>
+          <p class="notes">🎙️ A frog's life is full of changes, just like a story with different chapters. We call this the life cycle. Let's explore each stage.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="💦" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Eggs</span></div><div class="step"><span class="snum">2</span><span>Tadpole</span></div><div class="step"><span class="snum">3</span><span>Froglet</span></div><div class="step"><span class="snum">4</span><span>Adult Frog</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>What do Frogs <span class="hl">Eat</span>?</h2>
-          <ul><li>Frogs are insect eaters.</li><li>They love to eat flies and mosquitoes.</li><li>They help keep our gardens clean.</li></ul>
-          <p class="notes">🎙️ Frogs are like little helpers in nature. They eat many small insects that fly around, like mosquitoes and flies. This helps keep our environment balanced.</p>
+          <h2>Stage 1: Tiny <span class="hl">Eggs</span></h2>
+          <ul><li>A mother frog lays many tiny eggs.</li><li>The eggs float in the water.</li><li>They look like jelly dots.</li></ul>
+          <p class="notes">🎙️ These eggs are very delicate and are usually laid in a big clump, sometimes called frogspawn. They stay safe in the water until they hatch.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦟</span><span>🦟</span><span>🦟</span></div><div class="vcap">Tasty Insects</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">Frog eggs</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>How do Frogs <span class="hl">Catch Food</span>?</h2>
-          <ul><li>Frogs have a very long, sticky tongue.</li><li>They shoot it out quickly to catch insects.</li><li>It's like a super-fast trap!</li></ul>
-          <p class="notes">🎙️ Imagine having a tongue that can shoot out super fast! That's how frogs catch their food. Their tongue is sticky, so insects get stuck to it easily.</p>
+          <h2>Stage 2: Little <span class="hl">Tadpoles</span></h2>
+          <ul><li>Eggs hatch into tadpoles.</li><li>Tadpoles look like small fish.</li><li>They live only in water and eat plants.</li></ul>
+          <p class="notes">🎙️ Tadpoles have gills to breathe underwater, just like fish. They swim around, eating tiny water plants, and growing bigger every day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👅</div><div class="vcap">Sticky Tongue</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐠</div><div class="vcap">Baby tadpole</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Frog Life Cycle: Step 1 - <span class="hl">Eggs</span></h2>
-          <ul><li>A mother frog lays many tiny eggs.</li><li>She lays them in water, often in a big clump.</li><li>They look like jelly dots floating in water.</li></ul>
-          <p class="notes">🎙️ The life of a frog starts as tiny eggs. The mother frog lays them in water, and they float together. They are very delicate.</p>
+          <h2>Stage 3: Growing <span class="hl">Froglets</span></h2>
+          <ul><li>Tadpoles start to grow legs!</li><li>First back legs, then front legs.</li><li>They still have a tail but can hop a little.</li></ul>
+          <p class="notes">🎙️ This is an exciting stage! The tadpole is slowly changing its body to prepare for life on land. It's like a baby learning to walk.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Eggs</span></div><div class="step"><span class="snum">2</span><span>Tadpole</span></div><div class="step"><span class="snum">3</span><span>Froglet</span></div><div class="step"><span class="snum">4</span><span>Adult Frog</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🦵" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Frog Life Cycle: Step 2 - <span class="hl">Tadpole</span></h2>
-          <ul><li>The eggs hatch into small tadpoles.</li><li>Tadpoles live only in water and swim like fish.</li><li>They have a tail but no legs yet.</li></ul>
-          <p class="notes">🎙️ From the eggs, little tadpoles come out! They look like tiny fish with a long tail. They swim around in the water and eat small plants.</p>
+          <h2>Stage 4: Big <span class="hl">Adult Frogs</span></h2>
+          <ul><li>The froglet's tail slowly disappears.</li><li>It becomes a full-grown frog!</li><li>Now it can live on land and in water.</li></ul>
+          <p class="notes">🎙️ And finally, a beautiful adult frog emerges! It's ready to explore the world, hop around, and maybe even start its own family of frogs.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Eggs</span></div><div class="step"><span class="snum">2</span><span>Tadpole</span></div><div class="step"><span class="snum">3</span><span>Froglet</span></div><div class="step"><span class="snum">4</span><span>Adult Frog</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐸</div><div class="vcap">A grown-up frog</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Frog Life Cycle: Step 3 - <span class="hl">Froglet</span></h2>
-          <ul><li>Tadpoles start to grow legs.</li><li>First, hind legs, then front legs appear.</li><li>They are now called froglets and can hop a little.</li></ul>
-          <p class="notes">🎙️ As tadpoles grow, they start to change! They grow tiny legs, first at the back, then at the front. They are now called froglets, small frogs that still have a tail.</p>
+          <h2>Time for a Quick <span class="hl">Question</span>!</h2>
+          <ul><li>What is a baby frog called?</li><li>Is it a chick, a tadpole, or a cub?</li></ul>
+          <p class="notes">🎙️ Let's see if you were paying attention! Think about the stages we just learned. What comes out of the egg first?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="📖" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📖" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Frog Life Cycle: Step 4 - <span class="hl">Adult Frog</span></h2>
-          <ul><li>The froglet's tail slowly disappears.</li><li>It becomes a full-grown adult frog.</li><li>Now it can live both in water and on land.</li></ul>
-          <p class="notes">🎙️ Finally, the tail vanishes completely, and the froglet becomes a beautiful adult frog! It's ready to jump and explore the world, both in water and on land.</p>
+          <h2>Frogs Are <span class="hl">Amphibians</span>!</h2>
+          <ul><li>Frogs are special animals.</li><li>They can live both in water and on land.</li><li>Animals like this are called amphibians.</li></ul>
+          <p class="notes">🎙️ This is a big word, but it just means they are comfortable in two different worlds. They can swim in the pond and also hop on the grass.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Eggs</span></div><div class="step"><span class="snum">2</span><span>Tadpole</span></div><div class="step"><span class="snum">3</span><span>Froglet</span></div><div class="step"><span class="snum">4</span><span>Adult Frog</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🌎💧" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>What do frogs mostly eat?</li><li>Can a frog live without water?</li></ul>
-          <p class="notes">🎙️ Let's see if you remember! What is a frog's favourite food? And is water important for them?</p>
+          <h2>Why Are Frogs <span class="hl">Important</span>?</h2>
+          <ul><li>Frogs help our gardens.</li><li>They eat many harmful insects.</li><li>This keeps plants healthy!</li></ul>
+          <p class="notes">🎙️ Frogs are like little guardians of our environment. By eating pests, they help farmers and gardeners keep their crops and flowers safe without using harmful chemicals.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Helping nature</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>What <span class="hl">Sound</span> do Frogs Make?</h2>
-          <ul><li>Frogs make a 'Ribbit, Ribbit!' sound.</li><li>This sound is called croaking.</li><li>They croak to talk to other frogs.</li></ul>
-          <p class="notes">🎙️ Have you ever heard a frog? They make a special sound called 'croaking'. Male frogs often croak to call female frogs or to mark their territory.</p>
+          <h2>What <span class="hl">Sounds</span> Do Frogs Make?</h2>
+          <ul><li>Frogs make a special sound.</li><li>They say 'Croak, croak!'</li><li>You can hear them at night near water.</li></ul>
+          <p class="notes">🎙️ Listen carefully next time you are near a pond in the evening. You might hear a chorus of frogs singing their croaking songs! It's how they talk to each other.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Ribbit! Ribbit!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Croak, croak!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Why are Frogs <span class="hl">Important</span>?</h2>
-          <ul><li>Frogs help control insect populations.</li><li>They eat many harmful insects.</li><li>This protects our plants and crops.</li></ul>
-          <p class="notes">🎙️ Frogs are very important for our environment. By eating insects, they help keep the number of pests down, which is good for our farms and gardens.</p>
+          <h2><span class="hl">How Many</span> Frogs Croaking?</h2>
+          <ul><li>Let's count the frogs!</li><li>Can you hear them croaking?</li><li>One, two, three...</li></ul>
+          <p class="notes">🎙️ Imagine these four frogs sitting by the pond, all croaking together. Counting is fun, especially when it's about our froggy friends!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Nature's Helper</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="📖" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Frogs are Our <span class="hl">Friends</span></h2>
-          <ul><li>They protect farmers' crops from insects.</li><li>This means less need for harmful sprays.</li><li>Let's be kind to frogs!</li></ul>
-          <p class="notes">🎙️ Think of frogs as little guardians for our plants. They do a great job cleaning up insects naturally, helping farmers grow healthy food without too many chemicals.</p>
+          <h2>Big Frog <span class="hl">vs.</span> Small Frog</h2>
+          <ul><li>Frogs come in different sizes.</li><li>Some are very big, some are tiny.</li><li>Let's compare them!</li></ul>
+          <p class="notes">🎙️ Just like people, not all frogs are the same size. Some frogs, like the Goliath frog, can be as big as a small dog, while others are tiny enough to fit on your thumbnail!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Protecting Plants</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Big Frog</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Small Frog</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Frogs <span class="hl">vs.</span> Fish</h2>
-          <ul><li>Both live in water, but frogs also live on land.</li><li>Fish have fins, frogs have legs.</li><li>Fish breathe with gills, frogs use lungs and skin.</li></ul>
-          <p class="notes">🎙️ Frogs and fish both love water, but they are very different! Fish stay in water all their lives, but frogs can hop out onto land too. They also breathe differently.</p>
+          <h2>Another Quick <span class="hl">Question</span>!</h2>
+          <ul><li>Where do frogs usually live?</li><li>Is it in a desert, in the sea, or near water?</li></ul>
+          <p class="notes">🎙️ Remember our very first slides? Where did we say frogs love to make their homes? Think about what they need to survive.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Frog</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Fish</div></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>A Fun Frog Fact!</h2>
-          <ul><li>Some frogs can change their skin colour!</li><li>They do this to hide from enemies.</li><li>It helps them blend into their surroundings.</li></ul>
-          <p class="notes">🎙️ Isn't that amazing? Just like some chameleons, certain frogs can change their skin colour! This is a clever way for them to hide from animals that might want to eat them.</p>
+          <h2>Frogs in Our <span class="hl">Gardens</span></h2>
+          <ul><li>Sometimes, frogs visit our gardens.</li><li>They hide under leaves or near damp spots.</li><li>They are shy but friendly visitors.</li></ul>
+          <p class="notes">🎙️ If your garden has a small pond or a damp area, you might be lucky enough to have a frog visitor! They are wonderful to watch and help keep your garden free of pests.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Colour Changer</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Garden visitor</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Another Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Name one stage of a frog's life cycle.</li><li>What sound does a frog make?</li></ul>
-          <p class="notes">🎙️ Can you recall the different stages a frog goes through? And what is that special sound they make to communicate?</p>
+          <h2><span class="hl">Protecting</span> Our Frogs</h2>
+          <ul><li>Frogs are special creatures.</li><li>We should be kind to them.</li><li>Let's keep their homes clean and safe.</li></ul>
+          <p class="notes">🎙️ It's important to protect frogs because they play a big role in nature. We can help by not polluting water and being gentle if we see them.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Be kind to frogs</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What We <span class="hl">Learned</span> About Frogs</h2>
-          <ul><li>Frogs are amphibians, living in water and on land.</li><li>They have a special life cycle: eggs, tadpole, froglet, adult.</li><li>Frogs eat insects and help our environment.</li></ul>
-          <p class="notes">🎙️ Today, we learned so much about our hopping friends, the frogs! Remember how they grow and how important they are for our world. Let's always protect them!</p>
+          <h2><span class="hl">Recap</span>: Our Froggy Friends!</h2>
+          <ul><li>Frogs live near water and eat insects.</li><li>They hop, swim, and say 'Croak, croak!'</li><li>They are amphibians, living on land and in water.</li><li>Frogs change from eggs to tadpoles to adult frogs.</li></ul>
+          <p class="notes">🎙️ Wow, we learned so much about frogs today! They are truly fascinating creatures with interesting lives. Remember to be kind to all animals, especially our little froggy friends.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

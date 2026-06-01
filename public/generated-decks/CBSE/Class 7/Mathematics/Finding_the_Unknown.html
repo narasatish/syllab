@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Finding the Unknown — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Chapter: Finding the <span class="hl">Unknown</span></h2>
-          <ul><li>Welcome to our Maths class!</li><li>Today, we'll explore how to find missing numbers.</li><li>This skill is very useful in daily life.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to uncover the secrets of 'Finding the Unknown'. This chapter will teach you powerful tools to solve problems where some information is missing, which is a fundamental skill in mathematics and beyond.</p>
+          <h2>Finding the <span class="hl">Unknown</span>: Welcome to the Math Mystery!</h2>
+          <ul><li>Welcome to our Math adventure!</li><li>Let's uncover hidden numbers!</li><li>Get ready to solve mysteries!</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today we're embarking on an exciting journey in mathematics called 'Finding the Unknown'. This chapter is all about becoming number detectives and solving puzzles.</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is an <span class="hl">Unknown</span>?</h2>
-          <ul><li>An unknown is a quantity whose value is not given.</li><li>It's like a mystery number we need to discover.</li><li>It could be a missing age, price, or quantity.</li></ul>
-          <p class="notes">🎙️ An unknown is simply a value that we don't know yet. Imagine you have some chocolates, but you don't know the exact number. That number is your unknown. Our goal is to find out what that unknown value is.</p>
+          <h2>What is an <span class="hl">Unknown</span> Quantity?</h2>
+          <ul><li>A quantity whose value is not known yet.</li><li>Represented by a letter or symbol.</li><li>It's like a missing piece of a puzzle.</li></ul>
+          <p class="notes">🎙️ An unknown is simply a quantity that we don't know the value of. Think of it as a secret number waiting to be discovered. We often use letters like x, y, or z to represent these mystery numbers.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Mystery Number</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Why</span> Find Unknowns?</h2>
-          <ul><li>Helps solve real-world problems.</li><li>Used in budgeting, planning, and science.</li><li>Develops logical thinking skills.</li></ul>
-          <p class="notes">🎙️ Finding unknowns isn't just a classroom exercise; it's a vital skill. From calculating how much change you'll get at a shop to understanding scientific formulas, identifying and solving for unknowns helps us make sense of the world around us. It sharpens our problem-solving abilities.</p>
+          <h2>Meet the <span class="hl">Variables</span>: Our Unknown Heroes</h2>
+          <ul><li>Letters used to represent unknown values.</li><li>Can take any numerical value.</li><li>They are not fixed numbers.</li></ul>
+          <p class="notes">🎙️ These letters we use are called 'variables'. They are flexible and can stand for different numbers in different problems. Unlike fixed numbers like 5 or 10, a variable's value changes depending on the problem we are solving.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🕵️</span><span>🕵️</span><span>🕵️</span></div><div class="vcap">Solving Mysteries</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔠</div><div class="vcap">x, y, z</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Introducing <span class="hl">Variables</span></h2>
-          <ul><li>A variable is a symbol representing an unknown value.</li><li>Usually denoted by letters like x, y, z, a, b.</li><li>It can take on different numerical values.</li></ul>
-          <p class="notes">🎙️ In mathematics, we use variables to stand in for our unknowns. Instead of writing 'the missing number', we use a letter like 'x'. This makes our mathematical expressions much cleaner and easier to work with. These letters are like placeholders for the numbers we want to find.</p>
+          <h2>Unknowns in Our <span class="hl">Daily Life</span></h2>
+          <ul><li>How many chocolates are left in the box?</li><li>What is the cost of one pen?</li><li>How many students are absent today?</li></ul>
+          <p class="notes">🎙️ Unknowns aren't just in math books! Every day, we encounter situations where we need to find an unknown. For example, if you know how much you spent in total and the cost of some items, you might want to find the cost of a single item.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔤</div><div class="vcap">Letters for Numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔍</span><span>🔍</span><span>🔍</span></div><div class="vcap">Looking for Answers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -96,10 +109,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">5 / 25</span>
           <h2>What is an <span class="hl">Equation</span>?</h2>
-          <ul><li>An equation is a statement that two expressions are equal.</li><li>It always contains an equality sign (=).</li><li>Example: x + 5 = 10.</li></ul>
-          <p class="notes">🎙️ An equation is like a balanced scale. Whatever is on one side must be equal in value to what is on the other side. The equals sign is crucial, indicating that both sides hold the same value. Our goal is to keep this balance while finding the unknown.</p>
+          <ul><li>A statement that two expressions are equal.</li><li>Contains an equality sign (=).</li><li>Helps us find the unknown.</li></ul>
+          <p class="notes">🎙️ An equation is like a balanced scale. It says that whatever is on one side is exactly equal to what's on the other side. The equals sign is the crucial part that tells us these two sides are balanced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of Values</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Components</span> of an Equation</h2>
-          <ul><li>Left Hand Side (L.H.S.): Expression to the left of '='.</li><li>Right Hand Side (R.H.S.): Expression to the right of '='.</li><li>Equality Sign (=): Shows that LHS and RHS are equal.</li></ul>
-          <p class="notes">🎙️ Every equation has these three main parts. Think of the equality sign as the pivot point of our balance scale. The expressions on the left and right are the weights on each pan. For the scale to be balanced, the weights on both sides must be exactly the same.</p>
+          <h2><span class="hl">Anatomy</span> of an Equation</h2>
+          <ul><li>Left Hand Side (LHS): Expression on the left of '='.</li><li>Right Hand Side (RHS): Expression on the right of '='.</li><li>Equality Sign (=): Shows balance.</li></ul>
+          <p class="notes">🎙️ Every equation has a Left Hand Side (LHS) and a Right Hand Side (RHS), separated by the equality sign. The goal is always to maintain this balance while we try to figure out the value of our unknown.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">L.H.S.</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">R.H.S.</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">LHS = RHS</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Real-life Example: <span class="hl">Shopping</span></h2>
-          <ul><li>You buy a pen for ₹10 and a notebook.</li><li>Total bill is ₹35.</li><li>How much did the notebook cost?</li></ul>
-          <p class="notes">🎙️ Let's apply this to a real-life scenario. Imagine you go to a stationery shop. You know the price of one item and the total you paid. The unknown here is the cost of the notebook. We can use an equation to find this missing price.</p>
+          <h2>Equation in Action: <span class="hl">Balancing Weights</span></h2>
+          <ul><li>Imagine a scale: LHS = RHS.</li><li>If you add 2kg on one side, you must add 2kg on the other.</li><li>This keeps the scale balanced.</li></ul>
+          <p class="notes">🎙️ Think of a traditional weighing scale. If you put 3 kg on the left pan and 3 kg on the right pan, the scale is balanced. If you add or remove weight from one side, you must do the exact same thing on the other side to keep it balanced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Shopping Bill</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">LHS</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">RHS</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Forming</span> Simple Equations</h2>
-          <ul><li>Step 1: Read the problem carefully.</li><li>Step 2: Identify the unknown quantity.</li><li>Step 3: Assign a variable (e.g., x) to the unknown.</li><li>Step 4: Translate the problem into a mathematical equation.</li></ul>
-          <p class="notes">🎙️ Forming an equation from a word problem is a key skill. It involves breaking down the problem into smaller, manageable parts. By following these steps, you can systematically convert any word problem into a clear mathematical equation, ready to be solved.</p>
+          <h2>How to <span class="hl">Form</span> Simple Equations</h2>
+          <ul><li>1. Identify the unknown and represent it with a variable.</li><li>2. Read the problem carefully to find relationships.</li><li>3. Write the relationship as an algebraic expression.</li></ul>
+          <p class="notes">🎙️ Forming an equation from a word problem is a crucial skill. First, decide what quantity you don't know and give it a letter. Then, look for keywords that describe how different quantities relate to each other, like 'sum,' 'difference,' 'product,' or 'quotient.'</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Read</span></div><div class="step"><span class="snum">2</span><span>Identify</span></div><div class="step"><span class="snum">3</span><span>Assign</span></div><div class="step"><span class="snum">4</span><span>Form</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Unknown</span></div><div class="step"><span class="snum">2</span><span>Find Relationships</span></div><div class="step"><span class="snum">3</span><span>Write Expression</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -143,9 +156,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Worked Example 1: <span class="hl">Age Problem</span></h2>
-          <ul><li>Problem: 'My father is 35 years old. He is 10 years older than my mother. How old is my mother?'</li><li>Let mother's age be 'm'.</li><li>Equation: m + 10 = 35.</li></ul>
-          <p class="notes">🎙️ Here's how we'd set up the equation for the age problem. We identified the unknown as the mother's age and assigned it the variable 'm'. Since the father is 10 years older, adding 10 to the mother's age gives the father's age, which is 35. So, m + 10 = 35.</p>
+          <h2>Worked Example: <span class="hl">Forming</span> an Equation</h2>
+          <ul><li>Problem: 'The sum of a number and 5 is 12.'</li><li>Let the number be 'x'.</li><li>Equation: x + 5 = 12.</li></ul>
+          <p class="notes">🎙️ Here's a simple example. We don't know the number, so we call it 'x'. The problem says 'the sum of a number and 5,' which means x + 5. And it says this sum 'is 12,' so we set it equal to 12.</p>
         </div>
         
       </div>
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Solving Equations: The <span class="hl">Goal</span></h2>
-          <ul><li>To find the value of the unknown variable.</li><li>We need to 'isolate' the variable.</li><li>This means getting the variable by itself on one side of the equation.</li></ul>
-          <p class="notes">🎙️ The ultimate goal when solving an equation is to figure out what number our variable stands for. We want to get 'x = some number' or 'y = some number'. To achieve this, we use various methods to move all other numbers away from the variable, leaving it 'isolated'.</p>
+          <h2>Solving Equations: What's the <span class="hl">Goal</span>?</h2>
+          <ul><li>To find the value of the unknown variable.</li><li>We want the variable to be alone on one side.</li><li>This is called isolating the variable.</li></ul>
+          <p class="notes">🎙️ When we solve an equation, our main objective is to figure out what number the variable stands for. We want to get the variable all by itself on one side of the equals sign, like 'x = 7' or 'y = 3'. This process is called isolating the variable.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Target the Variable</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Target: Variable</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -168,22 +181,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">11 / 25</span>
           <h2>Method 1: <span class="hl">Trial and Error</span></h2>
-          <ul><li>Substitute different values for the variable.</li><li>Check if the LHS equals the RHS.</li><li>Simple for very basic equations, but not efficient.</li></ul>
-          <p class="notes">🎙️ The trial and error method is like guessing and checking. You pick a number, put it into the equation, and see if it works. If not, you try another number. While it can work for very simple equations, it's not practical for more complex ones, as it can be time-consuming.</p>
+          <ul><li>Guess a value for the variable.</li><li>Substitute it into the equation.</li><li>Check if LHS = RHS.</li></ul>
+          <p class="notes">🎙️ The trial and error method is exactly what it sounds like: you guess a value for the unknown, put it into the equation, and see if it works. If it doesn't, you try another value. It can be time-consuming but helps understand the concept of a solution.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤔</span><span>🤔</span><span>🤔</span><span>🤔</span><span>🤔</span></div><div class="vcap">Trying Options</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Guess &amp; Check</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Worked Example 2: <span class="hl">Trial and Error</span></h2>
-          <ul><li>Solve: x + 3 = 7</li><li>Try x = 1: 1 + 3 = 4 (Not 7)</li><li>Try x = 2: 2 + 3 = 5 (Not 7)</li><li>Try x = 4: 4 + 3 = 7 (Correct!) So, x = 4.</li></ul>
-          <p class="notes">🎙️ Let's see trial and error in action. For x + 3 = 7, if we try x=1, it doesn't work. If we try x=2, still no. But when we try x=4, we get 4+3=7, which matches the RHS. So, x=4 is the solution. You can see how this might take a few tries.</p>
+          <h2>Trial and Error <span class="hl">Example</span></h2>
+          <ul><li>Equation: x + 3 = 7.</li><li>Try x = 1: 1 + 3 = 4 (Not 7).</li><li>Try x = 4: 4 + 3 = 7 (Correct!). So x = 4.</li></ul>
+          <p class="notes">🎙️ Let's try it with x + 3 = 7. If we guess x=1, 1+3=4, which is not 7. If we guess x=2, 2+3=5, still not 7. But if we guess x=4, then 4+3=7, which is correct! So, 4 is the solution.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Guess x=1</span></div><div class="step"><span class="snum">2</span><span>Guess x=2</span></div><div class="step"><span class="snum">3</span><span>Guess x=3</span></div><div class="step"><span class="snum">4</span><span>Guess x=4</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Method 2: Systematic Method (<span class="hl">Balancing</span>)</h2>
-          <ul><li>Maintain the equality of the equation.</li><li>Perform the same operation on BOTH sides of the equation.</li><li>This keeps the 'balance' intact.</li></ul>
-          <p class="notes">🎙️ The systematic method is much more powerful and efficient. It's based on the idea of maintaining balance. Whatever you do to one side of the equation, you must do to the other side. This ensures the equality remains true and helps us isolate the variable step-by-step.</p>
+          <h2>Method 2: The <span class="hl">Balancing Method</span></h2>
+          <ul><li>Perform the same operation on both sides of the equation.</li><li>This maintains the balance.</li><li>Uses inverse operations to isolate the variable.</li></ul>
+          <p class="notes">🎙️ The balancing method is more systematic and efficient. The key idea is that whatever you do to one side of the equation, you must do to the other side to keep it equal. We use inverse operations to undo what's being done to our variable.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Keeping Balance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Keep it Balanced</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Balancing Equations: <span class="hl">Addition/Subtraction</span></h2>
-          <ul><li>To remove a number added to the variable, subtract it from both sides.</li><li>To remove a number subtracted from the variable, add it to both sides.</li><li>Inverse operations cancel each other out.</li></ul>
-          <p class="notes">🎙️ If you have 'x + 5', to get 'x' alone, you subtract 5. To keep the equation balanced, you must subtract 5 from the other side too. Similarly, if you have 'x - 3', you add 3 to both sides. These are inverse operations that undo each other, helping us isolate the variable.</p>
+          <h2>Balancing: <span class="hl">Addition &amp; Subtraction</span></h2>
+          <ul><li>To remove a number added, subtract it from both sides.</li><li>To remove a number subtracted, add it to both sides.</li><li>Example: x + 5 = 10 (Subtract 5 from both sides).</li></ul>
+          <p class="notes">🎙️ If you have 'x + 5 = 10', to get 'x' alone, you need to get rid of the '+5'. The inverse operation of addition is subtraction, so you subtract 5 from both sides. Similarly, if you have 'x - 3 = 7', you would add 3 to both sides.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">Inverse Operations</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span></div><div class="vcap">Adding/Subtracting Equally</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Worked Example 3: <span class="hl">Addition</span></h2>
-          <ul><li>Solve: x + 5 = 12</li><li>Subtract 5 from both sides:</li><li>x + 5 - 5 = 12 - 5</li><li>x = 7</li></ul>
-          <p class="notes">🎙️ Here's an example: x + 5 = 12. To get x by itself, we need to remove the '+5'. The inverse operation is '-5'. So, we subtract 5 from the LHS. To maintain balance, we also subtract 5 from the RHS. This gives us x = 7.</p>
+          <h2>Balancing: <span class="hl">Multiplication &amp; Division</span></h2>
+          <ul><li>To remove a number multiplying, divide both sides by it.</li><li>To remove a number dividing, multiply both sides by it.</li><li>Example: 2x = 8 (Divide both sides by 2).</li></ul>
+          <p class="notes">🎙️ If you have '2x = 8', meaning 2 multiplied by x, to isolate 'x', you perform the inverse operation: division. So, you divide both sides by 2. If you have 'x/3 = 4', you would multiply both sides by 3.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✖️</span><span>✖️</span></div><div class="vcap">Multiplying/Dividing Equally</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -227,9 +240,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Worked Example 4: <span class="hl">Subtraction</span></h2>
-          <ul><li>Solve: y - 3 = 7</li><li>Add 3 to both sides:</li><li>y - 3 + 3 = 7 + 3</li><li>y = 10</li></ul>
-          <p class="notes">🎙️ Now, let's look at y - 3 = 7. Here, 3 is being subtracted from y. To undo this, we perform the inverse operation: addition. We add 3 to the LHS, which cancels out the -3. Remember to add 3 to the RHS as well, leading to y = 10.</p>
+          <h2>Worked Example: <span class="hl">Solving</span> (Addition/Subtraction)</h2>
+          <ul><li>Solve: y - 7 = 15.</li><li>Add 7 to both sides: y - 7 + 7 = 15 + 7.</li><li>Result: y = 22.</li></ul>
+          <p class="notes">🎙️ Let's solve 'y - 7 = 15'. To get 'y' by itself, we need to undo the '-7'. The inverse operation is '+7'. So, we add 7 to both sides of the equation. This gives us 'y = 22'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example: <span class="hl">Solving</span> (Multiplication/Division)</h2>
+          <ul><li>Solve: 3p = 21.</li><li>Divide both sides by 3: 3p / 3 = 21 / 3.</li><li>Result: p = 7.</li></ul>
+          <p class="notes">🎙️ Now, let's solve '3p = 21'. Here, 'p' is being multiplied by 3. To isolate 'p', we perform the inverse operation: division. We divide both sides by 3, which gives us 'p = 7'.</p>
         </div>
         
       </div>
@@ -238,24 +263,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Balancing Equations: <span class="hl">Multiplication/Division</span></h2>
-          <ul><li>To remove a number multiplying the variable, divide both sides by it.</li><li>To remove a number dividing the variable, multiply both sides by it.</li><li>These are also inverse operations.</li></ul>
-          <p class="notes">🎙️ The same principle of inverse operations applies to multiplication and division. If a variable is multiplied by a number, we divide both sides by that number. If a variable is divided by a number, we multiply both sides by that number. This keeps the equation balanced and helps us solve for the unknown.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️➗</div><div class="vcap">Inverse Operations</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Worked Example 5: <span class="hl">Multiplication</span></h2>
-          <ul><li>Solve: 3x = 15</li><li>Divide both sides by 3:</li><li>3x / 3 = 15 / 3</li><li>x = 5</li></ul>
-          <p class="notes">🎙️ Consider the equation 3x = 15. Here, '3x' means 3 multiplied by x. To isolate x, we perform the inverse operation: division. We divide both sides of the equation by 3. This cancels out the 3 on the LHS and gives us x = 5.</p>
+          <h2>Real-life Application: <span class="hl">Age Problems</span></h2>
+          <ul><li>Equations are great for finding unknown ages.</li><li>'My father is 3 times my age.' (F = 3M)</li><li>'In 5 years, I will be 17.' (A + 5 = 17)</li></ul>
+          <p class="notes">🎙️ Age problems are very common in mathematics and often involve finding an unknown age. You can represent someone's current age with a variable and then use the given information to form an equation about their age in the past or future.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👴</div><div class="vcap">Age Mystery</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,23 +276,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked Example 6: <span class="hl">Division</span></h2>
-          <ul><li>Solve: x / 4 = 5</li><li>Multiply both sides by 4:</li><li>(x / 4) * 4 = 5 * 4</li><li>x = 20</li></ul>
-          <p class="notes">🎙️ For x / 4 = 5, x is being divided by 4. To undo this, we multiply both sides by 4. This cancels out the division by 4 on the LHS. Multiplying the RHS by 4 gives us 20. So, the solution is x = 20.</p>
+          <h2>Worked Example: <span class="hl">Age Problem</span></h2>
+          <ul><li>Problem: 'Rohan is 5 years older than his sister. If Rohan is 17, how old is his sister?'</li><li>Let sister's age be 's'.</li><li>Equation: s + 5 = 17. Solving: s = 17 - 5 = 12. Sister is 12 years old.</li></ul>
+          <p class="notes">🎙️ Here, the unknown is the sister's age, so let's call it 's'. We know Rohan is 5 years older, so 's + 5' represents Rohan's age. Since Rohan is 17, we set 's + 5 = 17'. Subtracting 5 from both sides gives us 's = 12'.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Combining</span> Operations</h2>
-          <ul><li>Some equations involve both addition/subtraction AND multiplication/division.</li><li>Always address addition/subtraction first.</li><li>Then, deal with multiplication/division.</li></ul>
-          <p class="notes">🎙️ When an equation has multiple operations, we usually work backwards from the order of operations. First, we remove any numbers that are added to or subtracted from the variable term. After that, we tackle the numbers that are multiplying or dividing the variable. This systematic approach ensures we solve it correctly.</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>Solve for x: x + 9 = 20.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Try to solve this equation on your own. Remember to use the balancing method to isolate the variable 'x'.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Handle Add/Sub</span></div><div class="step"><span class="snum">2</span><span>Handle Mult/Div</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -287,9 +300,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Worked Example 7: <span class="hl">Two-step</span> Equation</h2>
-          <ul><li>Solve: 2x + 3 = 11</li><li>Step 1: Subtract 3 from both sides: 2x + 3 - 3 = 11 - 3  =&gt;  2x = 8</li><li>Step 2: Divide both sides by 2: 2x / 2 = 8 / 2  =&gt;  x = 4</li></ul>
-          <p class="notes">🎙️ Let's solve 2x + 3 = 11. First, we remove the '+3' by subtracting 3 from both sides, leaving us with 2x = 8. Next, to isolate x from '2x', we divide both sides by 2. This gives us our final answer, x = 4.</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Solve for m: 4m = 28.</li></ul>
+          <p class="notes">🎙️ Here's another one. What operation is being done to 'm'? What's the inverse operation you need to perform on both sides?</p>
         </div>
         
       </div>
@@ -299,33 +312,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick <span class="hl">Check 1</span></h2>
-          <ul><li>If a number decreased by 8 is 15, what is the number?</li><li>A) 7</li><li>B) 23</li><li>C) 120</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Think about how you would set up and solve this problem. If a number decreased by 8 gives you 15, what operation would you use to find the original number? Take a moment to calculate your answer.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check 2</span></h2>
-          <ul><li>Solve: 4y = 28</li><li>A) 7</li><li>B) 24</li><li>C) 32</li></ul>
-          <p class="notes">🎙️ Here's another one. In the equation 4y = 28, what operation is being performed on 'y'? What is the inverse operation you need to use on both sides to find the value of 'y'? Choose the correct option.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Quick <span class="hl">Check 3</span></h2>
-          <ul><li>Solve: (x / 5) - 2 = 3</li><li>A) 10</li><li>B) 25</li><li>C) 15</li></ul>
-          <p class="notes">🎙️ This is a two-step equation. Remember the order: first, deal with addition or subtraction, then with multiplication or division. What is the first step you would take to isolate the term with 'x'? And then what would be your second step? Find the correct value of x.</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>Form an equation: 'When 6 is subtracted from a number, the result is 10.'</li></ul>
+          <p class="notes">🎙️ This time, you need to form the equation from the given statement. Identify the unknown, choose a variable, and write down the relationship.</p>
         </div>
         
       </div>
@@ -334,16 +323,41 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Finding the Unknown</h2>
-          <ul><li>Unknowns are represented by variables.</li><li>Equations show equality between expressions.</li><li>Use the systematic (balancing) method to solve.</li><li>Perform inverse operations on both sides to isolate the variable.</li></ul>
-          <p class="notes">🎙️ Excellent work today, everyone! We've learned that unknowns are simply missing numbers represented by variables in an equation. The most effective way to find these unknowns is by using the balancing method, ensuring that whatever operation you perform on one side, you also do on the other. Keep practicing these skills!</p>
+          <span class="num">23 / 25</span>
+          <h2>Where Else are Equations Used?</h2>
+          <ul><li>Science: Calculating speed, force, energy.</li><li>Engineering: Designing structures, circuits.</li><li>Finance: Budgeting, calculating interest.</li><li>Daily life: Cooking recipes, travel time.</li></ul>
+          <p class="notes">🎙️ Equations are fundamental tools used across many fields. Scientists use them to describe natural phenomena, engineers to build things, and even in our daily lives, we implicitly use them to plan our time or manage our money.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Key Takeaways</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Tools for Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Recap: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>An unknown is a quantity we need to find, represented by a variable.</li><li>An equation states two expressions are equal (LHS = RHS).</li><li>Use the balancing method (inverse operations) to solve equations.</li></ul>
+          <p class="notes">🎙️ So, remember, an unknown is a mystery number we represent with a variable. An equation is a balanced statement. And the most effective way to solve equations is the balancing method, applying inverse operations to both sides.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Remember These</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Any <span class="hl">Questions</span>?</h2>
+          <ul><li>Keep practicing!</li><li>The more you solve, the easier it gets!</li><li>Math is fun!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on 'Finding the Unknown.' I hope you feel more confident about identifying variables, forming equations, and solving them. Practice is key, so keep solving problems!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

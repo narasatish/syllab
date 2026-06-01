@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Data Through Pictures — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to Data Through <span class="hl">Pictures</span>!</h2>
-          <ul><li>Let's learn how pictures can tell us stories!</li><li>It's like solving a fun puzzle.</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure to learn about 'Data Through Pictures'. Have you ever seen pictures that tell you something?</p>
+          <h2>Welcome to <span class="hl">Data</span> Through Pictures!</h2>
+          <ul><li>Let's learn about 'Data'!</li><li>We will use fun pictures to understand information.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we are going on an exciting adventure to learn about 'Data Through Pictures'. It's like being a detective and finding out interesting facts!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Data</span>?</h2>
-          <ul><li>Data is just information or facts.</li><li>It's like collecting details about things.</li><li>For example, how many friends like mangoes?</li></ul>
-          <p class="notes">🎙️ Imagine you want to know how many students in our class like mangoes. The answer you get, like '10 students', is data. It's simply information we collect.</p>
+          <ul><li>Data is simply information or facts.</li><li>It tells us things about the world around us.</li></ul>
+          <p class="notes">🎙️ Imagine you want to know how many friends like mangoes. The answer, like '5 friends', is data! It's just a piece of information.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Information</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Information</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Collecting</span> Information</h2>
-          <ul><li>We collect data by asking questions.</li><li>Or by observing things around us.</li><li>Like counting how many red cars pass by.</li></ul>
-          <p class="notes">🎙️ How do we get this information? We can ask our friends, 'What's your favourite colour?' Or we can look around and count things, like how many birds are on a tree. This is called collecting data.</p>
+          <h2>Why Do We <span class="hl">Collect</span> Data?</h2>
+          <ul><li>We collect data to answer questions.</li><li>It helps us make good decisions.</li></ul>
+          <p class="notes">🎙️ If we want to know which game is most popular in our class, we collect data by asking everyone. This helps us pick a game everyone will enjoy!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🏫</div><div class="vcap">Asking Questions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❓</span><span>❓</span><span>❓</span></div><div class="vcap">Finding Answers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Making <span class="hl">Sense</span> of Data</h2>
-          <ul><li>After collecting, we put data in order.</li><li>This helps us understand it easily.</li><li>Like putting your toys back in their boxes.</li></ul>
-          <p class="notes">🎙️ Once we have collected a lot of information, it can look a bit messy. So, we need to put it in an organised way, just like you arrange your books on a shelf. This makes it easier to read and understand.</p>
+          <h2>How to <span class="hl">Collect</span> Data?</h2>
+          <ul><li>We can ask people questions.</li><li>We can count things we see.</li><li>Then we write it down!</li></ul>
+          <p class="notes">🎙️ Collecting data is easy! You can ask your friends about their favorite colour, or count how many red cars you see on the road. Then, you simply note it down.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📁</div><div class="vcap">Sorting Things</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Writing Down Facts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Pictures Tell a Story: <span class="hl">Pictograph</span></h2>
-          <ul><li>A pictograph uses pictures to show data.</li><li>Each picture stands for a certain number of things.</li><li>It makes data colourful and easy to see!</li></ul>
-          <p class="notes">🎙️ Now, how do we show this organised data in a fun way? We use something called a pictograph! It's a special chart where we use little pictures to represent numbers. Isn't that cool?</p>
+          <h2>Meet <span class="hl">Pictographs</span>!</h2>
+          <ul><li>A pictograph shows data using pictures.</li><li>It makes understanding data super easy and fun!</li></ul>
+          <p class="notes">🎙️ Today, we're going to learn about a special way to show data called a pictograph. It's like drawing pictures to tell a story with numbers!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Picture Chart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Pictures Tell a Story</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>The Secret <span class="hl">Key</span></h2>
-          <ul><li>Every pictograph has a key.</li><li>The key tells us what each picture means.</li><li>For example, one apple picture = 2 real apples.</li></ul>
-          <p class="notes">🎙️ Just like a treasure map has a key to tell you what symbols mean, a pictograph also has a key. This key is super important! It tells us if one picture stands for 1 item, or 2 items, or even 5 items. Always look at the key first!</p>
+          <h2>The "<span class="hl">Key</span>" to Pictographs</h2>
+          <ul><li>Every pictograph has a 'key'.</li><li>The key tells us what each picture stands for.</li></ul>
+          <p class="notes">🎙️ Think of the key as a secret code! It tells you if one drawing of an apple means one apple, or maybe even two apples! Always look for the key first.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔑</div><div class="vcap">What Pictures Mean</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔑</div><div class="vcap">Unlock the Meaning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Let's See an <span class="hl">Example</span>!</h2>
-          <ul><li>Here's a pictograph of favourite fruits.</li><li>Look at the key below the pictures.</li></ul>
-          <p class="notes">🎙️ Let's look at this example. Imagine we asked some friends about their favourite fruits. We can show their choices using a pictograph. See the key? It says one apple picture means one real fruit.</p>
+          <h2>Our Favorite <span class="hl">Fruits</span>: Apples</h2>
+          <ul><li>Let's see how many children like apples!</li><li>Our key is: 1 🍎 = 1 child.</li></ul>
+          <p class="notes">🎙️ Here is our first pictograph! We asked children about their favorite fruits. Look, four apple pictures mean four children love apples.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span></div><div class="vcap">Key: 1 🍎 = 1 Fruit</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="🔢" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>How to <span class="hl">Read</span> a Pictograph</h2>
-          <ul><li>Step 1: Look at the title.</li><li>Step 2: Find the key.</li><li>Step 3: Count the pictures for each item.</li><li>Step 4: Use the key to find the total number.</li></ul>
-          <p class="notes">🎙️ Reading a pictograph is like following a recipe. First, see what the pictograph is about. Then, find the key to know what each picture means. After that, count the pictures for each category and multiply by the value in the key to get the actual number.</p>
+          <h2>Our Favorite Fruits: <span class="hl">Bananas</span></h2>
+          <ul><li>Now let's count for bananas!</li><li>Remember: 1 🍌 = 1 child.</li></ul>
+          <p class="notes">🎙️ Next up are bananas! We have three banana pictures, so how many children chose bananas? That's right, three children!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Read Title</span></div><div class="step"><span class="snum">2</span><span>Find Key</span></div><div class="step"><span class="snum">3</span><span>Count Pictures</span></div><div class="step"><span class="snum">4</span><span>Calculate Total</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,47 +156,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Ice Creams</span> Sold Today</h2>
-          <ul><li>Vanilla: 🍦🍦🍦🍦🍦</li><li>Chocolate: 🍦🍦🍦🍦🍦🍦🍦</li><li>Strawberry: 🍦🍦🍦</li><li>Key: 1 🍦 = 1 Ice Cream</li></ul>
-          <p class="notes">🎙️ Imagine we have an ice cream shop. This pictograph shows how many ice creams of each flavour we sold today. Look at the key carefully. One ice cream picture means one ice cream sold.</p>
+          <h2>Our Favorite Fruits: <span class="hl">Mangoes</span></h2>
+          <ul><li>And finally, for mangoes!</li><li>Each 🥭 means one child.</li></ul>
+          <p class="notes">🎙️ Wow, look at all those mangoes! Five mango pictures mean five children love mangoes. It seems mangoes are very popular!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍦</span></div><div class="vcap">Our Ice Cream Shop</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥭</span><span>🥭</span><span>🥭</span><span>🥭</span><span>🥭</span></div><div class="vcap">Mangoes: 1 🥭 = 1 child</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Question 1: <span class="hl">Vanilla</span> Ice Creams</h2>
-          <ul><li>How many Vanilla ice creams were sold?</li><li>Look at the Vanilla row and count the pictures.</li></ul>
-          <p class="notes">🎙️ Based on our ice cream pictograph, can you tell me how many vanilla ice creams we sold today? Remember to count the ice cream pictures next to 'Vanilla'.</p>
+          <h2><span class="hl">Comparing</span> with Pictures</h2>
+          <ul><li>Pictographs help us compare easily.</li><li>Which fruit is liked the most?</li><li>Which fruit is liked the least?</li></ul>
+          <p class="notes">🎙️ Now, we can quickly see that mangoes are the most favorite fruit because they have the most pictures. Bananas are liked by the fewest children. Isn't that simple?</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Apples</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Bananas</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mangoes</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Question 2: Most <span class="hl">Popular</span> Flavour</h2>
-          <ul><li>Which ice cream flavour was sold the most?</li><li>Which row has the most ice cream pictures?</li></ul>
-          <p class="notes">🎙️ Now, look at all the flavours. Which one has the most pictures? That will be our most popular flavour of the day!</p>
+          <h2><span class="hl">Books</span> Read This Week (Scaled Key)</h2>
+          <ul><li>Sometimes one picture means more things!</li><li>Our new key: 1 📚 = 2 books.</li></ul>
+          <p class="notes">🎙️ What if we have lots of data? We can make one picture stand for more than one item! Here, each book picture means 2 books. This is a 'scaled key'.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📚" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Question 3: <span class="hl">Total</span> Ice Creams</h2>
-          <ul><li>How many ice creams were sold in total?</li><li>Add up all the ice creams from each flavour.</li></ul>
-          <p class="notes">🎙️ Great job! Now, for a slightly bigger challenge. Can you find the total number of ice creams sold for all three flavours combined? Count all the ice cream pictures and add them up!</p>
+          <h2>Books Read: <span class="hl">Monday</span></h2>
+          <ul><li>On Monday, we see 3 book pictures.</li><li>Remember, each 📚 means 2 books.</li></ul>
+          <p class="notes">🎙️ Let's count! If there are 3 book pictures and each picture is 2 books, then 3 times 2 equals 6 books! So, 6 books were read on Monday.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Monday's books, Key: 1 📚 = 2 books</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Comparing</span> Things with Pictures</h2>
-          <ul><li>Pictographs help us compare easily.</li><li>Who has more toys, Rohan or Priya?</li></ul>
-          <p class="notes">🎙️ Pictographs are very useful for comparing things. Without even counting, you can quickly see who has more or less of something just by looking at the length of the rows of pictures. Here, who has more toys?</p>
+          <h2>Books Read: <span class="hl">Tuesday</span></h2>
+          <ul><li>On Tuesday, there are 5 book pictures.</li><li>How many books were read?</li></ul>
+          <p class="notes">🎙️ Look at Tuesday! We have 5 book pictures. Since each picture is 2 books, we multiply 5 by 2 to get 10 books. Great job!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rohan's Toys</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Priya's Toys</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Tuesday's books, Key: 1 📚 = 2 books</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Books</span> Read This Week</h2>
-          <ul><li>Ravi: 📚📚📚📚</li><li>Priya: 📚📚📚📖</li><li>Key: 1 📚 = 2 Books, 1 📖 = 1 Book</li></ul>
-          <p class="notes">🎙️ Sometimes, the key can be tricky! Look at this example of books read. Here, one full book picture means 2 books. What do you think a half-book picture means? Yes, it means 1 book!</p>
+          <h2>Books Read: <span class="hl">Wednesday</span></h2>
+          <ul><li>On Wednesday, we have 2 book pictures.</li><li>Can you guess the total books?</li></ul>
+          <p class="notes">🎙️ And for Wednesday, there are 2 book pictures. So, 2 times 2 equals 4 books. You are becoming a pictograph expert!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span></div><div class="vcap">Key: 1 book = 2 books</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span></div><div class="vcap">Wednesday's books, Key: 1 📚 = 2 books</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -215,9 +228,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Question 4: <span class="hl">Priya's</span> Books</h2>
-          <ul><li>How many books did Priya read?</li><li>Remember the key: 1 📚 = 2 Books, 1 📖 = 1 Book.</li></ul>
-          <p class="notes">🎙️ Now, using the key, can you tell me how many books Priya read? Count her full books and her half book carefully, and use the key to find the total.</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>Let's test what we've learned!</li><li>Look at the pictograph carefully.</li></ul>
+          <p class="notes">🎙️ Are you ready for some quick questions? Let's see if you can use your pictograph skills to find the answers!</p>
         </div>
         
       </div>
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Question 5: Who Read <span class="hl">Least</span>?</h2>
-          <ul><li>Who read the least number of books?</li><li>Look at the rows and the key again.</li></ul>
-          <p class="notes">🎙️ Between Ravi and Priya, who read fewer books this week? Which row has a smaller total number of books according to our key?</p>
+          <h2>Question 1: Books on <span class="hl">Monday</span>?</h2>
+          <ul><li>How many books were read on Monday?</li><li>Key: 1 📚 = 2 books.</li></ul>
+          <p class="notes">🎙️ Remember the key! Each book picture stands for 2 books. Count the pictures for Monday and multiply. What is your answer?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Monday's books, Key: 1 📚 = 2 books</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Why Pictographs Are <span class="hl">Great</span>!</h2>
-          <ul><li>They are easy to understand.</li><li>They are fun and colourful.</li><li>We can compare things quickly.</li></ul>
-          <p class="notes">🎙️ Pictographs are super useful! They make it easy for everyone, even little kids, to understand information quickly. They are also fun to look at because of the pictures, and we can compare amounts at a glance.</p>
+          <h2>Another <span class="hl">Question</span>!</h2>
+          <ul><li>Here's your next challenge!</li><li>Think about comparing the days.</li></ul>
+          <p class="notes">🎙️ Good job on the last question! Now, let's try another one. This time, you need to compare the information.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Good Points</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>When Pictographs Are <span class="hl">Tricky</span></h2>
-          <ul><li>What if numbers are very big?</li><li>What if we need to show half a picture?</li><li>Sometimes it's hard to draw exact fractions.</li></ul>
-          <p class="notes">🎙️ But sometimes, pictographs can be a little tricky. If we have very large numbers, we'd need too many pictures! Also, showing half or quarter amounts with pictures can be hard to draw precisely.</p>
+          <h2>Question 2: Which day had <span class="hl">MORE</span> books?</h2>
+          <ul><li>Which day had the most books read?</li><li>Look at the number of pictures for each day.</li></ul>
+          <p class="notes">🎙️ Look at the bars representing the number of book pictures for each day. Which day has the longest bar? That day had the most books!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😟</div><div class="vcap">Challenges</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Monday</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tuesday</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Wednesday</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Quiz</span> Time!</h2>
-          <ul><li>What is data?</li><li>What does the 'key' in a pictograph tell us?</li><li>Why do we use pictographs?</li></ul>
-          <p class="notes">🎙️ Alright, my smart students, let's see how much you remember! Think about these questions. What is data? What is the most important part of a pictograph? And why do we use them?</p>
+          <h2>What We <span class="hl">Learned</span> Today!</h2>
+          <ul><li>Data is information.</li><li>Pictographs use pictures to show data.</li><li>Always check the 'key' to understand the pictures!</li></ul>
+          <p class="notes">🎙️ Today, we learned so many new things! We know what data is, and how pictographs help us understand it easily using pictures and a special key. You're all data detectives now!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">New Knowledge</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Data Through Pictures</h2>
-          <ul><li>We learned what data is.</li><li>How to collect and organise data.</li><li>What a pictograph is and its key.</li><li>How to read and understand pictographs.</li><li>Their uses and challenges.</li></ul>
-          <p class="notes">🎙️ Today, we had a wonderful journey learning about 'Data Through Pictures'. We understood how information is collected, organised, and then presented beautifully using pictographs. You all did a fantastic job!</p>
+          <h2>Keep <span class="hl">Practicing</span>!</h2>
+          <ul><li>Look for data around you every day.</li><li>Try to make your own pictographs!</li><li>You are a data expert!</li></ul>
+          <p class="notes">🎙️ Keep practicing your new skills! Count things, ask questions, and try to draw your own pictographs. The more you practice, the better you'll become! See you next time!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Summary</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Great Job!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

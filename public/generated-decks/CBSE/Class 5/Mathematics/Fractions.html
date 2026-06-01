@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Fractions: Sharing Made Easy! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to the World of <span class="hl">Fractions</span>!</h2>
-          <ul><li>Let's learn about sharing things equally.</li><li>It's like magic with numbers!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going to start an exciting new chapter called 'Fractions'. Have you ever shared a chocolate with your friend or a cake with your family? Fractions help us understand how to share things fairly.</p>
+          <h2>Let's Explore <span class="hl">Fractions</span>!</h2>
+          <ul><li>Welcome, little mathematicians!</li><li>Today, we will learn about 'Fractions'.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're going on an exciting journey to learn about fractions. Have you ever shared a pizza or a chocolate bar with your friends? That's exactly what fractions help us understand!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What are <span class="hl">Fractions</span>?</h2>
-          <ul><li>When we divide a whole thing into equal parts.</li><li>Each part is a fraction of the whole.</li></ul>
-          <p class="notes">🎙️ Imagine you have one whole delicious pie. When you cut it into pieces, each piece is a part of that whole pie. Fractions help us talk about these parts.</p>
+          <ul><li>When we share something equally, each part is a fraction.</li><li>It means a 'part of a whole'.</li></ul>
+          <p class="notes">🎙️ Imagine you have a whole pizza. When you cut it into pieces to share, each piece is a fraction of the whole pizza. Fractions help us talk about these parts.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pizza-3007395.jpg?width=520" data-fb="🥧" alt="A pizza cut into slices shows fractions — each slice is a part of the whole!"/><div class="vcap">A pizza cut into slices shows fractions — each slice is a part of the whole!</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pizza-3007395.jpg?width=520" data-fb="🔢" alt="A pizza cut into slices shows fractions — each slice is a part of the whole!"/><div class="vcap">A pizza cut into slices shows fractions — each slice is a part of the whole!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Sharing</span> is Caring!</h2>
-          <ul><li>Meena has one pizza.</li><li>She shares it with her friend, Rohan.</li><li>They cut it into 2 equal parts. Each gets one part.</li></ul>
-          <p class="notes">🎙️ Look at Meena and Rohan sharing their pizza! They cut the whole pizza into two equal parts. Meena gets one part, and Rohan gets the other part. Each part is a fraction.</p>
+          <h2>Sharing <span class="hl">Equally</span> is Key!</h2>
+          <ul><li>Fractions are only when parts are the same size.</li><li>No unfair sharing! All parts must be equal.</li></ul>
+          <p class="notes">🎙️ This is super important! For something to be a fraction, all the parts must be exactly the same size. If the pieces are not equal, we cannot call them fractions of the whole.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span></div><div class="vcap">2 Pizza Slices</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍰</span><span>🍰</span><span>🍰</span><span>🍰</span><span>🍰</span><span>🍰</span></div><div class="vcap">A cake cut into 6 equal parts.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Parts</span> of a Fraction</h2>
-          <ul><li>A fraction has two main parts.</li><li>The number on top is called the Numerator.</li><li>The number at the bottom is called the Denominator.</li></ul>
-          <p class="notes">🎙️ Just like our body has different parts, a fraction also has two important parts. There's a number on top and a number at the bottom, separated by a line. Let's learn their special names.</p>
+          <h2>Two Special Numbers: <span class="hl">Numerator</span></h2>
+          <ul><li>The top number is the Numerator.</li><li>It tells us 'how many parts we have' or 'are taken'.</li></ul>
+          <p class="notes">🎙️ Every fraction has two numbers, one on top and one at the bottom. The number on top is called the Numerator. It counts the number of pieces we are talking about.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Fraction Bar</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="⬆️" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>The <span class="hl">Numerator</span>: How Many Parts We Take</h2>
-          <ul><li>It tells us how many parts we are talking about.</li><li>It is the number on the top.</li></ul>
-          <p class="notes">🎙️ The numerator is like pointing your finger and saying 'I want this many!' It tells us exactly how many pieces we are focusing on or taking from the whole.</p>
+          <h2><span class="hl">Denominator</span>: The Total Parts</h2>
+          <ul><li>The bottom number is the Denominator.</li><li>It tells us 'how many equal parts are in the whole thing'.</li></ul>
+          <p class="notes">🎙️ The number at the bottom is called the Denominator. It tells us the total number of equal parts the whole thing was divided into. So, if a pizza has 4 slices, 4 is the denominator.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👆</div><div class="vcap">Number on Top</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Denominator (bottom number)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>The <span class="hl">Denominator</span>: Total Equal Parts</h2>
-          <ul><li>It tells us the total number of equal parts.</li><li>It is the number at the bottom.</li></ul>
-          <p class="notes">🎙️ The denominator is like counting all the pieces in the whole thing, even the ones you didn't take. It tells us into how many equal parts the whole has been divided.</p>
+          <h2><span class="hl">Pizza</span> Party Fraction!</h2>
+          <ul><li>Imagine a pizza cut into 4 equal slices.</li><li>If you eat 1 slice, you ate 1/4 of the pizza.</li></ul>
+          <p class="notes">🎙️ Here's our pizza! It's cut into 4 equal parts. If you take one part, the numerator is 1. The total parts are 4, so the denominator is 4. You have 1/4 of the pizza!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">1 slice eaten from 4 total slices (1/4)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Example: A <span class="hl">Chocolate Bar</span></h2>
-          <ul><li>This chocolate has 4 equal pieces.</li><li>If you eat 1 piece, you eat 1/4 of the chocolate.</li></ul>
-          <p class="notes">🎙️ Imagine a yummy chocolate bar with four equal squares. If you break off and eat just one square, you've eaten one part out of the four total parts. So, you've eaten one-fourth of the chocolate.</p>
+          <h2><span class="hl">Chocolate</span> Bar Fun!</h2>
+          <ul><li>You have a chocolate bar with 8 equal pieces.</li><li>If you eat 2 pieces, you ate 2/8 of the chocolate.</li></ul>
+          <p class="notes">🎙️ Another yummy example! A chocolate bar has 8 small squares. If you break off and eat 2 of them, you have eaten 2 out of 8 parts. So, you ate 2/8 of the chocolate bar.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span></div><div class="vcap">4 Chocolate Pieces</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span></div><div class="vcap">2 pieces eaten from 8 total pieces (2/8)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,57 +144,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>How Do We <span class="hl">Read Fractions</span>?</h2>
-          <ul><li>1/2 is "one-half".</li><li>1/3 is "one-third".</li><li>1/4 is "one-fourth" or "one-quarter".</li></ul>
-          <p class="notes">🎙️ Fractions have special names when we read them aloud. When you see '1/2', you say 'one-half'. For '1/3', it's 'one-third'. And '1/4' can be 'one-fourth' or 'one-quarter'.</p>
+          <h2>How to <span class="hl">Write Fractions</span></h2>
+          <ul><li>We write the Numerator on top.</li><li>We draw a line in the middle.</li><li>We write the Denominator at the bottom.</li></ul>
+          <p class="notes">🎙️ This is how we put it all together! First, write the number of parts you are talking about (Numerator). Then, draw a small line. Below the line, write the total number of equal parts (Denominator).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Saying Fractions</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>What is <span class="hl">Half</span>? (1/2)</h2>
-          <ul><li>One whole thing divided into 2 equal parts.</li><li>Each part is one-half.</li></ul>
-          <p class="notes">🎙️ Think of an apple. If you cut it exactly in the middle into two equal pieces, each piece is called 'one-half' of the apple. We write it as 1/2.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Apple Cut in Half</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>What is a <span class="hl">Third</span>? (1/3)</h2>
-          <ul><li>One whole thing divided into 3 equal parts.</li><li>Each part is one-third.</li></ul>
-          <p class="notes">🎙️ Now, imagine a birthday cake. If you cut it into three pieces that are all the same size, each piece is called 'one-third' of the cake. We write it as 1/3.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎂</div><div class="vcap">Cake Cut into Thirds</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>What is a <span class="hl">Quarter</span>? (1/4)</h2>
-          <ul><li>One whole thing divided into 4 equal parts.</li><li>Each part is one-quarter.</li></ul>
-          <p class="notes">🎙️ Next, think about a slice of bread. If you cut that slice into four equal smaller pieces, each small piece is called 'one-quarter' of the bread. We write it as 1/4.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍞</div><div class="vcap">Bread Cut into Quarters</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Numerator / Denominator</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">12 / 20</span>
-          <h2>Quick <span class="hl">Question</span>!</h2>
-          <ul><li>Which picture shows 1/3 shaded? A, B, or C?</li></ul>
-          <p class="notes">🎙️ Alright, time for a quick check! Look at these three pictures. Can you tell me which one correctly shows one-third of the shape shaded? Think about what the denominator and numerator tell us.</p>
+          <span class="num">9 / 20</span>
+          <h2>Quick Check: What <span class="hl">Fraction</span> is Coloured?</h2>
+          <ul><li>Imagine a circle divided into 4 equal parts.</li><li>If 3 parts are coloured blue, what fraction is blue?</li></ul>
+          <p class="notes">🎙️ Let's test ourselves! Think about a circle. If it's cut into 4 equal pieces, and 3 of those pieces are painted blue, what fraction represents the blue part? (Answer: 3/4)</p>
         </div>
         
       </div>
@@ -190,12 +167,48 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 20</span>
-          <h2>Another <span class="hl">Question</span>!</h2>
-          <ul><li>What fraction of the stars are coloured?</li></ul>
-          <p class="notes">🎙️ Here's another one! Look at these lovely stars. If two of them are coloured in, what fraction of the total stars would that be? Remember, numerator is coloured parts, denominator is total parts.</p>
+          <span class="num">10 / 20</span>
+          <h2><span class="hl">Proper Fractions</span>: A Small Piece</h2>
+          <ul><li>In proper fractions, the Numerator is smaller than the Denominator.</li><li>It always represents less than one whole thing.</li></ul>
+          <p class="notes">🎙️ Proper fractions are like taking just a few slices from a pizza. The number of slices you take (numerator) is less than the total number of slices (denominator). For example, 2/5.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">2 out of 5 stars coloured</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Numerator (2)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Denominator (5)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2><span class="hl">Improper Fractions</span>: More Than One Whole!</h2>
+          <ul><li>In improper fractions, the Numerator is bigger than or equal to the Denominator.</li><li>It means we have one or more full things, plus maybe some extra parts.</li></ul>
+          <p class="notes">🎙️ Sometimes, you might have more than a whole! Imagine you have 7 slices of pizza, but each whole pizza has only 3 slices. This means you have more than two whole pizzas! This is an improper fraction, like 7/3.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Numerator (7)</div></div><div class="ccard"><div class="cbar" style="width:43%"></div><div class="clabel">Denominator (3)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2><span class="hl">Mixed Fractions</span>: Whole &amp; Part Together</h2>
+          <ul><li>A mixed fraction has a whole number and a proper fraction.</li><li>It shows whole items and a part of another item, like '2 and a half' cakes.</li></ul>
+          <p class="notes">🎙️ Mixed fractions are a neat way to write improper fractions. They show how many full things you have, and then what part of another thing you have. For example, 2 and 1/3 means two whole things and one-third of another.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Whole Number + Fraction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 20</span>
+          <h2><span class="hl">Improper to Mixed</span>: Sharing Leftovers</h2>
+          <ul><li>We can change an improper fraction into a mixed fraction.</li><li>It's like finding how many whole pizzas you can make, and what slices are left.</li></ul>
+          <p class="notes">🎙️ To change an improper fraction like 7/3, we divide 7 by 3. We get 2 with a remainder of 1. So, it becomes 2 whole and 1/3. Easy, right?</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Divide Numerator by Denominator (7 ÷ 3)</span></div><div class="step"><span class="snum">2</span><span>2. The Quotient (2) is the Whole Number</span></div><div class="step"><span class="snum">3</span><span>3. The Remainder (1) is the new Numerator</span></div><div class="step"><span class="snum">4</span><span>4. Denominator (3) stays the same (2 1/3)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Comparing Fractions: <span class="hl">Same Denominator</span></h2>
-          <ul><li>If denominators are the same, compare the numerators.</li><li>The fraction with the bigger numerator is larger.</li></ul>
-          <p class="notes">🎙️ Sometimes we need to know which fraction is bigger or smaller. If two fractions have the same bottom number, the denominator, it's easy! Just look at the top number, the numerator. The one with the bigger numerator is the bigger fraction.</p>
+          <h2><span class="hl">Mixed to Improper</span>: Back to all Parts</h2>
+          <ul><li>We can also change a mixed fraction back to an improper fraction.</li><li>This means counting all the small pieces again.</li></ul>
+          <p class="notes">🎙️ Now, let's go the other way! To change 2 and 1/3 back, we multiply the whole number (2) by the denominator (3), which is 6. Then we add the numerator (1), making it 7. So, it's 7/3!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">1/4</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3/4</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Multiply Whole Number by Denominator (2 x 3 = 6)</span></div><div class="step"><span class="snum">2</span><span>2. Add the Numerator (6 + 1 = 7)</span></div><div class="step"><span class="snum">3</span><span>3. This is your new Numerator (7)</span></div><div class="step"><span class="snum">4</span><span>4. Denominator (3) stays the same (7/3)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Example: Who Gets <span class="hl">More Cake</span>?</h2>
-          <ul><li>Rahul eats 1/4 of a cake.</li><li>Priya eats 2/4 of the same cake.</li><li>Who ate more? Priya ate more (2/4 &gt; 1/4).</li></ul>
-          <p class="notes">🎙️ Let's say a cake is cut into 4 equal pieces. Rahul eats one piece (1/4). Priya eats two pieces (2/4). Since 2 is bigger than 1, Priya ate more cake than Rahul!</p>
+          <h2><span class="hl">Equivalent</span> Fractions: Same Value, Different Look</h2>
+          <ul><li>Equivalent fractions look different but mean the same amount.</li><li>Like 1/2 of a cake is the same as 2/4 of a cake.</li></ul>
+          <p class="notes">🎙️ Imagine you have a cake. If you cut it into 2 pieces and take 1, or cut it into 4 pieces and take 2, you still have the same amount of cake! These are called equivalent fractions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍰</span><span>🍰</span><span>🍰</span><span>🍰</span></div><div class="vcap">Cake cut into 4 slices</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1/2</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">2/4</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,9 +240,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Comparing Fractions: <span class="hl">Same Numerator</span></h2>
-          <ul><li>If numerators are the same, compare the denominators.</li><li>The fraction with the smaller denominator is larger.</li></ul>
-          <p class="notes">🎙️ Now, what if the top numbers, the numerators, are the same? Then we look at the bottom numbers, the denominators. Here, it's a bit tricky! The fraction with the *smaller* denominator is actually the *larger* fraction. Think of it as cutting a cake into fewer, bigger pieces.</p>
+          <h2>How to <span class="hl">Find Equivalent</span> Fractions</h2>
+          <ul><li>To find equivalent fractions, multiply or divide.</li><li>Always multiply or divide BOTH Numerator and Denominator by the SAME number.</li></ul>
+          <p class="notes">🎙️ To make equivalent fractions, you must be fair! Whatever you do to the top number, you must do to the bottom number. For example, to get 2/4 from 1/2, you multiply both 1 and 2 by 2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️➗</div><div class="vcap">Multiply or Divide by the Same Number</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 20</span>
+          <h2>Comparing Fractions: <span class="hl">Same Denominator</span></h2>
+          <ul><li>If denominators are the same, just compare the Numerators.</li><li>The fraction with the bigger Numerator is the bigger fraction.</li></ul>
+          <p class="notes">🎙️ If two friends are sharing a cake cut into 5 pieces, and one friend gets 2 pieces (2/5) and another gets 3 pieces (3/5), who got more? The one with 3 pieces, because 3 is bigger than 2.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">2/5</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3/5</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 20</span>
+          <h2>Comparing Fractions: <span class="hl">Different Denominators</span> (Simple)</h2>
+          <ul><li>When Numerators are the same, the smaller Denominator means a bigger fraction.</li><li>Example: 1/2 is bigger than 1/4.</li></ul>
+          <p class="notes">🎙️ Imagine you have one chocolate bar. If you share it with 2 friends (1/2 each), each friend gets a bigger piece than if you share it with 4 friends (1/4 each). So, 1/2 is bigger than 1/4.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1/2</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">1/4</div></div></div></div>
       </div>
@@ -238,36 +275,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2>Example: Which Chocolate Piece is Bigger?</h2>
-          <ul><li>You have 1/2 of a chocolate bar.</li><li>Your friend has 1/4 of the same chocolate bar.</li><li>Whose piece is bigger? Your piece is bigger (1/2 &gt; 1/4).</li></ul>
-          <p class="notes">🎙️ Imagine a chocolate bar. If you get 1/2 of it, that's half the bar. If your friend gets 1/4 of it, that's a quarter. Half is a much bigger piece than a quarter, even though the numerator (1) is the same!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Comparing Sizes</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2>Fractions All Around Us!</h2>
-          <ul><li>Telling time (half past).</li><li>Cooking (half a cup of milk).</li><li>Money (quarter of a rupee).</li></ul>
-          <p class="notes">🎙️ Fractions are not just in books; they are all around us! When you say 'half past three', you are using a fraction. When your mom bakes a cake and adds 'half a cup' of sugar, that's a fraction too! Even money uses fractions, like a 'quarter' rupee coin.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Time, Cooking, Money</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">19 / 20</span>
-          <h2><span class="hl">Last Question</span>!</h2>
-          <ul><li>Which fraction is smaller: 3/5 or 2/5?</li><li>How about 1/2 or 1/3?</li></ul>
-          <p class="notes">🎙️ Time for one last challenge! First, tell me which fraction is smaller: three-fifths or two-fifths? And then, which is smaller: one-half or one-third? Remember our rules for comparing!</p>
+          <h2>Fractions in Real Life: <span class="hl">Cooking</span>!</h2>
+          <ul><li>Fractions are super useful in our daily lives.</li><li>Recipes use fractions all the time, like 1/2 cup of milk or 1/4 spoon of sugar.</li></ul>
+          <p class="notes">🎙️ Next time you help in the kitchen, look at the recipe book! You'll see fractions telling you how much of each ingredient to use. It's how we make sure our food tastes just right!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👩‍🍳</div><div class="vcap">Measuring ingredients for cooking</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Fractions Are Fun!</h2>
-          <ul><li>Fractions are equal parts of a whole.</li><li>Numerator (top) tells parts taken.</li><li>Denominator (bottom) tells total parts.</li><li>We can compare fractions.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much about fractions today! We know they are about sharing things equally. We learned about the numerator and denominator, and how to read and compare fractions. You all did a great job!</p>
+          <h2><span class="hl">Recap</span>: What We Learned!</h2>
+          <ul><li>Fractions are parts of a whole, shared equally.</li><li>Numerator (top) and Denominator (bottom).</li><li>Proper, Improper, and Mixed Fractions.</li><li>Equivalent Fractions and Comparing Fractions.</li></ul>
+          <p class="notes">🎙️ Great job today, everyone! We learned so much about fractions: what they are, their parts, different types, how to change them, and how to compare them. Keep practicing, and you'll be fraction experts!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

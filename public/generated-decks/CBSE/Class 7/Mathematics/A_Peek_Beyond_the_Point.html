@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>A Peek Beyond the Point — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>A Peek Beyond the <span class="hl">Point</span></h2>
-          <ul><li>Unravelling the building blocks of geometry</li><li>From tiny dots to vast lines and angles</li><li>Let's explore the shapes around us!</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today, we're going on an exciting journey into the world of geometry. We've all seen points, but what lies beyond them? Let's find out!</p>
+          <ul><li>Welcome to our geometry adventure!</li><li>Today, we'll explore lines and angles in new ways.</li><li>Discover hidden relationships and patterns.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Get ready for an exciting journey into the world of geometry. We're going to look at points, lines, and angles with a fresh perspective, uncovering some fascinating relationships that you might not have noticed before. Let's begin our adventure!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Revisiting the <span class="hl">Point</span></h2>
-          <ul><li>A point is a location in space.</li><li>It has no size or dimension.</li><li>Represented by a dot and named with a capital letter.</li></ul>
-          <p class="notes">🎙️ Remember, a point is like a tiny mark, showing us 'where'. It's the starting block for everything else we'll learn in geometry. Think of it as a specific address.</p>
+          <h2>Revisiting the <span class="hl">Basics</span>: Points, Lines &amp; Rays</h2>
+          <ul><li>Point: A location, no size.</li><li>Line Segment: Part of a line, two endpoints.</li><li>Line: Extends infinitely in both directions.</li><li>Ray: Starts at a point, extends infinitely in one direction.</li></ul>
+          <p class="notes">🎙️ Before we go 'beyond', let's quickly refresh our memory on the fundamental building blocks of geometry. A point is just a position, a line segment has a definite start and end, a line keeps going forever in both directions, and a ray has a starting point but no end.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div><div class="vcap">A Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Building Blocks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Building Blocks</span>: Line Segment, Ray, Line</h2>
-          <ul><li>Points connect to form segments.</li><li>Segments extend to become rays.</li><li>Rays extend in both directions to form lines.</li></ul>
-          <p class="notes">🎙️ Imagine connecting many points together. Depending on how we connect and extend them, we get three fundamental geometric figures: line segments, rays, and lines. Let's look at each one.</p>
+          <h2>Different Strokes: Types of <span class="hl">Lines</span></h2>
+          <ul><li>Intersecting Lines: Cross at one point.</li><li>Parallel Lines: Never meet, same distance apart.</li><li>Perpendicular Lines: Intersect at a right angle (90°).</li></ul>
+          <p class="notes">🎙️ Lines can interact in different ways. Intersecting lines cross each other, parallel lines run side-by-side and never meet, and perpendicular lines meet specifically at a perfect right angle, like the corner of a square.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Point</span></div><div class="step"><span class="snum">2</span><span>Segment</span></div><div class="step"><span class="snum">3</span><span>Ray</span></div><div class="step"><span class="snum">4</span><span>Line</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Line Relationships</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>The Bounded Path: <span class="hl">Line Segment</span></h2>
-          <ul><li>A part of a line with two distinct endpoints.</li><li>It has a definite length.</li><li>Notation: AB or BA</li></ul>
-          <p class="notes">🎙️ A line segment is like a piece of string cut to a certain length. It starts at one point and ends at another. We can measure its length accurately.</p>
+          <h2>What is an <span class="hl">Angle</span>?</h2>
+          <ul><li>Formed by two rays sharing a common endpoint.</li><li>The common endpoint is called the vertex.</li><li>The rays are called the arms or sides.</li><li>Measured in degrees (°).</li></ul>
+          <p class="notes">🎙️ An angle is essentially a measure of the turn between two rays that start from the same point. Think of the hands of a clock or the corner of a room. The point where they meet is the vertex, and the rays are its arms. We typically measure angles using degrees.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Fixed Length</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Corner Turn</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>The One-Way Path: <span class="hl">Ray</span></h2>
-          <ul><li>A part of a line with one endpoint and extends infinitely in one direction.</li><li>It has no definite length.</li><li>Notation: AB (starting at A, going through B)</li></ul>
-          <p class="notes">🎙️ Think of a ray of sunlight. It starts from the sun and travels outwards endlessly in one direction. Similarly, a geometric ray has a starting point but no end.</p>
+          <h2><span class="hl">Classifying</span> Angles: Part 1</h2>
+          <ul><li>Acute Angle: Less than 90°.</li><li>Right Angle: Exactly 90°.</li><li>Obtuse Angle: Greater than 90° but less than 180°.</li></ul>
+          <p class="notes">🎙️ Angles come in different 'sizes'. An acute angle is sharp, smaller than a right angle. A right angle forms a perfect square corner. An obtuse angle is wider than a right angle but not yet a straight line.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">One Direction</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Acute</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Right</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Obtuse</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>The Endless Path: <span class="hl">Line</span></h2>
-          <ul><li>A collection of points extending infinitely in both directions.</li><li>It has no definite length or endpoints.</li><li>Notation: AB or a single lowercase letter 'l'</li></ul>
-          <p class="notes">🎙️ A line is like an imaginary path that never ends, stretching out forever in both directions. It's a fundamental concept in geometry, forming the basis for many shapes.</p>
+          <h2>Classifying Angles: <span class="hl">Part 2</span></h2>
+          <ul><li>Straight Angle: Exactly 180°, forms a straight line.</li><li>Reflex Angle: Greater than 180° but less than 360°.</li><li>Complete Angle: Exactly 360°, a full circle.</li></ul>
+          <p class="notes">🎙️ Continuing our classification, a straight angle makes a flat line. A reflex angle is a large angle that goes 'the other way' around, and a complete angle is a full rotation, bringing you back to the start.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Both Directions</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Straight</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Reflex</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Complete</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,23 +132,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Geometry <span class="hl">Around Us</span>!</h2>
-          <ul><li>Line segment: Edge of a ruler, side of a book.</li><li>Ray: Beam of a flashlight, sun's rays.</li><li>Line: Horizon line, railway track (approximated).</li></ul>
-          <p class="notes">🎙️ Geometry isn't just in textbooks; it's everywhere! Look around you, and you'll spot these basic elements forming the world we live in. Can you think of more examples?</p>
+          <h2>Angles All <span class="hl">Around Us</span>!</h2>
+          <ul><li>Clock hands showing time.</li><li>Corners of a book or table.</li><li>Slope of a ramp or roof.</li><li>Opening and closing of a door.</li></ul>
+          <p class="notes">🎙️ Angles aren't just in textbooks; they're everywhere! Look around you: the hands of a clock form angles, the corners of your room are right angles, and the way a door opens creates various angles. Recognizing them helps us understand our world better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Light Rays</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⏰</span><span>⏰</span><span>⏰</span></div><div class="vcap">Everyday Angles</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Quick Check 1: <span class="hl">Identify</span> the Figure!</h2>
-          <ul><li>A. It has two endpoints and a definite length.</li><li>B. It has one endpoint and extends infinitely in one direction.</li><li>C. It extends infinitely in both directions with no endpoints.</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Read these descriptions carefully and identify which geometric figure they represent. Think about the characteristics we just discussed.</p>
+          <h2>Special Pairs: <span class="hl">Complementary</span> Angles</h2>
+          <ul><li>Two angles whose sum is 90°.</li><li>They 'complement' each other to form a right angle.</li><li>Each angle is the complement of the other.</li></ul>
+          <p class="notes">🎙️ Now let's explore how angles relate to each other. Complementary angles are a pair that, when added together, perfectly make a right angle, 90 degrees. Think of them as two puzzle pieces fitting together to form a square corner.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Sum to 90</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Where Two Rays Meet: An <span class="hl">Angle</span></h2>
-          <ul><li>Formed when two rays share a common endpoint.</li><li>The common endpoint is called the vertex.</li><li>The two rays are called the arms or sides of the angle.</li></ul>
-          <p class="notes">🎙️ When two rays start from the same point and spread out, they form an angle. It's essentially a measure of the 'turn' or 'opening' between these two rays.</p>
+          <h2>Finding the <span class="hl">Complement</span></h2>
+          <ul><li>If angle A = 30°, its complement is 90° - 30° = 60°.</li><li>If angle B = 75°, its complement is 90° - 75° = 15°.</li><li>They don't have to be adjacent to be complementary.</li></ul>
+          <p class="notes">🎙️ Let's put this into practice. If you have an angle of 30 degrees, its complement would be 60 degrees, because 30 plus 60 equals 90. Similarly, for a 75-degree angle, its complement is 15 degrees. Remember, they don't have to be next to each other to be complementary.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Measuring Turn</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Calculation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Anatomy</span> of an Angle</h2>
-          <ul><li>Vertex: The common endpoint where the rays meet.</li><li>Arms: The two rays that form the angle.</li><li>Angles are named using three letters (e.g., ∠ABC) or one letter (e.g., ∠B).</li></ul>
-          <p class="notes">🎙️ Just like our bodies have different parts, an angle also has specific components. Understanding these parts helps us to identify and name angles correctly.</p>
+          <h2>Special Pairs: <span class="hl">Supplementary</span> Angles</h2>
+          <ul><li>Two angles whose sum is 180°.</li><li>They 'supplement' each other to form a straight angle.</li><li>Each angle is the supplement of the other.</li></ul>
+          <p class="notes">🎙️ Similar to complementary angles, supplementary angles are another special pair. These two angles add up to 180 degrees, forming a straight line. They complete each other to make a straight angle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">∠</div><div class="vcap">Vertex and Arms</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Sum to 180</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>How Big is the Turn? <span class="hl">Measuring Angles</span></h2>
-          <ul><li>Angles are measured in units called degrees (°).</li><li>A full circle is 360°.</li><li>We use a protractor to measure angles.</li></ul>
-          <p class="notes">🎙️ To quantify how much 'turn' an angle represents, we use degrees. Just like we measure length in centimetres, we measure angles in degrees. A protractor is our special tool for this.</p>
+          <h2>Finding the <span class="hl">Supplement</span></h2>
+          <ul><li>If angle X = 120°, its supplement is 180° - 120° = 60°.</li><li>If angle Y = 45°, its supplement is 180° - 45° = 135°.</li><li>They can be adjacent or non-adjacent.</li></ul>
+          <p class="notes">🎙️ Here's how we find a supplement. If one angle is 120 degrees, its supplement is 60 degrees, because together they make 180 degrees. If another angle is 45 degrees, its supplement would be 135 degrees. Just like complementary angles, they don't have to be side-by-side.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">°</div><div class="vcap">Degrees Unit</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Calculation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Classifying Angles</span>: Acute, Right, Obtuse</h2>
-          <ul><li>Acute angle: Less than 90°.</li><li>Right angle: Exactly 90° (forms an 'L' shape).</li><li>Obtuse angle: Greater than 90° but less than 180°.</li></ul>
-          <p class="notes">🎙️ Angles come in different 'sizes'. We classify them based on their measure. Think of a right angle as a perfect corner, like the corner of a book.</p>
+          <h2><span class="hl">Adjacent</span> Angles: Next to Each Other</h2>
+          <ul><li>Share a common vertex.</li><li>Share a common arm.</li><li>Do not overlap (their non-common arms are on opposite sides of the common arm).</li></ul>
+          <p class="notes">🎙️ Now, let's talk about angles that are neighbors. Adjacent angles are two angles that sit right next to each other. They must share the same corner point, share one of their arms, and importantly, they don't overlap each other.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Acute</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Right</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Obtuse</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Sharing a Side</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>More Angle Classifications: Straight, Reflex, Complete</h2>
-          <ul><li>Straight angle: Exactly 180° (a straight line).</li><li>Reflex angle: Greater than 180° but less than 360°.</li><li>Complete angle: Exactly 360° (a full circle).</li></ul>
-          <p class="notes">🎙️ Beyond the basic three, we have angles that represent larger turns. A straight angle is like looking straight ahead and then turning completely around to look straight back.</p>
+          <h2><span class="hl">Identifying</span> Adjacent Angles</h2>
+          <ul><li>Imagine two slices of a pizza cut from the same center point.</li><li>The crust where they meet is the common arm.</li><li>The center of the pizza is the common vertex.</li></ul>
+          <p class="notes">🎙️ Think of a pizza cut into slices. If you pick two slices that are next to each other, they share the point at the center of the pizza (the vertex) and the cut line between them (the common arm). This is a perfect example of adjacent angles.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Straight</div></div><div class="ccard"><div class="cbar" style="width:83%"></div><div class="clabel">Reflex</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Complete</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span></div><div class="vcap">Pizza Slices</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Angles <span class="hl">Everywhere</span>!</h2>
-          <ul><li>Acute: Corner of a slice of pizza.</li><li>Right: Corner of a room, edge of a table.</li><li>Obtuse: Opening of a laptop screen.</li><li>Straight: A stretched-out arm.</li></ul>
-          <p class="notes">🎙️ Angles are fundamental to the design and structure of almost everything we see. From buildings to everyday objects, understanding angles helps us appreciate their construction.</p>
+          <h2>A Special Adjacent Pair: <span class="hl">Linear Pair</span></h2>
+          <ul><li>Adjacent angles that are supplementary.</li><li>Their non-common arms form a straight line.</li><li>The sum of angles in a linear pair is 180°.</li></ul>
+          <p class="notes">🎙️ A linear pair is a very specific type of adjacent angle. Not only are they neighbors, but they also add up to 180 degrees, forming a perfect straight line with their outer arms. The word 'linear' reminds us of this straight line.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">Pizza Slice</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line Sum</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Crossing Paths: <span class="hl">Intersecting Lines</span></h2>
-          <ul><li>Two lines that meet at a common point.</li><li>The common point is called the point of intersection.</li><li>They form angles at their intersection.</li></ul>
-          <p class="notes">🎙️ Imagine two roads crossing each other; that's exactly what intersecting lines do. They share one and only one point, and this meeting creates interesting angle relationships.</p>
+          <h2><span class="hl">Finding</span> Angles in a Linear Pair</h2>
+          <ul><li>If one angle of a linear pair is 70°, the other is 180° - 70° = 110°.</li><li>When a straight line is divided by a ray, two angles form a linear pair.</li><li>Useful for finding unknown angles.</li></ul>
+          <p class="notes">🎙️ If you have a straight line and another ray starts from a point on that line, it creates a linear pair. If one angle is 70 degrees, you can easily find the other by subtracting 70 from 180, giving you 110 degrees. This property is very useful for solving problems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Meeting Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Missing Angle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Never Meeting: <span class="hl">Parallel Lines</span></h2>
-          <ul><li>Two lines in the same plane that never intersect.</li><li>They maintain the same distance apart.</li><li>Notation: l || m</li></ul>
-          <p class="notes">🎙️ Parallel lines are like railway tracks; they run side-by-side forever without ever touching. The distance between them always remains the same.</p>
+          <h2><span class="hl">Vertically Opposite</span> Angles: Across the Vertex</h2>
+          <ul><li>Formed when two lines intersect.</li><li>They are opposite to each other at the point of intersection.</li><li>Vertically opposite angles are always equal.</li></ul>
+          <p class="notes">🎙️ When two straight lines cross each other, they create four angles. The angles that are directly opposite each other at the intersection point are called vertically opposite angles. And here's a key property: they are always equal in measure!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏸️</div><div class="vcap">Constant Distance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Equal Opposites</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,23 +252,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>The Crossing Line: <span class="hl">Transversal</span></h2>
-          <ul><li>A line that intersects two or more other lines at distinct points.</li><li>It creates various angle pairs.</li><li>Crucial for understanding properties of parallel lines.</li></ul>
-          <p class="notes">🎙️ When a line cuts across two or more other lines, it's called a transversal. This seemingly simple act creates a whole set of specific angle relationships that we'll explore.</p>
+          <h2><span class="hl">Using</span> Vertically Opposite Angles</h2>
+          <ul><li>If angle 1 = 50°, then the angle opposite to it (angle 3) is also 50°.</li><li>This property helps find unknown angles quickly.</li><li>Consider the 'X' shape formed by intersecting lines.</li></ul>
+          <p class="notes">🎙️ Imagine an 'X' shape. If the top angle is 50 degrees, then the bottom angle, which is vertically opposite to it, will also be 50 degrees. This is a powerful rule for solving problems involving intersecting lines, as it immediately tells us the measure of another angle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Cutting Across</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Angle Equality</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Angle Pairs</span> with a Transversal</h2>
-          <ul><li>When a transversal cuts two lines, 8 angles are formed.</li><li>These angles have special names and relationships.</li><li>Especially important when the two lines are parallel.</li></ul>
-          <p class="notes">🎙️ Look closely at the diagram when a transversal cuts two lines. You'll notice many angles appearing. We group these angles into pairs based on their positions and properties.</p>
+          <h2>Time for a Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the complement of 55°?</li><li>If two angles form a linear pair and one is 100°, what is the other?</li><li>Are all adjacent angles a linear pair? (Yes/No)</li></ul>
+          <p class="notes">🎙️ Let's pause and see how well you've grasped these concepts. Take a moment to think about these questions. The first two require a simple calculation, and the third tests your understanding of definitions. Remember what we just discussed!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">8 Angles Created</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>In the Same Spot: <span class="hl">Corresponding Angles</span></h2>
-          <ul><li>Angles that are in the same relative position at each intersection.</li><li>One is exterior, one is interior, on the same side of the transversal.</li><li>If lines are parallel, corresponding angles are equal.</li></ul>
-          <p class="notes">🎙️ Imagine copying and pasting one intersection onto the other. The angles that perfectly match up are corresponding angles. When the lines are parallel, these pairs are always equal.</p>
+          <h2>Beyond the Point: Introducing <span class="hl">Transversals</span></h2>
+          <ul><li>A line that intersects two or more other lines.</li><li>It intersects them at distinct points.</li><li>These lines can be parallel or non-parallel.</li></ul>
+          <p class="notes">🎙️ Now, let's take our understanding of lines and angles to the next level. Imagine a road crossing two other roads. That crossing road is like a transversal – a line that cuts across two or more other lines at different points. This creates many new angles to explore.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↖️</div><div class="vcap">Same Relative Position</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Crossing Lines</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Inside &amp; Opposite: <span class="hl">Alternate Interior</span> Angles</h2>
-          <ul><li>Angles that are between the two lines and on opposite sides of the transversal.</li><li>If lines are parallel, alternate interior angles are equal.</li><li>They form a 'Z' shape.</li></ul>
-          <p class="notes">🎙️ These angles are 'inside' the two lines and 'alternate' sides of the transversal. If the two lines are parallel, these angles are always equal, a very useful property!</p>
+          <h2><span class="hl">New Angles</span> in the Neighborhood</h2>
+          <ul><li>Corresponding Angles: Same relative position.</li><li>Alternate Interior Angles: Inside, opposite sides of transversal.</li><li>Alternate Exterior Angles: Outside, opposite sides of transversal.</li><li>Interior Angles on the Same Side of Transversal: Inside, same side.</li></ul>
+          <p class="notes">🎙️ When a transversal cuts across lines, it creates eight angles! We give these angles special names based on their positions. We have corresponding angles, alternate interior and exterior angles, and interior angles on the same side. Each type has a unique location.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Z-Shape Pattern</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Angle Zones</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Outside &amp; Opposite: <span class="hl">Alternate Exterior</span> Angles</h2>
-          <ul><li>Angles that are outside the two lines and on opposite sides of the transversal.</li><li>If lines are parallel, alternate exterior angles are equal.</li><li>Similar to alternate interior, but outside.</li></ul>
-          <p class="notes">🎙️ Just like alternate interior angles, but these are found on the 'outside' of the two lines. When the lines are parallel, these pairs are also equal.</p>
+          <h2>Special Relationships with <span class="hl">Parallel Lines</span></h2>
+          <ul><li>If lines are parallel, corresponding angles are equal.</li><li>If lines are parallel, alternate interior angles are equal.</li><li>If lines are parallel, alternate exterior angles are equal.</li><li>If lines are parallel, interior angles on the same side are supplementary (sum to 180°).</li></ul>
+          <p class="notes">🎙️ This is where transversals get really interesting! When the two lines being intersected are parallel, these special angle pairs have very specific relationships. Corresponding, alternate interior, and alternate exterior angles become equal, while interior angles on the same side become supplementary.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↪️</div><div class="vcap">Outside Z-Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟰</div><div class="vcap">Equal &amp; Sum</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,51 +312,52 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Inside &amp; Together: <span class="hl">Co-Interior Angles</span></h2>
-          <ul><li>Angles that are between the two lines and on the same side of the transversal.</li><li>Also called Consecutive Interior Angles.</li><li>If lines are parallel, their sum is 180° (supplementary).</li></ul>
-          <p class="notes">🎙️ These angles are 'inside' the two lines and stay on the 'same side' of the transversal. When the lines are parallel, they don't have to be equal, but their sum is always a straight angle, 180 degrees.</p>
+          <h2>Putting it Together: <span class="hl">Solving for X</span></h2>
+          <ul><li>Given two parallel lines cut by a transversal.</li><li>If one corresponding angle is 70°, the other is also 70°.</li><li>If one alternate interior angle is 60°, the other is 60°.</li><li>If one same-side interior angle is 110°, its partner is 180°-110° = 70°.</li></ul>
+          <p class="notes">🎙️ Let's apply these rules. If you know one angle formed by a transversal cutting parallel lines, you can find all the others! For example, if you see a corresponding angle of 70 degrees, you immediately know its partner is also 70 degrees. This helps us solve many geometric puzzles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">C</div><div class="vcap">C-Shape Pattern</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Angle Puzzles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Another Quick <span class="hl">Check</span>!</h2>
+          <ul><li>A line intersecting two parallel lines is called a _.</li><li>If two parallel lines are cut by a transversal, and one corresponding angle is 85°, what is the other?</li><li>Are alternate exterior angles always equal when lines are parallel? (Yes/No)</li></ul>
+          <p class="notes">🎙️ Time for a final quick check to solidify your understanding of transversals and parallel lines. Think carefully about the definitions and properties we just discussed. These are fundamental concepts for higher geometry, so make sure you're clear on them!</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Putting it Together: <span class="hl">Find the Angles</span>!</h2>
-          <ul><li>Given: Line l || m, and a transversal t.</li><li>One angle is 70°.</li><li>Find all other unknown angles.</li></ul>
-          <p class="notes">🎙️ Now, let's apply what we've learned! With just one angle given and knowing the lines are parallel, we can find all the other angles using the properties of corresponding, alternate, and co-interior angles.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Given</span></div><div class="step"><span class="snum">2</span><span>Use Corresponding</span></div><div class="step"><span class="snum">3</span><span>Use Linear Pair</span></div><div class="step"><span class="snum">4</span><span>Use Alternate Interior</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check 2: Angle <span class="hl">Challenge</span>!</h2>
-          <ul><li>If two parallel lines are cut by a transversal, and one alternate interior angle is 65°, what is the other?</li><li>What is the sum of co-interior angles if lines are parallel?</li><li>If a line segment is 5 cm long, can it be extended indefinitely?</li></ul>
-          <p class="notes">🎙️ Test your understanding with these quick questions. Remember the properties of parallel lines and transversals. Think carefully before you answer!</p>
+          <h2>Our Journey Beyond the Point: <span class="hl">Recap</span></h2>
+          <ul><li>Reviewed basic geometric shapes.</li><li>Explored different types of angles.</li><li>Learned about special angle pairs: complementary, supplementary, adjacent, linear pair, vertically opposite.</li><li>Understood transversals and angles with parallel lines.</li></ul>
+          <p class="notes">🎙️ What an incredible journey we've had! We've revisited the basics, classified angles, and discovered the fascinating relationships between angle pairs like complementary and supplementary. We also ventured into the world of transversals and the special properties they create when cutting parallel lines.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Knowledge Gained</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Journey's End: What We've <span class="hl">Learned</span></h2>
-          <ul><li>Points, line segments, rays, and lines.</li><li>Angles: definition, parts, types, and measurement.</li><li>Intersecting and parallel lines, and transversals.</li><li>Special angle pairs formed by a transversal.</li></ul>
-          <p class="notes">🎙️ What an amazing journey we've had, peeking beyond the point! We've built from basic points to complex angle relationships. These concepts are the foundation for more advanced geometry.</p>
+          <h2>What's Next? Your Geometric Adventure <span class="hl">Continues</span>!</h2>
+          <ul><li>Practice identifying angles in real-world scenarios.</li><li>Solve more complex problems involving unknown angles.</li><li>Explore how these concepts are used in architecture and engineering.</li><li>Keep observing the geometry all around you!</li></ul>
+          <p class="notes">🎙️ This is just the beginning! Keep practicing identifying these angles and their relationships. You'll find these concepts are crucial in many fields, from constructing buildings to designing art. The world is full of geometry, and now you have the tools to understand it better!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Future Explorations</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Patterns — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Patterns: Fun with Repetition! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to "<span class="hl">Patterns</span>"!</h2>
-          <ul><li>Let's find hidden designs everywhere!</li></ul>
-          <p class="notes">🎙️ Hello, my dear little friends! Today, we are going on a fun adventure to discover something amazing called 'Patterns'. Get ready to open your eyes and see the world in a new way!</p>
+          <h2>Let's Explore <span class="hl">Patterns</span>!</h2>
+          <ul><li>Hello, little explorers!</li><li>Today, we will discover patterns all around us.</li></ul>
+          <p class="notes">🎙️ Good morning, my dear students! Today, we are going on an exciting adventure to find patterns. Patterns are like little secrets hidden everywhere, and once you know how to spot them, you'll see them in many fun places.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What are <span class="hl">Patterns</span>?</h2>
-          <ul><li>Patterns are things that repeat.</li><li>They follow a rule.</li><li>Like a secret code!</li></ul>
-          <p class="notes">🎙️ Imagine a beautiful design that keeps coming again and again. That's a pattern! It's like a secret rule that tells us what comes next.</p>
+          <h2>What is a <span class="hl">Pattern</span>?</h2>
+          <ul><li>A pattern is something that repeats.</li><li>It follows a rule, again and again!</li></ul>
+          <p class="notes">🎙️ Imagine you clap your hands, then stomp your feet, then clap, then stomp again. That's a pattern! It's a sequence that happens over and over, following a simple rule.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎇</div><div class="vcap">Something repeating</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔁</div><div class="vcap">Repeating Fun</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Patterns All <span class="hl">Around Us</span></h2>
-          <ul><li>Look closely, patterns are everywhere!</li><li>In nature, in our homes, on our clothes.</li></ul>
-          <p class="notes">🎙️ From the stripes on a zebra to the design on your favourite shirt, patterns are hiding! Even in the way birds fly.</p>
+          <h2>Look <span class="hl">Around</span> You!</h2>
+          <ul><li>Patterns are everywhere!</li><li>On your clothes, on the floor, in nature.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed the design on your shirt? Or the way flowers grow in a garden? Many things around us follow a pattern, making them beautiful and interesting to look at.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦋</span><span>🦋</span><span>🦋</span></div><div class="vcap">Butterflies flying in a row</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span></div><div class="vcap">Flowers in a row</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Shape</span> Patterns</h2>
-          <ul><li>Shapes can make patterns.</li><li>A square, then a circle, then a square...</li></ul>
-          <p class="notes">🎙️ Let's start with shapes! See how the square and circle take turns? This is a simple shape pattern. What do you think comes next?</p>
+          <h2>Patterns with <span class="hl">Shapes</span></h2>
+          <ul><li>We can make patterns with different shapes.</li><li>Like square, circle, square, circle!</li></ul>
+          <p class="notes">🎙️ Let's start with shapes! You can arrange shapes in a repeating order. For example, a triangle, then a circle, then a triangle, and then a circle again. This creates a shape pattern.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🔢" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Let's <span class="hl">Complete</span> a Shape Pattern!</h2>
-          <ul><li>Look at the pattern: Triangle, Star, Triangle, Star, ___?</li><li>What comes next?</li></ul>
-          <p class="notes">🎙️ Here's a pattern with triangles and stars. Can you guess which shape should fill the empty spot? Yes, it's a triangle!</p>
+          <h2>Can You <span class="hl">Complete</span> This Shape Pattern?</h2>
+          <ul><li>Look at the shapes.</li><li>What comes next: Star, Moon, Star, Moon, ___?</li></ul>
+          <p class="notes">🎙️ Let's try one together! We have a star, then a moon, then a star, then a moon. What shape do you think should come after the second moon to keep the pattern going? That's right, another star!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>🔺</span></div><div class="step"><span class="snum">2</span><span>⭐</span></div><div class="step"><span class="snum">3</span><span>🔺</span></div><div class="step"><span class="snum">4</span><span>⭐</span></div><div class="step"><span class="snum">5</span><span>?</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">What comes next?</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,57 +120,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Patterns on Your <span class="hl">Clothes</span>!</h2>
-          <ul><li>Many clothes have patterns.</li><li>Like stripes or polka dots repeating.</li></ul>
-          <p class="notes">🎙️ Next time you wear your favourite shirt, look closely! Does it have stripes that go up and down, or little dots all over? Those are patterns!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">A shirt with a pattern</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2><span class="hl">Colour</span> Patterns</h2>
-          <ul><li>Colours can make patterns too!</li><li>Red, Blue, Red, Blue...</li></ul>
-          <p class="notes">🎙️ Just like shapes, colours love to play the repeating game! See how red and blue take turns? This is a colour pattern.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>🔴</span></div><div class="step"><span class="snum">2</span><span>🔵</span></div><div class="step"><span class="snum">3</span><span>🔴</span></div><div class="step"><span class="snum">4</span><span>🔵</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2><span class="hl">Fill in</span> the Colour Pattern!</h2>
-          <ul><li>Yellow, Green, Yellow, Green, ___?</li><li>What colour comes next?</li></ul>
-          <p class="notes">🎙️ Look at this pattern! Yellow, Green, Yellow, Green. What colour do you think should come next to keep the pattern going? That's right, Yellow!</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>🟡</span></div><div class="step"><span class="snum">2</span><span>🟢</span></div><div class="step"><span class="snum">3</span><span>🟡</span></div><div class="step"><span class="snum">4</span><span>🟢</span></div><div class="step"><span class="snum">5</span><span>?</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2><span class="hl">Traffic Light</span> Pattern</h2>
-          <ul><li>Traffic lights follow a colour pattern.</li><li>Red, Yellow, Green, and then again!</li></ul>
-          <p class="notes">🎙️ Even traffic lights have a pattern! Red means stop, Yellow means get ready, and Green means go. Then it repeats! It helps everyone stay safe.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="🚦" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2><span class="hl">Number</span> Patterns</h2>
-          <ul><li>Numbers can make patterns too!</li><li>Like counting: 1, 2, 3, 4...</li></ul>
-          <p class="notes">🎙️ Numbers also love patterns! When we count, we are actually following a number pattern. Each number is one more than the last.</p>
+          <h2>Patterns with <span class="hl">Numbers</span></h2>
+          <ul><li>Numbers can also make patterns.</li><li>We can count by 1s, 2s, or more!</li></ul>
+          <p class="notes">🎙️ Numbers are not just for counting; they can also form amazing patterns! When numbers follow a rule, like adding the same number each time, they create a number pattern.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -166,12 +131,60 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2><span class="hl">Counting by 2s</span> Pattern</h2>
-          <ul><li>This pattern jumps by 2!</li><li>2, 4, 6, 8, ___?</li></ul>
-          <p class="notes">🎙️ Here's a fun number pattern where we skip count by 2. After 8, if we add 2 more, what number do we get? Yes, 10!</p>
+          <span class="num">7 / 20</span>
+          <h2>Counting By <span class="hl">Ones</span></h2>
+          <ul><li>This is a simple number pattern.</li><li>1, 2, 3, 4, 5...</li></ul>
+          <p class="notes">🎙️ When we count normally, we are actually following a pattern! Each number is one more than the previous number. This is a very common and easy-to-spot number pattern.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>2</span></div><div class="step"><span class="snum">2</span><span>4</span></div><div class="step"><span class="snum">3</span><span>6</span></div><div class="step"><span class="snum">4</span><span>8</span></div><div class="step"><span class="snum">5</span><span>?</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>1️⃣</span><span>1️⃣</span><span>1️⃣</span><span>1️⃣</span><span>1️⃣</span></div><div class="vcap">1, 2, 3, 4, 5...</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Counting By <span class="hl">Twos</span></h2>
+          <ul><li>Here, we skip one number each time.</li><li>2, 4, 6, 8...</li></ul>
+          <p class="notes">🎙️ Counting by twos is another fun number pattern. We start at 2, then add 2 to get 4, then add 2 again to get 6, and so on. Can you think of the next number in this pattern?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>2️⃣</span><span>2️⃣</span><span>2️⃣</span><span>2️⃣</span></div><div class="vcap">2, 4, 6, 8...</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>Patterns with <span class="hl">Letters</span></h2>
+          <ul><li>Letters of the alphabet can also make patterns.</li><li>Like A, B, A, B!</li></ul>
+          <p class="notes">🎙️ Just like shapes and numbers, letters can also be arranged in patterns. You can use two letters, three letters, or even more, to make a repeating sequence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔠</div><div class="vcap">Alphabet Fun</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 20</span>
+          <h2>What Comes <span class="hl">Next</span> in This Letter Pattern?</h2>
+          <ul><li>Look carefully at the letters.</li><li>A, B, A, B, ___?</li></ul>
+          <p class="notes">🎙️ Here's a letter pattern challenge for you! We have A, then B, then A, then B. What letter do you think will come next in this pattern? You're right, it's A!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🅰️</span><span>🅰️</span><span>🅰️</span><span>🅰️</span><span>🅰️</span></div><div class="vcap">A, B, A, B, ?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2>Patterns in <span class="hl">Actions</span></h2>
+          <ul><li>Our actions can also form patterns.</li><li>Clap, stomp, clap, stomp!</li></ul>
+          <p class="notes">🎙️ Patterns are not just things we see; they can be things we do too! Think about a dance move or a game you play. Many times, you repeat actions in a certain order, creating an action pattern.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👏</div><div class="vcap">Clap, Stomp, Clap!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Calendar</span> Day Pattern</h2>
-          <ul><li>Days on a calendar follow a pattern.</li><li>1, 2, 3... and then a new week starts!</li></ul>
-          <p class="notes">🎙️ Look at a calendar! The dates go 1, 2, 3, all the way to 30 or 31, and then a new month starts. This is a number pattern that helps us keep track of days.</p>
+          <h2>Patterns on Our <span class="hl">Clothes</span></h2>
+          <ul><li>Look at your shirt or dress.</li><li>Does it have stripes, dots, or checks?</li></ul>
+          <p class="notes">🎙️ Next time you pick out your clothes, notice the patterns! Many clothes have beautiful designs like stripes, polka dots, or checks, which are all examples of repeating patterns.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">A calendar showing dates</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">Stripes and Dots</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,47 +204,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Letter</span> Patterns</h2>
-          <ul><li>Letters can also form patterns.</li><li>A, B, C, A, B, C...</li></ul>
-          <p class="notes">🎙️ Even the letters of the alphabet can make patterns! See how A, B, C repeat? It's like a little letter song!</p>
+          <h2>Patterns on the <span class="hl">Floor</span></h2>
+          <ul><li>The tiles on the floor make patterns.</li><li>They fit together in a repeating way.</li></ul>
+          <p class="notes">🎙️ Even the floor you walk on can have patterns! Look at the tiles in your classroom or at home. They often repeat in a beautiful design, making a pattern on the floor.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>A</span></div><div class="step"><span class="snum">2</span><span>B</span></div><div class="step"><span class="snum">3</span><span>C</span></div><div class="step"><span class="snum">4</span><span>A</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Tiles make patterns</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Complete</span> the Letter Pattern!</h2>
-          <ul><li>M, N, O, M, N, ___?</li><li>What letter comes next?</li></ul>
-          <p class="notes">🎙️ Try this one! M, N, O, M, N. What letter should come next to finish this pattern? Excellent, it's O!</p>
+          <h2>Quick Check! What is <span class="hl">Missing</span>?</h2>
+          <ul><li>🍎, 🍌, 🍎, ___, 🍎</li><li>What fruit comes next?</li></ul>
+          <p class="notes">🎙️ Let's do a quick check to see if you can spot the missing item in this pattern. We have an apple, then a banana, then an apple. What fruit should come next to continue the pattern?</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>M</span></div><div class="step"><span class="snum">2</span><span>N</span></div><div class="step"><span class="snum">3</span><span>O</span></div><div class="step"><span class="snum">4</span><span>M</span></div><div class="step"><span class="snum">5</span><span>N</span></div><div class="step"><span class="snum">6</span><span>?</span></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">Alphabet Song</span> Pattern</h2>
-          <ul><li>The Alphabet Song is a letter pattern.</li><li>A-B-C-D, E-F-G... it repeats!</li></ul>
-          <p class="notes">🎙️ When you sing the alphabet song, you are actually singing a letter pattern! Each letter comes in a special order, and then it starts again for new words.</p>
+          <h2>Quick Check! Find the <span class="hl">Next</span> Number.</h2>
+          <ul><li>10, 20, 30, ___, 50</li><li>What number comes next in this pattern?</li></ul>
+          <p class="notes">🎙️ Now, let's try a number pattern. We have 10, then 20, then 30. What number do you think comes after 30 to complete this pattern? Hint: we are counting by tens!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Music notes for a song</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick <span class="hl">Question</span>: What comes next?</h2>
-          <ul><li>Look at the pattern: ☀️, ☁️, ☀️, ☁️, ___?</li><li>What will you draw?</li></ul>
-          <p class="notes">🎙️ Time for a quick challenge! See the sun and cloud pattern? What emoji should come next to keep the pattern going? Think carefully!</p>
+          <h2>Quick Check! Complete the <span class="hl">Sequence</span>.</h2>
+          <ul><li>X, Y, Z, X, Y, ___</li><li>What letter completes this pattern?</li></ul>
+          <p class="notes">🎙️ One last quick check! Look at this letter pattern: X, Y, Z, X, Y. What letter should come next to finish the pattern? Think about the group of letters that is repeating.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Time to think!</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,33 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick Question: Find the missing number!</h2>
-          <ul><li>Pattern: 5, 10, 15, ___, 25</li><li>What is the missing number?</li></ul>
-          <p class="notes">🎙️ Here's a number pattern. Can you see the rule? 5, 10, 15... what number should come after 15 to follow the rule? You are right, 20!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think hard!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2>Quick Question: What is the rule?</h2>
-          <ul><li>Pattern: ⬆️, ⬇️, ⬆️, ⬇️</li><li>What is the pattern rule?</li></ul>
-          <p class="notes">🎙️ Look at this pattern of arrows. What is the rule that tells us what comes next? Yes, it's an 'up, down' pattern!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔎</div><div class="vcap">Find the rule!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span> Time!</h2>
-          <ul><li>Patterns are things that repeat.</li><li>They can be shapes, colours, numbers, or letters.</li><li>Patterns help us predict what comes next!</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much about patterns today! Remember, patterns are everywhere, and they always follow a rule. It's like a fun game of predicting!</p>
+          <h2><span class="hl">Growing</span> Patterns</h2>
+          <ul><li>Some patterns grow bigger each time.</li><li>Like 1 block, then 2 blocks, then 3 blocks.</li></ul>
+          <p class="notes">🎙️ Not all patterns just repeat the same thing. Some patterns grow! This means each step gets bigger or adds more to the previous step, following a rule like adding one more each time.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
@@ -274,16 +263,41 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Finding Patterns</span>!</h2>
-          <ul><li>Look for patterns in your toys, books, and nature!</li><li>Patterns make the world beautiful and fun!</li></ul>
-          <p class="notes">🎙️ Now that you know what patterns are, keep your eyes open! You'll start seeing them everywhere, and it will make the world even more interesting! Great job, everyone!</p>
+          <span class="num">18 / 20</span>
+          <h2><span class="hl">Shrinking</span> Patterns</h2>
+          <ul><li>Some patterns get smaller each time.</li><li>Like 3 apples, then 2 apples, then 1 apple.</li></ul>
+          <p class="notes">🎙️ Just like patterns can grow, they can also shrink! In a shrinking pattern, each step gets smaller or has less than the previous step, following a rule like taking one away each time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">The magic of patterns</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>3 Apples</span></div><div class="step"><span class="snum">2</span><span>2 Apples</span></div><div class="step"><span class="snum">3</span><span>1 Apple</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>Look for Patterns <span class="hl">Everywhere</span>!</h2>
+          <ul><li>Patterns make our world interesting.</li><li>Be a pattern detective every day!</li></ul>
+          <p class="notes">🎙️ Now that you know what patterns are, you'll start seeing them all around you! In your toys, in music, in nature. Keep your eyes open and be a pattern detective!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Compound_Interest_with_Varying_Frequencies.svg?width=480" data-fb="🔍" alt="Money grows faster with compound interest over time."/><div class="vcap">Money grows faster with compound interest over time.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2>What Did We <span class="hl">Learn</span> Today?</h2>
+          <ul><li>Patterns are things that repeat.</li><li>They can be made with shapes, numbers, letters, and actions.</li><li>We also saw growing and shrinking patterns.</li></ul>
+          <p class="notes">🎙️ Today, we learned that patterns are all about repetition and rules. We found patterns in shapes, numbers, letters, and even our daily actions. Keep practicing and you'll become a pattern expert!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

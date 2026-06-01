@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Finding Common Ground: HCF and LCM — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Finding Common Ground: HCF &amp; LCM — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome: Finding <span class="hl">Common Ground</span></h2>
-          <ul><li>Introduction to key mathematical concepts.</li><li>Explore how numbers connect.</li><li>Focus on HCF and LCM.</li></ul>
-          <p class="notes">🎙️ Welcome to our chapter, 'Finding Common Ground.' Today, we'll explore fascinating ways numbers connect, focusing on Highest Common Factor and Lowest Common Multiple. These tools help us understand relationships between numbers.</p>
+          <h2>Chapter: Finding <span class="hl">Common</span> Ground</h2>
+          <ul><li>Welcome to a new chapter in Mathematics!</li><li>Today, we'll learn to find 'common ground' between numbers.</li><li>This involves understanding factors and multiples.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today we embark on an exciting journey in mathematics, exploring how numbers relate to each other. Our chapter, 'Finding Common Ground', will introduce us to powerful tools for understanding these relationships.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Understanding <span class="hl">Factors</span></h2>
-          <ul><li>Numbers that divide another number exactly.</li><li>No remainder is left after division.</li><li>Every number has at least two factors: 1 and itself.</li></ul>
-          <p class="notes">🎙️ A factor is like a building block for a number. If you can divide a number by another number and get a whole number answer, then the divisor is a factor. For example, the factors of 10 are 1, 2, 5, and 10.</p>
+          <h2>Revisiting <span class="hl">Factors</span></h2>
+          <ul><li>A factor divides a number exactly, with no remainder.</li><li>For example, the factors of 12 are 1, 2, 3, 4, 6, and 12.</li><li>Every number has at least two factors: 1 and itself.</li></ul>
+          <p class="notes">🎙️ Remember factors from previous classes? They are like building blocks for numbers. If you have 10 cookies, you can divide them into 1 group of 10, 2 groups of 5, 5 groups of 2, or 10 groups of 1. These are its factors.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Divisibility</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Factors of 10</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Factors in <span class="hl">Real Life</span></h2>
-          <ul><li>Arranging items into equal groups.</li><li>Sharing things fairly among people.</li><li>Organising objects in rows and columns.</li></ul>
-          <p class="notes">🎙️ Imagine you have 6 cookies. You can arrange them into 1 group of 6, 2 groups of 3, 3 groups of 2, or 6 groups of 1. So, 1, 2, 3, and 6 are factors of 6, representing the number of equal groups you can make.</p>
+          <h2>Real-Life Example: Factors</h2>
+          <ul><li>You have 18 books and want to arrange them in equal piles.</li><li>What are the possible number of books in each pile?</li><li>These numbers are the factors of 18: 1, 2, 3, 6, 9, 18.</li></ul>
+          <p class="notes">🎙️ Imagine you are a librarian arranging books. If you have 18 books, you can make piles of 1, 2, 3, 6, 9, or 18 books each. Each of these numbers is a factor of 18, showing how factors are useful in everyday division.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Sharing cookies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Arranging books</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Exploring <span class="hl">Multiples</span></h2>
-          <ul><li>The result of multiplying a number by another whole number.</li><li>Multiples are like the 'times table' of a number.</li><li>They are always equal to or greater than the original number.</li></ul>
-          <p class="notes">🎙️ Multiples are what you get when you count by a certain number. For instance, the multiples of 3 are 3, 6, 9, 12, and so on. They represent repeated additions of the number itself.</p>
+          <h2>Understanding <span class="hl">Multiples</span></h2>
+          <ul><li>A multiple is the result of multiplying a number by an integer.</li><li>For example, multiples of 3 are 3, 6, 9, 12, 15, and so on.</li><li>Multiples go on infinitely for any given number.</li></ul>
+          <p class="notes">🎙️ Multiples are like skip-counting. If you count by 4s, you get 4, 8, 12, 16, and so on. These are the multiples of 4. They are the products you get when you multiply 4 by 1, 2, 3, 4, and so forth.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Repeated Addition</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏀</span><span>🏀</span><span>🏀</span><span>🏀</span><span>🏀</span><span>🏀</span><span>🏀</span><span>🏀</span></div><div class="vcap">Multiples of 4</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,23 +108,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Multiples <span class="hl">Around Us</span></h2>
-          <ul><li>Counting steps in a repeating pattern.</li><li>Scheduling events that recur at fixed intervals.</li><li>Calculating distances travelled over time.</li></ul>
-          <p class="notes">🎙️ If a bus comes every 5 minutes, the times it arrives (starting from 0) are 0, 5, 10, 15, 20 minutes and so on. These are multiples of 5, helping us predict future events.</p>
+          <h2>Real-Life Example: Multiples</h2>
+          <ul><li>A rabbit jumps 5 steps at a time.</li><li>The distances it covers are multiples of 5: 5, 10, 15, 20...</li><li>Multiples help us predict future occurrences in patterns.</li></ul>
+          <p class="notes">🎙️ Think of a rabbit hopping! If it takes 5 steps per hop, its landing spots will always be multiples of 5. This simple example shows how multiples describe repeated actions or predictable patterns in distance, time, or quantity.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⏰</span><span>⏰</span><span>⏰</span><span>⏰</span><span>⏰</span></div><div class="vcap">Counting in fives</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Skipping steps</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Factors or Multiples?</h2>
-          <ul><li>Is 7 a factor of 21?</li><li>Is 24 a multiple of 6?</li><li>Is 5 a factor of 12?</li></ul>
-          <p class="notes">🎙️ Let's test our understanding! Remember the definitions of factors and multiples to answer these questions correctly. Think about division and multiplication.</p>
+          <h2><span class="hl">Prime</span> vs. Composite Numbers</h2>
+          <ul><li>Prime numbers have exactly two factors: 1 and themselves (e.g., 2, 3, 5, 7).</li><li>Composite numbers have more than two factors (e.g., 4, 6, 8, 9, 10).</li><li>The number 1 is neither prime nor composite.</li></ul>
+          <p class="notes">🎙️ This is a quick recap of prime and composite numbers, which are crucial for understanding prime factorization. Remember, prime numbers are the 'fundamental' numbers with only two factors, while composite numbers can be broken down further.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Prime (2 factors)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Composite (&gt;2 factors)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Finding <span class="hl">Common Factors</span></h2>
-          <ul><li>Factors that are shared by two or more numbers.</li><li>We list all factors for each number.</li><li>Then, we find the ones that appear in all lists.</li></ul>
-          <p class="notes">🎙️ When we look at two different numbers, they might have some factors that are the same. These shared factors are what we call common factors, representing numbers that can divide both.</p>
+          <h2>Breaking Down Numbers: <span class="hl">Prime</span> Factorization</h2>
+          <ul><li>Prime factorization is expressing a number as a product of its prime factors.</li><li>This can be done using a factor tree or the division method.</li><li>It's a unique way to represent any composite number.</li></ul>
+          <p class="notes">🎙️ Prime factorization is like finding the secret code of a number, breaking it down into its prime components. We'll explore two main methods: the factor tree, which is very visual, and the repeated division method.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Shared Properties</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with number (12)</span></div><div class="step"><span class="snum">2</span><span>Divide by smallest prime (2 x 6)</span></div><div class="step"><span class="snum">3</span><span>Divide composite factors (2 x 2 x 3)</span></div><div class="step"><span class="snum">4</span><span>All factors are prime!</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,69 +144,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Example: Common Factors of <span class="hl">12 and 18</span></h2>
-          <ul><li>Factors of 12: 1, 2, 3, 4, 6, 12.</li><li>Factors of 18: 1, 2, 3, 6, 9, 18.</li><li>Common Factors: 1, 2, 3, 6.</li></ul>
-          <p class="notes">🎙️ Here, we list all factors for 12 and 18 separately. Then, we look for the numbers that are present in both lists. The common factors are 1, 2, 3, and 6.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Factors of 12</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Factors of 18</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Common Factors</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Introducing Highest Common Factor (<span class="hl">HCF</span>)</h2>
-          <ul><li>The largest among the common factors of two or more numbers.</li><li>Also known as Greatest Common Divisor (GCD).</li><li>It's the biggest number that divides all given numbers exactly.</li></ul>
-          <p class="notes">🎙️ Out of all the common factors we just found, the HCF is simply the biggest one. It's the largest number that can divide both numbers without leaving a remainder, a very useful concept.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Largest Shared</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Method 1: HCF by <span class="hl">Listing Factors</span></h2>
-          <ul><li>Step 1: List all factors for each number.</li><li>Step 2: Identify the common factors from these lists.</li><li>Step 3: Select the largest common factor.</li></ul>
-          <p class="notes">🎙️ This method is straightforward for smaller numbers. It directly applies what we learned about finding common factors, with one extra step to pick the greatest value.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List Factors</span></div><div class="step"><span class="snum">2</span><span>Find Common</span></div><div class="step"><span class="snum">3</span><span>Choose Highest</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Worked Example: HCF of <span class="hl">20 and 30</span></h2>
-          <ul><li>Factors of 20: 1, 2, 4, 5, 10, 20.</li><li>Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30.</li><li>Common Factors: 1, 2, 5, 10. HCF: 10.</li></ul>
-          <p class="notes">🎙️ By listing all factors, we can clearly see the common ones and then easily pick out the highest among them, which is 10 in this case. It's the largest number that divides both 20 and 30.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔍</span><span>🔍</span><span>🔍</span><span>🔍</span><span>🔍</span><span>🔍</span><span>🔍</span><span>🔍</span><span>🔍</span><span>🔍</span></div><div class="vcap">Finding the biggest</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Method 2: HCF by <span class="hl">Prime Factorisation</span></h2>
-          <ul><li>Step 1: Write each number as a product of its prime factors.</li><li>Step 2: Identify common prime factors.</li><li>Step 3: Multiply these common prime factors (taking the lowest power).</li></ul>
-          <p class="notes">🎙️ This method is very efficient, especially for larger numbers. It breaks down each number into its fundamental prime components, making it easier to spot shared factors.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Prime Factorise</span></div><div class="step"><span class="snum">2</span><span>Find Common Primes</span></div><div class="step"><span class="snum">3</span><span>Multiply (Lowest Power)</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Worked Example: HCF of <span class="hl">48 and 72</span></h2>
-          <ul><li>48 = 2 x 2 x 2 x 2 x 3 = 2⁴ x 3¹.</li><li>72 = 2 x 2 x 2 x 3 x 3 = 2³ x 3².</li><li>Common prime factors: 2³ and 3¹. HCF = 2³ x 3¹ = 8 x 3 = 24.</li></ul>
-          <p class="notes">🎙️ We find the prime factors for both numbers. Then, we look for the prime factors they share and multiply them, using the lowest power they appear with in either factorisation. This gives us 24.</p>
+          <h2>Worked Example: Prime Factorization of <span class="hl">36</span></h2>
+          <ul><li>Using the factor tree method:</li><li>36 = 2 × 18</li><li>18 = 2 × 9</li><li>9 = 3 × 3</li><li>So, 36 = 2 × 2 × 3 × 3 = 2² × 3².</li></ul>
+          <p class="notes">🎙️ Let's work through an example together. To find the prime factorization of 36, we start by dividing it by the smallest prime number, 2. We continue this process until all factors are prime numbers. This gives us 2 multiplied by 2, multiplied by 3, multiplied by 3.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Factor Tree</div></div></div>
       </div>
@@ -202,12 +155,72 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>HCF in Real Life: <span class="hl">Dividing Equally</span></h2>
-          <ul><li>You have 24 red apples and 36 green apples.</li><li>What is the greatest number of identical fruit baskets you can make?</li><li>No apples should be left over in any basket.</li></ul>
-          <p class="notes">🎙️ This problem asks us to find the largest group size that can divide both 24 and 36 perfectly, which is a classic HCF application. We want the maximum number of equal baskets.</p>
+          <span class="num">9 / 25</span>
+          <h2>What are <span class="hl">Common</span> Factors?</h2>
+          <ul><li>Common factors are factors shared by two or more numbers.</li><li>To find them, list all factors for each number and identify the ones that appear in all lists.</li><li>Example: Factors of 12 (1, 2, 3, 4, 6, 12) and 18 (1, 2, 3, 6, 9, 18).</li></ul>
+          <p class="notes">🎙️ Imagine you have two groups of balloons, some red and some blue. The common factors are like the balloons that are both red AND blue. For 12 and 18, we see that 1, 2, 3, and 6 are present in both lists of factors.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧺</span><span>🧺</span><span>🧺</span></div><div class="vcap">Fruit Baskets</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Common Factors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Finding the <span class="hl">HCF</span> (Highest Common Factor)</h2>
+          <ul><li>HCF is the largest factor that two or more numbers share.</li><li>It's also known as the Greatest Common Divisor (GCD).</li><li>HCF helps us divide things into the largest possible equal groups.</li></ul>
+          <p class="notes">🎙️ The Highest Common Factor, or HCF, is the biggest number that can divide two or more numbers without leaving a remainder. Think of it as finding the 'champion' among all the common factors. It has many practical applications.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥇</div><div class="vcap">The 'Highest' Factor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>HCF Method 1: <span class="hl">Listing</span> Factors</h2>
+          <ul><li>Step 1: List all factors of each number.</li><li>Step 2: Identify the factors that are common to all numbers.</li><li>Step 3: The largest among these common factors is the HCF.</li></ul>
+          <p class="notes">🎙️ This method is straightforward for smaller numbers. You simply write down all the factors for each number. Then, you look for the factors that appear in every list. Finally, pick the biggest one, and that's your HCF.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Factors of 12: 1,2,3,4,6,12</span></div><div class="step"><span class="snum">2</span><span>Factors of 18: 1,2,3,6,9,18</span></div><div class="step"><span class="snum">3</span><span>Common Factors: 1,2,3,6</span></div><div class="step"><span class="snum">4</span><span>Highest: 6</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>HCF Method 2: <span class="hl">Prime</span> Factorization</h2>
+          <ul><li>Step 1: Find the prime factorization of each number.</li><li>Step 2: Identify the common prime factors.</li><li>Step 3: Multiply these common prime factors, taking the lowest power of each.</li></ul>
+          <p class="notes">🎙️ For larger numbers, the prime factorization method is more efficient. After finding the prime factors of each number, you look for the prime factors that are common to all. Then, for each common prime factor, you choose the one with the smallest exponent and multiply them together.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>24 = 2³ × 3</span></div><div class="step"><span class="snum">2</span><span>36 = 2² × 3²</span></div><div class="step"><span class="snum">3</span><span>Common Primes: 2, 3</span></div><div class="step"><span class="snum">4</span><span>Lowest Powers: 2², 3¹</span></div><div class="step"><span class="snum">5</span><span>HCF = 2² × 3 = 12</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example: <span class="hl">HCF</span> of 24 and 36</h2>
+          <ul><li>Prime factors of 24: 2 × 2 × 2 × 3 = 2³ × 3¹</li><li>Prime factors of 36: 2 × 2 × 3 × 3 = 2² × 3²</li><li>Common prime factors with lowest powers: 2² and 3¹</li><li>HCF = 2² × 3 = 4 × 3 = 12.</li></ul>
+          <p class="notes">🎙️ Let's apply the prime factorization method. We break down both 24 and 36 into their prime factors. Then, we identify the common prime factors (2 and 3) and take the lowest power for each. Multiplying these gives us 12, which is the HCF.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Finding the HCF</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Real-Life Application: HCF in Action</h2>
+          <ul><li>You have 24 laddoos and 36 jalebis.</li><li>You want to pack them into identical boxes, with no sweets left over.</li><li>What is the greatest number of boxes you can make?</li><li>Answer: HCF(24, 36) = 12 boxes.</li></ul>
+          <p class="notes">🎙️ Imagine a sweet shop owner preparing gift boxes. If they have 24 laddoos and 36 jalebis, and want to make the largest possible number of identical boxes, the HCF tells them exactly how many boxes they can prepare, ensuring each box has an equal number of each sweet.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Dividing Sweets</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -215,9 +228,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Quick Check: <span class="hl">Find the HCF</span></h2>
-          <ul><li>What is the HCF of 15 and 25?</li><li>What is the HCF of 42 and 63?</li><li>What is the HCF of 18, 27, and 36?</li></ul>
-          <p class="notes">🎙️ Try solving these problems using either the listing method or prime factorisation. Remember, the HCF is the largest common factor that divides all the given numbers.</p>
+          <h2>Quick Check: <span class="hl">HCF</span></h2>
+          <ul><li>Find the HCF of 42 and 60.</li><li>Think about which method would be most efficient.</li><li>Take a moment to solve it on your own!</li></ul>
+          <p class="notes">🎙️ Alright, students, time for a quick check to see if you've grasped the concept of HCF. Try to find the HCF of 42 and 60. You can use either the listing method or prime factorization, whichever you find easier for these numbers.</p>
         </div>
         
       </div>
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Discovering <span class="hl">Common Multiples</span></h2>
-          <ul><li>Multiples that are shared by two or more numbers.</li><li>We list multiples for each number.</li><li>Continue listing until we find shared ones.</li></ul>
-          <p class="notes">🎙️ Just like common factors, numbers can also share multiples. These are numbers that are a multiple of both (or all) the numbers in question, appearing in their respective times tables.</p>
+          <h2>Discovering <span class="hl">Common</span> Multiples</h2>
+          <ul><li>Common multiples are multiples shared by two or more numbers.</li><li>To find them, list multiples for each number and identify overlaps.</li><li>Example: Multiples of 4 (4, 8, 12, 16, 20, 24...) and 6 (6, 12, 18, 24, 30...).</li></ul>
+          <p class="notes">🎙️ Just as numbers share factors, they also share multiples. Common multiples are like the points where two different patterns or sequences meet. For numbers 4 and 6, we can see that 12 and 24 are common multiples.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Repeating Patterns</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span><span>🚂</span></div><div class="vcap">Common meeting points</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Example: Common Multiples of <span class="hl">4 and 6</span></h2>
-          <ul><li>Multiples of 4: 4, 8, 12, 16, 20, 24, 28, 32, 36...</li><li>Multiples of 6: 6, 12, 18, 24, 30, 36...</li><li>Common Multiples: 12, 24, 36...</li></ul>
-          <p class="notes">🎙️ We list out the multiples for each number until we start seeing numbers that appear in both lists. Notice that there can be infinitely many common multiples, as the patterns continue.</p>
+          <h2>Finding the <span class="hl">LCM</span> (Lowest Common Multiple)</h2>
+          <ul><li>LCM is the smallest non-zero multiple shared by two or more numbers.</li><li>It helps us find when events will happen simultaneously or when cycles align.</li><li>LCM is always greater than or equal to the largest of the given numbers.</li></ul>
+          <p class="notes">🎙️ The Lowest Common Multiple, or LCM, is the smallest number that is a multiple of two or more numbers. It's like finding the first time two different schedules or cycles will coincide again. It's a very useful concept in many real-world scenarios.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Multiples of 4</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Multiples of 6</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Common Multiples</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">The 'Lowest' Multiple</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Introducing Lowest Common Multiple (<span class="hl">LCM</span>)</h2>
-          <ul><li>The smallest non-zero common multiple of two or more numbers.</li><li>It's the first number that appears in both (or all) lists of multiples.</li><li>The smallest number that all given numbers can divide into exactly.</li></ul>
-          <p class="notes">🎙️ Among all the common multiples, the LCM is the smallest one. It's the smallest number that both numbers can divide into without a remainder, a crucial concept for fractions and scheduling.</p>
+          <h2>LCM Method 1: <span class="hl">Listing</span> Multiples</h2>
+          <ul><li>Step 1: List the first few multiples of each number.</li><li>Step 2: Identify the multiples that are common to all numbers.</li><li>Step 3: The smallest among these common multiples is the LCM.</li></ul>
+          <p class="notes">🎙️ Similar to the HCF listing method, for LCM, you list out the multiples. Keep listing until you find a number that appears in all lists. The first number that appears in all lists is your LCM. This works well for smaller numbers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Smallest Shared</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Multiples of 4: 4,8,12,16,20,24...</span></div><div class="step"><span class="snum">2</span><span>Multiples of 6: 6,12,18,24,30...</span></div><div class="step"><span class="snum">3</span><span>Common Multiples: 12, 24...</span></div><div class="step"><span class="snum">4</span><span>Lowest: 12</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Method 1: LCM by <span class="hl">Listing Multiples</span></h2>
-          <ul><li>Step 1: List multiples for each number.</li><li>Step 2: Continue listing until a common multiple is found.</li><li>Step 3: The first common multiple found is the LCM.</li></ul>
-          <p class="notes">🎙️ This method is great for finding the LCM of smaller numbers. You just keep adding multiples until you hit a number that both lists share, which will be your LCM.</p>
+          <h2>LCM Method 2: <span class="hl">Prime</span> Factorization</h2>
+          <ul><li>Step 1: Find the prime factorization of each number.</li><li>Step 2: Identify all prime factors that appear in any of the factorizations.</li><li>Step 3: Multiply these prime factors, taking the highest power of each.</li></ul>
+          <p class="notes">🎙️ The prime factorization method for LCM is also very powerful. Here, after finding the prime factors, you take every unique prime factor from all numbers. For each prime factor, you select the one with the highest exponent and multiply them all together to get the LCM.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List Multiples</span></div><div class="step"><span class="snum">2</span><span>Find First Common</span></div><div class="step"><span class="snum">3</span><span>Identify LCM</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>12 = 2² × 3</span></div><div class="step"><span class="snum">2</span><span>18 = 2 × 3²</span></div><div class="step"><span class="snum">3</span><span>All Primes: 2, 3</span></div><div class="step"><span class="snum">4</span><span>Highest Powers: 2², 3²</span></div><div class="step"><span class="snum">5</span><span>LCM = 2² × 3² = 36</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Worked Example: LCM of <span class="hl">8 and 12</span></h2>
-          <ul><li>Multiples of 8: 8, 16, 24, 32, 40...</li><li>Multiples of 12: 12, 24, 36, 48...</li><li>The first common multiple is 24. LCM: 24.</li></ul>
-          <p class="notes">🎙️ By carefully listing the multiples, we can quickly identify 24 as the smallest number that is a multiple of both 8 and 12. This is often called the 'least common denominator' for fractions.</p>
+          <h2>Worked Example: <span class="hl">LCM</span> of 12 and 18</h2>
+          <ul><li>Prime factors of 12: 2 × 2 × 3 = 2² × 3¹</li><li>Prime factors of 18: 2 × 3 × 3 = 2¹ × 3²</li><li>All prime factors involved: 2 and 3.</li><li>Highest powers: 2² (from 12) and 3² (from 18).</li><li>LCM = 2² × 3² = 4 × 9 = 36.</li></ul>
+          <p class="notes">🎙️ Let's apply the prime factorization method to find the LCM of 12 and 18. We list their prime factors. Then, we identify all unique prime factors and pick the highest power for each. Multiplying these highest powers gives us 36, which is the LCM.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎯</span></div><div class="vcap">Hitting the target</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Cycle Alignment</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Method 2: LCM by <span class="hl">Prime Factorisation</span></h2>
-          <ul><li>Step 1: Write each number as a product of its prime factors.</li><li>Step 2: Identify all unique prime factors from both numbers.</li><li>Step 3: Multiply these prime factors (taking the highest power).</li></ul>
-          <p class="notes">🎙️ This method is also very powerful for LCM. Instead of the lowest power like HCF, for LCM we use the highest power of each unique prime factor that appears in any of the factorisations.</p>
+          <h2>Real-Life Application: LCM in Action</h2>
+          <ul><li>Bus A arrives every 15 minutes, Bus B every 20 minutes.</li><li>If they both arrive at 9:00 AM, when will they next arrive together?</li><li>We need LCM(15, 20).</li><li>LCM(15, 20) = 60 minutes. So, 10:00 AM.</li></ul>
+          <p class="notes">🎙️ Imagine you're waiting for two different buses. One comes every 15 minutes, the other every 20 minutes. If they just arrived together, the LCM tells you when they will next arrive at the same time. This helps in coordinating schedules and events.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Prime Factorise</span></div><div class="step"><span class="snum">2</span><span>Identify All Primes</span></div><div class="step"><span class="snum">3</span><span>Multiply (Highest Power)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚌</div><div class="vcap">Bus Schedules</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,35 +312,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Worked Example: LCM of <span class="hl">18 and 24</span></h2>
-          <ul><li>18 = 2 x 3 x 3 = 2¹ x 3².</li><li>24 = 2 x 2 x 2 x 3 = 2³ x 3¹.</li><li>Unique prime factors: 2 and 3. Highest powers: 2³ and 3². LCM = 2³ x 3² = 8 x 9 = 72.</li></ul>
-          <p class="notes">🎙️ We list all prime factors for each number. Then, for each unique prime factor, we pick the one with the highest exponent and multiply them all together. This results in 72 as the LCM.</p>
+          <h2>The HCF-LCM <span class="hl">Connection</span></h2>
+          <ul><li>For any two positive integers 'a' and 'b':</li><li>Product of the numbers = HCF(a, b) × LCM(a, b).</li><li>This formula is very useful for checking answers or finding one value if the others are known.</li></ul>
+          <p class="notes">🎙️ There's a fascinating relationship between HCF and LCM for any two numbers. If you multiply the two numbers, the result is always equal to the product of their HCF and LCM. This formula is a powerful tool in number theory.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Growing Multiples</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>LCM in Real Life: <span class="hl">Synchronizing Events</span></h2>
-          <ul><li>Two bells ring at intervals of 10 minutes and 15 minutes.</li><li>If they ring together at 9:00 AM.</li><li>When will they next ring together?</li></ul>
-          <p class="notes">🎙️ This type of problem, where events repeat at different intervals and we need to find when they coincide, is a classic application of LCM. It helps us find the next common time.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔔</span><span>🔔</span></div><div class="vcap">Two ringing bells</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">HCF(12, 18) = 6</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">LCM(12, 18) = 36</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Product = 12 x 18 = 216</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">HCF x LCM = 6 x 36 = 216</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Quick Check: <span class="hl">Find the LCM</span></h2>
-          <ul><li>What is the LCM of 9 and 15?</li><li>What is the LCM of 7 and 11?</li><li>What is the LCM of 6, 8, and 12?</li></ul>
-          <p class="notes">🎙️ Try to find the LCM for these pairs of numbers. You can use either the listing method or the prime factorisation method. Choose the one you find most efficient.</p>
+          <span class="num">23 / 25</span>
+          <h2>Quick Check: <span class="hl">LCM</span></h2>
+          <ul><li>Find the LCM of 8 and 12.</li><li>Which method will you use?</li><li>Work through the steps carefully!</li></ul>
+          <p class="notes">🎙️ Alright, another quick check! Now, try to find the LCM of 8 and 12. Remember the methods we discussed, prime factorization or listing multiples, and choose the one you prefer. Good luck!</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Finding Common Ground</h2>
+          <ul><li>We revisited factors and multiples.</li><li>We learned about Prime Factorization.</li><li>We mastered finding HCF (Highest Common Factor) and LCM (Lowest Common Multiple).</li><li>We explored real-life applications and the HCF-LCM relationship.</li></ul>
+          <p class="notes">🎙️ We've covered a lot in this chapter! From understanding factors and multiples to mastering HCF and LCM using different methods, you now have powerful tools to analyze numbers and solve real-world problems. Remember the connection between HCF and LCM too!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Key Takeaways</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Recap: Finding <span class="hl">Common Ground</span></h2>
-          <ul><li>Factors divide a number; Multiples are products of a number.</li><li>HCF is the largest common factor.</li><li>LCM is the smallest common multiple.</li><li>Both are fundamental tools in number theory.</li></ul>
-          <p class="notes">🎙️ Today, we've explored how to find common factors and multiples, and understood the significance of HCF and LCM in various situations. These concepts are fundamental in mathematics and have many real-world applications!</p>
+          <h2>Time to <span class="hl">Practice</span>!</h2>
+          <ul><li>The more you practice, the better you'll understand.</li><li>Solve problems from your textbook and worksheets.</li><li>Don't hesitate to ask questions if you get stuck!</li><li>Keep finding that common ground!</li></ul>
+          <p class="notes">🎙️ Learning mathematics is all about practice. Now that you understand the concepts, it's time to apply them. Solve as many problems as you can from your textbook and worksheets. Remember, practice makes perfect, and I'm here to help if you have any questions. Keep up the great work!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

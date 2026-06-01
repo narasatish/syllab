@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Electric Current and its Effects — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Electric Current</span> and its Effects</h2>
-          <ul><li>Welcome to our Science class!</li><li>Today we explore the fascinating world of electricity.</li><li>Understand how electric current works and its amazing effects.</li></ul>
-          <p class="notes">🎙️ Namaste, students! I'm excited to dive into a very interesting chapter today: 'Electric Current and its Effects'. Get ready to uncover the mysteries behind the electricity we use every day.</p>
+          <h2>Chapter <span class="hl">Introduction</span>: Electric Current and its Effects</h2>
+          <ul><li>Welcome to a fascinating journey into the world of electricity!</li><li>Today, we will explore what electric current is and its amazing effects.</li><li>We'll learn how electricity powers our homes and gadgets, and how it can be both useful and powerful.</li></ul>
+          <p class="notes">🎙️ Hello students! Get ready to explore the exciting world of electricity. This chapter will help us understand the basic concepts of electric current and how it creates heat and magnetic fields, which we see all around us.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Electric Current</span>?</h2>
-          <ul><li>Flow of electric charges (electrons).</li><li>Think of it like water flowing in a pipe.</li><li>Measured in Amperes (A).</li></ul>
-          <p class="notes">🎙️ Simply put, electric current is the movement of tiny particles called electrons through a conductor. Imagine a river where water flows; similarly, electrons flow in a wire. This flow is what we call electric current.</p>
+          <ul><li>Electric current is the flow of electric charges, usually electrons, through a conductor.</li><li>Think of it like water flowing through a pipe.</li><li>We measure electric current in Amperes (A).</li></ul>
+          <p class="notes">🎙️ Imagine tiny particles moving in one direction through a wire. This movement is what we call electric current. Just like water needs a path to flow, electric charges need a conductor, like a metal wire, to move.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electric Current</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="⚡️" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Electric <span class="hl">Circuit</span></h2>
-          <ul><li>A complete and closed path for electric current.</li><li>Essential for electricity to flow.</li><li>Components include a source, wires, and a device.</li></ul>
-          <p class="notes">🎙️ For electricity to flow, it needs a continuous, closed path, which we call an electric circuit. If there's any break in this path, the current cannot flow, and the device won't work. It's like a complete loop.</p>
+          <h2><span class="hl">Electric Circuit</span>: The Path for Current</h2>
+          <ul><li>An electric circuit is a continuous and closed path for electric current to flow.</li><li>It typically includes a source of electricity (like a cell), a conducting wire, and a device (like a bulb).</li><li>A switch is used to turn the current on or off.</li></ul>
+          <p class="notes">🎙️ For electricity to flow, it needs a complete loop, or a circuit. If there's any break in this path, the current cannot flow. We use various components to build a circuit.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_circuit.png?width=500" data-fb="🔌" alt="An electric circuit is a closed path through which electric current flows. It requires a s"/><div class="vcap">An electric circuit is a closed path through which electric current flows. It requires a s</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_circuit.png?width=500" data-fb="🔬" alt="An electric circuit is a closed path through which electric current flows. It requires a s"/><div class="vcap">An electric circuit is a closed path through which electric current flows. It requires a s</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Key <span class="hl">Components</span> of an Electric Circuit</h2>
-          <ul><li>Source: Battery or cell (provides energy).</li><li>Conductor: Wires (path for current).</li><li>Load: Bulb or appliance (uses energy).</li><li>Switch: Controls the flow (on/off).</li></ul>
-          <p class="notes">🎙️ Every circuit has vital parts. The battery is like the heart, pushing the current. Wires are the veins carrying it. The bulb is the worker, using the energy, and the switch is the controller, turning it on or off.</p>
+          <h2>Common Circuit Components and Their <span class="hl">Symbols</span></h2>
+          <ul><li>To draw circuits easily, we use standard symbols for each component.</li><li>These symbols are internationally recognized.</li><li>Knowing these symbols helps us understand circuit diagrams.</li></ul>
+          <p class="notes">🎙️ Instead of drawing detailed pictures of batteries and bulbs every time, we use simple symbols. This makes drawing and understanding circuits much easier for everyone, no matter where they are from.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔋</span><span>🔋</span><span>🔋</span><span>🔋</span></div><div class="vcap">Circuit Parts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Basic Circuit Symbols</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Conductors</span> and Insulators</h2>
-          <ul><li>Conductors: Materials that allow electricity to pass easily.</li><li>Insulators: Materials that resist the flow of electricity.</li><li>Crucial for safe handling of electricity.</li></ul>
-          <p class="notes">🎙️ Some materials are good friends with electricity, letting it pass through easily – these are conductors like metals. Others are like guards, blocking electricity – these are insulators like plastic or rubber. Understanding them is key for safety.</p>
+          <h2>Open <span class="hl">Circuit</span> vs. Closed Circuit</h2>
+          <ul><li>A **closed circuit** is a complete path where current can flow, making devices work.</li><li>An **open circuit** has a break in the path, preventing current flow, so devices do not work.</li><li>A switch can open or close a circuit.</li></ul>
+          <p class="notes">🎙️ Think of a closed circuit like a bridge that is complete, allowing cars to pass. An open circuit is like a broken bridge, where cars cannot cross. The switch acts like a movable part of the bridge.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Conductors</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Insulators</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Open Circuit</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Closed Circuit</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Why are Electric Wires <span class="hl">Coated</span>?</h2>
-          <ul><li>Metal wires (copper/aluminium) are conductors.</li><li>Plastic/rubber coating is an insulator.</li><li>Prevents electric shock and short circuits.</li></ul>
-          <p class="notes">🎙️ Have you noticed the plastic covering on electric wires? The inner metal wire conducts electricity, but the outer plastic acts as an insulator. This coating protects us from getting shocks and prevents wires from touching accidentally, which could be dangerous.</p>
+          <h2>The <span class="hl">Heating Effect</span> of Electric Current</h2>
+          <ul><li>When electric current flows through a wire, the wire gets heated.</li><li>This is known as the heating effect of electric current.</li><li>The amount of heat produced depends on the material, length, and thickness of the wire, and the amount of current.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed that your phone charger or laptop adapter gets warm after some time? This is due to the heating effect of electric current. The resistance in the wire converts some electrical energy into heat energy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Safety Coating</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat from Current</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Heating Effect</span> of Electric Current</h2>
-          <ul><li>When current flows through a wire, it gets hot.</li><li>Due to resistance in the wire.</li><li>More current or higher resistance means more heat.</li></ul>
-          <p class="notes">🎙️ Imagine rubbing your hands together; they get warm. Similarly, when electric current flows through a wire, especially one with some resistance, it encounters friction, causing the wire to heat up. This is the heating effect of electric current.</p>
+          <h2>Joule's Law (Simplified): <span class="hl">Heat Production</span></h2>
+          <ul><li>The heat produced in a wire is directly proportional to the square of the current.</li><li>It's also proportional to the resistance of the wire and the time for which current flows.</li><li>More current, more resistance, or longer time means more heat!</li></ul>
+          <p class="notes">🎙️ This concept, simplified from Joule's Law, explains why some wires get hotter than others. Wires designed for heating, like in a toaster, have high resistance to produce a lot of heat.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="♨️" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Factors of Heat</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Electric <span class="hl">Heater</span> and Iron Box</h2>
-          <ul><li>Electric heaters use a coil that gets very hot.</li><li>Electric iron uses a heating element to warm clothes.</li><li>These appliances convert electrical energy into heat energy.</li></ul>
-          <p class="notes">🎙️ Think about your electric geyser or iron. They use special wires called heating elements. When electricity passes through them, they heat up rapidly, allowing you to warm water or iron clothes. This is a direct application of the heating effect.</p>
+          <h2>Real-Life Example: Electric <span class="hl">Heaters</span> and Irons</h2>
+          <ul><li>Electric room heaters, water heaters (geysers), and electric irons all work on the heating effect of current.</li><li>They contain a coil of high resistance wire, called the heating element.</li><li>When current flows through this element, it becomes red hot and gives out heat.</li></ul>
+          <p class="notes">🎙️ These common household appliances are perfect examples of the heating effect. The special wire used in them is designed to get very hot without melting, efficiently converting electrical energy into heat to warm your room or iron your clothes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat at Work</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Joule_heating.svg?width=500" data-fb="♨️" alt="Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i"/><div class="vcap">Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>How Does an Electric <span class="hl">Bulb Glow</span>?</h2>
-          <ul><li>The thin wire inside a bulb is called a filament.</li><li>It heats up to a very high temperature due to current.</li><li>It then starts to glow, emitting light.</li></ul>
-          <p class="notes">🎙️ An old-style incandescent bulb has a tiny, coiled wire called a filament. When electricity flows through it, the filament gets extremely hot, so hot that it starts to glow brightly, producing light. This is another example of the heating effect.</p>
+          <h2>Real-Life Example: Incandescent <span class="hl">Electric Bulb</span></h2>
+          <ul><li>An incandescent bulb has a thin wire, called a filament, made of tungsten.</li><li>When current flows through the filament, it heats up to a very high temperature.</li><li>This high temperature makes the filament glow and emit light.</li></ul>
+          <p class="notes">🎙️ Before LED lights became popular, these bulbs were everywhere. The filament gets so hot that it starts to glow, producing light. However, a lot of energy is wasted as heat, which is why they get so warm.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light from Heat</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Bulb's Filament</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Electrical <span class="hl">Safety</span>: Overloading &amp; Short Circuits</h2>
-          <ul><li>Overloading: Too many appliances on one circuit.</li><li>Short Circuit: Live and neutral wires touch directly.</li><li>Both can cause excessive heat, leading to fires.</li></ul>
-          <p class="notes">🎙️ Electricity is useful but can be dangerous. Overloading happens when you plug too many devices into one socket, drawing too much current. A short circuit occurs when wires accidentally touch. Both create excessive heat and can lead to fires, so always be careful.</p>
+          <h2>Safety Device: The <span class="hl">Electric Fuse</span></h2>
+          <ul><li>An electric fuse is a safety device that protects electrical circuits and appliances from damage.</li><li>It prevents excessive current flow, which can cause overheating and fires.</li><li>Fuses are made of a special wire with a low melting point.</li></ul>
+          <p class="notes">🎙️ Fuses are like guardians for our electrical systems. If too much current tries to flow, perhaps due to a short circuit or overload, the fuse sacrifices itself to protect more expensive appliances and prevent hazards.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Danger Ahead</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Circuit Protection</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>The Electric <span class="hl">Fuse</span>: A Safety Device</h2>
-          <ul><li>A safety device that protects circuits from overloading.</li><li>Contains a thin wire with a low melting point.</li><li>Melts and breaks the circuit if current exceeds safe limit.</li></ul>
-          <p class="notes">🎙️ An electric fuse is like a guardian for your electrical appliances. It has a special wire that melts and breaks the circuit if too much current flows, preventing damage to appliances and potential fires. It sacrifices itself to protect your home.</p>
+          <h2>How an Electric Fuse Works</h2>
+          <ul><li>When current exceeds a safe limit, the fuse wire heats up rapidly.</li><li>Due to its low melting point, the fuse wire melts and breaks the circuit.</li><li>This stops the flow of current, protecting appliances and preventing fires.</li></ul>
+          <p class="notes">🎙️ It's a very clever and simple mechanism. The fuse acts as a weak link in the circuit, designed to fail first when there's a problem, thereby safeguarding the entire system. Once it blows, it needs to be replaced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Circuit Breaker</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Excess Current</span></div><div class="step"><span class="snum">2</span><span>Fuse Wire Heats</span></div><div class="step"><span class="snum">3</span><span>Wire Melts &amp; Breaks</span></div><div class="step"><span class="snum">4</span><span>Circuit Open</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Fuse Box</span> in Our Homes</h2>
-          <ul><li>Main fuse protects the entire house circuit.</li><li>Individual fuses protect specific appliance circuits.</li><li>Ensures safety from current surges.</li></ul>
-          <p class="notes">🎙️ You might have seen a fuse box in your home. It contains fuses for different sections of your house. If there's an electrical fault or overload in one part, only that section's fuse blows, keeping the rest of the house safe. It's essential for home safety.</p>
+          <h2>Miniature Circuit Breaker (<span class="hl">MCB</span>)</h2>
+          <ul><li>MCBs are modern alternatives to fuses, also used for circuit protection.</li><li>They automatically switch off when current exceeds the safe limit.</li><li>Unlike fuses, MCBs can be reset by simply flipping a switch after the fault is cleared.</li></ul>
+          <p class="notes">🎙️ MCBs offer a more convenient solution than fuses. When an overload occurs, they trip, breaking the circuit. Once the problem is fixed, you just flip the switch back up, and the power is restored, without needing to replace anything.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home Protection</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎛️</div><div class="vcap">Automatic Protector</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Modern Safety: Miniature Circuit Breaker (<span class="hl">MCB</span>)</h2>
-          <ul><li>An advanced alternative to fuses.</li><li>Automatically switches off the circuit during overload/short circuit.</li><li>Can be reset manually after the fault is cleared.</li></ul>
-          <p class="notes">🎙️ MCBs are like smarter fuses. Instead of melting, they automatically trip and switch off the circuit when there's an issue. Once the problem is fixed, you can simply switch them back on, making them more convenient and reusable than traditional fuses.</p>
+          <h2>The <span class="hl">Magnetic Effect</span> of Electric Current</h2>
+          <ul><li>When an electric current flows through a wire, it produces a magnetic field around it.</li><li>This phenomenon was discovered by Hans Christian Oersted.</li><li>This magnetic field can deflect a compass needle placed nearby.</li></ul>
+          <p class="notes">🎙️ This is another amazing effect of electric current! Just like a permanent magnet, a current-carrying wire can create its own magnetic field. This discovery opened up a whole new world of electrical applications.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Automatic Safety</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Current Creates Magnetism</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Magnetic Effect</span> of Electric Current</h2>
-          <ul><li>Electric current flowing through a wire produces a magnetic field.</li><li>Discovered by Hans Christian Oersted.</li><li>This effect is the basis of electromagnets.</li></ul>
-          <p class="notes">🎙️ This is a truly amazing discovery! When electricity flows through a wire, it doesn't just produce heat; it also creates a magnetic field around it. This means an electric wire carrying current can act like a tiny magnet, influencing other magnetic materials nearby.</p>
+          <h2><span class="hl">Electromagnet</span>: Temporary Magnets</h2>
+          <ul><li>An electromagnet is a temporary magnet created by passing electric current through a coil of wire.</li><li>The magnetic field exists only as long as the current flows.</li><li>The strength of the electromagnet can be controlled by changing the current.</li></ul>
+          <p class="notes">🎙️ Unlike permanent magnets, electromagnets can be turned on and off, and their strength can be adjusted. This makes them incredibly useful in many devices. They are essentially a coil of wire wrapped around a soft iron core.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Current's Magnetism</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">Controlled Magnetism</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>What is an <span class="hl">Electromagnet</span>?</h2>
-          <ul><li>A temporary magnet created by electric current.</li><li>Made by coiling a wire around a soft iron core.</li><li>Its strength can be controlled by current and coil turns.</li></ul>
-          <p class="notes">🎙️ An electromagnet is a special kind of magnet that works only when electricity flows through it. You can make one by wrapping a wire around an iron nail. When you turn on the current, the nail becomes a magnet, and when you turn it off, it loses its magnetism. It's a controllable magnet!</p>
+          <h2>Making a <span class="hl">Simple Electromagnet</span></h2>
+          <ul><li>Take a long piece of insulated copper wire and wind it tightly around an iron nail.</li><li>Connect the ends of the wire to the terminals of a battery.</li><li>The iron nail will now act as an electromagnet and can attract small iron objects.</li></ul>
+          <p class="notes">🎙️ You can easily make an electromagnet at home! The iron nail becomes magnetized when current flows through the coil. When you disconnect the battery, the nail loses its magnetism, showing it's a temporary magnet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Temporary Magnet</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Wrap wire around nail</span></div><div class="step"><span class="snum">2</span><span>Connect to battery</span></div><div class="step"><span class="snum">3</span><span>Test magnetism</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>How Does an <span class="hl">Electric Bell</span> Work?</h2>
-          <ul><li>Uses an electromagnet to ring the bell.</li><li>When current flows, the electromagnet attracts a hammer.</li><li>The hammer strikes the gong, producing sound.</li></ul>
-          <p class="notes">🎙️ The common electric doorbell uses an electromagnet. When you press the bell button, current flows, activating an electromagnet. This magnet pulls a small hammer, which strikes the gong, producing the 'ding-dong' sound you hear. It's a clever application of magnetism.</p>
+          <h2>Factors Affecting Electromagnet <span class="hl">Strength</span></h2>
+          <ul><li>The strength of an electromagnet depends on the number of turns in the coil.</li><li>It also depends on the amount of current flowing through the coil.</li><li>More turns or more current leads to a stronger electromagnet.</li></ul>
+          <p class="notes">🎙️ We can control how strong an electromagnet is. If you want a stronger magnet, you can either wrap more loops of wire around the core or increase the voltage of the battery to push more current through the wire.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔔</div><div class="vcap">Ringing Bell</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Fewer Turns</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">More Turns</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>More <span class="hl">Uses</span> of Electromagnets</h2>
-          <ul><li>Lifting heavy iron objects in cranes.</li><li>Used in speakers, motors, and generators.</li><li>Medical applications like MRI machines.</li></ul>
-          <p class="notes">🎙️ Electromagnets are incredibly versatile! They're used in huge industrial cranes to lift heavy scrap metal, in the speakers that play your music, and even in advanced medical equipment like MRI scanners to see inside the human body. Their ability to be turned on and off makes them very useful.</p>
+          <h2>Real-Life Example: The <span class="hl">Electric Bell</span></h2>
+          <ul><li>An electric bell uses an electromagnet to make the hammer strike the gong repeatedly.</li><li>When current flows, the electromagnet attracts an armature, which is attached to the hammer.</li><li>This movement breaks the circuit, the electromagnet de-magnetizes, and the hammer springs back, completing the circuit again.</li></ul>
+          <p class="notes">🎙️ The electric bell is a classic example of the magnetic effect of current in action. The clever design ensures that the circuit is continuously made and broken, causing the hammer to repeatedly strike the gong and produce sound.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Powerful Magnets</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Switch Closed</span></div><div class="step"><span class="snum">2</span><span>Electromagnet Attracts</span></div><div class="step"><span class="snum">3</span><span>Hammer Strikes Gong</span></div><div class="step"><span class="snum">4</span><span>Circuit Breaks &amp; Resets</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Quick Check: <span class="hl">Heating Effect</span></h2>
-          <ul><li>Which appliance works on the heating effect of electric current?</li><li>A) Electric fan</li><li>B) Electric iron</li><li>C) Electric bell</li><li>D) Torchlight</li></ul>
-          <p class="notes">🎙️ Let's quickly test your understanding. Think about the appliances we discussed that get hot when electricity passes through them. Which one of these options clearly demonstrates the heating effect?</p>
+          <h2>Real-Life Example: Electromagnet <span class="hl">Cranes</span></h2>
+          <ul><li>Electromagnets are used in large cranes to lift heavy loads of iron and steel, like scrap metal.</li><li>The electromagnet is switched on to pick up the metal and then switched off to release it.</li><li>This allows for easy and precise handling of heavy magnetic materials.</li></ul>
+          <p class="notes">🎙️ Imagine trying to lift tons of scrap metal by hand! Electromagnet cranes make this task simple and efficient. The ability to turn the magnetism on and off is key to their operation, making them invaluable in industries.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Joule_heating.svg?width=500" data-fb="🔬" alt="Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i"/><div class="vcap">Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Lifting with Magnets</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick Check: <span class="hl">Magnetic Effect</span></h2>
-          <ul><li>What happens when electric current flows through a wire?</li><li>A) It always breaks the wire.</li><li>B) It produces a magnetic field.</li><li>C) It cools down the wire.</li><li>D) It only produces light.</li></ul>
-          <p class="notes">🎙️ Now, let's recall the second major effect of electric current. What invisible force is generated around a current-carrying wire, as discovered by Oersted?</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>Which effect of electric current is used in an electric heater?</li><li>A) Magnetic effect</li><li>B) Heating effect</li><li>C) Chemical effect</li><li>D) Lighting effect</li></ul>
+          <p class="notes">🎙️ Think about what an electric heater does. It gets hot to warm your room. Which of the options best describes this function? Take a moment to consider the concepts we just discussed.</p>
         </div>
         
       </div>
@@ -275,9 +288,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check: Circuit <span class="hl">Components</span></h2>
-          <ul><li>Which component controls the 'on' and 'off' state of an electric circuit?</li><li>A) Battery</li><li>B) Wire</li><li>C) Switch</li><li>D) Bulb</li></ul>
-          <p class="notes">🎙️ Every circuit needs a way to start and stop the flow of electricity. Which of these components acts as the control mechanism for the circuit?</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>What happens to a compass needle when it is placed near a current-carrying wire?</li><li>A) It vibrates</li><li>B) It deflects</li><li>C) It gets attracted to the wire</li><li>D) Nothing happens</li></ul>
+          <p class="notes">🎙️ Recall Oersted's discovery. What did he observe when a current was flowing near a compass? This experiment proved a very important effect of electric current.</p>
         </div>
         
       </div>
@@ -287,9 +300,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick Check: <span class="hl">Safety</span></h2>
-          <ul><li>What is the primary function of an electric fuse?</li><li>A) To increase the current.</li><li>B) To decorate the circuit.</li><li>C) To protect the circuit from excessive current.</li><li>D) To make the bulb glow brighter.</li></ul>
-          <p class="notes">🎙️ Finally, thinking about safety, why do we use electric fuses or MCBs in our homes and appliances? What is their main role in an electrical system?</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>What is the main purpose of an electric fuse?</li><li>A) To increase current flow</li><li>B) To regulate voltage</li><li>C) To protect circuits from excessive current</li><li>D) To store electrical energy</li></ul>
+          <p class="notes">🎙️ Think about the safety devices we discussed. Why are they necessary in our homes and appliances? What danger do they protect us from? The answer lies in preventing damage from too much electricity.</p>
         </div>
         
       </div>
@@ -299,35 +312,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Recap</span>: Electric Current &amp; Circuit</h2>
-          <ul><li>Electric current is the flow of electric charges.</li><li>An electric circuit is a closed path for current.</li><li>Conductors allow current, insulators block it.</li></ul>
-          <p class="notes">🎙️ Let's quickly review what we learned today. Remember, current is just moving charges, and a circuit is its complete path. Always keep in mind the difference between materials that conduct electricity and those that insulate it for safety.</p>
+          <h2>Quick Check! <span class="hl">Question 4</span></h2>
+          <ul><li>Which of these is NOT a component of a simple electric circuit?</li><li>A) Electric cell</li><li>B) Connecting wires</li><li>C) A switch</li><li>D) A tree branch</li></ul>
+          <p class="notes">🎙️ Remember the basic requirements for a complete path of electric current. Which of these items clearly does not fit into an electrical system? This should be an easy one!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Recap: <span class="hl">Heating Effect</span> of Current</h2>
-          <ul><li>Current flowing through a wire generates heat.</li><li>Used in appliances like heaters, irons, and bulbs.</li><li>Can cause fires if not managed (overloading, short circuit).</li></ul>
-          <p class="notes">🎙️ We saw how current can make things hot, which is useful in many appliances. But we also learned that too much heat can be dangerous, leading to safety devices like fuses and MCBs to protect us.</p>
+          <h2>Recap: <span class="hl">Heating Effect</span> of Electric Current</h2>
+          <ul><li>Electric current produces heat when it flows through a conductor.</li><li>This effect is used in appliances like heaters, irons, and electric bulbs.</li><li>Fuses and MCBs are safety devices that protect circuits from overheating due to excessive current.</li></ul>
+          <p class="notes">🎙️ So, we learned that electricity can make things hot! This heating effect is not just a side effect, but a useful principle behind many of our daily appliances, and it also forms the basis for crucial safety mechanisms.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat Applications</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Recap: <span class="hl">Magnetic Effect</span> of Current</h2>
-          <ul><li>Current creates a magnetic field around the wire.</li><li>Electromagnets are temporary magnets made with current.</li><li>Used in electric bells, cranes, and many devices.</li></ul>
-          <p class="notes">🎙️ The magnetic effect is truly fascinating, allowing us to create temporary magnets that can be turned on and off. This principle is behind so many technologies we use daily, from simple bells to complex machinery.</p>
+          <h2>Recap: <span class="hl">Magnetic Effect</span> of Electric Current</h2>
+          <ul><li>Electric current creates a magnetic field around the conductor.</li><li>Electromagnets are temporary magnets whose strength can be controlled.</li><li>This effect is used in devices like electric bells, cranes, and many other motors and generators.</li></ul>
+          <p class="notes">🎙️ And then we discovered that electricity can also create magnetism! This connection between electricity and magnetism is fundamental to how many modern technologies work, from simple bells to complex industrial machinery.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Earths_magnetosphere_and_field.svg?width=500" data-fb="🧲" alt="Earth acts as a giant magnet with a magnetic field extending far into space, protecting li"/><div class="vcap">Earth acts as a giant magnet with a magnetic field extending far into space, protecting li</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Conclusion</span>: Powering Our World</h2>
-          <ul><li>Electric current is fundamental to modern life.</li><li>Understanding its effects helps us use it safely and effectively.</li><li>Keep exploring and stay curious!</li></ul>
-          <p class="notes">🎙️ We've covered the basics of electric current and its amazing effects today. From lighting our homes to powering our gadgets, electricity is everywhere. Remember to always respect its power and use it wisely. Thank you for your attention, students!</p>
+          <h2>Chapter <span class="hl">Conclusion</span>: The Power of Electric Current</h2>
+          <ul><li>Electric current is a fundamental force with two major effects: heating and magnetic.</li><li>Understanding these effects helps us design useful appliances and ensure electrical safety.</li><li>Keep exploring the wonders of science around you!</li></ul>
+          <p class="notes">🎙️ We've covered a lot today about electric current and its amazing effects. From warming our homes to lifting heavy objects, electricity plays a vital role. Remember to always be careful and respectful around electricity, and keep your curiosity alive!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

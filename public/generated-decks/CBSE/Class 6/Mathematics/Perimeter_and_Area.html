@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Perimeter and Area - Class 6 Mathematics (CBSE) — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Perimeter</span> and Area!</h2>
-          <ul><li>Class 6 Mathematics</li><li>CBSE Board</li><li>Let's explore shapes and spaces!</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter in Mathematics: Perimeter and Area. This topic helps us understand the world around us better, from measuring fields to designing rooms. Let's dive in!</p>
+          <h2>Welcome to Perimeter and Area!</h2>
+          <ul><li>Let's explore how to measure shapes around and within.</li><li>Important concepts for everyday life.</li></ul>
+          <p class="notes">🎙️ Hello students! Today we embark on an exciting journey into the world of shapes and measurements. We'll learn about Perimeter and Area, two fundamental concepts in mathematics that help us understand the world around us.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2><span class="hl">Why</span> do we learn Perimeter and Area?</h2>
-          <ul><li>Measure boundaries of fields</li><li>Calculate paint needed for walls</li><li>Find space covered by a carpet</li><li>Design gardens and rooms</li></ul>
-          <p class="notes">🎙️ Imagine you want to put a fence around your garden, or tile your bathroom floor. How much material would you need? Perimeter and Area are the tools we use to answer these practical questions in our daily lives.</p>
+          <h2>What is <span class="hl">Perimeter</span>?</h2>
+          <ul><li>The total length of the boundary of a closed figure.</li><li>It's like walking around the edge of a shape.</li><li>Measured in units like cm, m, km.</li></ul>
+          <p class="notes">🎙️ Imagine you're walking around a park. The total distance you cover along its boundary is its perimeter. It's simply the length of the outline of any closed shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Measuring Our World</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♂️</div><div class="vcap">Walking the boundary</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Understanding <span class="hl">Perimeter</span></h2>
-          <ul><li>The total length of the boundary of a closed figure.</li><li>It's like walking around the edge of a shape.</li><li>Measured in units of length (cm, m, km).</li></ul>
-          <p class="notes">🎙️ Perimeter comes from 'peri' meaning around, and 'meter' meaning measure. So, it literally means to 'measure around'. Think of it as drawing an outline or putting a border around something.</p>
+          <h2>Real-Life Example: <span class="hl">Fencing</span> a Garden</h2>
+          <ul><li>To put a fence around a garden, we need to know its perimeter.</li><li>The length of the fence needed equals the garden's perimeter.</li></ul>
+          <p class="notes">🎙️ Let's say your parents want to put a fence around their rectangular garden to protect the plants. To buy the right amount of fencing material, they need to calculate the garden's perimeter. This tells them the total length of the boundary.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Walking the Boundary</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Garden boundary</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 25</span>
           <h2>Perimeter of a <span class="hl">Rectangle</span></h2>
-          <ul><li>A rectangle has two lengths (l) and two breadths (b).</li><li>Perimeter = length + breadth + length + breadth</li><li>Formula: P = 2 × (length + breadth) or P = 2(l + b)</li></ul>
-          <p class="notes">🎙️ Look at the rectangle. You have a longer side, which we call length, and a shorter side, which is breadth. If you walk all around it, you cover one length, then one breadth, then another length, and finally another breadth. That's why the formula is twice the sum of length and breadth.</p>
+          <ul><li>A rectangle has two long sides (length) and two short sides (width).</li><li>Opposite sides are equal in length.</li><li>Perimeter = Length + Width + Length + Width</li></ul>
+          <p class="notes">🎙️ For a rectangle, we know that opposite sides are equal. So, if we add all four sides, we get L + W + L + W. This can be simplified to 2 times the sum of its length and width.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Length + Breadth</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Step 1: Identify Length (L) and Width (W)</span></div><div class="step"><span class="snum">2</span><span>Step 2: Add all sides: L + W + L + W</span></div><div class="step"><span class="snum">3</span><span>Formula: 2 × (Length + Width)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Example: <span class="hl">Fencing</span> a Garden</h2>
-          <ul><li>A rectangular garden is 10 m long and 5 m wide.</li><li>How much fence wire is needed?</li><li>P = 2 × (10 m + 5 m) = 2 × 15 m = 30 m</li></ul>
-          <p class="notes">🎙️ Here's a real-life example. If your garden is 10 meters long and 5 meters wide, you'd need 30 meters of wire to fence it completely. This is a practical application of finding the perimeter.</p>
+          <h2>Worked <span class="hl">Example</span>: Rectangle Perimeter</h2>
+          <ul><li>A rectangular park is 50 m long and 30 m wide.</li><li>Find the length of wire needed to fence it once.</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. Length (L) is 50 m and Width (W) is 30 m. Perimeter = 2 * (50 m + 30 m) = 2 * 80 m = 160 m. So, 160 meters of wire are needed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span></div><div class="vcap">Garden Boundary</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Measuring the park</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -108,10 +121,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">6 / 25</span>
           <h2>Perimeter of a <span class="hl">Square</span></h2>
-          <ul><li>A square has four equal sides (s).</li><li>Perimeter = side + side + side + side</li><li>Formula: P = 4 × side or P = 4s</li></ul>
-          <p class="notes">🎙️ A square is a special type of rectangle where all four sides are equal. So, instead of adding four different lengths, we can simply multiply the length of one side by four to find its perimeter.</p>
+          <ul><li>A square has four equal sides.</li><li>Let 's' be the length of one side.</li><li>Perimeter = s + s + s + s</li></ul>
+          <p class="notes">🎙️ A square is a special type of rectangle where all four sides are equal. So instead of adding each side individually, we can simply multiply the length of one side by 4.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">Four Equal Sides</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Step 1: Identify side (s)</span></div><div class="step"><span class="snum">2</span><span>Step 2: Add all sides: s + s + s + s</span></div><div class="step"><span class="snum">3</span><span>Formula: 4 × Side</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Example: <span class="hl">Picture Frame</span></h2>
-          <ul><li>A square picture has a side of 20 cm.</li><li>What is the length of the frame needed?</li><li>P = 4 × 20 cm = 80 cm</li></ul>
-          <p class="notes">🎙️ If you have a square picture and want to put a frame around it, and each side of the picture is 20 cm, you'll need 80 cm of framing material. Simple, right?</p>
+          <h2>Worked <span class="hl">Example</span>: Square Perimeter</h2>
+          <ul><li>A square photo frame has a side of 15 cm.</li><li>What is the total length of decorative border needed for it?</li></ul>
+          <p class="notes">🎙️ Here, the side (s) of the square photo frame is 15 cm. Using the formula, Perimeter = 4 * 15 cm = 60 cm. So, 60 cm of decorative border is needed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖼️</span><span>🖼️</span><span>🖼️</span><span>🖼️</span></div><div class="vcap">Frame Length</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Photo frame border</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Perimeter of Other <span class="hl">Polygons</span></h2>
-          <ul><li>For any polygon, sum of the lengths of all its sides.</li><li>Triangle: P = a + b + c</li><li>Pentagon: P = s1 + s2 + s3 + s4 + s5</li></ul>
-          <p class="notes">🎙️ The general rule for finding the perimeter of any closed shape with straight sides, called a polygon, is to just add up the lengths of all its sides. No special formula needed, just careful addition!</p>
+          <h2>Perimeter of <span class="hl">Other Shapes</span></h2>
+          <ul><li>For any polygon, just add the lengths of all its sides.</li><li>Triangle: sum of its three sides.</li><li>Irregular shapes: sum of all exterior sides.</li></ul>
+          <p class="notes">🎙️ The general rule for finding the perimeter of any closed shape with straight sides, also known as a polygon, is to simply add up the lengths of all its sides. Whether it's a triangle, a pentagon, or an irregular shape, the principle remains the same.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Sum of Sides</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Any polygon</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Real-Life Example: Perimeter</h2>
-          <ul><li>Athletes run along the perimeter of a track.</li><li>Measuring the boundary of a property.</li><li>Decorating a blackboard with a border.</li></ul>
-          <p class="notes">🎙️ Think about an athlete running on a track. They are covering the perimeter of the track. Similarly, when you put a decorative border around a notice board, you are dealing with its perimeter.</p>
+          <h2>Worked <span class="hl">Example</span>: Irregular Perimeter</h2>
+          <ul><li>A park has sides measuring 10m, 12m, 8m, 15m, and 7m.</li><li>How far would you walk if you went around it once?</li></ul>
+          <p class="notes">🎙️ To find the distance, we add all the side lengths: 10m + 12m + 8m + 15m + 7m = 52m. So, you would walk 52 meters around the park.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏃‍♂️</span><span>🏃‍♂️</span><span>🏃‍♂️</span><span>🏃‍♂️</span><span>🏃‍♂️</span></div><div class="vcap">Around the Track</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♀️</div><div class="vcap">Park walk</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -155,23 +168,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Quick Check: <span class="hl">Perimeter</span></h2>
-          <ul><li>What is the perimeter of a rectangle with length 7 cm and breadth 3 cm?</li></ul>
-          <p class="notes">🎙️ Alright, let's quickly test your understanding. Take a moment to calculate the perimeter of this rectangle. Remember the formula we just learned!</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>What is the perimeter of a rectangle with length 10 cm and width 5 cm?</li><li>A. 15 cm</li><li>B. 30 cm</li><li>C. 50 cm</li></ul>
+          <p class="notes">🎙️ Take a moment to calculate this. Remember the formula for the perimeter of a rectangle. You can either add all four sides or use the simplified formula.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Quick Check: Perimeter (<span class="hl">Answer</span>)</h2>
-          <ul><li>P = 2 × (length + breadth)</li><li>P = 2 × (7 cm + 3 cm)</li><li>P = 2 × 10 cm = 20 cm</li></ul>
-          <p class="notes">🎙️ The correct answer is 20 cm. If you got it right, fantastic! If not, just review the formula and try again. Practice makes perfect!</p>
+          <h2>What is <span class="hl">Area</span>?</h2>
+          <ul><li>The amount of surface a shape covers.</li><li>It's the space inside the boundary of a closed figure.</li><li>Measured in square units (cm², m², km²).</li></ul>
+          <p class="notes">🎙️ While perimeter is about the boundary, area is about the space *inside* that boundary. Think of it as the amount of paint you'd need to cover a surface, or the number of tiles to cover a floor.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Space covered</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Understanding <span class="hl">Area</span></h2>
-          <ul><li>The amount of surface covered by a closed figure.</li><li>It's the space inside the boundary.</li><li>Measured in square units (cm², m², km²).</li></ul>
-          <p class="notes">🎙️ Now, let's move on to Area. While perimeter is about the boundary, area is about the space *inside* that boundary. Imagine painting a wall; the amount of paint needed depends on the wall's area.</p>
+          <h2>Real-Life Example: <span class="hl">Tiling</span> a Floor</h2>
+          <ul><li>To tile a floor, we need to know its area.</li><li>The number of tiles needed depends on the floor's area.</li></ul>
+          <p class="notes">🎙️ If you're planning to tile a room, you need to calculate the area of the floor. This will help you determine how many tiles to purchase, ensuring you cover the entire surface without buying too many or too few.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Space Covered</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬜</span><span>⬜</span><span>⬜</span><span>⬜</span><span>⬜</span><span>⬜</span><span>⬜</span><span>⬜</span><span>⬜</span></div><div class="vcap">Floor tiles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Units</span> of Area</h2>
-          <ul><li>Since area is 2-dimensional (length × breadth), its units are 'square units'.</li><li>If sides are in cm, area is in cm² (square centimetres).</li><li>If sides are in m, area is in m² (square metres).</li></ul>
-          <p class="notes">🎙️ Because we are multiplying two lengths together (length and breadth), the unit for area becomes a 'square unit'. So, we say square centimetres or square metres, often written as cm² or m².</p>
+          <h2>Units of Area</h2>
+          <ul><li>Area is always measured in 'square units'.</li><li>For example, square centimetres (cm²), square metres (m²).</li><li>It represents how many unit squares fit inside a shape.</li></ul>
+          <p class="notes">🎙️ Since area measures a two-dimensional space, its units are always squared. A square centimetre is the area of a square with sides of 1 cm. We count how many of these unit squares fit into the shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬜</div><div class="vcap">Square Units</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏²</div><div class="vcap">Measuring in squares</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -204,10 +217,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">14 / 25</span>
           <h2>Area of a <span class="hl">Rectangle</span></h2>
-          <ul><li>Imagine covering the rectangle with small squares.</li><li>The number of squares inside is its area.</li><li>Formula: Area = length × breadth (A = l × b)</li></ul>
-          <p class="notes">🎙️ Think of a rectangle made of unit squares. If you have 4 squares along the length and 2 squares along the breadth, you have 4 × 2 = 8 squares in total. This gives us the simple formula: length times breadth.</p>
+          <ul><li>Area of a rectangle depends on its length and width.</li><li>Imagine rows of unit squares filling the rectangle.</li></ul>
+          <p class="notes">🎙️ To find the area of a rectangle, we multiply its length by its width. This is because the length tells us how many unit squares fit along one side, and the width tells us how many such rows there are.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span></div><div class="vcap">Counting Squares</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Step 1: Identify Length (L)</span></div><div class="step"><span class="snum">2</span><span>Step 2: Identify Width (W)</span></div><div class="step"><span class="snum">3</span><span>Formula: Length × Width</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Example: <span class="hl">Tiling</span> a Floor</h2>
-          <ul><li>A rectangular room is 8 m long and 6 m wide.</li><li>What is the area of the floor to be tiled?</li><li>A = 8 m × 6 m = 48 m²</li></ul>
-          <p class="notes">🎙️ If you want to tile a room that is 8 meters long and 6 meters wide, you need to calculate the area of the floor. In this case, it's 48 square meters. This tells you how many square meter tiles you'd need.</p>
+          <h2>Worked <span class="hl">Example</span>: Rectangle Area</h2>
+          <ul><li>A rectangular wall is 8 m long and 4 m high.</li><li>What is the area of the wall to be painted?</li></ul>
+          <p class="notes">🎙️ Here, Length (L) = 8 m and Width (W) = 4 m. Area = L * W = 8 m * 4 m = 32 square metres (m²). So, 32 m² of the wall needs to be painted.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span></div><div class="vcap">Room Floor</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎨</div><div class="vcap">Painting the wall</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -228,10 +241,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">16 / 25</span>
           <h2>Area of a <span class="hl">Square</span></h2>
-          <ul><li>A square has all sides equal (s).</li><li>Area = side × side</li><li>Formula: A = s × s or A = s²</li></ul>
-          <p class="notes">🎙️ For a square, since length and breadth are the same (both are 'side'), the area formula simplifies to side multiplied by side, or side squared. It's a very straightforward calculation.</p>
+          <ul><li>A square has all sides equal.</li><li>If 's' is the length of one side.</li></ul>
+          <p class="notes">🎙️ Since a square is a rectangle with equal length and width, its area is simply side multiplied by side. This is often written as 's-squared' or s².</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟧</div><div class="vcap">Side Multiplied by Itself</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Step 1: Identify side (s)</span></div><div class="step"><span class="snum">2</span><span>Step 2: Multiply side by itself</span></div><div class="step"><span class="snum">3</span><span>Formula: Side × Side (or s²)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Example: <span class="hl">Chessboard</span></h2>
-          <ul><li>A chessboard has a side length of 40 cm.</li><li>What is the area of the chessboard?</li><li>A = 40 cm × 40 cm = 1600 cm²</li></ul>
-          <p class="notes">🎙️ A chessboard is a perfect example of a square. If one side is 40 cm, its entire playing surface area is 1600 square centimetres. This helps us understand how much space it takes up.</p>
+          <h2>Worked <span class="hl">Example</span>: Square Area</h2>
+          <ul><li>One square on a chessboard has a side of 3 cm.</li><li>What is the area of that single square?</li></ul>
+          <p class="notes">🎙️ The side (s) of the chessboard square is 3 cm. Area = s * s = 3 cm * 3 cm = 9 square centimetres (cm²). This means 9 unit squares of 1cm by 1cm fit inside it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>♟️</span></div><div class="vcap">Chessboard Surface</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♟️</div><div class="vcap">Chessboard square</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,47 +264,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Real-Life Example: Area</h2>
-          <ul><li>Calculating the amount of paint needed for a wall.</li><li>Finding the space a rug will cover.</li><li>Determining the size of land for farming.</li></ul>
-          <p class="notes">🎙️ When you paint a wall, you're covering its area. When you buy a rug, you choose one that fits the area of your room. Area calculations are crucial in many everyday tasks and professions.</p>
+          <h2>Perimeter <span class="hl">vs. Area</span></h2>
+          <ul><li>Perimeter is the distance around a shape.</li><li>Area is the space inside a shape.</li><li>Different units of measurement.</li></ul>
+          <p class="notes">🎙️ It's important not to confuse perimeter and area. Perimeter is like the fence around a field, while area is the actual crops growing inside the field. They measure different aspects of a shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span></div><div class="vcap">Wall Surface</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Perimeter (cm)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Area (cm²)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>What is the area of a square with side 6 cm?</li><li>A. 12 cm</li><li>B. 24 cm²</li><li>C. 36 cm²</li></ul>
+          <p class="notes">🎙️ Think about the formula for the area of a square. Remember to use the correct units for area. Calculate carefully.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Perimeter <span class="hl">vs.</span> Area</h2>
-          <ul><li>Perimeter: Measures the boundary (1D).</li><li>Area: Measures the surface inside (2D).</li><li>Different concepts, different units.</li></ul>
-          <p class="notes">🎙️ It's important not to confuse perimeter and area. Perimeter is like the fence around a field, a one-dimensional measurement. Area is like the grass *within* the field, a two-dimensional measurement. They are distinct concepts.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Perimeter</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Area</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check: <span class="hl">Area</span></h2>
-          <ul><li>What is the area of a square with a side of 6 cm?</li></ul>
-          <p class="notes">🎙️ Let's try another quick calculation. What is the area of a square if each of its sides measures 6 cm? Remember the formula for the area of a square.</p>
+          <h2><span class="hl">Combined</span> Example: Perimeter and Area</h2>
+          <ul><li>A rectangular playground is 20 m long and 10 m wide.</li><li>Find both its perimeter and area.</li></ul>
+          <p class="notes">🎙️ Let's practice finding both. For Perimeter: 2 * (20+10) = 2 * 30 = 60 m. For Area: 20 * 10 = 200 m². See how different the numbers and units are?</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Both calculations</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick Check: Area (<span class="hl">Answer</span>)</h2>
-          <ul><li>A = side × side</li><li>A = 6 cm × 6 cm</li><li>A = 36 cm²</li></ul>
-          <p class="notes">🎙️ The answer is 36 square centimetres. Excellent if you got it right! Keep practicing these formulas, they will become second nature.</p>
+          <h2>Problem Solving: <span class="hl">Garden Plot</span></h2>
+          <ul><li>A gardener wants to prepare a flower bed that is 7 m long and 3 m wide.</li><li>He needs to put a wire mesh around it and also buy soil to fill it.</li><li>What length of wire mesh does he need? What quantity of soil (area) does he need to consider?</li></ul>
+          <p class="notes">🎙️ This problem requires us to identify whether we need perimeter or area for each part. Wire mesh is for the boundary, so it's perimeter. Soil to fill it is for the space inside, so it's area.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Garden planning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Combined</span> Problem</h2>
-          <ul><li>A rectangular park is 20 m long and 15 m wide.</li><li>Find its perimeter and area.</li></ul>
-          <p class="notes">🎙️ Now, let's try a problem that uses both concepts. Imagine a park. You need to find both its boundary length and the space it covers. Work through both calculations carefully.</p>
+          <h2>Problem Solving: <span class="hl">Classroom Floor</span></h2>
+          <ul><li>Our classroom floor is 9 m long and 6 m wide.</li><li>How much carpet is needed to cover the entire floor?</li><li>If we put a decorative border along the edges, how long would it be?</li></ul>
+          <p class="notes">🎙️ Again, let's distinguish. Carpet covers the surface, so that's area. The decorative border goes along the edges, which is perimeter. Calculate both for our classroom.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Park Measurements</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏫</div><div class="vcap">Classroom measurements</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>More <span class="hl">Applications</span></h2>
-          <ul><li>Construction: Planning room sizes, material estimates.</li><li>Sports: Designing fields, tracks.</li><li>Agriculture: Measuring fields for crops.</li><li>Crafts: Cutting fabric, making cards.</li></ul>
-          <p class="notes">🎙️ Perimeter and Area are not just textbook concepts. They are used by engineers, architects, farmers, tailors, and even artists every single day. Understanding them opens up many possibilities.</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>A square field has a side of 10 m.</li><li>Which statement is TRUE?</li><li>A. Perimeter = 40 m, Area = 10 m²</li><li>B. Perimeter = 40 m, Area = 100 m²</li><li>C. Perimeter = 100 m, Area = 40 m²</li></ul>
+          <p class="notes">🎙️ Read the question carefully and calculate both perimeter and area for the square field. Pay attention to the units as well. Only one option is correct.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Everywhere!</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span></h2>
-          <ul><li>Perimeter: Distance around a shape (P = 2(l+b) or P=4s).</li><li>Area: Surface covered by a shape (A = l×b or A=s²).</li><li>Perimeter in units of length, Area in square units.</li><li>Used widely in real life for measurements.</li></ul>
-          <p class="notes">🎙️ Let's quickly review what we've learned today. We explored perimeter as the boundary and area as the space inside. Remember their distinct formulas and units. These are fundamental concepts in geometry.</p>
+          <h2>Recap: Key <span class="hl">Takeaways</span></h2>
+          <ul><li>Perimeter is the distance around a shape (boundary).</li><li>Area is the space covered by a shape (surface).</li><li>Formulas: Rectangle (P=2(L+W), A=L×W), Square (P=4s, A=s×s).</li><li>Units: Perimeter (cm, m), Area (cm², m²).</li></ul>
+          <p class="notes">🎙️ We've learned that perimeter and area are distinct but equally important concepts. Remember their definitions, their formulas for common shapes, and especially their correct units. These are vital for solving real-world problems.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span> for Learning!</h2>
-          <ul><li>Keep practicing!</li><li>Explore shapes around you.</li><li>See you in the next class!</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our lesson on Perimeter and Area. I encourage you to look for shapes around you and think about their perimeter and area. Practice the sums, and I look forward to seeing you next time!</p>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep practicing these concepts at home.</li><li>Look for perimeter and area in everyday objects.</li><li>Next class: Exploring more complex shapes!</li></ul>
+          <p class="notes">🎙️ You've done a great job today! Understanding perimeter and area will help you in many practical situations. Keep an eye out for shapes around you and try to estimate their perimeter and area. See you in the next class!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Great learning!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

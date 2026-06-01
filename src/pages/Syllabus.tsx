@@ -1223,6 +1223,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
             title={htmlDeck.chapter.title}
             onClose={() => setHtmlDeck(null)}
             onPractice={() => { const ch = htmlDeck.chapter; setHtmlDeck(null); handlePractice(ch); }}
+            onMissing={() => { const ch = htmlDeck.chapter; setHtmlDeck(null); setLessonChapter(ch); prewarmPptBackend(); }}
           />
         )}
       </AnimatePresence>

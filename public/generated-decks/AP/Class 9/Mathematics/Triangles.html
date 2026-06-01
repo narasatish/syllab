@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Triangles - The Building Blocks of Geometry — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Triangles</span>!</h2>
+          <ul><li>A fundamental shape in mathematics.</li><li>Used everywhere, from art to engineering.</li><li>Let's explore their properties together.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of triangles. These simple yet powerful shapes are everywhere around us, and understanding them is key to mastering geometry.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Triangle</span>?</h2>
+          <ul><li>A polygon with three sides.</li><li>It has three vertices (corners).</li><li>It also has three interior angles.</li></ul>
+          <p class="notes">🎙️ Simply put, a triangle is a closed shape made up of three straight lines. These lines meet at three distinct points called vertices, forming three angles inside the shape.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">A basic triangle shape</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Elements</span> of a Triangle</h2>
+          <ul><li>Vertices: Points where sides meet (A, B, C).</li><li>Sides: Line segments connecting vertices (AB, BC, CA).</li><li>Angles: Formed by two sides meeting at a vertex (∠A, ∠B, ∠∠C).</li></ul>
+          <p class="notes">🎙️ Every triangle has three main components: its vertices, its sides, and its angles. Understanding these elements helps us describe and work with different types of triangles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Points, lines, and angles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Real-Life</span> Triangles: Look Around You!</h2>
+          <ul><li>Many structures use triangles for strength.</li><li>They appear in nature and everyday objects.</li><li>Observe the shapes in your surroundings.</li></ul>
+          <p class="notes">🎙️ From the slices of a pizza to the supports of a bridge, triangles are everywhere! Their rigid structure makes them ideal for construction and design. Can you spot any triangles in your classroom right now?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📐</span><span>📐</span><span>📐</span><span>📐</span></div><div class="vcap">Examples of triangles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Types of Triangles by Sides: <span class="hl">Scalene</span></h2>
+          <ul><li>All three sides have different lengths.</li><li>All three angles have different measures.</li><li>No sides are equal.</li></ul>
+          <p class="notes">🎙️ A scalene triangle is the 'unique' one, where every side has a different length. Consequently, all its interior angles will also be of different measures.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Unequal lengths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Types of Triangles by Sides: <span class="hl">Isosceles</span></h2>
+          <ul><li>Exactly two sides are equal in length.</li><li>The angles opposite to the equal sides are also equal.</li><li>The third side is called the base.</li></ul>
+          <p class="notes">🎙️ An isosceles triangle has two sides that are exactly the same length. A special property is that the angles opposite these equal sides are also equal to each other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Two sides are balanced</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Types of Triangles by Sides: <span class="hl">Equilateral</span></h2>
+          <ul><li>All three sides are equal in length.</li><li>All three angles are equal (each 60°).</li><li>It's a special type of isosceles triangle.</li></ul>
+          <p class="notes">🎙️ The equilateral triangle is the most symmetrical. All its sides are equal, and all its angles are also equal, each measuring exactly 60 degrees. It's a perfect example of balance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">All sides are precious</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Comparing</span> Triangles by Sides</h2>
+          <ul><li>Scalene: No equal sides.</li><li>Isosceles: Two equal sides.</li><li>Equilateral: Three equal sides.</li></ul>
+          <p class="notes">🎙️ Here's a quick way to remember the types of triangles based on their sides. Think of how many sides are equal: zero for scalene, two for isosceles, and all three for equilateral.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Scalene</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Isosceles</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Equilateral</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Types of Triangles by Angles: <span class="hl">Acute-angled</span></h2>
+          <ul><li>All three interior angles are acute.</li><li>Each angle is less than 90°.</li><li>It looks 'sharp' or 'pointy'.</li></ul>
+          <p class="notes">🎙️ In an acute-angled triangle, every single angle inside it measures less than 90 degrees. These triangles often look 'sharp' or 'pointy' at all their corners.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Small angles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Types of Triangles by Angles: <span class="hl">Right-angled</span></h2>
+          <ul><li>Exactly one interior angle is a right angle.</li><li>One angle measures exactly 90°.</li><li>The side opposite the right angle is the hypotenuse.</li></ul>
+          <p class="notes">🎙️ A right-angled triangle is easily identified by its one angle that measures exactly 90 degrees. This is a very important type of triangle, especially in trigonometry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">A perfect 90° angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Types of Triangles by Angles: <span class="hl">Obtuse-angled</span></h2>
+          <ul><li>Exactly one interior angle is obtuse.</li><li>One angle measures greater than 90°.</li><li>The other two angles must be acute.</li></ul>
+          <p class="notes">🎙️ An obtuse-angled triangle has one angle that is 'wide open', meaning it measures more than 90 degrees. Remember, a triangle can only have one obtuse angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👐</div><div class="vcap">Wide angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Comparing</span> Triangles by Angles</h2>
+          <ul><li>Acute: All angles &lt; 90°.</li><li>Right: One angle = 90°.</li><li>Obtuse: One angle &gt; 90°.</li></ul>
+          <p class="notes">🎙️ To classify triangles by their angles, we look at the measure of their largest angle. Is it small, exactly 90 degrees, or large? This helps us categorize them quickly.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Acute</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Right</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Obtuse</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Angle Sum Property</span> of a Triangle</h2>
+          <ul><li>The sum of the three interior angles of any triangle is always 180°.</li><li>This is a fundamental property.</li><li>It holds true for all types of triangles.</li></ul>
+          <p class="notes">🎙️ This is one of the most important properties you'll learn about triangles. No matter the shape or size of a triangle, if you add up its three inside angles, the total will always be exactly 180 degrees.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Angles add up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Understanding</span> the Angle Sum Property</h2>
+          <ul><li>Imagine tearing off the corners of a paper triangle.</li><li>Arrange them side-by-side.</li><li>They form a straight line, which is 180°.</li></ul>
+          <p class="notes">🎙️ You can try this at home! Draw a triangle, cut it out, and then tear off its three corners. When you place these corners next to each other, you'll see they perfectly form a straight line, visually demonstrating the 180-degree sum.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Tear corners</span></div><div class="step"><span class="snum">2</span><span>Arrange them</span></div><div class="step"><span class="snum">3</span><span>Form a straight line</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Worked Example 1: Finding a <span class="hl">Missing Angle</span></h2>
+          <ul><li>Given two angles: 60° and 70°.</li><li>Let the third angle be 'x'.</li><li>60° + 70° + x = 180°.</li></ul>
+          <p class="notes">🎙️ If we know two angles of a triangle, we can easily find the third using the angle sum property. Just add the known angles, subtract from 180, and you have your missing angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Find the unknown</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Exterior Angle</span> Property of a Triangle</h2>
+          <ul><li>An exterior angle is formed by extending one side of a triangle.</li><li>It is equal to the sum of the two interior opposite angles.</li><li>It's always supplementary to the adjacent interior angle.</li></ul>
+          <p class="notes">🎙️ When you extend one side of a triangle, the angle formed outside is called an exterior angle. This exterior angle has a special relationship: it's equal to the sum of the two interior angles that are not next to it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Angle outside</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example 2: Using <span class="hl">Exterior Angle</span> Property</h2>
+          <ul><li>Interior angles: 50° and 65°.</li><li>Exterior angle 'x' is opposite these.</li><li>x = 50° + 65° = 115°.</li></ul>
+          <p class="notes">🎙️ Let's apply this property. If two interior opposite angles are 50 and 65 degrees, their sum gives us the measure of the exterior angle. This makes finding exterior angles much faster.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Calculating 'x'</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Quick Check</span> 1: Triangle Basics</h2>
+          <ul><li>1. What is the sum of angles in a triangle?</li><li>2. A triangle with sides 3cm, 4cm, 5cm is called?</li><li>3. Can a triangle have two obtuse angles?</li></ul>
+          <p class="notes">🎙️ Alright, time for a quick review! Think about the properties we've just discussed. These questions will help you check your understanding before we move on.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Congruence</span> of Triangles: What does it mean?</h2>
+          <ul><li>Two figures are congruent if they have the same shape and size.</li><li>For triangles, it means they can be placed exactly on top of each other.</li><li>Corresponding sides and angles are equal.</li></ul>
+          <p class="notes">🎙️ Congruence is a very important concept. Imagine having two identical twins; they are congruent. In geometry, it means two triangles are exact copies of each other, even if one is rotated or flipped.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Identical twins</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Congruence Criteria: <span class="hl">SSS</span> (Side-Side-Side)</h2>
+          <ul><li>If three sides of one triangle are equal to three sides of another triangle.</li><li>Then the two triangles are congruent.</li><li>This is a powerful way to prove congruence.</li></ul>
+          <p class="notes">🎙️ The SSS criterion states that if you can match all three sides of one triangle to all three sides of another, then those two triangles must be congruent. It's like having a perfect blueprint for both.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Matching all sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Congruence Criteria: <span class="hl">SAS</span> (Side-Angle-Side)</h2>
+          <ul><li>If two sides and the included angle of one triangle are equal to two sides and the included angle of another triangle.</li><li>Then the two triangles are congruent.</li><li>The angle must be between the two sides.</li></ul>
+          <p class="notes">🎙️ For SAS, we need two sides and the angle *between* them to match. This 'included' angle is crucial. If these three elements correspond, the triangles are congruent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Side, Angle, Side</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Congruence Criteria: <span class="hl">ASA</span> (Angle-Side-Angle)</h2>
+          <ul><li>If two angles and the included side of one triangle are equal to two angles and the included side of another triangle.</li><li>Then the two triangles are congruent.</li><li>The side must be between the two angles.</li></ul>
+          <p class="notes">🎙️ Similar to SAS, ASA requires two angles and the side *between* them to be equal in both triangles. If you have this specific combination, you've got congruent triangles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Angle, Side, Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Congruence Criteria: <span class="hl">RHS</span> (Right-angle-Hypotenuse-Side)</h2>
+          <ul><li>For right-angled triangles only.</li><li>If the hypotenuse and one side of a right triangle are equal to the hypotenuse and one side of another right triangle.</li><li>Then the two triangles are congruent.</li></ul>
+          <p class="notes">🎙️ RHS is a special criterion just for right-angled triangles. It means if the longest side (hypotenuse) and one other side are equal in two right triangles, they are congruent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🅿️</div><div class="vcap">Right angle, Hypotenuse, Side</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Quick Check</span> 2: Congruence</h2>
+          <ul><li>1. What does 'congruent' mean for triangles?</li><li>2. Name the four congruence criteria we discussed.</li><li>3. Which criterion applies only to right triangles?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of congruence. These questions will help solidify your knowledge of how to prove if two triangles are identical.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Practice!</h2>
+          <ul><li>We learned about triangle types by sides and angles.</li><li>Explored Angle Sum and Exterior Angle Properties.</li><li>Understood the concept and criteria for triangle congruence.</li><li>Keep practicing these concepts to master them!</li></ul>
+          <p class="notes">🎙️ Excellent work today, students! We covered a lot of ground, from the basic definition of a triangle to the powerful tools for proving congruence. Remember, practice is key to understanding these concepts deeply. Keep an eye out for triangles everywhere!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · AP Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Mechanical Properties of Solids — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Mechanical Properties of Solids: An <span class="hl">Introduction</span></h2>
-          <ul><li>Explore how solids respond to external forces.</li><li>Understand concepts like elasticity, stress, and strain.</li><li>Crucial for engineering and material science applications.</li></ul>
-          <p class="notes">🎙️ Welcome to the fascinating world of Mechanical Properties of Solids! This chapter is fundamental to understanding how materials behave under stress and strain, which is vital for designing safe and efficient structures. We'll cover the core concepts that define a solid's response to external forces.</p>
+          <h2>Welcome to Mechanical Properties of Solids!</h2>
+          <ul><li>Explore how solids respond to forces.</li><li>Understand concepts like elasticity and plasticity.</li><li>Learn about stress, strain, and their relationship.</li><li>Discover real-world applications of these principles.</li></ul>
+          <p class="notes">🎙️ Hello students! Today we embark on an exciting chapter: Mechanical Properties of Solids. This topic is fundamental to understanding how materials behave under stress and strain, which is crucial in engineering and everyday life. We will cover key definitions and their practical implications.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What Makes <span class="hl">Solids</span> Solid?</h2>
-          <ul><li>Particles held in fixed positions by strong interatomic forces.</li><li>Maintain definite shape and volume.</li><li>Can deform under external forces and then regain original shape.</li></ul>
-          <p class="notes">🎙️ Solids are characterized by their strong interatomic or intermolecular forces, which lock their constituent particles into fixed positions. This gives them a definite shape and volume. While they resist deformation, they are not entirely rigid and can change shape under stress.</p>
+          <h2><span class="hl">Solids</span>: Structure and Intermolecular Forces</h2>
+          <ul><li>Possess definite shape and volume.</li><li>Atoms/molecules are closely packed.</li><li>Strong intermolecular forces hold particles in fixed positions.</li><li>Particles vibrate about their mean positions.</li></ul>
+          <p class="notes">🎙️ Solids are characterized by their rigid structure and strong intermolecular forces. These forces ensure that the constituent particles maintain fixed positions, giving solids their definite shape and volume. While fixed, these particles are not static; they continuously vibrate around their equilibrium positions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Strong Interatomic Bonds</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Hydrogen_bond_in_DNA.png?width=500" data-fb="💎" alt="Intermolecular forces are attractive forces between molecules. Strength order: hydrogen bo"/><div class="vcap">Intermolecular forces are attractive forces between molecules. Strength order: hydrogen bo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Elasticity</span> and Plasticity: The Basics</h2>
-          <ul><li>Elasticity: Property of a body to regain its original shape after deforming forces are removed.</li><li>Plasticity: Property of a body to retain its deformed shape even after deforming forces are removed.</li><li>Most materials exhibit both to varying degrees.</li></ul>
-          <p class="notes">🎙️ Elasticity is a material's ability to bounce back to its original form, like a rubber band. Plasticity, on the other hand, describes a material that permanently deforms, such as clay or a bent metal wire. Understanding this distinction is key to material selection in engineering.</p>
+          <h2>Deforming Force &amp; Restoring Force</h2>
+          <ul><li>Deforming force: External force changing an object's shape/size.</li><li>Restoring force: Internal force opposing deformation.</li><li>Arises due to intermolecular interactions.</li><li>Tries to bring the body back to its original state.</li></ul>
+          <p class="notes">🎙️ When an external deforming force acts on a solid, it causes a change in its configuration. Simultaneously, internal restoring forces develop within the material. These forces, stemming from the material's inherent resistance to deformation, actively try to restore the body to its original shape and size.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Elastic</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Plastic</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Applied vs. Internal Force</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Stress</span>: Internal Restoring Force</h2>
-          <ul><li>Defined as the internal restoring force per unit area.</li><li>Formula: Stress (σ) = Force (F) / Area (A).</li><li>SI Unit: N/m² or Pascal (Pa).</li><li>Types: Normal (tensile/compressive) and Tangential (shear).</li></ul>
-          <p class="notes">🎙️ When an external force acts on a body, the body develops an internal restoring force to resist the deformation. Stress quantifies this internal resistance per unit area. Normal stress acts perpendicular to the surface, while tangential or shear stress acts parallel to it.</p>
+          <h2><span class="hl">Elasticity</span> and Plasticity</h2>
+          <ul><li>Elasticity: Property to regain original shape/size after deforming force is removed.</li><li>Plasticity: Property of permanent deformation even after deforming force is removed.</li><li>Elastic materials return to original state (e.g., rubber band).</li><li>Plastic materials retain deformation (e.g., clay).</li></ul>
+          <p class="notes">🎙️ Elasticity and plasticity describe how materials respond to applied forces. An elastic material will spring back to its original form, like a rubber band. In contrast, a plastic material will undergo permanent deformation and retain its new shape, much like modeling clay.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Force per Unit Area</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Elastic (Spring)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Plastic (Clay)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Strain</span>: Deformation Response</h2>
-          <ul><li>Defined as the fractional change in dimension.</li><li>Formula: Strain (ε) = Change in dimension / Original dimension.</li><li>It is a dimensionless quantity (ratio of two similar quantities).</li><li>Types: Longitudinal, Volumetric, and Shear.</li></ul>
-          <p class="notes">🎙️ Strain measures the extent of deformation relative to the original size of the body. Since it's a ratio of lengths or volumes, it has no units. Longitudinal strain relates to changes in length, volumetric to changes in volume, and shear strain to changes in shape.</p>
+          <h2><span class="hl">Stress</span>: Internal Restoring Force per Unit Area</h2>
+          <ul><li>Defined as restoring force per unit cross-sectional area.</li><li>Formula: Stress (σ) = Force (F) / Area (A).</li><li>SI Unit: N/m² or Pascal (Pa).</li><li>A tensor quantity, though often treated as scalar for simple cases.</li></ul>
+          <p class="notes">🎙️ Stress is a crucial concept, representing the internal resistance a material offers to deformation. It's not just the applied force, but how that force is distributed over the material's cross-sectional area. Understanding its units and formula is vital for calculations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Fractional Change</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏋️</div><div class="vcap">Force Distributed Over Area</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Hooke's Law</span>: Stress-Strain Relationship</h2>
-          <ul><li>States that within the elastic limit, stress is directly proportional to strain.</li><li>Formula: Stress ∝ Strain, or Stress = E × Strain.</li><li>E is the constant of proportionality, known as the Modulus of Elasticity.</li><li>This law is fundamental to understanding material behavior.</li></ul>
-          <p class="notes">🎙️ Hooke's Law is a cornerstone of material science, establishing a linear relationship between stress and strain within a material's elastic limit. Beyond this limit, the material may not return to its original shape. The constant 'E' provides a measure of the material's stiffness.</p>
+          <h2><span class="hl">Types</span> of Stress: Normal and Tangential</h2>
+          <ul><li>Normal Stress: Force perpendicular to the surface.</li><li>  - Tensile Stress: Increases length (pulling force).</li><li>  - Compressive Stress: Decreases length (pushing force).</li><li>Tangential (Shearing) Stress: Force parallel to the surface, causes shape change.</li></ul>
+          <p class="notes">🎙️ Stress can be classified based on the direction of the applied force relative to the surface. Normal stress acts perpendicular, leading to changes in length. Tangential or shearing stress acts parallel to the surface, causing a distortion in the object's shape without changing its volume.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Proportionality</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Perpendicular vs. Parallel Forces</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Understanding the <span class="hl">Stress-Strain Curve</span></h2>
-          <ul><li>Graphical representation of material behavior under increasing load.</li><li>Key points: Proportional Limit, Elastic Limit, Yield Point, Ultimate Tensile Strength, Fracture Point.</li><li>Helps classify materials as ductile or brittle.</li></ul>
-          <p class="notes">🎙️ The stress-strain curve is a critical tool for engineers, showing how a material deforms and eventually breaks. Each point on the curve signifies a different stage of material response, from elastic deformation to plastic flow and finally fracture. This curve is unique for every material.</p>
+          <h2><span class="hl">Strain</span>: Relative Change in Configuration</h2>
+          <ul><li>Defined as the ratio of change in configuration to the original configuration.</li><li>Formula: Strain = ΔL/L (for length), ΔV/V (for volume), tanθ (for shear).</li><li>Dimensionless quantity (ratio of two similar quantities).</li><li>No units, just a number.</li></ul>
+          <p class="notes">🎙️ Strain quantifies the deformation of a material relative to its original dimensions. Since it's a ratio of two lengths or volumes, it has no units, making it a dimensionless quantity. This makes strain a universal measure of deformation, independent of the size of the object.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Stress_strain_curve.svg?width=500" data-fb="⚛️" alt="Stress-strain curve plots material deformation under load. Regions: elastic (linear, rever"/><div class="vcap">Stress-strain curve plots material deformation under load. Regions: elastic (linear, rever</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Relative Change</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Elastic Moduli</span>: Quantifying Elasticity</h2>
-          <ul><li>Measure of a material's resistance to elastic deformation.</li><li>Higher modulus means greater stiffness.</li><li>Three main types: Young's Modulus, Bulk Modulus, and Shear Modulus.</li></ul>
-          <p class="notes">🎙️ Elastic moduli are crucial constants that quantify a material's stiffness or resistance to deformation under different types of stress. A material with a high modulus is very stiff, while one with a low modulus is more flexible. We will now look at each of these three moduli in detail.</p>
+          <h2><span class="hl">Types</span> of Strain: Longitudinal, Volumetric, Shearing</h2>
+          <ul><li>Longitudinal Strain: Change in length per unit original length (ΔL/L).</li><li>Volumetric Strain: Change in volume per unit original volume (ΔV/V).</li><li>Shearing Strain: Angular deformation (θ or tanθ) caused by tangential stress.</li></ul>
+          <p class="notes">🎙️ Just as with stress, strain also has different types corresponding to the nature of deformation. Longitudinal strain deals with changes in length, volumetric strain with changes in volume, and shearing strain with changes in angle or shape, all relative to the original state.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📏</span><span>📏</span><span>📏</span></div><div class="vcap">Three Measures of Stiffness</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Length, Volume, Angle Changes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Young's Modulus</span> (Y): Longitudinal Elasticity</h2>
-          <ul><li>Ratio of normal stress to longitudinal strain.</li><li>Formula: Y = (F/A) / (ΔL/L).</li><li>Measures resistance to change in length (stretching or compression).</li><li>SI Unit: Pascal (Pa) or N/m².</li></ul>
-          <p class="notes">🎙️ Young's Modulus is perhaps the most commonly used elastic modulus, describing a material's stiffness when stretched or compressed along its length. A high Young's Modulus indicates a material that is difficult to stretch, like steel. It's a key parameter in structural design.</p>
+          <h2><span class="hl">Hooke's Law</span>: Stress is Proportional to Strain</h2>
+          <ul><li>States that within the elastic limit, stress is directly proportional to strain.</li><li>Stress ∝ Strain, or Stress = E × Strain.</li><li>E is the constant of proportionality, called the Modulus of Elasticity.</li><li>This law is fundamental to understanding elastic behavior.</li></ul>
+          <p class="notes">🎙️ Hooke's Law is a cornerstone of material science, establishing a linear relationship between stress and strain within a material's elastic limit. This proportionality constant, the modulus of elasticity, is a critical property that helps us predict how a material will deform under load.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Length Change</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Stress_strain_curve.svg?width=500" data-fb="⚖️" alt="Stress-strain curve plots material deformation under load. Regions: elastic (linear, rever"/><div class="vcap">Stress-strain curve plots material deformation under load. Regions: elastic (linear, rever</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Bulk Modulus</span> (B): Volume Elasticity</h2>
-          <ul><li>Ratio of normal stress (pressure) to volumetric strain.</li><li>Formula: B = -P / (ΔV/V).</li><li>Measures resistance to change in volume.</li><li>Compressibility (K) = 1/B.</li></ul>
-          <p class="notes">🎙️ The Bulk Modulus quantifies a material's resistance to uniform compression, like when an object is submerged in a fluid. A high Bulk Modulus means the material is difficult to compress. Its reciprocal, compressibility, indicates how easily a material can be compressed.</p>
+          <h2><span class="hl">Modulus</span> of Elasticity: A Material Property</h2>
+          <ul><li>Ratio of stress to strain within the elastic limit.</li><li>Represents the material's resistance to deformation.</li><li>Units are the same as stress (N/m² or Pa).</li><li>Value depends on the material's nature and temperature, not dimensions.</li></ul>
+          <p class="notes">🎙️ The Modulus of Elasticity is a material-specific constant that quantifies its stiffness. A higher modulus indicates a stiffer material that requires more stress to produce a given strain. It's an intrinsic property, meaning it doesn't change with the size or shape of the object, only its composition and temperature.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Volume Change</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Material Stiffness</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Shear Modulus</span> (G) / Modulus of Rigidity: Shape Elasticity</h2>
-          <ul><li>Ratio of tangential stress to shear strain.</li><li>Formula: G = (F/A) / θ, where θ is the angular deformation.</li><li>Measures resistance to change in shape (twisting or shearing).</li><li>Also known as Modulus of Rigidity.</li></ul>
-          <p class="notes">🎙️ Shear Modulus, or Modulus of Rigidity, describes a material's resistance to forces that cause a change in its shape without changing its volume. Think of twisting a rod or pushing the top of a block sideways. Materials with high shear modulus are very rigid.</p>
+          <h2><span class="hl">Young's Modulus</span> (Y): For Longitudinal Stress/Strain</h2>
+          <ul><li>Ratio of normal stress to longitudinal strain.</li><li>Formula: Y = (F/A) / (ΔL/L).</li><li>Measures resistance to change in length (stretching or compressing).</li><li>Higher Y means the material is harder to stretch/compress.</li></ul>
+          <p class="notes">🎙️ Young's Modulus is specifically used for deformations involving changes in length, such as stretching a wire or compressing a rod. It's a crucial parameter for designing structures like bridges and buildings, as it indicates how much a material will elongate or shorten under a given load.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Shape Change</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️⬇️</div><div class="vcap">Resistance to Length Change</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Poisson's Ratio</span> (ν): Lateral Contraction</h2>
-          <ul><li>Ratio of lateral strain to longitudinal strain.</li><li>Formula: ν = - (ΔD/D) / (ΔL/L).</li><li>Indicates how much a material 'thins' when stretched.</li><li>Typical values range from 0 to 0.5.</li></ul>
-          <p class="notes">🎙️ When you stretch a rubber band, it not only gets longer but also thinner. Poisson's Ratio quantifies this lateral contraction relative to the longitudinal extension. It's a dimensionless quantity that provides insight into a material's response to tensile or compressive forces.</p>
+          <h2><span class="hl">Bulk Modulus</span> (B): For Volumetric Stress/Strain</h2>
+          <ul><li>Ratio of normal stress (pressure) to volumetric strain.</li><li>Formula: B = - (ΔP) / (ΔV/V). (Negative sign indicates volume decrease with pressure increase).</li><li>Measures resistance to change in volume (compression).</li><li>Reciprocal of Bulk Modulus is Compressibility.</li></ul>
+          <p class="notes">🎙️ The Bulk Modulus describes a material's resistance to uniform compression or expansion. It's particularly relevant for fluids, but also for solids under hydrostatic pressure. A high bulk modulus means the material is difficult to compress, making it suitable for applications where volume stability is critical.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Lateral vs. Longitudinal</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Resistance to Volume Change</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Elasticity in <span class="hl">Everyday Life</span></h2>
-          <ul><li>Springs in vehicles and toys rely on elasticity.</li><li>Rubber bands demonstrate elastic behavior.</li><li>Bridges and buildings utilize materials with specific elastic properties.</li></ul>
-          <p class="notes">🎙️ Elasticity is not just a theoretical concept; it's all around us. From the springs that absorb shocks in our cars to the structural integrity of bridges and buildings, understanding elastic properties is crucial for safe and functional designs. Even a simple rubber band showcases this principle.</p>
+          <h2><span class="hl">Shear Modulus</span> (G): For Shearing Stress/Strain</h2>
+          <ul><li>Also known as Modulus of Rigidity.</li><li>Ratio of tangential stress to shearing strain.</li><li>Formula: G = (F_tangential/A) / θ.</li><li>Measures resistance to change in shape (twisting or shearing).</li></ul>
+          <p class="notes">🎙️ Shear Modulus, or Modulus of Rigidity, quantifies a material's resistance to forces that cause a change in its shape without changing its volume. This is important for components subjected to twisting or cutting forces, like axles or bolts. A material with a high shear modulus is very rigid.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌉</span><span>🌉</span><span>🌉</span></div><div class="vcap">Elastic Structures</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Resistance to Shape Change</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Stress &amp; Strain</h2>
-          <ul><li>A wire of length 2m and cross-sectional area 1 mm² is stretched by a force of 100 N.</li><li>Calculate the stress and longitudinal strain if its length increases by 0.1 mm.</li></ul>
-          <p class="notes">🎙️ Let's quickly test your understanding of stress and strain with this problem. Remember the definitions and formulas for each. Pay close attention to unit conversions, especially for area and change in length, to ensure accuracy in your calculations.</p>
+          <h2>Stress-Strain <span class="hl">Curve</span>: Understanding Material Behavior</h2>
+          <ul><li>A graph plotting stress on the Y-axis and strain on the X-axis.</li><li>Reveals a material's elastic and plastic properties.</li><li>Each material has a unique stress-strain curve.</li><li>Essential for material selection in engineering.</li></ul>
+          <p class="notes">🎙️ The stress-strain curve is a powerful tool for characterizing the mechanical behavior of materials. By observing its shape, we can identify critical points that define a material's strength, ductility, and elasticity, providing invaluable information for engineering design and material selection.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Material Performance Graph</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Worked Example</span>: Calculating Young's Modulus</h2>
-          <ul><li>Problem: A steel wire of length 2.0 m, area 1.0 x 10⁻⁶ m² is stretched by 0.5 mm when a 50 N load is applied.</li><li>Calculate Young's Modulus for steel.</li><li>Given: L = 2.0 m, A = 1.0 x 10⁻⁶ m², ΔL = 0.5 x 10⁻³ m, F = 50 N.</li><li>Solution: Y = (F/A) / (ΔL/L) = (50 / 1.0 x 10⁻⁶) / (0.5 x 10⁻³ / 2.0) = 2.0 x 10¹¹ Pa.</li></ul>
-          <p class="notes">🎙️ Here's a step-by-step solution for calculating Young's Modulus. Always start by listing the given values with their correct units. Then, select the appropriate formula, substitute the values carefully, and perform the calculation. Remember to express the final answer with correct units.</p>
+          <h2><span class="hl">Key Points</span> on Stress-Strain Curve</h2>
+          <ul><li>Proportional Limit: Stress directly proportional to strain (Hooke's Law holds).</li><li>Elastic Limit: Maximum stress a material can withstand and still return to original shape.</li><li>Yield Point: Stress at which material begins to deform plastically (permanent deformation).</li><li>Ultimate Tensile Strength: Maximum stress a material can withstand before necking/fracture.</li><li>Fracture Point: Stress at which the material breaks.</li></ul>
+          <p class="notes">🎙️ Understanding these key points on the stress-strain curve is critical for engineers. The proportional limit defines where Hooke's Law is valid, while the elastic limit marks the boundary of reversible deformation. The yield point signifies the onset of permanent deformation, and the ultimate tensile strength indicates the maximum load a material can bear before failure begins.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Given</span></div><div class="step"><span class="snum">2</span><span>Apply Formula</span></div><div class="step"><span class="snum">3</span><span>Substitute Values</span></div><div class="step"><span class="snum">4</span><span>Calculate Result</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Proportional Limit</span></div><div class="step"><span class="snum">2</span><span>Elastic Limit</span></div><div class="step"><span class="snum">3</span><span>Yield Point</span></div><div class="step"><span class="snum">4</span><span>Ultimate Strength</span></div><div class="step"><span class="snum">5</span><span>Fracture Point</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Avoiding <span class="hl">Common Mistakes</span></h2>
-          <ul><li>Unit Conversion: Always convert all quantities to SI units (meters, Newtons, Pascals).</li><li>Confusing Stress and Strain: Stress is force per area, strain is fractional deformation.</li><li>Elastic Limit: Hooke's Law only applies within this limit.</li><li>Sign Conventions: For bulk modulus, the negative sign indicates volume decrease with pressure increase.</li></ul>
-          <p class="notes">🎙️ Students often make mistakes with unit conversions, especially with area in mm² or length in cm. Also, clearly distinguish between stress and strain. Remember that Hooke's Law has a specific range of applicability. Paying attention to these details will significantly improve your problem-solving accuracy.</p>
+          <h2><span class="hl">Ductile</span> vs. Brittle Materials</h2>
+          <ul><li>Ductile materials: Show significant plastic deformation before fracture (e.g., copper, steel).</li><li>Brittle materials: Fracture with little or no plastic deformation (e.g., glass, cast iron).</li><li>Ductile materials have a large plastic region on their stress-strain curve.</li><li>Brittle materials have a very small or negligible plastic region.</li></ul>
+          <p class="notes">🎙️ The distinction between ductile and brittle materials is crucial in engineering. Ductile materials can be drawn into wires or hammered into sheets, indicating their ability to deform plastically. Brittle materials, conversely, tend to break suddenly without much warning, which is a key consideration in safety-critical applications.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Watch Out!</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ductile (Wire)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Brittle (Glass)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Elastic <span class="hl">Potential Energy</span> in a Stretched Wire</h2>
-          <ul><li>Work done in stretching a wire is stored as elastic potential energy.</li><li>Energy density (energy per unit volume) = ½ × Stress × Strain.</li><li>Total potential energy = ½ × Force × Extension.</li></ul>
-          <p class="notes">🎙️ When you stretch a wire, you are doing work against the internal restoring forces. This work is not lost but is stored within the wire as elastic potential energy. This stored energy can be released when the deforming force is removed, causing the wire to return to its original state.</p>
+          <h2><span class="hl">Elastomers</span>: Rubber-like Elasticity</h2>
+          <ul><li>Materials that can be stretched to very large strains (up to 10 times their original length).</li><li>Do not obey Hooke's Law over their entire range.</li><li>Exhibit a large elastic region with no well-defined plastic range.</li><li>Examples: Rubber, neoprene, silicone.</li></ul>
+          <p class="notes">🎙️ Elastomers are a special class of materials known for their extreme elasticity, capable of undergoing massive deformations and still returning to their original shape. Unlike typical metals, they don't follow Hooke's Law linearly and lack a distinct plastic region, making them ideal for applications requiring flexibility and resilience.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Stored Energy</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎈</div><div class="vcap">Highly Stretchable Material</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Engineering</span> with Elasticity</h2>
-          <ul><li>Design of bridges, buildings, and other structures.</li><li>Selection of materials for specific applications (e.g., strong steel for beams, flexible rubber for seals).</li><li>Understanding fatigue and fracture mechanics for safety.</li></ul>
-          <p class="notes">🎙️ Engineers heavily rely on the principles of elasticity to ensure the safety and longevity of structures. By understanding how materials respond to loads, they can select appropriate materials and design components that can withstand predicted stresses without failing, from skyscrapers to micro-components.</p>
+          <h2>Elastic Potential <span class="hl">Energy</span> Stored in a Stretched Wire</h2>
+          <ul><li>Work done in deforming an elastic body is stored as elastic potential energy.</li><li>Energy per unit volume (Energy Density) = (1/2) × Stress × Strain.</li><li>Total potential energy = (1/2) × (Force/Area) × (ΔL/L) × Volume.</li><li>This energy is released when the deforming force is removed.</li></ul>
+          <p class="notes">🎙️ When you stretch a wire or compress a spring, you are doing work against the internal restoring forces. This work is not lost but stored as elastic potential energy within the material. This stored energy is what allows the material to return to its original shape and can be released, for example, in a spring-loaded mechanism.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Structural Design</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Energy_transformation.svg?width=500" data-fb="⚡" alt="Work is done when force causes displacement. Energy is the capacity to do work. Power is t"/><div class="vcap">Work is done when force causes displacement. Energy is the capacity to do work. Power is t</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,21 +276,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Elastomers</span>: Unique Elastic Materials</h2>
-          <ul><li>Materials that can be stretched to many times their original length.</li><li>Exhibit large elastic deformation (e.g., rubber).</li><li>Their stress-strain curve is not linear and does not obey Hooke's Law strictly.</li></ul>
-          <p class="notes">🎙️ Elastomers are a special class of materials, like natural rubber, known for their exceptional ability to undergo very large elastic deformations. Unlike metals, their stress-strain relationship is generally non-linear, meaning they don't strictly follow Hooke's Law, but they return to their original shape.</p>
+          <h2><span class="hl">Poisson's Ratio</span> (σ): Lateral vs. Longitudinal Strain</h2>
+          <ul><li>Ratio of lateral strain to longitudinal strain.</li><li>Formula: σ = - (ΔD/D) / (ΔL/L). (Negative sign for convention).</li><li>Dimensionless quantity.</li><li>Ranges typically from 0 to 0.5 for most materials.</li></ul>
+          <p class="notes">🎙️ Poisson's Ratio describes how a material deforms perpendicular to the applied force. When you stretch a rubber band, it gets thinner; this lateral contraction is quantified by Poisson's Ratio. It's a key parameter in understanding multi-axial stress states and material behavior under complex loading conditions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎈</div><div class="vcap">Highly Stretchable</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Squeeze Effect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Real-Life <span class="hl">Applications</span> of Elasticity</h2>
+          <ul><li>Design of bridges and buildings: Using materials with appropriate Young's Modulus.</li><li>Cranes and girders: Designed to withstand large loads without excessive bending.</li><li>Springs and shock absorbers: Utilizing elastic properties for energy absorption.</li><li>Elasticity of bones and tissues: Critical in biomechanics.</li></ul>
+          <p class="notes">🎙️ The principles of elasticity are not just theoretical; they are fundamental to countless real-world applications. From the towering strength of skyscrapers to the smooth ride in your car thanks to shock absorbers, understanding material elasticity allows engineers to design safe, efficient, and durable structures and devices.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏗️</span><span>🏗️</span><span>🏗️</span></div><div class="vcap">Engineering Marvels</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Elastic Moduli</h2>
-          <ul><li>Which modulus is associated with a change in volume?</li><li>What does a high Young's Modulus imply about a material?</li><li>If a material has zero Poisson's ratio, what does it mean?</li></ul>
-          <p class="notes">🎙️ Let's review the different elastic moduli. Think about what type of deformation each modulus quantifies. A good understanding of these concepts will help you differentiate between various material properties and their applications in different scenarios.</p>
+          <span class="num">21 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Calculating Young's Modulus</h2>
+          <ul><li>Problem: A steel wire of length 2m and cross-sectional area 1 mm² is stretched by 0.5 mm when a 10 kg mass is suspended from it. Calculate Young's Modulus for steel.</li><li>Given: L = 2m, A = 1 mm² = 1x10⁻⁶ m², ΔL = 0.5 mm = 0.5x10⁻³ m, F = mg = 10 kg * 9.8 m/s² = 98 N.</li><li>Solution: Stress = F/A = 98 / (1x10⁻⁶) = 9.8x10⁷ Pa. Strain = ΔL/L = (0.5x10⁻³) / 2 = 0.25x10⁻³.</li><li>Young's Modulus (Y) = Stress/Strain = (9.8x10⁷) / (0.25x10⁻³) = 3.92x10¹¹ Pa.</li></ul>
+          <p class="notes">🎙️ Let's work through an example to solidify our understanding of Young's Modulus calculation. Remember to convert all units to SI before calculation to avoid errors. This step-by-step approach ensures accuracy and helps in identifying potential pitfalls.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Worked Example: <span class="hl">Stress</span> and Strain Calculation</h2>
+          <ul><li>Problem: A copper wire of length 2.2 m and cross-sectional area 1.5 mm² is subjected to a tensile force of 50 N. Find the stress and longitudinal strain. (Young's Modulus for copper = 1.1 x 10¹¹ Pa).</li><li>Given: L = 2.2 m, A = 1.5x10⁻⁶ m², F = 50 N, Y = 1.1x10¹¹ Pa.</li><li>Solution: Stress = F/A = 50 / (1.5x10⁻⁶) = 3.33x10⁷ Pa.</li><li>Strain = Stress/Y = (3.33x10⁷) / (1.1x10¹¹) = 3.03x10⁻⁴ (dimensionless).</li></ul>
+          <p class="notes">🎙️ Here's another example, this time calculating both stress and strain. Notice how the Young's Modulus, a material property, allows us to relate stress and strain. Always pay attention to unit consistency and the final units for each quantity.</p>
         </div>
         
       </div>
@@ -286,36 +323,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Worked Example</span>: Bulk Modulus</h2>
-          <ul><li>Problem: A solid sphere of volume 0.5 m³ is subjected to a pressure of 2.0 x 10⁵ Pa. Its volume decreases by 0.001 m³.</li><li>Calculate the Bulk Modulus of the material.</li><li>Given: V = 0.5 m³, ΔV = -0.001 m³, P = 2.0 x 10⁵ Pa.</li><li>Solution: B = -P / (ΔV/V) = -(2.0 x 10⁵) / (-0.001 / 0.5) = 1.0 x 10⁸ Pa.</li></ul>
-          <p class="notes">🎙️ This example demonstrates how to calculate the Bulk Modulus. Remember the negative sign in the formula for Bulk Modulus, which accounts for the volume decrease when pressure increases. Always ensure your units are consistent throughout the calculation to avoid errors.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List Knowns</span></div><div class="step"><span class="snum">2</span><span>Use Bulk Modulus Formula</span></div><div class="step"><span class="snum">3</span><span>Substitute &amp; Solve</span></div><div class="step"><span class="snum">4</span><span>State Answer</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Factors</span> Influencing Elasticity</h2>
-          <ul><li>Temperature: Elasticity generally decreases with increasing temperature.</li><li>Impurities: Can increase or decrease elasticity depending on the impurity and material.</li><li>Annealing: Heating and slow cooling can increase elasticity by reducing internal stresses.</li><li>Hammering/Rolling: Can reduce elasticity by breaking down crystal structures.</li></ul>
-          <p class="notes">🎙️ The elastic properties of a material are not absolute; they can be influenced by various external and internal factors. Temperature, the presence of impurities, and even mechanical treatments like annealing or hammering can significantly alter a material's elasticity, impacting its performance.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Environmental Effects</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Elastic <span class="hl">Fatigue</span>: Material Weariness</h2>
-          <ul><li>Repeated application of deforming forces can cause a material to lose its elastic strength.</li><li>Material appears less elastic or even breaks at stresses below its ultimate strength.</li><li>Crucial consideration in designing components subjected to cyclic loading.</li></ul>
-          <p class="notes">🎙️ Just like humans, materials can get 'tired' under repeated stress, a phenomenon known as elastic fatigue. This can lead to unexpected failures in components, even if the applied stress is well below the material's yield strength. Engineers must account for fatigue in designs for things like aircraft wings or rotating shafts.</p>
+          <h2>Common <span class="hl">Mistakes</span> &amp; Pitfalls</h2>
+          <ul><li>Unit Conversion: Forgetting to convert mm to m, cm² to m².</li><li>Confusing Stress and Strain: Stress is force/area, strain is relative deformation.</li><li>Ignoring Elastic Limit: Hooke's Law only applies within this limit.</li><li>Incorrect Formula Application: Using Young's Modulus for shear problems, etc.</li></ul>
+          <p class="notes">🎙️ To ace your exams, be mindful of common errors. The most frequent mistakes involve unit conversions, so always double-check. Also, clearly distinguish between stress and strain and remember the conditions under which Hooke's Law is valid. Practice helps in avoiding these common pitfalls.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😴</div><div class="vcap">Tired Material</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid These Errors</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Solids deform under stress and regain shape (elasticity) or stay deformed (plasticity).</li><li>Stress (F/A) and Strain (ΔL/L) are fundamental measures of force and deformation.</li><li>Hooke's Law: Stress ∝ Strain within the elastic limit.</li><li>Elastic Moduli (Y, B, G) quantify stiffness; Poisson's Ratio (ν) describes lateral contraction.</li></ul>
-          <p class="notes">🎙️ To summarize, we've covered the core concepts of mechanical properties of solids, from the basic definitions of stress and strain to Hooke's Law and the various elastic moduli. Remember the importance of the stress-strain curve and how factors like temperature can affect material behavior. These principles are vital for understanding the world around us.</p>
+          <h2><span class="hl">Quick Check</span>: Test Your Understanding</h2>
+          <ul><li>1. What are the SI units of stress and strain?</li><li>2. Define the elastic limit of a material.</li><li>3. Which modulus of elasticity is relevant for a material undergoing a change in shape?</li><li>4. State Hooke's Law.</li></ul>
+          <p class="notes">🎙️ Let's quickly test your grasp of the concepts we've covered. Take a moment to think about these questions. They are designed to check your fundamental understanding of the definitions and principles discussed today.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Exam Focus</span>: Practice &amp; Precision</h2>
-          <ul><li>Master formulas for Stress, Strain, and all Elastic Moduli.</li><li>Practice numerical problems extensively, paying attention to units.</li><li>Understand the Stress-Strain curve and its different regions thoroughly.</li><li>Review real-life applications and factors affecting elasticity.</li></ul>
-          <p class="notes">🎙️ For your exams, focus on understanding the definitions and derivations of all formulas. Practice a wide range of numerical problems to gain confidence with unit conversions and calculations. A clear conceptual understanding of the stress-strain curve and real-world applications will also be highly beneficial. Good luck!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Key Concepts Revisited</h2>
+          <ul><li>Solids resist deformation through internal restoring forces.</li><li>Elasticity allows materials to regain original shape; plasticity leads to permanent deformation.</li><li>Stress (Force/Area) and Strain (Relative Deformation) are fundamental quantities.</li><li>Hooke's Law: Stress ∝ Strain within the elastic limit, defined by Moduli of Elasticity (Y, B, G).</li><li>Stress-Strain Curve reveals material behavior (elastic limit, yield point, ultimate strength, fracture point).</li></ul>
+          <p class="notes">🎙️ To summarize, we've explored the fascinating world of mechanical properties of solids, from the basic definitions of stress and strain to the intricate details of the stress-strain curve. Remember the different moduli of elasticity and their applications, as these concepts form the bedrock of material science and engineering. Keep practicing problems to master this chapter!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

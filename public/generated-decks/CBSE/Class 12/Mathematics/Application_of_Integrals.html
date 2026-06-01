@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Application of Integrals: Finding Area — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Application of Integrals - Class 12 CBSE — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Application</span> of Integrals: Finding Area</h2>
-          <ul><li>Welcome to the chapter on Application of Integrals.</li><li>We will learn to calculate areas of various regions.</li><li>This topic is crucial for CBSE Class 12 board exams.</li><li>Mastering this will help in higher studies too.</li></ul>
-          <p class="notes">🎙️ Good morning, students! Today, we embark on an exciting journey into the 'Application of Integrals'. We've already learned how to calculate integrals; now, let's see where we can use them effectively. Our primary focus will be on finding areas of different types of regions.</p>
+          <h2>Application of <span class="hl">Integrals</span>: An Introduction</h2>
+          <ul><li>Introduction to finding areas, volumes, and other quantities using calculus.</li><li>A powerful tool to solve geometric and physical problems.</li><li>Building upon your knowledge of definite integrals.</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today we embark on a very important chapter, 'Application of Integrals'. We've learned how to integrate; now let's see where we can use this powerful tool in geometry.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Recap: The <span class="hl">Power</span> of Integrals</h2>
-          <ul><li>Integration is the reverse process of differentiation.</li><li>It is used to find the sum of infinitesimally small quantities.</li><li>Geometrically, definite integral represents the area under a curve.</li><li>Recall fundamental theorems of calculus.</li></ul>
-          <p class="notes">🎙️ Before diving into applications, let's quickly refresh our memory on what integrals are. Remember, integration allows us to sum up tiny pieces to find a total, and its geometric interpretation as area is what we'll be exploiting today.</p>
+          <h2>Recall: What is a <span class="hl">Definite Integral</span>?</h2>
+          <ul><li>Represents the net signed area under a curve between two limits.</li><li>Evaluated over a specific interval [a, b].</li><li>Fundamental Theorem of Calculus is key for evaluation.</li></ul>
+          <p class="notes">🎙️ Before we jump into applications, let's quickly recall what a definite integral signifies. It's essentially the 'sum' of infinitely many tiny parts, giving us the area under a curve, taking into account its sign.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Summing Up</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Summing up</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Area Under Simple Curves: The <span class="hl">Basic Idea</span></h2>
-          <ul><li>We use definite integrals to find the area of bounded regions.</li><li>The region must be bounded by a curve, the x-axis (or y-axis), and two ordinates (or abscissae).</li><li>Imagine summing up infinitely many thin rectangles.</li><li>This is the foundation of all area calculations.</li></ul>
-          <p class="notes">🎙️ The most fundamental application is finding the area bounded by a curve and one of the axes. We're essentially visualizing the area as being made up of countless tiny rectangles, each with an infinitesimal width, and then summing their areas using integration.</p>
+          <h2><span class="hl">Why Study</span> Applications of Integrals?</h2>
+          <ul><li>Solve real-world problems in various fields.</li><li>Calculate areas of irregular shapes, volumes of solids.</li><li>Essential for higher studies in engineering, physics, and economics.</li></ul>
+          <p class="notes">🎙️ Integrals aren't just abstract mathematical concepts. They are incredibly powerful tools used to solve a vast array of real-world problems, from calculating the area of a complex region to determining work done by a variable force.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Area beneath</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Real-world problems</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Method 1: Area Bounded by <span class="hl">y = f(x)</span></h2>
-          <ul><li>Region bounded by y = f(x), x-axis, x = a, and x = b.</li><li>Formula: Area = ∫[a to b] y dx = ∫[a to b] f(x) dx.</li><li>Ensure f(x) is continuous and non-negative over [a, b].</li><li>If f(x) is negative, the integral gives a negative value; take absolute value for area.</li></ul>
-          <p class="notes">🎙️ When the curve is given as y in terms of x, and we need the area with the x-axis, we integrate with respect to x. Remember to always check the sign of f(x) in the given interval; if it goes below the x-axis, you'll need to split the integral or take the absolute value for the physical area.</p>
+          <h2>Area Bounded by a Curve and the <span class="hl">X-axis</span></h2>
+          <ul><li>Consider a continuous function y = f(x) over [a, b].</li><li>The area is found by integrating f(x) with respect to x.</li><li>Region is bounded by the curve, the x-axis, and vertical lines x=a, x=b.</li></ul>
+          <p class="notes">🎙️ The most fundamental application is finding the area under a curve. When the curve y=f(x) is above the x-axis, the integral from 'a' to 'b' directly gives us this area.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify curve y=f(x)</span></div><div class="step"><span class="snum">2</span><span>Identify limits x=a, x=b</span></div><div class="step"><span class="snum">3</span><span>Integrate ∫ f(x) dx</span></div><div class="step"><span class="snum">4</span><span>Evaluate at limits</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Area</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Method 2: Area Bounded by <span class="hl">x = g(y)</span></h2>
-          <ul><li>Region bounded by x = g(y), y-axis, y = c, and y = d.</li><li>Formula: Area = ∫[c to d] x dy = ∫[c to d] g(y) dy.</li><li>Ensure g(y) is continuous and non-negative over [c, d].</li><li>This is useful for curves that are easier to express in terms of y.</li></ul>
-          <p class="notes">🎙️ Similarly, if the curve is defined as x in terms of y, and we need the area with the y-axis, we integrate with respect to y. This approach is particularly helpful for curves like parabolas opening to the side or other relations where x is a function of y.</p>
+          <h2><span class="hl">Formula</span>: Area under y = f(x) (x-axis)</h2>
+          <ul><li>Area A = ∫[a,b] f(x) dx.</li><li>Ensure f(x) ≥ 0 for the interval for positive area.</li><li>If f(x) &lt; 0, area for that part is |∫ f(x) dx|.</li></ul>
+          <p class="notes">🎙️ This is our first key formula. Remember, area is always a positive quantity, so if your function dips below the x-axis, you'll need to handle those parts separately or take the absolute value for that segment.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify curve x=g(y)</span></div><div class="step"><span class="snum">2</span><span>Identify limits y=c, y=d</span></div><div class="step"><span class="snum">3</span><span>Integrate ∫ g(y) dy</span></div><div class="step"><span class="snum">4</span><span>Evaluate at limits</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">The Core Formula</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Worked Example: Area of a <span class="hl">Circle</span> using Integrals</h2>
-          <ul><li>Find the area of the circle x² + y² = a².</li><li>Due to symmetry, we find the area of one quadrant and multiply by 4.</li><li>In the first quadrant, y = √(a² - x²).</li><li>Limits for x are from 0 to a.</li></ul>
-          <p class="notes">🎙️ Let's apply our knowledge to a familiar shape: the circle. We can calculate the area of the entire circle by finding the area of just one quadrant and then multiplying it by four, thanks to its symmetry. Remember, for the first quadrant, y is positive.</p>
+          <h2>Worked Example 1: Area of a <span class="hl">Parabola Segment</span></h2>
+          <ul><li>Find the area bounded by y = x², x = 1, x = 2 and the x-axis.</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. First, identify the curve and the boundary lines. Then, set up the definite integral and finally, evaluate it using the Fundamental Theorem of Calculus. The result will be in square units.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭕</span><span>⭕</span><span>⭕</span><span>⭕</span></div><div class="vcap">Four Quadrants</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify function &amp; limits</span></div><div class="step"><span class="snum">2</span><span>Set up the integral</span></div><div class="step"><span class="snum">3</span><span>Evaluate the integral</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Worked Example: <span class="hl">Parabola</span> and X-axis</h2>
-          <ul><li>Find the area bounded by y = x², x-axis, x = 1, and x = 3.</li><li>Here, f(x) = x², which is always positive in the given interval.</li><li>Area = ∫[1 to 3] x² dx.</li><li>Evaluate the definite integral.</li></ul>
-          <p class="notes">🎙️ This example directly uses Method 1. The function y=x² is above the x-axis between x=1 and x=3, so we can directly integrate. Make sure you correctly apply the power rule for integration and substitute the limits.</p>
+          <h2>Area Bounded by a Curve and the <span class="hl">Y-axis</span></h2>
+          <ul><li>Consider a continuous function x = g(y) over [c, d].</li><li>The area is found by integrating g(y) with respect to y.</li><li>Region bounded by the curve, the y-axis, and horizontal lines y=c, y=d.</li></ul>
+          <p class="notes">🎙️ Similarly, we can find the area when the curve is defined as x in terms of y, and bounded by the y-axis. Here, we integrate with respect to y, using y-limits.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Calculating Area</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Vertical Integration</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,9 +144,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Area Between Two Curves: <span class="hl">Subtracting</span> Regions</h2>
-          <ul><li>Often, we need the area enclosed by two or more curves.</li><li>The basic principle is to subtract the area of the 'lower' curve from the 'upper' curve.</li><li>This applies whether integrating with respect to x or y.</li><li>Visualizing the region is crucial.</li></ul>
-          <p class="notes">🎙️ Moving beyond simple areas, we now tackle finding the area enclosed between two functions. The core idea is to find the area under the upper curve and then subtract the area under the lower curve within the specified boundaries. A good diagram makes all the difference here.</p>
+          <h2><span class="hl">Formula</span>: Area under x = g(y) (y-axis)</h2>
+          <ul><li>Area A = ∫[c,d] g(y) dy.</li><li>Ensure g(y) ≥ 0 for the interval (region to the right of y-axis).</li><li>If g(y) &lt; 0 (region to the left), area for that part is |∫ g(y) dy|.</li></ul>
+          <p class="notes">🎙️ This formula is symmetric to the x-axis case. Just remember to express x in terms of y and integrate with respect to y, using y-limits 'c' and 'd'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Y-axis Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example 2: Area of a <span class="hl">Sideways Parabola</span></h2>
+          <ul><li>Find the area bounded by x = y², y = 1, y = 2 and the y-axis.</li></ul>
+          <p class="notes">🎙️ This example directly applies the y-axis integration formula. Pay attention to the limits of integration, which are now y-values. Ensure the region is to the right of the y-axis for a positive integrand.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify function &amp; limits</span></div><div class="step"><span class="snum">2</span><span>Set up the integral</span></div><div class="step"><span class="snum">3</span><span>Evaluate the integral</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Common Mistake 1: Handling <span class="hl">Negative Area</span></h2>
+          <ul><li>A definite integral gives the net signed area, which can be negative.</li><li>Actual geometric area is always positive.</li><li>For regions below x-axis (or left of y-axis), take the absolute value of the integral for that segment.</li></ul>
+          <p class="notes">🎙️ A crucial point for exams! If a part of the curve lies below the x-axis, the integral will yield a negative value for that segment. Since area cannot be negative, we must take the absolute value of such integrals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Avoid this Trap!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Area Bounded Between <span class="hl">Two Curves</span> (x-axis)</h2>
+          <ul><li>Find area between y = f(x) and y = g(x) over [a, b].</li><li>Assume f(x) ≥ g(x) throughout the interval.</li><li>The area is the difference between the areas under each curve.</li></ul>
+          <p class="notes">🎙️ What if we need to find the area enclosed by two curves? The principle remains the same: it's the area under the upper curve minus the area under the lower curve.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Gap between</div></div></div>
       </div>
@@ -142,48 +191,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Method 3: Area Between <span class="hl">y=f(x) and y=g(x)</span></h2>
-          <ul><li>Region bounded by y = f(x) and y = g(x) from x = a to x = b.</li><li>Assume f(x) ≥ g(x) in the interval [a, b].</li><li>Formula: Area = ∫[a to b] (f(x) - g(x)) dx.</li><li>If curves intersect, split the integral at intersection points.</li></ul>
-          <p class="notes">🎙️ When integrating with respect to x, identify which function is 'above' the other. If the curves cross, you'll need to find the intersection points and set up separate integrals for each sub-region, ensuring you always subtract the lower curve from the upper one.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify upper curve f(x)</span></div><div class="step"><span class="snum">2</span><span>Identify lower curve g(x)</span></div><div class="step"><span class="snum">3</span><span>Find intersection points (limits)</span></div><div class="step"><span class="snum">4</span><span>Integrate ∫ (f(x)-g(x)) dx</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Method 4: Area Between <span class="hl">x=f(y) and x=g(y)</span></h2>
-          <ul><li>Region bounded by x = f(y) and x = g(y) from y = c to y = d.</li><li>Assume f(y) ≥ g(y) in the interval [c, d] (f(y) is to the right).</li><li>Formula: Area = ∫[c to d] (f(y) - g(y)) dy.</li><li>This is useful when curves are easier to express in terms of y.</li></ul>
-          <p class="notes">🎙️ Similarly, for integration with respect to y, you need to identify which curve is to the 'right' and which is to the 'left'. The principle remains the same: Area = Integral of (Right Curve - Left Curve). This is often simpler for horizontally-oriented regions.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify right curve f(y)</span></div><div class="step"><span class="snum">2</span><span>Identify left curve g(y)</span></div><div class="step"><span class="snum">3</span><span>Find intersection points (limits)</span></div><div class="step"><span class="snum">4</span><span>Integrate ∫ (f(y)-g(y)) dy</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Common Mistake: Forgetting <span class="hl">Absolute Value</span></h2>
-          <ul><li>If f(x) goes below the x-axis, ∫ f(x) dx will yield a negative value.</li><li>Area is always a positive quantity.</li><li>If f(x) changes sign, split the integral and take absolute value of each part.</li><li>Example: ∫[-1 to 1] x dx = 0, but area is 1 unit².</li></ul>
-          <p class="notes">🎙️ This is a critical point! While a definite integral can be negative or zero, area cannot. If a part of the curve lies below the x-axis, the integral for that part will be negative. You must take the absolute value of each segment's integral to get the true area.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Sign Error</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Worked Example: <span class="hl">Line and Parabola</span></h2>
-          <ul><li>Find the area bounded by y = x and y = x².</li><li>First, find intersection points by setting x = x².</li><li>This gives x = 0 and x = 1.</li><li>In [0, 1], y=x is above y=x².</li></ul>
-          <p class="notes">🎙️ Here, we're finding the area enclosed between a line and a parabola. The first step is always to find where they intersect to determine your limits of integration. Then, identify which function is the 'upper' one in that interval.</p>
+          <h2><span class="hl">Formula</span>: Area Between Two Curves (x-axis)</h2>
+          <ul><li>Area A = ∫[a,b] [f(x) - g(x)] dx.</li><li>f(x) is the upper curve, g(x) is the lower curve in [a,b].</li><li>Limits 'a' and 'b' are often intersection points or given boundaries.</li></ul>
+          <p class="notes">🎙️ This is a very common scenario in exams. The formula is straightforward: integral of (upper function minus lower function). The challenge often lies in correctly identifying which function is 'upper' and determining the correct limits.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Enclosed Region</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Subtract &amp; Integrate</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,35 +204,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Worked Example: Parabola and <span class="hl">Vertical Line</span></h2>
-          <ul><li>Find the area bounded by y² = 4x and the line x = 3.</li><li>The parabola y² = 4x is symmetric about the x-axis.</li><li>We can find the area in the first quadrant and multiply by 2.</li><li>In the first quadrant, y = 2√x. Limits for x are from 0 to 3.</li></ul>
-          <p class="notes">🎙️ This example shows the power of symmetry. Instead of integrating with respect to y, which would involve two functions x=y²/4 and x=3, we can integrate y=2√x with respect to x from 0 to 3 and double the result for the total area. Always look for symmetry!</p>
+          <h2>Essential Step: Finding <span class="hl">Intersection Points</span></h2>
+          <ul><li>Set f(x) = g(x) to find the x-coordinates of intersection.</li><li>These points often define the limits of integration for the area.</li><li>Critical for regions bounded solely by the curves themselves.</li></ul>
+          <p class="notes">🎙️ When the region is bounded *only* by the curves themselves, the points where they intersect become your limits of integration. This is a critical first step for many problems involving areas between curves.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span></div><div class="vcap">Symmetric Halves</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Pinpoint Limits</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Quick Check 1: Area under <span class="hl">Sine Curve</span></h2>
-          <ul><li>Find the area bounded by y = sin(x), x-axis from x = 0 to x = π.</li><li>Is sin(x) positive or negative in this interval?</li><li>Set up the integral correctly.</li><li>Calculate the definite integral.</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Can you find the area under one arch of the sine curve? Remember to consider if the function is positive throughout the interval. This tests your basic understanding of Method 1.</p>
+          <h2>Worked Example 3: Area Between a Line and Parabola</h2>
+          <ul><li>Find the area bounded by y = x² and y = x.</li></ul>
+          <p class="notes">🎙️ Let's solve a classic problem. First, find where the line and parabola meet. Then, sketch or test points to see which curve is above the other. Finally, integrate the difference between the upper and lower function.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find intersection points</span></div><div class="step"><span class="snum">2</span><span>Identify upper/lower curve</span></div><div class="step"><span class="snum">3</span><span>Set up &amp; evaluate integral</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Quick Check 2: Area Between <span class="hl">Line</span> and X-axis</h2>
-          <ul><li>Find the area bounded by y = x + 2, x-axis, x = -1, x = 2.</li><li>Does the line cross the x-axis in this interval?</li><li>If so, how should you split the integral?</li><li>Remember that area is always positive.</li></ul>
-          <p class="notes">🎙️ This question combines Method 1 with the common mistake we discussed. Pay close attention to where the line crosses the x-axis and how that impacts your integration setup. Accuracy is key!</p>
+          <h2>Common Mistake 2: Swapping Upper and Lower Curves</h2>
+          <ul><li>Incorrect order of subtraction [g(x) - f(x)] leads to a negative area.</li><li>Always verify which function is greater (upper) in the given interval.</li><li>A quick sketch of the curves helps immensely to avoid this error.</li></ul>
+          <p class="notes">🎙️ Another common pitfall! If you accidentally subtract the upper curve from the lower, your result will be negative. Always draw a rough sketch or test a point within the interval to confirm the upper and lower functions.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Check Carefully!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Real-Life: <span class="hl">Work Done</span> in Physics</h2>
-          <ul><li>Integrals calculate work done by a variable force.</li><li>Work = ∫ F(x) dx, where F(x) is the force.</li><li>Also used in calculating fluid pressure, moments of inertia.</li><li>Essential for designing structures and machines.</li></ul>
-          <p class="notes">🎙️ Beyond geometry, integrals are fundamental in physics and engineering. For instance, if a force isn't constant but varies with position, integration is the only way to calculate the total work done. This is vital in fields like mechanics and civil engineering.</p>
+          <h2>Area Between Two Curves (<span class="hl">Y-axis Integration</span>)</h2>
+          <ul><li>Used when curves are defined as x = f(y) and x = g(y).</li><li>Region bounded by curves and horizontal lines y=c, y=d.</li><li>Subtract the leftmost curve from the rightmost curve.</li></ul>
+          <p class="notes">🎙️ Just like with single curves, we can also find the area between two curves by integrating with respect to y. Here, we subtract the 'left' curve from the 'right' curve.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building with Math</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Right - Left</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Real-Life: Consumer &amp; Producer <span class="hl">Surplus</span></h2>
-          <ul><li>Integrals calculate consumer and producer surplus in economics.</li><li>Consumer surplus: Area between demand curve and price line.</li><li>Producer surplus: Area between supply curve and price line.</li><li>Helps analyze market efficiency and welfare.</li></ul>
-          <p class="notes">🎙️ In economics, integrals help quantify important concepts like consumer and producer surplus. These represent the extra benefit consumers and producers receive beyond what they pay or receive, providing insights into market dynamics and policy impacts.</p>
+          <h2><span class="hl">Formula</span>: Area Between Two Curves (y-axis)</h2>
+          <ul><li>Area A = ∫[c,d] [f(y) - g(y)] dy.</li><li>f(y) is the rightmost curve, g(y) is the leftmost curve.</li><li>Determine y-coordinates of intersection for limits 'c' and 'd'.</li></ul>
+          <p class="notes">🎙️ This formula is used when it's easier to define x in terms of y, or when the region is bounded by horizontal lines. Remember: 'right minus left' and y-limits.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Market Gains</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Y-axis Formula</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,35 +264,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Advanced Concept: Area with <span class="hl">Modulus</span> Functions</h2>
-          <ul><li>Functions involving |x| or |f(x)| require careful handling.</li><li>Break the function into piecewise definitions.</li><li>Identify intervals where the expression inside modulus is positive or negative.</li><li>Integrate separately over each interval.</li></ul>
-          <p class="notes">🎙️ Modulus functions are tricky because their definition changes based on the sign of the argument. You must redefine the function as a piecewise function, find the points where the argument changes sign, and then integrate over those separate intervals.</p>
+          <h2>Worked Example 4: Area Between a <span class="hl">Parabola and Line</span></h2>
+          <ul><li>Find the area bounded by x = y² and x = 4.</li></ul>
+          <p class="notes">🎙️ Here, we have a parabola opening to the right and a vertical line. This is a perfect candidate for y-axis integration. Find the y-coordinates of intersection, then integrate (right - left).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Piecewise Math</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find intersection points (y)</span></div><div class="step"><span class="snum">2</span><span>Identify right/left curve</span></div><div class="step"><span class="snum">3</span><span>Set up &amp; evaluate integral</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked Example: Area with <span class="hl">|x|</span></h2>
-          <ul><li>Find the area bounded by y = |x|, x-axis, x = -2, x = 2.</li><li>y = |x| is defined as -x for x &lt; 0 and x for x ≥ 0.</li><li>Split the integral: ∫[-2 to 0] (-x) dx + ∫[0 to 2] x dx.</li><li>Calculate each part and sum them up.</li></ul>
-          <p class="notes">🎙️ Let's apply the modulus concept to a specific example. The graph of y=|x| forms a 'V' shape. We need to split the integral at x=0, which is where the definition of |x| changes. This ensures we correctly account for the function's behavior in both negative and positive domains.</p>
+          <h2><span class="hl">Quick Check</span> 1: Area under a curve</h2>
+          <ul><li>Find the area bounded by y = sin(x), x=0, x=π and the x-axis.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Can you find the area under the sine curve from 0 to pi? Remember your basic integration formulas and the shape of the sine wave.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">V-Shape Area</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Advanced Concept: Area with <span class="hl">Multiple Curves</span></h2>
-          <ul><li>Sometimes a region is bounded by more than two curves.</li><li>The strategy is to divide the region into smaller sub-regions.</li><li>Each sub-region can be calculated using Method 3 or 4.</li><li>Sum the areas of all sub-regions for the total area.</li></ul>
-          <p class="notes">🎙️ When a region is complex, bounded by three or more curves, the trick is to break it down. Visualize how you can divide the total area into simpler, non-overlapping sub-regions, each of which can be calculated using the methods we've already learned. Then, simply add them up.</p>
+          <h2><span class="hl">Quick Check</span> 2: Area between curves</h2>
+          <ul><li>Find the area bounded by y = x and y = x².</li></ul>
+          <p class="notes">🎙️ Another quick problem. This is similar to our worked example, but without explicit limits. You'll need to find the intersection points first and then determine the upper and lower curves.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Putting Pieces Together</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,35 +300,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Worked Example: Parabola, Line, and X-axis</h2>
-          <ul><li>Find the area of the region bounded by y = x², y = x + 2, and the x-axis.</li><li>This requires finding intersection points of all three.</li><li>Divide the area into two parts using x-axis as a boundary.</li><li>Part 1: Area under y=x² (from x-intercept to intersection). Part 2: Area under y=x+2 (from x-intercept to intersection).</li></ul>
-          <p class="notes">🎙️ This example is more involved. You'll need to find the intersection points of the parabola and the line, and also where each curve intersects the x-axis. Then, carefully sketch the region to determine how to split it into manageable parts for integration, often involving both Method 1 and Method 3.</p>
+          <h2>Application: Area of Standard Geometric Shapes</h2>
+          <ul><li>Use integration to derive area formulas for circle, ellipse, etc.</li><li>Reinforces understanding of definite integrals and symmetry.</li><li>Example: Area of an ellipse x²/a² + y²/b² = 1 is a classic problem.</li></ul>
+          <p class="notes">🎙️ We can even use integration to find the areas of familiar geometric shapes. This demonstrates the power and versatility of the method, and it's a common exam question for ellipses or circles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Detailed Analysis</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Classic Shapes</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick Check 3: Area with <span class="hl">Absolute Value</span></h2>
-          <ul><li>Find the area bounded by y = |x-1|, x-axis, x = 0, x = 2.</li><li>Where does the expression inside the modulus change sign?</li><li>How many integrals will you need to set up?</li><li>Calculate the final area.</li></ul>
-          <p class="notes">🎙️ Another modulus challenge! This time, the critical point for the modulus function is shifted. Identify that point correctly to split your integral and ensure you're using the correct function definition in each interval.</p>
+          <h2>Worked Example 5: Area of an <span class="hl">Ellipse</span></h2>
+          <ul><li>Find the area of the ellipse x²/a² + y²/b² = 1.</li></ul>
+          <p class="notes">🎙️ For the ellipse, we usually find the area of one quadrant and then multiply by four due to symmetry. Remember to solve for y from the ellipse equation and use appropriate limits for the quadrant.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Express y in terms of x</span></div><div class="step"><span class="snum">2</span><span>Integrate for one quadrant</span></div><div class="step"><span class="snum">3</span><span>Multiply by 4 for total area</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check 4: <span class="hl">Multiple</span> Boundaries</h2>
-          <ul><li>Find the area bounded by y = √x, the y-axis, and the line y = 2.</li><li>Which method would be easier here: integrating with respect to x or y?</li><li>What are the limits of integration?</li><li>Set up and solve the integral.</li></ul>
-          <p class="notes">🎙️ For this problem, consider which variable to integrate with respect to. Sometimes, expressing x in terms of y simplifies the problem significantly, especially when the y-axis is one of the boundaries. Think smart, not just hard!</p>
+          <h2><span class="hl">Key Formulas</span> at a Glance</h2>
+          <ul><li>Area under y=f(x) (x-axis): ∫[a,b] f(x) dx.</li><li>Area under x=g(y) (y-axis): ∫[c,d] g(y) dy.</li><li>Area between f(x) and g(x): ∫[a,b] [f(x)-g(x)] dx.</li></ul>
+          <p class="notes">🎙️ Here's a quick summary of the main formulas we've covered. Make sure these are crystal clear in your mind for the exam. Understanding when to use which formula is crucial.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">x-axis area</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">y-axis area</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Between curves</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Exam Tips: <span class="hl">Acing</span> Application of Integrals</h2>
-          <ul><li>**Draw a neat diagram:** Always sketch the region clearly.</li><li>**Identify limits:** Correctly find intersection points or given boundaries.</li><li>**Choose dx or dy:** Select the easier variable of integration.</li><li>**Absolute values:** Handle areas below axis or modulus functions carefully.</li></ul>
-          <p class="notes">🎙️ To excel in this chapter, remember these tips. A clear diagram is your best friend. Accurately determining limits and choosing the right integration variable can save a lot of effort and prevent errors. And never forget that area is always positive!</p>
+          <h2>Recap &amp; <span class="hl">Exam Strategy</span></h2>
+          <ul><li>Always draw a rough sketch of the region.</li><li>Identify correct limits of integration (x or y).</li><li>Pay attention to upper/lower or right/left curves.</li><li>Handle negative areas carefully by taking absolute values of segments.</li></ul>
+          <p class="notes">🎙️ To ace this chapter, always start with a sketch. It helps visualize the region and correctly identify limits and the 'difference' function. Be mindful of areas below the axis or to the left of the y-axis!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Study Smart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Master the Concepts</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span> &amp; Practice: Your Journey Continues!</h2>
-          <ul><li>We covered areas under single curves and between two curves.</li><li>Learned to handle modulus functions and complex regions.</li><li>Discussed real-life applications in various fields.</li><li>Keep practicing diverse problems for mastery!</li></ul>
-          <p class="notes">🎙️ We've covered a lot today, from basic area calculations to more complex scenarios and real-world applications. The key to mastering this chapter is consistent practice. Work through different types of problems, and don't hesitate to revisit the concepts. Good luck with your studies!</p>
+          <h2><span class="hl">Practice</span> Makes Perfect!</h2>
+          <ul><li>Solve a wide variety of problems from NCERT and other reference books.</li><li>Focus on different types of curves and regions.</li><li>Work through previous year's board questions to understand exam patterns.</li></ul>
+          <p class="notes">🎙️ The key to mastering Application of Integrals is consistent practice. The more problems you solve, the better you'll become at identifying the correct approach and avoiding common mistakes. Good luck with your preparation!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Knowledge Gained</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

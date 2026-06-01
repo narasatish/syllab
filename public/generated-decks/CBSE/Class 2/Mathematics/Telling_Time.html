@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Telling Time — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to the World of <span class="hl">Time</span>!</h2>
-          <ul><li>Let's learn about our daily friend!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting journey to learn about something very important that helps us everyday. It's called Time!</p>
+          <h2>Our Day with <span class="hl">Time</span>!</h2>
+          <ul><li>Hello, friends!</li><li>Let's learn about time together.</li></ul>
+          <p class="notes">🎙️ Namaste, little champions! Today, we are going on a fun adventure to learn about something super important that helps us every day: Time! It's like a magical helper that makes sure everything happens at the right moment.</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2><span class="hl">Why</span> do we need to know the time?</h2>
-          <ul><li>Time helps us know when to wake up.</li><li>Time tells us when to go to school.</li><li>Time helps us play and eat on schedule!</li></ul>
-          <p class="notes">🎙️ Imagine if we didn't know when to wake up or when our favorite cartoon starts! Time helps us plan our day and do everything on time.</p>
+          <h2>What is <span class="hl">Time</span>?</h2>
+          <ul><li>Time tells us when things happen.</li><li>It helps us know 'when'.</li></ul>
+          <p class="notes">🎙️ Imagine you want to know when to eat breakfast or when your favorite cartoon starts. Time is the answer! It's like a special calendar for our day, telling us exactly 'when' to do things.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="⏰" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Meet Our Friend: The <span class="hl">Clock</span>!</h2>
-          <ul><li>A clock helps us tell the time.</li><li>It has a round face and numbers.</li></ul>
-          <p class="notes">🎙️ This is our special friend, the clock! It helps us know what time it is. Look, it has a round face, just like a happy sun!</p>
+          <h2>Why is Time <span class="hl">Important</span>?</h2>
+          <ul><li>Time helps us plan our day.</li><li>We know when to play, study, and sleep.</li></ul>
+          <p class="notes">🎙️ If we didn't have time, everything would be a big mess! Time helps us make a plan for our day. We know when it's time to wake up, go to school, eat lunch, play, and even sleep well at night.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">The Time Teller</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗓️</span><span>🗓️</span><span>🗓️</span></div><div class="vcap">Daily Plan</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Numbers</span> on the Clock</h2>
-          <ul><li>Clocks have numbers from 1 to 12.</li><li>These numbers tell us the hours.</li></ul>
-          <p class="notes">🎙️ See these numbers on the clock? They go from 1 all the way to 12. These numbers are very important for telling us the hour.</p>
+          <h2>Meet Our <span class="hl">Clock Friend</span>!</h2>
+          <ul><li>A special friend that tells us time.</li><li>It helps us read the time.</li></ul>
+          <p class="notes">🎙️ To know what time it is, we use a special device called a clock. It's like a friendly guide that shows us the exact moment in our day. You can see clocks on walls, on your wrist, or even on your phone!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕰️</div><div class="vcap">Friendly Clock</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 20</span>
+          <h2>Clock's Face and <span class="hl">Numbers</span></h2>
+          <ul><li>A clock has a round face.</li><li>It has numbers from 1 to 12.</li></ul>
+          <p class="notes">🎙️ Look closely at a clock. It usually has a round face, just like your face! And on this face, you will see numbers written from 1 all the way to 12. These numbers are very important for telling time.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -94,24 +119,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 20</span>
-          <h2>The <span class="hl">Hands</span> of the Clock</h2>
-          <ul><li>A clock has two special hands.</li><li>One is short, and one is long.</li></ul>
-          <p class="notes">🎙️ Our clock friend has two arms, we call them 'hands'. One hand is short, and the other hand is long. They help us read the time.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☝️</div><div class="vcap">Pointing Hands</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>The <span class="hl">Short Hand</span>: Our Hour Friend</h2>
-          <ul><li>The short hand tells us the hour.</li><li>It moves slowly from one number to the next.</li></ul>
-          <p class="notes">🎙️ Look at the short hand. It is very important because it tells us the 'hour'. When it points to a number, that's the hour!</p>
+          <h2>The Short Hand: <span class="hl">Hour Hand</span></h2>
+          <ul><li>It is the shorter hand.</li><li>It tells us the hour.</li></ul>
+          <p class="notes">🎙️ Now, look at the clock's hands. There are usually two main hands. The first one is the short, fat hand. We call it the 'Hour Hand'. It points to the numbers that tell us what hour it is.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Short Hand</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Long Hand</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕰️</div><div class="vcap">Hour Hand</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>The <span class="hl">Long Hand</span>: Our Minute Friend</h2>
-          <ul><li>The long hand tells us the minutes.</li><li>It moves faster than the short hand.</li></ul>
-          <p class="notes">🎙️ Now, look at the long hand. This hand tells us the 'minutes'. It is a bit faster than the short hand. Together, they tell us the exact time.</p>
+          <h2>The Long Hand: <span class="hl">Minute Hand</span></h2>
+          <ul><li>It is the longer hand.</li><li>It tells us the minutes.</li></ul>
+          <p class="notes">🎙️ The other hand is longer and thinner. This is called the 'Minute Hand'. It moves faster than the hour hand and tells us about the minutes. Together, both hands help us read the time.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Long Hand</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Short Hand</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕰️</div><div class="vcap">Minute Hand</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>When the Long Hand Points to <span class="hl">12</span></h2>
-          <ul><li>When the long hand is at 12, it means 'o'clock'.</li><li>The short hand tells us the hour.</li></ul>
-          <p class="notes">🎙️ This is a very easy way to tell time! Whenever you see the long hand pointing straight up to the number 12, we say it's 'o'clock'.</p>
+          <h2>Reading '<span class="hl">O'Clock</span>' Time</h2>
+          <ul><li>This is the easiest time to read!</li><li>When the long hand points to 12.</li></ul>
+          <p class="notes">🎙️ Let's learn to read 'O'Clock' time. It's super easy! When the long minute hand is pointing exactly at the number 12, and the short hour hand is pointing to any number, that's the 'O'Clock' time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕛</div><div class="vcap">It's O'clock!</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Minute hand points to 12</span></div><div class="step"><span class="snum">2</span><span>Hour hand shows the exact hour</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Let's See: <span class="hl">3 O'clock</span>!</h2>
-          <ul><li>Short hand points to 3.</li><li>Long hand points to 12.</li></ul>
-          <p class="notes">🎙️ See this clock? The short hand is at 3, and the long hand is at 12. So, what time is it? Yes, it's 3 o'clock! Maybe it's time for your evening play!</p>
+          <h2>Example: <span class="hl">7 O'Clock</span></h2>
+          <ul><li>Long hand at 12, short hand at 7.</li><li>Time to wake up!</li></ul>
+          <p class="notes">🎙️ Look at this clock. The long hand is on 12, and the short hand is on 7. So, it is 7 O'Clock! This is usually when we wake up, brush our teeth, and get ready for school. A fresh start to the day!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕒</div><div class="vcap">Time to play!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">7:00 AM</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Another Example: <span class="hl">7 O'clock</span>!</h2>
-          <ul><li>Short hand points to 7.</li><li>Long hand points to 12.</li></ul>
-          <p class="notes">🎙️ Here's another one! The short hand is at 7, and the long hand is at 12. This means it's 7 o'clock! For many of us, this is dinner time!</p>
+          <h2>Example: <span class="hl">1 O'Clock</span></h2>
+          <ul><li>Long hand at 12, short hand at 1.</li><li>Time for lunch!</li></ul>
+          <p class="notes">🎙️ Now, look at this clock. The long hand is still on 12, but the short hand is on 1. What time is it? Yes, it's 1 O'Clock! This is often when we have our yummy lunch at school or at home.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕖</div><div class="vcap">Time for dinner!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">1:00 PM</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Time for Our <span class="hl">Daily Fun</span>!</h2>
-          <ul><li>Time helps us with our daily routine.</li><li>From waking up to sleeping.</li></ul>
-          <p class="notes">🎙️ Our day is full of fun things! Time helps us do everything in order. Let's think about our own day and what time we do things.</p>
+          <h2>Quick Question 1: <span class="hl">What Time?</span></h2>
+          <ul><li>Look at the clock carefully.</li><li>What time is shown?</li></ul>
+          <p class="notes">🎙️ Alright, little detectives, it's your turn! Look at this clock very carefully. Where are the hands pointing? Can you tell me what 'O'Clock' time is showing on this clock? Think about the short hand!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">My Day</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">3:00</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>When do you <span class="hl">wake up</span>?</h2>
-          <ul><li>Think about when you open your eyes.</li><li>What time does the clock show then?</li></ul>
-          <p class="notes">🎙️ Every morning, the sun comes up, and we wake up! What time do you usually wake up? Does your clock show 6 o'clock or 7 o'clock?</p>
+          <h2>Quick Question 2: <span class="hl">What Time?</span></h2>
+          <ul><li>Observe the hands.</li><li>What time is it now?</li></ul>
+          <p class="notes">🎙️ Fantastic job with the last one! Here's another challenge for you. Check out this clock. Remember our rule for 'O'Clock' time. What hour is the short hand pointing to? What time is it?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Morning Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">9:00</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>When do you go to <span class="hl">school</span>?</h2>
-          <ul><li>Time to get ready for school!</li><li>What time do you leave home?</li></ul>
-          <p class="notes">🎙️ After breakfast, it's time for school! What time do you usually leave your home to come to school? Is it 8 o'clock or 9 o'clock?</p>
+          <h2>Reading '<span class="hl">Half Past</span>' Time</h2>
+          <ul><li>Long hand points to 6.</li><li>Short hand is between two numbers.</li></ul>
+          <p class="notes">🎙️ Sometimes, the minute hand is not on 12. What if it's on 6? This is called 'Half Past' time. When the long hand is on 6, it means half an hour has passed. The short hand will be between two numbers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏫</div><div class="vcap">School Time</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pizza-3007395.jpg?width=520" data-fb="🔢" alt="A pizza cut into slices shows fractions — each slice is a part of the whole!"/><div class="vcap">A pizza cut into slices shows fractions — each slice is a part of the whole!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>When do you <span class="hl">play</span>?</h2>
-          <ul><li>After homework, it's playtime!</li><li>What time do you run out to play?</li></ul>
-          <p class="notes">🎙️ After a day of learning and finishing your homework, it's time for some fun! What time do you usually go out to play with your friends?</p>
+          <h2>Example: <span class="hl">Half Past 2</span></h2>
+          <ul><li>Long hand at 6, short hand between 2 and 3.</li><li>Time to play!</li></ul>
+          <p class="notes">🎙️ See this clock? The long hand is on 6, and the short hand is between 2 and 3. This means it's 'Half Past 2'! It's usually a good time to go out and play with your friends in the afternoon.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚽</div><div class="vcap">Play Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">2:30 PM</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick Question: <span class="hl">What time</span> is it?</h2>
-          <ul><li>The short hand is at 9.</li><li>The long hand is at 12.</li></ul>
-          <p class="notes">🎙️ Look at this clock carefully. Where are the hands pointing? What time do you think it is? Shout out your answer!</p>
+          <h2>Example: <span class="hl">Half Past 8</span></h2>
+          <ul><li>Long hand at 6, short hand between 8 and 9.</li><li>Time for a bedtime story!</li></ul>
+          <p class="notes">🎙️ Here's another 'Half Past' time. The long hand is on 6, and the short hand is between 8 and 9. So, it's 'Half Past 8'! This is often when you get to listen to a wonderful bedtime story before sleeping.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕘</div><div class="vcap">Think!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">8:30 PM</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick Question: <span class="hl">Tell the Time</span>!</h2>
-          <ul><li>The short hand is at 1.</li><li>The long hand is at 12.</li></ul>
-          <p class="notes">🎙️ Another clock for you! Can you tell me what time this clock is showing? Remember our rule for when the long hand is at 12!</p>
+          <h2>Quick Question 3: <span class="hl">What Time?</span></h2>
+          <ul><li>Look at the long hand first.</li><li>Then check the short hand.</li></ul>
+          <p class="notes">🎙️ You're doing great! Let's try another one. Remember, first find the long minute hand. Where is it pointing? Then, see where the short hour hand is. Is it 'O'Clock' or 'Half Past'? What time is it?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕐</div><div class="vcap">Your Turn!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">5:30</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick Question: When do you eat <span class="hl">dinner</span>?</h2>
-          <ul><li>Is it 7 o'clock or 8 o'clock?</li><li>Or maybe another time?</li></ul>
-          <p class="notes">🎙️ Let's think about our day again. When do you usually sit down with your family to eat dinner? Think about the clock!</p>
+          <h2>Quick Question 4: <span class="hl">What Time?</span></h2>
+          <ul><li>Focus on both hands.</li><li>Tell me the time shown.</li></ul>
+          <p class="notes">🎙️ Last question for our time detectives! Observe this clock carefully. Where is the minute hand? Where is the hour hand? Put them together and tell me the time. You've got this!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Dinner Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">11:30</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>A Little More About Time: <span class="hl">Half Past</span>!</h2>
-          <ul><li>When the long hand points to 6, it's 'half past'.</li><li>It means half an hour has gone by.</li></ul>
-          <p class="notes">🎙️ Sometimes, the long hand is not at 12. What if it's at 6? When the long hand points to 6, we say 'half past'. It means half of an hour has passed.</p>
+          <h2><span class="hl">Our Day</span> and Time</h2>
+          <ul><li>Morning, Afternoon, Evening, Night.</li><li>Time helps us divide our day.</li></ul>
+          <p class="notes">🎙️ Our day is made of different parts: morning, afternoon, evening, and night. Time helps us know which part of the day it is, and what activities we do in each part. It helps us organize our whole day!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pizza-3007395.jpg?width=520" data-fb="🕧" alt="A pizza cut into slices shows fractions — each slice is a part of the whole!"/><div class="vcap">A pizza cut into slices shows fractions — each slice is a part of the whole!</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Morning</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Afternoon</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Evening</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Night</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Let's See: <span class="hl">Half Past 2</span>!</h2>
-          <ul><li>Short hand is between 2 and 3.</li><li>Long hand points to 6.</li></ul>
-          <p class="notes">🎙️ Look at this clock. The short hand is between 2 and 3, and the long hand is at 6. So, it's 'half past 2'. This is a little tricky, but you'll get it!</p>
+          <h2>Time <span class="hl">Fun!</span></h2>
+          <ul><li>Time is everywhere!</li><li>It helps us do everything on time.</li></ul>
+          <p class="notes">🎙️ Isn't time amazing? It's like a superpower that helps us keep track of all our activities. From playing to studying, time is our best friend, making sure we have a smooth and happy day!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕝</div><div class="vcap">Half Past Two</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎉</span><span>🎉</span><span>🎉</span><span>🎉</span><span>🎉</span></div><div class="vcap">Time Fun!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Time to <span class="hl">Recap</span> What We Learned!</h2>
-          <ul><li>A clock tells us time with numbers and hands.</li><li>Short hand for hour, long hand for minutes.</li><li>Long hand at 12 means 'o'clock'.</li><li>Long hand at 6 means 'half past'.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much about time today! We know about the clock, its hands, and how to tell 'o'clock' and 'half past'. Keep practicing!</p>
+          <h2>Recap: Time is Our <span class="hl">Friend!</span></h2>
+          <ul><li>We learned about clocks and hands.</li><li>We can read 'O'Clock' and 'Half Past' time.</li></ul>
+          <p class="notes">🎙️ Today, we explored the wonderful world of time! We met our clock friend, learned about its hands, and how to read 'O'Clock' and 'Half Past' times. Keep practicing, and you'll be a time master!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

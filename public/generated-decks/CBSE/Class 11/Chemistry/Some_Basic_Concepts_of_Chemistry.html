@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Some Basic Concepts of Chemistry — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Chapter 1: Some Basic Concepts of <span class="hl">Chemistry</span></h2>
-          <ul><li>Subject: Chemistry</li><li>Class: 11</li><li>Board: CBSE</li><li>Foundational chapter for advanced chemistry</li></ul>
-          <p class="notes">🎙️ Welcome to the exciting world of Chemistry! This chapter, 'Some Basic Concepts of Chemistry,' is your essential foundation for understanding everything that follows in Class 11 and 12. We'll cover fundamental principles, measurements, and laws that govern chemical reactions.</p>
+          <h2>Welcome to the World of <span class="hl">Chemistry</span>!</h2>
+          <ul><li>Embark on a journey to understand matter and its transformations.</li><li>Discover the fundamental principles governing our universe.</li><li>Prepare for a strong foundation in science for Class 11.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we begin our exciting journey into Chemistry, a subject that explains the world around us. This chapter, 'Some Basic Concepts of Chemistry,' will lay the groundwork for everything we learn this year. Let's dive in!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Why Study <span class="hl">Chemistry</span>?</h2>
-          <ul><li>Understanding matter and its transformations</li><li>Essential for daily life: food, medicine, materials</li><li>Foundation for scientific and technological advancements</li><li>Develops problem-solving and analytical skills</li></ul>
-          <p class="notes">🎙️ Chemistry is not just a subject; it's about understanding the world around us at a fundamental level. From the food we eat to the air we breathe, chemistry is everywhere. It's crucial for innovation in various fields.</p>
+          <h2><span class="hl">Why Study</span> Chemistry?</h2>
+          <ul><li>Explains everyday phenomena (cooking, rusting).</li><li>Drives technological advancements (medicines, materials).</li><li>Crucial for understanding biology, physics, and environmental science.</li></ul>
+          <p class="notes">🎙️ Chemistry isn't just a subject; it's the science of everything. From the food we eat to the air we breathe, chemistry is at play. Understanding it helps us innovate and solve global challenges.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Exploring the unseen</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Chemistry Everywhere</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Nature of <span class="hl">Matter</span>: What is it?</h2>
-          <ul><li>Anything that has mass and occupies space</li><li>Exists in three common states: Solid, Liquid, Gas</li><li>States are interconvertible by changing temperature/pressure</li><li>Plasma and Bose-Einstein Condensate are other states</li></ul>
-          <p class="notes">🎙️ Matter is the fundamental building block of the universe. We primarily focus on solids, liquids, and gases in chemistry, understanding their distinct properties and how they transform from one state to another under specific conditions.</p>
+          <h2>Nature of Matter: <span class="hl">States</span></h2>
+          <ul><li>Matter is anything that has mass and occupies space.</li><li>Primarily exists in three states: Solid, Liquid, and Gas.</li><li>States differ based on particle arrangement and intermolecular forces.</li></ul>
+          <p class="notes">🎙️ Matter is the fundamental 'stuff' of the universe. We observe it most commonly as solids, liquids, or gases. The key difference lies in how tightly packed and free to move their constituent particles are.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Solid</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Liquid</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Gas</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/StatesOfMatter.png?width=500" data-fb="🧪" alt="Matter exists in three states: solid, liquid, and gas. Each state has different properties"/><div class="vcap">Matter exists in three states: solid, liquid, and gas. Each state has different properties</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Classification</span> of Matter</h2>
-          <ul><li>Matter is broadly classified into Pure Substances and Mixtures</li><li>Pure substances have fixed composition and properties</li><li>Mixtures contain two or more pure substances</li><li>Understanding classification is key to chemical analysis</li></ul>
-          <p class="notes">🎙️ To study matter systematically, we classify it based on its composition and properties. Pure substances are homogeneous throughout, while mixtures can be either uniform or non-uniform in their composition.</p>
+          <h2>Classification of Matter: <span class="hl">Mixtures</span></h2>
+          <ul><li>Formed when two or more substances combine physically.</li><li>Homogeneous: Uniform composition throughout (e.g., sugar solution).</li><li>Heterogeneous: Non-uniform composition (e.g., sand and salt).</li></ul>
+          <p class="notes">🎙️ When substances mix without chemically reacting, we get a mixture. It's vital to distinguish between homogeneous, where you can't see separate components, and heterogeneous, where you can easily spot them.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Matter</span></div><div class="step"><span class="snum">2</span><span>Pure Substances</span></div><div class="step"><span class="snum">3</span><span>Mixtures</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧪</span><span>🧪</span></div><div class="vcap">Homogeneous vs. Heterogeneous</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Pure Substances</span>: Elements and Compounds</h2>
-          <ul><li>Elements: Simplest form, cannot be broken down chemically</li><li>Examples: Hydrogen (H), Oxygen (O), Gold (Au)</li><li>Compounds: Formed by two or more elements in fixed ratio</li><li>Examples: Water (H₂O), Carbon Dioxide (CO₂)</li></ul>
-          <p class="notes">🎙️ Pure substances are foundational. Elements are the basic units, like the alphabet of chemistry. Compounds are formed when these elements combine chemically in precise ratios, leading to entirely new properties.</p>
+          <h2>Classification of Matter: <span class="hl">Pure Substances</span></h2>
+          <ul><li>Have a definite and constant chemical composition.</li><li>Elements: Cannot be broken down into simpler substances (e.g., Gold, Oxygen).</li><li>Compounds: Formed by chemical combination of two or more elements in fixed ratio (e.g., Water, Carbon Dioxide).</li></ul>
+          <p class="notes">🎙️ Unlike mixtures, pure substances are chemically uniform. Elements are the building blocks, and compounds are formed when these elements combine in precise, fixed proportions, leading to entirely new properties.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Building Blocks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Fixed Composition</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Mixtures</span>: Homogeneous and Heterogeneous</h2>
-          <ul><li>Homogeneous: Uniform composition throughout, e.g., salt solution</li><li>Components are indistinguishable, single phase</li><li>Heterogeneous: Non-uniform composition, e.g., sand and water</li><li>Components are distinguishable, multiple phases</li></ul>
-          <p class="notes">🎙️ Mixtures are combinations of substances that retain their individual properties. The key distinction lies in whether the components are uniformly distributed, leading to homogeneous mixtures, or visibly separate, forming heterogeneous mixtures.</p>
+          <h2>Properties of Matter: <span class="hl">Physical vs. Chemical</span></h2>
+          <ul><li>Physical Properties: Observable without changing identity (e.g., color, melting point).</li><li>Chemical Properties: Describe how matter reacts with other substances (e.g., flammability, reactivity).</li><li>Physical changes are reversible, chemical changes often aren't.</li></ul>
+          <p class="notes">🎙️ Understanding properties helps us classify and predict matter's behavior. A physical property can be measured without altering the substance's chemical makeup, while a chemical property describes its potential to undergo a chemical reaction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Mixed or Separated?</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Periodic_table_of_elements.svg?width=500" data-fb="🧪" alt="Metals form positively charged ions by losing electrons. Reactive metals react with oxygen"/><div class="vcap">Metals form positively charged ions by losing electrons. Reactive metals react with oxygen</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Properties</span> of Matter: Physical vs. Chemical</h2>
-          <ul><li>Physical Properties: Observable/measurable without changing identity</li><li>Examples: Color, odor, melting point, boiling point, density</li><li>Chemical Properties: Observed during a chemical change/reaction</li><li>Examples: Flammability, reactivity with acids, oxidation</li></ul>
-          <p class="notes">🎙️ Understanding the properties of matter helps us characterize and differentiate substances. Physical properties can be determined without altering the substance's composition, while chemical properties describe how a substance reacts to form new substances.</p>
+          <h2>Measurements in Chemistry: <span class="hl">SI Units</span></h2>
+          <ul><li>International System of Units (SI) provides a standard for measurements.</li><li>Seven base units: length (meter), mass (kilogram), time (second), electric current (ampere), thermodynamic temperature (Kelvin), amount of substance (mole), luminous intensity (candela).</li><li>Ensures consistency and comparability of scientific data worldwide.</li></ul>
+          <p class="notes">🎙️ Accurate measurements are fundamental to chemistry. The SI system is crucial because it provides a universal language for scientists, preventing confusion and ensuring that experiments are reproducible and results are comparable across different labs.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Physical</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Chemical</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Standard Units</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Measurement</span> in Chemistry: SI Units</h2>
-          <ul><li>All scientific observations involve measurement</li><li>Requires both a numerical value and a unit</li><li>International System of Units (SI) for consistency</li><li>Ensures universal understanding and comparability</li></ul>
-          <p class="notes">🎙️ Measurement is fundamental to chemistry. Every quantity we measure, like mass or volume, must have both a number and a unit. The SI system provides a standardized framework, preventing confusion and allowing scientists worldwide to communicate effectively.</p>
+          <h2><span class="hl">Mass and Weight</span>: A Key Distinction</h2>
+          <ul><li>Mass: Amount of matter present in a substance (constant, SI unit: kilogram, kg).</li><li>Weight: Force exerted by gravity on an object (varies with gravity).</li><li>Chemists primarily use mass for quantitative measurements.</li></ul>
+          <p class="notes">🎙️ It's common to confuse mass and weight, but in chemistry, mass is what truly matters. Your mass remains the same whether you're on Earth or the Moon, while your weight would be significantly different due to varying gravitational forces.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Precision is Key</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mass (kg)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Weight (N)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>SI <span class="hl">Base Units</span></h2>
-          <ul><li>Length: meter (m)</li><li>Mass: kilogram (kg)</li><li>Time: second (s)</li><li>Electric Current: ampere (A)</li><li>Thermodynamic Temperature: Kelvin (K)</li><li>Amount of Substance: mole (mol)</li><li>Luminous Intensity: candela (cd)</li></ul>
-          <p class="notes">🎙️ These seven SI base units form the foundation for all other derived units in chemistry and physics. It's crucial to memorize these and understand what each one represents. We will frequently use meter, kilogram, second, Kelvin, and mole.</p>
+          <h2><span class="hl">Volume and Density</span>: Essential Calculations</h2>
+          <ul><li>Volume: Amount of space occupied by a substance (SI unit: m³, commonly L or cm³).</li><li>Density: Mass per unit volume (d = m/V, SI unit: kg/m³, commonly g/cm³ or g/mL).</li><li>Density is an intensive property, independent of the amount of substance.</li></ul>
+          <p class="notes">🎙️ Volume helps us quantify space, while density tells us how 'packed' matter is within that space. Density is a very useful property for identifying substances and for various calculations in chemistry, as it remains constant for a given substance at a specific temperature.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Length (m)</span></div><div class="step"><span class="snum">2</span><span>Mass (kg)</span></div><div class="step"><span class="snum">3</span><span>Time (s)</span></div><div class="step"><span class="snum">4</span><span>Temperature (K)</span></div><div class="step"><span class="snum">5</span><span>Amount (mol)</span></div><div class="step"><span class="snum">6</span><span>Current (A)</span></div><div class="step"><span class="snum">7</span><span>Intensity (cd)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Measuring Space &amp; Compactness</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Scientific <span class="hl">Notation</span></h2>
-          <ul><li>Expresses very large or very small numbers concisely</li><li>Format: N × 10ⁿ, where N is between 1 and 10</li><li>n is an integer (positive for large, negative for small)</li><li>Example: 0.000000000167 g = 1.67 × 10⁻¹⁰ g</li></ul>
-          <p class="notes">🎙️ In chemistry, we often encounter extremely large or small numbers, such as the number of atoms in a sample or the mass of an electron. Scientific notation provides a convenient and standardized way to write and manipulate these numbers efficiently.</p>
+          <h2><span class="hl">Temperature Scales</span>: °C, °F, K</h2>
+          <ul><li>Temperature measures the hotness or coldness of an object.</li><li>Common scales: Celsius (°C), Fahrenheit (°F), and Kelvin (K).</li><li>Kelvin is the SI unit and absolute temperature scale (0 K = absolute zero).</li></ul>
+          <p class="notes">🎙️ Temperature is a critical physical property affecting chemical reactions and physical states. While Celsius and Fahrenheit are common, Kelvin is scientifically preferred because it's an absolute scale, meaning 0 K represents the lowest possible energy state.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Handling Extremes</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Celsius</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Fahrenheit</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Kelvin</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,45 +180,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Significant Figures</span>: Precision in Measurement</h2>
-          <ul><li>Digits in a measurement that carry meaning contributing to its precision</li><li>Includes all certain digits plus one uncertain digit</li><li>Rules for determining sig figs are crucial for accurate calculations</li><li>Trailing zeros are significant only if a decimal point is present</li></ul>
-          <p class="notes">🎙️ Significant figures reflect the precision of a measurement. It's not just about the numbers, but about how reliably they were measured. Understanding the rules for significant figures is vital for presenting results that accurately reflect the precision of your experimental data.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Rules for Clarity</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Calculations with Significant Figures: <span class="hl">Addition/Subtraction</span></h2>
-          <ul><li>Result must have the same number of decimal places</li><li>As the measurement with the fewest decimal places</li><li>Example: 12.11 + 18.0 + 1.012 = 31.122</li><li>Rounded to one decimal place (from 18.0): 31.1</li></ul>
-          <p class="notes">🎙️ When adding or subtracting, the precision of your answer is limited by the least precise measurement, specifically by the number of decimal places. Always perform the calculation first, then round your final answer according to this rule.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Aligning Decimal Places</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Calculations with Significant Figures: <span class="hl">Multiplication/Division</span></h2>
-          <ul><li>Result must have the same number of significant figures</li><li>As the measurement with the fewest significant figures</li><li>Example: 2.5 x 3.42 = 8.55</li><li>Rounded to two sig figs (from 2.5): 8.6</li></ul>
-          <p class="notes">🎙️ For multiplication and division, the number of significant figures in your result is determined by the measurement with the fewest significant figures. This ensures that your answer does not imply a greater precision than your input data supports.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✖️</span><span>✖️</span><span>✖️</span></div><div class="vcap">Counting Sig Figs</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">Precision</span> vs. Accuracy</h2>
-          <ul><li>Precision: Closeness of multiple measurements to each other</li><li>Indicates reproducibility of results</li><li>Accuracy: Closeness of a measurement to the true value</li><li>An accurate measurement is also precise</li></ul>
-          <p class="notes">🎙️ These two terms are often confused but have distinct meanings. Precision refers to how consistent your measurements are with each other, while accuracy refers to how close your measurements are to the actual, correct value. Ideally, we aim for both high precision and high accuracy.</p>
+          <h2>Uncertainty in Measurement: <span class="hl">Accuracy vs. Precision</span></h2>
+          <ul><li>Accuracy: Closeness of a measurement to the true value.</li><li>Precision: Closeness of multiple measurements to each other.</li><li>High accuracy and high precision are desired in experimental work.</li></ul>
+          <p class="notes">🎙️ No measurement is perfectly exact; there's always some uncertainty. Understanding accuracy and precision helps us evaluate the quality of our experimental data. You can be precise without being accurate, and vice-versa, but the goal is always both.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Hitting the Mark</div></div></div>
       </div>
@@ -214,24 +191,60 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Laws of Chemical Combination: Law of <span class="hl">Conservation of Mass</span></h2>
-          <ul><li>Proposed by Antoine Lavoisier (1789)</li><li>Mass can neither be created nor destroyed in a chemical reaction</li><li>Total mass of reactants equals total mass of products</li><li>Underpins stoichiometry and chemical equations</li></ul>
-          <p class="notes">🎙️ This fundamental law states that matter is conserved during chemical changes. It means that atoms are merely rearranged, not lost or gained. This principle is why we balance chemical equations, ensuring the same number of atoms of each element on both sides.</p>
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Significant Figures</span>: Rules for Counting</h2>
+          <ul><li>Non-zero digits are always significant.</li><li>Zeros between non-zero digits are significant.</li><li>Leading zeros (before non-zero digits) are NOT significant.</li><li>Trailing zeros (at end of number) are significant ONLY if a decimal point is present.</li></ul>
+          <p class="notes">🎙️ Significant figures indicate the reliability of a measurement. It's crucial to follow these rules to correctly determine the number of significant figures, which then dictates how we report results from calculations to reflect the precision of our original measurements.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Balanced_equation.svg?width=500" data-fb="⚖️" alt="The laws of chemical combination describe how elements combine. Conservation of mass, defi"/><div class="vcap">The laws of chemical combination describe how elements combine. Conservation of mass, defi</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Non-zero digits</span></div><div class="step"><span class="snum">2</span><span>Sandwiched zeros</span></div><div class="step"><span class="snum">3</span><span>Trailing zeros (decimal)</span></div><div class="step"><span class="snum">4</span><span>Exact numbers (infinite)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Significant Figures: <span class="hl">Calculations</span></h2>
+          <ul><li>Addition/Subtraction: Result has same number of decimal places as the measurement with the fewest decimal places.</li><li>Multiplication/Division: Result has same number of significant figures as the measurement with the fewest significant figures.</li><li>Rounding rules apply to the final answer.</li></ul>
+          <p class="notes">🎙️ Applying significant figure rules to calculations ensures that our calculated results don't imply a greater precision than our original measurements. Always identify the limiting factor – either decimal places for add/sub or significant figures for mult/div.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Rules for Operations</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Conservation of Mass</h2>
-          <ul><li>Question: 4.9 g of KClO₃ on heating gives 1.92 g of O₂. What is the mass of KCl produced?</li><li>Reaction: 2KClO₃(s) → 2KCl(s) + 3O₂(g)</li><li>By Law of Conservation of Mass: Mass of KClO₃ = Mass of KCl + Mass of O₂</li><li>4.9 g = Mass of KCl + 1.92 g =&gt; Mass of KCl = 4.9 - 1.92 = 2.98 g</li></ul>
-          <p class="notes">🎙️ This example clearly demonstrates the law. The total mass before the reaction (reactant) must equal the total mass after the reaction (products). Always ensure your calculations reflect this balance.</p>
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Worked Example</span>: Significant Figures</h2>
+          <ul><li>Calculate: (12.34 + 5.6) × 2.0</li><li>Step 1 (Addition): 12.34 (2 decimal places) + 5.6 (1 decimal place) = 17.94. Round to 1 decimal place: 17.9</li><li>Step 2 (Multiplication): 17.9 (3 sig figs) × 2.0 (2 sig figs) = 35.8. Round to 2 sig figs: 36</li><li>Final Answer: 36</li></ul>
+          <p class="notes">🎙️ Let's walk through an example. First, perform the addition, applying its significant figure rule, then the multiplication. Remember, intermediate rounding should be minimal or kept with one extra digit to avoid error, but the final answer must be correctly rounded.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Dimensional Analysis</span>: Unit Conversion</h2>
+          <ul><li>Method to convert units using conversion factors.</li><li>Conversion factor: A ratio of equivalent measurements (e.g., 1 m / 100 cm).</li><li>Units are treated like algebraic variables and cancel out.</li></ul>
+          <p class="notes">🎙️ Dimensional analysis is a powerful tool for solving problems involving unit conversions. By carefully setting up conversion factors, you can systematically change units from one system to another, ensuring your calculations are dimensionally correct.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Changing Units</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Law of <span class="hl">Conservation of Mass</span></h2>
+          <ul><li>States that mass can neither be created nor destroyed in a chemical reaction.</li><li>Total mass of reactants equals total mass of products.</li><li>Proposed by Antoine Lavoisier.</li></ul>
+          <p class="notes">🎙️ This fundamental law underpins all chemical reactions. It means that atoms are merely rearranged during a reaction, not lost or gained. Balancing chemical equations is a direct consequence of the law of conservation of mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass is Conserved</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -240,22 +253,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">17 / 25</span>
           <h2>Law of <span class="hl">Definite Proportions</span></h2>
-          <ul><li>Proposed by Joseph Proust (1799)</li><li>A given chemical compound always contains exactly the same proportion</li><li>By mass of its constituent elements, regardless of source</li><li>Example: Water (H₂O) always has 1:8 mass ratio of H:O</li></ul>
-          <p class="notes">🎙️ This law emphasizes the consistency of compounds. No matter how you prepare or obtain a sample of a pure compound, the elements within it will always be present in the same fixed mass ratio. This is a defining characteristic of compounds.</p>
+          <ul><li>States that a given chemical compound always contains the same elements in the exact same proportion by mass.</li><li>Regardless of source or method of preparation.</li><li>Example: Water (H₂O) always has a 1:8 mass ratio of Hydrogen to Oxygen.</li></ul>
+          <p class="notes">🎙️ This law, also known as Proust's Law, highlights the consistent nature of compounds. Any sample of pure water, whether from a tap or a lab, will always consist of hydrogen and oxygen in the same fixed mass ratio. This is a defining characteristic of compounds.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Fixed Ratios</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Fixed Composition</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Definite Proportions</h2>
-          <ul><li>Question: 1.375 g of copper oxide was reduced to give 1.098 g of copper. In another experiment, 1.179 g of copper gave 1.476 g of copper oxide. Show that these data illustrate the Law of Definite Proportions.</li><li>Exp 1: Mass of O = 1.375 - 1.098 = 0.277 g. Ratio Cu:O = 1.098/0.277 = 3.96:1</li><li>Exp 2: Mass of O = 1.476 - 1.179 = 0.297 g. Ratio Cu:O = 1.179/0.297 = 3.97:1</li><li>Since the Cu:O ratio is approximately the same in both experiments, the law is illustrated.</li></ul>
-          <p class="notes">🎙️ Here, we calculate the mass ratio of copper to oxygen in two different samples of copper oxide. The consistency of this ratio, despite different starting amounts, confirms the Law of Definite Proportions. Small differences are due to experimental error.</p>
+          <h2>Law of <span class="hl">Multiple Proportions</span></h2>
+          <ul><li>When two elements combine to form more than one compound, the masses of one element that combine with a fixed mass of the other are in a ratio of small whole numbers.</li><li>Example: Carbon and Oxygen form CO and CO₂.</li><li>In CO₂, 2x mass of oxygen combines with fixed carbon mass compared to CO.</li></ul>
+          <p class="notes">🎙️ This law, proposed by Dalton, provides further insight into how elements combine. It explains why we see compounds like CO and CO₂ rather than an infinite range of carbon-oxygen combinations, and it was crucial in developing atomic theory.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Simple Ratios</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Law of <span class="hl">Multiple Proportions</span></h2>
-          <ul><li>Proposed by John Dalton (1803)</li><li>If two elements combine to form more than one compound,</li><li>The masses of one element that combine with a fixed mass of the other</li><li>Bear a simple whole-number ratio to one another</li></ul>
-          <p class="notes">🎙️ This law explains why elements can form multiple compounds with each other. For example, carbon and oxygen form CO and CO₂. If we fix the mass of carbon, the masses of oxygen combining with it will be in a simple whole-number ratio (1:2 in this case).</p>
+          <h2>Dalton's <span class="hl">Atomic Theory</span>: Key Postulates</h2>
+          <ul><li>Matter consists of indivisible atoms.</li><li>Atoms of the same element are identical in all respects.</li><li>Atoms of different elements are different.</li><li>Atoms combine in simple whole-number ratios to form compounds.</li></ul>
+          <p class="notes">🎙️ John Dalton's atomic theory was a revolutionary concept that explained the laws of chemical combination. While some postulates have been modified with modern discoveries, its core ideas remain fundamental to our understanding of matter.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Simple Ratios</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Indivisible atoms</span></div><div class="step"><span class="snum">2</span><span>Identical atoms (element)</span></div><div class="step"><span class="snum">3</span><span>Different atoms (elements)</span></div><div class="step"><span class="snum">4</span><span>Combine in ratios</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Dalton's <span class="hl">Atomic Theory</span></h2>
-          <ul><li>Matter consists of indivisible atoms</li><li>Atoms of same element are identical in mass and properties</li><li>Atoms of different elements differ in mass and properties</li><li>Atoms combine in simple whole-number ratios to form compounds</li></ul>
-          <p class="notes">🎙️ Dalton's Atomic Theory, though refined over time, provided the first comprehensive model of matter based on atoms. It successfully explained the laws of chemical combination and laid the groundwork for modern chemistry. While atoms are now known to be divisible, its core principles remain relevant.</p>
+          <h2><span class="hl">Atomic Mass</span> and Average Atomic Mass</h2>
+          <ul><li>Atomic Mass Unit (amu): 1/12th the mass of a carbon-12 atom.</li><li>Atomic Mass: The mass of an atom relative to the carbon-12 standard.</li><li>Average Atomic Mass: Weighted average of isotopic masses based on their natural abundance.</li></ul>
+          <p class="notes">🎙️ Since individual atoms are incredibly small, we use a relative scale for their masses. The average atomic mass, found on the periodic table, accounts for the existence of isotopes and their varying abundances in nature.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Foundational Ideas</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Mass of an Atom</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Atomic Mass</span> and Molecular Mass</h2>
-          <ul><li>Atomic Mass: Mass of an atom, measured in atomic mass units (amu)</li><li>1 amu = 1/12th the mass of a carbon-12 atom</li><li>Molecular Mass: Sum of atomic masses of all atoms in a molecule</li><li>Formula Mass: Used for ionic compounds, sum of atomic masses in formula unit</li></ul>
-          <p class="notes">🎙️ Atomic mass is a relative measure, defined against carbon-12. Molecular mass and formula mass are crucial for understanding the quantitative aspects of reactions. Remember to sum up the atomic masses of all atoms present in the chemical formula.</p>
+          <h2><span class="hl">Molecular Mass</span> and Formula Mass</h2>
+          <ul><li>Molecular Mass: Sum of atomic masses of all atoms in a molecule.</li><li>Calculated by adding the atomic masses of all elements present in the molecular formula.</li><li>Formula Mass: Sum of atomic masses in an ionic compound's formula unit (used for ionic compounds).</li></ul>
+          <p class="notes">🎙️ For covalent compounds, we calculate molecular mass. For ionic compounds, which don't form discrete molecules but rather crystal lattices, we use the term 'formula mass' for their empirical formula unit. The calculation method is essentially the same: sum of atomic masses.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Measuring Tiny Weights</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Mass of Molecules/Units</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>The <span class="hl">Mole Concept</span> and Molar Mass</h2>
-          <ul><li>Mole: SI unit for amount of substance</li><li>Contains Avogadro's number (6.022 x 10²³) of particles</li><li>Molar Mass: Mass of one mole of a substance in grams (g/mol)</li><li>Numerically equal to atomic/molecular/formula mass in amu</li></ul>
-          <p class="notes">🎙️ The mole is a central concept in chemistry, linking the microscopic world of atoms and molecules to the macroscopic world we can measure. It allows us to count particles by weighing them. Molar mass is a direct conversion factor between mass and moles.</p>
+          <h2>The <span class="hl">Mole Concept</span>: Avogadro's Number</h2>
+          <ul><li>A mole (mol) is the SI unit for amount of substance.</li><li>One mole contains exactly 6.022 × 10²³ elementary entities (atoms, molecules, ions).</li><li>This number is known as Avogadro's number (Nₐ).</li></ul>
+          <p class="notes">🎙️ The mole concept is central to quantitative chemistry. It provides a convenient way to count incredibly large numbers of atoms or molecules, linking the microscopic world of atoms to the macroscopic world of grams that we can measure in the lab.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Mole_concept.svg?width=500" data-fb="🧪" alt="The mole is a unit of amount of substance. One mole contains Avogadro's number of particle"/><div class="vcap">The mole is a unit of amount of substance. One mole contains Avogadro's number of particle</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Mole Concept</h2>
-          <ul><li>Question: Calculate the number of moles in 54 g of water (H₂O).</li><li>Step 1: Calculate molar mass of H₂O.</li><li>Molar mass of H₂O = (2 × 1.008 g/mol for H) + (1 × 16.00 g/mol for O) = 18.016 g/mol</li><li>Step 2: Use molar mass to convert mass to moles.</li><li>Moles = Given mass / Molar mass = 54 g / 18.016 g/mol ≈ 2.997 mol ≈ 3 moles</li></ul>
-          <p class="notes">🎙️ This example illustrates how to use molar mass to convert between mass and moles. It's a fundamental calculation you'll perform frequently. Always remember to use the correct molar mass for the substance in question.</p>
+          <h2><span class="hl">Molar Mass</span>: Linking Mass and Moles</h2>
+          <ul><li>Molar Mass: Mass of one mole of a substance (g/mol).</li><li>Numerically equal to atomic mass (for elements) or molecular/formula mass (for compounds) but with units of g/mol.</li><li>Used to convert between mass and moles of a substance.</li></ul>
+          <p class="notes">🎙️ Molar mass is the bridge between the mass of a substance and the number of moles. If you know the molar mass, you can easily convert any given mass into moles, or vice versa, which is essential for stoichiometric calculations.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass per Mole</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check <span class="hl">Questions</span></h2>
-          <ul><li>1. How many significant figures are in 0.00250?</li><li>2. What is the SI unit for amount of substance?</li><li>3. State the Law of Definite Proportions.</li><li>4. Differentiate between homogeneous and heterogeneous mixtures.</li></ul>
-          <p class="notes">🎙️ Take a moment to answer these questions to test your understanding of the concepts covered so far. These are typical short answer questions you might encounter in exams. Pause and think before moving on.</p>
+          <h2><span class="hl">Quick Check</span>: Test Your Understanding!</h2>
+          <ul><li>1. How many significant figures are in 0.00250 g?</li><li>2. What is the SI unit for temperature?</li><li>3. State the Law of Definite Proportions.</li><li>4. Calculate the molecular mass of CO₂ (C=12, O=16).</li></ul>
+          <p class="notes">🎙️ Take a moment to answer these questions to gauge your understanding of the concepts we've covered today. These types of questions are common in exams and test your foundational knowledge. Think carefully before answering!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span> and Next Steps</h2>
-          <ul><li>Matter classification, properties, and states</li><li>Importance of accurate measurement, SI units, sig figs</li><li>Fundamental Laws of Chemical Combination</li><li>Dalton's theory, atomic/molecular mass, mole concept</li></ul>
-          <p class="notes">🎙️ We've covered the essential building blocks for understanding chemistry. Mastering these basic concepts is crucial for success in subsequent chapters. Review these topics thoroughly and practice numerical problems to solidify your understanding. Your strong foundation starts here!</p>
+          <h2><span class="hl">Recap</span> &amp; What's Next?</h2>
+          <ul><li>We covered matter classification, properties, and basic measurements.</li><li>Understood significant figures, dimensional analysis, and laws of chemical combination.</li><li>Introduced Dalton's theory, atomic/molecular mass, and the mole concept.</li><li>Next: Stoichiometry, Limiting Reagents, and Concentration Terms!</li></ul>
+          <p class="notes">🎙️ Today, we've built a strong foundation for your chemistry journey. We've tackled crucial concepts that will be applied throughout the year. Make sure to review these basics thoroughly, as they are essential for understanding upcoming topics like stoichiometry and solutions.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/StatesOfMatter.png?width=500" data-fb="✨" alt="Matter exists in three states: solid, liquid, and gas. Each state has different properties"/><div class="vcap">Matter exists in three states: solid, liquid, and gas. Each state has different properties</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

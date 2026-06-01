@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Maps and Locations — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to the Wonderful World of <span class="hl">Maps</span>!</h2>
-          <ul><li>Have you ever wanted to find a hidden treasure?</li><li>Or know how to reach your friend's house?</li><li>Maps help us find our way!</li></ul>
-          <p class="notes">🎙️ Hello, little explorers! Today, we are going on an exciting journey to learn about maps. Imagine you have a special drawing that can show you where anything is. That's what a map does!</p>
+          <h2>Welcome to <span class="hl">Maps</span> and Locations!</h2>
+          <ul><li>We will learn about maps today.</li><li>They help us find places.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going to learn about something very exciting and useful: Maps! Have you ever wondered how people find their way to new places?</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is a <span class="hl">Map</span>? A Picture of Places!</h2>
-          <ul><li>A map is like a special drawing.</li><li>It shows us places from above, like a bird looking down.</li><li>It helps us see where things are.</li></ul>
-          <p class="notes">🎙️ Think of a map as a drawing of a place, but from very high up! It can show your school, your home, or even a whole country. It's a flat picture of a big area.</p>
+          <h2>What is a <span class="hl">Map</span>?</h2>
+          <ul><li>A map is like a drawing.</li><li>It shows us places from above.</li></ul>
+          <p class="notes">🎙️ Imagine you are a bird flying high in the sky. What do you see below? A map is like that view, but drawn on paper! It helps us see where things are.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">A drawing of the world</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">A drawing of places</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why Do We Use Maps? To <span class="hl">Find Our Way</span>!</h2>
-          <ul><li>Maps help us go from one place to another.</li><li>They show us the path to new adventures.</li><li>No more getting lost!</li></ul>
-          <p class="notes">🎙️ Imagine you're going to a new park. A map can show you the best way to get there. It's like having a guide always with you, telling you which turn to take.</p>
+          <h2><span class="hl">Why</span> do we use Maps?</h2>
+          <ul><li>Maps help us find our way.</li><li>They show us where things are. Like home, school, or a park!</li></ul>
+          <p class="notes">🎙️ Have you ever gotten lost? Maps are like a superhero that helps us find our way. They show us the path to reach our friend's house or a new toy shop!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Finding a spot!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Finding a spot</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Different Maps: <span class="hl">Physical Maps</span> Show Nature!</h2>
-          <ul><li>Some maps show mountains, rivers, and forests.</li><li>These are called Physical Maps.</li><li>They show us Earth's beautiful natural features.</li></ul>
-          <p class="notes">🎙️ Look at this map! It shows big mountains, long rivers, and green forests. This kind of map is called a Physical Map because it shows all the natural things on Earth, just as they are.</p>
+          <h2>Many <span class="hl">Kinds</span> of Maps</h2>
+          <ul><li>There are maps of the whole world.</li><li>There are also maps of our city or village.</li></ul>
+          <p class="notes">🎙️ Just like we have different types of storybooks, we have different types of maps! Some maps are huge and show the entire Earth, and some are small and show just our neighborhood.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Mountains and rivers</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">World Map</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">City Map</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Different Maps: <span class="hl">Political Maps</span> Show Places People Made!</h2>
-          <ul><li>Other maps show countries, states, and cities.</li><li>These are called Political Maps.</li><li>They show us borders and names of places.</li></ul>
-          <p class="notes">🎙️ Now look at this map. It has lines showing different countries like India, and cities like Mumbai or Delhi. These are Political Maps, and they show us places that people have named and drawn borders around.</p>
+          <h2>Let's Draw Our <span class="hl">School Map</span>!</h2>
+          <ul><li>Think about your classroom.</li><li>Where is the playground? Where is the library?</li></ul>
+          <p class="notes">🎙️ Let's imagine drawing a map of our own school. Where would the main gate be? Where is our classroom? Maps help us understand the layout of places we know well.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🇮🇳" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏫</div><div class="vcap">Our School</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Every Map Has a Name: The <span class="hl">Title</span>!</h2>
-          <ul><li>Just like a book, a map has a Title.</li><li>The title tells us what the map is about.</li><li>Is it a map of your city or your country? The title says!</li></ul>
-          <p class="notes">🎙️ When you pick up a storybook, you first read its title, right? A map also has a title, usually at the top. It tells us immediately if it's a map of India, or a map of your school, or even a treasure map!</p>
+          <h2><span class="hl">Directions</span> on a Map</h2>
+          <ul><li>Maps use special words: North, South, East, West.</li><li>These help us know 'which way'.</li></ul>
+          <p class="notes">🎙️ To understand maps better, we need to know about directions. Imagine a compass, it always points to North. These four words are like magic words for finding our way.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏷️</div><div class="vcap">What is this map about?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Compass shows directions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Finding Your Way: North, South, East, West!</h2>
-          <ul><li>To use a map, we need to know directions.</li><li>North, South, East, and West are the four main directions.</li><li>They help us understand where to go.</li></ul>
-          <p class="notes">🎙️ Imagine you are standing in the middle of a room. One wall is North, the opposite is South. If your right hand points East, your left hand points West. These four directions are super important for reading maps!</p>
+          <h2>Finding <span class="hl">North</span> with the Sun</h2>
+          <ul><li>The Sun rises in the East.</li><li>It sets in the West.</li><li>If you face the rising sun, North is to your left.</li></ul>
+          <p class="notes">🎙️ Do you know how to find North without a compass? The sun is our friend! If you stand facing where the sun comes up in the morning (East), then North will be on your left hand side. Try it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">The magic compass</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="☀️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>The <span class="hl">Compass Rose</span>: Your Direction Helper!</h2>
-          <ul><li>Maps have a special drawing called a Compass Rose.</li><li>It shows us all the main directions.</li><li>It usually has an arrow pointing North (N).</li></ul>
-          <p class="notes">🎙️ Look closely at a map, and you'll often see a star-like symbol with letters N, S, E, W. This is called a Compass Rose. It's like a mini compass right on your map, helping you find North, and then all other directions!</p>
+          <h2><span class="hl">Practice</span> Time: Our House Map</h2>
+          <ul><li>If the living room is North, where is the kitchen?</li><li>Where is the garden?</li></ul>
+          <p class="notes">🎙️ Let's imagine a simple map of a house. If the living room is towards the North, can you guess where the kitchen or the garden would be? This helps us understand directions in a small space.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">N for North!</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Map <span class="hl">Scale</span>: Small Drawing, Big Distance!</h2>
-          <ul><li>A map is a small drawing of a big place.</li><li>The 'Scale' tells us how much smaller it is.</li><li>1 cm on map could be 1 km in real life!</li></ul>
-          <p class="notes">🎙️ You can't draw your whole city on a piece of paper in real size, right? So, maps use a scale. It's like saying, 'Every little bit on this map means a much bigger distance in the real world.' It helps us guess how far things actually are.</p>
+          <h2>What are <span class="hl">Landmarks</span>?</h2>
+          <ul><li>Landmarks are special places.</li><li>They help us remember where things are. Like a big tree or a tall building.</li></ul>
+          <p class="notes">🎙️ When you tell your friend how to come to your house, do you say 'Turn left near the big banyan tree' or 'Go straight past the blue building'? Those are landmarks! They are easy to see and remember.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring on a map</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">A big tree</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Map <span class="hl">Symbols</span>: The Map's Secret Pictures!</h2>
-          <ul><li>Maps use small pictures called Symbols.</li><li>A symbol can mean a school, a hospital, or a tree.</li><li>They make maps easy to read without writing many words.</li></ul>
-          <p class="notes">🎙️ Instead of writing 'school' or drawing a big school building, maps use tiny pictures or symbols. For example, a little cross might mean a hospital, and a tiny tree might mean a forest. It's like a secret code!</p>
+          <h2><span class="hl">Using Landmarks</span> to Find a Way</h2>
+          <ul><li>Go past the big park.</li><li>Turn right at the temple.</li><li>Your friend's house is next to the sweet shop.</li></ul>
+          <p class="notes">🎙️ Imagine you are going to a new friend's house. Your friend tells you to look for a big park, then a temple, and finally a sweet shop. These landmarks make it easy to follow the path!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Small pictures, big meaning!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Finding houses with landmarks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>The <span class="hl">Map Key</span>: Unlocking the Symbols!</h2>
-          <ul><li>How do we know what each symbol means?</li><li>We look at the Map Key, also called the Legend.</li><li>The key is like a dictionary for map symbols!</li></ul>
-          <p class="notes">🎙️ If symbols are like a secret code, then the Map Key is the book that tells you what each code means! It's usually in a corner of the map, showing each symbol and its meaning. Always check the key first!</p>
+          <h2>What is Map <span class="hl">Scale</span>?</h2>
+          <ul><li>Maps are small, but real places are big!</li><li>Scale tells us how much smaller the map is.</li></ul>
+          <p class="notes">🎙️ A map of your city can fit on one page, but the city itself is huge! How does that work? This is where 'scale' comes in. It's like shrinking everything down in a special way so it fits on the paper.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔑</div><div class="vcap">Unlock the map's secrets</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring distance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Let's Find the <span class="hl">Park</span> on Our Map!</h2>
-          <ul><li>Imagine we have a map of our neighbourhood.</li><li>First, find your home on the map.</li><li>Then, look for the park symbol and its path!</li></ul>
-          <p class="notes">🎙️ Okay, let's pretend we have a map of our area. We want to go to the park. First, find where your house is marked. Then, spot the little tree symbol for the park. Now, follow the roads on the map to reach it!</p>
+          <h2><span class="hl">Understanding</span> Map Scale</h2>
+          <ul><li>If a map says '1 cm = 1 km'.</li><li>It means 1 cm on the map is actually 1 km in real life!</li></ul>
+          <p class="notes">🎙️ Let's take an example: If your map says '1 cm equals 1 kilometer', it means if you measure 1 centimeter on the map, in the real world, that distance is 1 whole kilometer! Isn't that amazing?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Where is the green park?</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">1 cm on Map</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1 km in Real Life</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Your Way to <span class="hl">School</span>: A Map in Your Mind!</h2>
-          <ul><li>You know your way from home to school, right?</li><li>You have a 'mental map' in your head!</li><li>A real map can show you the safest path.</li></ul>
-          <p class="notes">🎙️ Every day you walk or ride to school. You know all the turns and landmarks. That's like having a map in your brain! A real map can help you see your school route, maybe even find new shortcuts or safer roads.</p>
+          <h2>Let's <span class="hl">Read</span> a Simple Map!</h2>
+          <ul><li>Find the school.</li><li>Now find the park.</li><li>How far is the park from the school if 1 square = 10 meters?</li></ul>
+          <p class="notes">🎙️ Imagine a simple map with squares. Each square is 10 meters. If the park is 3 squares away from the school, how far is it? This is how we use scale to find real distances.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏫</div><div class="vcap">Home to school path</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Find the park!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Practise Time: Let's Follow <span class="hl">Directions</span>!</h2>
-          <ul><li>Start at the 'Start' point.</li><li>Go 3 steps North.</li><li>Then, go 2 steps East.</li><li>What did you find?</li></ul>
-          <p class="notes">🎙️ Let's play a game! Imagine a tiny map. If I tell you to start here, go North for three steps, then East for two steps, where would you end up? Maps help us follow these kinds of instructions easily!</p>
+          <h2><span class="hl">Activity</span>: Follow the Path!</h2>
+          <ul><li>Start from your home.</li><li>Go past the post office.</li><li>Turn left at the big market.</li><li>Reach school!</li></ul>
+          <p class="notes">🎙️ Let's pretend we are following a path on a map. We start from home, pass a post office, then turn left at a market, and finally reach our school. Maps help us follow these paths easily.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Home</span></div><div class="step"><span class="snum">2</span><span>2. Post Office</span></div><div class="step"><span class="snum">3</span><span>3. Market (Left Turn)</span></div><div class="step"><span class="snum">4</span><span>4. School</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -215,9 +228,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick Question 1: What does this <span class="hl">symbol</span> show?</h2>
-          <ul><li>We just learned about a very important symbol.</li><li>What does it help us find on a map?</li><li>Is it a secret treasure or a direction helper?</li></ul>
-          <p class="notes">🎙️ Time for some quick questions! We just learned about a very important symbol that helps us find our way on a map. What is it called, and what does it tell us?</p>
+          <h2>Quick <span class="hl">Question</span> Time! (1/3)</h2>
+          <ul><li>What is the main use of a map?</li><li>A) To draw pictures.</li><li>B) To find places.</li><li>C) To write stories.</li></ul>
+          <p class="notes">🎙️ Alright, my smart students, let's test our understanding! Think carefully about what we learned today. What is the most important reason we use maps?</p>
         </div>
         
       </div>
@@ -227,9 +240,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick Question 2: What does a <span class="hl">red cross</span> symbol usually mean?</h2>
-          <ul><li>If you see a red cross on a map...</li><li>What place does it usually point to?</li><li>Is it a candy shop or a hospital?</li></ul>
-          <p class="notes">🎙️ Imagine you're on a trip and someone needs help. If a map shows a red cross, what important place does it tell you is nearby? Think about where people go when they need care.</p>
+          <h2>Quick <span class="hl">Question</span> Time! (2/3)</h2>
+          <ul><li>Which direction does the Sun rise from?</li><li>A) North</li><li>B) South</li><li>C) East</li></ul>
+          <p class="notes">🎙️ Next question! Remember our sun friend who helps us find directions? In which direction do we see the beautiful sunrise every morning?</p>
         </div>
         
       </div>
@@ -239,33 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick Question 3: Why is a map's <span class="hl">title</span> important?</h2>
-          <ul><li>Why do we need to read the title of a map?</li><li>What does it tell us right away?</li><li>Does it tell us about the map's size or its topic?</li></ul>
-          <p class="notes">🎙️ Think back to our discussion about map features. Why is the very first thing you read on a map, its title, so important? What information does it quickly give you before you even start looking at the details?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">18 / 20</span>
-          <h2>Quick Question 4: Does a map show things in <span class="hl">real size</span>?</h2>
-          <ul><li>Can a map of your city fit on one page in real size?</li><li>Is the distance on the map the same as the real distance?</li><li>What feature helps us understand this difference?</li></ul>
-          <p class="notes">🎙️ We talked about something called 'scale'. Does a map show things as big as they are in real life? Why or why not? What helps us understand the difference between the map's size and the actual size?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span>: Our Map Adventure!</h2>
-          <ul><li>Maps are drawings that help us find places.</li><li>They have titles, directions, scales, and symbols.</li><li>The Map Key tells us what symbols mean.</li><li>Maps make finding places easy and fun!</li></ul>
-          <p class="notes">🎙️ Wow, we've learned so much about maps today! We know what they are, why we use them, and all their important parts like the title, directions, scale, and symbols. Maps are truly amazing tools for explorers like you!</p>
+          <h2>Quick <span class="hl">Question</span> Time! (3/3)</h2>
+          <ul><li>What is a special, easy-to-see place called, that helps us find our way?</li><li>A) A landmark</li><li>B) A small stone</li><li>C) A cloud</li></ul>
+          <p class="notes">🎙️ Last question for today! What do we call those big, easy-to-spot things like a big tree or a tall building that guide us on our path?</p>
         </div>
         
       </div>
@@ -274,16 +263,41 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2>Your Turn: <span class="hl">Design</span> Your Own Map!</h2>
-          <ul><li>Draw a map of your room or your playground.</li><li>Use simple symbols for your bed, toy box, or swing!</li><li>Don't forget a title and a small key!</li></ul>
-          <p class="notes">🎙️ Now it's your turn to be a map designer! Pick your room or your favorite playground. Draw a map of it, add little symbols for your toys or slides, and make a small key. It's a great way to practice what you've learned!</p>
+          <span class="num">18 / 20</span>
+          <h2>Maps in <span class="hl">Real Life</span></h2>
+          <ul><li>People use maps to plan trips.</li><li>Drivers use maps to find roads.</li><li>Pilots use maps to fly planes!</li></ul>
+          <p class="notes">🎙️ Maps are not just for our books! Grown-ups use maps all the time. When your family goes on a holiday, they might use a map to find the way. Drivers use them to know which road to take, and even pilots use them to fly safely!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✏️</div><div class="vcap">Time to draw!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Driving with a map</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>What Did We <span class="hl">Learn</span> Today?</h2>
+          <ul><li>We learned what maps are.</li><li>We learned about directions and landmarks.</li><li>We also learned about map scale!</li></ul>
+          <p class="notes">🎙️ Wow, we learned so much today! We discovered that maps are amazing tools that help us see places from above, find our way, and understand distances. We also learned about directions and special landmarks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Key Learnings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2>Keep <span class="hl">Exploring</span> with Maps!</h2>
+          <ul><li>Maps make exploring fun!</li><li>Always look for new places.</li></ul>
+          <p class="notes">🎙️ Now you know the magic of maps! Keep your eyes open for maps everywhere you go. They make our world so much easier and more fun to explore. Thank you, everyone!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

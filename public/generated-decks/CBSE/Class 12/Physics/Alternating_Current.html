@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Alternating Current — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Alternating Current (AC) — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Chapter 7: <span class="hl">Alternating Current</span></h2>
-          <ul><li>Class 12 Physics</li><li>CBSE Board</li><li>Exam-focused Approach</li></ul>
-          <p class="notes">🎙️ Welcome, students, to Chapter 7 on Alternating Current. This chapter is crucial for your board exams and forms the basis for understanding modern electrical systems. We will cover all essential concepts, derivations, and problem-solving techniques.</p>
+          <h2>Welcome to <span class="hl">Alternating Current</span> (AC)!</h2>
+          <ul><li>Understand the world of AC electricity.</li><li>Explore its generation, circuits, and applications.</li><li>Prepare for your Class 12 board exams.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on a fascinating journey into the realm of Alternating Current, a cornerstone of modern technology. This chapter is crucial for your board exams, so pay close attention.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is <span class="hl">Alternating Current</span> (AC)?</h2>
-          <ul><li>Current direction reverses periodically.</li><li>Magnitude varies sinusoidally with time.</li><li>Contrast with Direct Current (DC).</li><li>Most power grids use AC.</li></ul>
-          <p class="notes">🎙️ Alternating Current, or AC, is what powers our homes and industries. Unlike DC, where current flows in one direction, AC continuously changes its direction and magnitude, typically in a sinusoidal pattern. This periodic reversal is key to its unique properties.</p>
+          <h2>Direct Current (DC) <span class="hl">vs.</span> Alternating Current (AC)</h2>
+          <ul><li>DC: Constant voltage/current, unidirectional flow.</li><li>AC: Voltage/current changes polarity periodically.</li><li>AC can be easily stepped up/down; transmitted long distances.</li><li>DC is safer for low-voltage applications.</li></ul>
+          <p class="notes">🎙️ The fundamental difference lies in the direction of current flow. DC flows in one direction, like from a battery, while AC reverses direction periodically, which is what comes from our wall sockets.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Periodic Reversal</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">DC (Direction)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">AC (Direction)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Generation</span> of Alternating Current</h2>
-          <ul><li>Based on Electromagnetic Induction.</li><li>Rotating coil in a magnetic field.</li><li>Induced EMF is sinusoidal.</li><li>Principle of AC Generator.</li></ul>
-          <p class="notes">🎙️ AC is primarily generated using AC generators, which work on the principle of electromagnetic induction. As a coil rotates in a uniform magnetic field, the magnetic flux linked with it changes, inducing a sinusoidal electromotive force, or EMF, and thus current.</p>
+          <h2>How is Alternating Current <span class="hl">Generated</span>?</h2>
+          <ul><li>Based on Faraday's Law of Electromagnetic Induction.</li><li>A coil rotates in a uniform magnetic field.</li><li>Magnetic flux linked with the coil changes.</li><li>Induced EMF and current are sinusoidal.</li></ul>
+          <p class="notes">🎙️ AC generators, or alternators, exploit Faraday's law. As a coil spins in a magnetic field, the changing magnetic flux induces an alternating electromotive force, creating AC.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Electromagnetic_induction_-_solenoid_to_solenoid.svg?width=500" data-fb="⚙️" alt="Electromagnetic induction is the generation of electric current by a changing magnetic fie"/><div class="vcap">Electromagnetic induction is the generation of electric current by a changing magnetic fie</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Electromagnetic_induction_-_solenoid_to_solenoid.svg?width=500" data-fb="🔄" alt="Electromagnetic induction is the generation of electric current by a changing magnetic fie"/><div class="vcap">Electromagnetic induction is the generation of electric current by a changing magnetic fie</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Representing</span> AC Voltage and Current</h2>
-          <ul><li>Instantaneous values: v = V₀ sin(ωt), i = I₀ sin(ωt + φ).</li><li>V₀, I₀ are peak values (amplitude).</li><li>ω is angular frequency.</li><li>φ is phase difference.</li></ul>
-          <p class="notes">🎙️ AC voltage and current are represented by sinusoidal functions of time. V₀ and I₀ denote the maximum or peak values, while ω is related to the frequency. The phase angle φ tells us if the voltage and current are in sync or out of sync.</p>
+          <h2><span class="hl">Key Terms</span> for Alternating Current</h2>
+          <ul><li>Peak Value (V₀, I₀): Maximum value of voltage/current.</li><li>RMS Value (Vᵣₘₛ, Iᵣₘₛ): Effective value, equivalent to DC power.</li><li>Average Value (Vₐᵥ, Iₐᵥ): Mean value over half a cycle.</li><li>Frequency (f): Number of cycles per second (Hz).</li></ul>
+          <p class="notes">🎙️ Understanding these terms is vital. The peak value is the highest point, while the RMS value is what's typically quoted for household voltage, as it relates to the power delivered.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Sinusoidal Waveform</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">AC Waveform</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Peak Value vs. <span class="hl">RMS Value</span></h2>
-          <ul><li>RMS (Root Mean Square) is effective value.</li><li>I_rms = I₀ / √2, V_rms = V₀ / √2.</li><li>DC equivalent for heating effect.</li><li>Most AC meters read RMS values.</li></ul>
-          <p class="notes">🎙️ The RMS value is a very important concept in AC circuits. It represents the equivalent DC current or voltage that would produce the same heating effect in a resistor. This is why when you hear '220V AC', it refers to the RMS voltage, not the peak.</p>
+          <h2>Calculating <span class="hl">Average Value</span> of AC</h2>
+          <ul><li>Mean value of AC over a full cycle is zero.</li><li>Calculated over a half cycle (0 to π).</li><li>For sinusoidal AC: Iₐᵥ = (2/π) I₀ ≈ 0.637 I₀.</li><li>For sinusoidal AC: Vₐᵥ = (2/π) V₀ ≈ 0.637 V₀.</li></ul>
+          <p class="notes">🎙️ Since AC is symmetric, its average over a full cycle is zero. Therefore, we calculate the average over a positive or negative half-cycle. Remember the formula for exams!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Peak Value</div></div><div class="ccard"><div class="cbar" style="width:70%"></div><div class="clabel">RMS Value</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Integrate i dt over half cycle</span></div><div class="step"><span class="snum">2</span><span>Divide by time period T/2</span></div><div class="step"><span class="snum">3</span><span>Result: 2I₀/π</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,23 +120,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Understanding Phase and <span class="hl">Phase Difference</span></h2>
-          <ul><li>Phase describes position in cycle.</li><li>Phase difference (φ) between V and I.</li><li>In-phase: φ = 0.</li><li>Out-of-phase: φ ≠ 0.</li></ul>
-          <p class="notes">🎙️ Phase tells us the state of oscillation at any given time. The phase difference between voltage and current is crucial in AC circuits, especially when dealing with inductors and capacitors, as it determines how power is consumed.</p>
+          <h2>Root Mean Square (RMS) Value of AC</h2>
+          <ul><li>Effective value of AC.</li><li>Produces same heat in a resistor as DC of that value.</li><li>For sinusoidal AC: Iᵣₘₛ = I₀/√2 ≈ 0.707 I₀.</li><li>For sinusoidal AC: Vᵣₘₛ = V₀/√2 ≈ 0.707 V₀.</li></ul>
+          <p class="notes">🎙️ The RMS value is arguably the most important. It represents the 'effective' value of AC, especially when considering power dissipation. Household voltage, like 220V, is an RMS value.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Phase Relationship</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Square the current/voltage</span></div><div class="step"><span class="snum">2</span><span>Take mean (average) of squared value</span></div><div class="step"><span class="snum">3</span><span>Take square root of the mean</span></div><div class="step"><span class="snum">4</span><span>Result: I₀/√2 or V₀/√2</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>AC Circuit with a <span class="hl">Pure Resistor</span></h2>
-          <ul><li>Voltage and current are in phase (φ = 0).</li><li>v = V₀ sin(ωt), i = I₀ sin(ωt).</li><li>Ohm's Law: V₀ = I₀R or V_rms = I_rms R.</li><li>Resistor consumes power.</li></ul>
-          <p class="notes">🎙️ In a purely resistive AC circuit, the voltage across the resistor and the current flowing through it are always in phase. This means they reach their peaks and zeros at the same time, behaving much like in a DC circuit regarding their immediate relationship.</p>
+          <h2>Worked <span class="hl">Example</span>: Peak &amp; RMS Values</h2>
+          <ul><li>An AC voltage is given by V = 282 sin(314t).</li><li>Find: (a) Peak voltage, (b) RMS voltage, (c) Frequency.</li><li>(a) Peak Voltage V₀ = 282 V.</li><li>(b) RMS Voltage Vᵣₘₛ = V₀/√2 = 282/√2 ≈ 200 V.</li><li>(c) ω = 314 rad/s. 2πf = 314 =&gt; f = 314/(2π) ≈ 50 Hz.</li></ul>
+          <p class="notes">🎙️ Let's apply what we've learned. From the standard equation V = V₀ sin(ωt), we can directly identify the peak voltage. Then, use the RMS formula. For frequency, remember ω = 2πf.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Resistive Load</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Phasor Diagram</span> for Pure Resistor</h2>
-          <ul><li>Phasors represent amplitude and phase.</li><li>Rotate with angular frequency ω.</li><li>V and I phasors are in the same direction.</li><li>Visualizes in-phase relationship.</li></ul>
-          <p class="notes">🎙️ Phasor diagrams are powerful tools to visualize AC quantities. For a resistor, the voltage and current phasors are drawn along the same axis, indicating that they are in phase. This graphical representation simplifies understanding complex AC circuits.</p>
+          <h2>AC Circuit with a Pure <span class="hl">Resistor</span></h2>
+          <ul><li>Voltage and current are in phase.</li><li>Ohm's Law (V = IR) holds true at every instant.</li><li>Power dissipated is P = V_rms * I_rms = I_rms² * R.</li><li>No phase difference means power is always positive.</li></ul>
+          <p class="notes">🎙️ When AC flows through a pure resistor, the voltage across it and the current through it rise and fall together. There is no time delay or phase difference between them.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw V phasor</span></div><div class="step"><span class="snum">2</span><span>Draw I phasor</span></div><div class="step"><span class="snum">3</span><span>Show same direction</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">In Phase</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Power</span> in a Purely Resistive AC Circuit</h2>
-          <ul><li>Instantaneous power p = vi.</li><li>Average power P_avg = V_rms I_rms.</li><li>P_avg = I_rms² R = V_rms² / R.</li><li>All power dissipated as heat.</li></ul>
-          <p class="notes">🎙️ In a purely resistive circuit, the average power dissipated is simply the product of the RMS voltage and RMS current. This power is entirely converted into heat, making resistors the primary components for heating applications in AC circuits.</p>
+          <h2><span class="hl">Phasor Diagram</span> for a Pure Resistor</h2>
+          <ul><li>Phasors are rotating vectors representing AC quantities.</li><li>Length represents peak or RMS value.</li><li>Angle with x-axis represents phase angle.</li><li>For resistor, V and I phasors are in the same direction.</li></ul>
+          <p class="notes">🎙️ Phasor diagrams are powerful tools to visualize phase relationships in AC circuits. For a resistor, both the voltage and current phasors point in the same direction, indicating zero phase difference.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Power Dissipation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">V &amp; I aligned</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>AC Circuit with a <span class="hl">Pure Inductor</span></h2>
-          <ul><li>Inductive reactance X_L = ωL.</li><li>Current lags voltage by π/2 (90°).</li><li>v = V₀ sin(ωt), i = I₀ sin(ωt - π/2).</li><li>Inductor stores energy in magnetic field.</li></ul>
-          <p class="notes">🎙️ When an AC voltage is applied across a pure inductor, the current lags the voltage by 90 degrees. This opposition to current flow is called inductive reactance, X_L, and it increases with frequency and inductance. Inductors store energy in their magnetic fields.</p>
+          <h2>AC Circuit with a Pure <span class="hl">Inductor</span></h2>
+          <ul><li>Inductor opposes change in current (Lenz's Law).</li><li>Voltage leads current by π/2 (90°).</li><li>Inductive Reactance (X_L) = ωL = 2πfL.</li><li>X_L is the opposition offered by inductor to AC flow.</li></ul>
+          <p class="notes">🎙️ An inductor introduces a phase shift. Due to self-induction, the voltage across an inductor reaches its peak earlier than the current through it. Inductive reactance increases with frequency.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Inductive Reactance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Voltage Leads Current</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Phasor Diagram</span> for Pure Inductor</h2>
-          <ul><li>Voltage phasor leads current phasor.</li><li>Current phasor lags voltage phasor by 90°.</li><li>Voltage along +y-axis, current along -x-axis (if V is reference).</li><li>Visualizes phase lag.</li></ul>
-          <p class="notes">🎙️ For a pure inductor, the phasor diagram clearly shows the current phasor lagging the voltage phasor by 90 degrees. If we take voltage along the positive y-axis, current would be along the negative x-axis, assuming the voltage is V₀sin(ωt).</p>
+          <h2><span class="hl">Phasor Diagram</span> for a Pure Inductor</h2>
+          <ul><li>Current phasor (I) is taken along the reference (x-axis).</li><li>Voltage phasor (V_L) is shown leading I by 90°.</li><li>V_L points upwards (positive y-axis) if I is on x-axis.</li><li>Magnitude V_L = I * X_L.</li></ul>
+          <p class="notes">🎙️ In the phasor diagram for an inductor, if we place the current phasor horizontally, the voltage phasor will be vertically upwards, indicating a 90-degree lead. This visual is key to understanding LCR circuits.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw V phasor (Y-axis)</span></div><div class="step"><span class="snum">2</span><span>Draw I phasor (X-axis)</span></div><div class="step"><span class="snum">3</span><span>Show 90° lag</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">V_L leads I</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>AC Circuit with a <span class="hl">Pure Capacitor</span></h2>
-          <ul><li>Capacitive reactance X_C = 1 / (ωC).</li><li>Current leads voltage by π/2 (90°).</li><li>v = V₀ sin(ωt), i = I₀ sin(ωt + π/2).</li><li>Capacitor stores energy in electric field.</li></ul>
-          <p class="notes">🎙️ In a purely capacitive AC circuit, the current leads the voltage by 90 degrees. The opposition to current flow here is capacitive reactance, X_C, which decreases with increasing frequency and capacitance. Capacitors store energy in their electric fields.</p>
+          <h2>AC Circuit with a Pure <span class="hl">Capacitor</span></h2>
+          <ul><li>Capacitor stores charge and opposes change in voltage.</li><li>Current leads voltage by π/2 (90°).</li><li>Capacitive Reactance (X_C) = 1/(ωC) = 1/(2πfC).</li><li>X_C is the opposition offered by capacitor to AC flow.</li></ul>
+          <p class="notes">🎙️ For a capacitor, the situation is reversed from an inductor. The current through the capacitor reaches its peak before the voltage across it. Capacitive reactance decreases with frequency.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">Capacitive Reactance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">Current Leads Voltage</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Phasor Diagram</span> for Pure Capacitor</h2>
-          <ul><li>Current phasor leads voltage phasor.</li><li>Voltage phasor lags current phasor by 90°.</li><li>Current along +y-axis, voltage along -x-axis (if I is reference).</li><li>Visualizes phase lead.</li></ul>
-          <p class="notes">🎙️ The phasor diagram for a pure capacitor illustrates the current phasor leading the voltage phasor by 90 degrees. This means the current reaches its peak a quarter cycle before the voltage does, a fundamental characteristic of capacitive circuits.</p>
+          <h2><span class="hl">Phasor Diagram</span> for a Pure Capacitor</h2>
+          <ul><li>Current phasor (I) is taken along the reference (x-axis).</li><li>Voltage phasor (V_C) is shown lagging I by 90°.</li><li>V_C points downwards (negative y-axis) if I is on x-axis.</li><li>Magnitude V_C = I * X_C.</li></ul>
+          <p class="notes">🎙️ Here, if current is on the x-axis, the voltage phasor for the capacitor points vertically downwards, illustrating the 90-degree lag. This contrasting behavior with inductors is fundamental.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw I phasor (Y-axis)</span></div><div class="step"><span class="snum">2</span><span>Draw V phasor (X-axis)</span></div><div class="step"><span class="snum">3</span><span>Show 90° lead</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">I leads V_C</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Series <span class="hl">LCR Circuit</span></h2>
-          <ul><li>Resistor, Inductor, Capacitor in series.</li><li>Voltage drops across each component.</li><li>Total voltage is phasor sum of V_R, V_L, V_C.</li><li>Impedance Z is total opposition.</li></ul>
-          <p class="notes">🎙️ A series LCR circuit combines all three basic AC components. The total voltage across the circuit is not a simple algebraic sum but a phasor sum due to the phase differences between the voltage drops across R, L, and C. The total opposition is called impedance.</p>
+          <h2>Quick Check: <span class="hl">Reactance</span></h2>
+          <ul><li>What happens to inductive reactance (X_L) if frequency increases?</li><li>What happens to capacitive reactance (X_C) if frequency increases?</li><li>Which component offers infinite resistance to DC?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of reactance. Think about the formulas X_L = ωL and X_C = 1/(ωC). How do they depend on frequency? And what is DC frequency?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛓️</div><div class="vcap">Series Connection</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Impedance</span> (Z) of LCR Circuit</h2>
-          <ul><li>Z = √(R² + (X_L - X_C)²).</li><li>Generalizes Ohm's Law: V = IZ.</li><li>Unit is Ohm (Ω).</li><li>Determines current for given voltage.</li></ul>
-          <p class="notes">🎙️ Impedance, Z, is the effective total opposition to current flow in an LCR circuit. It's calculated using the resistance and the net reactance (X_L - X_C). Impedance is like resistance for AC circuits and helps determine the current for a given applied voltage.</p>
+          <h2>Series LCR Circuit: <span class="hl">Impedance</span></h2>
+          <ul><li>Combination of Resistor, Inductor, and Capacitor in series.</li><li>Total opposition to AC is called Impedance (Z).</li><li>Z = √(R² + (X_L - X_C)²).</li><li>Phase angle (φ) = tan⁻¹((X_L - X_C)/R).</li></ul>
+          <p class="notes">🎙️ In a series LCR circuit, the individual oppositions from R, L, and C combine vectorially to give the total impedance. This is not a simple sum because of the phase differences.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Total Opposition</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/RLC_series_circuit_V.svg?width=500" data-fb="🔗" alt="LCR circuits exhibit resonance at specific frequency where inductive and capacitive reacta"/><div class="vcap">LCR circuits exhibit resonance at specific frequency where inductive and capacitive reacta</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Resonance</span> in Series LCR Circuit</h2>
-          <ul><li>Condition: X_L = X_C.</li><li>Resonant frequency f_r = 1 / (2π√(LC)).</li><li>Impedance Z is minimum (Z = R).</li><li>Current is maximum at resonance.</li></ul>
-          <p class="notes">🎙️ Resonance occurs when the inductive and capacitive reactances cancel each other out. At this specific resonant frequency, the impedance of the LCR circuit becomes minimum, equal to just the resistance R, leading to a maximum current for a given voltage.</p>
+          <h2><span class="hl">Phasor Diagram</span> for Series LCR Circuit</h2>
+          <ul><li>Current (I) is common and taken as reference.</li><li>V_R is in phase with I.</li><li>V_L leads I by 90°, V_C lags I by 90°.</li><li>Resultant voltage V = √((V_R)² + (V_L - V_C)²).</li></ul>
+          <p class="notes">🎙️ This diagram shows how the voltages across each component combine. Since V_L and V_C are 180 degrees out of phase, they oppose each other, and the net reactive voltage is (V_L - V_C).</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/RLC_series_circuit_V.svg?width=500" data-fb="🎯" alt="LCR circuits exhibit resonance at specific frequency where inductive and capacitive reacta"/><div class="vcap">LCR circuits exhibit resonance at specific frequency where inductive and capacitive reacta</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Vector Sum</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Quality Factor (<span class="hl">Q-factor</span>) of LCR Circuit</h2>
-          <ul><li>Measures sharpness of resonance.</li><li>Q = (ω_r L) / R = 1 / (ω_r C R).</li><li>High Q means sharper resonance.</li><li>Important for tuning circuits.</li></ul>
-          <p class="notes">🎙️ The Q-factor quantifies how sharp or selective the resonance curve is. A high Q-factor indicates a very sharp resonance, meaning the circuit is very selective to a narrow band of frequencies. This is crucial in radio receivers for tuning specific stations.</p>
+          <h2><span class="hl">Resonance</span> in Series LCR Circuit</h2>
+          <ul><li>Occurs when X_L = X_C.</li><li>Inductive and capacitive reactances cancel each other.</li><li>Impedance Z becomes minimum, Z = R.</li><li>Resonant frequency f₀ = 1/(2π√(LC)).</li></ul>
+          <p class="notes">🎙️ Resonance is a critical phenomenon where the circuit becomes purely resistive. At this specific frequency, the current in the circuit reaches its maximum value, leading to many practical applications.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Sharpness of Resonance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Perfect Tuning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Power in a General AC Circuit (LCR)</h2>
-          <ul><li>Average Power P_avg = V_rms I_rms cosφ.</li><li>cosφ is the power factor.</li><li>φ is phase difference between V and I.</li><li>Power factor determines useful power.</li></ul>
-          <p class="notes">🎙️ In a general AC circuit, the average power dissipated depends not just on V_rms and I_rms, but also on the power factor, cosφ. The power factor indicates how much of the total apparent power is actually consumed or dissipated. A power factor of 1 means maximum power transfer.</p>
+          <h2><span class="hl">Characteristics</span> of Series Resonance</h2>
+          <ul><li>Impedance is minimum (Z = R).</li><li>Current is maximum (I = V/R).</li><li>Power factor is unity (cos φ = 1).</li><li>Circuit behaves purely resistively.</li></ul>
+          <p class="notes">🎙️ At resonance, the circuit is highly efficient, and the current is limited only by resistance. This principle is used in radio tuning circuits to select a specific frequency.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Effective Power</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reactivity_series_of_metals.svg?width=500" data-fb="⚛️" alt="The reactivity series ranks metals by their tendency to lose electrons and form positive i"/><div class="vcap">The reactivity series ranks metals by their tendency to lose electrons and form positive i</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,23 +276,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked Example: <span class="hl">Resistive Circuit</span></h2>
-          <ul><li>Q: An AC source 220V, 50Hz is connected to 44Ω resistor. Find RMS current.</li><li>Sol: V_rms = 220V, R = 44Ω.</li><li>I_rms = V_rms / R = 220 / 44 = 5A.</li><li>Answer: 5A.</li></ul>
-          <p class="notes">🎙️ Let's apply Ohm's law to a simple resistive AC circuit. Remember that when the voltage is given as '220V AC', it typically refers to the RMS value. So, we can directly use Ohm's law with RMS values to find the RMS current.</p>
+          <h2>Worked <span class="hl">Example</span>: LCR Resonance</h2>
+          <ul><li>A series LCR circuit has R=10Ω, L=100mH, C=100μF.</li><li>Find its resonant frequency.</li><li>f₀ = 1/(2π√(LC)).</li><li>f₀ = 1/(2π√(0.1 * 100 * 10⁻⁶)) = 1/(2π√(10⁻⁵)) ≈ 50.3 Hz.</li></ul>
+          <p class="notes">🎙️ Let's calculate the resonant frequency for a given LCR circuit. Remember to convert units to SI (mH to H, μF to F) before plugging into the formula. Practice these calculations thoroughly.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Worked Example: <span class="hl">LCR Impedance</span></h2>
-          <ul><li>Q: R=30Ω, X_L=50Ω, X_C=10Ω. Find Z and phase angle.</li><li>Sol: X_L - X_C = 50 - 10 = 40Ω.</li><li>Z = √(30² + 40²) = √(900 + 1600) = √2500 = 50Ω.</li><li>tanφ = (X_L - X_C) / R = 40 / 30 = 4/3. φ = tan⁻¹(4/3) ≈ 53.1°.</li></ul>
-          <p class="notes">🎙️ This example demonstrates how to calculate the impedance and the phase angle for a series LCR circuit. Always remember to find the net reactance (X_L - X_C) first before applying the impedance formula. The phase angle tells us if the circuit is predominantly inductive or capacitive.</p>
+          <h2><span class="hl">Power</span> in AC Circuits: Real, Apparent, Reactive</h2>
+          <ul><li>Real Power (P): Average power dissipated (P = V_rms I_rms cosφ).</li><li>Apparent Power (S): Total power supplied (S = V_rms I_rms).</li><li>Reactive Power (Q): Power oscillating between source and reactances (Q = V_rms I_rms sinφ).</li><li>Power Factor (cosφ): Ratio of real power to apparent power.</li></ul>
+          <p class="notes">🎙️ Unlike DC, power in AC circuits is more complex due to phase differences. Real power is what's actually consumed, while apparent power is what the source supplies. Reactive power is exchanged and not consumed.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy Transfer</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,47 +300,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Common Mistakes</span> in AC Circuits</h2>
-          <ul><li>Confusing Peak and RMS values.</li><li>Adding voltages/currents algebraically (not phasors).</li><li>Incorrect phase relations for L and C.</li><li>Not understanding power factor.</li></ul>
-          <p class="notes">🎙️ Students often make mistakes by treating AC quantities like DC, especially regarding peak vs. RMS values and simply adding voltages. Always use phasor addition for voltages in series LCR circuits and remember the specific phase relationships for inductors and capacitors.</p>
+          <h2>Importance of <span class="hl">Power Factor</span></h2>
+          <ul><li>High power factor (closer to 1) means more efficient power usage.</li><li>Low power factor means more reactive power, increasing current.</li><li>Increased current leads to higher transmission losses (I²R).</li><li>Industries aim for high power factor to reduce electricity bills.</li></ul>
+          <p class="notes">🎙️ A high power factor is desirable for energy efficiency. A low power factor means extra current flows for the same useful power, leading to wasted energy in transmission lines and higher costs.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid These Errors!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check 1: <span class="hl">Concept Question</span></h2>
-          <ul><li>Q: In a pure inductive circuit, what is the phase difference between voltage and current?</li><li>A) 0°</li><li>B) 90° (current leading)</li><li>C) 90° (current lagging)</li><li>D) 180°</li></ul>
-          <p class="notes">🎙️ Let's test your understanding. Recall the behavior of current and voltage in a pure inductive circuit. Does the current lead or lag the voltage, and by how much? Think about the energy storage and release mechanism.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Calculation Question</span></h2>
-          <ul><li>Q: If the peak voltage of an AC source is 311V, what is its RMS voltage?</li><li>A) 220V</li><li>B) 311V</li><li>C) 155.5V</li><li>D) 440V</li></ul>
-          <p class="notes">🎙️ This question tests your knowledge of the relationship between peak and RMS values. Remember the conversion factor. This is a common conversion you'll need to perform in many AC problems.</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Efficient Power</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Applications</span> of Alternating Current</h2>
-          <ul><li>Power transmission over long distances.</li><li>Transformers for stepping up/down voltage.</li><li>AC motors and generators.</li><li>Radio and communication circuits (tuning).</li></ul>
-          <p class="notes">🎙️ AC is fundamental to our modern world. Its ability to be easily stepped up or down using transformers makes long-distance power transmission efficient, minimizing energy loss. It's also vital for various electrical machines and electronic communication systems.</p>
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">LC Oscillations</span>: Energy Exchange</h2>
+          <ul><li>Capacitor charged and connected to an inductor.</li><li>Energy oscillates between electric field (capacitor) and magnetic field (inductor).</li><li>No resistance: oscillations continue indefinitely.</li><li>Analogous to mechanical spring-mass system.</li></ul>
+          <p class="notes">🎙️ LC circuits can store and exchange energy between the capacitor's electric field and the inductor's magnetic field. This forms the basis of oscillating circuits used in radio transmitters and receivers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏙️</div><div class="vcap">Powering Our World</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Energy Swing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Transformer</span>: Stepping Up and Down AC</h2>
+          <ul><li>Device that changes AC voltage levels.</li><li>Works on mutual induction principle.</li><li>Step-up transformer: increases voltage, decreases current.</li><li>Step-down transformer: decreases voltage, increases current.</li></ul>
+          <p class="notes">🎙️ Transformers are crucial for efficient long-distance power transmission. They allow us to step up voltage for transmission to minimize losses and then step it down for safe use in homes and industries.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transformer3d_col3.svg?width=500" data-fb="⬆️⬇️" alt="A transformer changes AC voltage from one level to another using electromagnetic induction"/><div class="vcap">A transformer changes AC voltage from one level to another using electromagnetic induction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Resonance &amp; Power</h2>
+          <ul><li>What is the phase difference between voltage and current at resonance?</li><li>Why is a high power factor desirable?</li><li>Can a transformer work with DC? Why/why not?</li></ul>
+          <p class="notes">🎙️ Consider the conditions at resonance and the definition of power factor. For the transformer, recall the principle it operates on – does DC provide the necessary condition?</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Recap: <span class="hl">Key Takeaways</span></h2>
-          <ul><li>AC properties: sinusoidal, peak, RMS, phase.</li><li>Behavior of R, L, C in AC circuits (phase, reactance).</li><li>Impedance and Resonance in LCR circuits.</li><li>Power factor and applications.</li></ul>
-          <p class="notes">🎙️ To summarize, we've covered the fundamental concepts of AC, including its generation, representation, and the behavior of basic components like resistors, inductors, and capacitors. Understanding impedance, resonance, and power factor is crucial for mastering this chapter. Keep practicing problems!</p>
+          <h2><span class="hl">Recap</span> &amp; Key Takeaways</h2>
+          <ul><li>AC generated by rotating coil; characterized by V₀, I₀, V_rms, I_rms.</li><li>R, L, C behave differently in AC circuits (phase shifts).</li><li>Impedance (Z) is total opposition in LCR circuits.</li><li>Resonance: X_L = X_C, Z=R, max current, unity power factor.</li><li>Power factor dictates efficiency; transformers step up/down AC.</li></ul>
+          <p class="notes">🎙️ We've covered the essentials of Alternating Current, from its generation to complex LCR circuits, resonance, and power considerations. Master these concepts for your exams and a deeper understanding of electricity.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

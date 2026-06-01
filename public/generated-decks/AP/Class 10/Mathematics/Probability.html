@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Welcome to the World of Probability! — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Probability!</span></h2>
+          <ul><li>Introduction to Class 10 Mathematics</li><li>Understanding Chance and Likelihood</li><li>AP Board Curriculum Focus</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're diving into a very exciting and practical chapter in mathematics: Probability. This topic helps us understand the chances of things happening around us, and it's a key part of your Class 10 AP Board syllabus.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Probability</span>?</h2>
+          <ul><li>The measure of how likely an event is to occur</li><li>Expressed as a number between 0 and 1</li><li>Helps us quantify uncertainty</li></ul>
+          <p class="notes">🎙️ Simply put, probability is about measuring how likely something is to happen. Think of it as a way to put a number on uncertainty. It's always a value between 0 and 1, where 0 means impossible and 1 means certain.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Measuring Likelihood</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Why Study</span> Probability?</h2>
+          <ul><li>Used in weather forecasting</li><li>Essential for games and sports</li><li>Helps in decision-making in business and science</li></ul>
+          <p class="notes">🎙️ Probability isn't just a math concept; it's everywhere! From predicting if it will rain tomorrow to understanding your chances of winning a game, probability helps us make sense of the world. It's a powerful tool for informed decisions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Real-World Use</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Key Terms: <span class="hl">Experiment</span> &amp; Outcome</h2>
+          <ul><li>An action or process that leads to well-defined results</li><li>The result of an experiment is called an outcome</li></ul>
+          <p class="notes">🎙️ Before we calculate, let's understand some basic terms. An 'experiment' is any activity where we observe what happens, like flipping a coin. Each possible result of that experiment is called an 'outcome', such as getting 'Heads' or 'Tails'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Action &amp; Result</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Key Terms: <span class="hl">Sample Space</span></h2>
+          <ul><li>The set of all possible outcomes of an experiment</li><li>Denoted by 'S'</li></ul>
+          <p class="notes">🎙️ Imagine all the possible outcomes of an experiment grouped together. That collection is called the 'Sample Space'. For example, if you roll a standard die, the sample space is {1, 2, 3, 4, 5, 6}, because these are all the numbers you can possibly get.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">All Possibilities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Key Terms: <span class="hl">Event</span></h2>
+          <ul><li>One or more outcomes of an experiment</li><li>A subset of the sample space</li></ul>
+          <p class="notes">🎙️ An 'event' is what we are interested in happening. It's a specific outcome or a group of outcomes from our sample space. For instance, when rolling a die, 'getting an even number' is an event, which includes the outcomes {2, 4, 6}.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Specific Outcome</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Calculating Probability: The <span class="hl">Formula</span></h2>
+          <ul><li>P(E) = (Number of Favorable Outcomes) / (Total Number of Possible Outcomes)</li><li>Favorable outcomes are those that satisfy the event 'E'</li></ul>
+          <p class="notes">🎙️ Now for the core! The probability of an event 'E', written as P(E), is found by dividing the number of ways that event can happen by the total number of possible outcomes. It's a simple yet powerful ratio.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">The Ratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Example 1: <span class="hl">Coin Toss</span> (Simple Event)</h2>
+          <ul><li>Experiment: Tossing a fair coin</li><li>Sample Space (S) = {Heads, Tails}</li><li>Event (E): Getting a Head</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. When you toss a coin, there are two possible outcomes: Heads or Tails. So, total outcomes = 2. If we want to find the probability of getting a Head, there's only one favorable outcome. So, P(Head) = 1/2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">Coin Flip</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Example 2: <span class="hl">Rolling a Die</span> (Multiple Outcomes)</h2>
+          <ul><li>Experiment: Rolling a standard six-sided die</li><li>Sample Space (S) = {1, 2, 3, 4, 5, 6}</li><li>Event (E): Getting an even number</li></ul>
+          <p class="notes">🎙️ Consider rolling a die. The total possible outcomes are 6. If our event is 'getting an even number', the favorable outcomes are {2, 4, 6}. There are 3 such outcomes. So, P(Even Number) = 3/6, which simplifies to 1/2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span></div><div class="vcap">Die Roll</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Probability <span class="hl">Scale</span>: 0 to 1</h2>
+          <ul><li>Probability values always lie between 0 and 1, inclusive</li><li>0 means the event is impossible</li><li>1 means the event is certain</li></ul>
+          <p class="notes">🎙️ Remember, probability is a fraction or a decimal between 0 and 1. A probability of 0 means something absolutely cannot happen, while a probability of 1 means it definitely will happen. Everything else falls somewhere in between.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Impossible (0)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Likely (0.5)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Certain (1)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Impossible</span> Event (P(E) = 0)</h2>
+          <ul><li>An event that cannot happen</li><li>Number of favorable outcomes is 0</li></ul>
+          <p class="notes">🎙️ An impossible event has zero probability. For example, if you're rolling a standard six-sided die, the event 'getting a 7' is impossible. There are no 7s on a die, so the number of favorable outcomes is 0, making P(7) = 0/6 = 0.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">No Chance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Certain</span> Event (P(E) = 1)</h2>
+          <ul><li>An event that is sure to happen</li><li>Number of favorable outcomes equals total outcomes</li></ul>
+          <p class="notes">🎙️ A certain event has a probability of 1. If you roll a standard die, the event 'getting a number less than 7' is certain. All numbers (1, 2, 3, 4, 5, 6) are less than 7, so favorable outcomes = 6, total outcomes = 6. P(&lt;7) = 6/6 = 1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Sure Thing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Complementary</span> Events</h2>
+          <ul><li>Two events are complementary if one event happening means the other cannot</li><li>P(E) + P(not E) = 1</li><li>P(not E) is also written as P(E')</li></ul>
+          <p class="notes">🎙️ Complementary events are like two sides of a coin. If one happens, the other doesn't. The sum of their probabilities is always 1. This means if you know the probability of an event, you can easily find the probability of it NOT happening by subtracting from 1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Opposite Events</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Example 3: Complementary Event (<span class="hl">Card Deck</span>)</h2>
+          <ul><li>Event (E): Drawing a red card from a deck</li><li>P(E) = 26/52 = 1/2</li><li>P(not E): Drawing a black card</li></ul>
+          <p class="notes">🎙️ A standard deck has 52 cards, 26 red and 26 black. The probability of drawing a red card is 26/52 or 1/2. The event 'not drawing a red card' is the same as 'drawing a black card'. Using the complementary rule, P(not Red) = 1 - P(Red) = 1 - 1/2 = 1/2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span><span>🃏</span></div><div class="vcap">Full Deck</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick <span class="hl">Check 1</span></h2>
+          <ul><li>What is the probability of picking a vowel from the word "MATH"?</li></ul>
+          <p class="notes">🎙️ Time for a quick test! Think about the letters in 'MATH'. How many are vowels? How many letters total? Use the formula to find the probability. Take a moment to calculate.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Playing Cards</span> &amp; Probability</h2>
+          <ul><li>A standard deck has 52 cards</li><li>4 suits: Hearts, Diamonds (Red), Clubs, Spades (Black)</li><li>13 cards per suit: A, 2-10, J, Q, K</li></ul>
+          <p class="notes">🎙️ Playing cards are a common tool for probability problems. It's crucial to know the structure of a standard 52-card deck: 4 suits, 2 colors, and 13 ranks in each suit. This knowledge helps you identify favorable outcomes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♠️</div><div class="vcap">Card Details</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Example 4: Drawing a Card (<span class="hl">Specific Suit</span>)</h2>
+          <ul><li>Event (E): Drawing a Heart from a well-shuffled deck</li><li>Total cards = 52</li><li>Number of Hearts = 13</li></ul>
+          <p class="notes">🎙️ If we want to draw a Heart, there are 13 Hearts in the deck of 52 cards. So, the number of favorable outcomes is 13. The total possible outcomes are 52. Therefore, P(Drawing a Heart) = 13/52, which simplifies to 1/4.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span></div><div class="vcap">Hearts in Deck</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Example 5: Drawing a Card (<span class="hl">Face Card</span>)</h2>
+          <ul><li>Event (E): Drawing a Face Card</li><li>Face Cards are Jack, Queen, King</li><li>3 Face Cards per suit, 4 suits</li></ul>
+          <p class="notes">🎙️ Face cards are Jack, Queen, and King. Since there are 4 suits, there are 3 face cards * 4 suits = 12 face cards in total. So, P(Drawing a Face Card) = 12/52, which simplifies to 3/13.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👑</span><span>👑</span><span>👑</span><span>👑</span><span>👑</span><span>👑</span><span>👑</span><span>👑</span><span>👑</span><span>👑</span></div><div class="vcap">Face Cards</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Probability with <span class="hl">Marbles</span>/Balls</h2>
+          <ul><li>A common scenario for probability problems</li><li>Involves selecting items from a bag or container</li><li>Assumes random selection</li></ul>
+          <p class="notes">🎙️ Problems involving drawing marbles or balls from a bag are very popular in probability. The key is to count the total number of items and the number of items of the specific type you're looking for, always assuming random selection.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛍️</div><div class="vcap">Bag of Items</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Example 6: Drawing Marbles (<span class="hl">Multiple Colors</span>)</h2>
+          <ul><li>Bag contains 3 red, 2 blue, 5 green marbles</li><li>Total marbles = 10</li><li>Event (E): Drawing a blue marble</li></ul>
+          <p class="notes">🎙️ Let's say we have a bag with 3 red, 2 blue, and 5 green marbles. The total number of marbles is 3+2+5 = 10. If we want to find the probability of drawing a blue marble, there are 2 blue marbles. So, P(Blue) = 2/10, or 1/5.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔵</span><span>🔵</span></div><div class="vcap">Blue Marbles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check 2</span></h2>
+          <ul><li>A bag has 4 red and 6 yellow balls. What is the probability of drawing a red ball?</li></ul>
+          <p class="notes">🎙️ Another quick problem! Count the total number of balls, then identify how many are red. Apply the formula. What do you get?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Probability in <span class="hl">Daily Life</span></h2>
+          <ul><li>Weather forecasts (e.g., 70% chance of rain)</li><li>Medical diagnosis (e.g., chance of a disease)</li><li>Sports outcomes (e.g., team winning a match)</li></ul>
+          <p class="notes">🎙️ Probability isn't just for textbooks. When you hear a weather report, '70% chance of rain', that's probability! Doctors use it for diagnoses, and sports commentators use it to predict game results. It's a fundamental concept in many fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Everywhere!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check 3</span></h2>
+          <ul><li>If the probability of Team A winning a match is 0.6, what is the probability of Team A NOT winning?</li></ul>
+          <p class="notes">🎙️ Think about complementary events for this one. If the probability of winning is 0.6, how do we find the probability of not winning? Remember the rule!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Concepts</h2>
+          <ul><li>Probability measures likelihood (0 to 1)</li><li>P(E) = Favorable / Total</li><li>Sample Space, Event, Outcome</li><li>Impossible (0) &amp; Certain (1) events</li><li>Complementary events P(E) + P(E') = 1</li></ul>
+          <p class="notes">🎙️ Let's quickly review what we've learned. Probability quantifies chance, always between 0 and 1. We use a simple formula. We defined key terms like experiment, outcome, sample space, and event. And we understood impossible, certain, and complementary events.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You!</span></h2>
+          <ul><li>Keep practicing probability problems</li><li>It's a fundamental skill for higher math</li><li>Any questions?</li></ul>
+          <p class="notes">🎙️ Thank you for your attention today! Probability is a fascinating and useful topic. Continue to practice solving problems from your textbook. Understanding these concepts will build a strong foundation for your future studies in mathematics. Feel free to ask any questions you have!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · AP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

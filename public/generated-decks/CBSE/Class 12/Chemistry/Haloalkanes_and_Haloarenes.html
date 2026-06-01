@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Haloalkanes and Haloarenes — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Haloalkanes</span> &amp; Haloarenes!</h2>
-          <ul><li>What are these compounds?</li><li>Why are they important?</li><li>Let's explore their fascinating world in Class 12 Chemistry.</li></ul>
-          <p class="notes">🎙️ Good morning, class! Today, we embark on a crucial chapter for your CBSE Class 12 Chemistry – Haloalkanes and Haloarenes. These compounds are everywhere around us, from medicines to refrigerants, and understanding them is key for your exams.</p>
+          <h2>Haloalkanes and Haloarenes: The <span class="hl">Basics</span></h2>
+          <ul><li>Welcome to a core chapter of Class 12 Chemistry.</li><li>We'll explore structure, nomenclature, and reactivity.</li><li>Focus on exam-relevant concepts and common pitfalls.</li></ul>
+          <p class="notes">🎙️ Welcome to our session on Haloalkanes and Haloarenes, a crucial chapter for your Class 12 board exams. We'll cover everything from their structure to their reactions and real-world applications. Pay close attention to the mechanisms and factors influencing reactivity.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are <span class="hl">Haloalkanes</span>?</h2>
-          <ul><li>Alkanes with one or more hydrogen atoms replaced by halogen atoms (F, Cl, Br, I).</li><li>General formula: R-X, where R is an alkyl group and X is a halogen.</li><li>Also commonly known as alkyl halides.</li></ul>
-          <p class="notes">🎙️ Haloalkanes are essentially derivatives of alkanes where a hydrogen is substituted by a halogen. Think of methane becoming chloromethane. This substitution changes their properties significantly.</p>
+          <h2><span class="hl">Introduction</span>: Halogen Derivatives</h2>
+          <ul><li>Organic compounds with halogen atoms replacing hydrogen.</li><li>Haloalkanes: Halogen attached to an sp3 hybridized carbon.</li><li>Haloarenes: Halogen attached to an sp2 hybridized carbon of an aromatic ring.</li></ul>
+          <p class="notes">🎙️ These compounds are essentially hydrocarbons where one or more hydrogen atoms have been replaced by halogen atoms. Understanding this fundamental difference in carbon hybridization is key to predicting their properties and reactions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Alkyl Halide Structure</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="⚛️" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>What are <span class="hl">Haloarenes</span>?</h2>
-          <ul><li>Aromatic compounds where one or more hydrogen atoms on the benzene ring are replaced by halogen atoms.</li><li>General formula: Ar-X, where Ar is an aryl group and X is a halogen.</li><li>Also known as aryl halides.</li></ul>
-          <p class="notes">🎙️ Similarly, haloarenes are derivatives of aromatic hydrocarbons like benzene. The halogen is directly attached to the benzene ring, which imparts unique reactivity compared to haloalkanes.</p>
+          <h2><span class="hl">Classification</span> of Haloalkanes</h2>
+          <ul><li>Based on number of halogen atoms: mono-, di-, tri-, polyhalogen compounds.</li><li>Based on hybridization of carbon: primary (1°), secondary (2°), tertiary (3°).</li><li>Alkyl, Allylic, Benzylic, Vinylic, Aryl halides.</li></ul>
+          <p class="notes">🎙️ Classification helps us predict their reactivity. Primary, secondary, and tertiary refer to the number of carbon atoms directly attached to the carbon bearing the halogen, influencing steric hindrance and carbocation stability.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Aryl Halide Structure</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Primary</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Secondary</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tertiary</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Classification: Based on <span class="hl">Number of Halogen</span> Atoms</h2>
-          <ul><li>Monohaloalkanes: Contain one halogen atom.</li><li>Dihaloalkanes: Contain two halogen atoms.</li><li>Polyhaloalkanes: Contain three or more halogen atoms.</li></ul>
-          <p class="notes">🎙️ We can classify haloalkanes based on how many halogen atoms are present in their structure. Monohaloalkanes are the most common, but di- and polyhalo compounds also exist with diverse applications.</p>
+          <h2><span class="hl">IUPAC</span> Naming Conventions</h2>
+          <ul><li>Identify the longest carbon chain containing the halogen.</li><li>Number the chain to give the halogen atom the lowest possible number.</li><li>Halogens are named as prefixes: fluoro, chloro, bromo, iodo.</li></ul>
+          <p class="notes">🎙️ Correct nomenclature is vital for clear communication in chemistry. Always prioritize the halogen's position when numbering the parent chain, and remember to list substituents alphabetically.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>X</span><span>X</span><span>X</span></div><div class="vcap">1, 2, or more X atoms</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find Parent Chain</span></div><div class="step"><span class="snum">2</span><span>Number Chain</span></div><div class="step"><span class="snum">3</span><span>Name Halogen Prefix</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Classification: Compounds with <span class="hl">sp³ C-X</span> Bond</h2>
-          <ul><li>Alkyl Halides (R-X): Halogen attached to an sp³ carbon of an alkyl group.</li><li>Allylic Halides: Halogen attached to an sp³ carbon next to a C=C double bond.</li><li>Benzylic Halides: Halogen attached to an sp³ carbon next to an aromatic ring.</li></ul>
-          <p class="notes">🎙️ This classification is crucial for understanding reactivity. In all these, the carbon atom directly bonded to the halogen is sp³ hybridised, but its neighbours significantly influence its chemical behaviour.</p>
+          <h2>The C-X Bond: <span class="hl">Polar</span> &amp; Reactive</h2>
+          <ul><li>Halogens are more electronegative than carbon, creating a polar bond (Cδ+ - Xδ-).</li><li>This polarity makes the carbon atom electrophilic, susceptible to nucleophilic attack.</li><li>Bond strength and length vary: C-F &gt; C-Cl &gt; C-Br &gt; C-I (strength decreases, length increases).</li></ul>
+          <p class="notes">🎙️ The polarity of the C-X bond is fundamental to the reactivity of haloalkanes. Understanding bond strength and length helps explain trends in their chemical behavior, particularly as leaving groups.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alkyl</span></div><div class="step"><span class="snum">2</span><span>Allylic</span></div><div class="step"><span class="snum">3</span><span>Benzylic</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Bond Polarity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Alkyl Halides: <span class="hl">Primary</span>, Secondary, Tertiary</h2>
-          <ul><li>Primary (1°): Halogen attached to a carbon bonded to one other carbon atom.</li><li>Secondary (2°): Halogen attached to a carbon bonded to two other carbon atoms.</li><li>Tertiary (3°): Halogen attached to a carbon bonded to three other carbon atoms.</li></ul>
-          <p class="notes">🎙️ The degree of alkyl halide (primary, secondary, tertiary) is extremely important, especially when we discuss reaction mechanisms like SN1 and SN2. Make sure you can identify them correctly from their structures.</p>
+          <h2>Preparing Haloalkanes: From <span class="hl">Alcohols</span></h2>
+          <ul><li>Reaction with Hydrogen Halides (HX): R-OH + HX → R-X + H2O (e.g., HCl, HBr, HI).</li><li>Reaction with Phosphorus Halides (PCl3, PCl5): R-OH + PCl5 → R-Cl + POCl3 + HCl.</li><li>Reaction with Thionyl Chloride (SOCl2): R-OH + SOCl2 → R-Cl + SO2 + HCl (Darzen's process).</li></ul>
+          <p class="notes">🎙️ This is a very common and versatile method. Thionyl chloride (SOCl2) is particularly useful as the gaseous by-products (SO2, HCl) escape, leaving a pure alkyl halide product.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">1°</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">2°</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3°</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alcohol + HX</span></div><div class="step"><span class="snum">2</span><span>Alcohol + PX3/PX5</span></div><div class="step"><span class="snum">3</span><span>Alcohol + SOCl2</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Classification: Compounds with <span class="hl">sp² C-X</span> Bond</h2>
-          <ul><li>Vinylic Halides: Halogen directly attached to an sp² carbon of a C=C double bond.</li><li>Aryl Halides: Halogen directly attached to an sp² carbon of an aromatic ring.</li></ul>
-          <p class="notes">🎙️ When the halogen is attached to an sp² hybridised carbon, its properties and reactivity change drastically. Vinylic and aryl halides are distinct from their sp³ counterparts due to resonance and bond strength.</p>
+          <h2>Preparing Haloalkanes: From <span class="hl">Hydrocarbons</span></h2>
+          <ul><li>Free Radical Halogenation of Alkanes: R-H + X2 (UV light/heat) → R-X + HX (non-selective).</li><li>Electrophilic Addition to Alkenes: Alkene + HX → Alkyl halide (Markovnikov's rule).</li><li>Addition of Halogens to Alkenes: Alkene + X2 → Vicinal dihalide.</li></ul>
+          <p class="notes">🎙️ Free radical halogenation is generally non-selective, leading to mixtures of products. Markovnikov's rule is crucial for predicting the major product in addition reactions involving unsymmetrical alkenes.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Vinylic</span></div><div class="step"><span class="snum">2</span><span>Aryl</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alkane Halogenation</span></div><div class="step"><span class="snum">2</span><span>Alkene + HX</span></div><div class="step"><span class="snum">3</span><span>Alkene + X2</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,23 +144,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">IUPAC</span> Nomenclature of Haloalkanes</h2>
-          <ul><li>Select the longest continuous carbon chain containing the halogen atom.</li><li>Number the chain from the end closer to the halogen or other substituents.</li><li>Halogens are treated as prefixes (fluoro, chloro, bromo, iodo) in alphabetical order.</li></ul>
-          <p class="notes">🎙️ Correct IUPAC naming is essential for clear communication in chemistry. Remember the priority rules, especially when multiple substituents are present. Let's look at an example to clarify these rules.</p>
+          <h2>Halogen <span class="hl">Exchange</span>: Finkelstein &amp; Swartz</h2>
+          <ul><li>Finkelstein Reaction: R-Cl/Br + NaI → R-I + NaCl/NaBr (in dry acetone).</li><li>Swartz Reaction: R-Br/Cl + AgF/Hg2F2/CoF2/SbF3 → R-F + metal halide.</li><li>These are specific methods for preparing iodoalkanes and fluoroalkanes respectively.</li></ul>
+          <p class="notes">🎙️ These are specific methods to prepare iodoalkanes and fluoroalkanes, which are harder to obtain directly. The Finkelstein reaction is driven by the precipitation of NaCl or NaBr in acetone.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Naming Rules</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔁</div><div class="vcap">Halogen Swap</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Naming Haloalkanes</h2>
-          <ul><li>Name: CH₃-CH(Cl)-CH₂-CH₃</li><li>Step 1: Longest carbon chain is four carbons, so 'butane'.</li><li>Step 2: Halogen (Cl) is at carbon 2, numbering from the right.</li><li>Step 3: The IUPAC name is 2-Chlorobutane.</li></ul>
-          <p class="notes">🎙️ Here's a simple example. Identify the parent alkane, locate the halogen, and number the chain correctly to give the lowest possible numbers to substituents. Practice with more complex structures.</p>
+          <h2>Preparing <span class="hl">Haloarenes</span></h2>
+          <ul><li>Electrophilic Substitution: Benzene + X2 (Fe/FeX3 catalyst) → Halobenzene + HX.</li><li>Sandmeyer Reaction: Diazotization of aniline followed by CuX/HX (e.g., CuCl/HCl for chlorobenzene).</li><li>Gattermann Reaction (variant of Sandmeyer, uses copper powder).</li></ul>
+          <p class="notes">🎙️ Direct halogenation of benzene requires a Lewis acid catalyst. The Sandmeyer reaction is a versatile method for introducing a halogen directly onto an aromatic ring through a diazonium salt intermediate.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Aromatic_substitution.svg?width=500" data-fb="🧪" alt="Benzene undergoes electrophilic aromatic substitution via arenium ion intermediate; direct"/><div class="vcap">Benzene undergoes electrophilic aromatic substitution via arenium ion intermediate; direct</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,23 +168,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>IUPAC Nomenclature of <span class="hl">Haloarenes</span></h2>
-          <ul><li>For monohalogenated benzene, use 'halo' prefix (e.g., Chlorobenzene).</li><li>For dihalogenated benzene, use ortho- (1,2-), meta- (1,3-), para- (1,4-) prefixes or numerical locants.</li><li>For more than two substituents, use numerical locants (1,2,3- etc.) and alphabetical order.</li></ul>
-          <p class="notes">🎙️ For haloarenes, the positions on the benzene ring are key. Remember the ortho, meta, para system for disubstituted rings, or use numbers for more complex structures. Both systems are frequently tested.</p>
+          <h2><span class="hl">Physical</span> Properties: Boiling Point, Density, Solubility</h2>
+          <ul><li>Boiling Point: R-I &gt; R-Br &gt; R-Cl &gt; R-F (due to increasing Van der Waals forces with molecular size).</li><li>Density: R-I &gt; R-Br &gt; R-Cl (increases with atomic mass of halogen).</li><li>Solubility: Slightly soluble in water, but soluble in organic solvents due to their non-polar nature.</li></ul>
+          <p class="notes">🎙️ The increase in boiling point and density down the group is due to increasing molecular mass and strength of Van der Waals forces. Their polarity is generally not enough to overcome the hydrogen bonding in water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Positioning on Ring</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">R-I</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">R-Br</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">R-Cl</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">R-F</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Naming Haloarenes</h2>
-          <ul><li>Name: C₆H₄(Cl)₂ (with chloro groups opposite each other)</li><li>Step 1: Parent aromatic ring is benzene.</li><li>Step 2: Two chloro groups are present.</li><li>Step 3: Their positions are 1 and 4. The name is 1,4-Dichlorobenzene or p-Dichlorobenzene.</li></ul>
-          <p class="notes">🎙️ This example demonstrates naming a disubstituted benzene. Both numerical and common (p-) nomenclature are acceptable and frequently used. Always ensure the lowest possible numbers are assigned to substituents.</p>
+          <h2>Chemical Reactions: Haloalkanes - <span class="hl">Nucleophilic</span> Substitution</h2>
+          <ul><li>The C-X bond is polar, making the carbon atom electrophilic.</li><li>Halogen is a good leaving group, replaced by a nucleophile.</li><li>Two main mechanisms: SN1 (unimolecular) and SN2 (bimolecular).</li></ul>
+          <p class="notes">🎙️ This is the most important reaction type for haloalkanes. The electron-deficient carbon atom attached to the halogen is an ideal target for electron-rich species, i.e., nucleophiles.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚔️</div><div class="vcap">Nucleophilic Attack</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Nature of the <span class="hl">C-X Bond</span></h2>
-          <ul><li>Halogens are more electronegative than carbon.</li><li>The C-X bond is polar, with carbon having a partial positive charge (δ+) and halogen a partial negative charge (δ-).</li><li>This polarity makes the carbon susceptible to nucleophilic attack.</li></ul>
-          <p class="notes">🎙️ The polarity of the C-X bond is fundamental to understanding the reactivity of haloalkanes and haloarenes. The partial positive charge on carbon makes it an electrophilic center, crucial for many reactions.</p>
+          <h2>SN2 Mechanism: <span class="hl">Concerted</span> Reaction</h2>
+          <ul><li>Bimolecular (rate depends on [RX] and [Nu-]), one-step reaction.</li><li>Nucleophile attacks from the backside, simultaneously with leaving group departure.</li><li>Results in inversion of configuration (Walden inversion) if chiral center is present.</li><li>Favored by primary haloalkanes and strong nucleophiles; polar aprotic solvents.</li></ul>
+          <p class="notes">🎙️ SN2 reactions are favored by primary haloalkanes due to less steric hindrance. The single transition state involves both reactants, leading to an inversion of stereochemistry.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Polarity of C-X</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transformer3d_col3.svg?width=500" data-fb="🧪" alt="A transformer changes AC voltage from one level to another using electromagnetic induction"/><div class="vcap">A transformer changes AC voltage from one level to another using electromagnetic induction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Physical Properties: <span class="hl">Boiling Points</span></h2>
-          <ul><li>Higher than parent alkanes due to stronger van der Waals forces (larger size/mass of halogens).</li><li>Increases with increasing halogen size (I &gt; Br &gt; Cl &gt; F) for a given alkyl group.</li><li>Increases with increasing alkyl chain length (more surface area for interaction).</li></ul>
-          <p class="notes">🎙️ Boiling points are influenced by intermolecular forces. The increased mass and polarizability of halogens lead to stronger London dispersion forces and dipole-dipole interactions, raising boiling points compared to alkanes.</p>
+          <h2>SN1 Mechanism: <span class="hl">Two-Step</span> Reaction</h2>
+          <ul><li>Unimolecular (rate depends only on [RX]), two-step reaction.</li><li>Step 1: Slow ionization to form a carbocation intermediate (rate-determining step).</li><li>Step 2: Fast attack of nucleophile on the planar carbocation.</li><li>Results in racemization (mixture of enantiomers) if chiral center is present.</li></ul>
+          <p class="notes">🎙️ SN1 reactions are favored by tertiary haloalkanes due to the stability of tertiary carbocations. Polar protic solvents also favor SN1 by stabilizing the carbocation intermediate.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">CH₃F</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">CH₃Cl</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">CH₃Br</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">CH₃I</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Leaving Group Departs</span></div><div class="step"><span class="snum">2</span><span>Carbocation Formed</span></div><div class="step"><span class="snum">3</span><span>Nucleophile Attacks</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,35 +216,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Physical Properties: <span class="hl">Density</span></h2>
-          <ul><li>Generally higher than hydrocarbons due to the heavier halogen atoms.</li><li>Increases with increasing halogen size (I &gt; Br &gt; Cl) for a given alkyl group.</li><li>Increases with increasing number of halogen atoms in the molecule.</li></ul>
-          <p class="notes">🎙️ Density follows a similar trend to boiling points. Heavier halogen atoms contribute significantly to the overall molecular mass, leading to higher densities. Many polyhalogenated compounds are denser than water.</p>
+          <h2><span class="hl">Factors</span> Affecting SN1/SN2</h2>
+          <ul><li>Structure of Haloalkane: 3° &gt; 2° &gt; 1° for SN1; 1° &gt; 2° &gt; 3° for SN2.</li><li>Nature of Nucleophile: Strong nucleophiles favor SN2; weak nucleophiles favor SN1.</li><li>Nature of Leaving Group: Good leaving groups (weak bases) favor both SN1 and SN2.</li><li>Solvent: Polar protic solvents favor SN1; polar aprotic solvents favor SN2.</li></ul>
+          <p class="notes">🎙️ Understanding these factors is crucial for predicting the dominant mechanism in a given reaction. Remember the interplay between steric hindrance, carbocation stability, and solvent effects.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Heavier Halogens = Denser</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">SN1 (3°)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">SN2 (1°)</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Physical Properties: <span class="hl">Solubility</span></h2>
-          <ul><li>Poorly soluble in water, despite their polarity.</li><li>Cannot form strong hydrogen bonds with water molecules.</li><li>Soluble in non-polar organic solvents due to similar intermolecular forces.</li></ul>
-          <p class="notes">🎙️ Despite being polar, haloalkanes and haloarenes are not very soluble in water. This is because they cannot effectively break the strong hydrogen bonds between water molecules to form new, equally strong interactions.</p>
+          <h2>Worked Example: <span class="hl">Predicting</span> Substitution</h2>
+          <ul><li>Question: Predict the major product and mechanism when (CH3)3C-Br reacts with H2O.</li><li>Answer: Major product is (CH3)3C-OH (tert-butanol).</li><li>Mechanism: SN1. Tertiary halide forms a stable carbocation, and H2O is a weak nucleophile.</li></ul>
+          <p class="notes">🎙️ This example clearly demonstrates an SN1 reaction. The bulky tertiary halide prevents SN2 attack, and the weak nucleophile (water) allows for carbocation formation as the rate-determining step.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Not Water Soluble</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Methods of Preparation: <span class="hl">From Alcohols</span></h2>
-          <ul><li>Reaction with Hydrogen Halides (HX): R-OH + HX → R-X + H₂O.</li><li>Reaction with Phosphorus Halides (PX₃, PX₅): R-OH + PCl₅ → R-Cl + POCl₃ + HCl.</li><li>Reaction with Thionyl Chloride (SOCl₂): R-OH + SOCl₂ → R-Cl + SO₂↑ + HCl↑ (Darzen's reaction).</li></ul>
-          <p class="notes">🎙️ Alcohols are versatile starting materials for preparing haloalkanes. Different reagents offer different advantages; for example, thionyl chloride is preferred for alkyl chlorides as gaseous byproducts are easily removed.</p>
+          <h2><span class="hl">Quick Check</span>! SN1 or SN2?</h2>
+          <ul><li>Which mechanism is favored for CH3Cl reacting with CN- in DMSO?</li><li>Which carbocation is most stable: primary, secondary, or tertiary?</li><li>What type of solvent favors SN1 reactions?</li></ul>
+          <p class="notes">🎙️ These quick questions test your understanding of the factors we just discussed. Remember, DMSO is a polar aprotic solvent, favoring SN2. Tertiary carbocations are most stable due to hyperconjugation.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Using HX</span></div><div class="step"><span class="snum">2</span><span>Using PX3/5</span></div><div class="step"><span class="snum">3</span><span>Using SOCl2</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Methods of Preparation: From Hydrocarbons (<span class="hl">Free Radical</span> Halogenation)</h2>
-          <ul><li>Alkanes react with halogens (Cl₂, Br₂) in the presence of UV light or heat.</li><li>Proceeds via a free radical mechanism.</li><li>Gives a mixture of isomeric monohaloalkanes and polyhalogenated compounds, making it less suitable for good yields.</li></ul>
-          <p class="notes">🎙️ Free radical halogenation is a classic reaction but often lacks selectivity. It's important to understand the mechanism, but for synthetic purposes, other methods are preferred due to the formation of product mixtures.</p>
+          <h2><span class="hl">Elimination</span> Reactions: Dehydrohalogenation</h2>
+          <ul><li>Haloalkanes react with alcoholic KOH, leading to removal of HX.</li><li>Hydrogen removed from β-carbon, halogen from α-carbon, forming an alkene.</li><li>Follows Saytzeff's Rule: The more substituted alkene is the major product.</li></ul>
+          <p class="notes">🎙️ This reaction competes with nucleophilic substitution. Saytzeff's rule is important for predicting the regioselectivity when multiple beta-hydrogens are available for abstraction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">UV Light Initiation</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Base Abstracts H</span></div><div class="step"><span class="snum">2</span><span>Leaving Group Departs</span></div><div class="step"><span class="snum">3</span><span>Alkene Formation</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Methods of Preparation: <span class="hl">From Alkenes</span> (Addition of HX)</h2>
-          <ul><li>Alkenes react with hydrogen halides (HCl, HBr, HI) via electrophilic addition.</li><li>Follows Markovnikov's rule: Hydrogen adds to the carbon with more hydrogen atoms, halogen adds to the carbon with fewer hydrogen atoms.</li><li>Anti-Markovnikov addition occurs with HBr in the presence of peroxides.</li></ul>
-          <p class="notes">🎙️ Addition of HX to alkenes is a reliable method, especially for preparing secondary and tertiary haloalkanes. Remember Markovnikov's rule for predicting the major product in the absence of peroxides.</p>
+          <h2>Reactions with <span class="hl">Metals</span>: Grignard &amp; Wurtz</h2>
+          <ul><li>Grignard Reagents (R-MgX): R-X + Mg → R-MgX (in dry ether). Highly reactive nucleophiles.</li><li>Wurtz Reaction: 2R-X + 2Na → R-R + 2NaX (in dry ether). Used for coupling alkyl halides.</li></ul>
+          <p class="notes">🎙️ Grignard reagents are extremely versatile synthetic tools, acting as strong nucleophiles and bases in organic synthesis. The Wurtz reaction is useful for synthesizing symmetrical alkanes with an even number of carbon atoms.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Addition Reaction</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Organometallic Synthesis</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,47 +276,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Methods of Preparation: <span class="hl">Halogen Exchange</span> Reactions</h2>
-          <ul><li>Finkelstein Reaction: R-X + NaI → R-I + NaX (in dry acetone). Used for preparing alkyl iodides.</li><li>Swartz Reaction: R-X + AgF / Hg₂F₂ / CoF₂ / SbF₃ → R-F + metal halide. Used for preparing alkyl fluorides.</li></ul>
-          <p class="notes">🎙️ These are specific named reactions used to prepare alkyl iodides and fluorides, which are harder to synthesize directly. Finkelstein is for iodides using NaI, while Swartz is for fluorides using metallic fluorides.</p>
+          <h2>Chemical Reactions: Haloarenes - <span class="hl">Lower Reactivity</span></h2>
+          <ul><li>Resonance effect: C-X bond acquires partial double bond character, making it stronger.</li><li>sp2 hybridized carbon: C-X bond is shorter and stronger than in haloalkanes.</li><li>Phenyl cation instability: Nucleophilic substitution via SN1 is highly unfavorable.</li></ul>
+          <p class="notes">🎙️ Haloarenes are significantly less reactive towards nucleophilic substitution compared to haloalkanes. These three factors collectively explain their reduced reactivity.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Finkelstein (I)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Swartz (F)</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Chemical_reaction.svg?width=500" data-fb="🛡️" alt="Chemical reactions can be classified by the types of chemical changes involved. Five main "/><div class="vcap">Chemical reactions can be classified by the types of chemical changes involved. Five main </div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Check!</span> Question 1</h2>
-          <ul><li>Which of the following is a primary alkyl halide?</li><li>A) 2-Chloropropane</li><li>B) 2-Bromo-2-methylpropane</li><li>C) 1-Iodobutane</li><li>D) Chlorobenzene</li></ul>
-          <p class="notes">🎙️ Take a moment to identify the correct structure for each option and determine its classification (primary, secondary, tertiary). This tests your understanding of the degree of alkyl halides. (Answer: C)</p>
+          <h2>Haloarenes: <span class="hl">Electrophilic</span> Substitution</h2>
+          <ul><li>Halogens are deactivating groups but ortho-para directing.</li><li>Nitration (conc. HNO3/H2SO4): Forms o- and p-nitrohalobenzenes.</li><li>Halogenation (X2/FeX3): Forms dihalobenzenes (o- and p-).</li><li>Friedel-Crafts Alkylation/Acylation (R-Cl/RCOCl + AlCl3).</li></ul>
+          <p class="notes">🎙️ Despite being deactivating, halogens direct incoming electrophiles to ortho and para positions due to resonance stabilization of the intermediate carbocations. This is an important exception to remember.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Nitration</span></div><div class="step"><span class="snum">2</span><span>Halogenation</span></div><div class="step"><span class="snum">3</span><span>Friedel-Crafts</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Check!</span> Question 2</h2>
-          <ul><li>The addition of HBr to propene in the absence of peroxides follows _________ rule.</li></ul>
-          <p class="notes">🎙️ Recall the rule governing addition reactions of unsymmetrical reagents to unsymmetrical alkenes. This is a fundamental concept for predicting products accurately. (Answer: Markovnikov's)</p>
+          <h2>Haloarenes: Nucleophilic Substitution (<span class="hl">Difficult</span>)</h2>
+          <ul><li>Requires harsh conditions (high temperature and pressure), e.g., Dow's process to make phenol from chlorobenzene.</li><li>Presence of strong electron-withdrawing groups (e.g., -NO2) at ortho/para positions activates the ring.</li><li>Some reactions proceed via a benzyne intermediate under extreme conditions.</li></ul>
+          <p class="notes">🎙️ Direct nucleophilic substitution on haloarenes is challenging due to the factors discussed earlier. Electron-withdrawing groups at ortho/para positions activate the ring towards nucleophilic attack by stabilizing the intermediate carbanion.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Harsh Conditions</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick <span class="hl">Check!</span> Question 3</h2>
-          <ul><li>True or False: Haloalkanes are highly soluble in water due to their polar nature.</li></ul>
-          <p class="notes">🎙️ Think back to the discussion on physical properties, specifically solubility. Consider the types of intermolecular forces involved in dissolution. (Answer: False)</p>
+          <h2><span class="hl">Polyhalogen</span> Compounds: Key Examples</h2>
+          <ul><li>Dichloromethane (CH2Cl2): Solvent, paint remover, propellant.</li><li>Chloroform (CHCl3): Solvent, historically an anesthetic, stored in dark bottles.</li><li>Iodoform (CHI3): Antiseptic (due to liberation of free iodine).</li><li>Carbon tetrachloride (CCl4): Solvent, fire extinguisher (now restricted).</li></ul>
+          <p class="notes">🎙️ These compounds have multiple halogen atoms and distinct applications. Chloroform must be stored in dark bottles to prevent its oxidation to phosgene, a poisonous gas.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧪</span><span>🧪</span><span>🧪</span><span>🧪</span></div><div class="vcap">Common Compounds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Reactions of Haloalkanes: Nucleophilic <span class="hl">Substitution</span> (SN1 &amp; SN2)</h2>
-          <ul><li>Halogen atom is replaced by a nucleophile.</li><li>SN2: Bimolecular, one step, inversion of configuration, order of reactivity 1° &gt; 2° &gt; 3°.</li><li>SN1: Unimolecular, two steps (carbocation intermediate), racemisation, order of reactivity 3° &gt; 2° &gt; 1°.</li></ul>
-          <p class="notes">🎙️ Nucleophilic substitution is the most characteristic reaction of haloalkanes. Understanding the differences between SN1 and SN2 mechanisms, including steric hindrance and carbocation stability, is critical for exams.</p>
+          <h2><span class="hl">Environmental</span> Concerns: DDT &amp; Freons</h2>
+          <ul><li>DDT (Dichlorodiphenyltrichloroethane): Potent insecticide, non-biodegradable, bioaccumulates, banned in many countries.</li><li>Freons (Chlorofluorocarbons - CFCs): Used as refrigerants, propellants; deplete the stratospheric ozone layer.</li><li>Understanding the environmental impact is crucial for sustainable chemistry.</li></ul>
+          <p class="notes">🎙️ While highly effective in their initial applications, the environmental persistence and toxicity of compounds like DDT, and the ozone-depleting potential of Freons, led to their regulation and eventual ban worldwide.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">SN1</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">SN2</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Impact</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Reactions of Haloalkanes: <span class="hl">Elimination</span> Reactions (E1 &amp; E2)</h2>
-          <ul><li>Dehydrohalogenation: Removal of HX from adjacent carbons, forming an alkene.</li><li>E2: Bimolecular, one step, strong base required.</li><li>E1: Unimolecular, two steps (carbocation intermediate), weak base can be used. Follows Saytzeff's rule (more substituted alkene is major product).</li></ul>
-          <p class="notes">🎙️ Elimination reactions compete with substitution. The choice between SN1/SN2 and E1/E2 depends on the substrate, nucleophile/base strength, and solvent. Saytzeff's rule is key for predicting the major alkene product.</p>
+          <h2>Quick Check: <span class="hl">Applications</span> &amp; Effects</h2>
+          <ul><li>Name a polyhalogen compound historically used as an antiseptic.</li><li>Why are Freons considered harmful to the environment?</li><li>What is the primary environmental concern associated with DDT?</li></ul>
+          <p class="notes">🎙️ These questions test your knowledge of the practical aspects and environmental implications of haloalkanes and haloarenes. Understanding these impacts highlights the responsibility in chemical usage.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Dehydrohalogenation</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Applications</span> &amp; Key Takeaways</h2>
-          <ul><li>Haloalkanes &amp; Haloarenes are vital as solvents, refrigerants, anesthetics, and in pesticides.</li><li>Remember classification, IUPAC naming, and the nature of the C-X bond.</li><li>Key reactions include nucleophilic substitution (SN1/SN2) and elimination (E1/E2).</li></ul>
-          <p class="notes">🎙️ Today, we covered the fundamentals of Haloalkanes and Haloarenes, from their structure and naming to physical properties and basic reactions. While some like DDT have environmental concerns, many others are indispensable in various industries. Keep practicing these concepts for your exams!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Haloalkanes undergo nucleophilic substitution (SN1/SN2) and elimination.</li><li>Haloarenes are less reactive towards nucleophilic substitution but undergo EAS.</li><li>Diverse preparation methods exist for both classes of compounds.</li><li>Polyhalogen compounds have specific uses and significant environmental impacts.</li></ul>
+          <p class="notes">🎙️ We've covered the structure, nomenclature, preparation, and reactions of haloalkanes and haloarenes. Remember to focus on mechanisms and factors influencing reactivity for your exams, as well as their real-world relevance.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

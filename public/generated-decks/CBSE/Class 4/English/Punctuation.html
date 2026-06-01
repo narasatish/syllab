@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Punctuation Power! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to <span class="hl">Punctuation</span> Power!</h2>
-          <ul><li>Let's learn how to make our sentences clear and fun!</li><li>It's like traffic lights for words.</li></ul>
-          <p class="notes">🎙️ Hello, champions! Today we're going on an exciting adventure to learn about Punctuation. It's super important to make sure everyone understands what we write and say.</p>
+          <h2>Welcome to '<span class="hl">Punctuation Power!</span>'</h2>
+          <ul><li>Let's make our words clear and bright!</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure to learn about 'Punctuation Power!' It's like learning secret codes for our sentences.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Punctuation</span>?</h2>
-          <ul><li>Punctuation marks are like special signs.</li><li>They tell us how to read and understand sentences.</li><li>They make our writing clear and easy!</li></ul>
-          <p class="notes">🎙️ Imagine driving a car without traffic lights or road signs. It would be chaos! Punctuation marks are just like those signs for our words. They guide us.</p>
+          <ul><li>They are like traffic signals for our words.</li><li>They tell us when to stop, slow down, or ask a question.</li></ul>
+          <p class="notes">🎙️ Imagine you are driving a car. Traffic signals tell you when to stop, go, or turn. Punctuation marks do the same for our sentences! They help us understand what we are reading.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚦</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚦</div><div class="vcap">Traffic Signals</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>The <span class="hl">Full Stop</span> (.)</h2>
-          <ul><li>The full stop is a small dot.</li><li>It tells us that a sentence has finished.</li><li>Time to take a little breath!</li></ul>
-          <p class="notes">🎙️ Our first friend is the full stop. It's a tiny dot, but it has a big job! When you see a full stop, it means the thought is complete, and you can pause.</p>
+          <h2>Meet the <span class="hl">Full Stop</span> (.)</h2>
+          <ul><li>It looks like a tiny dot.</li><li>We use it at the end of a sentence.</li></ul>
+          <p class="notes">🎙️ Our first friend is the Full Stop. It's a small but very important dot. When you see a full stop, it means the sentence is complete, and it's time to take a little pause.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div><div class="vcap">A Tiny Dot</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Full Stop at the <span class="hl">End</span></h2>
-          <ul><li>We use a full stop at the end of a telling sentence.</li><li>Example: The sun shines brightly.</li><li>It tells us a complete idea.</li></ul>
-          <p class="notes">🎙️ Look at the sun! When we say 'The sun shines brightly', we put a full stop. It's a simple statement, and the full stop signals its end.</p>
+          <h2>Full Stop <span class="hl">Example</span></h2>
+          <ul><li>The sun shines brightly.</li><li>The birds sing sweetly.</li></ul>
+          <p class="notes">🎙️ Look at these sentences. 'The sun shines brightly.' After 'brightly', there's a full stop. It tells us that thought is finished. Then, a new thought begins.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☀️</span></div><div class="vcap">A telling sentence</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="📖" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Let's <span class="hl">Practice</span> Full Stops</h2>
-          <ul><li>My dog loves to play.</li><li>I like to eat apples.</li><li>The bird sings a song.</li></ul>
-          <p class="notes">🎙️ Can you see where the full stop goes in these sentences? It always comes at the very end, after the last word. It's like putting a lid on a box.</p>
+          <h2>Full Stop in <span class="hl">Real Life</span></h2>
+          <ul><li>My school bus arrives at 8 AM.</li><li>I love to play cricket.</li></ul>
+          <p class="notes">🎙️ Think about things you say every day. 'My school bus arrives at 8 AM.' That's a complete thought. We put a full stop. 'I love to play cricket.' Another complete thought, another full stop.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐶</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Daily Life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>The <span class="hl">Question Mark</span> (?)</h2>
-          <ul><li>The question mark looks like a hook.</li><li>We use it when we ask a question.</li><li>It wants an answer!</li></ul>
-          <p class="notes">🎙️ Next, we have the question mark. It's a curious little fellow! Whenever you ask something, like 'What is your name?', you use this mark.</p>
+          <h2>Meet the <span class="hl">Question Mark</span> (?)</h2>
+          <ul><li>It looks like a hook with a dot.</li><li>We use it when we ask a question.</li></ul>
+          <p class="notes">🎙️ Next, we have the Question Mark. It's curious, just like you! Whenever you want to ask something, you use this special mark at the end.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Asking</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Asking <span class="hl">Questions</span></h2>
-          <ul><li>Where is my book?</li><li>Are you coming to play?</li><li>What is your favourite colour?</li></ul>
-          <p class="notes">🎙️ Think about all the questions you ask your parents or friends every day. Each of those questions needs a question mark at the end. It shows you're seeking information.</p>
+          <h2>Question Mark <span class="hl">Example</span></h2>
+          <ul><li>What is your name?</li><li>Are you happy today?</li></ul>
+          <p class="notes">🎙️ See how these sentences ask for information? 'What is your name?' We want to know someone's name. 'Are you happy today?' We want to know how someone feels. The question mark tells us it's a question.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤔</span></div><div class="vcap">Thinking of a question</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤔</span></div><div class="vcap">Thinking</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2><span class="hl">Practice</span> Questions</h2>
-          <ul><li>What time is it?</li><li>Can birds fly?</li><li>Do you like ice cream?</li></ul>
-          <p class="notes">🎙️ Let's try these! Remember, if you're asking something and expecting an answer, a question mark is your best friend. It makes it clear you're not just telling.</p>
+          <h2>Question Mark in <span class="hl">Real Life</span></h2>
+          <ul><li>Mom, can I have an ice cream?</li><li>Dad, where are my shoes?</li></ul>
+          <p class="notes">🎙️ You ask questions all the time! 'Mom, can I have an ice cream?' You're hoping for a yummy treat. 'Dad, where are my shoes?' You need help finding something. All these need a question mark.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="⏰" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📞</div><div class="vcap">Asking on Phone</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>The <span class="hl">Exclamation Mark</span> (!)</h2>
-          <ul><li>The exclamation mark shows strong feelings!</li><li>Like surprise, excitement, or shouting.</li><li>It's like a jump of joy!</li></ul>
-          <p class="notes">🎙️ Here comes the exciting exclamation mark! It's used when you're super happy, super surprised, or even a little scared. It adds a lot of emotion to your words.</p>
+          <h2>Meet the <span class="hl">Exclamation Mark</span> (!)</h2>
+          <ul><li>It looks like a straight line with a dot.</li><li>We use it to show strong feelings!</li></ul>
+          <p class="notes">🎙️ Now, let's meet the Exclamation Mark! This mark is full of energy. We use it when we are very excited, surprised, happy, or even a little scared.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❗</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❗</div><div class="vcap">Wow!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Showing <span class="hl">Strong Feelings</span></h2>
-          <ul><li>Wow!</li><li>What a beautiful flower!</li><li>Help!</li></ul>
-          <p class="notes">🎙️ Imagine you see a big, colourful rainbow! You'd say 'Wow!' or 'How beautiful!' These strong feelings need an exclamation mark. It makes your words pop!</p>
+          <h2>Exclamation Mark <span class="hl">Example</span></h2>
+          <ul><li>Wow, what a beautiful flower!</li><li>Oh no, I dropped my pencil!</li></ul>
+          <p class="notes">🎙️ When you see something amazing, you might say, 'Wow!' Or if something goes wrong, 'Oh no!' These strong feelings need an exclamation mark at the end.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤩</span></div><div class="vcap">Feeling excited</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sunflower_sky_backdrop.jpg?width=460" data-fb="📖" alt="Flowers are the colourful part of plants."/><div class="vcap">Flowers are the colourful part of plants.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Practice</span> Exclamations</h2>
-          <ul><li>Happy Birthday!</li><li>Look out!</li><li>That's amazing!</li></ul>
-          <p class="notes">🎙️ Think about your birthday party! You'd be excited, right? That's when you use an exclamation mark. It's for when your voice would go up or be louder.</p>
+          <h2>Exclamation Mark in <span class="hl">Real Life</span></h2>
+          <ul><li>Happy Birthday!</li><li>Look out!</li></ul>
+          <p class="notes">🎙️ When you wish someone, 'Happy Birthday!' you say it with joy. Or if you see danger, 'Look out!' These are moments for the exclamation mark.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥳</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥳</div><div class="vcap">Party Fun</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>The <span class="hl">Comma</span> (,)</h2>
-          <ul><li>The comma is a small curve.</li><li>It tells us to take a short pause.</li><li>We use it to separate items in a list.</li></ul>
-          <p class="notes">🎙️ Our next punctuation friend is the comma. It's like a tiny speed bump in your sentence. It tells you to slow down for just a moment, not a full stop.</p>
+          <h2>Meet the <span class="hl">Comma</span> (,)</h2>
+          <ul><li>It looks like a tiny tail.</li><li>It tells us to take a short pause, especially in lists.</li></ul>
+          <p class="notes">🎙️ Our next friend is the Comma. It's like a little pause button. It helps us read things clearly, especially when we are listing many items.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Short Pause</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Listing</span> Things</h2>
-          <ul><li>I like apples, bananas, and oranges.</li><li>My bag has pencils, books, and crayons.</li><li>The comma separates each item.</li></ul>
-          <p class="notes">🎙️ When you go to the market and buy many fruits, you list them. 'Apples, bananas, and oranges.' The comma helps us keep them separate and easy to read.</p>
+          <h2>Comma for <span class="hl">Lists</span></h2>
+          <ul><li>I like apples, bananas, and grapes.</li><li>My bag has books, pencils, and erasers.</li></ul>
+          <p class="notes">🎙️ See how we use commas to separate items in a list? 'Apples, bananas, and grapes.' The comma makes it easy to read each item clearly without getting them mixed up.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Apples, Bananas, Oranges</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="📖" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Practice</span> Commas</h2>
-          <ul><li>I saw a cat, a dog, and a bird.</li><li>My favourite colours are red, blue, and yellow.</li><li>We play cricket, football, and hide-and-seek.</li></ul>
-          <p class="notes">🎙️ Let's practice! When you're listing three or more things, remember to put a comma after each item, except the last one before 'and'.</p>
+          <h2>Comma in <span class="hl">Real Life</span></h2>
+          <ul><li>I need milk, bread, and eggs from the shop.</li><li>My favourite colours are red, blue, and green.</li></ul>
+          <p class="notes">🎙️ Imagine your mom gives you a shopping list. 'Milk, bread, and eggs.' The commas help you remember each item. It makes lists neat and easy to understand.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚽</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Shopping List</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Which mark ends a question?</li><li>Which mark ends a telling sentence?</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Think about what we just learned. Can you tell me which punctuation mark does each job?</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>Which mark is missing?</li><li>My name is Rohan</li></ul>
+          <p class="notes">🎙️ Let's see if you remember! Read this sentence: 'My name is Rohan'. What punctuation mark should come at the end of this sentence? Think about what kind of sentence it is.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Add the right mark: What a lovely day</li><li>Add the right mark: Where are you going</li></ul>
-          <p class="notes">🎙️ Now, let's try to add the correct punctuation mark to these sentences. Remember to think about the feeling or purpose of the sentence.</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>What a lovely day</li><li>Which mark should go here?</li></ul>
+          <p class="notes">🎙️ Now try this one: 'What a lovely day'. Does it ask a question? Does it just state a fact? Or does it show strong feeling? Choose the correct punctuation mark.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="📖" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,23 +252,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Add the right marks: I need milk bread and eggs</li><li>Add the right mark: My name is Rohan</li></ul>
-          <p class="notes">🎙️ More practice! For the first sentence, remember what we use when listing things. For the second, it's a simple statement.</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>Where is my toy</li><li>Add the right mark!</li></ul>
+          <p class="notes">🎙️ Last one for now! 'Where is my toy'. What kind of sentence is this? What mark do we use when we want to know something? Put the correct punctuation mark at the end.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Add the right marks: Wow that's amazing</li><li>Add the right marks: Do you like pizza</li></ul>
-          <p class="notes">🎙️ Last two quick questions! Think about the emotion for the first one, and the purpose for the second. You're doing great!</p>
+          <h2>Why is Punctuation <span class="hl">Important</span>?</h2>
+          <ul><li>It makes our writing clear.</li><li>It helps us understand sentences better.</li></ul>
+          <p class="notes">🎙️ Punctuation is super important! Without it, sentences would be confusing. It helps us know when to pause, when to stop, and what kind of feeling the writer wants to share.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Bright Idea</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Time for a <span class="hl">Recap</span>!</h2>
-          <ul><li>Full Stop (.) - End of a sentence.</li><li>Question Mark (?) - Asking a question.</li><li>Exclamation Mark (!) - Strong feelings.</li><li>Comma (,) - Short pause, listing things.</li></ul>
-          <p class="notes">🎙️ We've learned about four very important punctuation marks today. Each one has a special job to make our writing clear and exciting.</p>
+          <h2><span class="hl">Recap</span> Time!</h2>
+          <ul><li>Full Stop: End of a sentence.</li><li>Question Mark: Asking questions.</li><li>Exclamation Mark: Strong feelings.</li><li>Comma: Short pause, lists.</li></ul>
+          <p class="notes">🎙️ Let's quickly remember our friends! The full stop ends a thought. The question mark asks. The exclamation mark shows excitement. And the comma gives us a little break.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">.</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">?</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">!</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">,</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📖" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Practising</span> Punctuation!</h2>
-          <ul><li>Punctuation makes your writing sparkle!</li><li>Read books and notice the marks.</li><li>Keep writing, keep learning!</li></ul>
-          <p class="notes">🎙️ Great job, everyone! Keep practicing using these marks in your writing. The more you use them, the better you'll become. Happy writing!</p>
+          <h2>Keep <span class="hl">Practicing</span>!</h2>
+          <ul><li>Look for punctuation everywhere you read.</li><li>It makes your stories and letters shine!</li></ul>
+          <p class="notes">🎙️ Great job, everyone! Keep looking for these punctuation marks in your books, comics, and even messages. The more you practice, the better you'll become at using them. Thank you!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

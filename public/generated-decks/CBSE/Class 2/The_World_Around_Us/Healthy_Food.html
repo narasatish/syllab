@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Healthy Food — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2><span class="hl">Healthy Food</span> for Happy Kids!</h2>
-          <ul><li>What makes us strong and happy?</li><li>Let's learn about good food!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going to learn about something very important: 'Healthy Food'. Have you ever wondered what makes you grow tall and strong, or gives you energy to play all day? It's the food we eat!</p>
+          <h2>Welcome to "<span class="hl">Healthy Food</span>"!</h2>
+          <ul><li>Let's learn about food that makes us strong!</li><li>What makes us grow big and tall?</li><li>And keeps us happy every day!</li></ul>
+          <p class="notes">🎙️ Hello, my dear children! Today, we are going on an exciting journey to explore the world of food. We will learn about healthy food that helps us grow and stay strong. Are you ready?</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Why Do We Need <span class="hl">Food</span>?</h2>
-          <ul><li>Food helps us grow big and tall.</li><li>It gives us energy to play and learn.</li><li>It keeps us strong and healthy.</li></ul>
-          <p class="notes">🎙️ Just like plants need water and sunlight to grow, our bodies need food to grow. Food is like fuel for our bodies. It helps us run fast, think clearly, and stay well.</p>
+          <h2>What is <span class="hl">Food</span>?</h2>
+          <ul><li>Food is anything we eat or drink.</li><li>It comes from plants and animals.</li><li>We eat food every day.</li></ul>
+          <p class="notes">🎙️ Look at your plate! Everything on it, and even what you drink, is food. Food comes from many places, like fruits from trees or milk from cows. We eat food many times each day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Grow Strong</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="🍽️" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>What is <span class="hl">Healthy Food</span>?</h2>
-          <ul><li>Healthy food is good for our body.</li><li>It makes us strong from inside.</li><li>It helps us fight sickness.</li></ul>
-          <p class="notes">🎙️ Healthy food is like a superhero for our bodies! It gives us all the power and protection we need. When we eat healthy food, our body feels happy and works properly.</p>
+          <h2>Food Gives Us <span class="hl">Energy</span>!</h2>
+          <ul><li>Food helps us run and play.</li><li>It gives us power to study.</li><li>We need energy for everything!</li></ul>
+          <p class="notes">🎙️ Do you like to run and play? Do you like to draw and read? Food gives you the energy, like fuel for a car, to do all these fun things. Without food, we would feel very tired.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="💪" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strong Body</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Fruits</span> are Healthy!</h2>
-          <ul><li>Apples, bananas, and oranges are yummy fruits.</li><li>They give us important vitamins.</li><li>Eat fruits every day!</li></ul>
-          <p class="notes">🎙️ Do you like fruits? They are sweet and juicy! Fruits are packed with good things that keep us healthy. Remember to eat a variety of fruits to get all the benefits.</p>
+          <h2>Food Helps Us <span class="hl">Grow Big</span>!</h2>
+          <ul><li>See how tall you've become!</li><li>Food helps our bones and muscles grow.</li><li>It makes us taller and stronger.</li></ul>
+          <p class="notes">🎙️ Remember when you were a tiny baby? You have grown so much! Food helps your body build new parts and makes you taller and stronger every day. It's like magic for growing!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎🍊🍌</span><span>🍎🍊🍌</span><span>🍎🍊🍌</span></div><div class="vcap">Yummy Fruits</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Growing Tall</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">Vegetables</span> are Healthy!</h2>
-          <ul><li>Carrots, spinach, and potatoes are good vegetables.</li><li>They help our eyes and bones.</li><li>Don't forget to eat your greens!</li></ul>
-          <p class="notes">🎙️ Many children don't like vegetables, but they are super important! Green leafy vegetables like spinach make us strong. Carrots are good for our eyes. Try to eat different coloured vegetables.</p>
+          <h2>Food Keeps Us <span class="hl">Healthy</span>!</h2>
+          <ul><li>Healthy food fights off sickness.</li><li>It keeps us safe from germs.</li><li>We feel good and happy when we are healthy.</li></ul>
+          <p class="notes">🎙️ Sometimes we get a little sick, right? Healthy food is like a shield for our body. It helps us fight germs and stay well, so we don't get sick often and can play all the time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥕🥦🥔</span><span>🥕🥦🥔</span><span>🥕🥦🥔</span></div><div class="vcap">Good Vegetables</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️‍🩹</div><div class="vcap">Staying Well</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,9 +120,57 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">Grains</span> and Pulses!</h2>
-          <ul><li>Rice, roti (bread), and dal give us energy.</li><li>These are important for our daily meals.</li><li>They keep us active all day.</li></ul>
-          <p class="notes">🎙️ Grains and pulses are a big part of our Indian meals. Rice and roti give us the energy to run, jump, and study. Dal is full of protein, which helps build our muscles.</p>
+          <h2><span class="hl">Two Kinds</span> of Food</h2>
+          <ul><li>Some food is very good for us.</li><li>We call it Healthy Food.</li><li>Other food is not so good.</li></ul>
+          <p class="notes">🎙️ Just like there are good habits and not-so-good habits, there are two main kinds of food. Some foods are like superheroes for our body, and some are like naughty little villains. Let's learn more!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Healthy Food</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Unhealthy Food</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 20</span>
+          <h2>What is <span class="hl">Healthy Food</span>?</h2>
+          <ul><li>Food that makes us strong.</li><li>Food that helps us grow.</li><li>Food that keeps us from falling sick.</li></ul>
+          <p class="notes">🎙️ Healthy food is the best friend of our body! It's full of good things that help us be the best version of ourselves. Eating healthy food helps us jump, run, learn, and stay happy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Good for You</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Yummy <span class="hl">Fruits</span>!</h2>
+          <ul><li>Apples, bananas, oranges, mangoes!</li><li>They are sweet and full of vitamins.</li><li>Eat fruits every day to stay strong.</li></ul>
+          <p class="notes">🎙️ Fruits are nature's candy! They are colorful, juicy, and so good for you. An apple a day truly helps keep the doctor away. Make sure to eat different kinds of fruits!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="🌍" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>Green &amp; Colourful <span class="hl">Vegetables</span>!</h2>
+          <ul><li>Carrots, spinach, broccoli, potatoes!</li><li>They make our eyes strong and give energy.</li><li>Eat your veggies, don't leave them!</li></ul>
+          <p class="notes">🎙️ Vegetables might not always be your favorite, but they are super important! They come in so many colors and give us different powers, like making our eyes see better or keeping our tummies happy.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Vegetables.jpg?width=500" data-fb="🌍" alt="Vegetables keep us strong."/><div class="vcap">Vegetables keep us strong.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 20</span>
+          <h2><span class="hl">Grains</span> for Energy!</h2>
+          <ul><li>Rice, roti (wheat bread), bread, oats.</li><li>They give us energy to play all day.</li><li>Grains are a big part of our meals.</li></ul>
+          <p class="notes">🎙️ Look at your plate, do you see rice or roti? These are grains! They are like the main fuel for our body, giving us lots of energy to run, jump, and learn. We eat them almost every day.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌍" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
@@ -118,60 +179,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2><span class="hl">Milk</span> and Eggs!</h2>
-          <ul><li>Milk makes our bones and teeth strong.</li><li>Eggs help our muscles grow.</li><li>Drink milk every day!</li></ul>
-          <p class="notes">🎙️ Milk is a complete food, especially for growing children. It's full of calcium for strong bones. Eggs are also very good, giving us protein for strong muscles. Have a glass of milk daily!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛🥚</span><span>🥛🥚</span></div><div class="vcap">For Strong Bones</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>What is <span class="hl">Unhealthy Food</span>?</h2>
-          <ul><li>Unhealthy food tastes yummy but is not good for daily eating.</li><li>Eating too much can make us feel sick.</li><li>It does not make our body strong.</li></ul>
-          <p class="notes">🎙️ Now, let's talk about some foods that we love to eat, but are not very good for us if we eat them often. These are called unhealthy foods. They are okay sometimes, but not every day.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Not Good Daily</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Unhealthy Choices: <span class="hl">Snacks</span>!</h2>
-          <ul><li>Chips, chocolates, and candies are unhealthy snacks.</li><li>They have too much sugar and oil.</li><li>They can make our teeth hurt.</li></ul>
-          <p class="notes">🎙️ Who doesn't love chips and chocolates? But these foods are full of sugar, salt, and unhealthy fats. Eating too many can give you a tummy ache or make your teeth decay.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍟🍫🍬</span><span>🍟🍫🍬</span><span>🍟🍫🍬</span></div><div class="vcap">Sugary Snacks</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>Unhealthy Choices: <span class="hl">Drinks</span>!</h2>
-          <ul><li>Cold drinks and sugary juices are unhealthy.</li><li>They have a lot of sugar.</li><li>Water is the best drink!</li></ul>
-          <p class="notes">🎙️ Many cold drinks and packaged juices have a lot of hidden sugar. They don't give our body good nutrients. It's always better to drink plain water or fresh fruit juice without added sugar.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥤🍹</span><span>🥤🍹</span></div><div class="vcap">Sugary Drinks</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Why <span class="hl">Less Unhealthy Food</span>?</h2>
-          <ul><li>Eating too much unhealthy food can make us feel tired.</li><li>It can give us a tummy ache.</li><li>It can make us get sick easily.</li></ul>
-          <p class="notes">🎙️ If we eat too much unhealthy food, our body doesn't get the good things it needs. We might feel sleepy, get a stomach upset, or even catch a cold more often. So, it's best to eat them only sometimes.</p>
+          <h2><span class="hl">Milk &amp; Eggs</span> for Strong Bones!</h2>
+          <ul><li>Milk makes our bones and teeth strong.</li><li>Eggs help our muscles grow.</li><li>They are very important for growing children.</li></ul>
+          <p class="notes">🎙️ Do you drink milk every day? And do you eat eggs? These foods are super important for making your bones strong like a rock and your muscles powerful. They help you grow up big and strong!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤢</div><div class="vcap">Can make us Sick</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span><span>🥛</span></div><div class="vcap">Three Glasses of Milk</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Our <span class="hl">Daily Meals</span></h2>
-          <ul><li>We eat food three times a day.</li><li>These are Breakfast, Lunch, and Dinner.</li><li>Each meal is important for energy.</li></ul>
-          <p class="notes">🎙️ We usually eat three main meals in a day. Each meal is important to give us energy for different parts of the day. Skipping meals is not a good habit.</p>
+          <h2>What is <span class="hl">Unhealthy Food</span>?</h2>
+          <ul><li>Food that is not good for our body.</li><li>It can make us feel tired or sick.</li><li>Eating too much is bad for us.</li></ul>
+          <p class="notes">🎙️ Now let's talk about the 'naughty' foods. Unhealthy food might taste yummy for a moment, but it doesn't help our body grow or stay strong. Eating too much of it can make us feel bad.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="❌" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Breakfast</span>: The First Meal!</h2>
-          <ul><li>Breakfast is the first meal of the day.</li><li>It gives us energy to start our day.</li><li>Never skip your breakfast!</li></ul>
-          <p class="notes">🎙️ Breakfast is the most important meal. It breaks the 'fast' from the night. Eating a good breakfast gives you energy to go to school, play, and learn without feeling tired.</p>
+          <h2>Yummy but <span class="hl">Unhealthy Treats</span>!</h2>
+          <ul><li>Chocolates, candies, chips.</li><li>They have too much sugar and salt.</li><li>Eat them only sometimes, not every day.</li></ul>
+          <p class="notes">🎙️ We all love chocolates and chips, right? But these foods are full of sugar and salt which are not good for our body in large amounts. It's okay to have a little bit sometimes, but not every day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Start of Day</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Seven Candies</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Lunch</span>: Mid-Day Meal!</h2>
-          <ul><li>Lunch is eaten in the middle of the day.</li><li>It recharges our energy.</li><li>Eat a balanced lunch.</li></ul>
-          <p class="notes">🎙️ After playing and studying in the morning, our energy starts to go down. Lunch helps to fill us up and gives us energy for the rest of the afternoon. Make sure to eat a lunch with grains, vegetables, and dal.</p>
+          <h2>Sugary <span class="hl">Cold Drinks</span>!</h2>
+          <ul><li>Soft drinks, fizzy drinks.</li><li>They have lots and lots of sugar.</li><li>Drink water or fresh juice instead.</li></ul>
+          <p class="notes">🎙️ Those bubbly cold drinks might seem refreshing, but they are packed with sugar! It's much better to drink plain water or fresh fruit juice to quench your thirst. Water is the best drink for your body!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥪</div><div class="vcap">Mid-day Energy</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥤</span><span>🥤</span><span>🥤</span><span>🥤</span></div><div class="vcap">Four Cold Drinks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">Dinner</span>: Last Meal!</h2>
-          <ul><li>Dinner is the last meal of the day.</li><li>Eat dinner a few hours before sleeping.</li><li>Have a light dinner.</li></ul>
-          <p class="notes">🎙️ Dinner is eaten in the evening. It's good to eat a lighter dinner and not too close to bedtime. This helps our body digest the food properly while we sleep.</p>
+          <h2>Why <span class="hl">Choose Healthy</span> Food?</h2>
+          <ul><li>You will be strong and full of energy!</li><li>You will grow tall and smart!</li><li>You will stay happy and healthy!</li></ul>
+          <p class="notes">🎙️ So, why should we always try to eat healthy food? Because it makes you feel amazing! You'll have the energy to play, learn new things, and your body will thank you by staying strong and happy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌙</div><div class="vcap">Before Sleep</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div><div class="vcap">Happy &amp; Healthy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,47 +240,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">Good Food Habits</span> 1</h2>
-          <ul><li>Always wash your hands before eating.</li><li>Wash your hands after eating too.</li><li>Clean hands stop germs from entering our body.</li></ul>
-          <p class="notes">🎙️ It's very important to have good habits around food. The first and most important habit is to wash your hands with soap and water before and after every meal. This keeps germs away.</p>
+          <h2>Why <span class="hl">Limit Unhealthy</span> Food?</h2>
+          <ul><li>Too much can make you feel tired.</li><li>It can make you gain weight.</li><li>It's not good for your teeth or tummy.</li></ul>
+          <p class="notes">🎙️ If we eat too much unhealthy food, we might feel lazy, our teeth can get cavities, and our tummy might hurt. It's like putting the wrong fuel in a car, it won't run well. So, let's limit them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Clean Hands</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">😟</div><div class="vcap">Feeling Unwell</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Good Food Habits</span> 2</h2>
-          <ul><li>Chew your food slowly and properly.</li><li>Don't talk while eating.</li><li>Don't waste food.</li></ul>
-          <p class="notes">🎙️ Chewing your food slowly helps your stomach digest it better. Also, remember not to talk with food in your mouth. And always take only as much food as you can eat, so you don't waste any.</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>Which of these is a healthy food?</li><li>A) Chips</li><li>B) Apple</li><li>C) Candy</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Look at the options and tell me which one is a healthy food that helps your body. Think about what we just learned about fruits and snacks.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Mindful Eating</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick Check! Which food makes us strong?</h2>
-          <ul><li>Is it the apple or the candy?</li><li>Think about what makes you energetic.</li></ul>
-          <p class="notes">🎙️ Let's do a quick check! Look at these two foods. Which one do you think gives you real strength and keeps you healthy? That's right, the apple! Candy is just for a little treat sometimes.</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>What does food give us?</li><li>A) Sadness</li><li>B) Energy</li><li>C) Laziness</li></ul>
+          <p class="notes">🎙️ Another question! Remember why we need food? What special power does food give us so we can play and learn? Choose the correct answer.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Apple</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Candy</div></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick Check! What should we eat more of?</h2>
-          <ul><li>Should we eat more healthy or unhealthy food?</li><li>Make a wise choice for your body!</li></ul>
-          <p class="notes">🎙️ Now, think about your daily meals. Should your plate have more healthy food or unhealthy food? Always choose more healthy food to stay fit and active. Unhealthy food should be eaten rarely.</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>True or False: Eating vegetables makes you strong.</li><li>A) True</li><li>B) False</li></ul>
+          <p class="notes">🎙️ Last question for our quick check! Is it true that eating our green and colorful vegetables makes us strong? Or is it false? Think about the superhero powers of veggies!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Healthy Food</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Unhealthy Food</div></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Recap: <span class="hl">Eat Healthy</span>, Be Happy!</h2>
-          <ul><li>Healthy food makes us strong and active.</li><li>Eat fruits, vegetables, grains, milk, and eggs.</li><li>Avoid too much unhealthy food.</li><li>Practice good food habits!</li></ul>
-          <p class="notes">🎙️ So, remember, my dear children, eating healthy food is a secret to staying happy and energetic. Always choose foods that are good for your body, and follow good food habits. Keep yourself strong and healthy!</p>
+          <h2>Recap: Be a <span class="hl">Healthy Eater</span>!</h2>
+          <ul><li>Food gives us energy, helps us grow, and keeps us healthy.</li><li>Eat lots of fruits, vegetables, grains, milk, and eggs.</li><li>Limit sweets, chips, and cold drinks.</li><li>Choose healthy, stay happy!</li></ul>
+          <p class="notes">🎙️ Great job, everyone! Today we learned all about healthy food. Remember to fill your plate with good foods that make you strong and happy. Make smart choices and be a healthy eater!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

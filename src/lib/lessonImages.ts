@@ -26,7 +26,7 @@ const CONCEPT_IMAGES: { keys: string[]; img: LessonImage }[] = [
   { keys: ['addition', 'add', 'counting', 'count', 'numbers', 'number'],
     img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480', alt: 'Apples for counting', caption: 'Count and add using real objects like apples 🍎' } },
   { keys: ['money', 'rupee', 'coins', 'currency'],
-    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/2_Rupee_coin_India.jpg?width=440', alt: 'Indian rupee coins', caption: 'Learn money using real coins.' } },
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Indian_Rupee_symbol.svg?width=320', alt: 'Indian rupee symbol', caption: 'The rupee (₹) is our money.' } },
   { keys: ['time', 'clock', 'hours', 'minutes'],
     img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440', alt: 'A clock showing time', caption: 'A clock helps us read hours and minutes.' } },
   { keys: ['shape', 'shapes', 'circle', 'square', 'triangle', 'geometry'],
@@ -47,6 +47,23 @@ const CONCEPT_IMAGES: { keys: string[]; img: LessonImage }[] = [
     img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Ohm%27s_Law_with_Voltage_source_TeX.svg?width=440', alt: 'Electric circuit', caption: 'An electric circuit lets current flow.' } },
   { keys: ['magnet', 'magnetic', 'magnetism'],
     img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Magnet0873.png?width=440', alt: 'A magnet with field lines', caption: 'Magnets have north and south poles.' } },
+  // More kid-friendly real photos (Classes 1-5). Any that fail to load fall back to emoji.
+  { keys: ['moon', 'lunar', 'night sky'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/FullMoon2010.jpg?width=460', alt: 'The Moon', caption: 'The Moon lights up our night sky.' } },
+  { keys: ['fish', 'aquatic', 'underwater'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Clown_fish_in_the_Andaman_Coral_Reef.jpg?width=480', alt: 'A fish', caption: 'Fish live and breathe in water.' } },
+  { keys: ['bird', 'birds', 'feather', 'wings'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/House_sparrow04.jpg?width=460', alt: 'A bird', caption: 'Birds have feathers and can fly.' } },
+  { keys: ['fruit', 'fruits', 'mango', 'banana'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500', alt: 'Fruits', caption: 'Fruits are tasty and healthy.' } },
+  { keys: ['vegetable', 'vegetables'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Vegetables.jpg?width=500', alt: 'Vegetables', caption: 'Vegetables keep us strong.' } },
+  { keys: ['flower', 'flowers', 'petal'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Sunflower_sky_backdrop.jpg?width=460', alt: 'A flower', caption: 'Flowers are the colourful part of plants.' } },
+  { keys: ['weather', 'cloud', 'clouds', 'sky'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Cumulus_clouds_in_fair_weather.jpeg?width=500', alt: 'Clouds in the sky', caption: 'Clouds bring us rain.' } },
+  { keys: ['food', 'meal', 'nutrition', 'healthy eating'],
+    img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500', alt: 'Healthy food', caption: 'A balanced plate keeps us healthy.' } },
   { keys: ['force', 'motion', 'speed', 'velocity', 'newton'],
     img: { url: 'https://en.wikipedia.org/wiki/Special:FilePath/Newtons_cradle_animation_book_2.gif?width=440', alt: 'Newton\'s cradle showing motion', caption: 'Force changes how things move.' } },
   { keys: ['atom', 'atoms', 'molecule', 'element', 'periodic'],
@@ -100,8 +117,10 @@ function matchDiagram(slideText: string, classNum: number): LessonImage | null {
     if (dt.length < 2) continue;                 // skip 1-word diagram names (too ambiguous)
     const matched = dt.filter(t => wanted.has(t)).length;
     const coverage = matched / dt.length;
-    // Require at least 2 of the diagram's words AND >=70% of its name present.
-    if (matched >= 2 && coverage >= 0.7 && (!best || coverage > best.coverage)) {
+    // Need >=2 matching words (blocks single-common-word mismatches like
+    // "field"/"law") AND at least half the diagram's name present. This surfaces
+    // many more correct science diagrams while staying safe.
+    if (matched >= 2 && coverage >= 0.5 && (!best || coverage > best.coverage)) {
       best = { coverage, d };
     }
   }

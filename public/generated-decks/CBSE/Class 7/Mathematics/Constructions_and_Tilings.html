@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Constructions and Tilings (Class 7, CBSE) — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Constructions and Tilings — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to <span class="hl">Constructions</span> and Tilings!</h2>
-          <ul><li>Get ready to draw shapes with precision!</li><li>Discover how shapes fit together perfectly!</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today we're embarking on an exciting journey into the world of geometry. We'll learn how to draw shapes accurately and explore how they can cover surfaces without gaps.</p>
+          <ul><li>Explore how to draw perfect shapes.</li><li>Discover patterns that cover surfaces.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today we're going to learn about drawing precise geometric shapes and understanding how patterns fit together without gaps. Get ready to use your rulers and compasses!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What are Geometric <span class="hl">Constructions</span>?</h2>
-          <ul><li>Drawing geometric figures accurately.</li><li>Using only a compass and straightedge (ruler).</li><li>No measuring with protractors or scale markings!</li></ul>
-          <p class="notes">🎙️ Geometric constructions are all about drawing shapes like lines, angles, and triangles using specific tools. The key is to be precise and only use a compass and a ruler, without relying on their measurement markings.</p>
+          <ul><li>Drawing geometric figures accurately.</li><li>Using only a compass and an unmarked ruler (straightedge).</li><li>No protractor allowed for basic constructions.</li></ul>
+          <p class="notes">🎙️ Geometric constructions are all about drawing shapes with perfect accuracy. We use simple tools like a compass to draw circles and arcs, and a straightedge to draw lines. The challenge is doing it without measuring angles with a protractor!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Precision Drawing</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Precision Drawing</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Your Essential <span class="hl">Tools</span>: Ruler and Compass</h2>
-          <ul><li>Ruler (Straightedge): To draw straight lines.</li><li>Compass: To draw circles and arcs, measure distances.</li></ul>
-          <p class="notes">🎙️ These two simple tools are our best friends for constructions. The ruler helps us make perfectly straight lines, and the compass allows us to draw perfect circles or arcs, which are crucial for many constructions.</p>
+          <h2>Basic <span class="hl">Tools</span> for Construction</h2>
+          <ul><li>Ruler (Straightedge): For drawing straight lines.</li><li>Compass: For drawing circles and arcs.</li><li>Pencil: For making clear marks.</li></ul>
+          <p class="notes">🎙️ These are our main instruments. The ruler helps us draw straight lines, but remember, we don't use its markings for measuring length unless specified. The compass is crucial for creating arcs and circles of specific radii.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Ruler &amp; Compass</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Ruler &amp; Compass</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Constructing a <span class="hl">Line Segment</span> of a Given Length</h2>
-          <ul><li>1. Draw a ray with endpoint A.</li><li>2. Open compass to desired length.</li><li>3. Place compass point on A, draw arc intersecting ray at B.</li></ul>
-          <p class="notes">🎙️ Let's start with something fundamental: drawing a line segment. First, you draw a ray, then use your compass to 'transfer' the desired length onto that ray, marking your second endpoint.</p>
+          <h2>Constructing a <span class="hl">Line Segment</span> of Given Length</h2>
+          <ul><li>Draw a ray, mark point A.</li><li>Open compass to desired length (e.g., 5 cm).</li><li>Place compass needle at A, draw an arc intersecting the ray at B.</li></ul>
+          <p class="notes">🎙️ This is a fundamental construction. First, draw a starting line. Then, using your ruler, set your compass to the exact length you need. Finally, place the compass point on your starting point and swing an arc to mark the end of your segment.</p>
         </div>
         <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Ray</span></div><div class="step"><span class="snum">2</span><span>Set Compass</span></div><div class="step"><span class="snum">3</span><span>Mark Point B</span></div></div></div>
       </div>
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Constructing the <span class="hl">Perpendicular Bisector</span> of a Line Segment</h2>
-          <ul><li>1. Draw segment AB.</li><li>2. With A &amp; B as centers, radius &gt; half AB, draw arcs above &amp; below AB.</li><li>3. Join intersection points C &amp; D. CD is the bisector.</li></ul>
-          <p class="notes">🎙️ A perpendicular bisector cuts a line segment exactly in half and forms a 90-degree angle with it. This construction is super useful for finding the center of a line or creating right angles.</p>
+          <h2>Real-life Example: Drawing a <span class="hl">Map</span></h2>
+          <ul><li>Architects use constructions for building plans.</li><li>Cartographers use them to draw accurate maps.</li><li>Ensures correct distances and angles.</li></ul>
+          <p class="notes">🎙️ Think about how maps are made. Every road, every building, every boundary needs to be drawn with precise lengths and angles relative to each other. Geometric constructions are the backbone of such accurate drawings.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Segment</span></div><div class="step"><span class="snum">2</span><span>Draw Arcs</span></div><div class="step"><span class="snum">3</span><span>Join Intersections</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Precise Map Making</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Real-Life Use: <span class="hl">Dividing</span> a Path Equally</h2>
-          <ul><li>Imagine two houses A and B.</li><li>We need to build a common mailbox exactly halfway between them.</li><li>The perpendicular bisector helps find this exact middle point.</li></ul>
-          <p class="notes">🎙️ Think about two houses on a street. If you want to place a shared mailbox exactly in the middle, the perpendicular bisector construction tells you precisely where to put it. It ensures fairness and equal distance.</p>
+          <h2>Constructing a <span class="hl">Perpendicular Bisector</span></h2>
+          <ul><li>Draw line segment AB.</li><li>With A as center, draw arcs above and below AB (radius &gt; half AB).</li><li>With B as center, draw arcs intersecting previous arcs.</li><li>Join intersection points to get the bisector.</li></ul>
+          <p class="notes">🎙️ A perpendicular bisector cuts a line segment exactly in half and forms a 90-degree angle with it. This construction is very useful for finding the midpoint of a line or constructing right angles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Mailbox Location</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Arcs from A</span></div><div class="step"><span class="snum">2</span><span>Draw Arcs from B</span></div><div class="step"><span class="snum">3</span><span>Join Points</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Constructing the <span class="hl">Angle Bisector</span> of a Given Angle</h2>
-          <ul><li>1. Draw angle A.</li><li>2. With A as center, draw arc intersecting arms at B &amp; C.</li><li>3. With B &amp; C as centers, radius &gt; half BC, draw arcs intersecting at D.</li><li>4. Join A to D. AD is the bisector.</li></ul>
-          <p class="notes">🎙️ An angle bisector divides an angle into two equal parts. This is very handy when you need to split an angle precisely, perhaps for design or layout purposes.</p>
+          <h2>Worked Example: <span class="hl">Bisecting</span> a Line Segment</h2>
+          <ul><li>Given segment PQ of length 6 cm.</li><li>Open compass to more than 3 cm.</li><li>Draw arcs from P and Q.</li><li>Connect arc intersection points.</li></ul>
+          <p class="notes">🎙️ Let's try it with a specific length. If we have a 6 cm segment, we open our compass to more than 3 cm. This ensures our arcs will intersect. Connecting the intersection points gives us the line that cuts PQ exactly in half.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Angle</span></div><div class="step"><span class="snum">2</span><span>Mark Arcs on Arms</span></div><div class="step"><span class="snum">3</span><span>Draw Intersecting Arcs</span></div><div class="step"><span class="snum">4</span><span>Join Vertex to Intersection</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Dividing in Half</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Real-Life Use: <span class="hl">Sharing</span> a Cake Fairly</h2>
-          <ul><li>You have a slice of cake with an angle.</li><li>You want to share it equally with a friend.</li><li>An angle bisector helps cut the slice into two identical pieces.</li></ul>
-          <p class="notes">🎙️ Imagine you have a large slice of cake and want to share it perfectly with a friend. Using an angle bisector, you can ensure both of you get an identical, fair portion from the corner of the slice.</p>
+          <h2>Constructing an <span class="hl">Angle Bisector</span></h2>
+          <ul><li>Draw angle ABC.</li><li>With B as center, draw an arc intersecting BA and BC.</li><li>From intersection points, draw two more arcs inside the angle.</li><li>Draw a ray from B through the intersection of these arcs.</li></ul>
+          <p class="notes">🎙️ An angle bisector divides an angle into two equal parts. This construction helps us create symmetrical figures or find the exact middle of an angle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍰</div><div class="vcap">Equal Cake Slices</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Arc from B</span></div><div class="step"><span class="snum">2</span><span>Draw Arcs from Intersections</span></div><div class="step"><span class="snum">3</span><span>Draw Bisector Ray</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,23 +156,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Worked Example: Constructing a <span class="hl">90-degree Angle</span></h2>
-          <ul><li>1. Draw a ray OA.</li><li>2. With O as center, draw a semicircle intersecting OA at P.</li><li>3. With P as center, draw an arc intersecting semicircle at Q.</li><li>4. With Q as center, draw another arc intersecting semicircle at R.</li><li>5. With Q and R as centers, draw arcs intersecting at S.</li><li>6. Join O to S. Angle AOS is 90°.</li></ul>
-          <p class="notes">🎙️ A 90-degree angle, or a right angle, is fundamental. This construction uses the concept of bisecting the angle formed by 60 and 120 degrees to get 90 degrees. Practice this carefully!</p>
+          <h2>Worked Example: Bisecting an Angle</h2>
+          <ul><li>Given angle XYZ.</li><li>Place compass at Y, draw an arc cutting YX and YZ.</li><li>From these intersection points, draw two more arcs.</li><li>Draw a ray from Y through the new intersection.</li></ul>
+          <p class="notes">🎙️ Imagine you have an angle, say 70 degrees. After this construction, you'll have two perfect 35-degree angles. This is very precise and doesn't require measuring with a protractor.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Ray</span></div><div class="step"><span class="snum">2</span><span>Draw Semicircle</span></div><div class="step"><span class="snum">3</span><span>Mark 60° &amp; 120°</span></div><div class="step"><span class="snum">4</span><span>Bisect Angle</span></div><div class="step"><span class="snum">5</span><span>Draw 90° Line</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪞</div><div class="vcap">Mirroring Angles</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Quick <span class="hl">Question</span>!</h2>
-          <ul><li>Which construction tool is used to draw arcs and circles?</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Think about the tools we just discussed. Which one is specifically designed for drawing curved lines and perfect circles?</p>
+          <h2>Constructing an Angle of 60°</h2>
+          <ul><li>Draw a ray OA.</li><li>With O as center, draw an arc cutting OA at P.</li><li>With P as center and same radius, draw an arc cutting the first arc at Q.</li><li>Join OQ. Angle AOQ is 60°.</li></ul>
+          <p class="notes">🎙️ This is a fundamental construction. The equilateral triangle formed by O, P, and Q ensures that the angle at O is exactly 60 degrees. This construction is a building block for many other angles.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Arc from O</span></div><div class="step"><span class="snum">2</span><span>Draw Arc from P</span></div><div class="step"><span class="snum">3</span><span>Join OQ</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Why do we Construct <span class="hl">Triangles</span>?</h2>
-          <ul><li>Triangles are fundamental shapes in geometry.</li><li>They are rigid and stable structures.</li><li>Essential for building, engineering, and design.</li></ul>
-          <p class="notes">🎙️ Triangles are everywhere, from bridges to buildings. Their unique rigidity makes them incredibly stable. Knowing how to construct them precisely is a vital skill in many fields.</p>
+          <h2>Constructing <span class="hl">Other Angles</span> (30°, 90°, 120°)</h2>
+          <ul><li>30°: Bisect a 60° angle.</li><li>90°: Construct a perpendicular bisector, or combine 60° and bisect 30°.</li><li>120°: Extend 60° (or two 60° angles).</li></ul>
+          <p class="notes">🎙️ Once you can construct 60 degrees, you can construct many other angles. Bisecting 60 gives 30. A 90-degree angle can be made by constructing a perpendicular, or by adding a 60-degree angle and bisecting the remaining 30 degrees from a straight line.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">△</div><div class="vcap">Strongest Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combining Angles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,35 +192,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Constructing a Triangle: <span class="hl">SSS</span> (Side-Side-Side)</h2>
-          <ul><li>Given the lengths of all three sides (a, b, c).</li><li>1. Draw base side (e.g., c).</li><li>2. With one endpoint as center, radius 'a', draw arc.</li><li>3. With other endpoint as center, radius 'b', draw arc.</li><li>4. Join intersection point to endpoints.</li></ul>
-          <p class="notes">🎙️ The SSS criterion means you have all three side lengths. You start by drawing one side, then use your compass to 'swing' arcs from each end with the lengths of the other two sides. Where they meet is your third vertex.</p>
+          <h2>Real-life Example: <span class="hl">Building Layouts</span></h2>
+          <ul><li>Engineers use precise angles for structures.</li><li>Ensuring walls are perpendicular (90°).</li><li>Creating stable and functional designs.</li></ul>
+          <p class="notes">🎙️ Imagine building a house or a bridge. Every corner, every joint needs to be at a specific angle, often 90 degrees, for stability and safety. Geometric constructions are essential tools for architects and engineers.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Base</span></div><div class="step"><span class="snum">2</span><span>Arc from End 1</span></div><div class="step"><span class="snum">3</span><span>Arc from End 2</span></div><div class="step"><span class="snum">4</span><span>Join Vertices</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Architectural Precision</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Real-Life Use: Building <span class="hl">Roof Trusses</span></h2>
-          <ul><li>Roof trusses are triangular frameworks.</li><li>Their stability comes from the fixed side lengths.</li><li>SSS construction ensures the correct shape and strength.</li></ul>
-          <p class="notes">🎙️ Look at the framework of a roof or a bridge; you'll often see triangles. These are called trusses. Engineers use the SSS principle to ensure each triangle is built with precise side lengths for maximum strength and stability.</p>
+          <h2>Quick Check 1: <span class="hl">True or False</span>?</h2>
+          <ul><li>A protractor is allowed for basic geometric constructions.</li><li>A perpendicular bisector divides a line segment into two equal parts.</li><li>To construct 30°, you first construct 60° and then bisect it.</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about the rules we just discussed for geometric constructions and how different angles are derived.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Truss Structure</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Constructing a Triangle: <span class="hl">SAS</span> (Side-Angle-Side)</h2>
-          <ul><li>Given two sides and the angle *between* them.</li><li>1. Draw one side (e.g., AB).</li><li>2. At one endpoint (e.g., A), construct the given angle.</li><li>3. Measure the second side along the angle's arm (e.g., AC).</li><li>4. Join B to C.</li></ul>
-          <p class="notes">🎙️ For SAS, the angle must be *included* between the two given sides. You draw one side, construct the angle at one end, then mark the length of the second side along the newly drawn arm of the angle.</p>
+          <h2>Quick Check 2: Which tool is used for drawing arcs?</h2>
+          <ul><li>A) Ruler</li><li>B) Protractor</li><li>C) Compass</li><li>D) Set Square</li></ul>
+          <p class="notes">🎙️ This is a straightforward question about our fundamental construction tools. Which one helps us draw parts of circles?</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Side 1</span></div><div class="step"><span class="snum">2</span><span>Construct Angle</span></div><div class="step"><span class="snum">3</span><span>Mark Side 2</span></div><div class="step"><span class="snum">4</span><span>Join Vertices</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Real-Life Use: Designing a <span class="hl">Sloping Roof</span></h2>
-          <ul><li>Architects design roofs with specific slopes (angles) and eave lengths (sides).</li><li>SAS construction helps draw the exact triangular cross-section.</li><li>Ensures correct height and width.</li></ul>
-          <p class="notes">🎙️ When architects design houses, they need to get the roof's slope and dimensions just right. Using the SAS criterion, they can accurately construct the triangular shape of the roof's cross-section, ensuring it fits the design.</p>
+          <h2>What are <span class="hl">Tilings</span> (Tessellations)?</h2>
+          <ul><li>Covering a surface with shapes without gaps or overlaps.</li><li>The shapes are called 'tiles'.</li><li>Also known as tessellations.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a tiled floor or a brick wall? That's a tiling! It's about arranging shapes perfectly so they cover an area completely, leaving no empty spaces and not piling on top of each other.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Roof Design</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Fitting Shapes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Constructing a Triangle: <span class="hl">ASA</span> (Angle-Side-Angle)</h2>
-          <ul><li>Given two angles and the side *between* them.</li><li>1. Draw the given side (e.g., AB).</li><li>2. At one endpoint (e.g., A), construct one angle.</li><li>3. At the other endpoint (e.g., B), construct the second angle.</li><li>4. The intersection of the angle arms is the third vertex C.</li></ul>
-          <p class="notes">🎙️ With ASA, the side must be *included* between the two given angles. You draw the side first, then construct each angle at its respective endpoint. The point where the two angle arms meet forms the third vertex.</p>
+          <h2><span class="hl">Properties</span> of Tilings</h2>
+          <ul><li>No gaps: The entire surface is covered.</li><li>No overlaps: Tiles do not lie on top of each other.</li><li>Shapes fit together at vertices.</li></ul>
+          <p class="notes">🎙️ For a pattern to be a true tiling, these three rules must be followed. It's like a jigsaw puzzle where every piece fits exactly, and there are no missing pieces or pieces that stick out.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Side</span></div><div class="step"><span class="snum">2</span><span>Construct Angle 1</span></div><div class="step"><span class="snum">3</span><span>Construct Angle 2</span></div><div class="step"><span class="snum">4</span><span>Find Vertex</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Perfect Fit</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Real-Life Use: <span class="hl">Land Surveying</span></h2>
-          <ul><li>Surveyors measure angles and distances to map land.</li><li>They can use ASA to determine the shape and size of triangular plots.</li><li>Helps create accurate maps.</li></ul>
-          <p class="notes">🎙️ Surveyors often use ASA principles when mapping out land. By measuring a baseline (side) and the angles from its ends to a distant point, they can accurately determine the location of that point and the shape of a triangular land plot.</p>
+          <h2>Types of Tilings: <span class="hl">Regular</span> Tessellations</h2>
+          <ul><li>Uses only one type of regular polygon.</li><li>All sides and angles of the polygon are equal.</li><li>Only squares, equilateral triangles, and regular hexagons can form regular tessellations.</li></ul>
+          <p class="notes">🎙️ A regular tessellation is the simplest type. You use just one shape, and that shape is a regular polygon. Surprisingly, only three regular polygons can do this on their own: squares, equilateral triangles, and hexagons.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Mapping Plots</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟦</span><span>🟦</span><span>🟦</span><span>🟦</span><span>🟦</span><span>🟦</span><span>🟦</span><span>🟦</span><span>🟦</span></div><div class="vcap">Square Tiles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Constructing a Right-angled Triangle: <span class="hl">RHS</span> (Right-Hypotenuse-Side)</h2>
-          <ul><li>Given a right angle, the hypotenuse, and one other side.</li><li>1. Draw one leg (e.g., BC).</li><li>2. At one endpoint (e.g., B), construct a 90-degree angle.</li><li>3. With the other endpoint (e.g., C) as center, radius = hypotenuse, draw arc intersecting the 90-degree arm at A.</li><li>4. Join A to C.</li></ul>
-          <p class="notes">🎙️ RHS is specifically for right-angled triangles. You start with one leg, construct the right angle, then use the hypotenuse length from the other end of the leg to find the third vertex.</p>
+          <h2>Real-life Example: <span class="hl">Floor Tiles</span></h2>
+          <ul><li>Common use of tessellations in everyday life.</li><li>Squares and rectangles are popular for easy tiling.</li><li>Hexagons also used for decorative patterns.</li></ul>
+          <p class="notes">🎙️ Look down at your classroom floor or bathroom tiles. Most likely, you'll see square or rectangular tiles forming a perfect tessellation. Hexagonal tiles are also quite common for a more intricate look.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Leg</span></div><div class="step"><span class="snum">2</span><span>Construct 90°</span></div><div class="step"><span class="snum">3</span><span>Arc for Hypotenuse</span></div><div class="step"><span class="snum">4</span><span>Complete Triangle</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home Decor</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,23 +276,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked Example: Constructing an <span class="hl">Equilateral Triangle</span></h2>
-          <ul><li>An equilateral triangle has all sides equal and all angles 60°.</li><li>1. Draw a line segment AB (side length).</li><li>2. With A as center, radius AB, draw an arc.</li><li>3. With B as center, radius AB, draw another arc intersecting the first at C.</li><li>4. Join A to C and B to C.</li></ul>
-          <p class="notes">🎙️ Constructing an equilateral triangle is a classic example of using the SSS criterion. Since all sides are equal, you just set your compass to the desired side length and draw arcs from both ends of your base.</p>
+          <h2>Types of Tilings: <span class="hl">Irregular</span> Tessellations</h2>
+          <ul><li>Uses irregular polygons or a mix of different polygons.</li><li>Examples: Rectangles, rhombuses, or combinations.</li><li>Can create complex and artistic patterns.</li></ul>
+          <p class="notes">🎙️ Not all tilings use perfect, identical regular polygons. Irregular tessellations can use shapes like rectangles (which are irregular if not squares) or even complex, custom-designed shapes. Think of a brick wall, which uses rectangular bricks.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Base</span></div><div class="step"><span class="snum">2</span><span>Arc from End 1</span></div><div class="step"><span class="snum">3</span><span>Arc from End 2</span></div><div class="step"><span class="snum">4</span><span>Join Vertices</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Brick Wall Pattern</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Question</span>!</h2>
-          <ul><li>Which criterion requires the angle to be *between* the two given sides?</li></ul>
-          <p class="notes">🎙️ Think back to the triangle construction criteria we just learned. Which one specifically states that the angle must be the 'included' angle?</p>
+          <h2>Why do some shapes tile and others don't?</h2>
+          <ul><li>It depends on the angles of the shapes.</li><li>Angles around a point must add up to exactly 360°.</li><li>This ensures no gaps or overlaps at vertices.</li></ul>
+          <p class="notes">🎙️ This is the key secret behind tessellations! When tiles meet at a point (a vertex), the sum of the angles of the corners that meet there must be exactly 360 degrees. If it's less, there's a gap; if it's more, there's an overlap.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Angles Around a Point</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>What is <span class="hl">Tiling</span> (Tessellation)?</h2>
-          <ul><li>Covering a flat surface with shapes (tiles) without any gaps or overlaps.</li><li>The shapes fit together perfectly.</li><li>Creates a repeating pattern.</li></ul>
-          <p class="notes">🎙️ Tiling, or tessellation, is all about covering a surface completely with shapes, just like laying tiles on a floor. The key is that there are no empty spaces and no tiles overlapping each other.</p>
+          <h2><span class="hl">Angle Sum</span> at a Vertex</h2>
+          <ul><li>For a regular polygon with 'n' sides, each interior angle is (n-2) * 180 / n.</li><li>For a shape to tile, this angle must divide 360° exactly.</li><li>E.g., Square: 90°, 360/90 = 4 (4 squares meet).</li></ul>
+          <p class="notes">🎙️ Let's look at the math. An equilateral triangle has 60 degrees per angle, and 360/60 = 6, so six triangles meet. A square has 90 degrees, and 360/90 = 4, so four squares meet. A regular hexagon has 120 degrees, and 360/120 = 3, so three hexagons meet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Perfect Fit</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div><div class="vcap">360 Degrees</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Regular Tilings</span>: Using One Polygon Type</h2>
-          <ul><li>Only regular polygons (all sides and angles equal) can tile a plane on their own.</li><li>Squares, equilateral triangles, and regular hexagons can tile.</li><li>Pentagons cannot tile regularly.</li></ul>
-          <p class="notes">🎙️ Not all regular polygons can tile a surface perfectly by themselves. Only squares, equilateral triangles, and regular hexagons have angles that allow them to meet at a point without gaps or overlaps.</p>
+          <h2>Worked Example: Can a Regular <span class="hl">Pentagon</span> Tile?</h2>
+          <ul><li>Interior angle of a regular pentagon = (5-2)*180/5 = 108°.</li><li>Can 108° divide 360° exactly? 360/108 = 3.33...</li><li>No, it cannot. Regular pentagons do not tessellate on their own.</li></ul>
+          <p class="notes">🎙️ This is why not all regular polygons can tessellate. A regular pentagon's angle is 108 degrees. If you try to fit them, you'll either have a gap or an overlap because 108 doesn't perfectly divide 360.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔷</span><span>🔷</span><span>🔷</span><span>🔷</span><span>🔷</span><span>🔷</span></div><div class="vcap">Hexagon Tiles</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Calculate Angle</span></div><div class="step"><span class="snum">2</span><span>Divide 360°</span></div><div class="step"><span class="snum">3</span><span>Conclusion</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Real-Life Use: Floor and Wall Tiles</h2>
-          <ul><li>The most common example of tiling!</li><li>Tiles are laid to cover floors, walls, and backsplashes.</li><li>They form beautiful and durable surfaces.</li></ul>
-          <p class="notes">🎙️ Just look around your home or school! Floor and wall tiles are perfect examples of tessellations in action. They demonstrate how shapes can fit together to create a continuous, attractive surface.</p>
+          <h2>Quick Check 3: Which regular polygon <span class="hl">CANNOT</span> tessellate on its own?</h2>
+          <ul><li>A) Equilateral Triangle</li><li>B) Square</li><li>C) Regular Pentagon</li><li>D) Regular Hexagon</li></ul>
+          <p class="notes">🎙️ Based on our discussion about angle sums at a vertex, which of these shapes will leave either a gap or an overlap when you try to tile with it?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏘️</div><div class="vcap">Tiled Surfaces</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Key Property of Tilings: <span class="hl">Angles at a Vertex</span></h2>
-          <ul><li>For shapes to tile, the sum of the angles around any common vertex must be exactly 360 degrees.</li><li>If less, there's a gap; if more, there's an overlap.</li><li>This is why only certain regular polygons tile.</li></ul>
-          <p class="notes">🎙️ The secret to why certain shapes tile and others don't lies in their interior angles. For a perfect fit, the angles of the tiles meeting at any single point must add up to exactly 360 degrees.</p>
+          <h2><span class="hl">Recap</span>: Constructions vs. Tilings</h2>
+          <ul><li>Constructions: Drawing precise shapes with ruler and compass.</li><li>Tilings: Arranging shapes to cover a surface without gaps/overlaps.</li><li>Both involve understanding geometric properties.</li></ul>
+          <p class="notes">🎙️ Today, we covered two exciting areas of geometry. Constructions teach us precision drawing, while tilings show us how shapes interact to cover space. Both are about applying geometric rules creatively.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">360° Rule</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Constructions</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Tilings</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Recap: Key <span class="hl">Takeaways</span></h2>
-          <ul><li>Geometric constructions use ruler &amp; compass for precision.</li><li>We learned to bisect lines &amp; angles and construct triangles (SSS, SAS, ASA, RHS).</li><li>Tilings cover surfaces without gaps or overlaps, with angles at a vertex summing to 360°.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember the importance of precision in constructions and the different criteria for building triangles. Also, understand the magic behind tilings and why shapes fit together perfectly.</p>
+          <h2><span class="hl">Conclusion</span> &amp; Next Steps</h2>
+          <ul><li>Practice construction steps for accuracy.</li><li>Observe tessellations in your surroundings.</li><li>Explore more complex constructions and tilings!</li></ul>
+          <p class="notes">🎙️ Great job today! Remember, practice makes perfect with constructions. And now that you know about tilings, you'll start seeing them everywhere! Keep your eyes open for geometric patterns and challenges.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Keep Exploring!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Light — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Light: A Journey of Discovery (Class 7 Science) — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to the World of Light!</h2>
-          <ul><li>Let's explore the amazing phenomenon of light.</li><li>Understand how light works and affects our daily lives.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we begin an exciting journey into the world of Light. Light is all around us, helping us see everything, from the smallest ant to the biggest star.</p>
+          <h2>Welcome to the World of <span class="hl">Light</span>!</h2>
+          <ul><li>A journey into how we see!</li><li>Discover the mysteries of light and shadows.</li><li>Class 7 Science - CBSE</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we are going to explore the fascinating world of light. Light is all around us, helping us see everything. Let's begin our exciting journey!</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Light</span>?</h2>
-          <ul><li>Light is a form of energy.</li><li>It enables us to see objects.</li><li>Travels very fast.</li></ul>
-          <p class="notes">🎙️ Light is essentially a type of energy that makes vision possible. Without light, our world would be completely dark, and we wouldn't be able to perceive anything around us. It's incredibly fast, travelling at an astonishing speed.</p>
+          <ul><li>Light is a form of energy.</li><li>It enables us to see objects.</li><li>Without light, everything would be dark.</li></ul>
+          <p class="notes">🎙️ Light is a special kind of energy that our eyes can detect. Imagine a world without light – it would be completely dark and we wouldn't be able to see anything. Light makes our world visible!</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light Energy</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Sources</span> of Light: Natural vs. Artificial</h2>
-          <ul><li>Natural sources: Sun, stars, fireflies.</li><li>Artificial sources: Bulb, candle, torch.</li></ul>
-          <p class="notes">🎙️ Light comes from various sources, which we can broadly categorize. Natural sources are those found in nature, like the sun, while artificial sources are man-made, such as electric bulbs and candles.</p>
+          <h2><span class="hl">Sources</span> of Light</h2>
+          <ul><li>Objects that produce light are called sources of light.</li><li>Natural sources: Sun, stars, fireflies.</li><li>Artificial sources: Electric bulb, candle, torch.</li></ul>
+          <p class="notes">🎙️ Light doesn't just appear; it comes from sources. The sun is our most important natural source, giving us light and warmth. We also create artificial sources like bulbs to light up our homes.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sun</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Bulb</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Natural</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Artificial</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Rectilinear Propagation of Light</h2>
-          <ul><li>Light always travels in a straight path.</li><li>This is called rectilinear propagation.</li></ul>
-          <p class="notes">🎙️ One of the most fundamental properties of light is that it always travels in a straight line. You can observe this phenomenon easily in daily life, like sunbeams passing through a small opening.</p>
+          <h2><span class="hl">Luminous</span> and Non-Luminous Objects</h2>
+          <ul><li>Luminous objects emit their own light (e.g., sun, bulb).</li><li>Non-luminous objects reflect light from other sources (e.g., moon, chair).</li><li>We see non-luminous objects because they reflect light into our eyes.</li></ul>
+          <p class="notes">🎙️ Think about a glowing light bulb – it's luminous because it makes its own light. Now, look at your book – it's non-luminous because it only becomes visible when light from a source falls on it and bounces off.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Emitting Light</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Light Travels in a <span class="hl">Straight Line</span></h2>
+          <ul><li>This property is called Rectilinear Propagation of Light.</li><li>Light rays move in straight paths.</li><li>We can observe this when light passes through a small opening.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed how sunlight streams through a window in a perfectly straight beam? This shows that light doesn't curve around objects; it always travels in straight lines, like an arrow.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Path</div></div></div>
       </div>
@@ -94,22 +119,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2><span class="hl">Activity</span>: Observing Light's Straight Path</h2>
-          <ul><li>Look at a candle flame through a straight pipe.</li><li>Then, look through a bent pipe.</li><li>You can only see the flame through the straight pipe.</li></ul>
-          <p class="notes">🎙️ This simple activity demonstrates that light cannot bend around corners. When the pipe is straight, light from the candle reaches your eye directly. But a bent pipe blocks the straight path of light.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Straight Pipe</span></div><div class="step"><span class="snum">2</span><span>Bent Pipe</span></div><div class="step"><span class="snum">3</span><span>Observation</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Shadows</span>: Proof of Straight Path</h2>
-          <ul><li>Formed when an opaque object blocks light.</li><li>Light cannot bend around the object.</li><li>The shape of the shadow matches the object.</li></ul>
-          <p class="notes">🎙️ Shadows are a perfect everyday example of light traveling in a straight line. When an object that light cannot pass through comes in the way, it creates a dark area where light is blocked, forming a shadow.</p>
+          <h2>Real-Life Example: <span class="hl">Shadows</span></h2>
+          <ul><li>Shadows are formed when an opaque object blocks light.</li><li>Light cannot bend around the object.</li><li>The shape of the shadow depends on the object and light source.</li></ul>
+          <p class="notes">🎙️ Shadows are perfect examples of light traveling in straight lines. When you stand in the sun, your body, an opaque object, blocks the light, and since light can't bend, a dark area, your shadow, is formed behind you.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Light_properties.svg?width=500" data-fb="👤" alt="Light travels in straight lines. When light is blocked, shadows form. Objects are classifi"/><div class="vcap">Light travels in straight lines. When light is blocked, shadows form. Objects are classifi</div></div></div>
       </div>
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Objects and Light</span>: Transparent, Translucent, Opaque</h2>
-          <ul><li>Transparent: Light passes through completely (glass).</li><li>Translucent: Light passes partially (frosted glass).</li><li>Opaque: Light does not pass through (wall).</li></ul>
-          <p class="notes">🎙️ How much light an object allows to pass through determines its classification. This property is crucial in many applications, from windows to sunglasses, controlling how much light enters a space or reaches our eyes.</p>
+          <h2>Activity: Making a <span class="hl">Pin-hole Camera</span></h2>
+          <ul><li>A simple device to demonstrate rectilinear propagation.</li><li>Light from an object passes through a tiny hole.</li><li>An inverted image is formed on the screen.</li></ul>
+          <p class="notes">🎙️ A pin-hole camera is a fun way to see light's straight path. The light from a tree, for instance, enters through a small hole, crosses over, and forms an upside-down image on the screen inside the box.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Transparent</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Translucent</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Opaque</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Box with hole</span></div><div class="step"><span class="snum">2</span><span>Light enters</span></div><div class="step"><span class="snum">3</span><span>Inverted image</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Reflection</span> of Light: Bouncing Back</h2>
-          <ul><li>When light hits a surface and bounces back.</li><li>Like a ball bouncing off a wall.</li><li>Mirrors are excellent reflectors.</li></ul>
-          <p class="notes">🎙️ Reflection is a common phenomenon where light rays hit a surface and change direction, essentially bouncing off it. This is how we see our own reflection in a mirror, or how light illuminates a room after hitting the walls.</p>
+          <h2><span class="hl">Reflection</span> of Light</h2>
+          <ul><li>The bouncing back of light from a surface.</li><li>Like a ball bouncing off a wall.</li><li>Mirrors are excellent reflectors of light.</li></ul>
+          <p class="notes">🎙️ Reflection is a very common phenomenon. When light hits a smooth surface, it doesn't just stop; it bounces back, much like a rubber ball hitting a wall and coming back to you. This bouncing back is called reflection.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=500" data-fb="🪞" alt="Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra"/><div class="vcap">Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=500" data-fb="↩️" alt="Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra"/><div class="vcap">Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Types</span> of Reflection: Regular and Diffused</h2>
-          <ul><li>Regular reflection: From smooth surfaces (mirror), clear image.</li><li>Diffused reflection: From rough surfaces (wall), scattered light.</li></ul>
-          <p class="notes">🎙️ The type of surface determines how light reflects. A perfectly smooth surface like a mirror causes regular reflection, producing a clear image, whereas a rough surface scatters light in many directions, leading to diffused reflection.</p>
+          <h2>Types of <span class="hl">Surfaces</span> for Reflection</h2>
+          <ul><li>Smooth surfaces: Reflect light uniformly (e.g., mirror, still water).</li><li>Rough surfaces: Scatter light in different directions (e.g., wall, paper).</li><li>Smooth surfaces produce clear images.</li></ul>
+          <p class="notes">🎙️ Imagine looking at yourself in a perfectly still pond versus a choppy river. The still pond acts like a smooth mirror, giving a clear reflection, while the choppy river scatters light, giving a distorted view.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Smooth Surface</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Rough Surface</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Smooth</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Rough</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>How We <span class="hl">See Objects</span>: The Role of Reflection</h2>
-          <ul><li>Light from a source hits an object.</li><li>The object reflects light into our eyes.</li><li>Our brain processes this light, allowing us to see.</li></ul>
-          <p class="notes">🎙️ We don't actually see objects directly, but rather the light they reflect. Light from the sun or a bulb illuminates an object, and that reflected light then travels to our eyes, allowing us to perceive its shape and color.</p>
+          <h2>Mirrors: <span class="hl">Plane Mirrors</span></h2>
+          <ul><li>A plane mirror has a flat, smooth reflecting surface.</li><li>Used daily for grooming and decoration.</li><li>They form virtual and erect images.</li></ul>
+          <p class="notes">🎙️ The mirror you use every morning to get ready is a plane mirror. It's perfectly flat and smooth, allowing light to reflect off it in an organized way, creating an image of yourself.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Seeing with Light</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪞</div><div class="vcap">Flat Mirror</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Mirrors: Introducing <span class="hl">Plane Mirrors</span></h2>
-          <ul><li>A flat, smooth, highly polished surface.</li><li>Used daily for seeing our reflection.</li><li>Forms virtual, erect, and same-sized images.</li></ul>
-          <p class="notes">🎙️ Plane mirrors are the most common type of mirror, having a perfectly flat reflective surface. They are essential in our homes for grooming and also have many scientific applications due to their predictable image formation properties.</p>
+          <h2><span class="hl">Image Formation</span> by Plane Mirror</h2>
+          <ul><li>Image is virtual (cannot be caught on screen).</li><li>Image is erect (upright).</li><li>Image is of the same size as the object.</li><li>Image is at the same distance behind the mirror as the object is in front.</li></ul>
+          <p class="notes">🎙️ When you look into a plane mirror, you see an image that appears to be behind the mirror. This image is upright, just like you, and looks exactly your size. It also seems to be as far behind the mirror as you are in front of it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Flat Mirror</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Same Size, Same Distance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Image Formation</span> in a Plane Mirror</h2>
-          <ul><li>Image is virtual (cannot be caught on screen).</li><li>Image is erect (upright).</li><li>Same size as the object.</li><li>Laterally inverted (left appears right).</li><li>Same distance behind as object is in front.</li></ul>
-          <p class="notes">🎙️ When you look into a plane mirror, the image you see has specific characteristics. It appears to be behind the mirror, is the same height as you, and shows your left and right sides swapped, a phenomenon called lateral inversion.</p>
+          <h2>Real-Life Example: <span class="hl">Looking</span> in a Mirror</h2>
+          <ul><li>We see our reflection in a plane mirror.</li><li>The image appears to be inside the mirror.</li><li>It's a virtual image, not a real one.</li></ul>
+          <p class="notes">🎙️ Every time you comb your hair or check your outfit in a mirror, you are experiencing image formation by a plane mirror. The 'you' you see in the mirror isn't actually there; it's a virtual image created by reflected light.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍‍♀️</span><span>🧍‍♀️</span></div><div class="vcap">Object &amp; Image</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍</span><span>🧍</span></div><div class="vcap">You and Your Reflection</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Periscope</span>: Seeing Around Corners</h2>
-          <ul><li>Uses two plane mirrors.</li><li>Allows viewing objects not in direct line of sight.</li><li>Used in submarines and military tanks.</li></ul>
-          <p class="notes">🎙️ The periscope is a clever device that uses the principle of reflection from plane mirrors to see over obstacles or around corners. This technology is vital in submarines, enabling them to see above the water's surface while remaining submerged.</p>
+          <h2><span class="hl">Lateral Inversion</span></h2>
+          <ul><li>The left side of the object appears as the right side of the image.</li><li>And the right side appears as the left.</li><li>It's a side-to-side reversal, not up-down.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed that when you raise your right hand in front of a mirror, your image appears to raise its left hand? This peculiar side-to-side reversal is called lateral inversion, a unique property of plane mirrors.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚢</div><div class="vcap">Periscope Use</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔀</div><div class="vcap">Side Reversal</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Beyond Plane: <span class="hl">Spherical Mirrors</span></h2>
-          <ul><li>Mirrors with curved reflective surfaces.</li><li>Part of a hollow sphere.</li><li>Two main types: Concave and Convex.</li></ul>
-          <p class="notes">🎙️ Unlike flat plane mirrors, spherical mirrors have a curved surface, either bulging outwards or curving inwards. These curves give them unique properties for focusing or spreading light, making them useful in many different applications.</p>
+          <h2>Activity: The <span class="hl">Ambulance</span> Sign</h2>
+          <ul><li>The word 'AMBULANCE' is often written laterally inverted on the front.</li><li>So, drivers in front see it correctly in their rearview mirrors.</li><li>This helps them give way quickly.</li></ul>
+          <p class="notes">🎙️ This is a clever practical application of lateral inversion. When you see an ambulance from your car's rearview mirror, the word 'AMBULANCE' appears correctly, even though it's written backward on the ambulance itself.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Curved Mirrors</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚑</div><div class="vcap">Mirror Image</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Concave Mirror</span>: Converging Light</h2>
-          <ul><li>Reflecting surface curves inwards.</li><li>Converges (gathers) parallel light rays.</li><li>Used by dentists, in torches, and car headlights.</li></ul>
-          <p class="notes">🎙️ Imagine the inside of a spoon – that's like a concave mirror. It collects incoming light rays and focuses them to a point, which is why it's used in applications where a strong, focused beam of light is needed, like in flashlights.</p>
+          <h2><span class="hl">Spherical</span> Mirrors</h2>
+          <ul><li>Mirrors with curved reflecting surfaces.</li><li>Part of a hollow sphere.</li><li>Two types: Concave and Convex.</li></ul>
+          <p class="notes">🎙️ Unlike flat plane mirrors, spherical mirrors have a curved surface. Imagine cutting out a piece from a shiny ball – that's essentially a spherical mirror. They come in two main types, each with unique properties.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥄</div><div class="vcap">Inward Curve</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Concave</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Convex</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Convex Mirror</span>: Diverging Light</h2>
-          <ul><li>Reflecting surface curves outwards.</li><li>Diverges (spreads out) parallel light rays.</li><li>Used as rear-view mirrors in vehicles, shop security mirrors.</li></ul>
-          <p class="notes">🎙️ Now imagine the outside of a spoon – that's a convex mirror. It spreads out light rays, giving a wider field of view, though the images are smaller. This is why they are perfect for rear-view mirrors in cars, allowing drivers to see more of the road behind them.</p>
+          <h2>Uses of <span class="hl">Concave Mirrors</span></h2>
+          <ul><li>Used by dentists to see enlarged images of teeth.</li><li>Headlights of cars to focus light.</li><li>Shaving mirrors for a magnified view.</li></ul>
+          <p class="notes">🎙️ Concave mirrors are useful because they can converge light and produce magnified images. Dentists use them to get a closer look at your teeth, and car headlights use them to direct a powerful beam of light forward.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Outward Curve</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦷</div><div class="vcap">Magnifying</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Quick Check: Light's Path</h2>
-          <ul><li>True or False: Light travels in a curved path.</li><li>Explain your answer briefly.</li></ul>
-          <p class="notes">🎙️ Think back to our discussion about how shadows are formed and the candle experiment. Does light bend around objects, or does it maintain a straight line?</p>
+          <h2>Uses of <span class="hl">Convex Mirrors</span></h2>
+          <ul><li>Rear-view mirrors in vehicles to see a wider area.</li><li>Security mirrors in shops to monitor aisles.</li><li>Always form virtual, erect, and diminished images.</li></ul>
+          <p class="notes">🎙️ Convex mirrors are the opposite; they diverge light and provide a wider field of view, though the images are smaller. This is why they are perfect for car rearview mirrors, allowing drivers to see more of the road behind them.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Wide View</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Quick Check: Mirror Types</h2>
-          <ul><li>Which type of mirror is used as a rear-view mirror in cars?</li><li>a) Plane mirror b) Concave mirror c) Convex mirror</li></ul>
-          <p class="notes">🎙️ Consider which type of mirror provides a wider field of view, even if the images are smaller. This characteristic is very important for vehicle safety.</p>
+          <h2>Quick <span class="hl">Check</span> 1: Test Your Knowledge!</h2>
+          <ul><li>Which type of mirror is used as a dentist's mirror?</li><li>What is the phenomenon of light bouncing back called?</li><li>Does a plane mirror form a real or virtual image?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think about the different types of mirrors and how they work. These questions will help us recap what we've learned about reflection and mirrors.</p>
         </div>
         
       </div>
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Dispersion</span> of Light: The Rainbow Effect</h2>
-          <ul><li>White light is made of seven different colours (VIBGYOR).</li><li>A prism can split white light into its constituent colours.</li><li>This splitting is called dispersion.</li></ul>
-          <p class="notes">🎙️ Sir Isaac Newton famously showed that white light, which appears uniform, is actually a mixture of many colours. When passed through a prism, these colours separate, revealing the beautiful spectrum we know as VIBGYOR.</p>
+          <h2><span class="hl">Dispersion</span> of Light</h2>
+          <ul><li>The splitting of white light into its seven constituent colors.</li><li>Colors are VIBGYOR (Violet, Indigo, Blue, Green, Yellow, Orange, Red).</li><li>A prism can demonstrate dispersion.</li></ul>
+          <p class="notes">🎙️ White light, which appears simple, is actually a combination of seven different colors! When it passes through a prism, these colors separate, creating a beautiful spectrum, just like a rainbow.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Colourful Light</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Light_dispersion_conceptual_waves.gif?width=500" data-fb="🌈" alt="Dispersion is the separation of white light into its component colours by refraction. Diff"/><div class="vcap">Dispersion is the separation of white light into its component colours by refraction. Diff</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Rainbows</span>: Nature's Own Spectrum</h2>
-          <ul><li>Formed by dispersion of sunlight by tiny water droplets.</li><li>Acts like millions of tiny prisms.</li><li>Always appears opposite to the sun.</li></ul>
-          <p class="notes">🎙️ Rainbows are a spectacular natural demonstration of light dispersion. After rainfall, sunlight passes through water droplets suspended in the air, each droplet acting like a tiny prism, splitting the white light into its vibrant colours.</p>
+          <h2><span class="hl">Rainbows</span>: Nature's Spectrum</h2>
+          <ul><li>A natural phenomenon caused by dispersion of sunlight.</li><li>Sunlight passes through tiny water droplets in the air.</li><li>Each droplet acts like a tiny prism, splitting the light.</li></ul>
+          <p class="notes">🎙️ Rainbows are the most beautiful example of light dispersion. After rainfall, tiny water droplets suspended in the air act like millions of mini-prisms, splitting the sunlight into its seven colors, forming a magnificent arc.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌦️</div><div class="vcap">Post-Rain Beauty</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water Droplets act as Prisms</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,63 +300,64 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>The <span class="hl">Human Eye</span>: Our Window to the World</h2>
-          <ul><li>Our eyes are incredible natural optical instruments.</li><li>Light enters the eye and forms an image on the retina.</li><li>The brain interprets this image.</li></ul>
-          <p class="notes">🎙️ Our eyes are complex organs that work much like a camera, focusing light to create images. Understanding its basic function helps us appreciate the miracle of sight and how light is crucial for it.</p>
+          <h2>Real-Life Example: Colors on <span class="hl">CD/DVD</span></h2>
+          <ul><li>The shimmering colors seen on a CD or DVD surface.</li><li>Caused by the tiny grooves on its surface.</li><li>These grooves diffract and disperse light, showing its spectrum.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed the beautiful rainbow-like colors on the surface of a CD or DVD when light hits it? This isn't due to pigments, but because the tiny grooves on its surface act like a diffraction grating, splitting the white light into its constituent colors.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👁️</div><div class="vcap">How We See</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💿</div><div class="vcap">Light Spectrum</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check 2: More <span class="hl">Questions</span>!</h2>
+          <ul><li>What are the seven colors of white light?</li><li>What natural phenomenon shows dispersion?</li><li>Can a plane mirror form a real image?</li></ul>
+          <p class="notes">🎙️ Let's test our understanding of dispersion and previous concepts. Remember the order of colors in a rainbow and the characteristics of images formed by plane mirrors.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Protecting Our Eyes: Light <span class="hl">Safety</span></h2>
-          <ul><li>Never look directly at the sun or strong light sources.</li><li>Read in adequate but not excessively bright light.</li><li>Protect eyes from dust and injury.</li></ul>
-          <p class="notes">🎙️ Our eyes are very delicate and precious, so it's important to protect them from harm. Direct exposure to intense light, like the sun, can cause permanent damage, emphasizing the need for proper eye care.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Eye Care</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check: Colours of Light</h2>
-          <ul><li>How many colours make up white light?</li><li>a) 3 b) 5 c) 7 d) 9</li></ul>
-          <p class="notes">🎙️ Recall the phenomenon of dispersion and the acronym we use to remember the sequence of colours in a rainbow. That should give you the answer.</p>
+          <h2><span class="hl">Summary</span>: Key Takeaways</h2>
+          <ul><li>Light is energy that helps us see.</li><li>It travels in straight lines (rectilinear propagation).</li><li>Reflection: Bouncing of light from surfaces (mirrors).</li><li>Dispersion: White light splitting into VIBGYOR.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that light travels straight, bounces off mirrors to form images, and white light is actually a beautiful mix of seven colors that can be separated through dispersion.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Main Points</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Our Journey Through Light</h2>
-          <ul><li>Light travels in straight lines.</li><li>Reflection: Bouncing of light (Plane, Concave, Convex).</li><li>Dispersion: White light splits into 7 colours.</li><li>Eyes help us see by processing reflected light.</li></ul>
-          <p class="notes">🎙️ We've covered many exciting aspects of light today, from its straight-line travel to how mirrors work and the beautiful phenomenon of rainbows. Light truly is fundamental to how we perceive the world.</p>
+          <h2><span class="hl">Challenge</span> Question!</h2>
+          <ul><li>Why is it dangerous to use a concave mirror as a rear-view mirror in a car?</li><li>Think about the image properties of concave mirrors.</li></ul>
+          <p class="notes">🎙️ Here's a thought-provoking question for you. Consider what we learned about the images formed by concave mirrors and how that would affect a driver's view of traffic behind them.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Concave_mirror.svg?width=500" data-fb="🔬" alt="A concave mirror (converging mirror) reflects light inward toward a focal point. The type "/><div class="vcap">A concave mirror (converging mirror) reflects light inward toward a focal point. The type </div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Thank You! Any Questions?</h2>
-          <ul><li>Keep exploring the wonders of light!</li><li>Further Reading: Chapter on Light, CBSE Class 7 Science Textbook.</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our lesson on Light. I hope you found it insightful and are now more curious about the world around you. Feel free to ask any questions you might have.</p>
+          <h2>Thank You! Keep <span class="hl">Exploring</span> Light!</h2>
+          <ul><li>Light is everywhere, observe it!</li><li>Stay curious and keep learning.</li><li>See you in the next lesson!</li></ul>
+          <p class="notes">🎙️ Thank you for your enthusiastic participation! I hope you enjoyed our journey into the world of light. Keep observing the fascinating ways light interacts with objects around you every day!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Keep Shining!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

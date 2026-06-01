@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Our Body — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Our <span class="hl">Amazing Body</span>!</h2>
-          <ul><li>Welcome, little scientists!</li><li>Today, we will learn about our wonderful body.</li><li>It's like a special house for us.</li></ul>
-          <p class="notes">🎙️ Hello everyone! I'm so excited to start our new chapter, 'Our Body'. We're going to explore all the amazing things our body can do and how it works.</p>
+          <ul><li>Hello, little friends!</li><li>Today, we will learn about our wonderful body.</li></ul>
+          <p class="notes">🎙️ Namaste, children! Today we are going to explore the most amazing thing ever – our own body! It's full of wonders and surprises.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Our Body is <span class="hl">Special</span>!</h2>
-          <ul><li>We have a head, arms, legs, and many more parts.</li><li>All these parts work together.</li><li>They help us do many things every day.</li></ul>
-          <p class="notes">🎙️ Just like a toy has many different parts that fit together, our body also has many parts. Each part is important and has a special job to do.</p>
+          <h2>Our Body is Like a <span class="hl">Machine</span></h2>
+          <ul><li>Our body has many parts.</li><li>Each part does a special job.</li></ul>
+          <p class="notes">🎙️ Think of a toy robot or a car. They have many parts that work together. Our body is just like that, but even more special!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="🧍" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="🤖" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>So <span class="hl">Many</span> Body Parts!</h2>
-          <ul><li>Can you touch your nose?</li><li>Can you clap your hands?</li><li>These are all different parts of our body.</li></ul>
-          <p class="notes">🎙️ Our body is like a big team. Every part is a player, and they all work together to help us play, learn, and grow strong.</p>
+          <h2><span class="hl">Many</span> Body Parts</h2>
+          <ul><li>We have parts we can see.</li><li>And parts hidden inside.</li></ul>
+          <p class="notes">🎙️ Look at your hands, your feet, your nose. These are parts you can see. But did you know there are also parts inside you that you cannot see?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">Different parts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍</span><span>🧍</span><span>🧍</span><span>🧍</span><span>🧍</span></div><div class="vcap">So many parts!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Parts <span class="hl">Outside</span> Our Body</h2>
-          <ul><li>These are called external parts.</li><li>We can see them from the outside.</li><li>Like our eyes, nose, and hands.</li></ul>
-          <p class="notes">🎙️ Imagine looking in a mirror. All the parts you see are external parts. They are on the outside of our body and help us interact with the world.</p>
+          <h2>Parts We <span class="hl">Can See</span></h2>
+          <ul><li>These are called external parts.</li><li>Like your head, hands, and legs.</li></ul>
+          <p class="notes">🎙️ The parts that are outside our body and we can touch and see are called external parts. Let's look at some of them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Eyes help us see</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Let's Start with Our <span class="hl">Head</span>!</h2>
-          <ul><li>Our head is at the very top.</li><li>It has our eyes, nose, ears, and mouth.</li><li>Our hair also grows on our head.</li></ul>
-          <p class="notes">🎙️ Our head is very important! It holds many of our sensory organs, which help us see, hear, smell, and taste everything around us.</p>
+          <h2>What's on Our <span class="hl">Head</span>?</h2>
+          <ul><li>Our head is on top.</li><li>It has eyes, ears, nose, and mouth.</li></ul>
+          <p class="notes">🎙️ Our head is like the control center. It holds many important parts that help us sense the world around us.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="👤" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🦱</div><div class="vcap">Our head</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Our <span class="hl">Sense Organs</span></h2>
-          <ul><li>Our eyes help us see beautiful things.</li><li>Our ears help us hear sounds like music.</li><li>Our nose helps us smell yummy food and flowers.</li></ul>
-          <p class="notes">🎙️ These are like special tools that help us understand the world around us. They send messages to our brain about what's happening.</p>
+          <h2>Eyes Help Us <span class="hl">See</span></h2>
+          <ul><li>We have two eyes.</li><li>They help us see colours, shapes, and everything around us.</li></ul>
+          <p class="notes">🎙️ Imagine a world without colours! Our eyes are like tiny cameras that show us the beautiful world. We use them to read books and watch cartoons.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👃</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👁️</div><div class="vcap">Our eyes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Our <span class="hl">Mouth</span> and Happy Teeth</h2>
-          <ul><li>Our mouth helps us eat food and talk.</li><li>Our teeth help us chew food into small pieces.</li><li>A happy smile starts with our mouth!</li></ul>
-          <p class="notes">🎙️ It's super important to keep our teeth clean by brushing them every day. This helps us eat well and have a bright, healthy smile.</p>
+          <h2>Ears Help Us <span class="hl">Hear</span></h2>
+          <ul><li>We have two ears.</li><li>They help us listen to music, birds, and our teacher.</li></ul>
+          <p class="notes">🎙️ Can you hear the birds singing? Or your mom calling you? Our ears help us hear all the sounds, soft or loud.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👄</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👂</div><div class="vcap">Our ears</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>The Neck: Our Body's <span class="hl">Connector</span></h2>
-          <ul><li>Our neck joins our head to our body.</li><li>It helps us move our head up, down, and sideways.</li><li>Try moving your head around gently!</li></ul>
-          <p class="notes">🎙️ The neck is like a flexible bridge. It allows us to look in different directions without moving our whole body, which is very useful.</p>
+          <h2>Nose Helps Us <span class="hl">Smell</span> and Breathe</h2>
+          <ul><li>We have one nose.</li><li>It helps us smell yummy food and fresh flowers.</li><li>It also helps us breathe air.</li></ul>
+          <p class="notes">🎙️ What a lovely smell of a flower! Our nose is very clever. It helps us smell things and also takes in the air we need to live.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👃</div><div class="vcap">Our nose</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Our <span class="hl">Busy</span> Arms and Hands</h2>
-          <ul><li>We have two arms and two hands.</li><li>They help us hold things, write, and play.</li><li>We can wave goodbye with our hands!</li></ul>
-          <p class="notes">🎙️ Our hands have fingers that help us do many delicate tasks, like tying shoelaces, drawing pictures, or picking up small toys.</p>
+          <h2>Mouth Helps Us <span class="hl">Eat</span> and Speak</h2>
+          <ul><li>Our mouth helps us eat food.</li><li>It also helps us talk and sing.</li></ul>
+          <p class="notes">🎙️ Yummy food goes into our mouth! Our mouth helps us chew and swallow. And it's also how we tell stories and sing our favourite songs.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👋</span><span>👋</span></div><div class="vcap">Two hands</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="👄" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Our <span class="hl">Strong</span> Legs and Feet</h2>
-          <ul><li>We have two legs and two feet.</li><li>They help us walk, run, jump, and dance.</li><li>Our feet carry us wherever we want to go.</li></ul>
-          <p class="notes">🎙️ Our legs and feet are very important for movement. They help us explore the world, play our favorite games, and go to school.</p>
+          <h2>Hands and Arms Help Us <span class="hl">Work</span></h2>
+          <ul><li>We have two arms and two hands.</li><li>They help us hold things, write, and play.</li></ul>
+          <p class="notes">🎙️ Look at your hands! You use them to write in your notebook, hold your spoon, and play with your toys. Our arms help our hands reach things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦵</span><span>🦵</span></div><div class="vcap">Two legs</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👋</div><div class="vcap">Our hands</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Hidden</span> Parts Inside Us!</h2>
-          <ul><li>Some parts are inside our body.</li><li>We cannot see them from the outside.</li><li>These are called internal organs.</li></ul>
-          <p class="notes">🎙️ Just like a house has rooms inside that you can't see from the street, our body has important parts hidden inside. Let's learn about them!</p>
+          <h2>Legs and Feet Help Us <span class="hl">Move</span></h2>
+          <ul><li>We have two legs and two feet.</li><li>They help us walk, run, jump, and dance.</li></ul>
+          <p class="notes">🎙️ Our legs are very strong! They help us move from one place to another. We can run fast or jump high thanks to our legs and feet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦵</div><div class="vcap">Our legs</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,9 +192,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>The Brain: Our Body's <span class="hl">Boss</span></h2>
-          <ul><li>Our brain is inside our head.</li><li>It helps us think, learn, and remember things.</li><li>It tells all other body parts what to do.</li></ul>
-          <p class="notes">🎙️ Our brain is like the captain of a ship. It controls everything our body does, from breathing to solving puzzles and dreaming at night.</p>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>What helps you see the world?</li><li>Is it your ears?</li><li>Or your eyes?</li><li>Or your nose?</li></ul>
+          <p class="notes">🎙️ Let's see if you remember! Close your eyes for a moment. What part of your body helps you open them and see everything again?</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔬" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 20</span>
+          <h2>Quick <span class="hl">Question</span> Time!</h2>
+          <ul><li>What helps you run and play?</li><li>Is it your hands?</li><li>Or your legs?</li><li>Or your mouth?</li></ul>
+          <p class="notes">🎙️ Think about when you play outside with your friends. Which body parts are working hard to help you move so fast?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>Parts We <span class="hl">Cannot See</span></h2>
+          <ul><li>These are inside our body.</li><li>They are called internal parts.</li><li>They are very important!</li></ul>
+          <p class="notes">🎙️ Now, let's talk about some secret parts! These are inside us, working all the time, even when we are sleeping. We can't see them, but they are super important.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Parts inside</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>The <span class="hl">Boss</span> of Our Body</h2>
+          <ul><li>Our brain is in our head.</li><li>It helps us think, learn, and remember things.</li></ul>
+          <p class="notes">🎙️ Our brain is like the boss of our body. It tells all other parts what to do. It helps you understand what I am saying right now!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🧠" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
@@ -190,84 +239,48 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 20</span>
-          <h2>The Heart: A <span class="hl">Pumping</span> Machine</h2>
-          <ul><li>Our heart is inside our chest.</li><li>It works non-stop, pumping blood to all parts.</li><li>Can you feel your heartbeat? Put your hand on your chest!</li></ul>
-          <p class="notes">🎙️ The heart is like a powerful pump. It makes sure that every part of our body gets the fresh blood it needs to work well and stay healthy.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>The Lungs: For <span class="hl">Breathing</span> Air</h2>
-          <ul><li>We have two lungs inside our chest.</li><li>They help us breathe in fresh air (oxygen).</li><li>And breathe out the used air (carbon dioxide).</li></ul>
-          <p class="notes">🎙️ Our lungs are like big sponges. They take in oxygen from the air we breathe and give it to our blood, which is essential for life.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🫁</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2>The Stomach: Food's <span class="hl">Mixer</span></h2>
-          <ul><li>Our stomach is inside our tummy.</li><li>It helps to mix and digest the food we eat.</li><li>It turns food into energy for us to play and learn.</li></ul>
-          <p class="notes">🎙️ When we eat, the food goes into our stomach. It's like a special blender that breaks down food so our body can use all its nutrients.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍔</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>All Parts Work as a <span class="hl">Team</span>!</h2>
-          <ul><li>All our body parts are friends.</li><li>They help each other do their jobs perfectly.</li><li>This makes our body work smoothly and keeps us healthy.</li></ul>
-          <p class="notes">🎙️ Imagine a big orchestra where every instrument plays its part in harmony. Our body is just like that, with every organ playing its important role.</p>
+          <h2>The <span class="hl">Pumping</span> Heart</h2>
+          <ul><li>Our heart is inside our chest.</li><li>It pumps blood to all parts of our body.</li></ul>
+          <p class="notes">🎙️ Put your hand on your chest. Can you feel a 'thump-thump'? That's your heart working! It's like a special pump that keeps everything moving inside.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Our heart</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Let's <span class="hl">Test</span> Our Knowledge!</h2>
-          <ul><li>Name two parts of your body that you can see.</li><li>(Hint: Think about your face!)</li></ul>
-          <p class="notes">🎙️ It's time for a fun little quiz! Think about what we just learned about the parts on the outside of our body. What two parts come to your mind?</p>
+          <h2>Our <span class="hl">Breathing</span> Lungs</h2>
+          <ul><li>We have two lungs in our chest.</li><li>They help us breathe in fresh air.</li></ul>
+          <p class="notes">🎙️ Take a deep breath in and out. Our lungs are like two big balloons that fill up with air when we breathe. They help us get the air we need.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🫁</div><div class="vcap">Our lungs</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Think and <span class="hl">Answer</span>!</h2>
-          <ul><li>Which organ helps us breathe in and out?</li><li>(Hint: We have two of them!)</li></ul>
-          <p class="notes">🎙️ This organ is very important for life. Remember which one takes in the fresh air for us and lets out the used air?</p>
+          <h2>Our <span class="hl">Food</span> Stomach</h2>
+          <ul><li>Our stomach is inside our tummy.</li><li>It helps to digest the food we eat.</li></ul>
+          <p class="notes">🎙️ When you eat your yummy lunch, where does it go? It goes to your stomach! It's like a mixer that breaks down the food so your body can use it.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍔</div><div class="vcap">Our stomach</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Our Body: A Quick <span class="hl">Recap</span>!</h2>
-          <ul><li>Our body has many external parts that we can see.</li><li>It also has important internal organs inside us.</li><li>All parts work together to keep us alive and well.</li></ul>
-          <p class="notes">🎙️ We learned that our body is a complex and amazing machine. Every part, big or small, has a vital role to play in keeping us healthy and active.</p>
+          <h2>Recap: All Parts Work <span class="hl">Together</span></h2>
+          <ul><li>Each body part is special.</li><li>They all work as a team.</li><li>To keep us healthy and happy!</li></ul>
+          <p class="notes">🎙️ Just like in a team game, all our body parts work together. Our eyes see, our legs run, our brain thinks – all at the same time to help us!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤝</span><span>🤝</span><span>🤝</span></div><div class="vcap">Working as a team</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Taking Care of Our Body</h2>
-          <ul><li>Eat healthy food like fruits and vegetables.</li><li>Exercise and play daily to stay strong.</li><li>Keep your body clean and rest well every night.</li></ul>
-          <p class="notes">🎙️ Just like we take care of our favorite toys, we must take good care of our body. This helps us stay strong, happy, and ready for new adventures!</p>
+          <h2>Keep Your Body <span class="hl">Healthy</span>!</h2>
+          <ul><li>Eat healthy food.</li><li>Play and exercise daily.</li><li>Take good care of your body.</li></ul>
+          <p class="notes">🎙️ Our body is a precious gift. We must eat good food, play outside, and keep ourselves clean to make sure our amazing body stays strong and healthy!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Stay strong!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>The Wastewater Story — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,39 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to 'The <span class="hl">Wastewater</span> Story'</h2>
-          <ul><li>Uncover the journey of used water.</li><li>Understand its impact on our health and environment.</li><li>Learn how we can make a difference.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an important journey to understand 'The Wastewater Story'. This chapter will help us explore what happens to the water we use daily and why it's crucial to manage it properly for a healthier planet.</p>
+          <h2>The <span class="hl">Wastewater</span> Story</h2>
+          <ul><li>A journey of dirty water</li><li>Understanding its impact</li><li>Our role in keeping water clean</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're embarking on a fascinating and very important journey – 'The Wastewater Story'. We'll explore what happens to the water we use, why it becomes dirty, and what we can do about it.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What happens to the water <span class="hl">after we use it</span>?</h2>
+          <ul><li>Think about your home</li><li>Where does bath water go?</li><li>What about kitchen water?</li></ul>
+          <p class="notes">🎙️ Imagine you've just finished bathing or washing dishes. Where does all that water go? Does it just vanish? Let's uncover the path of this used water.</p>
         </div>
         
       </div>
@@ -58,10 +83,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 25</span>
+          <span class="num">3 / 25</span>
           <h2>What is <span class="hl">Wastewater</span>?</h2>
-          <ul><li>Any water that has been used and is no longer fresh.</li><li>Also known as 'dirty water' or 'sewage'.</li><li>Contains dissolved and suspended impurities.</li></ul>
-          <p class="notes">🎙️ Wastewater is simply any water that has been used by us and contains impurities. Think of the water that goes down the drain after washing dishes or taking a bath. This used water is no longer clean and needs to be treated.</p>
+          <ul><li>Water that has been used</li><li>Contains dissolved and suspended impurities</li><li>Also called dirty water or sewage</li></ul>
+          <p class="notes">🎙️ Wastewater is simply any water that has been used and now contains impurities. It's the water that goes down our drains after we've used it for various purposes. This water is no longer clean and safe to drink.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Used Water</div></div></div>
       </div>
@@ -70,24 +95,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Where Does Wastewater <span class="hl">Come From</span>?</h2>
-          <ul><li>Homes (domestic sewage)</li><li>Industries (industrial effluent)</li><li>Hospitals and other public buildings</li></ul>
-          <p class="notes">🎙️ Wastewater originates from various places. Our homes are a major source, but factories, hospitals, and even schools also contribute to the wastewater stream. It's a collective output from human activities.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Sources of Wastewater</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Sources: <span class="hl">Domestic</span> Wastewater (Sewage)</h2>
-          <ul><li>From kitchens: food particles, oil, detergents.</li><li>From bathrooms: human waste, soap, hair.</li><li>From laundries: detergents, dirt from clothes.</li></ul>
-          <p class="notes">🎙️ Domestic wastewater, commonly called sewage, is what flows out of our homes. Every time you wash dishes, flush the toilet, or take a shower, you are contributing to domestic wastewater. It's a mixture of various household wastes.</p>
+          <h2><span class="hl">Sources</span> of Wastewater</h2>
+          <ul><li>Homes (domestic sewage)</li><li>Industries (industrial effluent)</li><li>Hospitals, offices, schools</li></ul>
+          <p class="notes">🎙️ Wastewater comes from many places. The biggest source is our homes, from bathing, washing clothes, and cooking. Industries, hospitals, and even schools also produce significant amounts of wastewater.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚽</div><div class="vcap">Household Drains</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Homes &amp; Buildings</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Sources: <span class="hl">Industrial</span> Wastewater</h2>
-          <ul><li>Chemicals, heavy metals, toxic substances.</li><li>High temperatures, oils, greases.</li><li>Requires specialized treatment before discharge.</li></ul>
-          <p class="notes">🎙️ Industries produce a different type of wastewater, often containing harmful chemicals and heavy metals. For example, a textile factory might discharge water with dyes, while a metal factory could release water with dissolved metals. This industrial wastewater is usually more complex and dangerous than domestic sewage.</p>
+          <h2>Understanding <span class="hl">Sewage</span></h2>
+          <ul><li>Liquid waste from homes, industries, etc.</li><li>Contains water, human waste, chemicals, oils</li><li>A complex mixture of pollutants</li></ul>
+          <p class="notes">🎙️ Sewage is a specific type of wastewater, primarily liquid waste containing human excreta, chemicals, oils, and other impurities. It's a highly contaminated mixture that needs proper handling.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Factory Effluent</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤢</div><div class="vcap">Dirty Mixture</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Sources: <span class="hl">Agricultural</span> Runoff &amp; Stormwater</h2>
-          <ul><li>Fertilizers and pesticides from farms.</li><li>Rainwater flowing over roads and land.</li><li>Carries oil, dirt, and chemicals into water bodies.</li></ul>
-          <p class="notes">🎙️ Even agriculture contributes to wastewater pollution. Rainwater flowing over farms picks up fertilizers and pesticides, carrying them into rivers and lakes. Similarly, stormwater runoff from urban areas can pick up oil, dirt, and litter from roads, polluting water sources.</p>
+          <h2>Sewage from a <span class="hl">City</span></h2>
+          <ul><li>All the drains connect up</li><li>Flows through a network of pipes</li><li>Carries pollutants away from homes</li></ul>
+          <p class="notes">🎙️ Imagine all the drains from thousands of homes and buildings in a city. They all connect to a vast underground network of pipes, called sewers, which carry this sewage away, usually to a treatment facility.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚜</div><div class="vcap">Farm Runoff</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Homes</span></div><div class="step"><span class="snum">2</span><span>Drains</span></div><div class="step"><span class="snum">3</span><span>Sewer Pipes</span></div><div class="step"><span class="snum">4</span><span>Treatment Plant</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Components of Wastewater: <span class="hl">Organic</span> Impurities</h2>
-          <ul><li>Human and animal faeces (excreta).</li><li>Urea, oil, vegetable and fruit waste.</li><li>Food remains and pesticides.</li></ul>
-          <p class="notes">🎙️ Wastewater contains many different things. Organic impurities come from living or once-living matter. This includes human and animal waste, leftover food, and even pesticides used on crops. These substances can decompose and consume oxygen in water.</p>
+          <h2><span class="hl">Dangers</span> of Untreated Sewage</h2>
+          <ul><li>Spreads diseases (cholera, typhoid)</li><li>Pollutes water bodies and soil</li><li>Harms aquatic life</li></ul>
+          <p class="notes">🎙️ If sewage is released directly into rivers or soil without treatment, it causes serious problems. It contaminates our water sources, making them unsafe to drink, and can lead to outbreaks of dangerous diseases.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Food Waste</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Disease &amp; Pollution</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Components of Wastewater: <span class="hl">Inorganic</span> Impurities &amp; Nutrients</h2>
-          <ul><li>Nitrates, phosphates (from detergents/fertilizers).</li><li>Metals (lead, mercury) from industrial waste.</li><li>Harmful to aquatic life and human health.</li></ul>
-          <p class="notes">🎙️ Inorganic impurities do not come from living matter. These include salts, metals, and certain chemicals. Nitrates and phosphates, often found in detergents and fertilizers, act as nutrients that can lead to excessive growth of algae in water bodies, harming other aquatic life.</p>
+          <h2>Impact on <span class="hl">Rivers</span></h2>
+          <ul><li>Untreated sewage makes rivers black</li><li>Foul smell and unhealthy environment</li><li>Fish and other aquatic animals die</li></ul>
+          <p class="notes">🎙️ Many of India's rivers suffer from pollution due to untreated sewage. You can often see the difference: a clean river is vibrant, while a polluted one looks dark, smells bad, and has very little life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Chemicals</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Clean River</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Polluted River</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,23 +156,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Components of Wastewater: <span class="hl">Bacteria</span> and Other Microbes</h2>
-          <ul><li>Disease-causing bacteria (pathogens).</li><li>Viruses, fungi, protozoa.</li><li>Can cause cholera, typhoid, dysentery.</li></ul>
-          <p class="notes">🎙️ Perhaps the most dangerous components of untreated wastewater are the harmful microorganisms. These include bacteria, viruses, and other germs that can cause severe diseases like cholera, typhoid, and dysentery if consumed. This is why proper sanitation is so critical.</p>
+          <h2>Wastewater and Water <span class="hl">Pollution</span></h2>
+          <ul><li>Wastewater is a major cause of pollution</li><li>Makes water unfit for use</li><li>Affects human health and ecosystems</li></ul>
+          <p class="notes">🎙️ Water pollution is the contamination of water bodies, usually by human activities. Wastewater, especially sewage and industrial effluents, is one of the primary contributors to this global problem.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Germs</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Pollution Source</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Harmful Effects of Untreated Wastewater: <span class="hl">Health Risks</span></h2>
-          <ul><li>Spreads water-borne diseases like cholera, typhoid.</li><li>Contaminates drinking water sources.</li><li>Impacts communities, especially children.</li></ul>
-          <p class="notes">🎙️ Discharging untreated wastewater directly into rivers or lakes is extremely dangerous. It contaminates our water sources, making them unsafe for drinking, bathing, or even recreation. This leads to the spread of many water-borne diseases, affecting public health significantly.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>True or False: Used water from homes is always clean.</li><li>True or False: Untreated sewage can spread diseases.</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about what we've discussed so far. Is used water from homes always clean? And can untreated sewage really spread diseases?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤢</div><div class="vcap">Sickness</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Harmful Effects of Untreated Wastewater: <span class="hl">Environmental</span> Damage</h2>
-          <ul><li>Kills aquatic plants and animals.</li><li>Pollutes rivers, lakes, and oceans.</li><li>Creates foul odours and unhealthy environments.</li></ul>
-          <p class="notes">🎙️ Beyond human health, untreated wastewater devastates the environment. The organic matter consumes oxygen in water, suffocating fish and other aquatic organisms. Toxins can accumulate in the food chain, harming ecosystems and creating unpleasant, unhealthy surroundings.</p>
+          <h2>The <span class="hl">Sewerage System</span></h2>
+          <ul><li>Network of pipes for transporting sewage</li><li>Includes sewers, manholes, pumping stations</li><li>Carries wastewater to treatment plants</li></ul>
+          <p class="notes">🎙️ To manage sewage effectively, cities have a sewerage system. This is a complex underground infrastructure designed to collect all the wastewater and transport it safely to a treatment facility.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐠</div><div class="vcap">Dead Fish</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Underground Network</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Why Treat Wastewater? It's a <span class="hl">Necessity</span>!</h2>
-          <ul><li>Protects public health from diseases.</li><li>Preserves our natural water bodies.</li><li>Allows for reuse of treated water.</li></ul>
-          <p class="notes">🎙️ Given all these dangers, treating wastewater isn't just an option; it's a necessity. It's crucial for safeguarding human health, protecting our precious environment, and ensuring that we have clean water resources for future generations. It's a step towards sustainable living.</p>
+          <h2><span class="hl">Manholes</span>: Access to Sewers</h2>
+          <ul><li>Circular openings on roads</li><li>Allow access for inspection and cleaning</li><li>Crucial for maintaining the sewer network</li></ul>
+          <p class="notes">🎙️ You've probably seen manholes on roads. These are essential parts of the sewerage system, providing access points for workers to inspect, repair, and clean the underground sewer pipes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Healthy Planet</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕳️</div><div class="vcap">Sewer Access</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -192,10 +205,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">13 / 25</span>
           <h2>Wastewater <span class="hl">Treatment Plant</span> (WWTP)</h2>
-          <ul><li>A facility to remove pollutants from wastewater.</li><li>Involves physical, chemical, and biological processes.</li><li>Converts wastewater into treated water (effluent) and sludge.</li></ul>
-          <p class="notes">🎙️ A Wastewater Treatment Plant, or WWTP, is like a big factory designed to clean dirty water. It uses a series of steps to remove all the harmful substances, turning wastewater into water that is much safer to release back into the environment or even reuse.</p>
+          <ul><li>Where wastewater is cleaned</li><li>Removes pollutants physically, chemically, biologically</li><li>Converts dirty water into safer water</li></ul>
+          <p class="notes">🎙️ The Wastewater Treatment Plant, or WWTP, is the hero of our story. This is where the magic happens – where dirty, contaminated wastewater is transformed into water that is much cleaner and safer to release back into the environment.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wastewater_treatment.svg?width=500" data-fb="⚙️" alt="Wastewater from homes and industries is treated in multiple stages to remove contaminants "/><div class="vcap">Wastewater from homes and industries is treated in multiple stages to remove contaminants </div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wastewater_treatment.svg?width=500" data-fb="🏭" alt="Wastewater from homes and industries is treated in multiple stages to remove contaminants "/><div class="vcap">Wastewater from homes and industries is treated in multiple stages to remove contaminants </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Step 1: Preliminary Treatment (<span class="hl">Screening</span>)</h2>
-          <ul><li>Large physical impurities are removed.</li><li>Wastewater passes through bar screens.</li><li>Removes rags, sticks, plastic, stones.</li></ul>
-          <p class="notes">🎙️ The first step is like a giant sieve. Wastewater flows through large bar screens that trap big items like plastic bottles, rags, and sticks. This prevents damage to the machinery in the later stages of treatment.</p>
+          <h2><span class="hl">Primary Treatment</span>: Physical Removal</h2>
+          <ul><li>Bar screens remove large objects</li><li>Grit and sand settle down</li><li>Sedimentation removes suspended solids</li></ul>
+          <p class="notes">🎙️ The first stage of treatment is primary treatment, which is mainly physical. Large debris is filtered out, then heavier solids like grit and sand settle, and finally, smaller suspended solids settle in large tanks.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Wastewater In</span></div><div class="step"><span class="snum">2</span><span>Bar Screens</span></div><div class="step"><span class="snum">3</span><span>Large Debris Out</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Bar Screens</span></div><div class="step"><span class="snum">2</span><span>Grit Chamber</span></div><div class="step"><span class="snum">3</span><span>Sedimentation Tank</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Step 2: Primary Treatment (<span class="hl">Sedimentation</span>)</h2>
-          <ul><li>Water flows into a grit and sand removal tank.</li><li>Heavier solids (grit, sand) settle at the bottom.</li><li>Organic solids also settle in a large tank (settling tank).</li></ul>
-          <p class="notes">🎙️ After screening, the water enters a grit removal tank where sand and small stones settle down. Then, it moves to a large sedimentation tank where heavier organic solids, called sludge, sink to the bottom, and lighter impurities like oil and grease float to the top, forming scum.</p>
+          <h2><span class="hl">Secondary Treatment</span>: Biological Process</h2>
+          <ul><li>Aeration tanks introduce air</li><li>Beneficial bacteria consume organic matter</li><li>Removes dissolved impurities</li></ul>
+          <p class="notes">🎙️ Next comes secondary treatment, a biological process. Air is pumped into the water, encouraging 'good' bacteria to grow. These bacteria feed on the organic impurities, cleaning the water further.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Settling Solids</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">Bacteria at Work</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Step 3: Secondary Treatment (<span class="hl">Biological</span> Process)</h2>
-          <ul><li>Aeration tanks pump air into the water.</li><li>Beneficial bacteria grow and consume organic waste.</li><li>Microbes break down pollutants into harmless substances.</li></ul>
-          <p class="notes">🎙️ This is where the magic happens with microorganisms! Air is pumped into the water to help beneficial bacteria grow. These bacteria then eat up the remaining organic matter and other pollutants in the water, cleaning it further. This process is called biological treatment.</p>
+          <h2><span class="hl">Tertiary Treatment</span> (Advanced Cleaning)</h2>
+          <ul><li>Further purification for specific uses</li><li>Filtration, disinfection (chlorine/UV)</li><li>Removes remaining pathogens and chemicals</li></ul>
+          <p class="notes">🎙️ Sometimes, especially if the treated water needs to be very clean or reused, a tertiary treatment stage is added. This involves advanced filtration and disinfection methods to remove almost all remaining impurities and disease-causing germs.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Aeration</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Final Polish</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Step 4: <span class="hl">Sludge</span> Treatment</h2>
-          <ul><li>Sludge from primary and secondary treatment is collected.</li><li>Transferred to a separate tank (digester).</li><li>Anaerobic bacteria break down sludge, producing biogas.</li></ul>
-          <p class="notes">🎙️ The settled sludge from the primary and secondary treatment stages is not wasted. It's transferred to a special tank called a digester. Here, different types of bacteria, which don't need oxygen, break down the sludge and produce biogas, which can be used as fuel.</p>
+          <h2>A Working Treatment Plant</h2>
+          <ul><li>Complex infrastructure with many tanks</li><li>Continuous monitoring and testing</li><li>Ensures safe discharge of treated water</li></ul>
+          <p class="notes">🎙️ A wastewater treatment plant is a sophisticated facility. It operates 24/7, with various tanks, pumps, and monitoring systems working together to ensure that the water released back into our rivers is as clean as possible.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💩</div><div class="vcap">Digesting Sludge</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Clean Water Factory</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Step 5: <span class="hl">Disinfection</span> and Release</h2>
-          <ul><li>Treated water (effluent) is disinfected.</li><li>Chlorine or ozone is used to kill remaining germs.</li><li>Cleaned water is released into rivers or used for irrigation.</li></ul>
-          <p class="notes">🎙️ After biological treatment, the water is much cleaner, but it might still contain some harmful germs. So, it undergoes disinfection, usually with chlorine or UV light, to kill any remaining bacteria. This treated water, called effluent, is then safe enough to be discharged into natural water bodies or used for purposes like irrigation.</p>
+          <h2><span class="hl">By-products</span>: Sludge and Biogas</h2>
+          <ul><li>Sludge: solid waste from treatment</li><li>Can be used as fertilizer after processing</li><li>Biogas: produced from sludge, used as fuel</li></ul>
+          <p class="notes">🎙️ Even the waste from wastewater treatment can be useful! The solid waste, called sludge, can be treated and used as a fertilizer. Also, during sludge digestion, biogas is produced, which is a good source of energy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Clean Water</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sludge (Fertilizer)</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Biogas (Fuel)</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>The <span class="hl">Sewerage System</span>: Our Underground Network</h2>
-          <ul><li>Network of pipes that carry wastewater.</li><li>Connects homes, hospitals, industries to WWTPs.</li><li>Manholes provide access for inspection and cleaning.</li></ul>
-          <p class="notes">🎙️ The sewerage system is the hidden network of pipes beneath our cities that collects all the wastewater and transports it to the treatment plants. Think of it as the veins and arteries of a city, carrying away the used water to be cleaned. Manholes are important access points for maintenance.</p>
+          <h2><span class="hl">Match</span> the Stage!</h2>
+          <ul><li>1. Bar screens &amp; grit removal: (a) Secondary Treatment</li><li>2. Bacteria consume organic matter: (b) Primary Treatment</li><li>3. Disinfection: (c) Tertiary Treatment</li></ul>
+          <p class="notes">🎙️ Now, let's see if you can match the treatment steps with their correct stages. Think about what happens in each part of the wastewater treatment process.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon"> underground pipes</div><div class="vcap">Sewer Network</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Sanitation</span> and Disease: A Direct Link</h2>
-          <ul><li>Poor sanitation leads to contaminated water.</li><li>Causes widespread diseases like cholera, dysentery, hepatitis.</li><li>Open defecation is a major health risk.</li></ul>
-          <p class="notes">🎙️ There's a very direct link between sanitation and health. Poor sanitation, like open defecation or improper disposal of sewage, directly contaminates water sources and soil. This leads to a higher incidence of severe water-borne diseases, especially in rural areas or slums.</p>
+          <h2><span class="hl">Sanitation</span> and Our Health</h2>
+          <ul><li>Proper disposal of waste is crucial</li><li>Poor sanitation causes many diseases</li><li>Safe water and hygiene prevent illness</li></ul>
+          <p class="notes">🎙️ Good sanitation practices are fundamental for public health. When waste is not disposed of properly, it creates breeding grounds for germs, leading to widespread diseases like cholera, dysentery, and jaundice.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Good Sanitation</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Poor Sanitation</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚽</div><div class="vcap">Healthy Habits</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Better <span class="hl">Housekeeping</span> Practices: What YOU Can Do!</h2>
-          <ul><li>Do not throw oil and fats down the drain.</li><li>Do not throw chemicals like paint, medicines down the drain.</li><li>Use dustbins for solid waste, not drains.</li></ul>
-          <p class="notes">🎙️ We all have a role to play in preventing wastewater pollution. Simple actions at home, like not pouring oil and grease down the sink, or disposing of chemicals and solid waste in dustbins instead of drains, can make a huge difference in keeping our pipes clear and reducing the load on treatment plants.</p>
+          <h2>The Problem of <span class="hl">Open Defecation</span></h2>
+          <ul><li>Practiced in areas lacking toilets</li><li>Contaminates soil and water sources</li><li>Major cause of waterborne diseases</li></ul>
+          <p class="notes">🎙️ In many rural areas, open defecation is still a challenge due to lack of proper toilets. This directly contaminates fields, water bodies, and leads to serious health issues, especially for children.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗑️</div><div class="vcap">Use Dustbin</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💩</div><div class="vcap">Unsafe Practice</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Alternative</span> Arrangements for Sewage Disposal</h2>
-          <ul><li>Septic tanks for individual homes in rural areas.</li><li>Composting pits for converting human waste into manure.</li><li>On-site sewage disposal systems where no sewerage exists.</li></ul>
-          <p class="notes">🎙️ In places where there isn't a proper sewerage system, like many rural areas, alternative methods are used. Septic tanks are common, where sewage is collected and decomposed by bacteria. Composting pits are another eco-friendly option that turns waste into useful manure.</p>
+          <h2>Better <span class="hl">Housekeeping</span> at Home</h2>
+          <ul><li>Do not throw cooking oil/fats down the drain</li><li>Do not flush chemicals, paints, medicines</li><li>Use dustbins for solid waste</li></ul>
+          <p class="notes">🎙️ We all have a role to play! Simple habits at home can make a big difference. Never pour oils or fats down the drain as they can block pipes. Also, chemicals and medicines should not be flushed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Septic Tank</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗑️</div><div class="vcap">Smart Disposal</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,9 +324,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>What are the main types of impurities found in wastewater?</li><li>Name two diseases caused by untreated wastewater.</li></ul>
-          <p class="notes">🎙️ Alright class, let's quickly test our understanding. Think about what we've learned about the composition of wastewater and the health risks associated with it. Take a moment to recall the answers to these two questions.</p>
+          <h2>What <span class="hl">NOT to throw</span> down the drain?</h2>
+          <ul><li>Cooking oil and grease?</li><li>Tea leaves?</li><li>Hair and cotton?</li><li>All of the above?</li></ul>
+          <p class="notes">🎙️ Let's test your practical knowledge. What are some common items that we absolutely should NOT dispose of by flushing them down our drains? Choose the best option.</p>
         </div>
         
       </div>
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>Why is aeration important in a wastewater treatment plant?</li><li>Give one good housekeeping practice to reduce wastewater pollution.</li></ul>
-          <p class="notes">🎙️ Now for a couple more questions to solidify our knowledge. Remember the steps of wastewater treatment and the role of microorganisms. Also, think about how you can contribute to cleaner water in your daily life.</p>
+          <h2><span class="hl">Recap</span>: The Wastewater Story</h2>
+          <ul><li>Wastewater needs treatment before discharge</li><li>Sewerage system collects and transports sewage</li><li>WWTPs clean water through multiple stages</li><li>Good sanitation prevents diseases</li></ul>
+          <p class="notes">🎙️ So, we've learned that wastewater is dirty but can be cleaned. The sewerage system is vital for collecting it, and treatment plants do the hard work of purification. Remember, proper sanitation is key to a healthy community.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: The Wastewater Story</h2>
-          <ul><li>Wastewater contains harmful impurities and germs.</li><li>Untreated wastewater causes diseases and environmental damage.</li><li>Wastewater treatment plants clean water in multiple stages.</li><li>Good sanitation and housekeeping are vital for a healthy future.</li></ul>
-          <p class="notes">🎙️ In summary, we've learned that wastewater is a mix of used water and pollutants from various sources. It's crucial to treat this water to protect our health and environment. Each of us plays a role in managing wastewater responsibly for a cleaner, healthier world.</p>
+          <h2>Be a Water <span class="hl">Champion</span>!</h2>
+          <ul><li>Conserve water at home</li><li>Dispose of waste responsibly</li><li>Spread awareness about water pollution</li></ul>
+          <p class="notes">🎙️ Every drop of water counts, and every action we take impacts our environment. Let's all be water champions by using water wisely, disposing of waste correctly, and educating others about the importance of clean water.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Protect Our Planet</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

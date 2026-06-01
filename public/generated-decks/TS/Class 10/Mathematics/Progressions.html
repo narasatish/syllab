@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Progressions — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Progressions</span>!</h2>
+          <ul><li>Discover exciting patterns in numbers</li><li>Understand sequences that follow specific rules</li><li>Learn to predict future terms and sums</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're going to dive into the fascinating world of Progressions. This chapter will teach us about number patterns and how to work with them.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Progressions</span>?</h2>
+          <ul><li>A list of numbers following a specific rule</li><li>Each number is called a 'term'</li><li>Helps us predict what comes next</li></ul>
+          <p class="notes">🎙️ Think of progressions as number patterns. They are sequences where each term is related to the previous one by a fixed rule, making them predictable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Number Patterns</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Sequences <span class="hl">vs.</span> Series</h2>
+          <ul><li>Sequence: An ordered list of numbers (e.g., 2, 4, 6)</li><li>Series: The sum of the terms in a sequence (e.g., 2 + 4 + 6)</li></ul>
+          <p class="notes">🎙️ It's important to differentiate between a sequence, which is just a list, and a series, which is the sum of the terms in that list. We will work with both today.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Sequence (list)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Series (sum)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Arithmetic</span> Progression (AP)</h2>
+          <ul><li>Each term is obtained by adding a fixed number</li><li>This fixed number is called the 'common difference' (d)</li><li>Can be increasing or decreasing</li></ul>
+          <p class="notes">🎙️ Our first type of progression is the Arithmetic Progression. Here, the difference between consecutive terms is always the same, which we call the common difference.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding a Constant</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Identifying an AP: <span class="hl">Common Difference</span></h2>
+          <ul><li>To find 'd', subtract any term from its succeeding term</li><li>d = a₂ - a₁ = a₃ - a₂ = ...</li><li>If 'd' is constant, it's an AP</li></ul>
+          <p class="notes">🎙️ To check if a given list of numbers is an AP, simply calculate the difference between consecutive terms. If this difference remains constant throughout, then it's an AP.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Difference (d)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Real-life AP: <span class="hl">Ladder Rungs</span></h2>
+          <ul><li>The lengths of ladder rungs often decrease uniformly</li><li>Example: 45 cm, 42 cm, 39 cm, 36 cm, ...</li><li>Here, the common difference 'd' is -3 cm</li></ul>
+          <p class="notes">🎙️ Imagine a ladder where the rungs get shorter as you go up. This is a perfect example of an AP, where each rung is a fixed amount shorter than the one below it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪜</span><span>🪜</span><span>🪜</span><span>🪜</span><span>🪜</span></div><div class="vcap">Decreasing Lengths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">General Form</span> of an AP</h2>
+          <ul><li>An AP can be written as: a, a+d, a+2d, a+3d, ...</li><li>'a' is the first term</li><li>'d' is the common difference</li></ul>
+          <p class="notes">🎙️ Every Arithmetic Progression follows this general structure. Knowing the first term 'a' and the common difference 'd' allows us to write out the entire sequence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Formula Structure</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Finding the <span class="hl">nth Term</span> of an AP</h2>
+          <ul><li>Formula: a_n = a + (n-1)d</li><li>a_n is the nth term we want to find</li><li>n is the position of the term in the sequence</li></ul>
+          <p class="notes">🎙️ What if you need to find the 50th term without writing all the terms? This formula is your shortcut. It helps us find any term in an AP directly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Locating a Term</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example: Find the <span class="hl">10th term</span></h2>
+          <ul><li>Given AP: 2, 7, 12, ...</li><li>Identify 'a' and 'd'</li><li>Apply the formula a_n = a + (n-1)d</li></ul>
+          <p class="notes">🎙️ Let's apply the nth term formula to a real example. Here, our first term is 2 and the common difference is 5. We need to find the 10th term.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a=2, d=7-2=5</span></div><div class="step"><span class="snum">2</span><span>Use formula: a_10 = 2 + (10-1)5</span></div><div class="step"><span class="snum">3</span><span>Calculate: 2 + 9*5 = 2 + 45 = 47</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Worked Example: Which term is <span class="hl">78</span>?</h2>
+          <ul><li>Given AP: 3, 8, 13, 18, ...</li><li>We know a_n = 78, find 'n'</li><li>Substitute values into the formula</li></ul>
+          <p class="notes">🎙️ Sometimes, we are given a term's value and asked to find its position. In this example, we need to find which term in the sequence 3, 8, 13, 18, ... is equal to 78.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a=3, d=8-3=5, a_n=78</span></div><div class="step"><span class="snum">2</span><span>Substitute: 78 = 3 + (n-1)5</span></div><div class="step"><span class="snum">3</span><span>Solve for n: 75 = (n-1)5 =&gt; 15 = n-1 =&gt; n=16</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Sum</span> of first n terms of an AP</h2>
+          <ul><li>Formula: S_n = n/2 [2a + (n-1)d]</li><li>S_n is the sum of the first 'n' terms</li><li>Alternative: S_n = n/2 [a + a_n] (if last term a_n is known)</li></ul>
+          <p class="notes">🎙️ Beyond finding individual terms, we often need to find the sum of a certain number of terms in an AP. This formula helps us do that efficiently without adding each term manually.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Calculating Total</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Real-life AP Sum: <span class="hl">Saving Money</span></h2>
+          <ul><li>You save ₹100 in Month 1, ₹150 in Month 2, ₹200 in Month 3...</li><li>This forms an AP with a=100, d=50</li><li>How much will you save in a year (12 months)?</li></ul>
+          <p class="notes">🎙️ Saving money is a great real-life application of AP sums. If you increase your savings by a fixed amount each month, you can use this formula to quickly calculate your total savings.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">Growing Savings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example: Sum of first <span class="hl">20 terms</span></h2>
+          <ul><li>Given AP: 1, 3, 5, ...</li><li>Identify 'a', 'd', and 'n'</li><li>Apply the sum formula S_n = n/2 [2a + (n-1)d]</li></ul>
+          <p class="notes">🎙️ Let's calculate the sum of the first 20 terms for this AP. We have the first term, the common difference, and the number of terms, so we can directly use the sum formula.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a=1, d=3-1=2, n=20</span></div><div class="step"><span class="snum">2</span><span>Use formula: S_20 = 20/2 [2(1) + (20-1)2]</span></div><div class="step"><span class="snum">3</span><span>Calculate: 10 [2 + 19*2] = 10 [2 + 38] = 10 * 40 = 400</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick Check! Is this an <span class="hl">AP?</span></h2>
+          <ul><li>Sequence: 5, 10, 15, 20, ...</li><li>Is it an AP? (Yes/No)</li><li>What is the next term in the sequence?</li></ul>
+          <p class="notes">🎙️ Time for a quick check to see if you've grasped the concept of an AP. Look at this sequence and decide if it fits the definition.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick Check! <span class="hl">Find 'd' and 'a_5'</span></h2>
+          <ul><li>Sequence: 10, 8, 6, ...</li><li>What is the common difference 'd'?</li><li>What is the 5th term (a_5)?</li></ul>
+          <p class="notes">🎙️ Another quick question for you. For this decreasing sequence, identify the common difference and then use it to find the fifth term.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Geometric</span> Progression (GP)</h2>
+          <ul><li>Each term is obtained by multiplying by a fixed number</li><li>This fixed number is called the 'common ratio' (r)</li><li>Terms grow or shrink rapidly</li></ul>
+          <p class="notes">🎙️ Now let's move on to our second type of progression: Geometric Progression. Instead of adding, terms here are generated by multiplying by a constant factor, called the common ratio.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiplying by a Constant</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Identifying a GP: <span class="hl">Common Ratio</span></h2>
+          <ul><li>To find 'r', divide any term by its preceding term</li><li>r = a₂/a₁ = a₃/a₂ = ...</li><li>If 'r' is constant, it's a GP</li></ul>
+          <p class="notes">🎙️ Similar to how we found the common difference for an AP, we find the common ratio for a GP by dividing consecutive terms. This ratio must be constant for it to be a GP.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Ratio (r)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Real-life GP: <span class="hl">Bacterial Growth</span></h2>
+          <ul><li>Bacteria often double in number every fixed period</li><li>Example: 1, 2, 4, 8, 16, ... (doubling every hour)</li><li>Here, the common ratio 'r' is 2</li></ul>
+          <p class="notes">🎙️ Bacterial growth is a classic example of a Geometric Progression. The number of bacteria multiplies by a constant factor, leading to very rapid growth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">Exponential Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">General Form</span> of a GP</h2>
+          <ul><li>A GP can be written as: a, ar, ar², ar³, ...</li><li>'a' is the first term</li><li>'r' is the common ratio</li></ul>
+          <p class="notes">🎙️ Just like an AP, a GP also has a general form. Knowing the first term 'a' and the common ratio 'r' allows us to define any term in the sequence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Formula Structure</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Finding the <span class="hl">nth Term</span> of a GP</h2>
+          <ul><li>Formula: a_n = ar^(n-1)</li><li>a_n is the nth term we want to find</li><li>n is the position of the term in the sequence</li></ul>
+          <p class="notes">🎙️ To find any specific term in a Geometric Progression, we use this powerful formula. It involves the first term 'a', the common ratio 'r', and the term number 'n'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔎</div><div class="vcap">Locating a Term</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Worked Example: Find the <span class="hl">5th term</span></h2>
+          <ul><li>Given GP: 2, 6, 18, ...</li><li>Identify 'a' and 'r'</li><li>Apply the formula a_n = ar^(n-1)</li></ul>
+          <p class="notes">🎙️ Let's apply the nth term formula for a GP. In this example, the first term is 2 and the common ratio is 3. We need to find the fifth term.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a=2, r=6/2=3</span></div><div class="step"><span class="snum">2</span><span>Use formula: a_5 = 2 * 3^(5-1)</span></div><div class="step"><span class="snum">3</span><span>Calculate: 2 * 3^4 = 2 * 81 = 162</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Sum</span> of first n terms of a GP</h2>
+          <ul><li>Formula: S_n = a(r^n - 1)/(r-1) (for r &gt; 1)</li><li>Formula: S_n = a(1 - r^n)/(1-r) (for r &lt; 1)</li><li>S_n is the sum of the first 'n' terms</li></ul>
+          <p class="notes">🎙️ Just like with APs, we can also find the sum of the first 'n' terms in a GP. There are two forms of the formula, depending on whether the common ratio 'r' is greater or less than 1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Accumulated Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Worked Example: Sum of first <span class="hl">4 terms</span></h2>
+          <ul><li>Given GP: 3, 6, 12, ...</li><li>Identify 'a', 'r', and 'n'</li><li>Apply the sum formula S_n = a(r^n - 1)/(r-1)</li></ul>
+          <p class="notes">🎙️ Let's calculate the sum of the first four terms for this GP. Since our common ratio is 2, which is greater than 1, we use the first version of the sum formula.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify a=3, r=6/3=2, n=4</span></div><div class="step"><span class="snum">2</span><span>Use formula: S_4 = 3(2^4 - 1)/(2-1)</span></div><div class="step"><span class="snum">3</span><span>Calculate: 3(16 - 1)/1 = 3 * 15 = 45</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check! Is this a <span class="hl">GP?</span></h2>
+          <ul><li>Sequence: 4, 8, 16, 32, ...</li><li>Is it a GP? (Yes/No)</li><li>What is the next term in the sequence?</li></ul>
+          <p class="notes">🎙️ Here's your final quick check! Examine this sequence and determine if it's a Geometric Progression. Then, predict the next term based on its pattern.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Arithmetic vs. Geometric Progressions</h2>
+          <ul><li>AP: Constant 'common difference' (d)</li><li>GP: Constant 'common ratio' (r)</li><li>Both are predictable number patterns with specific formulas</li><li>Used in various real-life scenarios</li></ul>
+          <p class="notes">🎙️ We've covered two main types of progressions today: Arithmetic and Geometric. Remember that APs involve addition/subtraction, while GPs involve multiplication/division. Both are powerful tools for understanding patterns!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

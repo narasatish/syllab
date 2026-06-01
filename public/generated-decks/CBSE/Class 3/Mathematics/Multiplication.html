@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Multiplication — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Let's Learn About <span class="hl">Multiplication</span>!</h2>
-          <ul><li>Welcome, little mathematicians!</li><li>Today, we will explore a fun way to count.</li><li>It's called Multiplication!</li></ul>
-          <p class="notes">🎙️ Hello everyone! Are you ready for an exciting journey into the world of numbers? Today, we're going to learn about something super useful called Multiplication.</p>
+          <h2>Namaste! Let's Learn About <span class="hl">Multiplication</span>!</h2>
+          <ul><li>Hello, little mathematicians!</li><li>Today, we will learn a fun new way to count faster.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we are going to start a very interesting chapter called Multiplication. It's a super-fast way to add numbers. Are you ready for some fun with numbers?</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is <span class="hl">Multiplication</span>?</h2>
-          <ul><li>It is a quick way to do 'repeated addition'.</li><li>Instead of adding many times, we can multiply!</li></ul>
-          <p class="notes">🎙️ Imagine you have 3 friends, and each friend gives you 2 apples. How many apples do you have in total? You can add 2 + 2 + 2. Multiplication helps us do this much faster!</p>
+          <h2>What is Multiplication? It's <span class="hl">Repeated Addition</span>!</h2>
+          <ul><li>Imagine you have 3 friends.</li><li>Each friend has 2 apples.</li><li>How many apples in total?</li></ul>
+          <p class="notes">🎙️ Multiplication is like adding the same number again and again. For example, if you have 3 friends and each has 2 apples, you can add 2 + 2 + 2. This is called repeated addition.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Why</span> Do We Multiply?</h2>
-          <ul><li>Multiplication helps us count big numbers quickly.</li><li>It saves time and makes math easy!</li></ul>
-          <p class="notes">🎙️ Think about counting all the fingers in your classroom. If there are 30 children, and each has 10 fingers, adding 10, thirty times would take a long time! Multiplication helps us get the answer in a blink!</p>
+          <h2>Why Do We Need Multiplication? To Count <span class="hl">Faster</span>!</h2>
+          <ul><li>Adding many times can take a long time.</li><li>Multiplication helps us find the total quickly!</li><li>It's a shortcut for repeated addition.</li></ul>
+          <p class="notes">🎙️ Imagine if you had to add 2 ten times! That would take a while, wouldn't it? Multiplication is like a magic spell that helps us find the answer in a flash. It's a really useful skill to learn.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Save Time!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Save time!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Meet Our Friend: The Multiplication <span class="hl">Sign</span>!</h2>
-          <ul><li>We use a special sign for multiplication.</li><li>It looks like 'x'.</li><li>We read it as 'times' or 'multiplied by'.</li></ul>
-          <p class="notes">🎙️ Just like we have a '+' sign for addition and '-' for subtraction, we have a 'x' sign for multiplication. Whenever you see this sign, it means we need to multiply the numbers.</p>
+          <h2>Understanding <span class="hl">Groups</span> of Things</h2>
+          <ul><li>Multiplication is about making equal groups.</li><li>Here are 3 groups of 3 cookies.</li><li>How many cookies altogether?</li></ul>
+          <p class="notes">🎙️ When we multiply, we often think about groups. Each group must have the same number of things. Here, we see three groups, and each group has three yummy cookies. Can you count them all?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">'x'</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">3 groups of 3 cookies</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Making <span class="hl">Groups</span> with Multiplication</h2>
-          <ul><li>Let's say we have 3 groups of flowers.</li><li>Each group has 4 flowers.</li><li>How many flowers in total?</li></ul>
-          <p class="notes">🎙️ Look at these beautiful flowers! We have 3 separate bunches, and each bunch has 4 flowers. So, we have 4 + 4 + 4 flowers. Using multiplication, we say 3 times 4 flowers.</p>
+          <h2>The Multiplication <span class="hl">Sign</span>: 'x'</h2>
+          <ul><li>We use a special sign for multiplication.</li><li>It looks like a small 'x'.</li><li>We say 'times' or 'multiplied by'.</li></ul>
+          <p class="notes">🎙️ Just like we have a plus sign for addition and a minus sign for subtraction, we have a special sign for multiplication. It's the 'x' sign. When you see it, you know you need to multiply!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span><span>🌸</span></div><div class="vcap">3 groups of 4 flowers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Times!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">Chocolates</span> in Boxes!</h2>
-          <ul><li>Your friend has 2 boxes of chocolates.</li><li>Each box has 5 chocolates.</li><li>How many chocolates in all?</li></ul>
-          <p class="notes">🎙️ Imagine you open a box of chocolates and find 5 yummy pieces inside. If you have another box, that's another 5. So, 5 + 5 gives us 10. Or, we can simply say 2 times 5.</p>
+          <h2>Let's <span class="hl">Practice</span>: Repeated Addition to Multiplication</h2>
+          <ul><li>We have 2 + 2 + 2.</li><li>How many times did we add 2?</li><li>We added 2 three times.</li></ul>
+          <p class="notes">🎙️ Let's see how repeated addition turns into multiplication. We have 2 + 2 + 2, which equals 6. We added the number 2, three times. So, in multiplication, we write this as 3 times 2, which is 6.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span></div><div class="vcap">2 boxes of 5 chocolates</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>2 + 2 + 2 = 6</span></div><div class="step"><span class="snum">2</span><span>3 groups of 2</span></div><div class="step"><span class="snum">3</span><span>3 x 2 = 6</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Learning Multiplication <span class="hl">Tables</span></h2>
-          <ul><li>Multiplication tables help us remember answers quickly.</li><li>They are like a list of multiplication facts.</li></ul>
-          <p class="notes">🎙️ To become really good at multiplication, we learn tables. These tables are like magic lists that tell us the answers to common multiplication problems. Let's start with some easy ones!</p>
+          <h2>Another <span class="hl">Example</span>: Balls in Baskets</h2>
+          <ul><li>We have 2 baskets.</li><li>Each basket has 4 balls.</li><li>How many balls in total?</li></ul>
+          <p class="notes">🎙️ Here's another example. Imagine two baskets, and each basket holds 4 balls. To find the total, you can add 4 + 4, which is 8. Or, you can say it's 2 groups of 4 balls, which means 2 multiplied by 4.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Math Tables</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span></div><div class="vcap">4 + 4 = 8 balls</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Let's Learn the <span class="hl">Table of 2</span>!</h2>
-          <ul><li>1 x 2 = 2</li><li>2 x 2 = 4</li><li>3 x 2 = 6</li><li>Each time, we add 2.</li></ul>
-          <p class="notes">🎙️ The table of 2 is very simple. It's like counting by twos! For example, if you have 4 pairs of socks, how many socks do you have? 4 times 2 gives us 8 socks.</p>
+          <h2>Meet the Multiplication <span class="hl">Family</span>: Terms</h2>
+          <ul><li>The number we multiply is the 'Multiplicand'.</li><li>The number we multiply by is the 'Multiplier'.</li><li>The answer is the 'Product'.</li></ul>
+          <p class="notes">🎙️ Just like in addition where we have 'addends' and 'sum', in multiplication, we have special names for the numbers. The number being multiplied is the multiplicand, the number doing the multiplying is the multiplier, and the final answer is called the product.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">4 groups of 2 balloons = 8</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Parts of multiplication</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Now, the <span class="hl">Table of 3</span>!</h2>
-          <ul><li>1 x 3 = 3</li><li>2 x 3 = 6</li><li>3 x 3 = 9</li><li>Each time, we add 3.</li></ul>
-          <p class="notes">🎙️ Let's try the table of 3. If you see 3 cars, and each car has 3 friends inside, how many friends are there? 3 times 3 equals 9 friends. It's like counting by threes!</p>
+          <h2>Real-Life Fun: <span class="hl">Pencils</span> in Boxes</h2>
+          <ul><li>You have 2 pencil boxes.</li><li>Each box has 5 pencils.</li><li>How many pencils do you have?</li></ul>
+          <p class="notes">🎙️ Let's see multiplication in our daily life. If you have two pencil boxes, and each box contains 5 pencils, how do you find the total? You can say 5 + 5, or you can say 2 times 5. Both give you 10 pencils.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">3 groups of 3 cars = 9</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">2 x 5 = 10 pencils</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,9 +168,93 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Fun Fact: <span class="hl">Order</span> Doesn't Change the Answer!</h2>
-          <ul><li>2 x 3 is 6.</li><li>And 3 x 2 is also 6!</li><li>The answer stays the same.</li></ul>
-          <p class="notes">🎙️ This is a very cool property! Whether you say 2 groups of 3 or 3 groups of 2, the total number of items will always be the same. It's like having 2 rows of 3 candies or 3 rows of 2 candies – you still have 6 candies!</p>
+          <h2>Real-Life Fun: <span class="hl">Wheels</span> on Cycles</h2>
+          <ul><li>A bicycle has 2 wheels.</li><li>How many wheels do 3 bicycles have?</li><li>Count them fast with multiplication!</li></ul>
+          <p class="notes">🎙️ Think about bicycles! Each bicycle has two wheels. If you see three bicycles parked outside, how many wheels are there in total? You can add 2 + 2 + 2, or simply multiply 3 by 2 to get 6 wheels.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span></div><div class="vcap">3 x 2 = 6 wheels</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2>Let's Build the <span class="hl">Table of 2</span>!</h2>
+          <ul><li>Multiplication tables help us multiply quickly.</li><li>Let's make the table of 2 by adding 2 each time.</li></ul>
+          <p class="notes">🎙️ Multiplication tables are super important! They are like a list of answers that help us multiply without having to add every time. Let's start building the table of 2 by adding 2 repeatedly.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1 x 2 = 2</span></div><div class="step"><span class="snum">2</span><span>2 x 2 = 4</span></div><div class="step"><span class="snum">3</span><span>3 x 2 = 6</span></div><div class="step"><span class="snum">4</span><span>...</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2>Let's Build the <span class="hl">Table of 3</span>!</h2>
+          <ul><li>Now, let's make the table of 3.</li><li>We will add 3 each time to find the answers.</li></ul>
+          <p class="notes">🎙️ Great job with the table of 2! Now, let's move on to the table of 3. We follow the same idea: keep adding 3 to the previous answer. Knowing these tables by heart will make multiplication very easy for you.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1 x 3 = 3</span></div><div class="step"><span class="snum">2</span><span>2 x 3 = 6</span></div><div class="step"><span class="snum">3</span><span>3 x 3 = 9</span></div><div class="step"><span class="snum">4</span><span>...</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 20</span>
+          <h2>Let's Build the <span class="hl">Table of 4</span>!</h2>
+          <ul><li>Are you ready for the table of 4?</li><li>It's just adding 4 again and again.</li></ul>
+          <p class="notes">🎙️ You're doing wonderfully! Let's build the table of 4 now. Just remember to add 4 to the previous product to get the next one. Practice these tables regularly, and you'll become a multiplication expert!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1 x 4 = 4</span></div><div class="step"><span class="snum">2</span><span>2 x 4 = 8</span></div><div class="step"><span class="snum">3</span><span>3 x 4 = 12</span></div><div class="step"><span class="snum">4</span><span>...</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>Quick Question 1: How Many <span class="hl">Fingers</span>?</h2>
+          <ul><li>Each hand has 5 fingers.</li><li>How many fingers do 3 hands have?</li><li>Use multiplication to find out!</li></ul>
+          <p class="notes">🎙️ Here's a quick question for you! We all know one hand has 5 fingers. So, if you have 3 hands, how many fingers would that be? Think about 3 groups of 5. What's 3 multiplied by 5?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👋</span><span>👋</span><span>👋</span><span>👋</span><span>👋</span><span>👋</span><span>👋</span><span>👋</span><span>👋</span><span>👋</span></div><div class="vcap">3 hands x 5 fingers = ?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>Quick Question 2: How Many <span class="hl">Legs</span>?</h2>
+          <ul><li>A chair has 4 legs.</li><li>How many legs do 4 chairs have?</li><li>Multiply to get the answer!</li></ul>
+          <p class="notes">🎙️ Next question! Look around your classroom or home. A chair usually has 4 legs. Now, if you have 4 chairs, how many legs are there in total? This is 4 groups of 4. What is 4 multiplied by 4?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span><span>🪑</span></div><div class="vcap">4 chairs x 4 legs = ?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>Quick Question 3: <span class="hl">Petals</span> on Flowers</h2>
+          <ul><li>One flower has 5 petals.</li><li>How many petals do 2 such flowers have?</li><li>Think and multiply!</li></ul>
+          <p class="notes">🎙️ Last quick question! Imagine a beautiful flower with 5 petals. If you have two such flowers, how many petals would you count in total? This is 2 groups of 5. What's 2 multiplied by 5?</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sunflower_sky_backdrop.jpg?width=460" data-fb="🔢" alt="Flowers are the colourful part of plants."/><div class="vcap">Flowers are the colourful part of plants.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 20</span>
+          <h2>Multiplication Property: <span class="hl">Order</span> Doesn't Matter!</h2>
+          <ul><li>If you multiply 2 x 3, the answer is 6.</li><li>If you multiply 3 x 2, the answer is also 6!</li><li>Changing the order does not change the product.</li></ul>
+          <p class="notes">🎙️ Here's a fun fact about multiplication! If you multiply 2 by 3, you get 6. And if you change the order and multiply 3 by 2, you still get 6! This means the order of numbers doesn't change the answer in multiplication.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">2 x 3</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3 x 2</div></div></div></div>
       </div>
@@ -166,96 +263,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>Multiplying by <span class="hl">One (1)</span></h2>
-          <ul><li>Any number multiplied by 1 gives the number itself.</li><li>5 x 1 = 5.</li><li>10 x 1 = 10.</li></ul>
-          <p class="notes">🎙️ Think of it this way: if you have 5 apples, and you multiply them by 1, it means you just have 1 group of 5 apples. So, the number of apples remains 5. It's a very easy rule!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☝️</div><div class="vcap">The number stays the same!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 20</span>
-          <h2>Multiplying by <span class="hl">Zero (0)</span></h2>
-          <ul><li>Any number multiplied by 0 always gives 0.</li><li>7 x 0 = 0.</li><li>100 x 0 = 0.</li></ul>
-          <p class="notes">🎙️ This is another super easy rule! If you have 7 empty boxes, and each box has 0 chocolates, how many chocolates do you have in total? Zero! So, any number multiplied by zero is always zero.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">0️⃣</div><div class="vcap">Everything becomes zero!</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 20</span>
-          <h2>Let's <span class="hl">Solve</span> Together: 4 x 5</h2>
-          <ul><li>We need to find 4 groups of 5.</li><li>Step 1: Draw 4 groups.</li><li>Step 2: Put 5 items in each.</li><li>Step 3: Count them all!</li></ul>
-          <p class="notes">🎙️ Let's try an example together. We want to calculate 4 times 5. This means we have 4 groups, and in each group, there are 5 things. So, we can add 5 + 5 + 5 + 5, which is 20. Or, if we know our 5 times table, 4 times 5 is 20.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>4 groups</span></div><div class="step"><span class="snum">2</span><span>5 items each</span></div><div class="step"><span class="snum">3</span><span>Count total</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2><span class="hl">Wheels</span> on Bicycles!</h2>
-          <ul><li>A bicycle has 2 wheels.</li><li>If there are 6 bicycles, how many wheels are there in total?</li></ul>
-          <p class="notes">🎙️ Look at these bicycles! Each bicycle has two wheels. If we have 6 bicycles, we can count the wheels: 2 + 2 + 2 + 2 + 2 + 2. Or, using multiplication, we simply say 6 times 2, which is 12 wheels.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span></div><div class="vcap">6 bicycles, 2 wheels each</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2>Time for a Quick <span class="hl">Question</span>!</h2>
-          <ul><li>What is 5 x 3?</li></ul>
-          <p class="notes">🎙️ Alright, little smarties, let's see if you can answer this! What is 5 multiplied by 3? Think about 5 groups of 3 items.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2>Another <span class="hl">Challenge</span>!</h2>
-          <ul><li>There are 4 birds on a tree.</li><li>Each bird has 2 wings.</li><li>How many wings in total?</li></ul>
-          <p class="notes">🎙️ Here's a little story problem for you. Imagine 4 birds sitting on a branch. We know each bird has 2 wings. Can you tell me the total number of wings?</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔢" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2><span class="hl">Last Question</span> for Now!</h2>
-          <ul><li>What is 8 x 1?</li></ul>
-          <p class="notes">🎙️ Remember our special rule about multiplying by 1? Use that rule to quickly find the answer to 8 times 1.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Where Do We See Multiplication <span class="hl">Daily</span>?</h2>
-          <ul><li>Counting legs of animals.</li><li>Arranging chairs in rows.</li><li>Sharing sweets equally.</li></ul>
-          <p class="notes">🎙️ Multiplication is not just in our textbooks! We use it every day without even realizing. When we count how many legs all the dogs in a park have, or how many chocolates are in 5 packets, we are using multiplication!</p>
+          <h2><span class="hl">Special Numbers</span> in Multiplication: 0 and 1</h2>
+          <ul><li>Any number multiplied by 1 is the number itself.</li><li>Any number multiplied by 0 is always 0.</li><li>These are magic rules!</li></ul>
+          <p class="notes">🎙️ Numbers 0 and 1 have special powers in multiplication! If you multiply any number by 1, the number stays the same. And if you multiply any number by 0, the answer is always 0, no matter how big the number is!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">All around us!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪄</div><div class="vcap">Magic of 0 and 1</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Let's <span class="hl">Recap</span> What We Learned!</h2>
-          <ul><li>Multiplication is repeated addition.</li><li>'x' is the multiplication sign.</li><li>Order doesn't matter (2x3 = 3x2).</li><li>Multiplying by 1 gives the number itself.</li><li>Multiplying by 0 gives 0.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much today! We discovered that multiplication is a super-fast way to add things repeatedly. We also learned some cool rules, like what happens when we multiply by 1 or 0.</p>
+          <h2>Let's <span class="hl">Recap</span>: What Did We Learn?</h2>
+          <ul><li>Multiplication is repeated addition.</li><li>It helps us count faster.</li><li>We use 'x' for multiplication.</li><li>Tables help us remember products.</li></ul>
+          <p class="notes">🎙️ We learned so much today! We found out that multiplication is a quick way to add the same number many times. We learned about the 'x' sign and how to build multiplication tables. Keep practicing, and you'll be a multiplication wizard!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Key Learnings</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Remember!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -276,14 +289,15 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">20 / 20</span>
           <h2>Keep <span class="hl">Practicing</span> and Have Fun!</h2>
-          <ul><li>Practice your tables every day.</li><li>Look for multiplication around you.</li><li>You are all amazing mathematicians!</li></ul>
-          <p class="notes">🎙️ Learning multiplication is like learning a new game. The more you play, the better you get! Keep practicing your tables and look for ways to use multiplication in your daily life. You're doing great!</p>
+          <ul><li>Practice your multiplication tables every day.</li><li>Look for multiplication in things around you.</li><li>Keep learning and enjoy math!</li></ul>
+          <p class="notes">🎙️ The best way to become good at multiplication is to practice regularly. Recite your tables, solve problems, and look for examples in your daily life. Math is fun, and multiplication will make many things easier for you!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

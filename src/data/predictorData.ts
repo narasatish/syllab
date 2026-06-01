@@ -56,9 +56,16 @@ export const JOSAA_CUTOFFS: CollegeCutoff[] = [
   { college: 'NIT Warangal',        branch: 'Computer Science & Engineering', closingRank: 2135, tier: 'NIT' },
   { college: 'NIT Surathkal',       branch: 'Computer Science & Engineering', closingRank: 2726, tier: 'NIT' },
   { college: 'NIT Trichy',          branch: 'Computer Science & Engineering', closingRank: 4178, tier: 'NIT' },
+  { college: 'IIT (newer IITs)',    branch: 'Computer Science & Engineering', closingRank: 2500, tier: 'IIT' },
   { college: 'IIIT Hyderabad',      branch: 'Computer Science & Engineering', closingRank: 3550, tier: 'IIIT' },
-  { college: 'Top NITs',            branch: 'Core branches',                  closingRank: 15000, tier: 'NIT' },
+  { college: 'NIT Calicut',         branch: 'Computer Science & Engineering', closingRank: 6200, tier: 'NIT' },
+  { college: 'IIIT Bangalore / Delhi', branch: 'Computer Science & Engineering', closingRank: 8000, tier: 'IIIT' },
+  { college: 'Top NITs',            branch: 'Electronics & Communication (ECE)', closingRank: 9000, tier: 'NIT' },
+  { college: 'Top NITs',            branch: 'Core branches (Mech/Civil/Elec)', closingRank: 15000, tier: 'NIT' },
+  { college: 'IIIT (newer)',        branch: 'CSE / IT',                       closingRank: 20000, tier: 'IIIT' },
+  { college: 'Mid NITs',            branch: 'CSE / IT',                       closingRank: 25000, tier: 'NIT' },
   { college: 'Other NITs / GFTIs',  branch: 'Various branches',               closingRank: 50000, tier: 'NIT/GFTI' },
+  { college: 'GFTIs / State govt (CSAB)', branch: 'Various branches',         closingRank: 120000, tier: 'GFTI' },
 ];
 
 /** Colleges whose closing rank is >= your rank (i.e. you'd likely get in). */
@@ -258,18 +265,21 @@ export interface EngPrediction {
   colleges: { college: string; branch: string; cutoff: number }[];
 }
 
-export function predictEngineering(examId: string, input: number): EngPrediction | null {
+export function predictEngineering(examId: string, input: number, category: Category = 'general'): EngPrediction | null {
   const exam = ENG_EXAMS.find(e => e.id === examId);
   if (!exam) return null;
   const val = Math.max(0, Math.min(exam.inputMax, input));
+  const factor = CATEGORY_RANK_FACTOR[category];
 
   if (exam.metric === 'rank') {
     const rank = exam.inputToRank ? interp(exam.inputToRank, val) : val;
-    const colleges = exam.colleges.filter(c => rank <= c.cutoff).sort((a, b) => a.cutoff - b.cutoff);
+    // Reserved categories enjoy more lenient (higher) closing ranks → relax cutoff.
+    const colleges = exam.colleges.filter(c => rank <= c.cutoff * factor).sort((a, b) => a.cutoff - b.cutoff);
     return { estimatedRank: rank, colleges };
   }
-  // percentile / score → higher is better, compare directly
-  const colleges = exam.colleges.filter(c => val >= c.cutoff).sort((a, b) => b.cutoff - a.cutoff);
+  // percentile / score → higher is better, compare directly (mild relaxation for reserved)
+  const relax = category === 'general' ? 0 : Math.min(8, (factor - 1) * 2);
+  const colleges = exam.colleges.filter(c => val >= c.cutoff - relax).sort((a, b) => b.cutoff - a.cutoff);
   return { estimatedRank: null, colleges };
 }
 
@@ -278,3 +288,127 @@ export const DATA_SOURCES = {
   mcc: 'https://mcc.nic.in/',
   nta: 'https://nta.ac.in/',
 };
+
+/* ─── Reservation category — indicative relaxation on closing ranks ──────────
+   Reserved categories generally have more lenient (higher) closing ranks. These
+   multipliers are rough, India-wide averages used only to nudge the estimate.   */
+export type Category = 'general' | 'obc' | 'ews' | 'sc' | 'st';
+export const CATEGORIES: { id: Category; label: string }[] = [
+  { id: 'general', label: 'General' },
+  { id: 'ews', label: 'EWS' },
+  { id: 'obc', label: 'OBC-NCL' },
+  { id: 'sc', label: 'SC' },
+  { id: 'st', label: 'ST' },
+];
+export const CATEGORY_RANK_FACTOR: Record<Category, number> = {
+  general: 1, ews: 1.25, obc: 1.7, sc: 4, st: 6,
+};
+
+/* ─── Career Library — explore real Indian careers ──────────────────────────*/
+export interface CareerInfo {
+  name: string;
+  emoji: string;
+  field: 'Engineering & Tech' | 'Medical & Health' | 'Commerce & Finance' | 'Law & Civil Services' | 'Creative & Design' | 'Aviation & Defence' | 'Education & Social';
+  summary: string;
+  salaryEntry: string;       // indicative entry CTC (India)
+  salaryExperienced: string; // 5-10 yr range
+  path: string;              // education path after Class 12
+  skills: string[];
+  exams: string[];
+  demand: 'Very High' | 'High' | 'Growing' | 'Stable';
+}
+export const CAREER_LIBRARY: CareerInfo[] = [
+  { name: 'Software Engineer', emoji: '💻', field: 'Engineering & Tech', summary: 'Builds apps, websites and systems used by millions.', salaryEntry: '₹4–12 LPA', salaryExperienced: '₹18–60 LPA+', path: 'B.Tech/BE CSE or BCA → MCA (optional)', skills: ['Coding', 'Problem-solving', 'Maths/Logic'], exams: ['JEE Main', 'State CETs', 'BITSAT'], demand: 'Very High' },
+  { name: 'Data Scientist', emoji: '📊', field: 'Engineering & Tech', summary: 'Turns data into insights and trains AI/ML models.', salaryEntry: '₹6–14 LPA', salaryExperienced: '₹25–80 LPA', path: 'B.Tech/BSc (Stats/CS) → MSc/MTech in Data Science', skills: ['Statistics', 'Python', 'ML'], exams: ['JEE Main', 'CUET', 'GATE (PG)'], demand: 'Very High' },
+  { name: 'Doctor (MBBS)', emoji: '🩺', field: 'Medical & Health', summary: 'Diagnoses and treats patients; can specialise via MD/MS.', salaryEntry: '₹6–12 LPA', salaryExperienced: '₹15–50 LPA+', path: 'NEET → MBBS (5.5 yr) → MD/MS (specialise)', skills: ['Biology', 'Empathy', 'Stamina'], exams: ['NEET UG', 'NEET PG (later)'], demand: 'Very High' },
+  { name: 'Pharmacist', emoji: '💊', field: 'Medical & Health', summary: 'Expert in medicines, dosage and drug safety.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹8–20 LPA', path: 'B.Pharm / D.Pharm → M.Pharm (optional)', skills: ['Chemistry', 'Precision', 'Biology'], exams: ['State Pharmacy CETs', 'GPAT (PG)'], demand: 'Growing' },
+  { name: 'Chartered Accountant', emoji: '🧮', field: 'Commerce & Finance', summary: 'Audits, taxation and financial strategy for businesses.', salaryEntry: '₹7–12 LPA', salaryExperienced: '₹20–70 LPA', path: 'CA Foundation → Intermediate → Articleship → Final', skills: ['Accounting', 'Attention to detail', 'Ethics'], exams: ['CA Foundation (ICAI)'], demand: 'High' },
+  { name: 'Investment Banker', emoji: '💰', field: 'Commerce & Finance', summary: 'Helps companies raise money, merge and invest.', salaryEntry: '₹8–15 LPA', salaryExperienced: '₹30 LPA–₹1 Cr+', path: 'B.Com/BBA → MBA (Finance) / CFA', skills: ['Finance', 'Excel', 'Negotiation'], exams: ['CUET', 'CAT (MBA)', 'CFA'], demand: 'High' },
+  { name: 'Civil Servant (IAS/IPS)', emoji: '🏛️', field: 'Law & Civil Services', summary: 'Runs districts, ministries and public administration.', salaryEntry: '₹10–14 LPA', salaryExperienced: '₹18–30 LPA + perks', path: 'Any degree → UPSC Civil Services Exam', skills: ['General Studies', 'Leadership', 'Writing'], exams: ['UPSC CSE', 'State PSC'], demand: 'Stable' },
+  { name: 'Lawyer', emoji: '⚖️', field: 'Law & Civil Services', summary: 'Advises clients, argues cases and drafts contracts.', salaryEntry: '₹4–10 LPA', salaryExperienced: '₹15–60 LPA+', path: 'CLAT → 5-yr BA-LLB / 3-yr LLB after graduation', skills: ['Reasoning', 'English', 'Debate'], exams: ['CLAT', 'AILET', 'LSAT India'], demand: 'High' },
+  { name: 'Mechanical Engineer', emoji: '⚙️', field: 'Engineering & Tech', summary: 'Designs machines, engines, EVs and manufacturing systems.', salaryEntry: '₹3–7 LPA', salaryExperienced: '₹10–30 LPA', path: 'B.Tech/BE Mechanical → M.Tech (optional)', skills: ['Physics', 'CAD', 'Design'], exams: ['JEE Main', 'State CETs', 'GATE'], demand: 'Stable' },
+  { name: 'Architect', emoji: '📐', field: 'Creative & Design', summary: 'Designs buildings and spaces — art meets engineering.', salaryEntry: '₹3–7 LPA', salaryExperienced: '₹12–40 LPA', path: 'NATA/JEE Paper 2 → B.Arch (5 yr)', skills: ['Drawing', 'Maths', 'Creativity'], exams: ['NATA', 'JEE Main Paper 2'], demand: 'Growing' },
+  { name: 'UX / Product Designer', emoji: '🎨', field: 'Creative & Design', summary: 'Designs how apps and products look and feel.', salaryEntry: '₹4–9 LPA', salaryExperienced: '₹15–45 LPA', path: 'B.Des / any degree + design portfolio', skills: ['Creativity', 'Empathy', 'Design tools'], exams: ['UCEED', 'NID DAT', 'CEED (PG)'], demand: 'Very High' },
+  { name: 'Pilot', emoji: '✈️', field: 'Aviation & Defence', summary: 'Flies passenger or cargo aircraft across the world.', salaryEntry: '₹15–25 LPA', salaryExperienced: '₹50 LPA–₹1.5 Cr', path: 'PCM in 12th → CPL (Commercial Pilot Licence)', skills: ['Physics', 'Focus', 'Quick decisions'], exams: ['DGCA exams', 'Pilot aptitude'], demand: 'Growing' },
+  { name: 'Defence Officer (NDA)', emoji: '🎖️', field: 'Aviation & Defence', summary: 'Leads in the Army, Navy or Air Force.', salaryEntry: '₹8–12 LPA', salaryExperienced: '₹15–25 LPA + perks', path: 'NDA after 12th / CDS after graduation', skills: ['Fitness', 'Leadership', 'GK'], exams: ['NDA', 'CDS', 'AFCAT'], demand: 'Stable' },
+  { name: 'Psychologist', emoji: '🧠', field: 'Education & Social', summary: 'Helps people with mental health and behaviour.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹10–25 LPA', path: 'BA/BSc Psychology → MA + M.Phil/PhD', skills: ['Empathy', 'Listening', 'Research'], exams: ['CUET', 'University entrances'], demand: 'Growing' },
+  { name: 'Digital Marketer', emoji: '📱', field: 'Commerce & Finance', summary: 'Grows brands using social media, SEO and ads.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹10–30 LPA', path: 'Any degree (BBA/BMS helps) + certifications', skills: ['Creativity', 'Analytics', 'Writing'], exams: ['CUET', 'No fixed exam'], demand: 'Very High' },
+  { name: 'Teacher / Professor', emoji: '📚', field: 'Education & Social', summary: 'Shapes the next generation; can teach school or college.', salaryEntry: '₹3–6 LPA', salaryExperienced: '₹8–20 LPA', path: 'Degree + B.Ed (school) / Masters + NET (college)', skills: ['Subject mastery', 'Communication', 'Patience'], exams: ['CTET', 'State TET', 'UGC NET'], demand: 'Stable' },
+];
+export const CAREER_FIELDS = [
+  'All', 'Engineering & Tech', 'Medical & Health', 'Commerce & Finance',
+  'Law & Civil Services', 'Creative & Design', 'Aviation & Defence', 'Education & Social',
+] as const;
+
+/* ─── Interest / aptitude quiz → recommended stream ─────────────────────────*/
+export type StreamKey = 'Science (PCM)' | 'Science (PCB)' | 'Commerce' | 'Arts / Humanities';
+export interface QuizQuestion {
+  q: string;
+  options: { text: string; emoji: string; stream: StreamKey }[];
+}
+export const INTEREST_QUIZ: QuizQuestion[] = [
+  { q: 'Which activity sounds most fun?', options: [
+    { text: 'Solving a tricky maths/physics puzzle', emoji: '🧮', stream: 'Science (PCM)' },
+    { text: 'Learning how the human body works', emoji: '🫀', stream: 'Science (PCB)' },
+    { text: 'Running a small business or stall', emoji: '🏪', stream: 'Commerce' },
+    { text: 'Writing a story or debating an idea', emoji: '✍️', stream: 'Arts / Humanities' },
+  ] },
+  { q: 'A school project — what role do you grab?', options: [
+    { text: 'Build the working model / gadget', emoji: '🔧', stream: 'Science (PCM)' },
+    { text: 'Research plants, animals or health', emoji: '🌱', stream: 'Science (PCB)' },
+    { text: 'Manage budget and presentation', emoji: '📊', stream: 'Commerce' },
+    { text: 'Design posters and write the script', emoji: '🎨', stream: 'Arts / Humanities' },
+  ] },
+  { q: 'Your favourite type of TV/video?', options: [
+    { text: 'How rockets, cars and machines work', emoji: '🚀', stream: 'Science (PCM)' },
+    { text: 'Nature, hospitals and medical shows', emoji: '🏥', stream: 'Science (PCB)' },
+    { text: 'Shark Tank / startup stories', emoji: '🦈', stream: 'Commerce' },
+    { text: 'History, culture and documentaries', emoji: '🏛️', stream: 'Arts / Humanities' },
+  ] },
+  { q: 'Which subject do you rarely get bored in?', options: [
+    { text: 'Maths & Physics', emoji: '➗', stream: 'Science (PCM)' },
+    { text: 'Biology & Chemistry', emoji: '🧬', stream: 'Science (PCB)' },
+    { text: 'Economics & Accounts', emoji: '💹', stream: 'Commerce' },
+    { text: 'History, Civics & Languages', emoji: '📜', stream: 'Arts / Humanities' },
+  ] },
+  { q: 'A dream job would let you…', options: [
+    { text: 'Invent and build new technology', emoji: '🤖', stream: 'Science (PCM)' },
+    { text: 'Heal people or save lives', emoji: '🩺', stream: 'Science (PCB)' },
+    { text: 'Grow money and lead companies', emoji: '💰', stream: 'Commerce' },
+    { text: 'Influence society, law or media', emoji: '⚖️', stream: 'Arts / Humanities' },
+  ] },
+  { q: 'How do you like to solve problems?', options: [
+    { text: 'Logic, formulas and calculation', emoji: '📐', stream: 'Science (PCM)' },
+    { text: 'Observation and experiments', emoji: '🔬', stream: 'Science (PCB)' },
+    { text: 'Numbers, trends and strategy', emoji: '📈', stream: 'Commerce' },
+    { text: 'Words, ideas and creativity', emoji: '💡', stream: 'Arts / Humanities' },
+  ] },
+];
+
+/* ─── Exam calendar (indicative windows for the 2026 cycle) ─────────────────*/
+export interface ExamDate { exam: string; emoji: string; window: string; level: string; site: string; }
+export const EXAM_CALENDAR: ExamDate[] = [
+  { exam: 'JEE Main Session 1', emoji: '🎯', window: 'Late Jan 2026', level: 'Class 12 / Droppers', site: 'jeemain.nta.ac.in' },
+  { exam: 'JEE Main Session 2', emoji: '🎯', window: 'Early Apr 2026', level: 'Class 12 / Droppers', site: 'jeemain.nta.ac.in' },
+  { exam: 'JEE Advanced', emoji: '🏆', window: 'May 2026', level: 'JEE Main top 2.5L', site: 'jeeadv.ac.in' },
+  { exam: 'NEET UG', emoji: '🩺', window: 'Early May 2026', level: 'Class 12 (PCB)', site: 'neet.nta.nic.in' },
+  { exam: 'CUET UG', emoji: '🎓', window: 'May 2026', level: 'Class 12 → Central Univ', site: 'cuet.samarth.ac.in' },
+  { exam: 'BITSAT', emoji: '🏛️', window: 'May–Jun 2026', level: 'Class 12 (PCM)', site: 'bitsadmission.com' },
+  { exam: 'AP / TS EAPCET', emoji: '🌾', window: 'Apr–May 2026', level: 'Class 12 (state)', site: 'cets.apsche / tgeapcet' },
+  { exam: 'KCET', emoji: '🛕', window: 'Apr 2026', level: 'Class 12 (Karnataka)', site: 'kea.kar.nic.in' },
+  { exam: 'MHT-CET', emoji: '🌊', window: 'Apr–May 2026', level: 'Class 12 (Maharashtra)', site: 'cetcell.mahacet.org' },
+  { exam: 'NDA (I & II)', emoji: '🎖️', window: 'Apr & Sep 2026', level: 'Class 12', site: 'upsc.gov.in' },
+  { exam: 'CLAT 2027', emoji: '⚖️', window: 'Dec 2026', level: 'Class 12 → Law', site: 'consortiumofnlus.ac.in' },
+];
+
+/* ─── Scholarships for Indian students ──────────────────────────────────────*/
+export interface Scholarship { name: string; emoji: string; who: string; benefit: string; site: string; }
+export const SCHOLARSHIPS: Scholarship[] = [
+  { name: 'National Scholarship Portal (NSP)', emoji: '🇮🇳', who: 'Pre/Post-matric, minority & merit', benefit: 'Tuition + maintenance', site: 'scholarships.gov.in' },
+  { name: 'NMMS', emoji: '📗', who: 'Class 8 pass, family income < ₹3.5L', benefit: '₹12,000/yr (Class 9–12)', site: 'scholarships.gov.in' },
+  { name: 'INSPIRE-SHE', emoji: '🔬', who: 'Top 1% in 12th pursuing science', benefit: '₹80,000/yr for BSc/BS-MS', site: 'online-inspire.gov.in' },
+  { name: 'PM YASASVI', emoji: '🎓', who: 'OBC/EBC/DNT Class 9–12', benefit: 'Up to ₹1.25L/yr', site: 'yet.nta.ac.in' },
+  { name: 'Reliance Foundation UG', emoji: '💡', who: 'Merit-cum-means UG students', benefit: 'Up to ₹2L total', site: 'scholarships.reliancefoundation.org' },
+  { name: 'Sitaram Jindal Scholarship', emoji: '🏅', who: 'School & college, means-based', benefit: '₹500–₹3,200/month', site: 'sitaramjindalfoundation.org' },
+  { name: 'Kishore Vaigyanik (state merit)', emoji: '⭐', who: 'State toppers & merit lists', benefit: 'Varies by state', site: 'state education dept' },
+];

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Statistics: Understanding Data Around Us — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Statistics!</span></h2>
+          <ul><li>Ever wondered how we make sense of large numbers?</li><li>Statistics helps us understand and interpret data.</li><li>Get ready to explore the power of numbers!</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we're embarking on an exciting journey into the world of Statistics. It's a subject that helps us make sense of the vast amount of information around us every day. Have you ever thought about how election results are predicted or how new medicines are tested? All of this involves statistics!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Statistics</span>?</h2>
+          <ul><li>It's the science of collecting, organizing, analyzing, and interpreting data.</li><li>Helps us draw meaningful conclusions from information.</li><li>Used in almost every field, from science to sports.</li></ul>
+          <p class="notes">🎙️ In simple terms, Statistics is like being a detective for numbers. We gather clues, arrange them neatly, examine them closely, and then figure out what story they tell. This process helps us make informed decisions and predictions, making it a very powerful tool.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Data Analysis</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Why is Statistics <span class="hl">Important</span>?</h2>
+          <ul><li>Understand news reports and surveys better.</li><li>Make smarter decisions in daily life.</li><li>Foundation for many advanced studies and careers.</li></ul>
+          <p class="notes">🎙️ Imagine you want to buy a new phone. You might look at reviews, compare features, and check prices. All these actions involve a basic understanding of statistics! From understanding weather forecasts to choosing the best cricket team, statistics plays a crucial role in our lives.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📈</span><span>📈</span><span>📈</span><span>📈</span><span>📈</span></div><div class="vcap">Growth &amp; Trends</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Data</span>: The Raw Information</h2>
+          <ul><li>Data refers to facts or figures collected for a specific purpose.</li><li>It can be numbers, words, measurements, or observations.</li><li>The foundation of any statistical study.</li></ul>
+          <p class="notes">🎙️ Think of data as the ingredients for a delicious meal. Without good ingredients, you can't cook a good dish. Similarly, without accurate and relevant data, we can't do good statistical analysis. Data is simply the information we gather.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Numbers &amp; Facts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Primary vs. Secondary</span> Data</h2>
+          <ul><li>Primary data: Collected directly by the investigator for the first time.</li><li>Secondary data: Already exists, collected by someone else.</li><li>Both types are useful but have different implications.</li></ul>
+          <p class="notes">🎙️ When you conduct a survey yourself to know your classmates' favorite sports, that's primary data. But if you read a report from a sports magazine about popular sports in India, that's secondary data. Primary data is fresh and tailor-made, while secondary data is readily available but might not perfectly fit your exact needs.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Primary Data</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Secondary Data</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Raw Data</span>: Unorganized Facts</h2>
+          <ul><li>Data in its original, unorganized form.</li><li>Usually a list of observations or measurements.</li><li>Difficult to draw conclusions from raw data directly.</li></ul>
+          <p class="notes">🎙️ Imagine you've noted down the marks of 20 students in a math test, one after another, as you check their papers. This jumbled list of marks is raw data. It's just a collection of numbers without any structure, making it hard to see patterns or trends immediately.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📝</span><span>📝</span><span>📝</span><span>📝</span><span>📝</span><span>📝</span><span>📝</span></div><div class="vcap">Unsorted Notes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Organizing Data</span>: Making Sense of It</h2>
+          <ul><li>Arranging raw data into a more structured form.</li><li>Frequency distribution table is a common way.</li><li>Helps us see patterns and frequencies easily.</li></ul>
+          <p class="notes">🎙️ Just like you organize your books in a shelf or clothes in a wardrobe, data also needs to be organized. An organized table makes it much easier to understand what the data is telling us, rather than just looking at a long, messy list of numbers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Arranging Information</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Ungrouped</span> Frequency Distribution</h2>
+          <ul><li>Used when the number of distinct values is small.</li><li>Each distinct value is listed with its frequency.</li><li>Frequency: How many times a value appears.</li></ul>
+          <p class="notes">🎙️ Let's say we asked 10 students how many apples they ate last week. If the answers were 1, 2, 1, 3, 2, 1, 0, 2, 3, 1, we can create a table showing '0 apples - 1 student', '1 apple - 4 students', '2 apples - 3 students', '3 apples - 2 students'. This is an ungrouped frequency distribution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Counting Apples</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Grouped</span> Frequency Distribution</h2>
+          <ul><li>Used when data has a wide range of values.</li><li>Data is divided into class intervals or groups.</li><li>Each interval has a frequency.</li></ul>
+          <p class="notes">🎙️ If we collect the heights of 100 students, it's unlikely many will have the exact same height. Instead of listing every single height, we group them, for example, '150-155 cm', '155-160 cm', and so on. This makes the data manageable and easier to analyze, showing how many students fall into each height range.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Intervals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Measures of <span class="hl">Central Tendency</span></h2>
+          <ul><li>Single values that describe the 'center' of a dataset.</li><li>Mean, Median, and Mode are the most common measures.</li><li>Each tells us something different about the data's typical value.</li></ul>
+          <p class="notes">🎙️ Imagine you want to describe a group of friends' ages with just one number. Do you pick the average age, the age that appears most often, or the age right in the middle? These 'central' values help us summarize a whole dataset efficiently. We'll learn about Mean, Median, and Mode.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Finding the Center</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Mean</span>: The Arithmetic Average</h2>
+          <ul><li>Most common measure of central tendency.</li><li>Calculated by summing all values and dividing by the count.</li><li>Sensitive to extreme values (outliers).</li></ul>
+          <p class="notes">🎙️ The mean is what you usually think of as the 'average'. For example, if you want to find your average marks across all subjects, you add up all your marks and divide by the number of subjects. It gives a good overall sense of the data, but remember, a single very high or very low score can pull the mean in that direction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing Values</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Mean for <span class="hl">Ungrouped Data</span></h2>
+          <ul><li>Formula: Sum of all observations / Total number of observations.</li><li>Symbol: \(\bar{x}\) (read as 'x-bar').</li><li>Example: Marks of 5 students: 10, 15, 20, 25, 30. Mean = (10+15+20+25+30)/5 = 100/5 = 20.</li></ul>
+          <p class="notes">🎙️ This is the most straightforward way to calculate the mean. You simply add up all the numbers you have and then divide by how many numbers there are. It's like sharing a total amount equally among a group.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sum all values</span></div><div class="step"><span class="snum">2</span><span>Count values</span></div><div class="step"><span class="snum">3</span><span>Divide sum by count</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Mean for Grouped Data: <span class="hl">Direct Method</span></h2>
+          <ul><li>Used when data is in a frequency distribution table.</li><li>Find the mid-point (class mark, \(x_i\)) for each class interval.</li><li>Formula: \(\bar{x} = \frac{\sum f_i x_i}{\sum f_i}\)</li></ul>
+          <p class="notes">🎙️ When data is grouped, we don't have individual values. So, we assume that the mid-point of each class interval represents all the values in that interval. We then multiply this mid-point by its frequency and sum these products, finally dividing by the total frequency.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Summing Products</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Example</span>: Mean (Direct Method)</h2>
+          <ul><li>Class Interval | Frequency (\(f_i\)) | Mid-point (\(x_i\)) | \(f_i x_i\)</li><li>0-10 | 2 | 5 | 10</li><li>10-20 | 3 | 15 | 45</li><li>20-30 | 5 | 25 | 125</li><li>30-40 | 4 | 35 | 140</li><li>Total \(\sum f_i=14\), \(\sum f_i x_i=320\). Mean = 320/14 \(\approx\) 22.86</li></ul>
+          <p class="notes">🎙️ Here's a step-by-step example. First, calculate the midpoint for each interval. Then, multiply each midpoint by its frequency. Sum up the frequencies and the products. Finally, divide the sum of products by the sum of frequencies to get the mean. This gives us an average value for the grouped data.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find mid-points (\(x_i\))</span></div><div class="step"><span class="snum">2</span><span>Calculate \(f_i x_i\)</span></div><div class="step"><span class="snum">3</span><span>Sum \(f_i\) and \(f_i x_i\)</span></div><div class="step"><span class="snum">4</span><span>Divide \(\sum f_i x_i\) by \(\sum f_i\)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>Which measure of central tendency is most affected by extreme values?</li><li>If a dataset has values 5, 7, 8, 10, 50, what is the mean?</li><li>What is the formula for mean of grouped data using the direct method?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about what we just discussed. Which measure is easily pulled by a very high or very low number? And can you recall the formula for calculating the mean for grouped data? Take a moment to think about these questions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Median</span>: The Middle Ground</h2>
+          <ul><li>The middle value of a dataset when arranged in order.</li><li>Not affected by extreme values (unlike mean).</li><li>Gives a sense of the 'typical' value without being skewed.</li></ul>
+          <p class="notes">🎙️ The median is literally the middle number. If you line up all your friends by height, the person exactly in the middle is the median height. It's a very useful measure when your data might have some unusually high or low values that would distort the mean.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Finding the Center Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Median for <span class="hl">Ungrouped Data</span></h2>
+          <ul><li>Step 1: Arrange data in ascending or descending order.</li><li>Step 2: If 'n' (number of observations) is odd, Median = \(\left(\frac{n+1}{2}\right)^{th}\) observation.</li><li>Step 3: If 'n' is even, Median = Average of \(\left(\frac{n}{2}\right)^{th}\) and \(\left(\frac{n}{2}+1}\right)^{th}\) observations.</li><li>Example: 2, 5, 7, 8, 10. n=5 (odd). Median = \((5+1)/2 = 3^{rd}\) obs = 7.</li></ul>
+          <p class="notes">🎙️ The first and most crucial step for finding the median is to sort your data. Once sorted, if you have an odd number of items, the median is right in the middle. If you have an even number, there are two 'middle' numbers, so you take their average.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Order the data</span></div><div class="step"><span class="snum">2</span><span>Find middle position</span></div><div class="step"><span class="snum">3</span><span>Identify middle value(s)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Median for <span class="hl">Grouped Data</span></h2>
+          <ul><li>Requires cumulative frequency to find the median class.</li><li>Median Class: The class interval where \(\frac{N}{2}\) (half of total frequency) lies.</li><li>Formula: \(Median = L + \left(\frac{\frac{N}{2} - cf}{f}\right) \times h\) (where L=lower limit, N=total freq, cf=cum. freq. of class preceding median class, f=freq of median class, h=class size).</li></ul>
+          <p class="notes">🎙️ For grouped data, we can't find an exact middle value. Instead, we find a 'median class' – the interval where the median is expected to fall. We use cumulative frequency to locate this class and then apply a specific formula to estimate the median more precisely within that class.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">Climbing Frequencies</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Mode</span>: The Most Popular Value</h2>
+          <ul><li>The value that appears most frequently in a dataset.</li><li>A dataset can have one mode (unimodal), multiple modes (multimodal), or no mode.</li><li>Useful for qualitative data (e.g., favorite color).</li></ul>
+          <p class="notes">🎙️ The mode is simply the value that shows up most often. If you ask your friends what their favorite ice cream flavor is, the flavor chosen by the most people would be the mode. It's great for understanding preferences or the most typical item in a category.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Most Common</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Mode for <span class="hl">Ungrouped Data</span></h2>
+          <ul><li>Simply count the frequency of each observation.</li><li>The observation with the highest frequency is the mode.</li><li>Example: 2, 3, 5, 2, 7, 2, 8. The value '2' appears 3 times, which is the most. So, Mode = 2.</li></ul>
+          <p class="notes">🎙️ Finding the mode for ungrouped data is quite easy. You just look through your list of numbers and see which one repeats the most. If two numbers repeat the same highest number of times, then both are modes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">Most Frequent Star</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Mode for <span class="hl">Grouped Data</span></h2>
+          <ul><li>Identify the 'modal class' - the class interval with the highest frequency.</li><li>Formula: \(Mode = L + \left(\frac{f_1 - f_0}{2f_1 - f_0 - f_2}\right) \times h\) (where L=lower limit of modal class, \(f_1\)=freq of modal class, \(f_0\)=freq of preceding class, \(f_2\)=freq of succeeding class, h=class size).</li></ul>
+          <p class="notes">🎙️ Similar to the median, for grouped data, we first find the 'modal class', which is the class interval with the highest frequency. This class contains the mode. Then, we use a specific formula that considers the frequencies of the modal class and its adjacent classes to calculate a more precise mode.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Peak Frequency</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Relationship</span>: Mean, Median, Mode</h2>
+          <ul><li>For moderately skewed distributions, an empirical relationship exists.</li><li>Formula: Mode \(\approx\) 3 Median - 2 Mean.</li><li>Helps estimate one measure if the other two are known.</li></ul>
+          <p class="notes">🎙️ While Mean, Median, and Mode are distinct measures, they are often related, especially in distributions that are not perfectly symmetrical. This empirical formula provides a useful approximation, allowing us to estimate one measure if we know the other two. It's a handy shortcut in many statistical analyses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connecting Measures</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>What is the first step to find the median of ungrouped data?</li><li>Which measure of central tendency is best for finding the most preferred item?</li><li>If the mean is 10 and median is 12, what is the approximate mode using the empirical formula?</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Remember the steps for finding the median. Which measure tells us about popularity or the most common choice? And can you apply the empirical formula we just discussed to find an approximate mode?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>When to Use Which Measure?</h2>
+          <ul><li>Mean: Best for symmetrical data with no outliers (e.g., average test scores).</li><li>Median: Best for skewed data or data with outliers (e.g., average income, property prices).</li><li>Mode: Best for categorical data or finding the most frequent item (e.g., popular shoe size, favorite color).</li></ul>
+          <p class="notes">🎙️ It's important to know when to use each measure. The mean is great for balanced data. The median is more robust when extreme values are present. And the mode is perfect for understanding preferences or the most common category. Choosing the right measure gives you the most accurate insight into your data.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Mean</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Median</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Mode</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; What's Next?</h2>
+          <ul><li>We learned about data collection, organization, and central tendency.</li><li>Understood Mean, Median, and Mode for both ungrouped and grouped data.</li><li>Next, we will explore graphical representation of data (Histograms, Ogives) and other statistical concepts.</li></ul>
+          <p class="notes">🎙️ Today, we've covered the fundamental concepts of statistics, from understanding what data is to calculating different measures of central tendency. You now have a strong foundation! In our next class, we'll dive into how to visually represent this data using graphs, which makes patterns even clearer.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Reproduction in Plants — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to <span class="hl">Reproduction</span> in Plants!</h2>
-          <ul><li>How do new plants grow?</li><li>Why is it important for plants to reproduce?</li><li>Let's explore the amazing ways plants create new life!</li></ul>
-          <p class="notes">🎙️ Hello students! Today we embark on an exciting journey to understand how plants, all around us, create new generations. It's a fundamental process for their survival and for life on Earth. Get ready to discover the magic of plant reproduction!</p>
+          <ul><li>Get ready to explore how plants make new plants!</li><li>Learn about fascinating ways plants multiply.</li><li>Discover the secrets of flowers and seeds.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey into the world of plants. Have you ever wondered how a tiny seed grows into a big tree, or how a single rose plant can give us so many beautiful flowers? We're going to uncover the amazing process of 'Reproduction in Plants'.</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Reproduction</span>?</h2>
-          <ul><li>The process by which living organisms produce new individuals.</li><li>Ensures the continuation of a species.</li><li>New plants grow from existing plants.</li></ul>
-          <p class="notes">🎙️ Reproduction is simply the process where parents produce offspring. For plants, this means creating new plants from old ones. Without reproduction, a species would eventually die out. Think about how a tiny seed grows into a big tree – that's reproduction in action!</p>
+          <ul><li>Process of producing new individuals.</li><li>Ensures continuation of life on Earth.</li><li>New plants grow from existing ones.</li></ul>
+          <p class="notes">🎙️ Reproduction is a fundamental biological process. Simply put, it's how living organisms create more of their own kind. For plants, this means ensuring that their species continues to thrive and grow, generation after generation.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">New Life</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Modes</span> of Reproduction in Plants</h2>
-          <ul><li>Plants reproduce in different ways.</li><li>Mainly categorised into two types.</li><li>Asexual and Sexual Reproduction.</li></ul>
-          <p class="notes">🎙️ Just like animals, plants have different strategies for reproduction. We primarily divide them into two major modes: asexual, which involves a single parent, and sexual, which typically involves two parents or parts of a single flower that act as two parents.</p>
+          <h2>Two Main <span class="hl">Modes</span> of Reproduction</h2>
+          <ul><li>Asexual Reproduction: One parent, no seeds.</li><li>Sexual Reproduction: Two parents, involves seeds.</li></ul>
+          <p class="notes">🎙️ Plants primarily reproduce in two main ways: asexually and sexually. Asexual reproduction is like cloning, where a single parent plant gives rise to offspring. Sexual reproduction, on the other hand, involves the fusion of special cells, often leading to seeds.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_Reproduction.png?width=500" data-fb="🔬" alt="Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part"/><div class="vcap">Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Asexual</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sexual</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Asexual</span> Reproduction: Single Parent</h2>
-          <ul><li>A single parent plant produces new plants.</li><li>Offspring are genetically identical to the parent.</li><li>No seeds are involved in most cases.</li></ul>
-          <p class="notes">🎙️ In asexual reproduction, it's a one-parent show! The new plants are exact copies of the parent plant, like clones. This method is often faster and doesn't require finding a partner, which can be advantageous in certain environments.</p>
+          <h2><span class="hl">Asexual</span> Reproduction in Plants</h2>
+          <ul><li>New plant from a single parent.</li><li>Offspring are identical to parent.</li><li>No seeds, spores, or flowers involved (usually).</li></ul>
+          <p class="notes">🎙️ In asexual reproduction, a single parent plant can produce new plants that are exact copies of itself. This method is very efficient and allows plants to multiply quickly without needing another plant for reproduction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Identical Copies</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_Reproduction.png?width=500" data-fb="🧬" alt="Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part"/><div class="vcap">Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Types of Asexual Reproduction: <span class="hl">Vegetative</span> Propagation</h2>
-          <ul><li>New plants grow from vegetative parts of the parent plant.</li><li>Parts include roots, stems, leaves, and buds.</li><li>Common in many cultivated plants.</li></ul>
-          <p class="notes">🎙️ Vegetative propagation is a fascinating way plants reproduce asexually. Instead of seeds, they use their 'vegetative' parts – like roots, stems, or leaves – to grow new individuals. This is how many of the plants we love to grow, like roses or potatoes, are propagated.</p>
+          <h2>Common <span class="hl">Types</span> of Asexual Reproduction</h2>
+          <ul><li>Fragmentation</li><li>Budding</li><li>Spore Formation</li><li>Vegetative Propagation</li></ul>
+          <p class="notes">🎙️ There are several fascinating ways plants reproduce asexually. We'll explore each of these methods, from simple breaking of parts to specialized structures like spores, and even using parts of the plant itself.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_anatomy_root_en.png?width=500" data-fb="🔬" alt="A plant has distinct parts, each with specialized functions: roots absorb water, stems tra"/><div class="vcap">A plant has distinct parts, each with specialized functions: roots absorb water, stems tra</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Many Ways to Grow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Vegetative Propagation: Stem <span class="hl">Cuttings</span></h2>
-          <ul><li>A piece of stem with a bud is cut and planted.</li><li>Develops roots and grows into a new plant.</li><li>Example: Rose, Sugarcane, Money Plant.</li></ul>
-          <p class="notes">🎙️ Have you ever seen someone cut a branch of a rose plant and put it in soil? That's stem cutting! The piece of stem, called a cutting, develops roots and shoots to form a whole new rose plant. It's a very common method for many garden plants.</p>
+          <h2>Asexual Type 1: <span class="hl">Fragmentation</span></h2>
+          <ul><li>Body breaks into fragments.</li><li>Each fragment grows into a new individual.</li><li>Common in algae like Spirogyra.</li></ul>
+          <p class="notes">🎙️ Fragmentation is a very simple form of asexual reproduction. Imagine a long chain of cells. If this chain breaks into smaller pieces, each piece can then grow into a complete new organism. Spirogyra, a type of green algae, reproduces this way.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌿</span><span>🌿</span><span>🌿</span></div><div class="vcap">Rose Cuttings</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent breaks</span></div><div class="step"><span class="snum">2</span><span>Fragments grow</span></div><div class="step"><span class="snum">3</span><span>New individuals</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Vegetative Propagation: <span class="hl">Roots</span></h2>
-          <ul><li>Some plants reproduce through their roots.</li><li>Swollen roots (tuberous roots) can grow new plants.</li><li>Example: Sweet Potato, Dahlia, Asparagus.</li></ul>
-          <p class="notes">🎙️ Not just stems, even roots can give rise to new plants! Think of a sweet potato. If you plant a sweet potato, it can sprout new shoots and roots, forming a new plant. This is a clever way for plants to store food and reproduce.</p>
+          <h2>Asexual Type 2: <span class="hl">Budding</span></h2>
+          <ul><li>Small outgrowth (bud) forms on parent.</li><li>Bud detaches and grows into new individual.</li><li>Example: Yeast.</li></ul>
+          <p class="notes">🎙️ Budding is another interesting method. A small bud-like projection develops on the parent organism. This bud then grows, eventually detaches, and becomes a new, independent individual. Yeast, a microscopic fungus, reproduces by budding.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍠</span><span>🍠</span><span>🍠</span></div><div class="vcap">Sweet Potatoes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥔</span><span>🥔</span><span>🥔</span></div><div class="vcap">Budding Potatoes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Vegetative Propagation: <span class="hl">Leaves</span></h2>
-          <ul><li>Some leaves develop buds along their margins.</li><li>These buds detach and grow into new plants.</li><li>Example: Bryophyllum (Sprout Leaf Plant).</li></ul>
-          <p class="notes">🎙️ This is truly unique! The Bryophyllum plant, also known as the 'Sprout Leaf Plant', has special notches on its leaves. Tiny plantlets with roots and leaves grow from these notches. When they fall off, they can grow into new independent plants.</p>
+          <h2>Asexual Type 3: <span class="hl">Spore</span> Formation</h2>
+          <ul><li>Plants produce tiny spores.</li><li>Spores are light and can travel far.</li><li>Germinate under favourable conditions.</li><li>Example: Ferns, Mosses, Fungi.</li></ul>
+          <p class="notes">🎙️ Many non-flowering plants like ferns and mosses, and even fungi, reproduce using spores. These are tiny, resistant structures that can be carried by wind or water. When they land in a suitable environment, they germinate and grow into new plants.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍃</span><span>🍃</span><span>🍃</span></div><div class="vcap">Bryophyllum Leaves</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍄</span><span>🍄</span><span>🍄</span><span>🍄</span><span>🍄</span></div><div class="vcap">Mushroom Spores</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Other Asexual Methods: <span class="hl">Budding</span></h2>
-          <ul><li>A small outgrowth (bud) forms on the parent body.</li><li>The bud detaches and grows into a new individual.</li><li>Example: Yeast (a fungus, not a plant, but shows this process).</li></ul>
-          <p class="notes">🎙️ Budding is another type of asexual reproduction, commonly seen in organisms like yeast. A small 'bud' grows out from the parent cell, eventually detaches, and develops into a new, identical organism. It's like a tiny clone pinching off!</p>
+          <h2>Asexual Type 4: <span class="hl">Vegetative</span> Propagation</h2>
+          <ul><li>New plants from vegetative parts.</li><li>Parts like stem, root, or leaf.</li><li>Faster growth and identical plants.</li></ul>
+          <p class="notes">🎙️ Vegetative propagation is a very common and useful method, especially for gardeners and farmers. It involves growing new plants directly from the vegetative parts of the parent plant, such as a piece of stem, a root, or even a leaf.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍄</div><div class="vcap">Yeast Budding</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Plant Parts Grow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Other Asexual Methods: <span class="hl">Fragmentation</span></h2>
-          <ul><li>The parent body breaks into two or more pieces.</li><li>Each piece grows into a new individual.</li><li>Example: Spirogyra (an algae).</li></ul>
-          <p class="notes">🎙️ Fragmentation is like breaking a chain into smaller pieces, and each piece then becomes a new chain. In organisms like Spirogyra, which is a type of algae, the filament breaks into fragments, and each fragment develops into a new, complete Spirogyra.</p>
+          <h2>Vegetative Propagation: <span class="hl">Stem Cuttings</span></h2>
+          <ul><li>Cut a piece of stem with a bud.</li><li>Plant it in soil.</li><li>Develops roots and grows into a new plant.</li><li>Example: Rose, Sugarcane.</li></ul>
+          <p class="notes">🎙️ One popular method is using stem cuttings. If you take a small piece of a rose stem, plant it in moist soil, and provide the right conditions, it will develop roots and shoots, eventually becoming a whole new rose plant. This is a great way to grow many plants quickly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Spirogyra</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cut stem</span></div><div class="step"><span class="snum">2</span><span>Plant in soil</span></div><div class="step"><span class="snum">3</span><span>New plant</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,21 +180,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Other Asexual Methods: <span class="hl">Spore</span> Formation</h2>
-          <ul><li>Plants produce tiny, light reproductive structures called spores.</li><li>Spores are covered by a hard protective coat.</li><li>They can travel long distances and grow into new plants under favourable conditions.</li><li>Example: Ferns, Mosses, Fungi.</li></ul>
-          <p class="notes">🎙️ Spores are like microscopic seeds, but they are produced asexually. They are very light and can be carried by wind or water. When they land in a suitable place, they germinate and grow into new plants. This is a very effective way for plants like ferns and mosses to spread.</p>
+          <h2>Vegetative Propagation: <span class="hl">Roots</span></h2>
+          <ul><li>Some roots can produce new plants.</li><li>They have adventitious buds.</li><li>Example: Sweet potato, Dahlia.</li></ul>
+          <p class="notes">🎙️ Did you know that some plants can grow new individuals directly from their roots? Plants like the sweet potato have special buds on their roots. If you plant a piece of a sweet potato, it can sprout and grow into a new plant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Spores Dispersing</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍠</div><div class="vcap">Sweet Potato Sprouts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Vegetative Propagation: <span class="hl">Leaves</span></h2>
+          <ul><li>Leaves with buds can produce new plants.</li><li>Buds develop along the leaf margin.</li><li>Example: Bryophyllum (Kalanchoe).</li></ul>
+          <p class="notes">🎙️ This is truly amazing! The Bryophyllum plant, also known as 'mother of thousands,' has special buds on the edges of its leaves. These tiny buds can detach from the parent leaf, fall to the ground, and grow into completely new plants.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍃</div><div class="vcap">Leaf Sprouts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Quick <span class="hl">Check</span>! Asexual Reproduction</h2>
-          <ul><li>Which plant can reproduce from its leaves?</li><li>What is the main advantage of asexual reproduction?</li><li>Name two plants that reproduce by stem cuttings.</li></ul>
-          <p class="notes">🎙️ Alright, time for a quick check to see how well you've grasped asexual reproduction! Think about the examples we discussed and the key features of this mode of reproduction.</p>
+          <span class="num">13 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1!</h2>
+          <ul><li>1. Which type of reproduction produces identical offspring?</li><li>2. Name a plant that reproduces by fragmentation.</li><li>3. What is a 'bud' in the context of reproduction?</li></ul>
+          <p class="notes">🎙️ Alright, students, time for a quick review! Think about what we've just learned about asexual reproduction. Take a moment to answer these questions in your mind or jot them down. We'll discuss them shortly.</p>
         </div>
         
       </div>
@@ -190,24 +215,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Sexual</span> Reproduction: Two Parents</h2>
-          <ul><li>Involves the fusion of male and female gametes.</li><li>Results in offspring that are genetically different from parents.</li><li>Often involves flowers and seeds.</li></ul>
-          <p class="notes">🎙️ Now, let's move to sexual reproduction, which is a bit more complex. It involves two different 'parents' or reproductive parts, leading to offspring that have a mix of traits from both. This is why children are similar to, but not identical to, their parents.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌸</div><div class="vcap">Flower Power</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Parts of a <span class="hl">Flower</span>: The Reproductive Organs</h2>
-          <ul><li>Flowers are the reproductive parts of a plant.</li><li>They contain male and/or female reproductive organs.</li><li>Let's look at the main parts of a typical flower.</li></ul>
-          <p class="notes">🎙️ Flowers are not just beautiful; they are crucial for sexual reproduction in plants! They house the structures responsible for creating new seeds. We'll break down a flower into its main components, understanding what each part does.</p>
+          <h2><span class="hl">Sexual</span> Reproduction in Plants</h2>
+          <ul><li>Involves two parents (male and female parts).</li><li>Results in the formation of seeds.</li><li>Offspring show variations (not identical).</li></ul>
+          <p class="notes">🎙️ Now, let's shift our focus to sexual reproduction, which is how most flowering plants reproduce. Unlike asexual reproduction, this method involves the fusion of male and female reproductive cells, leading to the formation of seeds and fruits.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Mature_flower_diagram.svg?width=500" data-fb="🔬" alt="A flower is the reproductive organ of an angiosperm (flowering plant). It contains both ma"/><div class="vcap">A flower is the reproductive organ of an angiosperm (flowering plant). It contains both ma</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌸</div><div class="vcap">Flowers and Seeds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>The <span class="hl">Stamen</span>: Male Reproductive Part</h2>
-          <ul><li>Consists of two parts: Anther and Filament.</li><li>Anther produces pollen grains.</li><li>Pollen grains contain the male gametes.</li></ul>
-          <p class="notes">🎙️ The stamen is the male part of the flower. It's usually made of a thin stalk called the filament and a sac-like structure at the top called the anther. The anther is where the tiny pollen grains, containing the male reproductive cells, are produced.</p>
+          <h2>The <span class="hl">Flower</span>: Reproductive Organ</h2>
+          <ul><li>Flowers are the reproductive parts of a plant.</li><li>Contain male (stamen) and female (pistil) parts.</li><li>Some flowers have both, some have one.</li></ul>
+          <p class="notes">🎙️ Flowers are not just beautiful; they are incredibly important! They are the reproductive organs of flowering plants. A typical flower has both male and female parts, working together to produce new seeds.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌼</span></div><div class="vcap">Stamen</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Mature_flower_diagram.svg?width=500" data-fb="🌺" alt="A flower is the reproductive organ of an angiosperm (flowering plant). It contains both ma"/><div class="vcap">A flower is the reproductive organ of an angiosperm (flowering plant). It contains both ma</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>The <span class="hl">Pistil</span> (Carpel): Female Reproductive Part</h2>
-          <ul><li>Consists of Stigma, Style, and Ovary.</li><li>Stigma: Sticky top part to receive pollen.</li><li>Style: Tube connecting stigma to ovary.</li><li>Ovary: Swollen base containing ovules (female gametes).</li></ul>
-          <p class="notes">🎙️ The pistil, also known as the carpel, is the female part of the flower. It has three main sections: the sticky stigma to catch pollen, the style which is a tube connecting to the ovary, and the ovary itself, which contains the ovules – the female reproductive cells.</p>
+          <h2>Male Reproductive Part: <span class="hl">Stamen</span></h2>
+          <ul><li>Consists of anther and filament.</li><li>Anther produces pollen grains.</li><li>Pollen grains contain male gametes.</li></ul>
+          <p class="notes">🎙️ The stamen is the male reproductive part of a flower. It's made up of a stalk called the filament and a sac-like structure on top called the anther. The anther is where the magic happens – it produces the tiny, powdery pollen grains, which carry the male reproductive cells.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌸</span></div><div class="vcap">Pistil</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/MaleReproductiveAnatomy.svg?width=500" data-fb="🔬" alt="The male reproductive system produces sperm and delivers it to the female reproductive sys"/><div class="vcap">The male reproductive system produces sperm and delivers it to the female reproductive sys</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Pollination</span>: Transfer of Pollen</h2>
-          <ul><li>The transfer of pollen grains from the anther to the stigma.</li><li>An essential step for sexual reproduction in plants.</li><li>Can happen within the same flower or between different flowers.</li></ul>
-          <p class="notes">🎙️ Pollination is the critical first step in plant sexual reproduction. It's simply the movement of pollen from where it's made (the anther) to where it needs to go (the stigma). Think of it as plants sending their 'male messages' to the 'female receivers'.</p>
+          <h2>Female Reproductive Part: <span class="hl">Pistil</span> (Carpel)</h2>
+          <ul><li>Consists of stigma, style, and ovary.</li><li>Stigma: sticky top to receive pollen.</li><li>Ovary: contains ovules (female gametes).</li></ul>
+          <p class="notes">🎙️ The pistil, or carpel, is the female reproductive part. It has three main sections: the sticky stigma at the top to catch pollen, the style which is a tube connecting the stigma to the ovary, and the ovary at the base, which contains the ovules – the female reproductive cells.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐝</div><div class="vcap">Busy Bee</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Uterus_and_fallopian_tube.svg?width=500" data-fb="🔬" alt="The female reproductive system produces eggs and provides the site for fertilization and f"/><div class="vcap">The female reproductive system produces eggs and provides the site for fertilization and f</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Types</span> of Pollination: Self vs. Cross</h2>
-          <ul><li>Self-pollination: Pollen transferred to the stigma of the same flower or another flower on the same plant.</li><li>Cross-pollination: Pollen transferred to the stigma of a flower on a different plant of the same species.</li></ul>
-          <p class="notes">🎙️ Pollination can happen in two main ways. Self-pollination is when a flower pollinates itself or another flower on the same plant. Cross-pollination is when pollen travels from one plant to a flower on a completely different plant of the same kind.</p>
+          <h2>The Journey of Pollen: <span class="hl">Pollination</span></h2>
+          <ul><li>Transfer of pollen grains.</li><li>From anther to stigma.</li><li>Can be by wind, water, or animals.</li></ul>
+          <p class="notes">🎙️ For sexual reproduction to occur, pollen grains need to move from the anther to the stigma. This process is called pollination. It's often helped by agents like wind carrying pollen, water, or most famously, by insects like bees and butterflies!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pollination.svg?width=500" data-fb="🔬" alt="Pollination is the transfer of pollen from anthers to stigmas. It occurs through self-poll"/><div class="vcap">Pollination is the transfer of pollen from anthers to stigmas. It occurs through self-poll</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐝</div><div class="vcap">Pollinator at Work</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Agents</span> of Pollination</h2>
-          <ul><li>Pollen needs help to move from anther to stigma.</li><li>Wind: Carries light pollen (e.g., grasses).</li><li>Water: Carries pollen for aquatic plants.</li><li>Animals: Insects (bees, butterflies), birds, bats carry pollen (e.g., most flowering plants).</li></ul>
-          <p class="notes">🎙️ Pollen can't move on its own! It relies on various 'agents' or carriers. Wind is a common one for many plants, carrying light pollen far and wide. But many plants depend on animals, especially insects like bees and butterflies, who visit flowers for nectar and accidentally pick up and drop off pollen.</p>
+          <h2>Self-<span class="hl">Pollination</span> vs. Cross-Pollination</h2>
+          <ul><li>Self-Pollination: Pollen to stigma of same flower/plant.</li><li>Cross-Pollination: Pollen to stigma of another plant.</li></ul>
+          <p class="notes">🎙️ Pollination can happen in two ways. Self-pollination is when pollen from a flower lands on its own stigma or the stigma of another flower on the same plant. Cross-pollination involves pollen from one plant being transferred to the stigma of a different plant of the same species.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦋</span><span>🦋</span><span>🦋</span></div><div class="vcap">Pollinators</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Self-Pollination</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cross-Pollination</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Fertilization</span>: Fusion of Gametes</h2>
-          <ul><li>After pollination, a pollen tube grows from the pollen grain down the style into the ovary.</li><li>Male gamete fuses with the female gamete (ovule).</li><li>This fusion forms a zygote.</li></ul>
-          <p class="notes">🎙️ Once pollen lands on the stigma, it's not over! A tube grows from the pollen, reaching the ovule inside the ovary. This is where the magic happens: the male reproductive cell from the pollen fuses with the female reproductive cell in the ovule. This fusion is called fertilization, and it creates a new cell called a zygote.</p>
+          <h2>The Fusion: <span class="hl">Fertilization</span></h2>
+          <ul><li>Male gamete (from pollen) fuses with female gamete (in ovule).</li><li>Forms a zygote.</li><li>The start of a new plant embryo.</li></ul>
+          <p class="notes">🎙️ After pollination, the pollen grain germinates on the stigma, and a pollen tube grows down the style to the ovule. Here, the male gamete from the pollen fuses with the female gamete in the ovule. This fusion is called fertilization, and it forms a zygote, the very first cell of a new plant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Fusion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">New Beginning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Fruit</span> and Seed Formation</h2>
-          <ul><li>After fertilization, the ovary develops into a fruit.</li><li>The ovules inside the ovary develop into seeds.</li><li>The zygote develops into an embryo within the seed.</li></ul>
-          <p class="notes">🎙️ This is where we get our delicious fruits and vital seeds! After fertilization, the entire ovary swells and ripens into a fruit, protecting the developing seeds inside. Each fertilized ovule transforms into a seed, which contains a tiny embryo – a baby plant – ready to grow.</p>
+          <h2>From Flower to Fruit: <span class="hl">Seed Formation</span></h2>
+          <ul><li>After fertilization, ovary develops into fruit.</li><li>Ovules develop into seeds.</li><li>Seed contains an embryo and stored food.</li></ul>
+          <p class="notes">🎙️ Once fertilization is complete, remarkable changes occur in the flower. The ovary swells and develops into the fruit, while the ovules inside the ovary develop into seeds. Each seed contains a tiny embryo, which is a baby plant, along with stored food to help it grow.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ovary -&gt; Fruit</span></div><div class="step"><span class="snum">2</span><span>Ovule -&gt; Seed</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Fertilization</span></div><div class="step"><span class="snum">2</span><span>Ovary → Fruit</span></div><div class="step"><span class="snum">3</span><span>Ovules → Seeds</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Seed <span class="hl">Dispersal</span>: Spreading the Seeds</h2>
-          <ul><li>The process of spreading seeds away from the parent plant.</li><li>Prevents overcrowding and competition for resources.</li><li>Helps plants colonize new areas.</li></ul>
-          <p class="notes">🎙️ Why do plants need to scatter their seeds? Imagine if all the seeds fell right under the parent tree. They would all compete for light, water, and nutrients, and many wouldn't survive. Seed dispersal is crucial for plants to spread out, find new places to grow, and ensure the survival of their species.</p>
+          <h2>Spreading Far and Wide: <span class="hl">Seed Dispersal</span></h2>
+          <ul><li>Seeds are scattered away from parent plant.</li><li>Prevents overcrowding and competition.</li><li>Methods: wind, water, animals, explosion.</li></ul>
+          <p class="notes">🎙️ For new plants to grow successfully, their seeds need to be spread away from the parent plant. This process is called seed dispersal. It prevents overcrowding and competition for resources. Seeds can be dispersed by wind, water, animals, or even by the bursting of fruits.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Seeds Flying</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Seeds on the Move</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Methods</span> of Seed Dispersal</h2>
-          <ul><li>Wind: Light, winged seeds (e.g., Dandelion, Maple).</li><li>Water: Floating seeds (e.g., Coconut).</li><li>Animals: Seeds with hooks or eaten and excreted (e.g., Burdock, Apple).</li><li>Explosion: Fruits burst open (e.g., Balsam).</li></ul>
-          <p class="notes">🎙️ Nature has many clever ways to disperse seeds. Wind carries light, feathery seeds like dandelions. Water transports buoyant seeds like coconuts. Animals play a huge role, either by carrying sticky seeds on their fur or by eating fruits and dispersing the seeds through their waste. Some fruits even explode to scatter their seeds!</p>
+          <h2>Quick <span class="hl">Check</span> 2!</h2>
+          <ul><li>1. What are the male and female reproductive parts of a flower?</li><li>2. Name two agents of pollination.</li><li>3. What develops into a fruit after fertilization?</li></ul>
+          <p class="notes">🎙️ Fantastic, we've covered a lot about sexual reproduction! Let's quickly test your understanding. Think about the functions of different flower parts and the processes involved in making a seed. Good luck!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Wind</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Water</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Animals</div></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick <span class="hl">Check</span>! Sexual Reproduction</h2>
-          <ul><li>What are the male and female parts of a flower called?</li><li>Name two agents of pollination.</li><li>What develops into a fruit after fertilization?</li></ul>
-          <p class="notes">🎙️ Let's quickly review the concepts of sexual reproduction. Think about the roles of the flower parts, how pollen moves, and what happens after successful fertilization.</p>
+          <h2>Reproduction in Plants: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>Asexual: One parent, identical offspring (fragmentation, budding, spores, vegetative propagation).</li><li>Sexual: Two parents, seeds, variation (flowers, pollination, fertilization, seed dispersal).</li><li>Ensures species survival and diversity.</li></ul>
+          <p class="notes">🎙️ To summarize, we've learned that plants reproduce in two main ways: asexually, which creates identical copies from one parent, and sexually, which involves flowers, pollination, fertilization, and results in seeds and genetic variation. Both methods are crucial for the survival and diversity of plant life on Earth.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Reproduction in Plants</h2>
-          <ul><li>Plants reproduce asexually (single parent) and sexually (two parents/gametes).</li><li>Asexual methods: Vegetative propagation (stem, root, leaf), budding, fragmentation, spore formation.</li><li>Sexual reproduction involves flowers, pollination, fertilization, and seed/fruit formation.</li><li>Seed dispersal ensures the spread and survival of plant species.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember, reproduction is vital for plants. Asexual reproduction creates identical copies from parts of the parent, while sexual reproduction involves flowers, pollen, and ovules to create varied offspring through seeds. Both methods ensure that the plant kingdom continues to thrive. Thank you!</p>
+          <h2>Thank You! Any <span class="hl">Questions</span>?</h2>
+          <ul><li>Hope you enjoyed learning about plant reproduction!</li><li>Keep observing the plants around you.</li><li>Science is everywhere!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on reproduction in plants. I hope you found it as fascinating as I do! Remember to look at the flowers, fruits, and seeds around you with new eyes, understanding the incredible processes happening within them. Feel free to ask any questions you might have.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

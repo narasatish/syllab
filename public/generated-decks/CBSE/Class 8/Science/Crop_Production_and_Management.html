@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Crop Production and Management — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Chapter 1: Crop Production and Management</h2>
-          <ul><li>Subject: Science</li><li>Class: VIII</li><li>Board: CBSE</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we begin an exciting journey into the world of how our food is grown. This chapter, 'Crop Production and Management,' will teach us all about the fascinating process from a tiny seed to the food on our plates.</p>
+          <h2>Crop <span class="hl">Production</span> and Management</h2>
+          <ul><li>Welcome Class 8 Science students!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of farming and food. Have you ever wondered where your food comes from? Let's find out!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Why is Food <span class="hl">Important</span>?</h2>
-          <ul><li>Provides energy for all activities.</li><li>Helps in growth and development.</li><li>Keeps us healthy and strong.</li></ul>
-          <p class="notes">🎙️ Think about your day. Where does all the energy come from? It's from the food we eat! Food is vital for our bodies to function, grow, and stay protected from diseases.</p>
+          <h2>What are <span class="hl">Crops</span>?</h2>
+          <ul><li>Plants grown on a large scale.</li><li>Cultivated for food, fiber, or other products.</li><li>Requires specific conditions to grow.</li></ul>
+          <p class="notes">🎙️ A crop is essentially any plant that is grown and harvested by humans for a specific purpose. Think of a vast field of wheat or rice – that's a crop!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Our Daily Meal</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Grain Field</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>What are <span class="hl">Crops</span>?</h2>
-          <ul><li>Plants grown on a large scale.</li><li>For food, fiber, or other products.</li><li>Requires specific conditions.</li></ul>
-          <p class="notes">🎙️ When we talk about crops, we mean plants of the same kind that are cultivated in a big area. For example, a field full of wheat plants is a wheat crop. Humans grow these for various uses, primarily for food.</p>
+          <h2>Why do we need Crop <span class="hl">Production</span>?</h2>
+          <ul><li>To feed a large population.</li><li>Provides raw materials for industries.</li><li>Ensures food security for everyone.</li></ul>
+          <p class="notes">🎙️ With so many people in the world, we need a systematic way to produce enough food. Crop production ensures that everyone has access to the food they need to survive and thrive.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Plants for Purpose</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Rice_fields.jpg?width=500" data-fb="👨‍👩‍👧‍👦" alt="Growing crops involves multiple stages: preparation, sowing, irrigation, pest control, and"/><div class="vcap">Growing crops involves multiple stages: preparation, sowing, irrigation, pest control, and</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Types of Crops: <span class="hl">Kharif Crops</span></h2>
-          <ul><li>Sown in the rainy season (June-July).</li><li>Harvested in September-October.</li><li>Require plenty of water.</li></ul>
-          <p class="notes">🎙️ Kharif crops are like our monsoon friends. They are sown when the rains begin and are harvested after the rainy season. Examples include paddy (rice), maize, soybean, groundnut, and cotton. They thrive with good rainfall.</p>
+          <h2>Types of Crops: <span class="hl">Seasons</span> Matter!</h2>
+          <ul><li>Crops are categorized based on the season they grow.</li><li>Main types in India: Kharif and Rabi.</li><li>Each type needs different weather conditions.</li></ul>
+          <p class="notes">🎙️ Just like we wear different clothes in summer and winter, different crops need different seasons to grow best. India's diverse climate allows for various types of crops.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☔</span><span>☔</span><span>☔</span></div><div class="vcap">Rainy Season Crops</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Calendar Seasons</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Types of Crops: <span class="hl">Rabi Crops</span></h2>
-          <ul><li>Sown in winter season (Oct-Nov).</li><li>Harvested in March-April.</li><li>Require less water, cool climate.</li></ul>
-          <p class="notes">🎙️ Rabi crops are grown during the colder months. They are sown in autumn and harvested in spring. Wheat, gram, pea, mustard, and linseed are common examples. They don't need as much water as Kharif crops.</p>
+          <h2><span class="hl">Kharif</span> Crops: Monsoon Magic</h2>
+          <ul><li>Sown during the monsoon season (June to September).</li><li>Require a lot of water.</li><li>Examples: Paddy (Rice), Maize, Soybean, Groundnut.</li></ul>
+          <p class="notes">🎙️ Kharif crops are like rain-loving plants! They are planted when the monsoon arrives and harvested after it's gone. Think of rice paddies filled with water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☀️</span><span>☀️</span><span>☀️</span></div><div class="vcap">Winter Season Crops</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌧️</span><span>🌧️</span><span>🌧️</span><span>🌧️</span><span>🌧️</span></div><div class="vcap">Monsoon Rains</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,21 +120,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Basic <span class="hl">Practices</span> of Crop Production</h2>
-          <ul><li>Farmers perform several activities.</li><li>From sowing to storage.</li><li>These are called agricultural practices.</li></ul>
-          <p class="notes">🎙️ Growing crops isn't just about throwing seeds! It's a systematic process involving many steps. We will now learn about each of these agricultural practices that farmers follow to ensure a good harvest.</p>
+          <h2><span class="hl">Rabi</span> Crops: Winter Wonders</h2>
+          <ul><li>Sown in winter (October to March).</li><li>Require less water and cooler temperatures.</li><li>Examples: Wheat, Gram, Pea, Mustard, Linseed.</li></ul>
+          <p class="notes">🎙️ Rabi crops enjoy the cooler, drier winter months. They are planted as the monsoon ends and harvested before summer begins. Wheat is a prime example of a Rabi crop.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Rice_fields.jpg?width=500" data-fb="🔬" alt="Growing crops involves multiple stages: preparation, sowing, irrigation, pest control, and"/><div class="vcap">Growing crops involves multiple stages: preparation, sowing, irrigation, pest control, and</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☀️</span><span>☀️</span><span>☀️</span><span>☀️</span><span>☀️</span></div><div class="vcap">Winter Sun</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1: Crop Types</h2>
+          <ul><li>Which crop is typically grown in the monsoon season?</li><li>Name two examples of Rabi crops.</li><li>True or False: Wheat needs a lot of water to grow.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think about the seasons and the examples we just discussed. This will help you remember the difference between Kharif and Rabi crops.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>1. Preparation of <span class="hl">Soil</span></h2>
-          <ul><li>First step before sowing.</li><li>Loosens and turns the soil.</li><li>Allows roots to penetrate deeply.</li></ul>
-          <p class="notes">🎙️ Preparing the soil is crucial. It involves loosening and turning the soil, which helps in aeration and allows the roots to breathe easily. This process also brings nutrient-rich soil to the top.</p>
+          <span class="num">8 / 25</span>
+          <h2>Basic <span class="hl">Practices</span> of Crop Production</h2>
+          <ul><li>A series of steps farmers follow.</li><li>Ensures healthy and abundant harvest.</li><li>From preparing soil to storing crops.</li></ul>
+          <p class="notes">🎙️ Growing crops isn't just about throwing seeds! It's a systematic process, much like following a recipe. There are seven main steps that farmers meticulously follow.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Soil Prep</span></div><div class="step"><span class="snum">2</span><span>Sowing</span></div><div class="step"><span class="snum">3</span><span>Manuring</span></div><div class="step"><span class="snum">4</span><span>Irrigation</span></div><div class="step"><span class="snum">5</span><span>Weeding</span></div><div class="step"><span class="snum">6</span><span>Harvesting</span></div><div class="step"><span class="snum">7</span><span>Storage</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>1. Preparation of <span class="hl">Soil</span>: Tilling &amp; Ploughing</h2>
+          <ul><li>Loosens the soil, allowing roots to penetrate deeper.</li><li>Improves aeration for root respiration.</li><li>Brings nutrient-rich soil to the top.</li></ul>
+          <p class="notes">🎙️ The first step is crucial: preparing the soil. Ploughing or tilling breaks up the hard soil, making it soft and airy. This helps roots grow strong and absorb water and nutrients better.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🚜</div><div class="vcap">Tractor Ploughing</div></div></div>
       </div>
@@ -130,36 +167,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2>Real-life Example: <span class="hl">Ploughing</span></h2>
-          <ul><li>Process of loosening and turning soil.</li><li>Done using a plough.</li><li>Helps mix manure, remove weeds.</li></ul>
-          <p class="notes">🎙️ Ploughing, or tilling, is commonly done with a plough, traditionally pulled by bullocks or now by tractors. This action creates small spaces in the soil for air and water, essential for seed germination and root growth. It also helps in uprooting weeds.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🌾</div><div class="vcap">Farmer at Work</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>2. <span class="hl">Sowing</span></h2>
-          <ul><li>Placing seeds in the soil.</li><li>Crucial step for crop yield.</li><li>Requires good quality seeds.</li></ul>
-          <p class="notes">🎙️ Once the soil is prepared, the next step is sowing the seeds. It's essential to use healthy, good quality seeds to ensure a healthy crop. Damaged or diseased seeds will not germinate properly.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌰</div><div class="vcap">Planting Seeds</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Traditional vs. Modern <span class="hl">Sowing Methods</span></h2>
-          <ul><li>Traditional: Funnel-shaped tool.</li><li>Modern: Seed drill.</li><li>Seed drill saves time and labour.</li></ul>
-          <p class="notes">🎙️ Traditionally, seeds were sown manually or using a simple funnel-shaped tool. Modern agriculture uses seed drills, which are attached to tractors. These sow seeds uniformly at proper distances and depths, ensuring better germination and saving a lot of time and effort.</p>
+          <h2>1. Preparation of Soil: <span class="hl">Levelling</span></h2>
+          <ul><li>Breaks large lumps of soil.</li><li>Ensures even distribution of water.</li><li>Prevents soil erosion.</li></ul>
+          <p class="notes">🎙️ After ploughing, the field might have big chunks of soil. Levelling makes the surface even, which is important for uniform irrigation and prevents the topsoil from being washed away by wind or water.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Traditional</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Modern</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Soil Leveller</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>3. Adding <span class="hl">Manure and Fertilizers</span></h2>
-          <ul><li>Substances added to soil.</li><li>To replenish soil nutrients.</li><li>Essential for healthy plant growth.</li></ul>
-          <p class="notes">🎙️ Just like we need vitamins, plants need nutrients. Manure and fertilizers are added to the soil to enhance its fertility and provide essential nutrients for the plants to grow strong and healthy. They act as food for the crops.</p>
+          <h2>2. Sowing: Choosing the Best <span class="hl">Seeds</span></h2>
+          <ul><li>Healthy seeds are vital for good yield.</li><li>Farmers select disease-free, high-quality seeds.</li><li>Damaged seeds float on water; good seeds sink.</li></ul>
+          <p class="notes">🎙️ Just like you'd pick the best ingredients for a dish, farmers choose the best seeds. Healthy seeds germinate well and lead to strong plants, ensuring a bountiful harvest.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Nutrient Boost</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Healthy Seedling</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Manure <span class="hl">vs.</span> Fertilizers</h2>
-          <ul><li>Manure: Natural, organic.</li><li>Fertilizers: Man-made chemicals.</li><li>Fertilizers are nutrient-specific.</li></ul>
-          <p class="notes">🎙️ Manure is derived from decomposed plant and animal waste, making it organic and enriching the soil with humus. Fertilizers are chemical compounds, rich in specific nutrients like nitrogen, phosphorus, and potassium. While fertilizers give quick results, manure improves soil texture in the long run.</p>
+          <h2>2. Sowing: <span class="hl">Methods</span> of Planting</h2>
+          <ul><li>Broadcasting: scattering seeds by hand.</li><li>Seed Drill: uses a machine for uniform spacing.</li><li>Transplantation: growing seedlings first, then planting.</li></ul>
+          <p class="notes">🎙️ There are different ways to sow seeds. Broadcasting is traditional, but a seed drill ensures seeds are planted at the correct depth and distance, leading to better growth. Some crops like paddy are first grown as small plants and then transplanted.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Manure (Organic)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Fertilizers (Chemical)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Broadcasting</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Seed Drill</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 1</h2>
-          <ul><li>Name two Kharif crops.</li><li>What is the first step in crop production?</li><li>When are Rabi crops generally harvested?</li></ul>
-          <p class="notes">🎙️ Let's pause for a moment and see how much we've understood so far. Think about these questions, and we'll quickly review the answers together.</p>
+          <h2>3. Adding Manure and Fertilizers: <span class="hl">Plant Food</span>!</h2>
+          <ul><li>Replenish soil nutrients for healthy growth.</li><li>Manure is natural, organic matter.</li><li>Fertilizers are chemical substances.</li></ul>
+          <p class="notes">🎙️ Just like we need food to grow, plants need nutrients from the soil. Manure and fertilizers act as 'plant food' to keep the soil rich and fertile, ensuring strong and productive crops.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_hormones.svg?width=500" data-fb="🍽️" alt="Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel"/><div class="vcap">Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>4. <span class="hl">Irrigation</span></h2>
-          <ul><li>Supplying water to crops.</li><li>At regular intervals.</li><li>Crucial for proper growth.</li></ul>
-          <p class="notes">🎙️ Water is essential for all living beings, and crops are no exception. Irrigation is the process of providing water to crops at various stages of their growth. Without adequate water, crops cannot absorb nutrients from the soil or perform photosynthesis.</p>
+          <h2>Manure vs. Fertilizers: A <span class="hl">Comparison</span></h2>
+          <ul><li>Manure: Organic, improves soil texture, adds humus.</li><li>Fertilizers: Inorganic salts, nutrient-specific, can cause water pollution.</li><li>Both provide nutrients, but in different ways.</li></ul>
+          <p class="notes">🎙️ While both are crucial for plant growth, manure is natural and improves the soil's overall health over time. Fertilizers provide quick boosts of specific nutrients but must be used carefully to avoid environmental harm.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water for Life</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Manure (Organic)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Fertilizers (Chemical)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Traditional</span> Methods of Irrigation</h2>
-          <ul><li>Moat (pulley system).</li><li>Chain pump.</li><li>Dhekli, Rahat (lever system).</li></ul>
-          <p class="notes">🎙️ For centuries, farmers have used simple, traditional methods to irrigate their fields. These often involve manual labour or animal power to lift water from wells or canals. Examples include the moat, chain pump, dhekli, and rahat, which are still used in some regions.</p>
+          <h2>4. Irrigation: <span class="hl">Watering</span> the Crops</h2>
+          <ul><li>Supplying water to crops at regular intervals.</li><li>Essential for germination, growth, and nutrient absorption.</li><li>Different crops need different amounts of water.</li></ul>
+          <p class="notes">🎙️ Water is life for plants! Irrigation ensures that crops receive enough water, especially during dry spells. It helps seeds sprout, plants grow, and nutrients move from the soil to the plant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛶</div><div class="vcap">Old Ways</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Drop</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Modern</span> Methods of Irrigation</h2>
-          <ul><li>Sprinkler system.</li><li>Drip system.</li><li>Conserve water, efficient.</li></ul>
-          <p class="notes">🎙️ Modern irrigation methods are designed to conserve water and ensure efficient distribution. The sprinkler system is great for uneven land, while the drip system delivers water directly to the plant roots, minimizing waste. These methods are a boon in areas with water scarcity.</p>
+          <h2>Irrigation Methods: <span class="hl">Traditional</span> Ways</h2>
+          <ul><li>Based on manual labor or animal power.</li><li>Examples: Moat (pulley system), Chain pump, Dhekli, Rahat (lever system).</li><li>Less efficient, more water wastage.</li></ul>
+          <p class="notes">🎙️ Historically, farmers used simple, ingenious methods to lift water from wells or canals. These traditional methods often involved human or animal effort, but they were also less efficient in water usage.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚿</div><div class="vcap">Smart Watering</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Moat</span></div><div class="step"><span class="snum">2</span><span>Chain Pump</span></div><div class="step"><span class="snum">3</span><span>Dhekli</span></div><div class="step"><span class="snum">4</span><span>Rahat</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,33 +252,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>5. Protection from <span class="hl">Weeds</span></h2>
-          <ul><li>Unwanted plants in a field.</li><li>Compete with crops for resources.</li><li>Reduce crop yield significantly.</li></ul>
-          <p class="notes">🎙️ Imagine trying to grow your favorite plant, but other wild plants keep popping up and stealing its food and water. These are weeds! They compete with the main crop for sunlight, water, nutrients, and space, harming the crop's growth.</p>
+          <h2>Irrigation Methods: <span class="hl">Modern</span> Techniques</h2>
+          <ul><li>More efficient and conserve water.</li><li>Sprinkler system: for uneven land, sandy soil.</li><li>Drip system: water delivered drop by drop directly to roots.</li></ul>
+          <p class="notes">🎙️ Modern irrigation methods are designed to save water and deliver it precisely where it's needed. The sprinkler system is great for large, uneven fields, while the drip system is perfect for fruit plants and gardens, minimizing water loss.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Uninvited Guests</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2><span class="hl">Weeding</span> Methods</h2>
-          <ul><li>Manual removal (khurpi).</li><li>Using weedicides (chemicals).</li><li>Tilling before sowing helps.</li></ul>
-          <p class="notes">🎙️ Removing weeds, called weeding, is essential. It can be done manually by uprooting them or by using a khurpi. Farmers also use chemical substances called weedicides, which kill the weeds without harming the crop. Tilling the soil before sowing also helps in uprooting weeds.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧤</div><div class="vcap">Removing Weeds</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sprinkler</span></div><div class="step"><span class="snum">2</span><span>Drip System</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 2</h2>
-          <ul><li>What is the main purpose of ploughing?</li><li>Give one example of a fertilizer.</li><li>How do modern irrigation methods save water?</li></ul>
-          <p class="notes">🎙️ Time for another quick check! Reflect on these questions related to soil preparation, nutrients, and irrigation. It's important to understand the 'why' behind each practice.</p>
+          <span class="num">18 / 25</span>
+          <h2>Quick Check 2: Farming <span class="hl">Practices</span></h2>
+          <ul><li>What is the purpose of ploughing?</li><li>Name one advantage of using a seed drill.</li><li>Which irrigation method conserves the most water?</li></ul>
+          <p class="notes">🎙️ Let's pause and see how well you've understood the steps so far. Think about why each practice is important and what its benefits are.</p>
         </div>
         
       </div>
@@ -274,12 +275,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>6. <span class="hl">Harvesting</span></h2>
-          <ul><li>Cutting of mature crops.</li><li>Done manually (sickle) or by machines.</li><li>Marks the end of crop growth.</li></ul>
-          <p class="notes">🎙️ Harvesting is one of the most satisfying stages for a farmer – it's when the crop is finally mature and ready to be cut and gathered. This can be done with a sickle by hand or with large machines called harvesters, especially for large fields.</p>
+          <span class="num">19 / 25</span>
+          <h2>5. Protection from <span class="hl">Weeds</span>: Unwanted Guests</h2>
+          <ul><li>Weeds are unwanted plants that grow with crops.</li><li>Compete for water, nutrients, light, and space.</li><li>Weeding: removal of weeds (manual or chemical).</li></ul>
+          <p class="notes">🎙️ Imagine having uninvited guests at a party who eat all the food! Weeds do the same to crops – they steal resources. Removing them, or weeding, is vital for the crop's health and yield.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Ready to Gather</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">No Weeds</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>6. <span class="hl">Harvesting</span>: The Grand Finale!</h2>
+          <ul><li>Cutting and gathering of mature crops.</li><li>Done manually (sickle) or by machine (harvester).</li><li>Threshing: separating grain from chaff.</li></ul>
+          <p class="notes">🎙️ Harvesting is the exciting culmination of all the hard work! It's when the ripe crops are cut down. After harvesting, the grains need to be separated from the unwanted parts, a process called threshing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾🔪</div><div class="vcap">Harvesting Sickle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Threshing</span> and Winnowing</h2>
-          <ul><li>Threshing: Separating grain from chaff.</li><li>Winnowing: Separating grain from lighter chaff.</li><li>Often done by combine harvesters.</li></ul>
-          <p class="notes">🎙️ After harvesting, the grain still needs to be separated from the straw (chaff). Threshing is the process of beating out the grain from the harvested crop. Winnowing then uses wind to separate the lighter chaff from the heavier grain. Modern combine harvesters do both simultaneously.</p>
+          <h2>7. <span class="hl">Storage</span>: Keeping the Harvest Safe</h2>
+          <ul><li>Protecting harvested grains from pests and moisture.</li><li>Prevents spoilage and ensures food availability year-round.</li><li>Requires proper drying and pest control.</li></ul>
+          <p class="notes">🎙️ Imagine working so hard to grow food, only for it to spoil! Proper storage is essential to protect grains from insects, rodents, and moisture. This ensures food security until the next harvest.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Separating the Good</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Safe Storage</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>7. <span class="hl">Storage</span></h2>
-          <ul><li>Protecting harvested grain.</li><li>From moisture, pests, microorganisms.</li><li>Ensures food availability year-round.</li></ul>
-          <p class="notes">🎙️ Proper storage is critical. If harvested grains are not stored correctly, they can be spoiled by moisture, insects, rats, or microorganisms. Farmers store grains in jute bags or metallic bins, while large-scale storage happens in silos and granaries.</p>
+          <h2>7. Storage: <span class="hl">Methods</span> and Places</h2>
+          <ul><li>Small scale: jute bags, metallic bins.</li><li>Large scale: granaries, silos.</li><li>Neem leaves or chemicals used as pest repellents.</li></ul>
+          <p class="notes">🎙️ Depending on the quantity, grains are stored in different ways. From simple bags at home to massive silos in large storage facilities, the goal is always to keep them dry and pest-free.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Safe Keeping</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">Storage Boxes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,11 +324,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Food from <span class="hl">Animals</span> (Animal Husbandry)</h2>
-          <ul><li>Provides milk, meat, eggs, honey.</li><li>Rearing animals on a large scale.</li><li>Proper food, shelter, care needed.</li></ul>
-          <p class="notes">🎙️ While crops give us plant-based food, many people also rely on animal products. Animal husbandry is the practice of rearing and caring for farm animals to obtain food products like milk, eggs, and meat. It requires providing proper food, shelter, and health care to the animals.</p>
+          <h2>Animal Husbandry: Food from <span class="hl">Animals</span></h2>
+          <ul><li>Rearing and caring for animals on a large scale.</li><li>Provides milk, meat, eggs, and fish.</li><li>Part of overall food production and management.</li></ul>
+          <p class="notes">🎙️ Besides crops, animals also provide us with essential food items. Animal husbandry is the scientific management of livestock, ensuring we get milk, eggs, meat, and fish to complement our diet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐄</div><div class="vcap">Animal Care</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🐄🐔🐟" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 3</h2>
-          <ul><li>What is harvesting?</li><li>Why is proper storage of grains important?</li><li>What is animal husbandry?</li></ul>
-          <p class="notes">🎙️ Let's do one final quick check! These questions cover the last few stages of crop production and also the concept of food from animals. Think about the key terms and their significance.</p>
+          <h2>Quick Check 3 &amp; <span class="hl">Recap</span></h2>
+          <ul><li>What are weeds? Why are they harmful?</li><li>Name two common methods of harvesting.</li><li>Why is proper storage of grains important?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the final stages of crop production. Think about the challenges farmers face and how they overcome them to bring food to our tables.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Crop Production and Management</h2>
-          <ul><li>Learned about different crop types.</li><li>Explored 7 agricultural practices.</li><li>Understood the journey from farm to plate.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! From preparing the soil to storing the harvested grains, you now know the systematic process involved in crop production. Remember, food security depends on efficient agricultural practices and careful management.</p>
+          <h2>Conclusion: Our Food <span class="hl">Journey</span></h2>
+          <ul><li>Crop production is a complex but vital process.</li><li>Farmers work hard to feed us all.</li><li>Appreciate your food and avoid wastage!</li></ul>
+          <p class="notes">🎙️ From preparing the soil to storing the harvest, farmers put in immense effort. Understanding this journey helps us appreciate our food and encourages us to avoid wasting it. Every bite has a story!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 8 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

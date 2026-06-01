@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>A Tale of Three Intersecting Lines — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to Our <span class="hl">Geometry Adventure</span>!</h2>
-          <ul><li>Welcome, Class 7!</li><li>Get ready to explore the fascinating world of lines.</li><li>We'll uncover the secrets of how lines interact.</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey into the world of geometry, specifically focusing on lines and their interactions. Our chapter title, 'A Tale of Three Intersecting Lines,' hints at the interesting stories these lines have to tell.</p>
+          <h2>A Tale of Three <span class="hl">Intersecting Lines</span></h2>
+          <ul><li>Unraveling the mystery of lines that meet.</li><li>Discovering the angles they create.</li><li>Understanding their role in geometry.</li></ul>
+          <p class="notes">🎙️ Welcome, young mathematicians, to an exciting journey into the world of lines! Today, we're going to explore what happens when lines cross paths and the beautiful patterns and properties they form. Get ready to uncover the 'tale' of these fascinating lines.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is a <span class="hl">Line</span>?</h2>
-          <ul><li>A straight path extending infinitely in both directions.</li><li>Has no thickness.</li><li>Represented by arrows at both ends.</li></ul>
-          <p class="notes">🎙️ Before we dive into intersecting lines, let's quickly recap what a line is. Remember, it's a perfectly straight path that goes on forever in both directions, without any beginning or end. We usually draw arrows on both sides to show this infinite extension.</p>
+          <ul><li>A straight path extending infinitely in both directions.</li><li>Has no thickness or width.</li><li>Represented by arrows at both ends.</li></ul>
+          <p class="notes">🎙️ Before we talk about intersecting lines, let's quickly review what a line is. Imagine a perfectly straight road that never ends, going on forever in two directions. That's what a line is in mathematics – an endless, straight path.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Endless Path</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Path</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,9 +84,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Introducing <span class="hl">Intersecting Lines</span></h2>
-          <ul><li>Lines that cross each other at a single point.</li><li>They share one common point.</li><li>Think of roads crossing each other.</li></ul>
-          <p class="notes">🎙️ Our main characters today are intersecting lines. Imagine two roads crossing each other. Where they meet, that's their intersection point. In geometry, when two lines cross, they are called intersecting lines.</p>
+          <h2><span class="hl">Points</span> Make a Line</h2>
+          <ul><li>A line is made up of infinite points.</li><li>We name a line using two points on it, e.g., Line AB.</li><li>A point is a specific location in space.</li></ul>
+          <p class="notes">🎙️ Think of a line as a collection of countless tiny dots, or points, placed side by side. We often use two points on a line to give it a name, like 'Line AB', to make it easier to talk about.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📍</span><span>📍</span><span>📍</span><span>📍</span><span>📍</span></div><div class="vcap">Many Points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>When Lines Meet: <span class="hl">Intersecting Lines</span></h2>
+          <ul><li>Two lines that cross each other at a single common point.</li><li>This common point is called the 'point of intersection'.</li><li>They cannot be parallel.</li></ul>
+          <p class="notes">🎙️ Now, let's bring two lines together! When two lines cross each other, just like two roads meeting, they are called intersecting lines. The spot where they meet is very important – we call it the point of intersection.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Crossing Paths</div></div></div>
       </div>
@@ -82,36 +107,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>The <span class="hl">Point of Intersection</span></h2>
-          <ul><li>The exact spot where two or more lines meet.</li><li>It's a single, shared point.</li><li>The common point for all crossing lines.</li></ul>
-          <p class="notes">🎙️ This special point where lines cross is called the point of intersection. It's unique and belongs to all the lines that pass through it. Think of it as the 'meeting point' for these lines.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Meeting Spot</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Real-Life</span> Intersecting Lines</h2>
-          <ul><li>Roads crossing each other.</li><li>Scissors blades when open.</li><li>Railway tracks crossing (level crossing).</li></ul>
-          <p class="notes">🎙️ You see intersecting lines everywhere! Look at the blades of a pair of scissors when you open them – they form an 'X' shape. Similarly, crossroads on a map are perfect examples of intersecting lines.</p>
+          <h2>Intersecting Lines <span class="hl">All Around Us</span>!</h2>
+          <ul><li>Scissor blades when open.</li><li>Crossroads on a map.</li><li>Hands of a clock at certain times.</li></ul>
+          <p class="notes">🎙️ You see intersecting lines everywhere! Look at a pair of open scissors – the blades cross. Or imagine a map with roads crossing each other. These are all real-life examples of intersecting lines, showing up in our daily lives.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✂️</span><span>✂️</span></div><div class="vcap">Scissors Crossing</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✂️</span><span>✂️</span></div><div class="vcap">Scissors crossing</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Other Types of Lines: <span class="hl">Parallel Lines</span></h2>
-          <ul><li>Lines that never meet, no matter how far they extend.</li><li>Always maintain the same distance apart.</li><li>They run side-by-side.</li></ul>
-          <p class="notes">🎙️ Now, let's look at lines that are the opposite of intersecting. Parallel lines are like railway tracks – they run side-by-side, always the same distance apart, and they will never, ever meet, no matter how long they are.</p>
+          <h2><span class="hl">Quick Check</span>: Intersecting or Not?</h2>
+          <ul><li>Look at the pairs of lines.</li><li>Which pair will intersect if extended?</li><li>Think about their direction.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Take a look at these line pairs. If you imagine extending them further, will they eventually cross paths? This helps us understand the nature of intersecting lines.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚆</div><div class="vcap">Never Meet</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Other Types of Lines: <span class="hl">Perpendicular Lines</span></h2>
-          <ul><li>Intersecting lines that form a perfect 90-degree angle.</li><li>They meet at a right angle.</li><li>Looks like a perfect 'L' shape.</li></ul>
-          <p class="notes">🎙️ Perpendicular lines are a special type of intersecting lines. When lines cross and create a perfect square corner, or a 90-degree angle, we call them perpendicular. Think of the corner of a room or the cross on a graph paper.</p>
+          <h2>Lines That Never Meet: <span class="hl">Parallel Lines</span></h2>
+          <ul><li>Two lines in a plane that never intersect.</li><li>They maintain the same distance from each other.</li><li>Represented by arrows on the lines (//).</li></ul>
+          <p class="notes">🎙️ On the other hand, we have lines that are like best friends walking side-by-side, never touching! Parallel lines are lines that will never, ever meet, no matter how far you extend them. They always stay the same distance apart.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Right Angle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏸️</div><div class="vcap">Always Apart</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Angles Formed</span> by Intersecting Lines</h2>
-          <ul><li>When two lines intersect, they create four angles.</li><li>These angles have special relationships.</li><li>We'll learn their names and properties.</li></ul>
-          <p class="notes">🎙️ Whenever two lines intersect, they don't just create a point; they also create four different regions, which we call angles. These angles are not random; they have specific names and properties that we'll explore.</p>
+          <h2><span class="hl">Parallel Lines</span> in Our World</h2>
+          <ul><li>Railway tracks.</li><li>Opposite edges of a ruler or a book.</li><li>Steps of a ladder.</li></ul>
+          <p class="notes">🎙️ Just like intersecting lines, parallel lines are also very common. Think about railway tracks – they run alongside each other but never cross. The opposite sides of your notebook or the rungs of a ladder are other great examples!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Four Angles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛤️</span></div><div class="vcap">Railway tracks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Vertically Opposite</span> Angles</h2>
-          <ul><li>Angles directly opposite each other at the intersection.</li><li>They are always equal in measure.</li><li>If one is 60°, the opposite is also 60°.</li></ul>
-          <p class="notes">🎙️ Imagine an 'X' shape. The angles that are directly across from each other are called vertically opposite angles. A key property to remember is that these angles are always equal in size. If one is 60 degrees, the one opposite it is also 60 degrees.</p>
+          <h2>Introducing the <span class="hl">Transversal Line</span></h2>
+          <ul><li>A line that intersects two or more other lines.</li><li>It 'cuts across' the other lines.</li><li>The other lines can be parallel or non-parallel.</li></ul>
+          <p class="notes">🎙️ Now, let's introduce our third main character in this tale – the transversal line! This is a special line that cuts across two or more other lines. It's like a road that crosses two or more other roads.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️⬇️</div><div class="vcap">Opposite &amp; Equal</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">The Crossing Line</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Real-Life <span class="hl">Vertical Angles</span></h2>
-          <ul><li>Legs of a folding chair when open.</li><li>Spokes of a bicycle wheel where they cross.</li><li>The 'X' mark you might make on paper.</li></ul>
-          <p class="notes">🎙️ Think about the cross formed by two roads or the blades of an open pair of scissors. The angles formed opposite each other are vertical angles. Even the 'X' mark you might make on a paper shows vertically opposite angles.</p>
+          <h2>Transversal in Action</h2>
+          <ul><li>Observe how the transversal cuts two distinct lines.</li><li>Notice the points of intersection.</li><li>Each intersection forms angles.</li></ul>
+          <p class="notes">🎙️ Here you can see the transversal line doing its job! It passes through two other lines, creating two separate points where it intersects them. At each of these intersection points, several angles are formed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❌</span><span>❌</span></div><div class="vcap">Crossed Objects</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➡️</span><span>➡️</span><span>➡️</span></div><div class="vcap">Transversal cutting</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Adjacent Angles</span></h2>
-          <ul><li>Angles that share a common vertex and a common arm.</li><li>They are 'next to' each other.</li><li>They don't overlap.</li></ul>
-          <p class="notes">🎙️ Adjacent means 'next to.' So, adjacent angles are simply angles that are side-by-side. They share the same corner point, which is called the vertex, and they also share one common side or arm.</p>
+          <h2><span class="hl">Angles</span> Formed by a Transversal</h2>
+          <ul><li>When a transversal intersects two lines, 8 angles are formed.</li><li>These angles have special names and relationships.</li><li>Understanding these names is key to solving problems.</li></ul>
+          <p class="notes">🎙️ This is where the 'tale' gets really interesting! When our transversal line cuts two other lines, it creates eight different angles. These angles aren't just random; they have specific names and properties that we'll explore.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Next to Each Other</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle Maker</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Linear Pair</span> of Angles</h2>
-          <ul><li>A special type of adjacent angles.</li><li>They form a straight line when combined.</li><li>Their sum is always 180 degrees.</li></ul>
-          <p class="notes">🎙️ A linear pair is a very important type of adjacent angle. When two adjacent angles combine to form a perfectly straight line, their sum is always 180 degrees. Think of it as half a circle.</p>
+          <h2><span class="hl">Interior Angles</span> (Inside)</h2>
+          <ul><li>Angles located between the two lines cut by the transversal.</li><li>They are 'inside' the region bounded by the two lines.</li><li>There are four interior angles.</li></ul>
+          <p class="notes">🎙️ Let's start with the 'inside' angles. Interior angles are those that lie in the region *between* the two lines that the transversal is cutting. Think of them as being in the 'house' formed by the two lines.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Adds to 180°</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Angles within</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Real-Life <span class="hl">Linear Pair</span></h2>
-          <ul><li>A half-open door and the wall.</li><li>The angle of a laptop screen and its base.</li><li>A straight road with a path branching off.</li></ul>
-          <p class="notes">🎙️ Look at a door slightly ajar. The angle between the door and the wall, and the remaining angle to make a straight line, form a linear pair. Similarly, a half-eaten pizza slice and the remaining part of the half-pizza also form a linear pair.</p>
+          <h2><span class="hl">Exterior Angles</span> (Outside)</h2>
+          <ul><li>Angles located outside the two lines cut by the transversal.</li><li>They are 'outside' the region bounded by the two lines.</li><li>There are four exterior angles.</li></ul>
+          <p class="notes">🎙️ Now for the 'outside' angles! Exterior angles are those that lie *outside* the region between the two lines. Imagine them as being in the 'garden' outside the house formed by the two lines.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚪</span><span>🚪</span></div><div class="vcap">Door &amp; Wall</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Angles without</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Quick Check</span> 1!</h2>
-          <ul><li>If two lines intersect and one angle is 70 degrees, what is the vertically opposite angle?</li><li>What about the adjacent angle forming a linear pair with the 70-degree angle?</li></ul>
-          <p class="notes">🎙️ Let's test your understanding. If you have two intersecting lines and one of the angles formed is 70 degrees, can you tell me the measure of the angle directly opposite to it? And what about the angle right next to it that forms a straight line?</p>
+          <h2><span class="hl">Corresponding Angles</span> (Matching Positions)</h2>
+          <ul><li>Angles that are in the same relative position at each intersection.</li><li>One is interior, one is exterior.</li><li>They form F-shapes.</li></ul>
+          <p class="notes">🎙️ Corresponding angles are like twins in different locations! They occupy the exact same position at each intersection point. Imagine sliding one intersection point onto the other – the corresponding angles would perfectly overlap.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Same Spot</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>A Tale of <span class="hl">Three Lines</span>: New Possibilities</h2>
-          <ul><li>What interesting patterns can three lines create?</li><li>More possibilities than with just two lines.</li><li>Let's explore their interactions!</li></ul>
-          <p class="notes">🎙️ So far, we've mostly talked about two lines. But our chapter title mentions 'three' intersecting lines! What happens when a third line joins the party? Let's explore the different ways three lines can interact.</p>
+          <h2><span class="hl">Alternate Interior</span> Angles (Zig-Zag Inside)</h2>
+          <ul><li>Angles that are on opposite sides of the transversal.</li><li>Both are located between the two lines (interior).</li><li>They form a 'Z' shape.</li></ul>
+          <p class="notes">🎙️ Next, we have alternate interior angles. 'Alternate' means on opposite sides of the transversal, and 'interior' means inside the two lines. They form a clear 'Z' pattern, which is a great way to spot them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">New Possibilities</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Z-Angles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Three Lines, <span class="hl">One Intersection</span></h2>
-          <ul><li>All three lines pass through the exact same point.</li><li>This is called concurrent lines.</li><li>They share one common meeting spot.</li></ul>
-          <p class="notes">🎙️ Sometimes, all three lines decide to meet up at the same single spot. When this happens, we say the lines are concurrent, and they share one common point of intersection. Imagine three roads meeting at a roundabout's center.</p>
+          <h2><span class="hl">Alternate Exterior</span> Angles (Zig-Zag Outside)</h2>
+          <ul><li>Angles that are on opposite sides of the transversal.</li><li>Both are located outside the two lines (exterior).</li><li>Similar to 'Z' shape, but outside.</li></ul>
+          <p class="notes">🎙️ Just like alternate interior angles, we also have alternate exterior angles. Again, they are on opposite sides of the transversal, but this time, both angles are located outside the two lines. They follow a similar 'Z' pattern, but on the exterior.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Shared Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Outer Z-Angles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Three Lines, <span class="hl">Three Intersections</span></h2>
-          <ul><li>Each pair of lines intersects at a different point.</li><li>Forms a triangle in the middle.</li><li>No two lines are parallel, and they don't meet at one point.</li></ul>
-          <p class="notes">🎙️ This is a very common scenario. If you draw three lines that are not parallel and don't all meet at one point, they will typically intersect each other in pairs, creating three distinct intersection points. What shape do these three intersection points outline? A triangle!</p>
+          <h2><span class="hl">Consecutive Interior</span> Angles (Same Side Interior)</h2>
+          <ul><li>Angles that are on the same side of the transversal.</li><li>Both are located between the two lines (interior).</li><li>They form a 'C' shape.</li></ul>
+          <p class="notes">🎙️ Finally, we have consecutive interior angles, also known as co-interior angles. These angles are both on the same side of the transversal AND both are inside the two lines. They often form a 'C' shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Forming a Triangle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⊃</div><div class="vcap">C-Angles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Three Lines, <span class="hl">Two Intersections</span></h2>
-          <ul><li>Two lines are parallel to each other.</li><li>A third line intersects both parallel lines.</li><li>Creates two distinct intersection points.</li></ul>
-          <p class="notes">🎙️ Consider two parallel lines, like railway tracks. If a third line cuts across both of them, it will create two distinct points of intersection, one on each parallel line. This third line has a special name, which we'll learn next.</p>
+          <h2>Angle Types <span class="hl">Summary</span></h2>
+          <ul><li>Corresponding: same position.</li><li>Alternate Interior: Z-shape, inside.</li><li>Alternate Exterior: Z-shape, outside.</li><li>Consecutive Interior: C-shape, inside.</li></ul>
+          <p class="notes">🎙️ This slide gives us a quick overview of the different pairs of angles we've just learned about. Remember their key characteristics – this will be crucial for the next part of our lesson!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛤️</div><div class="vcap">Parallel &amp; Crossing</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Corresponding</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Alt. Interior</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Alt. Exterior</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Consec. Interior</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Three <span class="hl">Parallel Lines</span></h2>
-          <ul><li>All three lines are parallel to each other.</li><li>They will never intersect.</li><li>Zero points of intersection.</li></ul>
-          <p class="notes">🎙️ Just like two parallel lines never meet, if you have three lines that are all parallel to each other, they will also never intersect. They all run alongside each other, maintaining the same distance throughout, like lanes on a highway.</p>
+          <h2>Transversal Intersecting <span class="hl">Parallel Lines</span></h2>
+          <ul><li>The special case: when the two lines are parallel.</li><li>The angle relationships become even more specific.</li><li>These properties are fundamental in geometry.</li></ul>
+          <p class="notes">🎙️ Now for the most important part of our tale! What happens when the transversal line intersects *parallel* lines? This is where these angle relationships become incredibly powerful and useful.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">No Meeting</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Special Case</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>The <span class="hl">Transversal</span> Line</h2>
-          <ul><li>A line that intersects two or more other lines.</li><li>It 'cuts across' other lines.</li><li>Creates many new angles.</li></ul>
-          <p class="notes">🎙️ The line we just talked about, which cuts across two or more other lines, is called a transversal. It's like a path that crosses multiple roads. Transversals are very important because they create a whole new set of angles with special properties.</p>
+          <h2>Property 1: Corresponding Angles are <span class="hl">Equal</span></h2>
+          <ul><li>If a transversal intersects two parallel lines, then each pair of corresponding angles is equal.</li><li>This is a key property for finding unknown angles.</li><li>Look for the 'F' shape!</li></ul>
+          <p class="notes">🎙️ When the two lines are parallel, their corresponding angles are always exactly the same! If you know one corresponding angle, you automatically know the other. This is a very handy rule.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Cutting Across</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">F-Angles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Angles Formed by a <span class="hl">Transversal</span></h2>
-          <ul><li>Corresponding angles.</li><li>Alternate interior angles.</li><li>Interior angles on the same side.</li><li>These angles have specific relationships when lines are parallel.</li></ul>
-          <p class="notes">🎙️ When a transversal cuts through two other lines, especially parallel lines, it forms eight angles. We give these angles special names like corresponding angles, alternate interior angles, and interior angles on the same side. We'll explore these in detail in future lessons, but it's good to know they exist!</p>
+          <h2>Property 2: Alternate Interior Angles are <span class="hl">Equal</span></h2>
+          <ul><li>If a transversal intersects two parallel lines, then each pair of alternate interior angles is equal.</li><li>Another powerful tool for solving angle problems.</li><li>Remember the 'Z' shape!</li></ul>
+          <p class="notes">🎙️ Similarly, when the lines are parallel, the alternate interior angles are also equal. If you can spot the 'Z' pattern, you've found a pair of equal angles. This is incredibly useful for calculations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧐</div><div class="vcap">Angle Relationships</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬅️➡️</div><div class="vcap">Z-Angles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Worked Example: <span class="hl">Finding Angles</span></h2>
-          <ul><li>Given two intersecting lines.</li><li>If angle A is 50°, find angles B, C, and D.</li></ul>
-          <p class="notes">🎙️ Let's put our knowledge to practice. Imagine two lines intersecting. If one angle, let's call it Angle A, is 50 degrees. Step 1: Angle B is vertically opposite to A, so B = 50°. Step 2: Angle C forms a linear pair with A, so C = 180° - 50° = 130°. Step 3: Angle D is vertically opposite to C, so D = 130°.</p>
+          <h2>Property 3: Consecutive Interior Angles are <span class="hl">Supplementary</span></h2>
+          <ul><li>If a transversal intersects two parallel lines, then each pair of consecutive interior angles sums to 180°.</li><li>They are 'supplementary' (add up to 180 degrees).</li><li>Look for the 'C' shape!</li></ul>
+          <p class="notes">🎙️ For consecutive interior angles, when the lines are parallel, they don't have to be equal. Instead, their sum is always 180 degrees. This means they are supplementary, and this is another crucial property to remember.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Angle B (Vertically opposite to A)</span></div><div class="step"><span class="snum">2</span><span>Angle C (Linear pair with A)</span></div><div class="step"><span class="snum">3</span><span>Angle D (Vertically opposite to C)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">C-Angles Sum</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Another <span class="hl">Quick Check</span>!</h2>
-          <ul><li>Can three lines intersect at exactly zero points? If yes, how?</li><li>Can three lines intersect at exactly two points? If yes, describe.</li></ul>
-          <p class="notes">🎙️ Let's think a bit more. Is it possible for three lines to have absolutely no points of intersection? If so, what kind of lines would they be? And what about intersecting at exactly two points? Can you visualize that scenario based on what we just learned?</p>
+          <h2>Worked Example: Find the <span class="hl">Unknown Angles</span></h2>
+          <ul><li>Given: Line L || Line M, and a transversal.</li><li>If one angle is 70°, find the others.</li><li>Use the properties learned.</li></ul>
+          <p class="notes">🎙️ Let's put our knowledge to the test with an example. If we know one angle and that the lines are parallel, we can use our properties to find all the other angles. Follow these steps carefully.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify parallel lines &amp; transversal.</span></div><div class="step"><span class="snum">2</span><span>Find corresponding angle (equal).</span></div><div class="step"><span class="snum">3</span><span>Find alternate interior angle (equal).</span></div><div class="step"><span class="snum">4</span><span>Find consecutive interior angle (180°).</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Our Line Story</h2>
-          <ul><li>Intersecting, Parallel, Perpendicular lines.</li><li>Vertically Opposite angles are equal.</li><li>Linear pairs sum to 180°.</li><li>Three lines can intersect at 0, 1, 2, or 3 points. Transversal lines cut across others.</li></ul>
-          <p class="notes">🎙️ Today, we've explored the fascinating 'Tale of Three Intersecting Lines.' We reviewed different types of lines, understood the special angles formed when lines intersect, and saw the various ways three lines can interact with each other. Remember these key concepts as they are fundamental to geometry.</p>
+          <h2>Quick Question: <span class="hl">Apply the Rules</span>!</h2>
+          <ul><li>Given parallel lines and one angle.</li><li>Find the value of angle 'x'.</li><li>Which property will you use?</li></ul>
+          <p class="notes">🎙️ Here's a challenge for you! Look at this diagram with parallel lines and a transversal. If you know one angle, can you find the value of angle 'x'? Think about which property will help you solve it.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span> for Your Attention!</h2>
-          <ul><li>Keep observing lines around you!</li><li>Practice identifying different types and angles.</li><li>Next, we'll dive deeper into transversal angles.</li></ul>
-          <p class="notes">🎙️ Thank you for your active participation today! Geometry is all around us, so keep an eye out for these line patterns in your daily life. Practice drawing and identifying them. In our next class, we'll explore the specific relationships of angles formed by a transversal in much more detail.</p>
+          <h2><span class="hl">Recap</span>: The Tale Concludes</h2>
+          <ul><li>Lines can intersect or be parallel.</li><li>A transversal creates 8 angles.</li><li>Angle types: Interior, Exterior, Corresponding, Alternate Interior/Exterior, Consecutive Interior.</li><li>When lines are parallel, these angles have special relationships (equal or supplementary).</li></ul>
+          <p class="notes">🎙️ And so, our tale of three intersecting lines comes to an end! We've learned about intersecting and parallel lines, the role of a transversal, and the fascinating world of angles it creates. Remember these properties, as they are fundamental building blocks in geometry!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

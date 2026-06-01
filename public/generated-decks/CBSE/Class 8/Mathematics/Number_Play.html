@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Number Play: Fun with Numbers! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Number Play — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to <span class="hl">Number Play</span>!</h2>
-          <ul><li>Explore the fascinating world of numbers.</li><li>Learn about different forms of numbers.</li><li>Discover fun games and puzzles with digits.</li><li>Master divisibility rules.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we're diving into a very exciting chapter called 'Number Play'. Get ready to explore numbers in a whole new way, solve puzzles, and understand their fascinating properties.</p>
+          <ul><li>Exploring numbers in a fun way!</li><li>Unraveling number puzzles and patterns.</li><li>Understanding divisibility rules.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to dive into a fascinating chapter called 'Number Play'. It's all about looking at numbers in new and exciting ways, like solving puzzles and understanding their hidden patterns. Get ready to have some fun with mathematics!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is 'Number <span class="hl">Play</span>'?</h2>
-          <ul><li>Understanding numbers in their general form.</li><li>Playing games by reversing digits.</li><li>Exploring interesting patterns and properties.</li><li>Solving puzzles where letters stand for digits.</li></ul>
-          <p class="notes">🎙️ Number Play is all about having fun with numbers. We'll learn how to represent numbers generally, play games by manipulating their digits, and solve intriguing puzzles. It's like being a detective with numbers!</p>
+          <h2>What is "<span class="hl">Number Play</span>"?</h2>
+          <ul><li>Understanding numbers beyond their face value.</li><li>Representing numbers in general forms.</li><li>Solving number puzzles and brain teasers.</li></ul>
+          <p class="notes">🎙️ Number Play isn't just about calculations; it's about understanding the structure of numbers. We'll learn how to write numbers in a general way, which helps us solve interesting puzzles and understand why certain numbers behave the way they do.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think about numbers!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Let's Play!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Numbers in General Form: <span class="hl">Two-Digit</span> Numbers</h2>
-          <ul><li>A two-digit number 'ab' actually means 10a + b.</li><li>Here, 'a' is the digit in the tens place and 'b' is the digit in the units place.</li><li>Remember, 'a' cannot be zero.</li></ul>
-          <p class="notes">🎙️ Let's start with how we write numbers in a general form. A two-digit number, like 'ab', is not 'a multiplied by b'. It represents 'a' tens and 'b' units. For instance, 45 is 4 tens and 5 units, so 10 times 4 plus 5.</p>
+          <h2>Numbers in General Form: <span class="hl">Two-Digit</span></h2>
+          <ul><li>A two-digit number 'ab' means 10a + b.</li><li>Here, 'a' is the tens digit and 'b' is the units digit.</li><li>Example: 37 = 10 × 3 + 7.</li></ul>
+          <p class="notes">🎙️ Every number has a place value. For a two-digit number, the first digit represents tens and the second represents units. So, if we have a number 'ab', it's actually 'a' multiplied by 10, plus 'b'. This general form is very powerful.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Understanding place value</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Place Value</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Example: Representing <span class="hl">57</span> in General Form</h2>
-          <ul><li>The number is 57.</li><li>Here, 'a' (tens digit) = 5.</li><li>And 'b' (units digit) = 7.</li><li>So, 57 = (10 × 5) + 7 = 50 + 7.</li></ul>
-          <p class="notes">🎙️ Consider the number 57. The digit in the tens place is 5, and the digit in the units place is 7. Using our general form, this means 10 multiplied by 5, plus 7, which indeed gives us 50 plus 7, or 57.</p>
+          <h2><span class="hl">Real Example</span>: Two-Digit Number</h2>
+          <ul><li>Your age can be a two-digit number!</li><li>If your age is 14, it is 10 × 1 + 4.</li><li>If your age is 18, it is 10 × 1 + 8.</li></ul>
+          <p class="notes">🎙️ Think about your own age! If you are 13, it's 1 ten and 3 units. We write it as 10 times 1 plus 3. This general form helps us break down any two-digit number into its fundamental parts, no matter what the digits are.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span></div><div class="vcap">Two digits</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🏫</span><span>🧑‍🏫</span></div><div class="vcap">My Age</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Numbers in General Form: <span class="hl">Three-Digit</span> Numbers</h2>
-          <ul><li>A three-digit number 'abc' means 100a + 10b + c.</li><li>Here, 'a' is hundreds, 'b' is tens, and 'c' is units.</li><li>'a' cannot be zero.</li></ul>
-          <p class="notes">🎙️ Similarly, for a three-digit number like 'abc', 'a' is in the hundreds place, 'b' in the tens, and 'c' in the units place. So, it's 100 times 'a', plus 10 times 'b', plus 'c'. This general form helps us understand number properties better.</p>
+          <h2>Numbers in General Form: <span class="hl">Three-Digit</span></h2>
+          <ul><li>A three-digit number 'abc' means 100a + 10b + c.</li><li>Here, 'a' is hundreds, 'b' is tens, 'c' is units.</li><li>Example: 524 = 100 × 5 + 10 × 2 + 4.</li></ul>
+          <p class="notes">🎙️ Similarly, for a three-digit number, we extend the concept. The first digit is multiplied by 100, the second by 10, and the third is the unit digit. Understanding this structure is key to solving number puzzles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">Hundreds, Tens, Units</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">Hundred's Place</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Example: Representing <span class="hl">345</span> in General Form</h2>
-          <ul><li>The number is 345.</li><li>'a' (hundreds digit) = 3.</li><li>'b' (tens digit) = 4.</li><li>'c' (units digit) = 5.</li><li>So, 345 = (100 × 3) + (10 × 4) + 5 = 300 + 40 + 5.</li></ul>
-          <p class="notes">🎙️ Let's take the number 345. The digit 3 is in the hundreds place, 4 in the tens place, and 5 in the units place. Applying the general form, we get 100 times 3, plus 10 times 4, plus 5, which correctly equals 300 plus 40 plus 5, or 345.</p>
+          <h2><span class="hl">Real Example</span>: Three-Digit Number</h2>
+          <ul><li>House numbers can be three-digit numbers!</li><li>If your house is number 123, it is 100 × 1 + 10 × 2 + 3.</li><li>A score of 150 runs in cricket is 100 × 1 + 10 × 5 + 0.</li></ul>
+          <p class="notes">🎙️ Think about house numbers or cricket scores! A score of 150 runs means 1 hundred, 5 tens, and 0 units. This general form helps us understand the value each digit contributes based on its position.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Three digits</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏢</span><span>🏢</span><span>🏢</span></div><div class="vcap">House Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Game 1: <span class="hl">Reversing Digits</span> (Two-Digit Numbers)</h2>
-          <ul><li>Start with a two-digit number 'ab' (10a + b).</li><li>Reverse its digits to get 'ba' (10b + a).</li><li>Add or subtract the original and reversed numbers.</li><li>Observe interesting patterns!</li></ul>
-          <p class="notes">🎙️ Now for some fun games! Take any two-digit number. Reverse its digits to form a new number. What happens if you add these two numbers? Or subtract them? You'll find some neat properties related to divisibility.</p>
+          <h2><span class="hl">Reversing Digits</span>: Two-Digit Numbers</h2>
+          <ul><li>Original number 'ab' is 10a + b.</li><li>Reversed number 'ba' is 10b + a.</li><li>The difference or sum can reveal interesting patterns.</li></ul>
+          <p class="notes">🎙️ What happens when we swap the digits of a two-digit number? The original number 'ab' becomes 'ba'. This simple change can lead to some fascinating mathematical properties, especially when we add or subtract them.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Original (ab)</span></div><div class="step"><span class="snum">2</span><span>Reversed (ba)</span></div><div class="step"><span class="snum">3</span><span>Sum/Difference</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Original: ab (10a+b)</span></div><div class="step"><span class="snum">2</span><span>Reverse: ba (10b+a)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Worked Example: Reversing <span class="hl">63</span></h2>
-          <ul><li>Original number: 63 (10 × 6 + 3).</li><li>Reversed number: 36 (10 × 3 + 6).</li><li>Sum: 63 + 36 = 99. (Always divisible by 11 and 9)</li><li>Difference: 63 - 36 = 27. (Always divisible by 9)</li></ul>
-          <p class="notes">🎙️ Let's try with 63. The reversed number is 36. When we add them, 63 + 36 = 99. Notice that 99 is divisible by both 11 and 9. If we subtract them, 63 - 36 = 27, which is divisible by 9. These patterns hold true for any two-digit number!</p>
+          <h2><span class="hl">Worked Example</span>: Reversing 2-Digit</h2>
+          <ul><li>Let the number be 43.</li><li>Original form: 10 × 4 + 3 = 43.</li><li>Reversed form: 10 × 3 + 4 = 34.</li><li>Sum: 43 + 34 = 77. Difference: 43 - 34 = 9.</li></ul>
+          <p class="notes">🎙️ Let's take 43. When reversed, it becomes 34. Notice the sum is 77, which is 7 times 11. The difference is 9. We'll explore these patterns more, but for now, understand the mechanics of reversing digits.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>63 (Original)</span></div><div class="step"><span class="snum">2</span><span>36 (Reversed)</span></div><div class="step"><span class="snum">3</span><span>Sum: 99</span></div><div class="step"><span class="snum">4</span><span>Difference: 27</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Number: 43</span></div><div class="step"><span class="snum">2</span><span>Reversed: 34</span></div><div class="step"><span class="snum">3</span><span>Sum: 77</span></div><div class="step"><span class="snum">4</span><span>Difference: 9</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Game 2: Reversing Digits (<span class="hl">Three-Digit</span> Numbers)</h2>
-          <ul><li>Start with a three-digit number 'abc' (100a + 10b + c).</li><li>Reverse its digits to get 'cba' (100c + 10b + a).</li><li>Subtract the smaller number from the larger one.</li><li>The result is always divisible by 99!</li></ul>
-          <p class="notes">🎙️ This game gets even more interesting with three-digit numbers. Take a number, reverse its digits. Then, subtract the smaller number from the larger one. You'll find a consistent pattern of divisibility.</p>
+          <h2>Reversing Digits: <span class="hl">Three-Digit Numbers</span></h2>
+          <ul><li>Original number 'abc' is 100a + 10b + c.</li><li>Reversed number 'cba' is 100c + 10b + a.</li><li>The middle digit 'b' remains in the tens place.</li></ul>
+          <p class="notes">🎙️ For three-digit numbers, reversing means the hundreds digit becomes units, and the units digit becomes hundreds. The tens digit stays in its position. This leads to slightly different but equally interesting patterns.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Original (abc)</span></div><div class="step"><span class="snum">2</span><span>Reversed (cba)</span></div><div class="step"><span class="snum">3</span><span>Difference</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Original: abc (100a+10b+c)</span></div><div class="step"><span class="snum">2</span><span>Reverse: cba (100c+10b+a)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,23 +168,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Worked Example: Reversing <span class="hl">123</span></h2>
-          <ul><li>Original number: 123.</li><li>Reversed number: 321.</li><li>Difference: 321 - 123 = 198.</li><li>198 is divisible by 99 (198 = 2 × 99).</li></ul>
-          <p class="notes">🎙️ Let's try with 123. The reversed number is 321. Subtracting the smaller from the larger gives us 321 minus 123, which is 198. And what do you notice about 198? It's exactly 2 times 99! This pattern holds true for all three-digit numbers where the first and last digits are different.</p>
+          <h2><span class="hl">Worked Example</span>: Reversing 3-Digit</h2>
+          <ul><li>Let the number be 123.</li><li>Original form: 100 × 1 + 10 × 2 + 3 = 123.</li><li>Reversed form: 100 × 3 + 10 × 2 + 1 = 321.</li><li>Sum: 123 + 321 = 444. Difference: 321 - 123 = 198.</li></ul>
+          <p class="notes">🎙️ If we take 123, reversing it gives 321. The sum is 444, which is 4 times 111. The difference is 198. These examples show how the general form helps us understand and predict these outcomes.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>123 (Original)</span></div><div class="step"><span class="snum">2</span><span>321 (Reversed)</span></div><div class="step"><span class="snum">3</span><span>Difference: 198</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Number: 123</span></div><div class="step"><span class="snum">2</span><span>Reversed: 321</span></div><div class="step"><span class="snum">3</span><span>Sum: 444</span></div><div class="step"><span class="snum">4</span><span>Difference: 198</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Divisibility Rule for <span class="hl">10</span></h2>
-          <ul><li>A number is divisible by 10 if its units digit is 0.</li><li>This is because any number ending in 0 can be written as 10 multiplied by some other number.</li><li>Example: 70, 120, 500.</li></ul>
-          <p class="notes">🎙️ Now, let's refresh our memory on divisibility rules, which are shortcuts to check if a number is divisible by another without actual division. For 10, it's very simple: if the last digit is a zero, it's divisible by 10. Think of counting in tens – 10, 20, 30... they all end in zero.</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>1. Write 89 in general form.</li><li>2. What is the reversed form of 57?</li><li>3. If a number is 'xy', what is 'yx' in general form?</li></ul>
+          <p class="notes">🎙️ Alright, time for a quick check to see if you've understood the general form and reversing digits. Take a moment to think about these questions. We'll discuss the answers shortly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">0️⃣</div><div class="vcap">Ends in zero</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Example: Numbers <span class="hl">Divisible</span> by 10</h2>
-          <ul><li>Is 80 divisible by 10? Yes, units digit is 0.</li><li>Is 235 divisible by 10? No, units digit is 5.</li><li>Is 1000 divisible by 10? Yes, units digit is 0.</li></ul>
-          <p class="notes">🎙️ Let's quickly check these examples. 80 ends in 0, so it's divisible by 10. 235 ends in 5, so it's not. And 1000 ends in 0, so it is divisible by 10. Easy peasy!</p>
+          <h2><span class="hl">Divisibility Rules</span>: Introduction</h2>
+          <ul><li>Rules to quickly check if a number is divisible by another.</li><li>No need for long division!</li><li>Helps in factorisation and problem-solving.</li></ul>
+          <p class="notes">🎙️ Divisibility rules are fantastic shortcuts! Instead of doing a full division, these rules tell us if a number can be divided evenly by another. They are super useful for simplifying fractions and solving problems faster.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">Groups of 10</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Quick Check</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Divisibility Rule for <span class="hl">5</span></h2>
-          <ul><li>A number is divisible by 5 if its units digit is 0 or 5.</li><li>Numbers ending in 0 or 5 are multiples of 5.</li><li>Example: 15, 40, 75.</li></ul>
-          <p class="notes">🎙️ Next, the rule for 5. A number is divisible by 5 if its last digit is either 0 or 5. This is because when you count by fives, all numbers end in one of these two digits. Think of a clock face and the minutes hand.</p>
+          <h2>Divisibility Rule for <span class="hl">10</span></h2>
+          <ul><li>A number is divisible by 10 if its units digit is 0.</li><li>Example: 120, 3450, 700 are all divisible by 10.</li><li>Numbers ending in any other digit are not.</li></ul>
+          <p class="notes">🎙️ This is one of the easiest rules! If a number ends with a zero, it's definitely divisible by 10. Think of tens, hundreds, thousands – they all end in zero. This rule is straightforward and very helpful.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Ends in 0 or 5</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span><span>🔟</span></div><div class="vcap">Ends in Zero</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Example: Numbers <span class="hl">Divisible</span> by 5</h2>
-          <ul><li>Is 45 divisible by 5? Yes, units digit is 5.</li><li>Is 128 divisible by 5? No, units digit is 8.</li><li>Is 300 divisible by 5? Yes, units digit is 0.</li></ul>
-          <p class="notes">🎙️ Let's apply this. 45 ends in 5, so yes. 128 ends in 8, so no. 300 ends in 0, so yes. This rule is very helpful when you quickly need to check for factors of 5.</p>
+          <h2>Divisibility Rule for <span class="hl">5</span></h2>
+          <ul><li>A number is divisible by 5 if its units digit is 0 or 5.</li><li>Example: 25, 130, 755 are all divisible by 5.</li><li>Numbers like 12, 47, 91 are not.</li></ul>
+          <p class="notes">🎙️ Similar to the rule for 10, the rule for 5 is also about the last digit. If a number ends in either a 0 or a 5, it's perfectly divisible by 5. This makes checking for factors of 5 very quick.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Groups of 5</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">Ends in 0 or 5</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -216,10 +229,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">15 / 25</span>
           <h2>Divisibility Rule for <span class="hl">2</span></h2>
-          <ul><li>A number is divisible by 2 if its units digit is an even number (0, 2, 4, 6, or 8).</li><li>These are called even numbers.</li><li>Example: 12, 54, 106.</li></ul>
-          <p class="notes">🎙️ The rule for 2 is also straightforward. If a number is even, meaning its last digit is 0, 2, 4, 6, or 8, then it's divisible by 2. We often use this rule to quickly identify even and odd numbers.</p>
+          <ul><li>A number is divisible by 2 if its units digit is an even number (0, 2, 4, 6, 8).</li><li>Example: 48, 102, 566 are all divisible by 2.</li><li>These are also called even numbers.</li></ul>
+          <p class="notes">🎙️ For divisibility by 2, we just look at the very last digit. If it's an even number – 0, 2, 4, 6, or 8 – then the entire number is divisible by 2. This rule defines what an 'even' number is.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✌️</div><div class="vcap">Even numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✌️</span><span>✌️</span><span>✌️</span><span>✌️</span><span>✌️</span></div><div class="vcap">Even Last Digit</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Example: Numbers <span class="hl">Divisible</span> by 2</h2>
-          <ul><li>Is 72 divisible by 2? Yes, units digit is 2 (even).</li><li>Is 91 divisible by 2? No, units digit is 1 (odd).</li><li>Is 456 divisible by 2? Yes, units digit is 6 (even).</li></ul>
-          <p class="notes">🎙️ 72 ends in 2, which is even, so it's divisible by 2. 91 ends in 1, which is odd, so it's not. 456 ends in 6, an even number, so it is divisible by 2. This rule is probably one of the most frequently used.</p>
+          <h2>Divisibility Rule for <span class="hl">3</span></h2>
+          <ul><li>A number is divisible by 3 if the sum of its digits is divisible by 3.</li><li>Example: For 123, sum = 1+2+3 = 6. Since 6 is divisible by 3, 123 is divisible by 3.</li><li>For 25, sum = 2+5 = 7. Not divisible by 3.</li></ul>
+          <p class="notes">🎙️ This rule is a bit different; we sum up all the digits of the number. If that sum is a multiple of 3, then the original number is also divisible by 3. It's a clever trick!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👟</span><span>👟</span></div><div class="vcap">Pairs</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sum the digits</span></div><div class="step"><span class="snum">2</span><span>Check if sum ÷ 3</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Quick Check</span> 1: Divisibility</h2>
-          <ul><li>Is 140 divisible by 2, 5, or 10?</li><li>Is 347 divisible by 2, 5, or 10?</li><li>Is 85 divisible by 2, 5, or 10?</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Look at these numbers and tell me which ones are divisible by 2, 5, or 10 based on our rules. Think about the last digit for each number.</p>
+          <h2>Divisibility Rule for <span class="hl">9</span></h2>
+          <ul><li>A number is divisible by 9 if the sum of its digits is divisible by 9.</li><li>Example: For 459, sum = 4+5+9 = 18. Since 18 is divisible by 9, 459 is divisible by 9.</li><li>For 123, sum = 1+2+3 = 6. Not divisible by 9.</li></ul>
+          <p class="notes">🎙️ The rule for 9 is very similar to the rule for 3. Again, you sum the digits, but this time, you check if the sum is divisible by 9. If it is, the original number is divisible by 9.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sum the digits</span></div><div class="step"><span class="snum">2</span><span>Check if sum ÷ 9</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Divisibility Rule for <span class="hl">3</span></h2>
-          <ul><li>A number is divisible by 3 if the sum of its digits is divisible by 3.</li><li>This rule works for numbers of any length.</li><li>Example: 12 (1+2=3), 108 (1+0+8=9).</li></ul>
-          <p class="notes">🎙️ The divisibility rule for 3 is a bit different. Instead of looking at the last digit, we sum all the digits of the number. If that sum is divisible by 3, then the original number is also divisible by 3. This is a very powerful rule!</p>
+          <h2><span class="hl">Compare</span>: Divisibility by 3 vs. 9</h2>
+          <ul><li>Both involve summing digits.</li><li>If sum of digits is divisible by 9, it's also divisible by 3.</li><li>If sum of digits is divisible by 3, it may NOT be divisible by 9.</li></ul>
+          <p class="notes">🎙️ It's important to note the relationship between these two rules. Any number divisible by 9 will automatically be divisible by 3. However, a number divisible by 3 might not be divisible by 9. For example, 6 is divisible by 3 but not 9.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">3️⃣</div><div class="vcap">Sum of digits</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Rule for 3</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rule for 9</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Example: Numbers <span class="hl">Divisible</span> by 3</h2>
-          <ul><li>Is 75 divisible by 3? Sum = 7+5=12. Yes, 12 is divisible by 3.</li><li>Is 134 divisible by 3? Sum = 1+3+4=8. No, 8 is not divisible by 3.</li><li>Is 522 divisible by 3? Sum = 5+2+2=9. Yes, 9 is divisible by 3.</li></ul>
-          <p class="notes">🎙️ For 75, the sum of digits is 12, which is divisible by 3, so 75 is divisible by 3. For 134, the sum is 8, not divisible by 3. For 522, the sum is 9, which is divisible by 3. This rule is very elegant and useful.</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>1. Is 78 divisible by 2, 3, 5, 9, 10?</li><li>2. Is 135 divisible by 2, 3, 5, 9, 10?</li><li>3. Which rule uses the sum of digits?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the divisibility rules. For each number, apply the rules we just learned and see which ones it satisfies. This helps reinforce the concepts.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍰</span><span>🍰</span><span>🍰</span></div><div class="vcap">Groups of 3</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Divisibility Rule for <span class="hl">9</span></h2>
-          <ul><li>A number is divisible by 9 if the sum of its digits is divisible by 9.</li><li>This rule is very similar to the rule for 3.</li><li>Example: 81 (8+1=9), 459 (4+5+9=18).</li></ul>
-          <p class="notes">🎙️ The divisibility rule for 9 is almost identical to the rule for 3. You calculate the sum of the digits. If this sum is divisible by 9, then the original number is divisible by 9. This means any number divisible by 9 is also divisible by 3, but not vice versa.</p>
+          <h2><span class="hl">Letters for Digits</span>: Introduction</h2>
+          <ul><li>Puzzles where letters stand for digits (0-9).</li><li>Each letter represents a unique digit.</li><li>The first digit of a number cannot be zero.</li></ul>
+          <p class="notes">🎙️ Now for some fun brain teasers! In 'Letters for Digits' puzzles, we replace numbers with letters. Your task is to figure out which digit each letter represents, following some basic mathematical rules.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">9️⃣</div><div class="vcap">Sum of digits</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Number Puzzles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,23 +300,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Example: Numbers <span class="hl">Divisible</span> by 9</h2>
-          <ul><li>Is 189 divisible by 9? Sum = 1+8+9=18. Yes, 18 is divisible by 9.</li><li>Is 235 divisible by 9? Sum = 2+3+5=10. No, 10 is not divisible by 9.</li><li>Is 720 divisible by 9? Sum = 7+2+0=9. Yes, 9 is divisible by 9.</li></ul>
-          <p class="notes">🎙️ Let's check these. For 189, the sum of digits is 18, which is divisible by 9, so 189 is divisible by 9. For 235, the sum is 10, not divisible by 9. For 720, the sum is 9, so it is divisible by 9. Practice these rules to become super fast at number checks!</p>
+          <h2><span class="hl">Rules</span> for Letters for Digits</h2>
+          <ul><li>Each letter must represent only one digit.</li><li>The same letter always represents the same digit.</li><li>The first digit of a number cannot be 0.</li></ul>
+          <p class="notes">🎙️ Remember these three crucial rules. Every letter is unique, and its value stays consistent throughout the puzzle. And just like real numbers, a multi-digit number cannot start with a zero.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">Groups of 9</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Think Smart</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Quick Check</span> 2: Divisibility</h2>
-          <ul><li>Is 342 divisible by 3 or 9?</li><li>Is 585 divisible by 3 or 9?</li><li>Is 1234 divisible by 3 or 9?</li></ul>
-          <p class="notes">🎙️ Another quick check! For these numbers, tell me if they are divisible by 3 or 9. Remember to sum the digits and then check for divisibility by 3 and 9.</p>
+          <h2>Worked Example: <span class="hl">Addition Puzzle</span></h2>
+          <ul><li>Puzzle: A + A + A = BA</li><li>Find A and B.</li></ul>
+          <p class="notes">🎙️ Let's solve a classic puzzle. Here, A+A+A equals a two-digit number BA. We look at the units column first. 3 times A must end in A. This only happens if A is 0 or 5. Since A cannot be 0 (as it's the first digit in BA), A must be 5. Then, 3 times 5 is 15, so B is 1.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Units column: 3A ends in A. So A must be 0 or 5.</span></div><div class="step"><span class="snum">2</span><span>If A=0, then 0+0+0=0. B=0. But letters must be unique. So A≠0.</span></div><div class="step"><span class="snum">3</span><span>If A=5, then 3A = 15. Units digit is 5 (A), carry-over is 1.</span></div><div class="step"><span class="snum">4</span><span>Tens column: B = carry-over = 1.</span></div><div class="step"><span class="snum">5</span><span>Solution: A=5, B=1. (5+5+5=15)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Letters for Digits: Number <span class="hl">Puzzles</span></h2>
-          <ul><li>In these puzzles, letters represent digits (0-9).</li><li>Each letter represents only one distinct digit.</li><li>The first digit of a number cannot be zero.</li><li>Use logic and divisibility rules to solve them.</li></ul>
-          <p class="notes">🎙️ Now, let's move to a fun challenge: 'Letters for Digits'. Here, letters are placeholders for digits. Your task is to figure out which digit each letter represents. The key is to use logical reasoning and apply the divisibility rules we just learned.</p>
+          <h2>Worked Example: <span class="hl">Multiplication Puzzle</span></h2>
+          <ul><li>A B</li><li>x 3</li><li>-----</li><li>C A B</li><li>Find A, B, C.</li></ul>
+          <p class="notes">🎙️ In this multiplication puzzle, AB times 3 equals CAB. First, look at the units digit: B multiplied by 3 must result in a number ending in B. This means B can be 0 or 5. If B is 0, then 3 times A ends in A, which means A is 0 or 5. Since A cannot be 0 (first digit), A must be 5. So, 50 times 3 is 150, giving A=5, B=0, C=1.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Solve the mystery!</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>B x 3 ends in B. So B must be 0 or 5.</span></div><div class="step"><span class="snum">2</span><span>If B=0: A0 x 3 = CA0. So 3A ends in A. A must be 0 or 5.</span></div><div class="step"><span class="snum">3</span><span>A cannot be 0 (first digit). So A=5. (3x5=15, C=1, A=5).</span></div><div class="step"><span class="snum">4</span><span>Check: 50 x 3 = 150. So A=5, B=0, C=1.</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Worked Example: <span class="hl">Find A and B</span></h2>
-          <ul><li>  A B</li><li>+ 3 8</li><li>-----</li><li>  C 1</li></ul>
-          <p class="notes">🎙️ Let's solve this puzzle. In the units column, B plus 8 must end in 1. This means B has to be 3, making it 11, so we carry over 1. In the tens column, A plus 3 plus the carried-over 1 must equal C. If C is 1, then A+4=11, making A=7. So, A is 7 and B is 3. The sum is 73 + 38 = 111.</p>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>1. If P Q + Q P = 99, and P=2, what is Q?</li><li>2. In 2 A x B = 1 0 5, find A and B.</li><li>3. What digit must not be the first digit of a number?</li></ul>
+          <p class="notes">🎙️ Here are a few more puzzles to challenge your thinking. Remember the rules we discussed – unique letters, consistent values, and no leading zeros. Give these a try!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Units place: B + 8 ends in 1. So, B must be 3 (3+8=11). Carry over 1.</span></div><div class="step"><span class="snum">2</span><span>Tens place: A + 3 + 1 (carry-over) = C. If C=1, A+4=11. So A=7. C=1.</span></div><div class="step"><span class="snum">3</span><span>Solution: A=7, B=3. (73 + 38 = 111)</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Our Number Play Journey</h2>
-          <ul><li>Expressed numbers in general form.</li><li>Played games by reversing digits and found patterns.</li><li>Mastered divisibility rules for 2, 3, 5, 9, and 10.</li><li>Solved number puzzles using logical reasoning.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! We learned how to represent numbers generally, played exciting games with digits, and became experts at divisibility rules. These skills are fundamental to understanding more complex number concepts in mathematics. Keep exploring and playing with numbers!</p>
+          <h2><span class="hl">Recap</span>: Number Play Highlights</h2>
+          <ul><li>General form for 2-digit (10a+b) and 3-digit (100a+10b+c) numbers.</li><li>Divisibility rules for 2, 3, 5, 9, 10 for quick checks.</li><li>Solving number puzzles by assigning digits to letters.</li></ul>
+          <p class="notes">🎙️ Today, we explored the fascinating world of Number Play! We learned how to express numbers in their general form, mastered the shortcuts of divisibility rules, and sharpened our logical thinking with letter-for-digit puzzles. Keep practicing these concepts!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 8 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

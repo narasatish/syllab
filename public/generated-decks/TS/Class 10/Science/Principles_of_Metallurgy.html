@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Principles of Metallurgy — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to Principles of <span class="hl">Metallurgy</span>!</h2>
+          <ul><li>Ever wondered how we get pure metals from rocks?</li><li>Metals are all around us, in phones, cars, and buildings.</li><li>Today, we'll explore the fascinating science behind it!</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we embark on an exciting journey into the world of metals. Have you ever wondered how we get pure metals like iron or copper from rocks? That's what metallurgy is all about!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Metallurgy</span>?</h2>
+          <ul><li>It's the science of extracting metals from their ores.</li><li>It also involves purifying metals and preparing them for use.</li><li>From tiny wires to huge bridges, metals are everywhere!</li></ul>
+          <p class="notes">🎙️ Metallurgy is a fascinating field that brings us all the metals we use daily. It's not just about digging them out; it's a whole process of making them useful and pure.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Copper_extraction_process.svg?width=500" data-fb="⛏️" alt="Metal extraction from ore involves crushing, concentration, smelting, and refining to sepa"/><div class="vcap">Metal extraction from ore involves crushing, concentration, smelting, and refining to sepa</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Why is Metallurgy so <span class="hl">Important</span>?</h2>
+          <ul><li>Metals are essential for modern life.</li><li>Used in construction, electronics, transport, and more.</li><li>It creates useful materials from raw earth resources.</li></ul>
+          <p class="notes">🎙️ Think about your phone, a car, or even the utensils in your kitchen. All these rely on metals! Metallurgy makes sure we have these vital materials for our progress.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏗️</span><span>🏗️</span><span>🏗️</span></div><div class="vcap">Metals in Construction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Ores</span> and Minerals</h2>
+          <ul><li>Minerals are naturally occurring solid substances found in the Earth's crust.</li><li>An ore is a mineral from which a metal can be extracted profitably.</li><li>All ores are minerals, but not all minerals are ores.</li></ul>
+          <p class="notes">🎙️ Imagine a treasure hunt for metals! Minerals are like all the rocks you find, but ores are the special rocks that have enough metal to be worth taking out. We only extract from ores because it's economical.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Minerals</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Ores</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Common <span class="hl">Ores</span> and Their Metals</h2>
+          <ul><li>Bauxite is the main ore of Aluminium (Al).</li><li>Haematite is a common ore of Iron (Fe).</li><li>Cinnabar is an ore of Mercury (Hg).</li></ul>
+          <p class="notes">🎙️ Different metals are found in different types of ores. For instance, if you want aluminium, you'd look for bauxite. Knowing the right ore is the first step to getting the metal.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪨</div><div class="vcap">Bauxite Ore</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>What is <span class="hl">Gangue</span>?</h2>
+          <ul><li>Gangue refers to the unwanted rocky or earthy impurities present in an ore.</li><li>It includes sand, clay, and other non-metallic materials.</li><li>Removing gangue is crucial to get pure metal.</li></ul>
+          <p class="notes">🎙️ When we dig up an ore, it's not just pure metal! It's mixed with a lot of dirt and rock, which we call gangue. We need to get rid of this gangue before we can extract the metal itself.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span></div><div class="vcap">Unwanted Impurities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Main <span class="hl">Steps</span> in Metallurgy</h2>
+          <ul><li>1. Crushing and Grinding (Pulverization)</li><li>2. Concentration of Ore (Enrichment)</li><li>3. Extraction of Crude Metal</li><li>4. Refining of Crude Metal</li></ul>
+          <p class="notes">🎙️ Metallurgy isn't a single step, but a series of carefully planned processes. We start by preparing the ore, then remove impurities, extract the metal, and finally purify it. Let's look at each step.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Crushing</span></div><div class="step"><span class="snum">2</span><span>Concentration</span></div><div class="step"><span class="snum">3</span><span>Extraction</span></div><div class="step"><span class="snum">4</span><span>Refining</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Step 1: <span class="hl">Crushing</span> and Grinding (Pulverization)</h2>
+          <ul><li>Large lumps of ore are crushed into smaller pieces.</li><li>These smaller pieces are then ground into a fine powder.</li><li>This increases the surface area for further processing.</li></ul>
+          <p class="notes">🎙️ Imagine trying to cook a whole potato versus diced potato. Smaller pieces cook faster! Similarly, crushing and grinding ores make it easier for chemicals to react with them in later steps.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transformer3d_col3.svg?width=500" data-fb="🔨" alt="A transformer changes AC voltage from one level to another using electromagnetic induction"/><div class="vcap">A transformer changes AC voltage from one level to another using electromagnetic induction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Step 2: <span class="hl">Concentration</span> of Ore</h2>
+          <ul><li>This process removes gangue from the powdered ore.</li><li>It increases the proportion of the valuable mineral.</li><li>Different methods are used based on the ore's properties.</li></ul>
+          <p class="notes">🎙️ Once the ore is a fine powder, the next big challenge is to separate the valuable metal-containing particles from the unwanted gangue. This step is also called 'enrichment' of the ore.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Separating Impurities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Method 1: <span class="hl">Hand Picking</span></h2>
+          <ul><li>Used when ore particles and gangue are visibly different in size or colour.</li><li>Labour-intensive but simple for specific ores.</li><li>Not suitable for fine powders.</li></ul>
+          <p class="notes">🎙️ This is the simplest method, just like picking out different coloured candies from a bowl. If the ore and gangue are clearly distinct, workers can manually separate them. However, it's not practical for most ores.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span></div><div class="vcap">Manual Separation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Method 2: <span class="hl">Gravity Separation</span> (Hydraulic Washing)</h2>
+          <ul><li>Works when ore particles are heavier than gangue particles.</li><li>Powdered ore is washed with a stream of water.</li><li>Lighter gangue particles are washed away, heavier ore settles.</li></ul>
+          <p class="notes">🎙️ Think of panning for gold! Gold is very heavy, so water washes away the lighter sand, leaving the gold behind. This method uses the difference in density to separate the ore from the gangue.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Washing Away Gangue</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Method 3: <span class="hl">Froth Floatation</span></h2>
+          <ul><li>Mainly used for sulphide ores (e.g., galena, zinc blende).</li><li>Ore particles are wetted by oil, gangue by water.</li><li>Air is blown in, creating froth that carries ore particles to the surface.</li></ul>
+          <p class="notes">🎙️ This method is quite clever! It uses the property that some ore particles prefer oil and float with air bubbles, while gangue particles prefer water and sink. It's very effective for sulphide ores.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🫧</div><div class="vcap">Floating Ore</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Method 4: <span class="hl">Magnetic Separation</span></h2>
+          <ul><li>Used when either the ore or the gangue is magnetic.</li><li>Powdered ore passes over a magnetic roller.</li><li>Magnetic particles are attracted, non-magnetic fall separately.</li></ul>
+          <p class="notes">🎙️ This method is perfect for ores like iron ore (haematite) which are magnetic. A strong magnet pulls the magnetic ore particles one way, while the non-magnetic gangue goes another, separating them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Magnetic Attraction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span>: Concentration</h2>
+          <ul><li>Which concentration method is best for sulphide ores?</li><li>What is the unwanted impurity in an ore called?</li><li>Why is crushing and grinding important?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding! Think about the different methods we just discussed and why each one is used. These are fundamental concepts in metallurgy.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Step 3: <span class="hl">Extraction</span> of Crude Metal</h2>
+          <ul><li>This step involves converting the concentrated ore into crude metal.</li><li>It often includes two main processes: Calcination/Roasting and Reduction.</li><li>The choice depends on the type of ore and metal reactivity.</li></ul>
+          <p class="notes">🎙️ Now that we have concentrated ore, the next big step is to actually get the metal out of it. This usually involves heating the ore and then using a reducing agent to remove oxygen or other elements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heating the Ore</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Calcination</span></h2>
+          <ul><li>Heating the ore strongly in the absence of air.</li><li>Used for carbonate ores (e.g., limestone) and hydroxide ores.</li><li>Removes volatile impurities like water or carbon dioxide.</li></ul>
+          <p class="notes">🎙️ Imagine baking something in an oven without letting air in. Calcination does this for ores like calcium carbonate, driving off carbon dioxide and leaving behind metal oxide.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Heating without Air</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Roasting</span></h2>
+          <ul><li>Heating the ore strongly in the presence of air.</li><li>Mainly used for sulphide ores (e.g., zinc blende, copper glance).</li><li>Converts sulphide ores into metal oxides.</li></ul>
+          <p class="notes">🎙️ Unlike calcination, roasting requires air. It's like burning something to change its form. Sulphide ores react with oxygen in the air to form metal oxides and sulphur dioxide gas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Heating with Air</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Reduction</span> of Metal Oxide</h2>
+          <ul><li>The metal oxide obtained from calcination or roasting is reduced.</li><li>Reduction involves removing oxygen from the metal oxide.</li><li>Common reducing agents include carbon (coke), carbon monoxide, or active metals.</li></ul>
+          <p class="notes">🎙️ After calcination or roasting, we have a metal oxide. Now, we need to remove that oxygen to get the pure metal. This is done by 'reduction,' often using substances that love oxygen more than the metal does.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Removing Oxygen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Example: Iron Extraction in a <span class="hl">Blast Furnace</span></h2>
+          <ul><li>Iron ore (haematite) is reduced using coke (carbon) and limestone.</li><li>Coke acts as the reducing agent, removing oxygen from iron oxide.</li><li>Molten iron is collected at the bottom.</li></ul>
+          <p class="notes">🎙️ The blast furnace is a huge example of reduction in action. Here, carbon in the form of coke takes oxygen from iron oxide, leaving behind molten iron. Limestone helps remove other impurities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Iron Production</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Step 4: <span class="hl">Refining</span> of Crude Metal</h2>
+          <ul><li>The metal obtained after reduction is often impure (crude metal).</li><li>Refining removes remaining impurities to get pure metal.</li><li>Different methods like electrolytic refining, distillation, etc., are used.</li></ul>
+          <p class="notes">🎙️ Even after all those steps, the metal isn't perfectly pure. It still has some tiny bits of impurities. Refining is the final step to make the metal as pure as possible for its intended use.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Purifying Metals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Electrolytic</span> Refining</h2>
+          <ul><li>Uses electricity to purify metals.</li><li>Impure metal acts as anode, pure metal as cathode.</li><li>Metal ions from anode dissolve and deposit as pure metal on cathode.</li></ul>
+          <p class="notes">🎙️ This is a very common and effective method, especially for highly pure metals. Electricity drives the process, moving the pure metal from the impure block to a clean sheet, leaving impurities behind.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Impure Anode</span></div><div class="step"><span class="snum">2</span><span>Electrolyte</span></div><div class="step"><span class="snum">3</span><span>Pure Cathode</span></div><div class="step"><span class="snum">4</span><span>Electricity</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Example: Electrolytic Refining of Copper</h2>
+          <ul><li>Impure copper is made the anode.</li><li>A thin strip of pure copper is the cathode.</li><li>Copper sulphate solution acts as the electrolyte.</li></ul>
+          <p class="notes">🎙️ In copper refining, when electricity flows, pure copper from the impure anode dissolves and deposits onto the pure copper cathode. The impurities either settle down as 'anode mud' or dissolve in the electrolyte.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔌</div><div class="vcap">Electrolytic Cell</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>: Extraction &amp; Refining</h2>
+          <ul><li>What is the difference between calcination and roasting?</li><li>Name a common reducing agent used in metallurgy.</li><li>What is the role of the anode in electrolytic refining?</li></ul>
+          <p class="notes">🎙️ Let's review the last few crucial steps. Think about the conditions and purposes of calcination versus roasting, and how electricity helps us purify metals.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: The Journey of Metals</h2>
+          <ul><li>1. Ore Preparation (Crushing, Grinding)</li><li>2. Ore Concentration (Removing Gangue)</li><li>3. Metal Extraction (Calcination/Roasting, Reduction)</li><li>4. Metal Refining (Purification)</li></ul>
+          <p class="notes">🎙️ We've covered the entire journey from a raw rock to a shining, pure metal. Remember these four main stages, as they are the backbone of all metallurgical processes.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Preparation</span></div><div class="step"><span class="snum">2</span><span>Concentration</span></div><div class="step"><span class="snum">3</span><span>Extraction</span></div><div class="step"><span class="snum">4</span><span>Refining</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Metallurgy: <span class="hl">Building Our World</span></h2>
+          <ul><li>Metallurgy is vital for making tools, machines, and infrastructure.</li><li>It continuously evolves to be more efficient and eco-friendly.</li><li>Understanding these principles helps us appreciate material science.</li></ul>
+          <p class="notes">🎙️ From the simplest nail to the most complex spacecraft, metals are fundamental. Metallurgy is a dynamic field that constantly innovates to provide us with the materials we need to build and advance our world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌍</span></div><div class="vcap">Impact on the World</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

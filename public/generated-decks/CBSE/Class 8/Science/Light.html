@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Light: The World We See! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Light: Exploring the World of Vision — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Light: The World We See!</h2>
-          <ul><li>Chapter: Light</li><li>Subject: Science</li><li>Class: 8, CBSE Board</li></ul>
-          <p class="notes">🎙️ Hello students! Welcome to an exciting journey into the world of light. Today, we'll explore how light helps us see everything around us.</p>
+          <h2>Welcome to the World of <span class="hl">Light</span>!</h2>
+          <ul><li>Get ready to explore how we see!</li><li>Understand the magic behind mirrors and rainbows.</li><li>Discover the wonders of our own eyes.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today we're starting an exciting chapter on 'Light'. Light is all around us, and it helps us see everything. We'll uncover its mysteries together.</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Light</span>?</h2>
-          <ul><li>A form of energy that enables us to see.</li><li>Travels in straight lines.</li><li>Helps us perceive colours and shapes.</li></ul>
-          <p class="notes">🎙️ Light is fundamental to our vision. It's a type of energy, similar to heat or sound, but specifically designed for our eyes to detect. It always moves in a straight path.</p>
+          <ul><li>Form of energy that enables us to see.</li><li>Travels in a straight line.</li><li>Does not require a medium to travel.</li></ul>
+          <p class="notes">🎙️ Light is a fascinating form of energy. It's what makes the world visible to us. Think about how sunlight reaches us across the vast space – it doesn't need air or water to travel!</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light Energy</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Sources</span> of Light: Luminous vs Non-Luminous</h2>
-          <ul><li>Luminous objects emit their own light.</li><li>Non-luminous objects reflect light from other sources.</li></ul>
-          <p class="notes">🎙️ Some objects, like the sun or a light bulb, produce their own light and are called luminous. Most objects we see, like a table or a book, are non-luminous; they only become visible when light from a luminous source falls on them and reflects.</p>
+          <h2>How Do We <span class="hl">See Things</span>?</h2>
+          <ul><li>Light from an object enters our eyes.</li><li>This light could be emitted by the object itself.</li><li>Or, reflected by the object from a light source.</li></ul>
+          <p class="notes">🎙️ We don't 'see' objects directly with our eyes. Instead, light from the object enters our eyes, and our brain processes this information. It's like a messenger carrying information about the object.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Luminous</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Non-Luminous</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Our Eyes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>How Do We See Things?</h2>
-          <ul><li>Light falls on an object.</li><li>The object reflects light.</li><li>Reflected light enters our eyes.</li></ul>
-          <p class="notes">🎙️ The magic behind sight is reflection. When light hits an object, it bounces off. It's this bounced light, or reflected light, that travels to our eyes, allowing us to see the object.</p>
+          <h2><span class="hl">Luminous</span> vs. Non-Luminous Objects</h2>
+          <ul><li>Luminous: Objects that emit their own light.</li><li>Non-Luminous: Objects that reflect light from other sources.</li></ul>
+          <p class="notes">🎙️ Some objects are like their own light bulbs, they glow! These are luminous. Others, like the Moon, only shine because they are reflecting light from a luminous source like the Sun.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Seeing through Reflection</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sun (Luminous)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Moon (Non-Luminous)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,9 +108,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Laws</span> of Reflection: The Basics</h2>
-          <ul><li>The angle of incidence is equal to the angle of reflection.</li><li>These angles are measured from the Normal.</li></ul>
-          <p class="notes">🎙️ Reflection isn't random. It follows specific rules, called the Laws of Reflection. The first law states that the angle at which light hits a surface (angle of incidence) is always equal to the angle at which it bounces off (angle of reflection).</p>
+          <h2>Concept: <span class="hl">Reflection</span> of Light</h2>
+          <ul><li>The bouncing back of light from a surface.</li><li>Similar to a ball bouncing off a wall.</li><li>Allows us to see objects that don't produce their own light.</li></ul>
+          <p class="notes">🎙️ Reflection is a fundamental property of light. When light hits a surface, it doesn't just stop; it bounces off! This bouncing back is what we call reflection.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=500" data-fb="↩️" alt="Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra"/><div class="vcap">Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Activity</span>: Observing Reflection</h2>
+          <ul><li>Hold a mirror in front of you.</li><li>Shine a torch onto the mirror.</li><li>Observe the light bouncing off the mirror.</li></ul>
+          <p class="notes">🎙️ Let's try a simple activity. Take a mirror and a torch. When you shine the torch on the mirror, you'll clearly see the light bouncing back. This is light undergoing reflection.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Mirror</span></div><div class="step"><span class="snum">2</span><span>Torch</span></div><div class="step"><span class="snum">3</span><span>Reflected Light</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Key <span class="hl">Terms</span> in Reflection</h2>
+          <ul><li>Incident Ray: Light ray falling on the surface.</li><li>Reflected Ray: Light ray bouncing back.</li><li>Normal: Perpendicular line to the surface at the point of incidence.</li></ul>
+          <p class="notes">🎙️ To understand reflection better, we use specific terms. The light coming towards the mirror is the incident ray, and the light leaving is the reflected ray. The normal is an imaginary line that helps us measure angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️⬅️</div><div class="vcap">Rays and Normal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Laws of Reflection: <span class="hl">Angle Equality</span></h2>
+          <ul><li>The angle of incidence is always equal to the angle of reflection.</li><li>Angle i = Angle r.</li></ul>
+          <p class="notes">🎙️ This is a very important law! Imagine the normal line; the angle between the incident ray and the normal is the angle of incidence. The angle between the reflected ray and the normal is the angle of reflection. These two angles are always equal.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_in_plane_mirror.svg?width=500" data-fb="📐" alt="Light reflects off surfaces following two laws: angle of incidence equals angle of reflect"/><div class="vcap">Light reflects off surfaces following two laws: angle of incidence equals angle of reflect</div></div></div>
       </div>
@@ -106,48 +155,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Laws of Reflection: <span class="hl">Rays</span> and Normal</h2>
-          <ul><li>Incident Ray: Light ray striking the surface.</li><li>Reflected Ray: Light ray bouncing off.</li><li>Normal: Perpendicular line to the surface at the point of incidence.</li></ul>
-          <p class="notes">🎙️ The second law of reflection specifies that the incident ray, the normal, and the reflected ray all lie in the same plane. Imagine them all on a flat sheet of paper. The normal is an imaginary line crucial for measuring angles correctly.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Incident Ray</span></div><div class="step"><span class="snum">2</span><span>Normal</span></div><div class="step"><span class="snum">3</span><span>Reflected Ray</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Real Example: Seeing Yourself</h2>
-          <ul><li>Light from you hits the mirror.</li><li>The mirror reflects this light.</li><li>Reflected light travels to your eyes, creating your image.</li></ul>
-          <p class="notes">🎙️ When you look in a mirror, light from your face travels to the mirror, reflects off its smooth surface, and then enters your eyes. Your brain then processes this light, forming the image you see.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪞</div><div class="vcap">Mirror Reflection</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2><span class="hl">Types</span> of Reflection</h2>
-          <ul><li>Regular Reflection: From smooth surfaces, clear image.</li><li>Diffused Reflection: From rough surfaces, scattered light.</li></ul>
-          <p class="notes">🎙️ Reflection isn't always the same. Regular reflection occurs on smooth surfaces, producing clear images, like in a mirror. Diffused reflection happens on rough surfaces, scattering light in many directions, which is why you can't see your reflection on a wall.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Regular</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Diffused</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Example: <span class="hl">Mirror vs Wall</span></h2>
-          <ul><li>Mirror: Smooth surface, regular reflection, clear image.</li><li>Wall: Rough surface, diffused reflection, no clear image.</li></ul>
-          <p class="notes">🎙️ Think about the difference between a mirror and a wall. A mirror's perfectly smooth surface ensures all light rays reflect uniformly, creating a perfect image. A wall's uneven surface causes light to scatter, preventing image formation.</p>
+          <h2>Laws of Reflection: <span class="hl">Plane</span> of Incidence</h2>
+          <ul><li>Incident ray, reflected ray, and the normal</li><li>All lie in the same plane.</li></ul>
+          <p class="notes">🎙️ The second law tells us that these three lines – the incident ray, the reflected ray, and the normal – are not scattered in space. They all exist on the same flat surface, like a sheet of paper.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mirror</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Wall</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Same Plane</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Multiple Reflections</span>: Kaleidoscopes</h2>
-          <ul><li>Light reflects many times between multiple mirrors.</li><li>Creates beautiful, symmetrical patterns.</li><li>Used for decorative purposes.</li></ul>
-          <p class="notes">🎙️ When you place two or more mirrors at an angle, light can reflect back and forth multiple times. This phenomenon, called multiple reflections, is beautifully demonstrated in a kaleidoscope, where tiny objects create intricate, repeating designs.</p>
+          <h2>Real Example: <span class="hl">Periscope</span></h2>
+          <ul><li>Uses two plane mirrors.</li><li>Allows viewing objects not in direct line of sight.</li><li>Used in submarines and bunkers.</li></ul>
+          <p class="notes">🎙️ A periscope is a clever device that uses the laws of reflection. It helps people in submarines see what's happening on the surface of the water, even when they are submerged. It's a great example of light bending twice to help us see.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Kaleidoscope Patterns</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Looking Around Corners</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,35 +180,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Real <span class="hl">Examples</span> of Multiple Reflections</h2>
-          <ul><li>Hairdresser's mirror: See the back of your head.</li><li>Periscope: See over obstacles, used in submarines.</li></ul>
-          <p class="notes">🎙️ Multiple reflections are very useful! A hairdresser uses a second mirror to show you the back of your head. A periscope, often used in submarines, uses two mirrors to allow you to see objects that are not in your direct line of sight.</p>
+          <h2>Types of Reflection: <span class="hl">Regular</span></h2>
+          <ul><li>Occurs from smooth, polished surfaces.</li><li>Parallel incident rays reflect as parallel rays.</li><li>Forms clear images (e.g., mirrors, still water).</li></ul>
+          <p class="notes">🎙️ When light hits a perfectly smooth surface, all the reflected rays go in one direction, staying parallel. This is why you see a clear, sharp image in a mirror or in very still water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Periscope</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
-          <ul><li>Which type of surface causes diffused reflection?</li><li>Name one luminous object.</li></ul>
-          <p class="notes">🎙️ Let's quickly test your understanding. Take a moment to think about these two questions based on what we've learned so far about reflection and light sources.</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Smooth Surface</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Dispersion</span> of Light</h2>
-          <ul><li>White light is made of seven colours (VIBGYOR).</li><li>A prism can split white light into its constituent colours.</li></ul>
-          <p class="notes">🎙️ Did you know that the white light from the sun or a bulb isn't just one colour? It's a mix of seven! When white light passes through a transparent medium like a prism, it splits into these individual colours, a process called dispersion.</p>
+          <span class="num">12 / 25</span>
+          <h2>Types of Reflection: <span class="hl">Diffused</span></h2>
+          <ul><li>Occurs from rough, irregular surfaces.</li><li>Parallel incident rays reflect in different directions.</li><li>No clear image formed (e.g., walls, paper).</li></ul>
+          <p class="notes">🎙️ Most objects around us have rough surfaces. When light hits these, it scatters in many directions. This diffused reflection is actually why we can see non-luminous objects from all angles, but it doesn't form a clear image.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Spectrum of Colours</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌫️</div><div class="vcap">Rough Surface</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Why can't you see your reflection clearly on a rough wall?</li><li>What is the angle of reflection if the angle of incidence is 45 degrees?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about the types of reflection we just discussed. And remember the first law of reflection – it's quite straightforward!</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Real Example: <span class="hl">Rainbows</span></h2>
-          <ul><li>Sunlight disperses through tiny water droplets in the air.</li><li>Each droplet acts like a tiny prism.</li><li>This creates the beautiful spectrum we call a rainbow.</li></ul>
-          <p class="notes">🎙️ The most beautiful natural example of dispersion is a rainbow. After rainfall, tiny water droplets suspended in the air act as prisms, splitting sunlight into its seven colours, creating that stunning arc across the sky.</p>
+          <h2>Image Formation by a <span class="hl">Plane Mirror</span></h2>
+          <ul><li>Forms an image behind the mirror.</li><li>Image appears to be as far behind as the object is in front.</li></ul>
+          <p class="notes">🎙️ When you look into a plane mirror, you see an image of yourself. This image isn't really 'there' on the mirror surface; it appears to be located behind the mirror.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌧️</div><div class="vcap">Rainbow after Rain</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧍↔️🧍</div><div class="vcap">Object and Image</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>The <span class="hl">Human Eye</span>: Our Window to the World</h2>
-          <ul><li>A complex organ that detects light.</li><li>Enables us to see and interpret our surroundings.</li><li>Works like a natural camera.</li></ul>
-          <p class="notes">🎙️ Our eyes are incredible organs, allowing us to perceive the world in all its detail and colour. They are highly sophisticated, constantly adjusting to light conditions to provide us with clear vision.</p>
+          <h2><span class="hl">Characteristics</span> of Image by Plane Mirror</h2>
+          <ul><li>Virtual: Cannot be obtained on a screen.</li><li>Erect: Upright, not inverted.</li><li>Same size as the object.</li><li>Laterally inverted.</li></ul>
+          <p class="notes">🎙️ The image formed by a plane mirror has several unique characteristics. It's virtual because light rays only *appear* to come from it, and it's always upright. It also has the same size as the object.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👁️</div><div class="vcap">Human Eye</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪞</span><span>🪞</span><span>🪞</span><span>🪞</span></div><div class="vcap">Image Properties</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Parts of the Eye: <span class="hl">Front Section</span></h2>
-          <ul><li>Cornea: Transparent front part, focuses light.</li><li>Iris: Coloured part, controls pupil size.</li><li>Pupil: Opening in the center of the iris, lets light in.</li></ul>
-          <p class="notes">🎙️ Light first enters through the cornea, a clear protective layer. The iris, which gives your eyes their colour, then adjusts the size of the pupil, controlling how much light enters the eye, much like the aperture of a camera.</p>
+          <h2><span class="hl">Lateral Inversion</span></h2>
+          <ul><li>The left side of the object appears as the right side in the image.</li><li>And vice-versa.</li></ul>
+          <p class="notes">🎙️ This is a fun one! When you raise your right hand in front of a mirror, your image appears to raise its left hand. This swapping of left and right is called lateral inversion.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="🔬" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Left-Right Swap</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Parts of the Eye: <span class="hl">Inner Section</span></h2>
-          <ul><li>Lens: Focuses light onto the retina.</li><li>Retina: Light-sensitive screen, forms image.</li><li>Optic Nerve: Transmits signals to the brain.</li></ul>
-          <p class="notes">🎙️ After passing through the pupil, light is focused by the lens onto the retina at the back of the eye. The retina converts light into electrical signals, which are then sent to the brain via the optic nerve for interpretation.</p>
+          <h2>Real Example: <span class="hl">Ambulance</span></h2>
+          <ul><li>The word 'AMBULANCE' is written laterally inverted on the front.</li><li>So drivers in front can read it correctly in their rearview mirrors.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed how 'AMBULANCE' is written on the front of the vehicle? It's backwards! This is a clever application of lateral inversion, ensuring drivers can read it correctly through their mirrors.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Lens</span></div><div class="step"><span class="snum">2</span><span>Retina</span></div><div class="step"><span class="snum">3</span><span>Optic Nerve</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚑</div><div class="vcap">Mirrored Text</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>How We See: A <span class="hl">Step-by-Step</span></h2>
-          <ul><li>Light from object -&gt; Cornea -&gt; Pupil -&gt; Lens.</li><li>Lens focuses light on Retina (image formed).</li><li>Retina sends signals via Optic Nerve to Brain.</li></ul>
-          <p class="notes">🎙️ So, in summary, light enters, is controlled and focused, an image is formed on the retina, and finally, your brain processes these signals to make sense of what you're seeing. It's an incredibly fast and efficient process!</p>
+          <h2><span class="hl">Multiple</span> Reflections</h2>
+          <ul><li>When light reflects more than once.</li><li>Occurs when two or more mirrors are placed facing each other.</li><li>Can create many images.</li></ul>
+          <p class="notes">🎙️ What happens if you place two mirrors facing each other? The light bounces back and forth, reflecting multiple times, creating numerous images. This phenomenon is called multiple reflections.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain Processing</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪞</span><span>🪞</span><span>🪞</span></div><div class="vcap">Many Images</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Care of the Eyes: <span class="hl">Healthy Habits</span></h2>
-          <ul><li>Avoid direct bright light.</li><li>Wash eyes with clean water regularly.</li><li>Read in adequate light, take breaks.</li></ul>
-          <p class="notes">🎙️ Our eyes are precious, so we must take good care of them. Avoid straining them with very bright or dim light, and remember to give them regular breaks, especially when reading or using screens.</p>
+          <h2>Application: <span class="hl">Kaleidoscope</span></h2>
+          <ul><li>Uses multiple reflections to create beautiful patterns.</li><li>Typically uses three plane mirrors.</li><li>Reflects coloured pieces of glass or beads.</li></ul>
+          <p class="notes">🎙️ The kaleidoscope is a wonderful toy that uses multiple reflections. Inside, three mirrors are angled, and tiny coloured bits create endless, symmetrical patterns as they reflect over and over.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Eye Care</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Pattern Maker</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Visual Impairment: Challenges and <span class="hl">Aids</span></h2>
-          <ul><li>Some people have reduced or no vision.</li><li>Special resources help them navigate and learn.</li><li>Technology plays a big role in assistance.</li></ul>
-          <p class="notes">🎙️ Not everyone has perfect vision. Visual impairment can range from partial loss to complete blindness. However, various aids and technologies, like white canes, guide dogs, and specialized software, help visually impaired individuals live full and independent lives.</p>
+          <h2><span class="hl">Dispersion</span> of Light</h2>
+          <ul><li>The splitting of white light into its constituent colours.</li><li>Seven colours: Violet, Indigo, Blue, Green, Yellow, Orange, Red (VIBGYOR).</li><li>Different colours bend at different angles.</li></ul>
+          <p class="notes">🎙️ White light, like sunlight, isn't just one colour. It's a mixture of seven colours! When white light passes through a prism or water droplets, it splits into these individual colours. This is dispersion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦯</div><div class="vcap">White Cane</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Light_dispersion_conceptual_waves.gif?width=500" data-fb="🌈" alt="Dispersion is the separation of white light into its component colours by refraction. Diff"/><div class="vcap">Dispersion is the separation of white light into its component colours by refraction. Diff</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,63 +300,64 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Braille</span> System</h2>
-          <ul><li>A tactile reading and writing system.</li><li>Uses raised dots that are felt with fingertips.</li><li>Developed by Louis Braille.</li></ul>
-          <p class="notes">🎙️ The Braille system is a revolutionary method that allows visually impaired people to read and write. It uses a series of raised dots, which are unique combinations for letters and numbers, enabling them to read by touch.</p>
+          <h2>Real Example: <span class="hl">Rainbow</span></h2>
+          <ul><li>Natural phenomenon of light dispersion.</li><li>Sunlight passes through tiny water droplets in the air.</li><li>Water droplets act like tiny prisms.</li></ul>
+          <p class="notes">🎙️ The most beautiful example of dispersion is a rainbow! After rain, tiny water droplets in the atmosphere act like millions of tiny prisms, splitting sunlight into its magnificent spectrum of colours.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Braille Book</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check! Question 2</h2>
-          <ul><li>Light travels in curved lines. (True/False)</li><li>The iris controls the amount of light entering the eye. (True/False)</li></ul>
-          <p class="notes">🎙️ Time for another quick check. Read these statements carefully and decide if they are true or false based on our discussion today.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check! Question 3</h2>
-          <ul><li>White light is composed of ______ colours.</li><li>A ______ is used to see objects over obstacles.</li></ul>
-          <p class="notes">🎙️ Let's complete these sentences to reinforce some key terms and concepts we've covered. Think about the correct words to fill in the blanks.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Key Concepts</h2>
-          <ul><li>Light is energy, enables vision.</li><li>Reflection (laws, types).</li><li>Dispersion (rainbows).</li><li>Human Eye (parts, care, impairment).</li></ul>
-          <p class="notes">🎙️ Today, we've covered many important concepts about light. From how we see things through reflection, to the beautiful phenomenon of dispersion, and the intricate workings of our own eyes. Remember these core ideas.</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌦️</div><div class="vcap">Nature's Spectrum</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Light Up Your <span class="hl">Knowledge</span>!</h2>
-          <ul><li>Keep observing light phenomena around you.</li><li>Explore more about optics and vision.</li><li>Stay curious and keep learning!</li></ul>
-          <p class="notes">🎙️ Thank you for being such attentive students! Light is a vast and fascinating topic. I encourage you to continue exploring its wonders and observing how it shapes the world around us every day. Keep that curiosity shining bright!</p>
+          <span class="num">22 / 25</span>
+          <h2>The Human Eye: <span class="hl">Structure</span></h2>
+          <ul><li>Cornea: Transparent outer layer.</li><li>Iris: Controls pupil size, gives eye its colour.</li><li>Pupil: Opening for light to enter.</li></ul>
+          <p class="notes">🎙️ Our eyes are incredible organs! The cornea is the clear window at the front. The iris, which gives your eye its colour, controls the pupil, a small opening that regulates how much light enters.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Keep Learning!</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="👁️" alt="The human eye is a complex optical instrument that captures light and converts it into ele"/><div class="vcap">The human eye is a complex optical instrument that captures light and converts it into ele</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>The Human Eye: Lens, Retina &amp; <span class="hl">Working</span></h2>
+          <ul><li>Lens: Focuses light onto the retina.</li><li>Retina: Light-sensitive screen at the back of the eye.</li><li>Optic Nerve: Carries signals to the brain.</li></ul>
+          <p class="notes">🎙️ After the pupil, the lens focuses light to form an image on the retina, which is like a screen. The retina has light-sensitive cells that send signals to the brain via the optic nerve, allowing us to 'see'.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Light enters</span></div><div class="step"><span class="snum">2</span><span>Lens focuses</span></div><div class="step"><span class="snum">3</span><span>Image on Retina</span></div><div class="step"><span class="snum">4</span><span>Brain interprets</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Caring</span> for Your Eyes</h2>
+          <ul><li>Avoid reading in very dim or very bright light.</li><li>Do not rub your eyes if something enters them.</li><li>Eat a balanced diet rich in Vitamin A.</li></ul>
+          <p class="notes">🎙️ Our eyes are precious, so we must take good care of them. Always read in adequate light, and if something gets in your eye, wash it gently with clean water, don't rub it. A healthy diet also helps!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👓</div><div class="vcap">Eye Care</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Goodbye!</h2>
+          <ul><li>Light is energy that helps us see.</li><li>Reflection, dispersion, and multiple reflections are key phenomena.</li><li>Our eyes are complex organs that process light.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today, from how light reflects off surfaces to how our eyes work like natural cameras. Light is truly amazing, and understanding it helps us appreciate the world around us even more. Keep exploring!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 8 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

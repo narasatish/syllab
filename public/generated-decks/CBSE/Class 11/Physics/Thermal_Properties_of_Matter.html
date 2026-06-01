@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Thermal Properties of Matter — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Thermal</span> Properties of Matter</h2>
-          <ul><li>Class 11 Physics (CBSE)</li><li>Understanding Heat, Temperature, and Matter's Response</li><li>Exam-focused approach with examples</li></ul>
-          <p class="notes">🎙️ Welcome, students! Today we embark on a crucial chapter in Physics: Thermal Properties of Matter. This topic is fundamental for understanding how heat interacts with different materials and is a recurring theme in your board exams and competitive tests.</p>
+          <h2>Welcome to Thermal Properties of Matter!</h2>
+          <ul><li>Explore how matter responds to heat.</li><li>Understand concepts like temperature, heat capacity, and expansion.</li><li>Learn about different modes of heat transfer.</li><li>Prepare for your CBSE Class 11 Physics exams!</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we embark on an exciting journey into the world of 'Thermal Properties of Matter'. This chapter is fundamental to understanding how our physical world behaves with changes in temperature. We'll cover key concepts and their real-world applications, crucial for your exams.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are <span class="hl">Thermal Properties</span>?</h2>
-          <ul><li>Study of how matter responds to heat energy.</li><li>Covers concepts like temperature, expansion, and heat transfer.</li><li>Crucial for engineering, meteorology, and daily life.</li></ul>
-          <p class="notes">🎙️ Thermal properties describe how materials behave when heated or cooled. We'll explore various phenomena, from the simple act of a metal expanding to complex processes like heat transfer in engines. Understanding these properties is key to many scientific and practical applications.</p>
+          <h2><span class="hl">Heat</span> vs. Temperature: The Basics - Heat</h2>
+          <ul><li>Heat is a form of energy transfer between systems or objects.</li><li>It flows from a region of higher temperature to a region of lower temperature.</li><li>Units: Joule (J) in SI, commonly also calorie (cal).</li><li>1 calorie ≈ 4.186 Joules.</li></ul>
+          <p class="notes">🎙️ Let's start by clarifying two often-confused terms: heat and temperature. Heat, simply put, is energy in transit. It's the energy that moves from a hotter body to a colder one. Remember, heat is a form of energy, and its SI unit is the Joule, though calories are also widely used.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat's Influence</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Heat_transfer.svg?width=500" data-fb="🔥" alt="Heat transfers from hot to cold regions through three methods: conduction (direct contact)"/><div class="vcap">Heat transfers from hot to cold regions through three methods: conduction (direct contact)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Heat vs. Temperature: The Key <span class="hl">Difference</span></h2>
-          <ul><li>Heat: Form of energy, flows due to temperature difference.</li><li>Temperature: Measure of average kinetic energy of molecules.</li><li>Heat is extensive, Temperature is intensive.</li></ul>
-          <p class="notes">🎙️ This is a common point of confusion. Remember, heat is energy that flows, while temperature is a measure of the 'hotness' or 'coldness' of an object. Think of it like water in a tank: heat is the total volume of water, while temperature is the water level.</p>
+          <h2>Heat vs. <span class="hl">Temperature</span>: The Basics - Temperature</h2>
+          <ul><li>Temperature is the measure of the degree of hotness or coldness of a body.</li><li>It determines the direction of heat flow.</li><li>It is related to the average kinetic energy of the particles in a substance.</li><li>Common scales: Celsius (°C), Fahrenheit (°F), Kelvin (K).</li></ul>
+          <p class="notes">🎙️ Temperature, on the other hand, is a measure of the intensity of heat. It tells us how hot or cold something is and dictates the direction in which heat will flow. A higher temperature means particles have greater average kinetic energy. We use various scales to measure temperature, with Kelvin being the SI unit.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Heat (Energy)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Temperature (Intensity)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Degree of Hotness</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,81 +96,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Common Temperature <span class="hl">Scales</span></h2>
-          <ul><li>Celsius (°C): Water's freezing point 0°C, boiling point 100°C.</li><li>Fahrenheit (°F): Freezing 32°F, boiling 212°F.</li><li>Kelvin (K): Absolute scale, 0 K is absolute zero, 1 K = 1°C.</li></ul>
-          <p class="notes">🎙️ We primarily use Celsius and Kelvin in Physics. Kelvin is the SI unit and is crucial for many thermodynamic calculations as it's an absolute scale, meaning 0 K represents the lowest possible temperature where molecular motion ceases.</p>
+          <h2>Temperature Scales <span class="hl">Conversion</span> Formulas</h2>
+          <ul><li>Celsius to Fahrenheit: F = (9/5)C + 32</li><li>Fahrenheit to Celsius: C = (5/9)(F - 32)</li><li>Celsius to Kelvin: K = C + 273.15</li><li>Kelvin to Celsius: C = K - 273.15</li></ul>
+          <p class="notes">🎙️ Being able to convert between temperature scales is a crucial skill for problem-solving. These are the fundamental formulas you need to memorize and understand. Pay close attention to the constants and the order of operations, especially when dealing with Fahrenheit conversions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Measuring Hotness</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2>Thermal <span class="hl">Expansion</span>: Matter Changes Size</h2>
-          <ul><li>Increase in size (length, area, volume) upon heating.</li><li>Caused by increased average distance between atoms/molecules.</li><li>Different materials expand differently.</li></ul>
-          <p class="notes">🎙️ When a substance is heated, its constituent particles vibrate with greater amplitude. This increased vibration pushes them further apart, leading to an overall increase in the material's dimensions. This phenomenon is called thermal expansion.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Size Increase</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2><span class="hl">Linear</span> Expansion (Solids)</h2>
-          <ul><li>Change in length (ΔL) proportional to original length (L₀) and temperature change (ΔT).</li><li>ΔL = αL₀ΔT, where α is coefficient of linear expansion.</li><li>Units of α: per degree Celsius or per Kelvin (K⁻¹).</li></ul>
-          <p class="notes">🎙️ For solids, if we consider only one dimension, like a rod, its length increases. The coefficient of linear expansion, alpha, is a material property that tells us how much a unit length of the material expands per unit temperature rise. Remember, α is very small, typically 10⁻⁵ K⁻¹.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Length Change</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Area</span> Expansion (Solids)</h2>
-          <ul><li>Change in area (ΔA) proportional to original area (A₀) and ΔT.</li><li>ΔA = βA₀ΔT, where β is coefficient of area expansion.</li><li>For isotropic solids, β ≈ 2α.</li></ul>
-          <p class="notes">🎙️ Similar to linear expansion, a solid plate will expand in its surface area when heated. The coefficient of area expansion, beta, relates this change. For most materials that expand uniformly in all directions, beta is approximately twice alpha. This relationship simplifies calculations.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Surface Growth</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2><span class="hl">Volume</span> Expansion (Solids &amp; Liquids)</h2>
-          <ul><li>Change in volume (ΔV) proportional to original volume (V₀) and ΔT.</li><li>ΔV = γV₀ΔT, where γ is coefficient of volume expansion.</li><li>For isotropic solids, γ ≈ 3α. For liquids, γ is generally higher than solids.</li></ul>
-          <p class="notes">🎙️ Volume expansion applies to solids, liquids, and gases. For solids, gamma is roughly three times alpha. Liquids, however, do not have fixed shapes, so only volume expansion is relevant. Liquids generally expand more significantly than solids for the same temperature change.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Bulk Increase</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Anomalous</span> Expansion of Water</h2>
-          <ul><li>Water contracts on heating from 0°C to 4°C.</li><li>Reaches maximum density at 4°C.</li><li>Expands on further heating above 4°C.</li></ul>
-          <p class="notes">🎙️ Water exhibits a unique behavior: unlike most substances, it shrinks when heated from 0°C to 4°C, becoming densest at 4°C. This anomalous expansion is crucial for aquatic life, as it prevents lakes and ponds from freezing solid from bottom up in cold climates.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water's Peculiarity</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>C to F</span></div><div class="step"><span class="snum">2</span><span>F to C</span></div><div class="step"><span class="snum">3</span><span>C to K</span></div><div class="step"><span class="snum">4</span><span>K to C</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Railway Track Expansion</h2>
-          <ul><li>Problem: A steel rail is 10m long at 20°C. How much does it expand at 50°C?</li><li>Given: α_steel = 1.2 x 10⁻⁵ K⁻¹.</li><li>Solution: ΔL = αL₀ΔT = (1.2x10⁻⁵)(10)(30) = 3.6 x 10⁻³ m = 3.6 mm.</li></ul>
-          <p class="notes">🎙️ Let's apply the linear expansion formula. The change in temperature is 50°C - 20°C = 30°C, or 30 K. Plugging in the values, we find the expansion is 3.6 millimeters. This small expansion is why gaps are left between railway tracks to prevent buckling.</p>
+          <span class="num">5 / 25</span>
+          <h2>Worked <span class="hl">Example</span> 1: Temperature Conversion</h2>
+          <ul><li>Question: Convert 37°C to Fahrenheit and Kelvin.</li><li>Fahrenheit: F = (9/5)*37 + 32 = 66.6 + 32 = 98.6°F</li><li>Kelvin: K = 37 + 273.15 = 310.15 K</li><li>Answer: 37°C is 98.6°F and 310.15 K.</li></ul>
+          <p class="notes">🎙️ Let's apply these formulas with a practical example. We'll convert a common body temperature, 37°C, into both Fahrenheit and Kelvin. Remember the order of operations: multiplication before addition for Fahrenheit. For Kelvin, it's a simple addition of 273.15.</p>
         </div>
         
       </div>
@@ -166,24 +119,84 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>Heat Transfer: Three Primary Modes</h2>
-          <ul><li>Conduction: Through direct contact, no bulk movement of matter.</li><li>Convection: Through bulk movement of fluid (liquid or gas).</li><li>Radiation: Through electromagnetic waves, no medium required.</li></ul>
-          <p class="notes">🎙️ Heat energy always flows from a region of higher temperature to a region of lower temperature. There are three distinct ways this transfer can occur, each with its own mechanism. We'll explore each mode in detail.</p>
+          <span class="num">6 / 25</span>
+          <h2>Thermal <span class="hl">Expansion</span>: Matter Responds to Heat</h2>
+          <ul><li>Most substances expand when heated and contract when cooled.</li><li>This occurs due to increased kinetic energy of molecules, leading to larger average inter-atomic distances.</li><li>Types: Linear (length), Area (surface), Volume (3D).</li><li>Magnitude of expansion depends on material and temperature change.</li></ul>
+          <p class="notes">🎙️ Now, let's delve into thermal expansion, a fascinating property of matter. When you heat most materials, their particles vibrate more vigorously, pushing each other further apart. This results in an increase in their dimensions. We categorize this expansion based on the dimension affected: length, area, or volume.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Heat_transfer.svg?width=500" data-fb="🔁" alt="Heat transfers from hot to cold regions through three methods: conduction (direct contact)"/><div class="vcap">Heat transfers from hot to cold regions through three methods: conduction (direct contact)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Change in Size</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Conduction</span>: Heat Through Contact</h2>
-          <ul><li>Transfer by molecular vibrations and free electron movement.</li><li>Dominant in solids, especially metals (good conductors).</li><li>Poor conductors are called insulators.</li></ul>
-          <p class="notes">🎙️ Imagine a chain of vibrating particles. When one end is heated, its particles vibrate more vigorously and transfer this energy to their neighbors through collisions. In metals, free electrons also play a significant role in rapidly transferring energy.</p>
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Linear</span> Expansion: Change in Length</h2>
+          <ul><li>When a solid rod is heated, its length increases.</li><li>Formula: ΔL = L₀αΔT, where ΔL is change in length.</li><li>L₀ is original length, ΔT is change in temperature.</li><li>α (alpha) is the coefficient of linear expansion (unit: /°C or /K).</li></ul>
+          <p class="notes">🎙️ Linear expansion specifically refers to the change in length of a one-dimensional object like a rod or wire. The formula shows that the expansion is directly proportional to the original length, the temperature change, and a material-specific constant called the coefficient of linear expansion, alpha.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Molecular Chain</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📏</span><span>📏</span><span>📏</span></div><div class="vcap">Rod Getting Longer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Area</span> Expansion: Change in Surface Area</h2>
+          <ul><li>When a solid sheet is heated, its surface area increases.</li><li>Formula: ΔA = A₀βΔT, where ΔA is change in area.</li><li>A₀ is original area, ΔT is change in temperature.</li><li>β (beta) is the coefficient of area expansion (unit: /°C or /K).</li></ul>
+          <p class="notes">🎙️ Area expansion deals with the increase in the surface area of a two-dimensional object. Similar to linear expansion, the change in area is proportional to the original area, the temperature change, and the coefficient of area expansion, beta. For most isotropic materials, beta is approximately twice alpha.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬜</span><span>⬜</span></div><div class="vcap">Sheet Getting Bigger</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Volume</span> Expansion: Change in Volume</h2>
+          <ul><li>When a solid (or liquid/gas) is heated, its volume increases.</li><li>Formula: ΔV = V₀γΔT, where ΔV is change in volume.</li><li>V₀ is original volume, ΔT is change in temperature.</li><li>γ (gamma) is the coefficient of volume expansion (unit: /°C or /K).</li></ul>
+          <p class="notes">🎙️ Volume expansion is the most general type of thermal expansion, applying to solids, liquids, and gases. Here, the change in volume is proportional to the original volume, the temperature change, and the coefficient of volume expansion, gamma. For isotropic solids, gamma is approximately three times alpha.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧊</span><span>🧊</span></div><div class="vcap">Cube Getting Larger</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Relationship Between <span class="hl">Coefficients</span> of Expansion</h2>
+          <ul><li>For isotropic materials (same properties in all directions):</li><li>β ≈ 2α</li><li>γ ≈ 3α</li><li>Therefore, α : β : γ ≈ 1 : 2 : 3</li></ul>
+          <p class="notes">🎙️ This slide highlights a very important relationship between the three coefficients of thermal expansion for isotropic materials. Understanding that beta is roughly twice alpha, and gamma is roughly thrice alpha, simplifies many problems and helps in conceptual understanding. This ratio is a key takeaway.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">α</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">β</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">γ</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Real-life <span class="hl">Applications</span> of Thermal Expansion</h2>
+          <ul><li>Gaps in railway tracks and bridges to allow for expansion/contraction.</li><li>Bimetallic strips used in thermostats and fire alarms.</li><li>Riveting process: hot rivets contract on cooling, tightening the joint.</li><li>Fitting wheels on axles: heating the wheel makes it expand, then it shrinks onto the axle.</li></ul>
+          <p class="notes">🎙️ Thermal expansion isn't just a theoretical concept; it has profound implications in engineering and everyday life. From the design of bridges and railway tracks to the functioning of your home thermostat, understanding and accounting for thermal expansion is crucial to prevent structural damage and ensure proper operation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌉</div><div class="vcap">Engineering Design</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked <span class="hl">Example</span> 2: Linear Expansion Calculation</h2>
+          <ul><li>Question: A steel rod is 2 m long at 20°C. If α for steel is 1.2 x 10⁻⁵ /°C, find its length at 70°C.</li><li>ΔT = 70 - 20 = 50°C</li><li>ΔL = L₀αΔT = (2 m) * (1.2 x 10⁻⁵ /°C) * (50°C) = 0.0012 m</li><li>New Length = L₀ + ΔL = 2 m + 0.0012 m = 2.0012 m</li></ul>
+          <p class="notes">🎙️ Let's solve a problem involving linear expansion. Here, we calculate the increase in length of a steel rod when its temperature rises. Remember to identify the given values, calculate the temperature change, and then apply the linear expansion formula. Don't forget to add the change in length to the original length to find the final length.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Thermal <span class="hl">Conductivity</span> (k)</h2>
-          <ul><li>Rate of heat flow (Q/t) through a material of unit area and unit thickness for unit temperature difference.</li><li>Q/t = kA(ΔT/L), where k is thermal conductivity.</li><li>Good conductors have high k (e.g., metals); insulators have low k (e.g., wood, air).</li></ul>
-          <p class="notes">🎙️ Thermal conductivity is a measure of a material's ability to conduct heat. Materials with high 'k' values, like copper or silver, transfer heat very efficiently. Materials like wood or styrofoam have low 'k' values, making them excellent insulators.</p>
+          <h2><span class="hl">Anomalous</span> Expansion of Water</h2>
+          <ul><li>Water shows an unusual behavior between 0°C and 4°C.</li><li>Instead of expanding, it contracts when heated from 0°C to 4°C.</li><li>Its volume is minimum and density is maximum at 4°C.</li><li>This property is vital for aquatic life in cold regions.</li></ul>
+          <p class="notes">🎙️ Water, the most common liquid, exhibits a peculiar behavior known as anomalous expansion. Unlike most substances, water contracts when heated from 0°C to 4°C, reaching its maximum density at 4°C. This unique property is critical for the survival of aquatic life in frozen lakes and ponds, as the denser 4°C water settles at the bottom.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Metals (High k)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Insulators (Low k)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Water's Unique Property</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Convection</span>: Heat by Fluid Movement</h2>
-          <ul><li>Transfer involving actual movement of fluid particles.</li><li>Hotter, less dense fluid rises; cooler, denser fluid sinks.</li><li>Forms convection currents, seen in boiling water and atmospheric winds.</li></ul>
-          <p class="notes">🎙️ Convection is the primary mode of heat transfer in liquids and gases. When a fluid is heated, it expands, becomes less dense, and rises. Cooler, denser fluid then moves in to take its place, creating a continuous circulation called a convection current.</p>
+          <h2><span class="hl">Specific</span> Heat Capacity: Material's Heat Absorption</h2>
+          <ul><li>Specific heat capacity (c) is the amount of heat required to raise the temperature of 1 kg of a substance by 1°C (or 1 K).</li><li>Formula: Q = mcΔT, where Q is heat absorbed/released.</li><li>m is mass, ΔT is change in temperature.</li><li>Units: J kg⁻¹ K⁻¹ or J kg⁻¹ °C⁻¹.</li></ul>
+          <p class="notes">🎙️ Specific heat capacity is a fundamental property that tells us how much energy a substance can store for a given temperature change. A high specific heat capacity means a substance can absorb a lot of heat without a drastic temperature increase, which is why water is often used as a coolant. The formula Q=mcΔT is central to many calorimetry problems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Fluid Circulation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Heat per Mass</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Radiation</span>: Heat by Electromagnetic Waves</h2>
-          <ul><li>Transfer of heat without any medium, via electromagnetic waves.</li><li>All objects above absolute zero radiate energy.</li><li>Rate of radiation depends on temperature and surface properties.</li></ul>
-          <p class="notes">🎙️ Radiation is unique because it doesn't require any physical contact or a medium. This is how the sun's heat reaches Earth through the vacuum of space. The hotter an object, and the darker its surface, the more effectively it radiates heat.</p>
+          <h2><span class="hl">Molar</span> Heat Capacity: Heat per Mole</h2>
+          <ul><li>Molar heat capacity (C) is the amount of heat required to raise the temperature of 1 mole of a substance by 1°C (or 1 K).</li><li>Formula: Q = nCΔT, where n is number of moles.</li><li>Units: J mol⁻¹ K⁻¹ or J mol⁻¹ °C⁻¹.</li><li>C = M * c, where M is molar mass.</li></ul>
+          <p class="notes">🎙️ Similar to specific heat capacity, molar heat capacity expresses heat absorption, but on a per-mole basis instead of per-kilogram. This is particularly useful in chemistry and thermodynamics when dealing with gases or reactions where the amount of substance is often expressed in moles. Remember its relationship to specific heat capacity through molar mass.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Energy Waves</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Heat per Mole</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Blackbody</span> Radiation &amp; Stefan-Boltzmann Law</h2>
-          <ul><li>Blackbody: Ideal object that absorbs all incident radiation and emits maximum possible radiation.</li><li>Stefan-Boltzmann Law: P = εσAT⁴, where P is power radiated.</li><li>σ is Stefan-Boltzmann constant, ε is emissivity (1 for blackbody).</li></ul>
-          <p class="notes">🎙️ A blackbody is a theoretical concept, but it's crucial for understanding radiation. The Stefan-Boltzmann Law quantifies the total power radiated by an object, showing a strong dependence on its absolute temperature raised to the fourth power. Emissivity accounts for how 'blackbody-like' a real object is.</p>
+          <h2><span class="hl">Modes</span> of Heat Transfer: How Heat Moves</h2>
+          <ul><li>Heat energy can be transferred from one place to another by three distinct mechanisms.</li><li>These are Conduction, Convection, and Radiation.</li><li>Each mode has its own unique mechanism and medium requirements.</li><li>Understanding these modes is key to explaining many natural phenomena.</li></ul>
+          <p class="notes">🎙️ Heat doesn't just appear or disappear; it moves. There are three primary ways heat transfers from one point to another. We'll explore each of these modes in detail, understanding their underlying principles and how they manifest in everyday life and engineering applications. Think about how a hot stove heats your hand, or how the sun warms the Earth.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div><div class="vcap">Ideal Emitter</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Heat Flow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Wien's</span> Displacement Law</h2>
-          <ul><li>Relates peak wavelength of emitted radiation to temperature.</li><li>λ_max T = b, where b is Wien's constant.</li><li>As temperature increases, peak wavelength shifts towards shorter wavelengths (bluer light).</li></ul>
-          <p class="notes">🎙️ Wien's Law helps us understand why hot objects glow differently at different temperatures. A red-hot object is cooler than a white-hot or blue-hot object. This law is used to determine the surface temperatures of stars based on their color.</p>
+          <h2>Heat Transfer Mode 1: <span class="hl">Conduction</span></h2>
+          <ul><li>Transfer of heat through direct contact, without actual movement of the medium's particles.</li><li>Occurs mainly in solids, especially metals (good conductors).</li><li>Mechanism: Vibrating particles transfer energy to adjacent particles.</li><li>Rate of conduction given by Fourier's Law: dQ/dt = -kA(dT/dx).</li></ul>
+          <p class="notes">🎙️ Conduction is the most common mode of heat transfer in solids. Imagine a line of people passing a ball; the ball moves, but the people stay in place. Similarly, heat energy is passed from one vibrating atom or molecule to the next. Metals are excellent conductors due to their free electrons, which efficiently transfer energy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Color of Heat</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔗</span><span>🔗</span><span>🔗</span><span>🔗</span></div><div class="vcap">Particle-to-Particle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Specific Heat</span> Capacity (c)</h2>
-          <ul><li>Amount of heat energy required to raise temperature of 1 kg of substance by 1°C (or 1 K).</li><li>Q = mcΔT, where Q is heat, m is mass, c is specific heat.</li><li>Units: J kg⁻¹ K⁻¹ or J kg⁻¹ °C⁻¹.</li></ul>
-          <p class="notes">🎙️ Different materials require different amounts of heat to change their temperature. Water has a very high specific heat capacity, meaning it takes a lot of energy to heat it up, which is why it's used as a coolant and regulates Earth's climate.</p>
+          <h2>Heat Transfer Mode 2: <span class="hl">Convection</span></h2>
+          <ul><li>Transfer of heat by the actual movement of fluid (liquid or gas) particles.</li><li>Hotter, less dense fluid rises; colder, denser fluid sinks, creating convection currents.</li><li>Examples: Heating water in a pot, sea and land breezes, home heating systems.</li><li>Cannot occur in solids or vacuum.</li></ul>
+          <p class="notes">🎙️ Convection involves the bulk movement of fluids. Think of boiling water: the hot water at the bottom rises, and cooler water from the top sinks to take its place, creating a cycle. This mode is crucial for weather patterns, ocean currents, and many industrial processes. It requires a fluid medium and cannot happen in solids or empty space.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Heat Absorption</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Fluid Movement</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,23 +276,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Calorimetry</span>: Principle of Mixtures</h2>
-          <ul><li>Heat lost by hot body = Heat gained by cold body (assuming no heat loss to surroundings).</li><li>Used to determine specific heat capacities or final temperatures.</li><li>Requires an insulated system (calorimeter).</li></ul>
-          <p class="notes">🎙️ Calorimetry is the experimental technique for measuring heat changes. The principle of mixtures is its core idea: in an isolated system, heat is conserved. This allows us to calculate unknown quantities by equating heat lost and heat gained.</p>
+          <h2>Heat Transfer Mode 3: <span class="hl">Radiation</span></h2>
+          <ul><li>Transfer of heat in the form of electromagnetic waves.</li><li>Does not require any material medium for transfer.</li><li>Examples: Heat from the Sun, heat emitted by a hot stove.</li><li>All objects above absolute zero temperature emit thermal radiation.</li></ul>
+          <p class="notes">🎙️ Radiation is unique because it doesn't need a medium to transfer heat. This is how the sun's heat reaches Earth across the vacuum of space. It's carried by electromagnetic waves, primarily in the infrared spectrum. Every object, depending on its temperature, emits some form of thermal radiation.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hot object</span></div><div class="step"><span class="snum">2</span><span>Cold object</span></div><div class="step"><span class="snum">3</span><span>Mix in calorimeter</span></div><div class="step"><span class="snum">4</span><span>Reach equilibrium</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Waves of Heat</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Latent Heat</span>: Phase Changes</h2>
-          <ul><li>Heat absorbed or released during a phase change (e.g., solid to liquid, liquid to gas) at constant temperature.</li><li>Latent Heat of Fusion (L_f): For melting/freezing. Q = mL_f.</li><li>Latent Heat of Vaporization (L_v): For boiling/condensation. Q = mL_v.</li></ul>
-          <p class="notes">🎙️ When a substance changes phase, like ice melting into water, its temperature doesn't change, but heat is still absorbed or released. This 'hidden' heat is called latent heat. It's the energy required to break or form intermolecular bonds during the phase transition.</p>
+          <h2>Quick <span class="hl">Check</span>! Conceptual Questions</h2>
+          <ul><li>Q1: If two rods, one copper and one steel, of the same length are heated by the same ΔT, which will expand more?</li><li>Q2: What is the SI unit of the coefficient of thermal conductivity (k)?</li><li>Think about the properties of materials and specific formulas.</li></ul>
+          <p class="notes">🎙️ Let's pause for a quick check of your understanding. These conceptual questions require you to recall definitions and compare properties. For Q1, consider which material typically has a higher coefficient of linear expansion. For Q2, remember Fourier's Law of conduction to deduce the units.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Hidden Heat</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -287,9 +300,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Ice to Water to Steam</h2>
-          <ul><li>Problem: Calculate heat needed to convert 10g ice at 0°C to steam at 100°C.</li><li>Given: L_f_ice = 336 J/g, L_v_water = 2260 J/g, c_water = 4.2 J/g°C.</li><li>Solution: Q_melt + Q_heat_water + Q_vaporize = (10*336) + (10*4.2*100) + (10*2260) = 30160 J.</li></ul>
-          <p class="notes">🎙️ This problem involves three steps: melting the ice, heating the water, and then boiling the water into steam. Notice how the temperature remains constant during the phase changes, absorbing latent heat. This combined calculation is very common in exams.</p>
+          <h2>Quick <span class="hl">Check</span>! Conceptual Questions (Continued)</h2>
+          <ul><li>Q3: Why are small gaps left between successive railway tracks?</li><li>Q4: At what temperature does water have its maximum density?</li><li>Relate these to real-life applications and anomalous behavior.</li></ul>
+          <p class="notes">🎙️ Continuing our quick check, these questions test your understanding of practical applications and unique material properties. Q3 directly relates to thermal expansion in engineering. Q4 probes your knowledge of water's anomalous expansion, a key concept for aquatic ecosystems.</p>
         </div>
         
       </div>
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Common Mistakes &amp; Exam Tips</h2>
-          <ul><li>Units: Always use SI units (Kelvin for T, Joules for Q, kg for m).</li><li>Sign Convention: Be consistent for heat lost/gained in calorimetry.</li><li>Formulas: Understand derivation, don't just memorize. Pay attention to ΔT vs T⁴.</li></ul>
-          <p class="notes">🎙️ Students often lose marks due to incorrect units or sign errors in calorimetry. Always convert temperatures to Kelvin for radiation laws and ensure consistency. Also, practice applying formulas to various scenarios, not just rote memorization.</p>
+          <h2>Newton's Law of <span class="hl">Cooling</span></h2>
+          <ul><li>The rate of heat loss from a body is directly proportional to the temperature difference between the body and its surroundings.</li><li>Rate of cooling ∝ (T - T₀), where T is body temperature, T₀ is ambient temperature.</li><li>Applicable for small temperature differences and forced convection.</li><li>It's an empirical law, simplified from more complex heat transfer equations.</li></ul>
+          <p class="notes">🎙️ Newton's Law of Cooling provides a simple model for how objects cool down. It states that a hot object will cool faster if the temperature difference between it and its surroundings is larger. This law is an approximation, best suited for situations where the temperature difference isn't too large and cooling primarily occurs via convection.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Avoid Pitfalls</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Temperature Drop</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check: <span class="hl">Question 1</span></h2>
-          <ul><li>Why does a bimetallic strip bend when heated?</li><li>A) One metal expands more than the other.</li><li>B) Both metals contract differently.</li><li>C) The strip becomes more flexible.</li></ul>
-          <p class="notes">🎙️ Think about the concept of linear thermal expansion. A bimetallic strip is made of two different metals bonded together. How would differing expansion rates affect its shape? The answer is A, due to different coefficients of linear expansion.</p>
+          <h2><span class="hl">Black Body</span> Radiation</h2>
+          <ul><li>An ideal black body is an object that absorbs all electromagnetic radiation incident upon it.</li><li>It is also a perfect emitter of radiation.</li><li>The radiation emitted by a black body depends only on its temperature, not its material or surface.</li><li>Described by Wien's Displacement Law and Stefan-Boltzmann Law.</li></ul>
+          <p class="notes">🎙️ The concept of a black body is crucial in understanding thermal radiation. While no real object is a perfect black body, it serves as an ideal model. It's a hypothetical object that absorbs all incident radiation and, conversely, emits the maximum possible radiation for a given temperature. Its radiation spectrum is unique and fundamental to quantum physics.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div><div class="vcap">Perfect Absorber/Emitter</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check: <span class="hl">Question 2</span></h2>
-          <ul><li>Which mode of heat transfer is dominant in vacuum?</li><li>A) Conduction</li><li>B) Convection</li><li>C) Radiation</li></ul>
-          <p class="notes">🎙️ Recall the mechanisms of each heat transfer mode. Conduction and convection require a medium for particles to interact or move. Which mode does not need a medium? The answer is C, radiation, as it involves electromagnetic waves.</p>
+          <h2>Worked <span class="hl">Example</span> 3: Specific Heat Capacity</h2>
+          <ul><li>Question: How much heat is required to raise the temperature of 0.5 kg of water from 20°C to 80°C? (Specific heat capacity of water = 4200 J kg⁻¹ °C⁻¹)</li><li>Given: m = 0.5 kg, ΔT = 80 - 20 = 60°C, c = 4200 J kg⁻¹ °C⁻¹</li><li>Q = mcΔT = (0.5 kg) * (4200 J kg⁻¹ °C⁻¹) * (60°C)</li><li>Q = 126,000 J or 126 kJ</li></ul>
+          <p class="notes">🎙️ Let's apply the specific heat capacity formula to a common scenario. This problem asks us to calculate the heat energy needed to warm a certain amount of water. Identify the mass, temperature change, and specific heat capacity. Then, directly substitute these values into the Q=mcΔT formula to find the heat required.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Heat vs. Temperature, Temperature Scales.</li><li>Thermal Expansion (Linear, Area, Volume, Anomalous Water).</li><li>Heat Transfer (Conduction, Convection, Radiation, Laws).</li><li>Specific Heat Capacity, Latent Heat, Calorimetry.</li></ul>
-          <p class="notes">🎙️ We've covered a wide range of topics today. Remember the definitions, the formulas, and their applications. Practice numerical problems regularly. Mastering these concepts will build a strong foundation for future physics topics. Good luck with your studies!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Thermal Properties of Matter</h2>
+          <ul><li>Heat vs. Temperature: Energy transfer vs. degree of hotness.</li><li>Thermal Expansion: Linear, Area, Volume (α, β, γ and their relations).</li><li>Anomalous Expansion of Water: Max density at 4°C.</li><li>Heat Capacity: Specific (c) and Molar (C); Q = mcΔT.</li><li>Heat Transfer Modes: Conduction, Convection, Radiation.</li><li>Newton's Law of Cooling &amp; Black Body Radiation.</li></ul>
+          <p class="notes">🎙️ We've covered a vast and important chapter today! From the fundamental definitions of heat and temperature to the intricate mechanisms of thermal expansion and heat transfer, you now have a solid foundation. Remember the key formulas, the relationships between coefficients, and the practical applications of these concepts. Keep practicing problems for mastery!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Chapter Summary</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

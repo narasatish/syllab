@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Thermodynamics: Energy Transformations — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to <span class="hl">Thermodynamics</span>!</h2>
-          <ul><li>Understanding Energy Transformations</li><li>Heat, Work, and Internal Energy</li><li>Laws Governing Energy</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into Thermodynamics, a fundamental branch of physics. We'll explore how energy transforms and moves, impacting everything around us.</p>
+          <ul><li>Introduction to a fascinating branch of Physics</li><li>Understanding energy transformations</li><li>Essential for Class 11 CBSE exams</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! Today, we embark on an exciting journey into Thermodynamics, a fundamental branch of physics that explains how energy moves and transforms. This chapter is crucial for your CBSE exams and lays the foundation for advanced studies.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>The Study of <span class="hl">Energy</span> &amp; Its Transformations</h2>
-          <ul><li>Branch of physics dealing with heat, work, and temperature.</li><li>Relates these to energy, entropy, and the spontaneity of processes.</li><li>Explains how engines work and why certain reactions happen.</li></ul>
-          <p class="notes">🎙️ Thermodynamics is essentially about energy in its various forms, particularly heat and work, and how they interconvert. It helps us understand energy flow in systems, from microscopic particles to vast engines.</p>
+          <h2>What is <span class="hl">Thermodynamics</span>?</h2>
+          <ul><li>Study of heat, work, and energy</li><li>How energy converts from one form to another</li><li>Deals with macroscopic properties of systems</li></ul>
+          <p class="notes">🎙️ Thermodynamics, at its core, is the science of energy. We'll explore how heat and work interact to change the state of a system and how energy is conserved or transformed in various processes. Remember, we are looking at bulk properties, not individual particles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat and Energy</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Energy_transformation.svg?width=500" data-fb="⚛️" alt="Work is done when force causes displacement. Energy is the capacity to do work. Power is t"/><div class="vcap">Work is done when force causes displacement. Energy is the capacity to do work. Power is t</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Defining Our Universe: <span class="hl">System</span>, Surroundings, Boundary</h2>
-          <ul><li>System: Part of the universe chosen for study.</li><li>Surroundings: Everything outside the system.</li><li>Boundary: The real or imaginary surface separating system and surroundings.</li></ul>
-          <p class="notes">🎙️ To study thermodynamics effectively, we first need to define what we are observing. The system is our focus, the surroundings are its environment, and the boundary is the interface between them.</p>
+          <h2>Key Terms: <span class="hl">System</span>, Surroundings, Boundary</h2>
+          <ul><li>System: Part of the universe under study</li><li>Surroundings: Everything else interacting with the system</li><li>Boundary: Separates system from surroundings</li></ul>
+          <p class="notes">🎙️ To understand thermodynamics, we first need to define our focus. A system is what we're observing, like a gas in a cylinder. The surroundings are everything outside the system that can exchange energy or matter with it. The boundary is the imaginary or real division between them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">System Focus</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span></div><div class="vcap">System under observation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Three Types of Thermodynamic <span class="hl">Systems</span></h2>
-          <ul><li>Open System: Exchanges both mass and energy.</li><li>Closed System: Exchanges energy but not mass.</li><li>Isolated System: Exchanges neither mass nor energy.</li></ul>
-          <p class="notes">🎙️ These classifications are crucial for applying thermodynamic laws. Think of a boiling pot as open, a pressure cooker as closed, and a perfectly insulated thermos as isolated.</p>
+          <h2>Types of <span class="hl">Systems</span></h2>
+          <ul><li>Open: Exchanges both matter and energy</li><li>Closed: Exchanges energy but not matter</li><li>Isolated: No exchange of matter or energy</li></ul>
+          <p class="notes">🎙️ Systems can be classified based on what they exchange with their surroundings. An open system, like a boiling pot without a lid, exchanges both heat and steam. A closed system, like a sealed pressure cooker, exchanges heat but not mass. An isolated system, like an ideal thermos flask, exchanges neither.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Open</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Closed</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Isolated</div></div></div></div>
       </div>
@@ -95,9 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Describing a System: Pressure, Volume, Temperature</h2>
-          <ul><li>Pressure (P): Force per unit area exerted by gas.</li><li>Volume (V): Space occupied by the system.</li><li>Temperature (T): Degree of hotness or coldness, average kinetic energy.</li></ul>
-          <p class="notes">🎙️ These three macroscopic properties—Pressure, Volume, and Temperature—are fundamental thermodynamic variables. They define the state of a system and how it interacts with its surroundings.</p>
+          <h2>Thermodynamic <span class="hl">Variables</span></h2>
+          <ul><li>Pressure (P): Force per unit area</li><li>Volume (V): Space occupied by the system</li><li>Temperature (T): Degree of hotness or coldness</li></ul>
+          <p class="notes">🎙️ To describe the state of a thermodynamic system, we use state variables. Pressure, volume, and temperature are the most fundamental. These variables are macroscopic properties and are measurable. They help us define the 'state' of a system at any given moment.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pressure_force_area.svg?width=500" data-fb="🌡️" alt="Force is push or pull; pressure is force spread over area. Greater area under same force ="/><div class="vcap">Force is push or pull; pressure is force spread over area. Greater area under same force =</div></div></div>
       </div>
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>The <span class="hl">Zeroth Law</span>: Basis of Temperature Measurement</h2>
-          <ul><li>Thermal Equilibrium: No net heat flow between objects.</li><li>Zeroth Law: If A is in thermal equilibrium with B, and B with C, then A is in thermal equilibrium with C.</li><li>Establishes temperature as a fundamental property.</li></ul>
-          <p class="notes">🎙️ The Zeroth Law might seem obvious, but it's crucial for defining temperature. It allows us to use a thermometer (system C) to measure the temperature of any other object (system A or B).</p>
+          <h2>Thermodynamic <span class="hl">Process</span></h2>
+          <ul><li>Change in the state of a system</li><li>Involves changes in P, V, T</li><li>Path taken from initial to final state</li></ul>
+          <p class="notes">🎙️ When a system undergoes a change in its state variables, we say it has undergone a thermodynamic process. This could be heating, cooling, compression, or expansion. The specific path taken during this change is crucial in determining the work done or heat exchanged.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Equilibrium</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">System changing state</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Internal Energy</span>: The Total Energy within a System</h2>
-          <ul><li>Sum of kinetic and potential energies of all molecules within a system.</li><li>A state function: depends only on the initial and final states, not the path.</li><li>For an ideal gas, U depends only on temperature.</li></ul>
-          <p class="notes">🎙️ Internal energy is a macroscopic property representing the microscopic energy of a system. It's a crucial concept for understanding how energy changes during thermodynamic processes.</p>
+          <h2><span class="hl">Zeroth Law</span> of Thermodynamics</h2>
+          <ul><li>If A is in thermal equilibrium with B</li><li>And B is in thermal equilibrium with C</li><li>Then A is in thermal equilibrium with C</li></ul>
+          <p class="notes">🎙️ The Zeroth Law establishes the concept of temperature. It essentially states that if two systems are each in thermal equilibrium with a third system, they are also in thermal equilibrium with each other. This allows us to use a thermometer (the third system) to measure the temperature of other systems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">System's Energy Store</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Thermal equilibrium</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Energy Transfer Mechanisms: <span class="hl">Heat and Work</span></h2>
-          <ul><li>Heat (Q): Energy transferred due to temperature difference.</li><li>Work (W): Energy transferred due to force acting over a distance.</li><li>Both are path functions, not state functions.</li></ul>
-          <p class="notes">🎙️ Heat and work are the two primary ways energy is transferred into or out of a system. It's important to remember they are not properties of a system but rather forms of energy in transit.</p>
+          <h2><span class="hl">First Law</span> of Thermodynamics</h2>
+          <ul><li>Principle of conservation of energy</li><li>Energy cannot be created or destroyed</li><li>It can only be transformed from one form to another</li></ul>
+          <p class="notes">🎙️ The First Law of Thermodynamics is a restatement of the law of conservation of energy. It tells us that the total energy of an isolated system remains constant. Any change in the internal energy of a system is due to the heat added to it or the work done by or on it.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Heat_transfer.svg?width=500" data-fb="⚛️" alt="Heat transfers from hot to cold regions through three methods: conduction (direct contact)"/><div class="vcap">Heat transfers from hot to cold regions through three methods: conduction (direct contact)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Energy conservation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Crucial <span class="hl">Sign Conventions</span> for Q and W</h2>
-          <ul><li>Heat absorbed by system: +Q</li><li>Heat released by system: -Q</li><li>Work done by system: -W (expansion)</li><li>Work done on system: +W (compression)</li></ul>
-          <p class="notes">🎙️ Correctly applying sign conventions is vital for solving problems using the First Law. Always be clear whether energy is entering or leaving the system and who is doing the work.</p>
+          <h2><span class="hl">Internal Energy</span> (U)</h2>
+          <ul><li>Total energy contained within a system</li><li>Sum of kinetic and potential energies of molecules</li><li>Primarily depends on temperature for ideal gases</li></ul>
+          <p class="notes">🎙️ Internal energy refers to the energy stored within a system, encompassing the kinetic energy of its molecules due to their random motion and the potential energy due to intermolecular forces. For an ideal gas, internal energy is solely a function of its temperature, meaning if temperature is constant, internal energy is constant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Direction of Flow</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Total_internal_reflection.svg?width=500" data-fb="🔥" alt="Total internal reflection occurs when light traveling in a denser medium hits a less dense"/><div class="vcap">Total internal reflection occurs when light traveling in a denser medium hits a less dense</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>The First Law: <span class="hl">Conservation</span> of Energy</h2>
-          <ul><li>Energy cannot be created or destroyed, only transformed.</li><li>Total energy of an isolated system remains constant.</li><li>Energy change in a system equals heat added minus work done by system.</li></ul>
-          <p class="notes">🎙️ This law is a direct application of the principle of conservation of energy to thermodynamic systems. It provides a quantitative relationship between internal energy, heat, and work.</p>
+          <h2><span class="hl">Work Done</span> (W) by/on a system</h2>
+          <ul><li>Energy transferred due to force acting over a distance</li><li>For gases, W = PΔV (area under P-V curve)</li><li>Sign Convention: W &gt; 0 if work done BY system (expansion), W &lt; 0 if work done ON system (compression)</li></ul>
+          <p class="notes">🎙️ Work done in thermodynamics usually refers to mechanical work, especially expansion or compression work by a gas. It's the area under the P-V curve on a pressure-volume diagram. Remember the sign convention: work done *by* the system is positive, and work done *on* the system is negative according to the physics convention.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Energy Flow</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">P-V diagram work</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,23 +180,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Mathematical Form</span> of the First Law</h2>
-          <ul><li>ΔU = Q - W</li><li>ΔU: Change in internal energy.</li><li>Q: Heat absorbed by the system.</li><li>W: Work done by the system.</li></ul>
-          <p class="notes">🎙️ This equation is the cornerstone of thermodynamics. It allows us to calculate changes in internal energy based on measured heat and work exchanges. Remember the sign conventions carefully.</p>
+          <h2><span class="hl">Heat</span> (Q)</h2>
+          <ul><li>Energy transferred due to temperature difference</li><li>Flows from higher to lower temperature</li><li>Sign Convention: Q &gt; 0 if heat ADDED to system, Q &lt; 0 if heat REMOVED from system</li></ul>
+          <p class="notes">🎙️ Heat is another form of energy transfer, driven solely by a temperature difference. It always flows spontaneously from a hotter body to a colder body. Like work, heat has a specific sign convention: heat absorbed by the system is positive, and heat released by the system is negative.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">The Equation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Energy transfer</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: First Law Calculation</h2>
-          <ul><li>Problem: A system absorbs 200 J of heat and does 50 J of work.</li><li>Calculate the change in internal energy (ΔU).</li><li>Solution: Q = +200 J, W = +50 J (work done by system). ΔU = Q - W = 200 J - 50 J = 150 J.</li></ul>
-          <p class="notes">🎙️ Let's walk through a simple problem. Here, heat is absorbed, so Q is positive. Work is done *by* the system, so W is positive in the ΔU = Q - W convention. The internal energy increases.</p>
+          <h2>First Law <span class="hl">Equation</span>: ΔU = Q - W</h2>
+          <ul><li>ΔU = Change in internal energy</li><li>Q = Heat supplied to the system</li><li>W = Work done BY the system</li></ul>
+          <p class="notes">🎙️ This is the mathematical statement of the First Law. It says that the change in a system's internal energy equals the heat added to it minus the work done by it. Be extremely careful with the sign conventions for Q and W, as they are crucial for correct calculations.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Q (Heat In)</span></div><div class="step"><span class="snum">2</span><span>- W (Work Out)</span></div><div class="step"><span class="snum">3</span><span>= ΔU (Energy Change)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Avoiding Pitfalls: Common <span class="hl">Mistakes</span></h2>
-          <ul><li>Incorrect sign conventions for Q and W.</li><li>Confusing 'work done by system' with 'work done on system'.</li><li>Assuming internal energy change is zero for all processes.</li></ul>
-          <p class="notes">🎙️ The most frequent errors arise from misapplying sign conventions. Always visualize the energy flow: is it entering or leaving the system? Is the system expanding or compressing?</p>
+          <h2>Worked <span class="hl">Example</span> 1: Applying First Law</h2>
+          <ul><li>A gas absorbs 200 J of heat and does 50 J of work.</li><li>Calculate the change in internal energy.</li></ul>
+          <p class="notes">🎙️ Let's apply the First Law. Given Q = +200 J (absorbed) and W = +50 J (done by system). Using ΔU = Q - W, we get ΔU = 200 J - 50 J = 150 J. The internal energy of the gas increases by 150 J.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Error Traps</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Ideal_gas_law.svg?width=500" data-fb="⚛️" alt="The ideal gas law (PV = nRT) relates pressure, volume, temperature, and moles of gas. Deri"/><div class="vcap">The ideal gas law (PV = nRT) relates pressure, volume, temperature, and moles of gas. Deri</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Special <span class="hl">Processes</span>: Isothermal and Adiabatic</h2>
-          <ul><li>Isothermal: Temperature (T) remains constant (ΔT=0).</li><li>Adiabatic: No heat exchange (Q=0).</li><li>These are idealizations but help understand real systems.</li></ul>
-          <p class="notes">🎙️ These two processes represent extreme conditions. In an isothermal process, any heat exchange is balanced to keep temperature steady. In adiabatic, the system is perfectly insulated.</p>
+          <h2>Common Mistakes: <span class="hl">Sign Conventions</span></h2>
+          <ul><li>Confusing work done BY vs. ON the system</li><li>Confusing heat ADDED vs. REMOVED</li><li>Using chemistry convention (ΔU = Q + W) in physics context</li></ul>
+          <p class="notes">🎙️ This is where most students lose marks. Always remember: in physics, work done *by* the system is positive. If the problem states 'work done *on* the system', you must use W = - (value). Similarly for heat: absorbed is positive, released is negative. Stick to ΔU = Q - W for physics.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Isothermal</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Adiabatic</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Avoid these errors!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>More Special Processes: <span class="hl">Isobaric</span> and Isochoric</h2>
-          <ul><li>Isobaric: Pressure (P) remains constant (ΔP=0).</li><li>Isochoric: Volume (V) remains constant (ΔV=0).</li><li>Each process has unique implications for the First Law.</li></ul>
-          <p class="notes">🎙️ Isobaric processes are common, like heating water in an open container. Isochoric processes mean no P-V work is done, simplifying the First Law to ΔU = Q.</p>
+          <h2><span class="hl">Isothermal</span> Process (T = constant)</h2>
+          <ul><li>Temperature remains constant (ΔT = 0)</li><li>For ideal gas, ΔU = 0</li><li>Q = W (Heat supplied equals work done)</li></ul>
+          <p class="notes">🎙️ In an isothermal process, the system is kept at a constant temperature. This implies that for an ideal gas, its internal energy remains unchanged (ΔU=0). Therefore, any heat added to the system is entirely converted into work done by the system, or vice versa.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Isobaric</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Isochoric</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Constant temperature</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Cyclic</span>, Reversible, and Irreversible Processes</h2>
-          <ul><li>Cyclic Process: System returns to its initial state (ΔU=0).</li><li>Reversible Process: Can be reversed without leaving any change in the surroundings.</li><li>Irreversible Process: Cannot be reversed without leaving changes in the surroundings.</li></ul>
-          <p class="notes">🎙️ Cyclic processes are important for understanding engines. Reversible processes are ideal, theoretical constructs, while all natural processes are irreversible due to entropy increase.</p>
+          <h2><span class="hl">Adiabatic</span> Process (Q = 0)</h2>
+          <ul><li>No heat exchange with surroundings (Q = 0)</li><li>System is thermally insulated</li><li>ΔU = -W (Change in internal energy equals negative of work done)</li></ul>
+          <p class="notes">🎙️ An adiabatic process occurs without any heat transfer between the system and its surroundings. This happens either very rapidly or in a perfectly insulated system. In such a process, any work done by the system comes directly from its internal energy, causing its temperature to drop, and vice-versa.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Process Types</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">No heat transfer</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Heat Engines</span>: Converting Heat to Work</h2>
-          <ul><li>Device that converts heat energy into mechanical work.</li><li>Works between a hot reservoir (T_H) and a cold reservoir (T_C).</li><li>Efficiency (η) = Work output / Heat input.</li></ul>
-          <p class="notes">🎙️ Heat engines are practical applications of thermodynamics, central to power generation and transportation. Their efficiency is limited by the temperatures of the hot and cold reservoirs.</p>
+          <h2><span class="hl">Isobaric</span> Process (P = constant)</h2>
+          <ul><li>Pressure remains constant (ΔP = 0)</li><li>Work done W = PΔV</li><li>Heat exchanged Q = ΔU + PΔV</li></ul>
+          <p class="notes">🎙️ An isobaric process is one where the pressure of the system remains constant throughout the process. A common example is heating a gas in a cylinder with a movable piston under constant atmospheric pressure. The work done is simply P times the change in volume.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Engine Mechanics</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎈</div><div class="vcap">Constant pressure</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,35 +264,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>The <span class="hl">Second Law</span>: Kelvin-Planck Statement</h2>
-          <ul><li>Impossible to construct a device that operates in a cycle.</li><li>Whose sole effect is to extract heat from a single reservoir and produce an equivalent amount of work.</li><li>Implies no heat engine can be 100% efficient.</li></ul>
-          <p class="notes">🎙️ This statement highlights a fundamental limitation of heat engines. You cannot convert all heat energy into useful work; some heat must always be rejected to a colder reservoir.</p>
+          <h2><span class="hl">Isochoric</span> Process (V = constant)</h2>
+          <ul><li>Volume remains constant (ΔV = 0)</li><li>No work done (W = PΔV = 0)</li><li>Q = ΔU (Heat supplied equals change in internal energy)</li></ul>
+          <p class="notes">🎙️ In an isochoric process, the volume of the system does not change. This means no work is done *by* or *on* the system. Consequently, according to the First Law, all the heat supplied to the system goes directly into changing its internal energy, which usually means increasing its temperature.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Efficiency Limit</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Constant volume</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>The Second Law: <span class="hl">Clausius Statement</span></h2>
-          <ul><li>Impossible to construct a device that operates in a cycle.</li><li>Whose sole effect is to transfer heat from a colder to a hotter body.</li><li>Without any external work being done on the system.</li></ul>
-          <p class="notes">🎙️ This statement explains why heat naturally flows from hot to cold, not the other way around, without external intervention. It's the principle behind refrigerators and air conditioners.</p>
+          <h2>Quick <span class="hl">Check</span> 1</h2>
+          <ul><li>For an ideal gas undergoing an isothermal expansion, what is the change in internal energy?</li></ul>
+          <p class="notes">🎙️ Think back to the properties of an ideal gas and what 'isothermal' means. For an ideal gas, internal energy is purely a function of temperature. If temperature is constant, what happens to internal energy? (Answer: ΔU = 0)</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Heat Flow Direction</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Entropy</span>: The Arrow of Time</h2>
-          <ul><li>Measure of the disorder or randomness of a system.</li><li>Second Law implies entropy of an isolated system never decreases.</li><li>It always increases or remains constant in spontaneous processes.</li></ul>
-          <p class="notes">🎙️ Entropy helps us understand the direction of natural processes. The universe tends towards greater disorder, which is why your room gets messy on its own, but never tidies itself!</p>
+          <h2>Quick <span class="hl">Check</span> 2</h2>
+          <ul><li>In an adiabatic compression, what is the sign of the work done and the change in internal energy?</li></ul>
+          <p class="notes">🎙️ Consider the definition of adiabatic and the sign convention for work done. Compression means work is done *on* the system. How does this affect internal energy when there's no heat exchange? (Answer: W &lt; 0, ΔU &gt; 0)</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Disorder</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,47 +300,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Thermodynamics in Our Daily Lives</h2>
-          <ul><li>Refrigerators and Air Conditioners (heat pumps).</li><li>Internal Combustion Engines (cars).</li><li>Power Plants (steam turbines).</li><li>Cooking and Human Body Metabolism.</li></ul>
-          <p class="notes">🎙️ Thermodynamics isn't just theory; it's everywhere! From keeping your food cold to powering vehicles and generating electricity, its principles are indispensable.</p>
+          <h2><span class="hl">Second Law</span> of Thermodynamics</h2>
+          <ul><li>Heat flows spontaneously from hot to cold</li><li>Not all heat can be converted into work</li><li>Introduces concept of entropy</li></ul>
+          <p class="notes">🎙️ The First Law tells us about energy conservation, but not about the direction of processes. The Second Law addresses this, stating that processes tend to occur in a certain direction, like heat flowing from hot to cold. It also implies that perfect conversion of heat into work is impossible, introducing the concept of efficiency.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚂</span><span>🚂</span><span>🚂</span></div><div class="vcap">Engines and Cooling</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Direction of flow</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 1: First Law Application</h2>
-          <ul><li>If a system performs 100 J of work and absorbs 150 J of heat, what is ΔU?</li><li>A) 250 J</li><li>B) 50 J</li><li>C) -50 J</li><li>D) -250 J</li></ul>
-          <p class="notes">🎙️ Remember our sign conventions for Q and W. Work done *by* the system is +W, and heat *absorbed* is +Q. Apply the formula ΔU = Q - W carefully.</p>
+          <h2><span class="hl">Heat Engines</span></h2>
+          <ul><li>Device converting heat into mechanical work</li><li>Operates in a cycle</li><li>Efficiency = (Work Output / Heat Input)</li></ul>
+          <p class="notes">🎙️ A heat engine is a device that takes heat from a high-temperature reservoir, converts some of it into mechanical work, and rejects the remaining heat to a low-temperature reservoir. Examples include car engines and power plants. Their efficiency is always less than 100% due to the Second Law.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Converting heat to work</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check 2: Key <span class="hl">Definitions</span></h2>
-          <ul><li>An isolated system exchanges neither _____ nor _____ with its surroundings.</li><li>For an isothermal process, the _____ remains constant.</li><li>The Zeroth Law of Thermodynamics defines _____.</li></ul>
-          <p class="notes">🎙️ Test your understanding of the basic terminology. These definitions are fundamental to building a strong foundation in thermodynamics.</p>
+          <h2><span class="hl">Refrigerators</span> &amp; Heat Pumps</h2>
+          <ul><li>Devices that transfer heat from cold to hot</li><li>Require external work input</li><li>Operate opposite to heat engines</li></ul>
+          <p class="notes">🎙️ Refrigerators and heat pumps are essentially heat engines operating in reverse. They use external work to transfer heat from a colder region to a hotter region, which is a non-spontaneous process. A refrigerator cools a space, while a heat pump heats a space by extracting heat from a colder source.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Heat_transfer.svg?width=500" data-fb="❄️" alt="Heat transfers from hot to cold regions through three methods: conduction (direct contact)"/><div class="vcap">Heat transfers from hot to cold regions through three methods: conduction (direct contact)</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check 3: <span class="hl">True or False</span></h2>
-          <ul><li>The efficiency of a heat engine can be 100%. (True/False)</li><li>Internal energy is a path function. (True/False)</li><li>Heat naturally flows from a colder to a hotter body. (True/False)</li></ul>
-          <p class="notes">🎙️ These statements test your grasp of the core laws and concepts we've covered. Think back to the Kelvin-Planck and Clausius statements, and the nature of internal energy.</p>
+          <h2><span class="hl">Third Law</span> of Thermodynamics</h2>
+          <ul><li>Entropy of a perfect crystal is zero at absolute zero temperature (0 K)</li><li>It is impossible to reach absolute zero in a finite number of steps</li><li>Deals with behavior near absolute zero</li></ul>
+          <p class="notes">🎙️ The Third Law of Thermodynamics deals with the behavior of systems as they approach absolute zero temperature. It states that the entropy of a perfectly crystalline substance approaches zero as its temperature approaches absolute zero. This law has significant implications for low-temperature physics and cryogenics.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥶</div><div class="vcap">Reaching absolute zero</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Thermodynamics <span class="hl">Recap</span>: Energy, Laws &amp; Applications</h2>
-          <ul><li>Defined systems, variables, and thermal equilibrium.</li><li>Understood the First Law (Conservation of Energy).</li><li>Explored different thermodynamic processes.</li><li>Grasped the Second Law and Entropy.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today, from the fundamental definitions to the profound laws governing energy. Remember, thermodynamics is crucial for understanding energy transformations in physics and engineering.</p>
+          <h2><span class="hl">Recap</span> &amp; Exam Tips</h2>
+          <ul><li>Master sign conventions for Q and W</li><li>Understand types of processes and their implications</li><li>Practice numerical problems thoroughly</li><li>Focus on conceptual clarity</li></ul>
+          <p class="notes">🎙️ To excel in Thermodynamics, focus on understanding the definitions and the First Law equation with its sign conventions. Practice problems from each type of thermodynamic process. Remember, conceptual clarity is key to solving both theoretical and numerical questions effectively. Good luck!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

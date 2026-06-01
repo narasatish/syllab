@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Pair of Linear Equations in Two Variables - Class 10 Maths — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Welcome</span> to 'Pair of Linear Equations in Two Variables'!</h2>
-          <ul><li>A crucial chapter in Class 10 Mathematics.</li><li>Learn to solve real-world problems with two unknowns.</li><li>Master graphical and algebraic methods.</li></ul>
-          <p class="notes">🎙️ Hello students! Get ready to explore one of the most interesting and practical chapters in your Class 10 Maths syllabus. We'll uncover how to tackle problems involving two unknown quantities using the power of linear equations. This is a foundational topic for many advanced concepts.</p>
+          <h2><span class="hl">Welcome</span> to Linear Equations!</h2>
+          <ul><li>Get ready to explore a fascinating chapter in Mathematics!</li><li>We'll learn about equations with two unknowns.</li><li>Understand how these equations help solve real-life problems.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're starting a very important and interesting chapter: 'Pair of Linear Equations in Two Variables'. This topic is super useful, not just in exams but also in understanding many real-world situations. Let's dive in!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is an <span class="hl">Equation</span>?</h2>
-          <ul><li>A mathematical statement showing equality.</li><li>Contains an '=' sign.</li><li>Balances two expressions.</li></ul>
-          <p class="notes">🎙️ An equation is fundamentally a statement that two mathematical expressions are equal. Think of it like a balanced scale, where what's on one side must exactly match what's on the other. The equal sign is the key element that defines an equation.</p>
+          <ul><li>A mathematical statement showing two expressions are equal.</li><li>It always contains an '=' sign.</li><li>Example: 2 + 3 = 5 or x + 7 = 10.</li></ul>
+          <p class="notes">🎙️ Think of an equation like a balanced scale. Whatever is on one side must be equal in 'weight' or 'value' to what's on the other side. The equal sign is the pivot that keeps everything balanced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balanced Scale</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of equality</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Understanding <span class="hl">Linear</span> Equations</h2>
-          <ul><li>Highest power of any variable is 1.</li><li>No variables multiplied together (like xy).</li><li>Graphs as a straight line.</li></ul>
-          <p class="notes">🎙️ A linear equation is special because its variables appear only with an exponent of one. This means you won't see terms like x-squared or y-cubed. The most important characteristic is that when you plot a linear equation on a graph, it always forms a perfect straight line.</p>
+          <h2>What is a <span class="hl">Linear</span> Equation?</h2>
+          <ul><li>An equation where the highest power of the variable is 1.</li><li>When plotted on a graph, it forms a straight line.</li><li>Example: 2x + 5 = 11 (power of x is 1).</li></ul>
+          <p class="notes">🎙️ The word 'linear' comes from 'line'. This means if you were to draw a picture of this equation, it would always be a straight line, never a curve. This is because the variable isn't squared or cubed, it's just 'x' to the power of one.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight line</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Linear Equation in <span class="hl">Two Variables</span></h2>
-          <ul><li>Involves two unknown quantities (e.g., x and y).</li><li>General form: ax + by + c = 0.</li><li>a, b, c are real numbers; a and b are not both zero.</li></ul>
-          <p class="notes">🎙️ Now, let's add another unknown! A linear equation in two variables means we have two different quantities we need to find, commonly represented by 'x' and 'y'. The general way to write it is ax + by + c = 0, where 'a' and 'b' cannot both be zero, ensuring it remains a linear equation.</p>
+          <h2>Linear Equation in <span class="hl">One Variable</span></h2>
+          <ul><li>Contains only one unknown quantity (variable).</li><li>General form: ax + b = 0, where a ≠ 0.</li><li>Example: 3x - 6 = 0. Here, 'x' is the only variable.</li></ul>
+          <p class="notes">🎙️ A linear equation in one variable is the simplest type. You've probably solved many of these before! It has just one letter, like 'x' or 'y', whose value you need to find. There's usually only one unique solution for 'x'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❓</span><span>❓</span></div><div class="vcap">Two Unknowns</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❓</span></div><div class="vcap">Only one type of unknown</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Real-Life</span> Example: Single Linear Equation</h2>
-          <ul><li>You buy some pens at ₹5 each.</li><li>You spent a total of ₹40.</li><li>How many pens did you buy?</li></ul>
-          <p class="notes">🎙️ Let's put this into practice. If each pen costs ₹5 and you spent ₹40, how do we find the number of pens? Let 'x' be the number of pens. The equation is 5x = 40. This is a simple linear equation that you already know how to solve!</p>
+          <h2>Real-life <span class="hl">Example</span>: One Variable</h2>
+          <ul><li>Problem: 'If I add 5 to twice my age, I get 25.' What is my age?</li><li>Let my age be 'x'.</li><li>Equation: 2x + 5 = 25.</li><li>Solution: 2x = 20, so x = 10. My age is 10 years.</li></ul>
+          <p class="notes">🎙️ See how easily we can turn a sentence into an equation? By representing the unknown age with 'x', we can set up the equation and solve it to find the exact age. This shows the practical use of equations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖊️</div><div class="vcap">Pens</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎂</div><div class="vcap">Age calculation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Introducing a <span class="hl">Pair</span> of Linear Equations</h2>
-          <ul><li>Sometimes one equation isn't enough.</li><li>We need two related equations.</li><li>These form a 'system' of equations.</li></ul>
-          <p class="notes">🎙️ What if we have two unknowns, but only one equation? It's impossible to find unique values! That's when we need a 'pair' of linear equations. These are two equations that work together to help us find the values of both unknown variables.</p>
+          <h2><span class="hl">Variables</span>: The Unknowns</h2>
+          <ul><li>Letters like x, y, z used to represent unknown values.</li><li>Their values can change or vary.</li><li>Constants are fixed numbers (e.g., 2, 5, -10).</li></ul>
+          <p class="notes">🎙️ Variables are like placeholders for numbers we don't know yet. In algebra, we use letters to represent these numbers. Understanding the difference between variables and constants is key to forming correct equations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤝</span><span>🤝</span></div><div class="vcap">Working Together</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">What are the unknowns?</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">General Form</span> of a Pair of Linear Equations</h2>
-          <ul><li>Equation 1: a₁x + b₁y + c₁ = 0</li><li>Equation 2: a₂x + b₂y + c₂ = 0</li><li>a₁, b₁, c₁, a₂, b₂, c₂ are real numbers.</li></ul>
-          <p class="notes">🎙️ A pair of linear equations has a specific general form. We use subscripts to differentiate between the coefficients of the first equation (a₁, b₁, c₁) and the second equation (a₂, b₂, c₂). Remember, in both equations, the coefficients 'a' and 'b' cannot both be zero simultaneously.</p>
+          <h2>Linear Equation in <span class="hl">Two Variables</span></h2>
+          <ul><li>Contains two unknown quantities, usually 'x' and 'y'.</li><li>General form: ax + by + c = 0, where a, b, c are real numbers and a, b ≠ 0.</li><li>Example: 2x + 3y = 7.</li></ul>
+          <p class="notes">🎙️ Now, let's add another layer of complexity! Sometimes, we have two different things we don't know, and they are related. That's when we use two variables, like 'x' and 'y'. Both 'x' and 'y' have a power of 1, keeping it 'linear'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Two Forms</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❔</span><span>❔</span></div><div class="vcap">Two types of unknowns</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Real-Life Example: <span class="hl">Pair of Equations</span></h2>
-          <ul><li>You buy 2 notebooks and 3 pens for ₹60.</li><li>Your friend buys 3 notebooks and 2 pens for ₹70.</li><li>What is the cost of one notebook and one pen?</li></ul>
-          <p class="notes">🎙️ Here's a classic example: If we let 'x' be the cost of a notebook and 'y' be the cost of a pen, we can form two equations: 2x + 3y = 60 and 3x + 2y = 70. Now we have a pair of linear equations, and we need to solve them to find 'x' and 'y'!</p>
+          <h2>Real-life <span class="hl">Example</span>: Two Variables</h2>
+          <ul><li>Problem: 'The cost of 2 pens and 3 notebooks is ₹60.'</li><li>Let cost of one pen be 'x' and one notebook be 'y'.</li><li>Equation: 2x + 3y = 60.</li><li>Here, we have two unknowns, 'x' and 'y'.</li></ul>
+          <p class="notes">🎙️ Imagine you go shopping. If you buy different items, each with an unknown price, you'll need two variables. This equation shows the total cost based on the number of pens and notebooks you buy. Can you find unique values for x and y from just this one equation? Not really, because many pairs of x and y could make 60!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎒</div><div class="vcap">School Supplies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛍️</div><div class="vcap">Shopping costs</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>How to <span class="hl">Solve</span> a Pair? Overview of Methods</h2>
-          <ul><li>We have two main approaches.</li><li>Graphical Method: Visual approach using graphs.</li><li>Algebraic Methods: Calculation-based approaches.</li></ul>
-          <p class="notes">🎙️ To find the values of 'x' and 'y' that satisfy both equations in a pair, we have different techniques. We'll explore two broad categories: the graphical method, which involves drawing lines, and algebraic methods, which rely purely on mathematical operations. Each has its own advantages.</p>
+          <h2><span class="hl">Solution</span> of a Linear Equation in Two Variables</h2>
+          <ul><li>A pair of values (x, y) that satisfies the equation.</li><li>Meaning, when you substitute 'x' and 'y' into the equation, both sides become equal.</li><li>A single linear equation in two variables has infinitely many solutions.</li></ul>
+          <p class="notes">🎙️ Because there are two variables, a solution isn't just one number, but a pair of numbers – one for 'x' and one for 'y'. For example, in 2x + 3y = 7, (2, 1) is a solution because 2(2) + 3(1) = 4 + 3 = 7. But there are many other pairs too, like (3.5, 0) or (5, -1).</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Graphical Method</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Algebraic Methods</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct (x,y) pair</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Graphical Method</span>: What Does it Mean?</h2>
-          <ul><li>Each linear equation forms a straight line.</li><li>We plot both lines on the same graph.</li><li>The solution is where the lines meet.</li></ul>
-          <p class="notes">🎙️ In the graphical method, we represent each equation as a line on a coordinate plane. The point where these two lines cross each other is the solution to our pair of equations. This point's (x, y) coordinates satisfy both equations simultaneously.</p>
+          <h2><span class="hl">Pair</span> of Linear Equations in Two Variables</h2>
+          <ul><li>When we have two linear equations involving the same two variables.</li><li>We need a pair of equations to find a unique solution for 'x' and 'y'.</li><li>Example: x + y = 5 and x - y = 1.</li></ul>
+          <p class="notes">🎙️ This is the core of our chapter! To get a single, specific answer for both 'x' and 'y', we usually need two different clues or conditions. Each clue gives us one equation, and together, they form a 'pair' of linear equations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Graph Plotting</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📝</span><span>📝</span></div><div class="vcap">Two equations, two unknowns</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Graphical Method: <span class="hl">Intersecting Lines</span></h2>
-          <ul><li>The two lines cross at exactly one point.</li><li>This point is the unique solution (x, y).</li><li>The system is 'consistent' and has a unique solution.</li></ul>
-          <p class="notes">🎙️ When you graph two linear equations and they intersect, it means they share exactly one common point. This point is the one and only solution to the system. Such a system is called 'consistent' because a solution exists.</p>
+          <h2>Real-life <span class="hl">Example</span>: Pair of Equations</h2>
+          <ul><li>Problem: 'The sum of two numbers is 10. Their difference is 2.' Find the numbers.</li><li>Let the numbers be 'x' and 'y'.</li><li>Equation 1: x + y = 10.</li><li>Equation 2: x - y = 2.</li></ul>
+          <p class="notes">🎙️ Here's another great example. We have two conditions about two unknown numbers. Each condition gives us an equation. Now, with both equations, we can actually find the unique values for 'x' and 'y'. Can you guess the numbers? (6 and 4!)</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Unique Meeting Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Finding two numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Graphical Method: <span class="hl">Coincident Lines</span></h2>
-          <ul><li>The two equations represent the exact same line.</li><li>One line lies completely on top of the other.</li><li>Infinitely many solutions (every point on the line).</li></ul>
-          <p class="notes">🎙️ Sometimes, when you graph two equations, you might find that they are actually the same line! This means every single point on that line is a common solution to both equations. Therefore, there are infinitely many solutions, and this system is also considered 'consistent'.</p>
+          <h2><span class="hl">Methods</span> to Solve a Pair of Linear Equations</h2>
+          <ul><li>We have different techniques to find the unique solution (x, y).</li><li>Mainly divided into two categories: Graphical Method and Algebraic Methods.</li><li>Each method has its own advantages.</li></ul>
+          <p class="notes">🎙️ Just like there are many ways to reach a destination, there are different methods to solve a pair of linear equations. We'll explore both graphical and algebraic approaches. The graphical method gives us a visual understanding, while algebraic methods are usually more precise.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟰</div><div class="vcap">One Line on Another</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Graphical</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Algebraic</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Graphical Method: <span class="hl">Parallel Lines</span></h2>
-          <ul><li>The two lines never meet, no matter how far they extend.</li><li>They maintain the same distance apart.</li><li>No common point means 'no solution'.</li></ul>
-          <p class="notes">🎙️ In this case, the two lines you plot will be parallel to each other. Just like railway tracks, they will never intersect. Since there's no common point, there is no value of (x, y) that satisfies both equations simultaneously. This system is called 'inconsistent' because it has no solution.</p>
+          <h2><span class="hl">Graphical</span> Method: Introduction</h2>
+          <ul><li>Each linear equation in two variables represents a straight line on a graph.</li><li>The solution to a pair of equations is the point where their lines intersect.</li><li>We plot both lines and observe their relationship.</li></ul>
+          <p class="notes">🎙️ Imagine drawing both lines on a graph paper. The point where they cross each other, if they do, is the solution! Why? Because that point lies on both lines, meaning its (x, y) coordinates satisfy both equations simultaneously. There are three main possibilities for how two lines can behave.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏸️</div><div class="vcap">Never Meeting</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Plotting lines</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Worked Example: Graphical Method (Intersecting)</h2>
-          <ul><li>Equations: x + y = 5 and x - y = 1.</li><li>Find points for each line (e.g., for x+y=5: (0,5), (5,0)).</li><li>Plot points and draw lines on a graph paper.</li></ul>
-          <p class="notes">🎙️ Let's solve x + y = 5 and x - y = 1 graphically. For the first equation, if x=0, y=5; if y=0, x=5. So, (0,5) and (5,0) are two points. For the second, if x=0, y=-1; if y=0, x=1. So, (0,-1) and (1,0) are two points. When you plot these and draw the lines, they will intersect at the point (3, 2). So, x=3, y=2 is the solution.</p>
+          <h2>Graphical Method: <span class="hl">Intersecting</span> Lines</h2>
+          <ul><li>The two lines cross each other at exactly one point.</li><li>This indicates a unique solution for the pair of equations.</li><li>Condition: a₁/a₂ ≠ b₁/b₂.</li></ul>
+          <p class="notes">🎙️ When two lines intersect, they meet at only one spot. This means there's just one pair of (x, y) values that works for both equations. This is the most common and often desired outcome when solving problems.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Plot Line 1</span></div><div class="step"><span class="snum">2</span><span>Plot Line 2</span></div><div class="step"><span class="snum">3</span><span>Identify Intersection</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">One common point</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Quick Check 1: Identify <span class="hl">Line Types</span></h2>
-          <ul><li>Consider the pair: 2x + 3y - 9 = 0 and 4x + 6y - 18 = 0.</li><li>What kind of lines do they represent?</li><li>How many solutions does this pair have?</li></ul>
-          <p class="notes">🎙️ Without actually drawing the graph, can you predict the nature of the lines for this pair of equations? Compare the ratios of their coefficients (a₁/a₂, b₁/b₂, c₁/c₂). You'll find that a₁/a₂ = b₁/b₂ = c₁/c₂, which means they are coincident lines, having infinitely many solutions.</p>
+          <h2>Graphical Method: <span class="hl">Parallel</span> Lines</h2>
+          <ul><li>The two lines never meet, no matter how far they are extended.</li><li>This means there is no common point, hence no solution.</li><li>Condition: a₁/a₂ = b₁/b₂ ≠ c₁/c₂.</li></ul>
+          <p class="notes">🎙️ Think of railway tracks – they run side by side but never cross. If your two equations result in parallel lines, it means there's no (x, y) pair that can satisfy both conditions at the same time. So, there's no solution to that system of equations.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛤️</div><div class="vcap">Never meeting</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Algebraic Methods</span> to Solve</h2>
-          <ul><li>Substitution Method</li><li>Elimination Method</li><li>Cross-Multiplication Method</li></ul>
-          <p class="notes">🎙️ Now, let's dive into the algebraic ways to solve these pairs of equations. These methods involve manipulating the equations using arithmetic operations to find the values of x and y. We'll learn three powerful techniques: Substitution, Elimination, and Cross-Multiplication.</p>
+          <h2>Graphical Method: <span class="hl">Coincident</span> Lines</h2>
+          <ul><li>The two lines lie exactly on top of each other, overlapping completely.</li><li>This means every point on one line is also on the other line.</li><li>There are infinitely many solutions.</li><li>Condition: a₁/a₂ = b₁/b₂ = c₁/c₂.</li></ul>
+          <p class="notes">🎙️ Coincident lines are essentially the same line, just perhaps written in different forms. Since they share all their points, there are endless solutions! Any point on that line is a solution to both equations.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Substitution</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Elimination</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Cross-Multiplication</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Overlapping lines</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Method 1: <span class="hl">Substitution</span></h2>
-          <ul><li>Express one variable in terms of the other from one equation.</li><li>Substitute this expression into the second equation.</li><li>Solve the resulting single-variable equation.</li><li>Substitute back to find the other variable.</li></ul>
-          <p class="notes">🎙️ The substitution method is like replacing one piece of information with another. You pick one equation, rearrange it to get one variable by itself (e.g., x = ...). Then, you take that entire expression and 'substitute' it into the other equation, which simplifies it to an equation with only one variable, making it solvable.</p>
+          <h2>Quick <span class="hl">Question 1</span>: Line Types</h2>
+          <ul><li>If two lines are parallel, how many solutions do their equations have?</li><li>A) One solution</li><li>B) No solution</li><li>C) Infinitely many solutions</li><li>D) Two solutions</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Remember our discussion about parallel lines. What does it mean if lines never meet? Take a moment to think about it before I reveal the answer.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Isolate a variable</span></div><div class="step"><span class="snum">2</span><span>Substitute into 2nd eq</span></div><div class="step"><span class="snum">3</span><span>Solve for 1st variable</span></div><div class="step"><span class="snum">4</span><span>Find 2nd variable</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Worked Example: <span class="hl">Substitution Method</span></h2>
-          <ul><li>Equations: x + y = 5 (1) and x - y = 1 (2).</li><li>From (1), x = 5 - y.</li><li>Substitute 'x' in (2): (5 - y) - y = 1.</li><li>Solve for y, then find x.</li></ul>
-          <p class="notes">🎙️ Let's use our example: x + y = 5 and x - y = 1. From the first equation, we can write x = 5 - y. Now, replace 'x' in the second equation with '5 - y'. This gives us (5 - y) - y = 1. Solving this, we get 5 - 2y = 1, so 2y = 4, and y = 2. Substitute y=2 back into x = 5 - y, and we find x = 3. The solution is (3, 2).</p>
+          <h2><span class="hl">Algebraic</span> Methods: Overview</h2>
+          <ul><li>These methods use mathematical operations to solve equations.</li><li>They are generally more precise than graphical methods.</li><li>Three main methods: Substitution, Elimination, and Cross-Multiplication.</li></ul>
+          <p class="notes">🎙️ Algebraic methods are like solving puzzles using a set of rules and steps. We manipulate the equations to isolate the variables and find their exact values. We will focus on Substitution and Elimination in this lesson.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Replacing</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Substitution</span></div><div class="step"><span class="snum">2</span><span>Elimination</span></div><div class="step"><span class="snum">3</span><span>Cross-Multiplication</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Method 2: <span class="hl">Elimination</span></h2>
-          <ul><li>Make coefficients of one variable equal (by multiplying equations).</li><li>Add or subtract the equations to 'eliminate' that variable.</li><li>Solve the resulting single-variable equation.</li><li>Substitute back to find the other variable.</li></ul>
-          <p class="notes">🎙️ The elimination method aims to get rid of one variable by making its coefficients numerically equal in both equations. You might need to multiply one or both equations by a constant. Once the coefficients are the same (or opposite), you either add or subtract the equations to 'eliminate' that variable, leaving you with an equation in just one variable.</p>
+          <h2>Algebraic Method: <span class="hl">Substitution</span></h2>
+          <ul><li>Express one variable from one equation in terms of the other variable.</li><li>Substitute this expression into the second equation.</li><li>Solve the resulting equation for the single variable.</li><li>Substitute back to find the value of the first variable.</li></ul>
+          <p class="notes">🎙️ The word 'substitution' means replacing something. Here, we replace one variable with an equivalent expression from the other equation. This reduces the problem to a single variable equation, which we already know how to solve!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Match coefficients</span></div><div class="step"><span class="snum">2</span><span>Add/Subtract equations</span></div><div class="step"><span class="snum">3</span><span>Solve for 1st variable</span></div><div class="step"><span class="snum">4</span><span>Find 2nd variable</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Replacing a value</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Worked Example: <span class="hl">Elimination Method</span></h2>
-          <ul><li>Equations: x + y = 5 (1) and x - y = 1 (2).</li><li>Notice 'y' coefficients are +1 and -1.</li><li>Add (1) and (2): (x+y) + (x-y) = 5+1.</li><li>Solve for x, then find y.</li></ul>
-          <p class="notes">🎙️ Using x + y = 5 and x - y = 1 again. Observe that the 'y' terms have opposite coefficients (+1y and -1y). If we add the two equations directly, the 'y' terms will cancel out: (x+y) + (x-y) = 5+1, which simplifies to 2x = 6. This gives x = 3. Substitute x=3 into either original equation (e.g., 3 + y = 5) to find y = 2. The solution is (3, 2).</p>
+          <h2>Worked <span class="hl">Example</span>: Substitution Method</h2>
+          <ul><li>Solve: x + y = 5 (1) and x - y = 1 (2)</li><li>From (1), x = 5 - y.</li><li>Substitute x in (2): (5 - y) - y = 1 =&gt; 5 - 2y = 1 =&gt; 2y = 4 =&gt; y = 2.</li><li>Substitute y = 2 in x = 5 - y: x = 5 - 2 =&gt; x = 3.</li><li>Solution: (x, y) = (3, 2).</li></ul>
+          <p class="notes">🎙️ Let's walk through this step-by-step. First, we isolated 'x' from the first equation. Then, we plugged that expression for 'x' into the second equation. This gave us an equation with only 'y', which we solved. Finally, we used the value of 'y' to find 'x'. Simple, right?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Removing a Variable</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Express x</span></div><div class="step"><span class="snum">2</span><span>Substitute</span></div><div class="step"><span class="snum">3</span><span>Solve for y</span></div><div class="step"><span class="snum">4</span><span>Solve for x</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Method 3: <span class="hl">Cross-Multiplication</span></h2>
-          <ul><li>A formulaic method for general form equations.</li><li>Coefficients are 'cross-multiplied' in a specific pattern.</li><li>Directly gives the values of x and y.</li></ul>
-          <p class="notes">🎙️ The cross-multiplication method is a more direct way to find the solution, especially useful for competitive exams. It uses a specific formula derived from the general form of the equations. You arrange the coefficients in a particular pattern and perform cross-multiplications to calculate x and y. It's a bit like a shortcut once you understand the pattern.</p>
+          <h2>Algebraic Method: <span class="hl">Elimination</span></h2>
+          <ul><li>Make the coefficients of one variable equal in both equations.</li><li>Add or subtract the equations to eliminate that variable.</li><li>Solve the resulting equation for the single variable.</li><li>Substitute back to find the value of the eliminated variable.</li></ul>
+          <p class="notes">🎙️ Elimination means getting rid of something. Here, we try to get rid of one of the variables by making its coefficients the same in both equations. Then, by adding or subtracting the equations, that variable disappears, leaving us with a simpler equation to solve.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Formulaic Calculation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Cutting out a variable</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Worked Example: <span class="hl">Cross-Multiplication</span> Method</h2>
-          <ul><li>Equations: x + y - 5 = 0 (a₁=1, b₁=1, c₁=-5)</li><li>And x - y - 1 = 0 (a₂=1, b₂=-1, c₂=-1).</li><li>Apply the formula: x / (b₁c₂ - b₂c₁) = y / (c₁a₂ - c₂a₁) = 1 / (a₁b₂ - a₂b₁).</li></ul>
-          <p class="notes">🎙️ Let's apply the cross-multiplication formula to x+y-5=0 and x-y-1=0. Plugging in the coefficients, we get x / ((1)(-1) - (-1)(-5)) = y / ((-5)(1) - (-1)(1)) = 1 / ((1)(-1) - (1)(1)). This simplifies to x / (-1 - 5) = y / (-5 + 1) = 1 / (-1 - 1), so x / -6 = y / -4 = 1 / -2. From this, x = -6 / -2 = 3 and y = -4 / -2 = 2. The solution is (3, 2).</p>
+          <h2>Worked <span class="hl">Example</span>: Elimination Method</h2>
+          <ul><li>Solve: 2x + 3y = 11 (1) and 2x - 2y = -4 (2)</li><li>Notice '2x' has same coefficient.</li><li>Subtract (2) from (1): (2x + 3y) - (2x - 2y) = 11 - (-4) =&gt; 5y = 15 =&gt; y = 3.</li><li>Substitute y = 3 in (1): 2x + 3(3) = 11 =&gt; 2x + 9 = 11 =&gt; 2x = 2 =&gt; x = 1.</li><li>Solution: (x, y) = (1, 3).</li></ul>
+          <p class="notes">🎙️ In this example, '2x' already had the same coefficient. So, subtracting the equations directly eliminated 'x'. We then solved for 'y' and substituted it back into one of the original equations to find 'x'. This method is often quicker when coefficients are easy to match.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Solving with Ratios</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Check coefficients</span></div><div class="step"><span class="snum">2</span><span>Subtract equations</span></div><div class="step"><span class="snum">3</span><span>Solve for y</span></div><div class="step"><span class="snum">4</span><span>Solve for x</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Solve It!</span></h2>
-          <ul><li>Solve the pair of equations:</li><li>x + 2y = 7</li><li>2x + y = 8</li><li>Use any algebraic method you prefer!</li></ul>
-          <p class="notes">🎙️ Alright, it's your turn to practice! Take a moment and solve this pair of equations: x + 2y = 7 and 2x + y = 8. You can use substitution, elimination, or cross-multiplication. What values do you get for x and y? (Pause for students to solve). The correct answer is x = 3 and y = 2.</p>
+          <h2>Quick <span class="hl">Question 2</span>: Best Method?</h2>
+          <ul><li>For the equations x = 3y + 1 and 2x - 5y = 7, which method would be easiest?</li><li>A) Graphical Method</li><li>B) Substitution Method</li><li>C) Elimination Method</li><li>D) Cross-Multiplication Method</li></ul>
+          <p class="notes">🎙️ Think about the form of the first equation, x = 3y + 1. It already has 'x' isolated. Which method is designed to use such an expression directly? Consider which method would require the fewest steps.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Real-World <span class="hl">Applications</span> of Linear Equations</h2>
-          <ul><li>Calculating distances, speeds, and times.</li><li>Determining costs and quantities in purchases.</li><li>Mixing solutions or ingredients.</li><li>Financial planning and budgeting.</li></ul>
-          <p class="notes">🎙️ Linear equations are not just for textbooks; they are incredibly useful in everyday life and various professions! From simple tasks like buying groceries to complex engineering calculations, understanding how to set up and solve these equations is a fundamental skill that opens doors to solving many real-world problems.</p>
+          <h2>Quick <span class="hl">Question 3</span>: Application</h2>
+          <ul><li>The sum of the digits of a two-digit number is 9. If 27 is added to the number, its digits are reversed.</li><li>Which pair of equations correctly represents this problem?</li><li>A) x + y = 9; 10y + x = 10x + y + 27</li><li>B) x + y = 9; 10x + y + 27 = 10y + x</li><li>C) x + y = 9; 10x + y = 27</li><li>D) x + y = 9; x - y = 27</li></ul>
+          <p class="notes">🎙️ This is a classic word problem. Let 'x' be the tens digit and 'y' be the units digit. Remember how to represent a two-digit number using its digits, and how to represent a number with reversed digits. This will help you set up the second equation correctly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌎</div><div class="vcap">Global Use</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: What We've Learned</h2>
-          <ul><li>Defined linear equations in two variables and their pairs.</li><li>Understood graphical representations: intersecting, coincident, parallel lines.</li><li>Mastered algebraic methods: Substitution, Elimination, Cross-Multiplication.</li><li>Explored real-life applications.</li></ul>
-          <p class="notes">🎙️ Today, we embarked on an exciting journey through 'Pair of Linear Equations in Two Variables'. We covered the basics, explored how lines behave on a graph, and learned three powerful algebraic techniques to find solutions. Keep practicing these methods, as they are essential tools for your mathematical journey ahead!</p>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>A pair of linear equations in two variables can have one, no, or infinitely many solutions.</li><li>Graphical method helps visualize solutions as intersecting, parallel, or coincident lines.</li><li>Algebraic methods (Substitution, Elimination) provide precise solutions.</li><li>These concepts are vital for solving real-world problems involving two unknowns.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember, the type of solution depends on how the lines behave. And for finding those solutions precisely, we have powerful algebraic tools. Keep practicing these methods, as they are fundamental for higher mathematics and problem-solving. Well done, class!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

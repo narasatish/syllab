@@ -3,6 +3,8 @@ import {
   jeePercentileToRank, predictJeeColleges,
   neetMarksToRank, predictNeetColleges,
   ENG_EXAMS, predictEngineering,
+  CATEGORIES, CAREER_LIBRARY, CAREER_FIELDS,
+  INTEREST_QUIZ, STREAM_GUIDES, EXAM_CALENDAR, SCHOLARSHIPS,
 } from './predictorData';
 
 describe('JEE predictor', () => {
@@ -82,5 +84,57 @@ describe('multi-exam engineering predictor', () => {
 
   it('returns null for an unknown exam', () => {
     expect(predictEngineering('xyz', 100)).toBeNull();
+  });
+
+  it('reserved category never unlocks fewer colleges than General (rank metric)', () => {
+    const gen = predictEngineering('ap-eapcet', 100, 'general')!.colleges.length;
+    const sc = predictEngineering('ap-eapcet', 100, 'sc')!.colleges.length;
+    expect(sc).toBeGreaterThanOrEqual(gen);
+  });
+
+  it('reserved category relaxation works on score/percentile metric', () => {
+    const gen = predictEngineering('mht-cet', 98, 'general')!.colleges.length;
+    const st = predictEngineering('mht-cet', 98, 'st')!.colleges.length;
+    expect(st).toBeGreaterThanOrEqual(gen);
+  });
+});
+
+describe('career library', () => {
+  it('has a good set of careers, each well-formed', () => {
+    expect(CAREER_LIBRARY.length).toBeGreaterThanOrEqual(12);
+    for (const c of CAREER_LIBRARY) {
+      expect(c.name).toBeTruthy();
+      expect(c.emoji).toBeTruthy();
+      expect(c.salaryEntry).toMatch(/₹/);
+      expect(c.salaryExperienced).toMatch(/₹/);
+      expect(c.skills.length).toBeGreaterThan(0);
+      expect(c.exams.length).toBeGreaterThan(0);
+      // every career's field is a valid filter option
+      expect(CAREER_FIELDS).toContain(c.field);
+    }
+  });
+});
+
+describe('interest quiz', () => {
+  it('every option maps to a real stream guide', () => {
+    const streams = new Set(STREAM_GUIDES.map(s => s.stream));
+    expect(INTEREST_QUIZ.length).toBeGreaterThanOrEqual(5);
+    for (const q of INTEREST_QUIZ) {
+      expect(q.options.length).toBe(4);
+      for (const o of q.options) expect(streams.has(o.stream)).toBe(true);
+    }
+  });
+});
+
+describe('categories / exam calendar / scholarships data', () => {
+  it('categories include the five standard ones', () => {
+    const ids = CATEGORIES.map(c => c.id);
+    expect(ids).toEqual(expect.arrayContaining(['general', 'ews', 'obc', 'sc', 'st']));
+  });
+  it('exam calendar and scholarships are populated and well-formed', () => {
+    expect(EXAM_CALENDAR.length).toBeGreaterThan(5);
+    expect(EXAM_CALENDAR.every(e => e.exam && e.window && e.site)).toBe(true);
+    expect(SCHOLARSHIPS.length).toBeGreaterThan(3);
+    expect(SCHOLARSHIPS.every(s => s.name && s.benefit)).toBe(true);
   });
 });

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Travel — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to "The World of <span class="hl">Travel</span>"!</h2>
-          <ul><li>Explore new places, discover cultures.</li><li>Learn about different ways to journey.</li><li>Get ready for an exciting adventure!</li></ul>
-          <p class="notes">🎙️ Hello, Class 7! Today, we embark on a fascinating journey into the world of travel. We'll explore why people travel, how they travel, and what makes each trip special.</p>
+          <h2>Let's Explore the World: The Joy of <span class="hl">Travel</span>!</h2>
+          <ul><li>Ready for an adventure?</li><li>Discover new places and experiences.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're going on an exciting journey without even leaving our classroom. We'll be exploring the wonderful world of travel!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Travel</span>?</h2>
-          <ul><li>Moving from one place to another.</li><li>Can be for short or long distances.</li><li>Often involves exploring new environments.</li></ul>
-          <p class="notes">🎙️ Simply put, travel means going from one location to another. It could be a short trip to a nearby town or a long journey across countries. The main idea is movement and often, discovery.</p>
+          <ul><li>Moving from one place to another.</li><li>Can be for work, fun, or necessity.</li><li>Short trips or long journeys.</li></ul>
+          <p class="notes">🎙️ Travel simply means moving from one location to another. It could be a short visit to a nearby town or a long journey across countries. People travel for many different reasons.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Exploring the World</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Journeys</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 25</span>
           <h2><span class="hl">Why</span> Do We Travel?</h2>
-          <ul><li>For leisure and holidays.</li><li>For work or business.</li><li>To visit family and friends.</li><li>To learn and explore new cultures.</li></ul>
-          <p class="notes">🎙️ People travel for many reasons! Some go on holidays to relax, others for work meetings, and many to see their loved ones. It's also a great way to learn about the world.</p>
+          <ul><li>For holidays and relaxation.</li><li>To visit family and friends.</li><li>For work or studies.</li><li>To explore new cultures.</li></ul>
+          <p class="notes">🎙️ Think about why you might travel. Maybe you go on a vacation with your family, or visit your grandparents in another city. Some travel for important meetings, while others just want to see new sights.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Reasons to Go</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✈️</span><span>✈️</span><span>✈️</span></div><div class="vcap">Reasons to Fly</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 25</span>
           <h2>Different <span class="hl">Modes</span> of Travel</h2>
-          <ul><li>Ways we can move from one place to another.</li><li>Each mode has its own advantages.</li><li>Common modes: road, rail, air, water.</li></ul>
-          <p class="notes">🎙️ There are several ways we can travel, and we call these 'modes of travel'. Each mode offers a unique experience and is suited for different kinds of journeys. Let's look at the main ones.</p>
+          <ul><li>How we get from A to B.</li><li>Road, Rail, Air, and Water are main types.</li></ul>
+          <p class="notes">🎙️ There are many ways to travel, and we call these 'modes' of travel. Each mode has its own advantages and is suitable for different kinds of journeys. Let's look at the main ones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Pathways to Adventure</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Ways to Travel</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -96,8 +109,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">5 / 25</span>
           <h2>Mode 1: <span class="hl">Road Travel</span></h2>
-          <ul><li>Using vehicles like cars, buses, bikes.</li><li>Flexible and can reach many places.</li><li>Good for short to medium distances.</li></ul>
-          <p class="notes">🎙️ Road travel is one of the most common ways to get around. We use cars, buses, and even bikes. It's very flexible because roads connect almost everywhere, making it great for local trips or even cross-country drives.</p>
+          <ul><li>Buses, cars, bikes, auto-rickshaws.</li><li>Flexible and often door-to-door.</li><li>Good for short to medium distances.</li></ul>
+          <p class="notes">🎙️ Road travel is perhaps the most common way we move around daily. From your school bus to a family road trip, it's very versatile. You can often reach exactly where you want to go.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">On the Road</div></div></div>
       </div>
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Example: A Family <span class="hl">Road Trip</span></h2>
-          <ul><li>Driving from Delhi to Jaipur.</li><li>Seeing many sights along the way.</li><li>Stopping at roadside eateries.</li></ul>
-          <p class="notes">🎙️ Imagine a family driving from Delhi to Jaipur for a holiday. They enjoy the scenic views, stop for snacks, and create wonderful memories together. That's a perfect example of a fun road trip!</p>
+          <h2>Road Travel: Real <span class="hl">Example</span></h2>
+          <ul><li>Going on a family trip to a hill station by car.</li><li>Taking a bus to visit a nearby city.</li><li>Riding a bicycle to the local market.</li></ul>
+          <p class="notes">🎙️ Imagine driving with your family to Shimla for a summer vacation, enjoying the scenic views. Or catching a public bus to visit relatives in the next town. These are all examples of road travel.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span></div><div class="vcap">Happy Travellers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚌</span><span>🚌</span><span>🚌</span><span>🚌</span></div><div class="vcap">Buses on the Go</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -120,10 +133,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">7 / 25</span>
           <h2>Mode 2: <span class="hl">Rail Travel</span></h2>
-          <ul><li>Travelling by train on railway tracks.</li><li>Comfortable for long distances.</li><li>Connects major cities and towns.</li></ul>
-          <p class="notes">🎙️ Rail travel involves journeys by train. Trains are excellent for long distances, offering comfort and often beautiful views. India has one of the largest railway networks in the world, connecting countless places.</p>
+          <ul><li>Trains travel on tracks.</li><li>Comfortable for long distances.</li><li>Often more economical than air travel.</li></ul>
+          <p class="notes">🎙️ Trains are a popular choice for long journeys within a country. They offer a comfortable way to travel, often with sleeping berths and dining facilities, and you can see the landscape change outside your window.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚂</div><div class="vcap">All Aboard!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚂</div><div class="vcap">Train Journey</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Example: Visiting <span class="hl">Grandparents</span> by Train</h2>
-          <ul><li>Travelling from Mumbai to Pune.</li><li>Enjoying the journey with friends.</li><li>Watching the changing landscapes.</li></ul>
-          <p class="notes">🎙️ Think about taking a train from Mumbai to Pune to visit your grandparents. You can read, play games, and watch the countryside pass by. It's a relaxing and memorable way to travel.</p>
+          <h2>Rail Travel: Real <span class="hl">Example</span></h2>
+          <ul><li>Taking an overnight train from Delhi to Mumbai.</li><li>Commuting daily by local train in a big city.</li><li>A scenic toy train ride in Darjeeling.</li></ul>
+          <p class="notes">🎙️ Many people travel by train to visit family across states, like from Delhi to Kolkata. In big cities, local trains are the lifeline for daily commuters. And who can forget the charming toy trains in hill stations!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👧👦</span><span>👧👦</span></div><div class="vcap">Train Buddies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚃</span><span>🚃</span><span>🚃</span><span>🚃</span><span>🚃</span></div><div class="vcap">Train Carriages</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -144,10 +157,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">9 / 25</span>
           <h2>Mode 3: <span class="hl">Air Travel</span></h2>
-          <ul><li>Flying in aeroplanes.</li><li>Fastest way to travel long distances.</li><li>Used for national and international trips.</li></ul>
-          <p class="notes">🎙️ Air travel is the fastest mode, using aeroplanes to fly high above. It's ideal for covering very long distances quickly, whether you're going to another city in India or a different country altogether.</p>
+          <ul><li>Aeroplanes fly in the sky.</li><li>Fastest mode of travel.</li><li>Best for international and very long domestic trips.</li></ul>
+          <p class="notes">🎙️ Air travel is the quickest way to cover vast distances. If you need to travel from India to another continent, or even from one corner of India to another quickly, flying is usually the best option.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✈️</div><div class="vcap">Up in the Sky</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✈️</div><div class="vcap">Up in the Air</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Example: <span class="hl">First Flight</span> Experience</h2>
-          <ul><li>Flying from Chennai to Kolkata.</li><li>Seeing clouds from above.</li><li>Excited about the new city.</li></ul>
-          <p class="notes">🎙️ Imagine your first flight from Chennai to Kolkata. The excitement of taking off, seeing the world from above, and landing in a new city is an unforgettable experience. The clouds look like cotton candy!</p>
+          <h2>Air Travel: Real <span class="hl">Example</span></h2>
+          <ul><li>Flying from Chennai to London for a holiday.</li><li>Taking a domestic flight from Bengaluru to Delhi.</li><li>Pilots flying cargo planes across countries.</li></ul>
+          <p class="notes">🎙️ Imagine taking a flight from Mumbai to New York to visit relatives, or flying from Hyderabad to Kolkata for a business meeting. Even cargo is transported by air to reach destinations quickly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span><span>☁️</span></div><div class="vcap">Cloud Views</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛫</span><span>🛫</span><span>🛫</span></div><div class="vcap">Planes Taking Off</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -168,10 +181,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">11 / 25</span>
           <h2>Mode 4: <span class="hl">Water Travel</span></h2>
-          <ul><li>Using boats, ships, or ferries.</li><li>Travel across rivers, lakes, or oceans.</li><li>Often slower but offers unique views.</li></ul>
-          <p class="notes">🎙️ Water travel involves moving on water bodies using various vessels. It's a slower, more scenic way to travel, perfect for exploring coastal areas, islands, or even crossing oceans.</p>
+          <ul><li>Ships, boats, ferries travel on water.</li><li>Slowest but can carry heavy cargo.</li><li>Great for coastal trips and river crossings.</li></ul>
+          <p class="notes">🎙️ Water travel involves moving across oceans, seas, rivers, or lakes using various vessels. It's generally slower than other modes but is crucial for transporting very heavy goods and for island hopping.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚢</div><div class="vcap">Sailing Away</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚢</div><div class="vcap">On the Water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Example: A <span class="hl">Boat Ride</span> on a Lake</h2>
-          <ul><li>Exploring a beautiful lake in Kerala.</li><li>Enjoying the calm waters.</li><li>Watching the surrounding nature.</li></ul>
-          <p class="notes">🎙️ Picture a serene boat ride on a lake in Kerala, surrounded by lush greenery. You feel the gentle breeze and enjoy the peaceful atmosphere. It's a wonderful way to connect with nature.</p>
+          <h2>Water Travel: Real <span class="hl">Example</span></h2>
+          <ul><li>Taking a ferry across the Mumbai harbour.</li><li>A cruise ship holiday in the Caribbean.</li><li>Cargo ships transporting goods across oceans.</li></ul>
+          <p class="notes">🎙️ Think about taking a ferry to Elephanta Caves near Mumbai, or enjoying a luxurious cruise vacation. Water transport is also vital for trade, with large ships carrying containers of goods across the globe.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛶</span><span>🛶</span><span>🛶</span></div><div class="vcap">Rowing Fun</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⛵</span><span>⛵</span><span>⛵</span><span>⛵</span></div><div class="vcap">Sailing Boats</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Comparing</span> Modes of Travel</h2>
-          <ul><li>Each mode has pros and cons.</li><li>Consider speed, cost, and comfort.</li><li>Choose based on your trip's needs.</li></ul>
-          <p class="notes">🎙️ When choosing how to travel, we often compare different modes. Air travel is fastest but can be expensive. Rail and road offer a balance, while water travel is slow but unique. It depends on what's important for your trip.</p>
+          <h2><span class="hl">Comparing</span> Travel Modes</h2>
+          <ul><li>Each mode has pros and cons.</li><li>Consider speed, cost, and comfort.</li></ul>
+          <p class="notes">🎙️ Different modes excel in different areas. Air travel is the fastest, while water travel is generally the slowest. Your choice depends on what's most important for your trip.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Speed (Air)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Speed (Rail)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Speed (Road)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Speed (Water)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Air (Speed)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Rail (Speed)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Road (Speed)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Water (Speed)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Planning a Trip: Step 1</h2>
-          <ul><li>Decide where you want to go.</li><li>Research the place: weather, attractions.</li><li>Consider your interests and purpose.</li></ul>
-          <p class="notes">🎙️ The first step in planning any trip is deciding 'Where do I want to go?'. Researching the destination helps you understand what to expect, from the weather to interesting places to visit.</p>
+          <h2>Travel Vocabulary: <span class="hl">Nouns</span></h2>
+          <ul><li>Words for people, places, things related to travel.</li><li>Examples: tourist, destination, luggage, passport, journey, trip.</li></ul>
+          <p class="notes">🎙️ When we talk about travel, we use many specific words. Nouns are words for people, places, or things. Think about what you carry, where you go, and who you are when you travel.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose Destination</span></div><div class="step"><span class="snum">2</span><span>Set Budget</span></div><div class="step"><span class="snum">3</span><span>Book Travel</span></div><div class="step"><span class="snum">4</span><span>Pack Bags</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎒</div><div class="vcap">Travel Essentials</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Planning a Trip: Step 2</h2>
-          <ul><li>Estimate how much money you'll need.</li><li>Include travel, accommodation, food.</li><li>Plan for activities and souvenirs.</li></ul>
-          <p class="notes">🎙️ Next, it's important to set a budget. This means figuring out how much money you can spend on tickets, hotels, food, and activities. Planning your expenses helps you enjoy your trip without worries.</p>
+          <h2>Travel Vocabulary: <span class="hl">Verbs</span></h2>
+          <ul><li>Action words related to travel.</li><li>Examples: travel, explore, visit, pack, board, depart, arrive.</li></ul>
+          <p class="notes">🎙️ Verbs describe the actions we perform during travel. Do you 'pack' your bags? Do you 'board' a train? These action words help us describe our travel experiences.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose Destination</span></div><div class="step"><span class="snum">2</span><span>Set Budget</span></div><div class="step"><span class="snum">3</span><span>Book Travel</span></div><div class="step"><span class="snum">4</span><span>Pack Bags</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Taking Action</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Planning a Trip: Step 3</h2>
-          <ul><li>Book your transport (flights, trains, buses).</li><li>Reserve accommodation (hotels, resorts).</li><li>Book in advance for better deals.</li></ul>
-          <p class="notes">🎙️ Once you know where and how much, it's time to book! This includes buying your travel tickets and reserving a place to stay. Booking early often gets you better prices and more options.</p>
+          <h2>Travel Vocabulary: <span class="hl">Adjectives</span></h2>
+          <ul><li>Describing words for travel experiences.</li><li>Examples: adventurous, scenic, comfortable, tiring, memorable, exciting.</li></ul>
+          <p class="notes">🎙️ Adjectives add colour and detail to our travel stories. Was your journey 'adventurous' or 'tiring'? Did you see 'scenic' views? These words help others imagine your trip.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose Destination</span></div><div class="step"><span class="snum">2</span><span>Set Budget</span></div><div class="step"><span class="snum">3</span><span>Book Travel</span></div><div class="step"><span class="snum">4</span><span>Pack Bags</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤩</div><div class="vcap">Describing Experiences</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,35 +252,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Planning a Trip: Step 4</h2>
-          <ul><li>Make a list of essentials.</li><li>Pack clothes suitable for the weather.</li><li>Don't forget medicines, toiletries, charger.</li></ul>
-          <p class="notes">🎙️ Finally, it's time to pack your bags! Make a list to ensure you don't forget anything important. Remember to pack clothes appropriate for your destination's climate and all your personal essentials.</p>
+          <h2>Steps to <span class="hl">Plan a Trip</span></h2>
+          <ul><li>Good planning makes travel easy.</li><li>Follow these simple steps.</li></ul>
+          <p class="notes">🎙️ Planning is key to a smooth trip. First, decide where you want to go. Then, pick your dates, book your tickets, arrange your accommodation, and finally, pack your essentials. This helps avoid last-minute stress.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose Destination</span></div><div class="step"><span class="snum">2</span><span>Set Budget</span></div><div class="step"><span class="snum">3</span><span>Book Travel</span></div><div class="step"><span class="snum">4</span><span>Pack Bags</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Decide Destination</span></div><div class="step"><span class="snum">2</span><span>Choose Dates</span></div><div class="step"><span class="snum">3</span><span>Book Transport</span></div><div class="step"><span class="snum">4</span><span>Arrange Stay</span></div><div class="step"><span class="snum">5</span><span>Pack Bags</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Important Travel <span class="hl">Vocabulary</span></h2>
-          <ul><li>**Itinerary**: A planned route or journey.</li><li>**Luggage**: Bags and suitcases.</li><li>**Passport**: Document for international travel.</li><li>**Visa**: Official permission to enter a country.</li></ul>
-          <p class="notes">🎙️ Learning some common travel words makes your journeys easier. An 'itinerary' is your trip plan, and 'luggage' refers to your bags. For international trips, 'passport' and 'visa' are crucial documents.</p>
+          <h2>Quick Check: <span class="hl">Question 1</span></h2>
+          <ul><li>Which mode of travel is generally the fastest?</li><li>A) Road B) Rail C) Air D) Water</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Think about which mode helps you reach your destination in the least amount of time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Words to Know</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Safety Tips</span> While Travelling</h2>
-          <ul><li>Keep your belongings safe.</li><li>Inform family about your plans.</li><li>Be aware of your surroundings.</li><li>Carry emergency contact numbers.</li></ul>
-          <p class="notes">🎙️ Safety is very important when you travel. Always keep an eye on your bags, let someone know your travel plans, and be aware of what's happening around you. Having emergency numbers handy is also a good idea.</p>
+          <h2>Quick Check: <span class="hl">Question 2</span></h2>
+          <ul><li>Which of these is a noun related to travel?</li><li>A) Explore B) Beautiful C) Passport D) Arrive</li></ul>
+          <p class="notes">🎙️ Remember our vocabulary section. Which of these words names a thing you might use or encounter during travel?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Stay Safe</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,33 +288,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>Which mode of travel is generally the fastest for long distances?</li><li>a) Road Travel</li><li>b) Rail Travel</li><li>c) Air Travel</li><li>d) Water Travel</li></ul>
-          <p class="notes">🎙️ Let's see if you've been paying attention! Think about the different modes we discussed. Which one gets you to far-off places in the shortest amount of time?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>What is the first step in planning a trip?</li><li>a) Booking tickets</li><li>b) Packing bags</li><li>c) Choosing a destination</li><li>d) Setting a budget</li></ul>
-          <p class="notes">🎙️ Now, about planning a trip. What's the very first thing you need to decide before anything else? It sets the stage for your entire journey.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 3</span></h2>
-          <ul><li>What is an 'itinerary'?</li><li>a) A type of luggage</li><li>b) A planned route or journey</li><li>c) A travel document</li><li>d) A souvenir shop</li></ul>
-          <p class="notes">🎙️ Remember our travel vocabulary? What does the word 'itinerary' mean? It's a very useful word when talking about travel plans.</p>
+          <h2>Quick Check: <span class="hl">Question 3</span></h2>
+          <ul><li>What is the first step in planning a trip?</li><li>A) Pack bags B) Choose dates C) Decide destination D) Book transport</li></ul>
+          <p class="notes">🎙️ Go back to our trip planning steps. What's the very first thing you need to decide before anything else?</p>
         </div>
         
       </div>
@@ -310,12 +299,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
+          <span class="num">21 / 25</span>
           <h2><span class="hl">Benefits</span> of Travel</h2>
-          <ul><li>Learn about new cultures and places.</li><li>Gain independence and confidence.</li><li>Create lasting memories.</li><li>Relax and refresh your mind.</li></ul>
-          <p class="notes">🎙️ Travel offers so much more than just reaching a destination. It broadens our minds, teaches us new things, and helps us grow as individuals. Plus, it's a great way to unwind!</p>
+          <ul><li>Learn about new cultures.</li><li>Meet new people.</li><li>Creates lasting memories.</li><li>Helps you relax and de-stress.</li></ul>
+          <p class="notes">🎙️ Travel is not just about moving from place to place; it's about growing and experiencing life. You learn so much, make new friends, and create wonderful memories that stay with you forever.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Enriching Experiences</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Travel's Magic</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>My <span class="hl">Dream Trip</span>: An Example</h2>
+          <ul><li>Imagine a trip to the Himalayas!</li><li>Trekking, seeing snow-capped peaks.</li><li>Experiencing local mountain culture.</li></ul>
+          <p class="notes">🎙️ Everyone has a dream trip! Mine might be to trek in the Himalayas, enjoying the breathtaking views and meeting the friendly mountain folk. What's yours? Think about the places you'd love to visit.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Mountain Adventure</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Story Time: A Travel <span class="hl">Adventure</span></h2>
+          <ul><li>Imagine writing about your first train journey.</li><li>Describe the sights, sounds, and feelings.</li><li>Use vivid vocabulary learned today.</li></ul>
+          <p class="notes">🎙️ Now that we've learned about travel, try to imagine a short story. Perhaps your first train ride, or a trip to a new city. Describe it using the nouns, verbs, and adjectives we discussed today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📖</span><span>📖</span></div><div class="vcap">Open Books</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Our Journey of Learning</h2>
-          <ul><li>Explored different modes of travel.</li><li>Learned how to plan a trip.</li><li>Discussed important travel vocabulary.</li><li>Understood the benefits and safety tips.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! From understanding what travel is to exploring various modes, planning, and safety, we've taken a comprehensive look at the world of travel. Remember these key points!</p>
+          <h2><span class="hl">Recap</span>: Our Travel Journey</h2>
+          <ul><li>Travel means moving from place to place.</li><li>Main modes: Road, Rail, Air, Water.</li><li>New vocabulary (Nouns, Verbs, Adjectives).</li><li>Planning is essential for a good trip.</li></ul>
+          <p class="notes">🎙️ Today, we've covered a lot about travel! We learned what travel is, the different ways we can travel, important words to describe our journeys, and how to plan a trip effectively.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Happy <span class="hl">Travels</span>!</h2>
-          <ul><li>Travel opens up the world to us.</li><li>Always be prepared and curious.</li><li>Enjoy every moment of your adventures!</li></ul>
-          <p class="notes">🎙️ Travel is an incredible experience that enriches our lives. Whether near or far, every journey is an opportunity to learn and grow. So, keep exploring and have many happy travels!</p>
+          <h2><span class="hl">Questions</span> &amp; Next Steps</h2>
+          <ul><li>Any questions about today's lesson?</li><li>Think about a place you'd like to visit.</li><li>Share your travel dreams with a friend!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on travel. If you have any questions, please ask. Now, start dreaming about your next adventure!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

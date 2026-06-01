@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>The Kites — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>The <span class="hl">Kites</span>: A Journey to the Sky</h2>
-          <ul><li>Get ready to soar with us!</li><li>Explore the world of kites.</li><li>A beautiful poem awaits!</li></ul>
-          <p class="notes">🎙️ Hello, Class 6! Today, we're going to embark on an exciting journey into the sky with our new chapter, 'The Kites'. Have you ever flown a kite or seen one flying high?</p>
+          <h2>Welcome to "The <span class="hl">Kites</span>"!</h2>
+          <ul><li>Let's explore the world of kites!</li><li>A journey of fun, freedom, and flight.</li></ul>
+          <p class="notes">🎙️ Hello, Class 6! Today, we're going to dive into a wonderful chapter called 'The Kites'. Get ready to imagine colourful kites soaring high in the sky and feel the excitement of flying them!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is a <span class="hl">Kite</span>?</h2>
-          <ul><li>An aircraft tethered to the ground.</li><li>Flies on wind power.</li><li>Loved by children and adults.</li></ul>
-          <p class="notes">🎙️ A kite is essentially a tethered aircraft, meaning it's tied to the ground by a string. It uses the power of the wind to lift and stay in the air. Kites are a source of great joy and entertainment for people of all ages.</p>
+          <h2>What Exactly is a <span class="hl">Kite</span>?</h2>
+          <ul><li>A tethered aircraft, heavier than air.</li><li>Flies by wind power.</li><li>Often made of paper or fabric on a light frame.</li></ul>
+          <p class="notes">🎙️ A kite is essentially a flying object that stays connected to the ground by a string. It uses the wind to lift itself up into the air, much like an airplane, but without an engine. They are usually very light, made from materials like paper, plastic, or cloth.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪁</div><div class="vcap">A colorful kite flying high!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪁</div><div class="vcap">Flying Kite</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>A Glimpse into <span class="hl">History</span></h2>
-          <ul><li>Originated in ancient China.</li><li>Used for fishing, measuring, signals.</li><li>Spread to other parts of the world.</li></ul>
-          <p class="notes">🎙️ Did you know kites have a long and fascinating history? They were first invented in ancient China, thousands of years ago. People used them for various purposes, from fishing to sending signals, long before they became popular toys.</p>
+          <h2>A Brief <span class="hl">History</span> of Kites</h2>
+          <ul><li>Originated in China over 2,000 years ago.</li><li>Used for fishing, measuring distances, and even military signals.</li><li>Spread to other parts of Asia and then the world.</li></ul>
+          <p class="notes">🎙️ Did you know kites have a very long history? They were first invented in ancient China, more than two thousand years ago! Initially, they weren't just for fun; people used them for various practical purposes before they became a popular pastime.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient scrolls tell the story</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Scrolls</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Anatomy of a Kite</h2>
-          <ul><li>Sail/Body: The main fabric.</li><li>Spars: The frame that gives shape.</li><li>Bridle/Line: Connects to the string.</li></ul>
-          <p class="notes">🎙️ Just like any machine, a kite has different parts that work together. The 'sail' is the colorful fabric part, and 'spars' are the sticks that form its skeleton. The 'bridle' is the set of lines that connect to your main flying string.</p>
+          <h2><span class="hl">Anatomy</span> of a Kite</h2>
+          <ul><li>Frame: Light sticks for structure.</li><li>Sail: The main body, catches wind.</li><li>Bridle: Strings connecting kite to flying line.</li><li>Tail: Helps with stability and balance.</li></ul>
+          <p class="notes">🎙️ Just like our bodies have different parts, a kite also has distinct components that help it fly. The frame gives it shape, the sail catches the wind, and the bridle connects it to your hand, while the tail keeps it steady.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧵</div><div class="vcap">String connecting to the kite</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Frame</span></div><div class="step"><span class="snum">2</span><span>Sail</span></div><div class="step"><span class="snum">3</span><span>Bridle</span></div><div class="step"><span class="snum">4</span><span>Tail</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>How Kites Take <span class="hl">Flight</span></h2>
-          <ul><li>Wind pushes the kite up.</li><li>Shape creates 'lift'.</li><li>String keeps it from flying away.</li></ul>
-          <p class="notes">🎙️ How does a kite actually fly? It's all about the wind! The wind pushes against the kite's surface, and its special shape creates an upward force called 'lift'. The string is crucial, as it controls the kite and prevents it from disappearing into the sky.</p>
+          <h2>The Science of Kite <span class="hl">Flight</span></h2>
+          <ul><li>Wind pushes the kite up (lift).</li><li>String keeps it from flying away (tension).</li><li>Tail balances the kite in the air.</li><li>A fun example of air pressure and aerodynamics!</li></ul>
+          <p class="notes">🎙️ The magic of kite flying comes from the wind! When wind hits the kite's surface, it creates an upward force called 'lift'. At the same time, the string you hold creates 'tension', preventing the kite from just floating off into space. It's a delicate balance!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Wind pushing the kite</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Wind Power</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,23 +120,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Kites in <span class="hl">India</span>n Culture</h2>
-          <ul><li>Popular during festivals like Makar Sankranti.</li><li>Symbol of joy and freedom.</li><li>A beloved outdoor activity.</li></ul>
-          <p class="notes">🎙️ In India, kites hold a special place, especially during festivals like Makar Sankranti, also known as Uttarayan. On this day, the sky is filled with thousands of colorful kites, symbolizing joy, freedom, and the arrival of spring.</p>
+          <h2>The <span class="hl">Joy</span> of Flying Kites</h2>
+          <ul><li>A feeling of freedom and wonder.</li><li>Connects us to nature and the sky.</li><li>A fun outdoor activity for everyone.</li><li>Brings smiles and laughter.</li></ul>
+          <p class="notes">🎙️ Flying a kite is more than just a hobby; it's an experience filled with joy! Watching your kite dance high above, feeling the tug of the string, and seeing its colourful presence against the blue sky can be incredibly uplifting and peaceful.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎉</div><div class="vcap">Festival celebration with kites</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>😊</span><span>😊</span><span>😊</span><span>😊</span><span>😊</span></div><div class="vcap">Happy Faces</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>"The Kites" - Our <span class="hl">Poem</span></h2>
-          <ul><li>A beautiful description of a kite's journey.</li><li>Written by Harry Behn.</li><li>Let's read the first stanza.</li></ul>
-          <p class="notes">🎙️ Now, let's dive into our poem, 'The Kites', written by Harry Behn. This poem beautifully captures the excitement and movements of a kite in the sky. We'll read it stanza by stanza to understand its meaning.</p>
+          <h2>Celebrating with Kite <span class="hl">Festivals</span></h2>
+          <ul><li>Many countries celebrate with vibrant kite festivals.</li><li>Gujarat, India, hosts the famous 'Uttarayan' festival.</li><li>People gather to fly kites, often competing.</li><li>A symbol of community and celebration.</li></ul>
+          <p class="notes">🎙️ Kites are so special that many cultures around the world celebrate them with grand festivals! In India, especially in Gujarat, the 'Uttarayan' festival is a huge event where the sky is filled with thousands of colourful kites. It's truly a sight to behold!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎉</div><div class="vcap">Festival Celebration</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,33 +144,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Vocabulary - Stanza 1</h2>
-          <ul><li>Dips: Goes down quickly.</li><li>Dives: Plunges headfirst.</li><li>Soars: Flies high in the air.</li></ul>
-          <p class="notes">🎙️ In the first stanza, you'll find words like 'dips' and 'dives'. 'Dips' means to go down quickly and then come back up, like a bird touching the water. 'Dives' is a more forceful downward movement, similar to how a swimmer dives into a pool. 'Soars' means to fly very high.</p>
+          <h2>New Word: "<span class="hl">Soar</span>"</h2>
+          <ul><li>Meaning: To fly high in the air.</li><li>Often implies effortless or majestic flight.</li><li>Used for birds, planes, or even feelings.</li></ul>
+          <p class="notes">🎙️ Our first new word is 'soar'. When something soars, it flies very high, often with a sense of grace and ease, like an eagle circling in the sky. It suggests a powerful and beautiful movement upwards.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">A wave dipping and diving</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Finding the <span class="hl">Rhyme</span></h2>
-          <ul><li>Words that sound similar.</li><li>Creates a musical effect.</li><li>Helps remember the poem.</li></ul>
-          <p class="notes">🎙️ Poets often use rhyming words to make their poems sound pleasant and rhythmic. Listen for words at the end of lines that have similar sounds. This pattern of rhyming words is called the rhyme scheme, and it adds to the poem's musicality.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Music notes for rhythm</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦅</div><div class="vcap">Eagle Soaring</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Stanza 2 - The Kite's <span class="hl">Dance</span></h2>
-          <ul><li>The kite struggles against the wind.</li><li>It flaps and flutters.</li><li>A beautiful, active image.</li></ul>
-          <p class="notes">🎙️ As we move to the second stanza, pay attention to how the poet describes the kite's movements. It's not just flying; it's almost as if it's dancing and fighting with the wind, creating a very vivid picture in our minds.</p>
+          <span class="num">9 / 25</span>
+          <h2>Using "Soar" in a <span class="hl">Sentence</span></h2>
+          <ul><li>The colourful kite began to soar high above the trees.</li><li>After practicing, her confidence began to soar.</li><li>The hot air balloon will soar over the mountains.</li></ul>
+          <p class="notes">🎙️ Here are some examples of how to use 'soar'. Notice how it describes not just physical flight, but also how emotions or achievements can rise to a great height. It's a very descriptive and powerful verb.</p>
         </div>
         
       </div>
@@ -166,12 +167,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2>More New <span class="hl">Words</span></h2>
-          <ul><li>Rags: Old, torn pieces of cloth.</li><li>Flaps: Moves up and down quickly.</li><li>Shakes: Moves back and forth rapidly.</li></ul>
-          <p class="notes">🎙️ In this stanza, 'rags' refers to old, worn-out pieces of cloth, which might describe how the kite looks after much flying. 'Flaps' means to move something up and down, like a bird flapping its wings. The kite 'shakes' as it struggles in the wind.</p>
+          <span class="num">10 / 25</span>
+          <h2>New Word: "<span class="hl">Tug</span>"</h2>
+          <ul><li>Meaning: To pull something with a strong, quick motion.</li><li>Often implies a repeated or resistant pull.</li><li>Can be a noun or a verb.</li></ul>
+          <p class="notes">🎙️ Next up is 'tug'. Imagine you're holding a kite string, and the wind pulls the kite, making the string pull your hand. That's a 'tug'! It's a short, sharp pull, and you can feel it when a kite is fighting against the wind.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">Torn cloth (rags)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Pulling Force</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Using "Tug" in a <span class="hl">Sentence</span></h2>
+          <ul><li>I felt a strong tug on the kite string as the wind picked up.</li><li>The child gave a gentle tug at his mother's sleeve.</li><li>The dog likes to tug on its favourite rope toy.</li></ul>
+          <p class="notes">🎙️ Here are some ways to use 'tug'. You can feel a tug, give a tug, or describe something that tugs. It's a word that helps us describe a specific kind of pulling action, especially when there's some resistance involved.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Painting <span class="hl">Pictures</span> with Words</h2>
-          <ul><li>Using words to create mental images.</li><li>Engages our senses.</li><li>Helps us 'see' the kite flying.</li></ul>
-          <p class="notes">🎙️ Imagery is a powerful tool poets use. It's when words create vivid pictures in our minds, appealing to our senses. In this stanza, the poet uses imagery to make us almost see and feel the kite's struggle and graceful movements in the sky.</p>
+          <h2>New Word: "<span class="hl">Reel</span>"</h2>
+          <ul><li>Meaning (verb): To wind a line onto a spool or reel.</li><li>Meaning (noun): A cylinder or spool for winding string.</li><li>Essential for controlling a kite's height and distance.</li></ul>
+          <p class="notes">🎙️ Our final new word is 'reel'. When you fly a kite, you often use a 'reel' to hold the string. And when you want to bring the kite closer or let out more string, you 'reel' it in or out. It's all about managing the string!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">A painting representing imagery</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧵</div><div class="vcap">Thread Spool</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -191,47 +204,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Stanza 3 - The Kite's <span class="hl">Freedom</span></h2>
-          <ul><li>The kite is truly free.</li><li>It rides the wind effortlessly.</li><li>A moment of pure joy.</li></ul>
-          <p class="notes">🎙️ In the third and final stanza, the poem reaches a beautiful conclusion. The kite, after its struggle, seems to find its rhythm and truly embrace its freedom in the sky. Let's read and appreciate this moment of liberation.</p>
+          <h2>Using "Reel" in a <span class="hl">Sentence</span></h2>
+          <ul><li>He began to reel in the kite as the sun set.</li><li>She carefully wound the fishing line onto the reel.</li><li>Remember to reel out the string slowly for a smooth flight.</li></ul>
+          <p class="notes">🎙️ These sentences show 'reel' as both a noun, referring to the object that holds the string, and as a verb, describing the action of winding the string. It's a crucial part of controlling a kite.</p>
         </div>
         
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Key <span class="hl">Terms</span> from Stanza 3</h2>
-          <ul><li>Tugs: Pulls sharply or suddenly.</li><li>Rides: Travels on something, like the wind.</li><li>Sail: To move smoothly through the air.</li></ul>
-          <p class="notes">🎙️ Here, 'tugs' describes a sharp pull, perhaps the string pulling the kite or the wind pulling the kite. When the kite 'rides' the wind, it means it's traveling along with the wind's current. To 'sail' implies moving gracefully and smoothly, much like a boat on water.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">A hand tugging a rope</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Giving <span class="hl">Life</span> to the Kite</h2>
-          <ul><li>Giving human qualities to non-human things.</li><li>Makes the poem more lively.</li><li>The kite acts like a person.</li></ul>
-          <p class="notes">🎙️ One of the beautiful literary devices used in this poem is personification. This is when an inanimate object, like the kite, is given human actions or feelings. It makes the kite seem alive and allows us to connect with it on a deeper level.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Speech bubble for human traits</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Let's <span class="hl">Test</span> Your Understanding!</h2>
-          <ul><li>What helps a kite fly?</li><li>Name one part of a kite.</li><li>What is 'personification'?</li><li>Which festival is famous for kites in India?</li></ul>
-          <p class="notes">🎙️ Alright, team! Time for a quick check to see how well you've been following along. Think back to what we've discussed about kites and the poem. No pressure, just a fun review!</p>
+          <span class="num">14 / 25</span>
+          <h2>Quick Check! What does "<span class="hl">soar</span>" mean?</h2>
+          <ul><li>A) To fall quickly</li><li>B) To fly high</li><li>C) To pull gently</li><li>D) To spin around</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think back to our vocabulary word 'soar'. Which of these options best describes its meaning? Take a moment to recall the example sentences we discussed.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick Check! Which part helps <span class="hl">balance</span> a kite?</h2>
+          <ul><li>A) The frame</li><li>B) The sail</li><li>C) The tail</li><li>D) The bridle</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of kite parts! Remember our slide on the anatomy of a kite. Which specific part did we say was responsible for helping the kite stay steady in the air?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Similes</span>: Comparing with "Like" or "As"</h2>
+          <ul><li>A figure of speech comparing two different things.</li><li>Uses the words 'like' or 'as'.</li><li>Makes descriptions more vivid and interesting.</li><li>Example: 'Her smile was as bright as the sun.'</li></ul>
+          <p class="notes">🎙️ Now, let's explore how authors make their writing beautiful! A simile is a way to compare two unlike things using 'like' or 'as'. It helps us imagine things more clearly by relating them to something familiar. For example, 'The kite danced like a leaf in the wind'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Comparison</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Different Kites</span>, Different Skies</h2>
-          <ul><li>Delta Kites: Common, triangular shape.</li><li>Box Kites: Stable, strong lift.</li><li>Fighter Kites: Agile, used in competitions.</li></ul>
-          <p class="notes">🎙️ Not all kites are the same! There are many types, each with unique shapes and flying characteristics. Delta kites are easy to fly, box kites are known for their stability, and fighter kites are designed for quick maneuvers in friendly duels.</p>
+          <h2><span class="hl">Simile</span> in "The Kites"</h2>
+          <ul><li>'Like a ship with only a sail'</li><li>Compares the kite's movement to a ship.</li><li>Both move gracefully with the wind.</li><li>Highlights the kite's freedom and reliance on wind.</li></ul>
+          <p class="notes">🎙️ In our chapter, you might find a line like 'The kite flew like a ship with only a sail'. Here, the kite is compared to a ship. Both use the wind to move, suggesting a sense of effortless travel and grace. This simile helps us visualise the kite's movement beautifully.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Delta Kite</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Box Kite</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Fighter Kite</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛵</div><div class="vcap">Sailing Ship</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Fly High, Fly <span class="hl">Safe</span>!</h2>
-          <ul><li>Avoid power lines and busy roads.</li><li>Use strong, safe string.</li><li>Fly in open areas, away from trees.</li></ul>
-          <p class="notes">🎙️ While kite flying is fun, safety is very important. Always choose an open area away from electrical wires and roads. Using strong, non-metallic string is crucial to prevent accidents. Remember, safety first!</p>
+          <h2><span class="hl">Metaphors</span>: Direct Comparisons</h2>
+          <ul><li>A figure of speech stating one thing IS another.</li><li>Does NOT use 'like' or 'as'.</li><li>Creates a stronger, more direct image.</li><li>Example: 'The world is a stage.'</li></ul>
+          <p class="notes">🎙️ Similar to a simile, a metaphor also compares two things, but it does so more directly. Instead of saying something is 'like' something else, it says it 'is' that something else. It's like calling the kite 'a dancer in the sky' instead of 'like a dancer'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Warning sign for safety</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎭</div><div class="vcap">Transformation</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Why Fly a Kite?</h2>
-          <ul><li>Encourages outdoor activity.</li><li>Develops hand-eye coordination.</li><li>Reduces stress, brings joy.</li></ul>
-          <p class="notes">🎙️ Kite flying isn't just a game; it offers several benefits! It gets you outdoors and active, away from screens. It also helps improve your hand-eye coordination as you control the kite. Most importantly, it's a wonderful way to relax and feel happy.</p>
+          <h2>Understanding <span class="hl">Metaphors</span></h2>
+          <ul><li>'The kite was a colourful dream against the blue canvas.'</li><li>Compares the sky to a canvas and the kite to a dream.</li><li>Emphasizes the beauty and fleeting nature.</li><li>Creates a vivid mental picture without 'like' or 'as'.</li></ul>
+          <p class="notes">🎙️ Here’s an example: 'The kite was a colourful dream against the blue canvas.' Here, the sky is directly called a 'blue canvas', and the kite is called a 'colourful dream'. This makes the description very poetic and imaginative, suggesting the kite's beauty and temporary presence.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>😊</span><span>😊</span><span>😊</span></div><div class="vcap">Three happy faces enjoying kites</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>DIY Kite - A Fun Project!</h2>
-          <ul><li>Gather materials: paper, sticks, string.</li><li>Assemble the frame and attach paper.</li><li>Add a tail for stability.</li></ul>
-          <p class="notes">🎙️ Wouldn't it be fun to make your own kite? It's a simple project! You'll need some paper, thin sticks, and string. First, make the frame, then cover it with paper. Don't forget a tail to help your kite fly steadily!</p>
+          <h2>Describing Kites with <span class="hl">Adjectives</span></h2>
+          <ul><li>Words that describe nouns.</li><li>Tell us more about the kite's colour, size, shape, or feeling.</li><li>Make our sentences more interesting and detailed.</li><li>Example: 'The *red* kite had a *long* tail.'</li></ul>
+          <p class="notes">🎙️ When we talk about kites, we use many descriptive words! These words are called adjectives. They help us paint a clearer picture in the listener's or reader's mind. Think about all the ways you can describe a kite!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Gather Materials</span></div><div class="step"><span class="snum">2</span><span>Build Frame</span></div><div class="step"><span class="snum">3</span><span>Attach Paper</span></div><div class="step"><span class="snum">4</span><span>Add Tail &amp; String</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Colourful Descriptions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,35 +300,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Uttarayan</span> - The Kite Festival</h2>
-          <ul><li>Celebrated in Gujarat, Rajasthan, etc.</li><li>Marks the end of winter.</li><li>Sky filled with millions of kites.</li></ul>
-          <p class="notes">🎙️ Uttarayan, or Makar Sankranti, is India's most famous kite festival, especially vibrant in Gujarat. On this day, families gather on rooftops, and the sky becomes a canvas of colorful kites, making it a truly breathtaking sight and a wonderful cultural experience.</p>
+          <h2><span class="hl">Adjectives</span> for Kites</h2>
+          <ul><li>Colourful, bright, vibrant</li><li>Large, tiny, soaring, dancing</li><li>Paper, plastic, sturdy, fragile</li><li>Exciting, joyful, peaceful</li></ul>
+          <p class="notes">🎙️ Here are some wonderful adjectives we can use to describe kites. We can talk about their colours, their size, how they move, or even the material they are made from. Using these words makes our writing about kites much richer.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Map of India highlighting festival regions</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Another Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Name two types of kites.</li><li>What is one safety rule for kite flying?</li><li>List one benefit of flying kites.</li><li>Which Indian festival is famous for kites?</li></ul>
-          <p class="notes">🎙️ Fantastic, everyone! Let's do another quick recap with a few more questions. These will help you consolidate your understanding of the different aspects of kites we've covered today.</p>
-        </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Colour</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Size</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Movement</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Material</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>The <span class="hl">Spirit</span> of "The Kites"</h2>
-          <ul><li>Celebrates freedom and joy.</li><li>Appreciates simple pleasures.</li><li>A metaphor for life's ups and downs.</li></ul>
-          <p class="notes">🎙️ Beyond just describing a kite, the poem 'The Kites' carries a deeper message. It celebrates the feeling of freedom and the simple joys in life. It can also be seen as a metaphor for our own lives, with moments of struggle and soaring triumph.</p>
+          <span class="num">22 / 25</span>
+          <h2>Important: Kite <span class="hl">Safety</span>!</h2>
+          <ul><li>Fly in open areas, away from power lines.</li><li>Never use metallic or wet strings.</li><li>Avoid flying during thunderstorms.</li><li>Always have an adult supervise younger children.</li></ul>
+          <p class="notes">🎙️ While flying kites is fun, it's very important to be safe! Always choose an open field, far from electric wires, and never use strings that could conduct electricity. Safety first ensures everyone has a good time!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Sparkle of joy and wonder</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Caution!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check! Identify the <span class="hl">adjective</span>: "The *beautiful* kite danced in the sky."</h2>
+          <ul><li>A) The</li><li>B) beautiful</li><li>C) kite</li><li>D) danced</li></ul>
+          <p class="notes">🎙️ Let's quickly check your understanding of adjectives! In the sentence 'The beautiful kite danced in the sky,' which word is describing the kite? Remember, adjectives tell us more about a noun.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>What We <span class="hl">Learned</span> Today</h2>
-          <ul><li>Kites: History, parts, and flight.</li><li>The poem 'The Kites': Vocabulary, imagery, personification.</li><li>Safety, benefits, and cultural significance.</li></ul>
-          <p class="notes">🎙️ Today, we've covered a lot! From understanding what kites are and how they fly, to exploring the beautiful poem 'The Kites' and its literary elements. We also touched upon the cultural importance, safety, and benefits of this wonderful activity.</p>
+          <h2><span class="hl">Recap</span>: Our Kite Journey</h2>
+          <ul><li>Explored what kites are and their history.</li><li>Learned new vocabulary: soar, tug, reel.</li><li>Understood similes and metaphors.</li><li>Reviewed adjectives and kite safety.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! We started by understanding what kites are, then learned some new words, and finally explored how language makes descriptions of kites even more vivid. Always remember the safety tips too!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Your Turn: <span class="hl">Design</span> a Kite!</h2>
-          <ul><li>Draw your dream kite on paper.</li><li>Label its parts and colors.</li><li>Think about what makes it unique!</li></ul>
-          <p class="notes">🎙️ For homework, I want you all to unleash your creativity! Design your very own dream kite on a sheet of paper. Think about its shape, colors, and what kind of tail it would have. I can't wait to see your amazing designs!</p>
+          <h2>Time to <span class="hl">Imagine</span>!</h2>
+          <ul><li>Imagine you are a kite. What would you see?</li><li>What colours would you be?</li><li>What adventures would you have?</li><li>Let's draw our dream kites!</li></ul>
+          <p class="notes">🎙️ Now for a fun activity! Close your eyes and imagine you are a kite, flying high. What would your view be like? What exciting things would you do? Let's use our imagination and draw the most wonderful kites we can think of!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎨</div><div class="vcap">Art palette for creativity</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

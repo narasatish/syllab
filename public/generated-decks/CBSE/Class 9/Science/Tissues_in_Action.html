@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Tissues in Action — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">1 / 26</span>
-          <h2>Welcome to '<span class="hl">Tissues</span> in Action'!</h2>
-          <ul><li>Exploring the microscopic world within organisms.</li><li>Understanding how cells work together.</li><li>Discovering the building blocks of life.</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today we begin an exciting journey into the world of 'Tissues in Action'. We'll explore how tiny cells group together to form larger structures, enabling all life functions. Get ready to discover the amazing organization within living beings!</p>
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Tissues</span> in Action: The Building Blocks of Life</h2>
+          <ul><li>Discover how cells organize into tissues.</li><li>Understand the role of tissues in plants and animals.</li><li>Explore different types of tissues and their functions.</li></ul>
+          <p class="notes">🎙️ Good morning, class! Today, we embark on an exciting journey into the world of 'Tissues in Action'. We've learned about cells, the basic units of life. Now, let's see how these cells come together to form larger, more complex structures called tissues, which are essential for the functioning of all living organisms.</p>
         </div>
         
       </div>
@@ -58,46 +71,34 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">2 / 26</span>
-          <h2>The <span class="hl">Building Blocks</span> of Life</h2>
-          <ul><li>Remember cells are the basic unit of life.</li><li>Think of cells as individual bricks.</li><li>What happens when many bricks join together?</li></ul>
-          <p class="notes">🎙️ We've learned that cells are the fundamental units of life. Imagine a single cell as a brick. Just like many bricks combine to build a wall or a house, cells also group together to perform specific functions. This grouping is what we'll explore today.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Cells as bricks</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">3 / 26</span>
+          <span class="num">2 / 25</span>
           <h2>What are <span class="hl">Tissues</span>?</h2>
-          <ul><li>A group of cells.</li><li>Similar in structure.</li><li>Perform a specific function.</li></ul>
-          <p class="notes">🎙️ A tissue is precisely defined as a group of cells that are similar in structure and work together to achieve a particular function. For example, all the cells in your muscle tissue work together to help you move, even though they look different from your skin cells.</p>
+          <ul><li>A group of cells.</li><li>Similar in structure.</li><li>Work together to perform a specific function.</li></ul>
+          <p class="notes">🎙️ Imagine building a wall. You use many bricks, each similar in shape. Tissues are like those bricks, but living! They are a collection of cells that look alike and have a common job. For example, muscle cells form muscle tissue to help us move.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Cells under microscope</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Cells working together</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 26</span>
-          <h2>Why Tissues? The Need for <span class="hl">Specialization</span></h2>
-          <ul><li>Multicellular organisms have millions of cells.</li><li>Different tasks need different cell groups.</li><li>Tissues allow for efficient division of labour.</li></ul>
-          <p class="notes">🎙️ In multicellular organisms, with their vast number of cells, it's not efficient for every cell to do everything. Tissues allow for specialization, where different groups of cells become experts at specific jobs. This division of labour makes the organism much more efficient and complex.</p>
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Why</span> do Organisms Need Tissues?</h2>
+          <ul><li>Division of labour in multicellular organisms.</li><li>Increased efficiency in performing tasks.</li><li>Specialized functions for different parts of the body.</li></ul>
+          <p class="notes">🎙️ In single-celled organisms, one cell does everything. But in multicellular organisms like us, different tissues take on different jobs. This 'division of labour' makes the organism much more efficient and allows for complex functions, just like different parts of a machine perform specific tasks.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Different parts, one whole</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Efficiency and Specialization</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 26</span>
-          <h2>Plant Tissues vs. Animal Tissues: Key <span class="hl">Differences</span></h2>
-          <ul><li>Plants are stationary, animals are mobile.</li><li>Plants have continuous growth, animals have limited growth.</li><li>Energy needs vary greatly.</li></ul>
-          <p class="notes">🎙️ Plant and animal tissues are fundamentally different because their lifestyles are so different. Plants are fixed and grow continuously, needing supportive tissues. Animals move around and have more defined growth patterns, requiring tissues for movement and communication. These differences reflect in their tissue types.</p>
+          <span class="num">4 / 25</span>
+          <h2>Plant Tissues <span class="hl">vs.</span> Animal Tissues</h2>
+          <ul><li>Plants are stationary, animals are mobile.</li><li>Plants have dead supporting tissues, animals have living ones.</li><li>Plants have localized growth, animals have uniform growth.</li></ul>
+          <p class="notes">🎙️ Plants and animals have very different lifestyles, so their tissues have evolved differently. Plants are fixed and grow continuously in certain regions, while animals move around and have more uniform growth, with tissues adapted for locomotion and rapid responses.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Illu_epithelium_types-en.svg?width=500" data-fb="🔬" alt="Animal tissues are groups of cells with similar structure and function. The four main type"/><div class="vcap">Animal tissues are groups of cells with similar structure and function. The four main type</div></div></div>
       </div>
@@ -106,142 +107,94 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 26</span>
-          <h2><span class="hl">Plant Tissues</span>: An Overview</h2>
-          <ul><li>Broadly classified into two main types.</li><li>Meristematic tissues for growth.</li><li>Permanent tissues for specific functions.</li></ul>
-          <p class="notes">🎙️ Let's dive into plant tissues first. They are primarily divided into two categories: meristematic tissues, which are responsible for growth, and permanent tissues, which are specialized for various functions like support, transport, and storage. We will explore each type in detail.</p>
+          <span class="num">5 / 25</span>
+          <h2>Plant Tissues: <span class="hl">Meristematic</span> Tissue</h2>
+          <ul><li>Found in growing regions of the plant.</li><li>Cells are actively dividing (mitosis).</li><li>Responsible for plant growth in length and girth.</li></ul>
+          <p class="notes">🎙️ Meristematic tissue is like the 'growth engine' of a plant. These cells are constantly dividing, helping the plant to grow taller, wider, and produce new leaves and branches. You'll find them at the tips of roots and stems, and in the cambium layer.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_type_sclerenchyma_fibers.png?width=500" data-fb="🔬" alt="Plant tissues are specialized groups of cells that perform specific functions. They are di"/><div class="vcap">Plant tissues are specialized groups of cells that perform specific functions. They are di</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_type_sclerenchyma_fibers.png?width=500" data-fb="🌱" alt="Plant tissues are specialized groups of cells that perform specific functions. They are di"/><div class="vcap">Plant tissues are specialized groups of cells that perform specific functions. They are di</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 26</span>
-          <h2><span class="hl">Meristematic</span> Tissues: The Growth Engines</h2>
-          <ul><li>Found in growing regions of the plant.</li><li>Cells divide continuously.</li><li>Responsible for plant growth in length and girth.</li></ul>
-          <p class="notes">🎙️ Meristematic tissues are like the growth engines of a plant. They are located in specific regions where active cell division takes place, such as the tips of roots and shoots. These tissues are crucial for the plant's increase in size, both in height and thickness.</p>
+          <span class="num">6 / 25</span>
+          <h2>Types of <span class="hl">Meristematic</span> Tissue</h2>
+          <ul><li>Apical Meristem: Tips of roots and stems (length).</li><li>Lateral Meristem: Girth of stem and root (width).</li><li>Intercalary Meristem: Base of leaves/internodes (growth of branches).</li></ul>
+          <p class="notes">🎙️ There are three main types of meristematic tissue, each responsible for growth in different parts. Apical meristem makes the plant grow taller, lateral meristem makes it thicker, and intercalary meristem helps parts like grass blades regrow after being cut.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Plant growth</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Apical</span></div><div class="step"><span class="snum">2</span><span>Lateral</span></div><div class="step"><span class="snum">3</span><span>Intercalary</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 26</span>
-          <h2><span class="hl">Types</span> of Meristematic Tissues</h2>
-          <ul><li>Apical meristem: At shoot and root tips, increases length.</li><li>Lateral meristem (cambium): Increases stem/root diameter.</li><li>Intercalary meristem: At base of leaves/internodes, increases length.</li></ul>
-          <p class="notes">🎙️ There are three main types of meristematic tissues, each with a specific location and role. Apical meristem helps the plant grow taller and roots grow deeper. Lateral meristem makes the stem and root thicker. Intercalary meristem helps parts like grass blades grow back after being cut.</p>
+          <span class="num">7 / 25</span>
+          <h2>Plant Tissues: <span class="hl">Permanent</span> Tissue</h2>
+          <ul><li>Cells have lost the ability to divide.</li><li>Take up a permanent shape, size, and function.</li><li>Formed from meristematic tissue after differentiation.</li></ul>
+          <p class="notes">🎙️ Once meristematic cells mature, they stop dividing and specialize into permanent tissues. These tissues have specific roles, like providing support, storing food, or transporting water. Think of a mature tree; its sturdy trunk is made of permanent tissues.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Apical Meristem</span></div><div class="step"><span class="snum">2</span><span>Lateral Meristem</span></div><div class="step"><span class="snum">3</span><span>Intercalary Meristem</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Mature Tree</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 26</span>
-          <h2><span class="hl">Permanent</span> Tissues: Specialized Roles</h2>
-          <ul><li>Formed from meristematic tissues.</li><li>Cells lose the ability to divide.</li><li>Take on a permanent shape and function.</li></ul>
-          <p class="notes">🎙️ Once meristematic cells divide and mature, they often lose their ability to divide and become specialized. These are called permanent tissues. They have a fixed shape and perform specific functions, contributing to the plant's structure, support, and various metabolic activities.</p>
+          <span class="num">8 / 25</span>
+          <h2>Simple Permanent Tissues: <span class="hl">Parenchyma</span></h2>
+          <ul><li>Loosely packed, large intercellular spaces.</li><li>Mainly involved in food storage.</li><li>Can perform photosynthesis if chloroplasts are present (chlorenchyma).</li></ul>
+          <p class="notes">🎙️ Parenchyma is the most common plant tissue. Its cells are often found in the soft parts of plants like the pulp of fruits or the pith of stems. They are crucial for storing starch, proteins, and water. Sometimes, they even contain chloroplasts and help in photosynthesis.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Fixed function</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥔</div><div class="vcap">Food Storage</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 26</span>
-          <h2><span class="hl">Simple</span> Permanent Tissues: One Cell Type</h2>
-          <ul><li>Made up of only one type of cell.</li><li>Includes Parenchyma, Collenchyma, and Sclerenchyma.</li><li>Provide basic support and storage.</li></ul>
-          <p class="notes">🎙️ Simple permanent tissues are the most basic type, consisting of cells that are structurally and functionally similar. We'll look at three main types: Parenchyma, which is for storage and photosynthesis; Collenchyma, which provides flexibility; and Sclerenchyma, which offers strength and rigidity. Each plays a vital role.</p>
+          <span class="num">9 / 25</span>
+          <h2>Simple Permanent Tissues: <span class="hl">Collenchyma</span> &amp; Sclerenchyma</h2>
+          <ul><li>Collenchyma: Provides flexibility and mechanical support.</li><li>Sclerenchyma: Provides hardness and rigidity, often dead cells.</li><li>Both are supporting tissues in plants.</li></ul>
+          <p class="notes">🎙️ Collenchyma gives plants flexibility, allowing them to bend without breaking, like the stalks of leaves. Sclerenchyma, on the other hand, provides strength and hardness, making parts like coconut husk or seed coats tough and protective. These cells are often dead at maturity.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌿</span><span>🌿</span><span>🌿</span></div><div class="vcap">Three simple types</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Flexibility (Collenchyma)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rigidity (Sclerenchyma)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 26</span>
-          <h2><span class="hl">Parenchyma</span>: The Basic Filler Tissue</h2>
-          <ul><li>Loosely packed cells, large intercellular spaces.</li><li>Stores food and water.</li><li>In some cases (chlorenchyma), performs photosynthesis.</li></ul>
-          <p class="notes">🎙️ Parenchyma is the most common plant tissue. Its cells are often loosely packed, allowing for gas exchange. They are primarily involved in storing food and water. When parenchyma cells contain chlorophyll and perform photosynthesis, they are called chlorenchyma, found in leaves.</p>
+          <span class="num">10 / 25</span>
+          <h2>Complex Permanent Tissues: <span class="hl">Xylem</span></h2>
+          <ul><li>Transports water and minerals from roots to leaves.</li><li>Composed of tracheids, vessels, xylem parenchyma, and xylem fibres.</li><li>Most components are dead cells.</li></ul>
+          <p class="notes">🎙️ Xylem is like the plant's plumbing system. It's responsible for carrying water and dissolved minerals upwards from the roots to every part of the plant, against gravity. Think of it as a one-way street for water, essential for photosynthesis and plant survival.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water and food storage</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Transport</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 26</span>
-          <h2><span class="hl">Collenchyma</span>: Flexible Support</h2>
-          <ul><li>Cells are irregularly thickened at corners.</li><li>Provides flexibility to plant parts.</li><li>Allows bending without breaking (e.g., leaf stalks).</li></ul>
-          <p class="notes">🎙️ Collenchyma tissue provides mechanical support and flexibility, allowing plant parts like leaf stalks and young stems to bend without snapping. Its cells have unevenly thickened walls, especially at the corners, which gives them this unique property. Think of how a strong wind can sway a plant without breaking it.</p>
+          <span class="num">11 / 25</span>
+          <h2>Complex Permanent Tissues: <span class="hl">Phloem</span></h2>
+          <ul><li>Transports food (sugars) from leaves to other parts of the plant.</li><li>Composed of sieve tubes, companion cells, phloem parenchyma, and phloem fibres.</li><li>Most components are living cells.</li></ul>
+          <p class="notes">🎙️ Phloem is the other part of the plant's transport system. After leaves make food through photosynthesis, the phloem carries these sugars to all other parts of the plant, including roots and growing fruits, where energy is needed for growth or storage. It's a two-way transport system.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤸</div><div class="vcap">Flexibility</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 26</span>
-          <h2><span class="hl">Sclerenchyma</span>: Strength and Rigidity</h2>
-          <ul><li>Cells are dead, with thick, lignified walls.</li><li>Provides strength and rigidity to the plant.</li><li>Found in seed coats, nuts, and around vascular bundles.</li></ul>
-          <p class="notes">🎙️ Sclerenchyma is the 'tough guy' of plant tissues. Its cells are dead at maturity and have very thick, hard walls due to a substance called lignin. This tissue provides immense strength and makes parts of the plant rigid, like the hard shell of a coconut or the gritty texture in pears. It's all about protection and structural support.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strength and support</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 26</span>
-          <h2><span class="hl">Complex</span> Permanent Tissues: Transport Systems</h2>
-          <ul><li>Made up of more than one type of cell.</li><li>All cells work together to perform a common function.</li><li>Xylem and Phloem are the main types.</li></ul>
-          <p class="notes">🎙️ Unlike simple permanent tissues, complex permanent tissues are composed of different types of cells that collaborate to perform a specific function. The two primary complex tissues are xylem and phloem, which act as the plant's intricate transport system, moving water, minerals, and food throughout the plant body.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span></div><div class="vcap">Xylem and Phloem</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 26</span>
-          <h2><span class="hl">Xylem</span>: The Water Highway</h2>
-          <ul><li>Transports water and minerals from roots to leaves.</li><li>Consists of tracheids, vessels, xylem parenchyma, and xylem fibres.</li><li>Provides mechanical strength.</li></ul>
-          <p class="notes">🎙️ Xylem is the plant's dedicated pipeline for water and dissolved minerals. It's like a highway system that carries water from the roots all the way up to the highest leaves. Besides transport, the thick-walled components of xylem also provide structural support to the plant.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️💧</div><div class="vcap">Water transport</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 26</span>
-          <h2><span class="hl">Phloem</span>: The Food Delivery Service</h2>
-          <ul><li>Transports food (sugars) from leaves to other parts.</li><li>Consists of sieve tubes, companion cells, phloem parenchyma, and phloem fibres.</li><li>Food moves in both directions.</li></ul>
-          <p class="notes">🎙️ Phloem is the plant's food delivery service, responsible for transporting the sugars produced during photosynthesis in the leaves to all other parts of the plant where they are needed for growth or storage. Unlike xylem, phloem can transport food in both upward and downward directions, depending on where the food is needed.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️🍎</div><div class="vcap">Food transport</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_anatomy_root_en.png?width=500" data-fb="🍎" alt="A plant has distinct parts, each with specialized functions: roots absorb water, stems tra"/><div class="vcap">A plant has distinct parts, each with specialized functions: roots absorb water, stems tra</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">17 / 26</span>
-          <h2><span class="hl">Quick Check</span> 1: Plant Tissues</h2>
-          <ul><li>Which tissue is responsible for increasing the girth of a plant stem?</li><li>Name two simple permanent tissues.</li><li>What is the main function of xylem?</li></ul>
-          <p class="notes">🎙️ Time for a quick check to see how well you've understood plant tissues. Think about the functions and locations we just discussed. Take a moment to formulate your answers before we move on.</p>
+          <span class="num">12 / 25</span>
+          <h2>Quick Check! What is the main function of <span class="hl">Xylem</span>?</h2>
+          
+          <p class="notes">🎙️ Alright, let's test our understanding so far. Can anyone tell me, what is the primary role of xylem tissue in a plant? Think about what plants need to draw up from the soil.</p>
         </div>
         
       </div>
@@ -250,82 +203,118 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 26</span>
-          <h2><span class="hl">Animal Tissues</span>: An Overview</h2>
-          <ul><li>Four main types: Epithelial, Connective, Muscular, Nervous.</li><li>Specialized for movement, communication, protection, and support.</li><li>Higher energy consumption than plants.</li></ul>
-          <p class="notes">🎙️ Now let's shift our focus to animal tissues. Animals have four primary types of tissues, each uniquely adapted for functions critical to their active lifestyle. These include tissues for covering surfaces, connecting parts, enabling movement, and facilitating communication.</p>
+          <span class="num">13 / 25</span>
+          <h2>Animal Tissues: <span class="hl">Epithelial</span> Tissue</h2>
+          <ul><li>Forms the outer covering of the body (skin).</li><li>Lines internal organs and cavities.</li><li>Provides protection, absorption, secretion, and sensation.</li></ul>
+          <p class="notes">🎙️ Now, let's switch gears to animal tissues. Epithelial tissue is like the protective shield of our body. It covers surfaces, both external like our skin, and internal like the lining of our mouth, stomach, and blood vessels. It protects us from injury, infection, and dehydration.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦁</span><span>🦁</span><span>🦁</span><span>🦁</span></div><div class="vcap">Four main types</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection and Covering</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 26</span>
-          <h2><span class="hl">Epithelial</span> Tissue: The Covering and Lining</h2>
-          <ul><li>Forms the outer covering of the body (skin).</li><li>Lines internal organs and cavities.</li><li>Protects, absorbs, secretes, and senses.</li></ul>
-          <p class="notes">🎙️ Epithelial tissue acts as a protective barrier, forming the skin, the lining of your mouth, and the inner lining of blood vessels and organs. It's tightly packed, forming continuous sheets. Its functions are diverse, from protecting against injury and infection to absorbing nutrients and secreting substances.</p>
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Types</span> of Epithelial Tissue</h2>
+          <ul><li>Squamous: Flat, thin, delicate lining (e.g., esophagus).</li><li>Cuboidal: Cube-shaped, secretion and absorption (e.g., kidney tubules).</li><li>Columnar: Tall, pillar-like, secretion and absorption (e.g., intestine).</li></ul>
+          <p class="notes">🎙️ Epithelial cells come in different shapes, each suited for its function. Squamous cells are flat for easy passage, cuboidal cells are cube-shaped for secretion and absorption, and columnar cells are tall for increased surface area in areas like the intestine.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Different cell shapes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 26</span>
-          <h2><span class="hl">Connective</span> Tissue: Support and Binding</h2>
-          <ul><li>Connects various organs and tissues.</li><li>Provides support to the body.</li><li>Examples: Blood, bone, cartilage, ligaments, tendons.</li></ul>
-          <p class="notes">🎙️ Connective tissue is the most abundant tissue in the body, living up to its name by connecting different parts. It provides structural support, binds tissues together, and fills spaces. Blood, bones, cartilage, and even fat are all types of connective tissue, each with specialized roles.</p>
+          <span class="num">15 / 25</span>
+          <h2>Animal Tissues: <span class="hl">Connective</span> Tissue</h2>
+          <ul><li>Connects various organs and tissues.</li><li>Provides support and binds structures together.</li><li>Cells are loosely packed in an intercellular matrix.</li></ul>
+          <p class="notes">🎙️ Connective tissue is the most abundant and widely distributed tissue in our body. As its name suggests, it connects different parts, provides support, and fills spaces. Unlike epithelial tissue, its cells are usually scattered within a non-living substance called the matrix.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connecting parts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connecting and Supporting</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 26</span>
-          <h2><span class="hl">Muscular</span> Tissue: For Movement</h2>
-          <ul><li>Composed of contractile cells called muscle fibers.</li><li>Responsible for all body movements.</li><li>Three types: Striated, Smooth, and Cardiac.</li></ul>
-          <p class="notes">🎙️ Muscular tissue is what allows us to move, from walking and running to the beating of our hearts and the digestion of food. It's made of specialized cells that can contract and relax. We have three types: skeletal muscles for voluntary movement, smooth muscles for involuntary actions, and cardiac muscle for the heart.</p>
+          <span class="num">16 / 25</span>
+          <h2>Types of Connective Tissue: <span class="hl">Blood</span> &amp; Bone</h2>
+          <ul><li>Blood: Fluid matrix (plasma), transports gases, nutrients, waste.</li><li>Bone: Hard, rigid matrix (calcium and phosphorus compounds), provides skeletal support.</li><li>Both are specialized connective tissues.</li></ul>
+          <p class="notes">🎙️ Blood is a liquid connective tissue, flowing throughout our body, carrying oxygen, nutrients, and waste. Bone, on the other hand, is a very hard and strong connective tissue that forms our skeleton, providing structure and protection for our organs.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Movement</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Fluid (Blood)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Solid (Bone)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 26</span>
-          <h2><span class="hl">Nervous</span> Tissue: Communication Network</h2>
-          <ul><li>Made of neurons (nerve cells) and neuroglia.</li><li>Transmits messages rapidly throughout the body.</li><li>Brain, spinal cord, and nerves are made of nervous tissue.</li></ul>
-          <p class="notes">🎙️ Nervous tissue is the body's communication superhighway. It allows us to think, feel, react, and coordinate all our body functions. Neurons, the primary cells, can transmit electrical impulses over long distances, forming an intricate network that controls everything we do.</p>
+          <span class="num">17 / 25</span>
+          <h2>Areolar and <span class="hl">Adipose</span> Connective Tissue</h2>
+          <ul><li>Areolar: Fills space between organs, supports internal organs.</li><li>Adipose: Stores fat, acts as an insulator, and shock absorber.</li><li>Both play crucial roles in maintaining body structure and function.</li></ul>
+          <p class="notes">🎙️ Areolar tissue is found beneath our skin and around organs, acting like a packing material. Adipose tissue is specialized for storing fat, which serves as an energy reserve, insulates us from cold, and cushions our organs against impacts.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain and nerves</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Filling and Cushioning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 26</span>
-          <h2>Tissues in Action: <span class="hl">Real-Life</span> Examples</h2>
-          <ul><li>Your skin is **epithelial** tissue, protecting you.</li><li>Your bones are **connective** tissue, providing structure.</li><li>Your muscles are **muscular** tissue, allowing you to run.</li><li>Your brain is **nervous** tissue, helping you learn.</li></ul>
-          <p class="notes">🎙️ Let's connect this to our everyday lives. Every part of your body is a testament to tissues in action. Your skin protects you, your bones hold you up, your muscles help you move, and your brain allows you to understand this very lesson. It's all about tissues working together!</p>
+          <span class="num">18 / 25</span>
+          <h2>Animal Tissues: <span class="hl">Muscular</span> Tissue</h2>
+          <ul><li>Responsible for movement in the body.</li><li>Cells are elongated and contain contractile proteins.</li><li>Allows for walking, breathing, pumping blood, etc.</li></ul>
+          <p class="notes">🎙️ Muscular tissue is what allows us to move! Whether it's lifting a hand, walking, or even the beating of our heart, it's all thanks to muscle cells. These cells are special because they can contract and relax, pulling on bones or pushing substances through our body.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👤</div><div class="vcap">Human body</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strength and Movement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Types</span> of Muscular Tissue</h2>
+          <ul><li>Striated (Skeletal): Voluntary, attached to bones, striped appearance.</li><li>Smooth (Visceral): Involuntary, in internal organs, no stripes.</li><li>Cardiac: Involuntary, only in heart, branched and striped.</li></ul>
+          <p class="notes">🎙️ We have three types of muscle tissue. Striated muscles are what we consciously control, like when we run. Smooth muscles work automatically in our stomach and intestines. Cardiac muscle is unique to our heart, constantly pumping blood without us even thinking about it.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Striated</span></div><div class="step"><span class="snum">2</span><span>Smooth</span></div><div class="step"><span class="snum">3</span><span>Cardiac</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Animal Tissues: <span class="hl">Nervous</span> Tissue</h2>
+          <ul><li>Controls and coordinates body functions.</li><li>Made of highly specialized cells called neurons.</li><li>Transmits messages rapidly throughout the body.</li></ul>
+          <p class="notes">🎙️ Nervous tissue is the communication network of our body. It allows us to think, feel, react, and coordinate all our actions. It's made up of special cells called neurons that can transmit electrical signals, or impulses, at incredible speeds.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Control Center</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>The <span class="hl">Neuron</span>: Basic Unit of Nervous Tissue</h2>
+          <ul><li>Consists of a cell body, dendrites, and an axon.</li><li>Dendrites receive impulses, axon transmits them.</li><li>Forms the brain, spinal cord, and nerves.</li></ul>
+          <p class="notes">🎙️ The neuron is the fundamental unit of the nervous system. It has a cell body, branching dendrites that receive signals, and a long axon that sends signals to other neurons or muscles. This intricate network is how our brain communicates with every part of our body.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="⚡" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 26</span>
-          <h2><span class="hl">Quick Check</span> 2: Animal Tissues</h2>
-          <ul><li>Which animal tissue forms the lining of your mouth?</li><li>Name a connective tissue that is fluid.</li><li>What is the main function of muscular tissue?</li></ul>
-          <p class="notes">🎙️ Another quick check, this time on animal tissues. Think about where each tissue type is found and what its primary role is. These questions help solidify your understanding.</p>
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! Which tissue is responsible for <span class="hl">movement</span> in our body?</h2>
+          
+          <p class="notes">🎙️ Another quick question for you! Based on what we've just discussed, which type of animal tissue is primarily responsible for generating force and enabling movement in our bodies?</p>
         </div>
         
       </div>
@@ -334,28 +323,41 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 26</span>
-          <h2><span class="hl">Recap</span>: Tissues in a Nutshell</h2>
-          <ul><li>Tissues are groups of similar cells with specific functions.</li><li>Plant tissues: Meristematic (growth) and Permanent (specialized).</li><li>Animal tissues: Epithelial, Connective, Muscular, Nervous.</li><li>Each tissue type is vital for the organism's survival.</li></ul>
-          <p class="notes">🎙️ To summarize, we've learned that tissues are fundamental to multicellular life, allowing for specialization and efficiency. We explored the distinct plant tissues for growth and maintenance, and the animal tissues that enable movement, communication, protection, and support. Every tissue plays a crucial role!</p>
+          <span class="num">23 / 25</span>
+          <h2>Tissues in Our <span class="hl">Daily Lives</span></h2>
+          <ul><li>Skin (epithelial) protects us from the outside world.</li><li>Bones (connective) give our body shape and support.</li><li>Muscles (muscular) allow us to walk, talk, and lift.</li><li>Brain (nervous) helps us think and react.</li></ul>
+          <p class="notes">🎙️ From the moment we wake up, tissues are in action! Our skin protects us, our bones support us, our muscles move us, and our nervous system processes all the information. Even the food we eat is digested by organs lined with epithelial and muscular tissues. It's a continuous, coordinated effort!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Key takeaways</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">Collaboration of Tissues</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
-          <span class="num">26 / 26</span>
-          <h2>Why Study Tissues? The <span class="hl">Big Picture</span></h2>
-          <ul><li>Understanding how organisms are organized.</li><li>Foundation for studying organs and organ systems.</li><li>Essential for biology and medical sciences.</li></ul>
-          <p class="notes">🎙️ Studying tissues isn't just about memorizing names; it's about understanding the intricate design of life itself. It's the stepping stone to comprehending how organs work, how diseases affect the body, and how we can innovate in fields like medicine and agriculture. Tissues are truly in action all around us!</p>
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Tissues in Action</h2>
+          <ul><li>Tissues are groups of similar cells performing specific functions.</li><li>Plant tissues: Meristematic (growth) and Permanent (support, transport).</li><li>Animal tissues: Epithelial (covering), Connective (support), Muscular (movement), Nervous (communication).</li></ul>
+          <p class="notes">🎙️ To summarize, we've learned that tissues are vital for the organization and efficiency of multicellular organisms. Plants have tissues for growth and maintenance, while animals have tissues for protection, connection, movement, and rapid communication throughout their bodies.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Importance</div></div></div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Questions</span> &amp; Discussion</h2>
+          <ul><li>What aspects of tissues did you find most interesting?</li><li>Are there any concepts you'd like to explore further?</li><li>Feel free to ask any questions you have!</li></ul>
+          <p class="notes">🎙️ Thank you for your attention and participation today. I hope you now have a clearer understanding of how tissues work together to make life possible. Please feel free to ask any questions or share your thoughts on the chapter.</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

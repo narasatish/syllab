@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Materials Around Us — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Materials</span> Around Us!</h2>
-          <ul><li>Welcome to our Science class!</li><li>Let's explore the world of materials!</li><li>Everything around us is made of something.</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today, we're going to embark on an exciting journey to understand the 'Materials Around Us'. Look around you – what do you see? Everything you see and touch is made of some kind of material.</p>
+          <h2>Chapter: <span class="hl">Materials</span> Around Us</h2>
+          <ul><li>Subject: Science</li><li>Class: 6, CBSE Board</li><li>Have you ever wondered what everything around you is made of?</li></ul>
+          <p class="notes">🎙️ Hello students! Welcome to our science class. Today, we're starting an exciting chapter called 'Materials Around Us'. We'll explore the fascinating world of different things that make up our surroundings. Get ready to discover!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What are <span class="hl">Materials</span>?</h2>
-          <ul><li>Substances used to make objects.</li><li>Examples: wood, plastic, metal, glass.</li><li>Objects can be made from one or many materials.</li></ul>
-          <p class="notes">🎙️ A material is simply the substance that an object is made from. Think of a chair – it could be made of wood, plastic, or even metal. Sometimes, an object like a bicycle uses many different materials together.</p>
+          <ul><li>A material is what an object is made from.</li><li>Everything around us, from a tiny pin to a huge building, is made of some material.</li><li>Examples: Wood, Plastic, Metal, Glass, Fabric.</li></ul>
+          <p class="notes">🎙️ Think about the chair you are sitting on, or the book in your hand. These are all 'objects'. But what are they made of? They are made of 'materials'. Materials are the basic substances from which things are constructed. Wood is a material, plastic is a material, and so is metal.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Building Blocks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Building blocks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Objects</span> vs. Materials</h2>
-          <ul><li>An object is a thing we use (e.g., a chair).</li><li>Materials are what objects are made of (e.g., wood).</li><li>One object can be made of different materials.</li><li>One material can be used to make many objects.</li></ul>
-          <p class="notes">🎙️ It's important to distinguish between an object and the material it's made from. A chair is an object, but wood is the material. Also, remember that a material like plastic can be used to make many different objects, from toys to bottles.</p>
+          <h2><span class="hl">Objects</span> Around Us</h2>
+          <ul><li>Look around your classroom or home.</li><li>You'll see many objects: tables, chairs, books, pens, clothes.</li><li>Each object is made from one or more materials.</li></ul>
+          <p class="notes">🎙️ Take a moment to observe. You'll notice a huge variety of objects. A table is an object, a chair is an object, and even your water bottle is an object. The interesting part is that these objects are created using different kinds of materials, carefully chosen for their purpose.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Chair</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Wood</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛋️</span><span>🛋️</span><span>🛋️</span><span>🛋️</span></div><div class="vcap">Everyday Objects</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Why <span class="hl">Group</span> Materials?</h2>
-          <ul><li>To study their properties easily.</li><li>To understand how they behave.</li><li>To choose the right material for the right purpose.</li><li>Makes organization simple.</li></ul>
-          <p class="notes">🎙️ Imagine having a huge pile of toys, books, and clothes all mixed up! It would be hard to find anything. Similarly, grouping materials helps us understand them better. It's like sorting your things to keep them organized.</p>
+          <h2>Properties of Materials: <span class="hl">Appearance</span></h2>
+          <ul><li>Materials can look very different from each other.</li><li>Some materials are shiny (lustrous), while others are dull.</li><li>Some are smooth, others are rough.</li></ul>
+          <p class="notes">🎙️ One of the easiest ways to describe a material is by its appearance. Does it sparkle? Is it rough to touch? For example, a new steel spoon looks very shiny, but an old piece of wood might look dull and rough. These visual characteristics help us identify and classify materials.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗂️</div><div class="vcap">Categorize</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">How it looks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Property 1: <span class="hl">Appearance</span> (Luster)</h2>
-          <ul><li>Some materials look shiny (lustrous).</li><li>Others look dull.</li><li>Metals often have luster when new or polished.</li><li>Non-metals usually appear dull.</li></ul>
-          <p class="notes">🎙️ Our first property is appearance, specifically how shiny a material is. Think about a brand new steel spoon – it's very shiny! But an old, rusted iron piece looks dull. This shininess is called luster.</p>
+          <h2>Activity: <span class="hl">Shiny</span> vs. Dull</h2>
+          <ul><li>Observe different materials like steel, wood, plastic, and copper.</li><li>Rub them with sandpaper to see if they become shinier.</li><li>Metals often have a characteristic shine or 'lustre'.</li></ul>
+          <p class="notes">🎙️ Let's try an activity. Take a piece of iron and a piece of wood. The iron might look dull on the surface, but if you cut it or rub it, you'll see a bright, shiny surface. This property, known as lustre, is common in many metals. Wood, on the other hand, generally appears dull.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Shiny or Dull?</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Shiny (Metals)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Dull (Wood, Plastic)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Real <span class="hl">Example</span>: Appearance</h2>
-          <ul><li>New steel utensils are shiny.</li><li>Old wooden furniture can look dull.</li><li>Gold and silver have high luster.</li><li>Paper usually has a dull appearance.</li></ul>
-          <p class="notes">🎙️ You can easily see this property at home. A freshly polished gold ring sparkles, while an old piece of wood that hasn't been polished in years looks rather plain and dull. This difference in appearance helps us identify materials.</p>
+          <h2>Properties of Materials: <span class="hl">Hardness</span></h2>
+          <ul><li>Some materials are hard, while others are soft.</li><li>Hard materials are difficult to compress or scratch.</li><li>Soft materials can be easily compressed or scratched.</li></ul>
+          <p class="notes">🎙️ Another important property is how hard or soft a material is. Think about trying to press a stone versus pressing a sponge. The stone is hard because it resists being compressed, while the sponge is soft because it easily changes shape. This property helps us choose materials for different uses.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Gold Ring</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Old Wood</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Resists change</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Property 2: <span class="hl">Hardness</span></h2>
-          <ul><li>How easily a material can be compressed or scratched.</li><li>Hard materials are difficult to scratch.</li><li>Soft materials are easy to scratch or compress.</li></ul>
-          <p class="notes">🎙️ Next, let's talk about hardness. This property tells us how resistant a material is to being scratched or pressed. Imagine trying to scratch a rock versus scratching a piece of foam – which one is easier?</p>
+          <h2>Activity: <span class="hl">Hard</span> vs. Soft</h2>
+          <ul><li>Try to press different materials with your hand.</li><li>Use a key to scratch a piece of wood, plastic, and metal.</li><li>Examples: Stone is hard, cotton is soft.</li></ul>
+          <p class="notes">🎙️ Let's test this. Take a piece of wood and a piece of rubber. If you try to scratch the wood with your fingernail, it might not leave a mark, indicating it's hard. But if you try to scratch the rubber, it might leave a slight indentation. This shows rubber is softer than wood. Diamonds are known as the hardest natural material!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strong or Weak?</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hard (Stone, Iron)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Soft (Cotton, Sponge)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,23 +144,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Real <span class="hl">Example</span>: Hardness</h2>
-          <ul><li>A diamond is one of the hardest known materials.</li><li>A sponge is a very soft material.</li><li>You can scratch plastic with a coin.</li><li>You cannot scratch steel with your fingernail.</li></ul>
-          <p class="notes">🎙️ Think about a diamond – it's so hard that it can cut other materials. On the other hand, a soft sponge can be easily squeezed and deformed. This property is crucial for choosing materials for tools or protective gear.</p>
+          <h2>Properties of Materials: <span class="hl">Solubility</span></h2>
+          <ul><li>Some materials dissolve in water, others do not.</li><li>Materials that dissolve are called 'soluble'.</li><li>Materials that do not dissolve are called 'insoluble'.</li></ul>
+          <p class="notes">🎙️ Have you ever added sugar to water and seen it disappear? That's solubility! Sugar is soluble in water. But if you add sand to water, it just settles at the bottom. Sand is insoluble. This property is crucial for many applications, like making drinks or purifying water.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Diamond</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Sponge</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Mixes with water</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Quick <span class="hl">Question</span>: Hard or Soft?</h2>
-          <ul><li>Which of these is generally soft: a) Stone, b) Cotton, c) Iron rod, d) Glass?</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Among stone, cotton, iron rod, and glass, which one do you think is generally considered soft? Think about how easily they can be compressed or scratched.</p>
+          <h2>Activity: <span class="hl">Soluble</span> vs. Insoluble</h2>
+          <ul><li>Add small amounts of sugar, salt, sand, and chalk powder to separate glasses of water.</li><li>Stir each mixture and observe what happens.</li><li>Sugar and salt are soluble; sand and chalk are insoluble.</li></ul>
+          <p class="notes">🎙️ Let's perform this simple experiment. When you add sugar to water and stir, it seems to vanish, forming a clear solution. That means sugar is soluble. But if you add sand, no matter how much you stir, the sand particles remain visible and eventually settle. This confirms sand is insoluble in water.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Soluble (Sugar, Salt)</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Insoluble (Sand, Chalk)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Property 3: <span class="hl">Solubility</span> (Solids in Water)</h2>
-          <ul><li>Some solids dissolve completely in water (soluble).</li><li>Others do not dissolve (insoluble).</li><li>When a solid dissolves, it forms a clear solution.</li></ul>
-          <p class="notes">🎙️ Our third property is solubility, specifically for solids in water. Have you ever put sugar in water and stirred it? It disappears! That means sugar is soluble. But if you put sand in water, it just settles down, making it insoluble.</p>
+          <h2>Properties of Materials: <span class="hl">Transparency</span></h2>
+          <ul><li>Materials can be transparent, translucent, or opaque.</li><li>Transparent: Light passes through completely, you can see clearly.</li><li>Translucent: Light passes partially, you can see hazily.</li><li>Opaque: Light does not pass through at all, you cannot see through.</li></ul>
+          <p class="notes">🎙️ Imagine looking through a clear glass window versus a frosted glass window, or even a wooden door. This difference is due to their transparency. This property is very important when we need to see through something, like in windows, or when we want to block light, like in walls.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Dissolving</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light passage</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Real <span class="hl">Example</span>: Solubility</h2>
-          <ul><li>Salt dissolves in water to form saltwater.</li><li>Sugar dissolves in water to make a sweet solution.</li><li>Sand does not dissolve in water.</li><li>Chalk powder does not dissolve in water.</li></ul>
-          <p class="notes">🎙️ You see solubility every day! When you make lemonade, sugar and salt dissolve in water. But if you accidentally spill some sand, you'll notice it just sits at the bottom of the glass, no matter how much you stir.</p>
+          <h2>Activity: <span class="hl">Transparent</span>, Translucent, Opaque</h2>
+          <ul><li>Hold up a clear glass, butter paper, and a wooden block.</li><li>Try to look through each object.</li><li>Observe how much light passes through each.</li></ul>
+          <p class="notes">🎙️ A clear glass allows you to see everything perfectly, making it transparent. Butter paper or frosted glass lets some light through but blurs the view, making it translucent. A wooden door completely blocks light and vision, so it's opaque. Understanding these helps us choose materials for windows, curtains, or even packaging.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧂</span><span>🧂</span><span>🧂</span></div><div class="vcap">Salt in Water</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Transparent (Glass)</span></div><div class="step"><span class="snum">2</span><span>Translucent (Butter Paper)</span></div><div class="step"><span class="snum">3</span><span>Opaque (Wood)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Property 4: <span class="hl">Miscibility</span> (Liquids in Water)</h2>
-          <ul><li>Some liquids mix completely with water (miscible).</li><li>Others do not mix and form separate layers (immiscible).</li><li>This is similar to solubility but for liquids.</li></ul>
-          <p class="notes">🎙️ Just like solids, liquids can also mix or not mix with water. We call this property miscibility. If they mix completely, they are miscible. If they don't, they are immiscible.</p>
+          <h2>Why <span class="hl">Group</span> Materials?</h2>
+          <ul><li>Grouping helps us organise materials based on their similarities and differences.</li><li>It makes it easier to study their properties.</li><li>It helps in selecting the right material for a specific use.</li></ul>
+          <p class="notes">🎙️ Imagine a library where books are thrown everywhere without any order. It would be impossible to find anything! Similarly, grouping materials helps us manage and understand them better. When we group materials, we can easily predict their behaviour and choose them wisely for various purposes. It's all about making sense of the world around us.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Mixing Liquids</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Organise &amp; Understand</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,45 +204,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Real <span class="hl">Example</span>: Miscibility</h2>
-          <ul><li>Vinegar mixes completely with water.</li><li>Lemon juice mixes completely with water.</li><li>Oil does not mix with water; it forms a separate layer.</li><li>Kerosene does not mix with water.</li></ul>
-          <p class="notes">🎙️ Try this at home: add a few drops of oil to a glass of water. You'll see the oil float on top, forming a distinct layer. This shows that oil and water are immiscible. But if you add vinegar, it blends right in!</p>
+          <h2>Methods of <span class="hl">Grouping</span> Materials</h2>
+          <ul><li>Materials can be grouped based on various properties.</li><li>Common methods include grouping by appearance, hardness, solubility, and transparency.</li><li>We choose the property most relevant to our need.</li></ul>
+          <p class="notes">🎙️ We've learned about several properties today. We can use any of these to group materials. For instance, if you want to find materials for making windows, you'd group them by transparency. If you want to find materials for making tools, you'd group them by hardness. The method depends on what we want to achieve.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Vinegar</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Oil</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Property 5: <span class="hl">Transparency</span></h2>
-          <ul><li>How much light passes through a material.</li><li>Transparent materials allow all light to pass through.</li><li>Translucent materials allow some light to pass through.</li><li>Opaque materials do not allow any light to pass through.</li></ul>
-          <p class="notes">🎙️ Transparency describes how easily light can pass through a material. Think about a window pane – you can see clearly through it, so it's transparent. But what about a frosted glass bathroom window? You can see light, but not clearly, making it translucent. And a wall? No light passes through, so it's opaque.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light Passage</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>Real <span class="hl">Example</span>: Transparency</h2>
-          <ul><li>Clear glass for windows (Transparent).</li><li>Butter paper or frosted glass (Translucent).</li><li>Wooden door or a brick wall (Opaque).</li><li>Air is also transparent.</li></ul>
-          <p class="notes">🎙️ We encounter these every day. A clear glass window lets you see the outside world perfectly. Butter paper lets some light through, but objects look blurry. And your classroom wall blocks all light, making it opaque.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Transparent</span></div><div class="step"><span class="snum">2</span><span>Translucent</span></div><div class="step"><span class="snum">3</span><span>Opaque</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Appearance (Shiny/Dull)</span></div><div class="step"><span class="snum">2</span><span>Hardness (Hard/Soft)</span></div><div class="step"><span class="snum">3</span><span>Solubility (Soluble/Insoluble)</span></div><div class="step"><span class="snum">4</span><span>Transparency (Transparent/Opaque)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Quick <span class="hl">Question</span>: Transparent, Translucent, or Opaque?</h2>
-          <ul><li>A thin sheet of paper through which you can vaguely see an object is: a) Transparent, b) Translucent, c) Opaque, d) None of these?</li></ul>
-          <p class="notes">🎙️ Here's another question for you! If you hold a thin sheet of paper and can only vaguely see an object behind it, what property does that paper have? Transparent, Translucent, or Opaque?</p>
+          <span class="num">14 / 25</span>
+          <h2>Quick Check 1: <span class="hl">True or False</span>?</h2>
+          <ul><li>1. All metals are shiny.</li><li>2. Cotton is a hard material.</li><li>3. Sugar is insoluble in water.</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Read these three statements carefully and decide if each one is true or false based on what we've discussed. Take a moment to think about your answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick Check 1: <span class="hl">Answers</span></h2>
+          <ul><li>1. False (Metals can appear dull, but are shiny when cut/polished).</li><li>2. False (Cotton is a soft material).</li><li>3. False (Sugar is soluble in water).</li></ul>
+          <p class="notes">🎙️ Here are the answers! Remember, while metals often have lustre, they might appear dull due to exposure to air and moisture. Cotton is definitely soft, and sugar dissolves readily in water. Don't worry if you got some wrong, it's all part of learning!</p>
         </div>
         
       </div>
@@ -238,12 +239,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Property 6: <span class="hl">Float or Sink</span></h2>
-          <ul><li>Objects either float on water or sink in it.</li><li>Lighter materials (less dense) tend to float.</li><li>Heavier materials (more dense) tend to sink.</li><li>This property is related to density.</li></ul>
-          <p class="notes">🎙️ Our last property is whether an object floats or sinks in water. You've probably seen a wooden boat float, but a small stone sinks immediately. This happens because of something called density – how much 'stuff' is packed into a certain space.</p>
+          <span class="num">16 / 25</span>
+          <h2>Why Do We Need <span class="hl">Different Materials</span>?</h2>
+          <ul><li>Objects are made from materials that are suitable for their purpose.</li><li>A material's properties determine its best use.</li><li>We choose the material that best fits the function of the object.</li></ul>
+          <p class="notes">🎙️ Why don't we make a chair out of paper? Or a cooking pot out of wood? The answer lies in the properties of materials. Each material has unique characteristics that make it suitable for some uses and unsuitable for others. We always pick the material that can best perform the job.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛵</div><div class="vcap">Up or Down?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Purpose-driven</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Example: Making a <span class="hl">Chair</span></h2>
+          <ul><li>A chair needs to be strong and hard to support weight.</li><li>Wood and metal are good choices due to their strength and hardness.</li><li>Cotton or sponge would be unsuitable as they are soft.</li></ul>
+          <p class="notes">🎙️ Think about a chair. Its main purpose is to bear weight and provide support. For this, we need materials that are strong and hard, like wood or metal. Imagine trying to sit on a chair made of cotton – it simply wouldn't work! This shows how important it is to match the material to the object's function.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span><span>🪑</span><span>🪑</span></div><div class="vcap">Strong &amp; Hard Materials</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Real <span class="hl">Example</span>: Float or Sink</h2>
-          <ul><li>A dry leaf floats on water.</li><li>A wooden block floats on water.</li><li>A coin sinks in water.</li><li>A key sinks in water.</li></ul>
-          <p class="notes">🎙️ Think about a small twig or a dry leaf falling into a puddle – they float. But if you drop a key or a coin into the same puddle, they quickly go to the bottom. This property is very important for designing boats and other water-related objects.</p>
+          <h2>Example: Making a <span class="hl">Cooking Pot</span></h2>
+          <ul><li>A cooking pot needs to conduct heat well and be strong.</li><li>Metals like steel or copper are excellent conductors of heat.</li><li>Plastic or wood would melt or burn, making them unsuitable.</li></ul>
+          <p class="notes">🎙️ Now consider a cooking pot. It needs to get hot to cook food, so it must be a good conductor of heat. Metals like steel or copper are perfect for this. If we made a pot from plastic, it would melt. If we made it from wood, it would burn. The properties of the material directly influence its use.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Wood</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Stone</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍲</span><span>🍲</span><span>🍲</span></div><div class="vcap">Good Heat Conductors</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Identifying Properties</h2>
-          <ul><li>Object: A glass marble.</li><li>Properties: Hard, Shiny (when new), Insoluble in water, Sinks in water, Transparent.</li><li>This helps us understand its uses.</li></ul>
-          <p class="notes">🎙️ Let's take a glass marble as an example. Is it hard or soft? Hard. Is it shiny? Yes, it has a smooth, shiny appearance. Does it dissolve in water? No, it's insoluble. Does it float or sink? It sinks. And is it transparent? Yes, you can see through it. Knowing these properties helps us understand why marbles are used for games and decoration.</p>
+          <h2>Properties of Materials: Water <span class="hl">Absorption</span></h2>
+          <ul><li>Some materials absorb water, while others repel it.</li><li>Absorbent materials soak up water (e.g., cotton, sponge).</li><li>Non-absorbent materials do not soak up water (e.g., plastic, rubber).</li></ul>
+          <p class="notes">🎙️ Think about a towel versus a raincoat. A towel is designed to absorb water, while a raincoat is designed to repel it. This is another crucial property of materials. We use absorbent materials for drying and non-absorbent materials for protection against water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔮</span><span>🔮</span><span>🔮</span></div><div class="vcap">Glass Marble</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧽</div><div class="vcap">Soaks water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Why Group Materials? (<span class="hl">Recap</span>)</h2>
-          <ul><li>Helps in easy identification and sorting.</li><li>Essential for choosing the right material.</li><li>Ensures safety and efficiency in use.</li><li>For example, using glass for windows, not for hammers.</li></ul>
-          <p class="notes">🎙️ So, why do we bother grouping materials based on their properties? It's crucial for practical reasons. We need to choose materials that are best suited for a particular job. You wouldn't make a hammer out of glass, right? It would break! But glass is perfect for windows because it's transparent.</p>
+          <h2>Activity: <span class="hl">Absorbent</span> vs. Non-Absorbent</h2>
+          <ul><li>Dip a piece of cotton cloth and a plastic sheet into water.</li><li>Observe which material soaks up the water.</li><li>Cotton is absorbent, plastic is non-absorbent.</li></ul>
+          <p class="notes">🎙️ Let's try this simple test. If you place a cotton cloth in water, it quickly becomes wet and heavy as it absorbs the water. But if you place a plastic sheet in water, the water just rolls off, and the plastic remains dry. This difference in water absorption is very important for things like towels, raincoats, and even building materials.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Right Tool, Right Job</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Absorbent (Cotton, Sponge)</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Non-Absorbent (Plastic, Rubber)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -287,9 +300,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Question</span>: Best Material?</h2>
-          <ul><li>Which material would be best for making a raincoat? a) Cotton, b) Wood, c) Plastic, d) Metal?</li></ul>
-          <p class="notes">🎙️ Imagine you need to make a raincoat. Which of these materials – cotton, wood, plastic, or metal – would be the best choice and why? Think about the properties we discussed.</p>
+          <h2>Quick Check 2: <span class="hl">Fill in the Blanks</span></h2>
+          <ul><li>1. A glass window is a ______ material.</li><li>2. A wooden door is an ______ material.</li><li>3. Cooking pots are made of metals because metals are good ______ of heat.</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Fill in the blanks with the correct words based on what we've learned about the properties of materials. Think about how light passes through them and how they conduct heat.</p>
         </div>
         
       </div>
@@ -299,9 +312,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick Question: <span class="hl">True or False</span>?</h2>
-          <ul><li>True or False: All liquids are miscible with water.</li><li>True or False: Wood is generally harder than iron.</li><li>True or False: Transparent objects block all light.</li></ul>
-          <p class="notes">🎙️ Let's test your understanding with some True or False statements! Are all liquids miscible with water? Is wood generally harder than iron? Do transparent objects block all light? Think carefully about each one.</p>
+          <h2>Quick Check 2: <span class="hl">Answers</span></h2>
+          <ul><li>1. A glass window is a transparent material.</li><li>2. A wooden door is an opaque material.</li><li>3. Cooking pots are made of metals because metals are good conductors of heat.</li></ul>
+          <p class="notes">🎙️ Here are the answers! Glass is transparent, allowing us to see through it. Wood is opaque, blocking light. And metals are chosen for cooking pots because they are excellent conductors of heat, allowing food to cook efficiently. Great job everyone!</p>
         </div>
         
       </div>
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Summary</span> of Properties</h2>
-          <ul><li>Appearance (Luster: shiny/dull)</li><li>Hardness (hard/soft)</li><li>Solubility (soluble/insoluble)</li><li>Miscibility (miscible/immiscible)</li><li>Transparency (transparent/translucent/opaque)</li><li>Float/Sink</li></ul>
-          <p class="notes">🎙️ Today, we've covered six important properties that help us classify and understand materials. Remember, appearance tells us if it's shiny, hardness tells us if it's scratchable, solubility and miscibility tell us if it mixes with water, transparency tells us about light, and float/sink tells us about its density in water.</p>
+          <h2>Summary: Key <span class="hl">Properties</span> of Materials</h2>
+          <ul><li>Materials have different properties that make them unique.</li><li>We learned about appearance, hardness, solubility, transparency, and water absorption.</li><li>These properties help us classify materials and choose them for specific uses.</li></ul>
+          <p class="notes">🎙️ Let's quickly recap the main properties we've covered today. We discussed how materials look, how hard or soft they are, whether they dissolve in water, how much light passes through them, and if they absorb water. Each of these properties is like a clue that tells us what a material is best suited for.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Appearance</span></div><div class="step"><span class="snum">2</span><span>Hardness</span></div><div class="step"><span class="snum">3</span><span>Solubility</span></div><div class="step"><span class="snum">4</span><span>Transparency</span></div><div class="step"><span class="snum">5</span><span>Float/Sink</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Appearance</span></div><div class="step"><span class="snum">2</span><span>Hardness</span></div><div class="step"><span class="snum">3</span><span>Solubility</span></div><div class="step"><span class="snum">4</span><span>Transparency</span></div><div class="step"><span class="snum">5</span><span>Water Absorption</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Challenge</span> Question</h2>
-          <ul><li>Think about a smartphone. List at least 3 different materials used to make it and one property for each.</li></ul>
-          <p class="notes">🎙️ Now for a little challenge! Look at your smartphone. Can you identify at least three different materials used to make it? And for each material, can you name one important property that makes it suitable for that part of the phone?</p>
+          <h2>Real-World <span class="hl">Application</span></h2>
+          <ul><li>Understanding material properties is essential in daily life.</li><li>It helps engineers choose materials for buildings and bridges.</li><li>It guides us in selecting clothes, utensils, and furniture.</li></ul>
+          <p class="notes">🎙️ The knowledge you gained today isn't just for textbooks! It's used every single day by everyone. When an architect designs a building, they choose strong, hard materials for the structure and transparent materials for windows. When you choose a raincoat, you look for a non-absorbent material. This understanding helps us make smart choices.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Everyday choices</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span>!</h2>
-          <ul><li>Hope you enjoyed exploring Materials Around Us!</li><li>Keep observing the world around you!</li><li>Science is everywhere!</li></ul>
-          <p class="notes">🎙️ Thank you for being such attentive learners today! I hope you now have a better understanding of the amazing world of materials. Keep observing the objects around you and try to identify their properties. Science is truly everywhere!</p>
+          <h2><span class="hl">Challenge</span> Question &amp; Recap</h2>
+          <ul><li>Why would you not use a metal cup for a hot beverage if you want to hold it comfortably?</li><li>Think about the properties we discussed today.</li><li>Great job learning about 'Materials Around Us'!</li></ul>
+          <p class="notes">🎙️ Here's a challenge for you to think about: If you pour hot tea into a metal cup, why might it be uncomfortable to hold? What property of metal makes this so? Ponder on this question. Thank you for your active participation today. We covered a lot about materials and their fascinating properties. Keep observing the world around you!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

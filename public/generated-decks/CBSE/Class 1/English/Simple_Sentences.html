@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Simple Sentences — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to the World of <span class="hl">Simple Sentences</span>!</h2>
-          <ul><li>Let's learn how words talk to us!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting journey to learn about 'Simple Sentences'. These are the little stories that words tell us every day.</p>
+          <h2>Welcome to <span class="hl">Simple Sentences</span>!</h2>
+          <ul><li>Let's learn about talking and writing!</li></ul>
+          <p class="notes">🎙️ Hello, little stars! Today, we are going to learn something very exciting in English. We will learn about 'Simple Sentences'.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is a <span class="hl">Sentence</span>?</h2>
-          <ul><li>A sentence is a group of words.</li><li>It tells us something complete.</li></ul>
-          <p class="notes">🎙️ Imagine words are like little friends. When they stand together in a special way, they form a sentence. A sentence is like a little message that tells us one full idea.</p>
+          <ul><li>It's a group of words.</li><li>It tells us a full idea.</li></ul>
+          <p class="notes">🎙️ Imagine you want to tell your friend something. You use words, right? When you put words together to tell a complete thought, that's a sentence!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💬</div><div class="vcap">What is it?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Talking Words</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Sentences <span class="hl">Tell Us Something</span></h2>
-          <ul><li>It can tell us about a person.</li><li>It can tell us about a thing.</li><li>It can tell us about an action.</li></ul>
-          <p class="notes">🎙️ Every sentence has a job! It loves to tell us something. It can tell us who is doing something, what something is, or what is happening.</p>
+          <h2><span class="hl">Words</span> Build Sentences</h2>
+          <ul><li>Just like bricks build a house...</li><li>Words build a sentence!</li></ul>
+          <p class="notes">🎙️ Think of little bricks. When you put many bricks together, you build a house. In the same way, when we put many words together, we build a sentence!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Tells a story</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Words are like bricks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Sentences Have <span class="hl">Many Words</span></h2>
-          <ul><li>A sentence is made of words.</li><li>Words come together to make sense.</li></ul>
-          <p class="notes">🎙️ Look at these letters! When letters join, they make words. And when words join, they make sentences! A sentence usually has more than one word.</p>
+          <h2>Sentences <span class="hl">Tell Us Things</span>!</h2>
+          <ul><li>It can tell us about a person.</li><li>It can tell us about a thing.</li><li>It can tell us about an action.</li></ul>
+          <p class="notes">🎙️ A sentence always has a job. Its job is to tell us something clear. It can tell us who is doing what, or what something is like.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔠</span><span>🔠</span><span>🔠</span><span>🔠</span><span>🔠</span></div><div class="vcap">Words in a sentence</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💬</div><div class="vcap">Sharing Ideas</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Words Must Be <span class="hl">in Order</span></h2>
-          <ul><li>Words like to be in their own places.</li><li>If words are mixed up, it makes no sense.</li></ul>
-          <p class="notes">🎙️ Imagine you are building a tower with blocks. If you put the blocks in the wrong order, the tower might fall! Similarly, words in a sentence must be in the correct order for it to make sense.</p>
+          <h2>Look at the Sun!</h2>
+          <ul><li>The sun is happy.</li><li>It gives us light.</li></ul>
+          <p class="notes">🎙️ Look at this beautiful sun! 'The sun shines brightly.' This sentence tells us about the sun and what it does. It's a simple sentence.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Word 1</span></div><div class="step"><span class="snum">2</span><span>Word 2</span></div><div class="step"><span class="snum">3</span><span>Word 3</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="☀️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>A Sentence <span class="hl">Makes Sense</span></h2>
-          <ul><li>A sentence helps us understand.</li><li>We know what it means.</li></ul>
-          <p class="notes">🎙️ The most important thing about a sentence is that it should make sense to us. When you read a sentence, you should be able to understand the message it is trying to give.</p>
+          <h2>My Friend, The Dog!</h2>
+          <ul><li>The dog is playing.</li><li>It makes a sound.</li></ul>
+          <p class="notes">🎙️ Here is a lovely dog. 'My dog barks loudly.' This sentence tells us about the dog and the sound it makes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Clear idea</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐶</div><div class="vcap">Playful Dog</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Starts with a <span class="hl">Big Letter</span></h2>
-          <ul><li>The first word always starts with a Capital Letter.</li><li>Like 'A' instead of 'a', or 'T' instead of 't'.</li></ul>
-          <p class="notes">🎙️ Here's a special rule for sentences! Just like a king or queen wears a crown, the first letter of the first word in a sentence always wears a 'capital letter' crown. It's a big letter!</p>
+          <h2>Rule Number One!</h2>
+          <ul><li>Every sentence starts with a capital letter.</li><li>Like the first letter of your name!</li></ul>
+          <p class="notes">🎙️ This is a very important rule! Just like your name starts with a capital letter, every sentence must start with a big, capital letter.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🅰️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🅰️" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Ends with a <span class="hl">Full Stop</span></h2>
-          <ul><li>A sentence ends with a full stop (.).</li><li>It tells us the sentence is finished.</li></ul>
-          <p class="notes">🎙️ And at the very end of our sentence, we put a little dot, called a full stop. It's like a tiny traffic light saying 'Stop, the sentence is complete!'.</p>
+          <h2>See the <span class="hl">Big Letter</span>!</h2>
+          <ul><li>'T' in 'The' is big.</li><li>The sun shines brightly.</li></ul>
+          <p class="notes">🎙️ In our example, 'The sun shines brightly,' notice how the letter 'T' in 'The' is a big letter. It's a capital 'T'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Sentence ends</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🅰️</span></div><div class="vcap">Big 'T'</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Let's Look at an <span class="hl">Example</span>!</h2>
-          <ul><li>Ready to see a real sentence?</li><li>It follows all our rules!</li></ul>
-          <p class="notes">🎙️ Now that we know all the rules, let's see a sentence in action! We will look at an example about this little girl.</p>
+          <h2>Rule Number Two!</h2>
+          <ul><li>Every sentence ends with a full stop.</li><li>It tells us the sentence is finished.</li></ul>
+          <p class="notes">🎙️ After you finish telling your idea, you put a tiny dot at the end. This dot is called a full stop. It tells everyone that your sentence is complete.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👧</span></div><div class="vcap">A girl</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div><div class="vcap">Full Stop</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,35 +168,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>"The girl is <span class="hl">happy</span>."</h2>
-          <ul><li>Starts with a capital 'T'.</li><li>Ends with a full stop (.).</li><li>It makes sense!</li></ul>
-          <p class="notes">🎙️ See! 'The' starts with a big 'T'. It ends with a little dot. And we understand that the girl is feeling happy. This is a perfect simple sentence!</p>
+          <h2>Find the <span class="hl">Full Stop</span>!</h2>
+          <ul><li>The sun shines brightly.</li><li>The little dot at the end!</li></ul>
+          <p class="notes">🎙️ Look at our sentence again: 'The sun shines brightly.' Can you see the small dot at the very end? That's the full stop! It means we are done.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div><div class="vcap">Happy girl</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Stop Here!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Is this a <span class="hl">sentence</span>?</h2>
-          <ul><li>Does it tell a complete idea?</li><li>Are the words in order?</li></ul>
-          <p class="notes">🎙️ Let's try one together. Read these words: 'Ball red.' Do you think it is a sentence? Does it follow all our rules?</p>
+          <h2>Where is the <span class="hl">Big Letter</span>?</h2>
+          <ul><li>Which word starts with a capital letter?</li><li>My cat loves milk.</li></ul>
+          <p class="notes">🎙️ Let's practice! Look at this sentence: 'My cat loves milk.' Which word starts with a big letter? Point to it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Think about it!</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>No, it is <span class="hl">not</span>!</h2>
-          <ul><li>The words are not in order.</li><li>It does not make full sense.</li></ul>
-          <p class="notes">🎙️ You are right if you said 'No'! 'Ball red' doesn't sound right. The words are mixed up, and it doesn't tell us a complete idea.</p>
+          <h2>Find the <span class="hl">Full Stop</span>!</h2>
+          <ul><li>Can you see the full stop?</li><li>Birds sing sweet songs.</li></ul>
+          <p class="notes">🎙️ Now, let's try to find the full stop in this sentence: 'Birds sing sweet songs.' Where is the little dot that tells us the sentence is over?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Incorrect!</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,71 +204,71 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>"The ball is <span class="hl">red</span>."</h2>
-          <ul><li>Now it starts with 'T' (capital).</li><li>It ends with a full stop (.).</li><li>It makes perfect sense!</li></ul>
-          <p class="notes">🎙️ But if we say, 'The ball is red.', now it's a super sentence! It starts with a capital 'T', ends with a full stop, and we know exactly what color the ball is.</p>
+          <h2>What Makes a <span class="hl">Sentence</span>?</h2>
+          <ul><li>It needs words that make sense.</li><li>It needs a capital letter at the start.</li><li>It needs a full stop at the end.</li></ul>
+          <p class="notes">🎙️ So, remember these three important things! A sentence must have words that make a complete idea, start with a big letter, and end with a full stop.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct!</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Words make sense</span></div><div class="step"><span class="snum">2</span><span>Capital Letter</span></div><div class="step"><span class="snum">3</span><span>Full Stop</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Let's Try <span class="hl">Another One</span>!</h2>
-          <ul><li>Are you ready for a new challenge?</li><li>Let's help this boy!</li></ul>
-          <p class="notes">🎙️ You are doing great! Let's try one more example. This time, we will look at a sentence about this boy.</p>
+          <h2>Is This a <span class="hl">Sentence</span>?</h2>
+          <ul><li>apples are red</li><li>Does it start big and end with a dot?</li></ul>
+          <p class="notes">🎙️ Let's play a game! I will show you some words. You tell me if it is a correct sentence. What about 'apples are red'?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👦</span></div><div class="vcap">A boy</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>"Boy <span class="hl">plays</span>."</h2>
-          <ul><li>Starts with a capital 'B'.</li><li>Ends with a full stop (.).</li><li>It makes sense!</li></ul>
-          <p class="notes">🎙️ Here is a simple sentence: 'Boy plays.' It tells us that the boy is playing. It starts with a capital 'B' and has a full stop. It makes sense, right?</p>
+          <h2>Is This a <span class="hl">Sentence</span>?</h2>
+          <ul><li>My friend plays.</li><li>Does it follow the rules?</li></ul>
+          <p class="notes">🎙️ How about this one: 'My friend plays.' Is this a sentence? Think about our two rules!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚽</div><div class="vcap">Boy playing</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Is this a <span class="hl">sentence</span>?</h2>
-          <ul><li>Does it have a capital letter?</li><li>Is the full stop there?</li><li>Do the words sound right?</li></ul>
-          <p class="notes">🎙️ Okay, your turn again! Read these words: 'Eat I apple.' Is this a good simple sentence? Think about the order of the words.</p>
+          <h2><span class="hl">Make</span> Your Own Sentence!</h2>
+          <ul><li>The ____ is flying.</li><li>What can fly?</li></ul>
+          <p class="notes">🎙️ Let's make a sentence together! Can you complete this: 'The ____ is flying.' What word can we put in the blank?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">What do you think?</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>No, it is <span class="hl">not</span>!</h2>
-          <ul><li>The words are mixed up.</li><li>It sounds a bit funny, doesn't it?</li></ul>
-          <p class="notes">🎙️ No, it's not a sentence! The words are not in the correct order. We don't usually say 'Eat I apple', do we?</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>What does a sentence tell us?</li><li>A) A full idea</li><li>B) Only one word</li></ul>
+          <p class="notes">🎙️ Time for a quick check! What is the main job of a sentence? Does it tell us a full idea, or just one word?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Try again!</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>"I eat an <span class="hl">apple</span>."</h2>
-          <ul><li>Starts with a capital 'I'.</li><li>Ends with a full stop (.).</li><li>Now it makes perfect sense!</li></ul>
-          <p class="notes">🎙️ The correct way to say it is: 'I eat an apple.' Now it sounds perfect! It starts with a capital 'I', has a full stop, and tells us clearly that someone is eating an apple.</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>How does a sentence start?</li><li>A) With a small letter</li><li>B) With a capital letter</li></ul>
+          <p class="notes">🎙️ Next question! What kind of letter should always be at the beginning of a sentence? Is it a small letter or a big capital letter?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Eating an apple</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>What is a sentence?</li><li>What are two important rules?</li></ul>
-          <p class="notes">🎙️ Let's quickly check what we've learned. What is a sentence? And can you remember two very important rules that all sentences follow?</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>What goes at the end of a sentence?</li><li>A) A full stop</li><li>B) A question mark</li></ul>
+          <p class="notes">🎙️ Last question for our quick check! When you finish a simple sentence, what do you put at the very end? Is it a full stop or a question mark?</p>
         </div>
         
       </div>
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today!</h2>
-          <ul><li>A sentence is a group of words that makes sense.</li><li>It starts with a capital letter.</li><li>It ends with a full stop (.).</li><li>Words must be in order.</li></ul>
-          <p class="notes">🎙️ Great job, everyone! Today, we learned that a simple sentence is like a small story. It has words in the right order, starts with a big letter, and ends with a full stop. You are all sentence superstars!</p>
+          <h2>We Love <span class="hl">Simple Sentences</span>!</h2>
+          <ul><li>Words make a sentence.</li><li>Starts with a Capital Letter.</li><li>Ends with a Full Stop.</li></ul>
+          <p class="notes">🎙️ Great job, everyone! Today we learned that sentences are groups of words that tell a complete idea. They always start with a capital letter and end with a full stop. Keep practicing!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 1 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

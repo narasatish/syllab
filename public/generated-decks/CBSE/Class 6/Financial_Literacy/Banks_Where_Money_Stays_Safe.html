@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Banks — Where Money Stays Safe — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to Our Lesson: <span class="hl">Banks</span> — Where Money Stays Safe!</h2>
-          <ul><li>What are banks?</li><li>Why are they important for our money?</li><li>How do they help us in daily life?</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today, we're going to explore a very important place where our money can be safe and grow – banks! Have you ever wondered where your parents keep their money or how they pay for things?</p>
+          <h2>Welcome to Our Lesson: <span class="hl">Banks</span> — Where Money Stays Safe</h2>
+          <ul><li>Discover what banks are and why they are important.</li><li>Learn how banks keep your money safe.</li><li>Understand different services offered by banks.</li></ul>
+          <p class="notes">🎙️ Welcome to our lesson on banks! Today, we'll learn about these important places where our money can be kept safe and even grow. Get ready to explore the world of banking!</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is <span class="hl">Money</span>? A Quick Look</h2>
-          <ul><li>Money is what we use to buy things.</li><li>It can be in the form of notes (like ₹10, ₹500) or coins.</li><li>It helps us exchange goods and services easily.</li></ul>
-          <p class="notes">🎙️ Before we talk about banks, let's quickly remember what money is. It's not just paper or metal; it's a tool that helps us get what we need and want. Imagine trying to trade your pencil for a book every time!</p>
+          <h2>What is <span class="hl">Money</span>?</h2>
+          <ul><li>Money is used to buy things we need.</li><li>It comes in notes and coins.</li><li>It helps us exchange goods and services easily.</li></ul>
+          <p class="notes">🎙️ Money is anything we use to buy goods and services. It can be in the form of notes and coins, helping us exchange value easily for things like toys, food, or books.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Currency</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Why Do We Need a <span class="hl">Safe</span> Place for Our Money?</h2>
-          <ul><li>Keeping money at home can be risky.</li><li>It might get lost or stolen.</li><li>It's not safe to carry large amounts of cash everywhere.</li></ul>
-          <p class="notes">🎙️ Think about it: if you save all your pocket money in a piggy bank at home, what if it gets lost? Or what if someone takes it? We need a place that is much more secure for our hard-earned money.</p>
+          <h2>Why Keep Money <span class="hl">Safe</span>?</h2>
+          <ul><li>Money can be lost or stolen.</li><li>It can get damaged.</li><li>Keeping it safe prevents problems.</li></ul>
+          <p class="notes">🎙️ Keeping money safe is very important. If we don't, it can be lost, stolen, or even damaged due to accidents like fire or water, causing us a lot of trouble.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Safety First</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Security</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Introducing <span class="hl">Banks</span>: What Are They?</h2>
-          <ul><li>A bank is a place where people keep their money safe.</li><li>It is a financial institution.</li><li>Banks also offer many other helpful services.</li></ul>
-          <p class="notes">🎙️ So, what is this special safe place? It's called a bank! You've probably seen many bank buildings around. They are professional places designed to manage and protect money for individuals and businesses.</p>
+          <h2>Before Banks: Keeping Money at <span class="hl">Home</span></h2>
+          <ul><li>People used to hide money at home.</li><li>Often kept in secret boxes or jars.</li><li>No formal system for safety.</li></ul>
+          <p class="notes">🎙️ Long ago, before banks were common, people used to keep their money and valuables hidden at home, often in secret boxes, under mattresses, or buried in the ground. This was the only option they had.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home Savings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Problems</span> with Home Savings</h2>
+          <ul><li>High risk of theft.</li><li>Vulnerable to fire or floods.</li><li>Money might be misplaced or forgotten.</li></ul>
+          <p class="notes">🎙️ Keeping money at home has many risks. It can be easily stolen by burglars, lost in a fire or flood, or simply misplaced within the house. There's no guarantee of its safety.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>😱</span><span>😱</span><span>😱</span></div><div class="vcap">Risks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Introducing <span class="hl">Banks</span>: A Safe Place</h2>
+          <ul><li>Banks offer a secure place for money.</li><li>They are regulated institutions.</li><li>Money is protected from theft and damage.</li></ul>
+          <p class="notes">🎙️ This is where banks come in! Banks are special financial institutions designed to keep your money secure and help you manage it better. They provide a much safer alternative to keeping cash at home.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🏦</div><div class="vcap">Bank Building</div></div></div>
       </div>
@@ -94,36 +131,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 25</span>
-          <h2><span class="hl">Early</span> Ways People Saved Money</h2>
-          <ul><li>In olden days, people buried money in the ground.</li><li>They used hidden pots or chests at home.</li><li>These methods were not very secure or convenient.</li></ul>
-          <p class="notes">🎙️ Long, long ago, before banks existed, people had to be creative to keep their money safe. They would hide it in their homes or even bury it! But as you can imagine, this was not always the best idea.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏺</span><span>🏺</span><span>🏺</span></div><div class="vcap">Old Pots for Saving</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2>Main Function 1: <span class="hl">Saving</span> Your Money</h2>
-          <ul><li>You can deposit your money into a bank account.</li><li>The bank keeps it safe for you.</li><li>You can withdraw your money whenever you need it.</li></ul>
-          <p class="notes">🎙️ The most important thing banks do is keep your money safe. When you put money into a bank, it's called depositing. It's like giving your money to a very trustworthy friend who promises to keep it secure until you ask for it back.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Deposit Money</span></div><div class="step"><span class="snum">2</span><span>Bank Keeps Safe</span></div><div class="step"><span class="snum">3</span><span>Withdraw When Needed</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Real Example: Saving for a New <span class="hl">Toy</span></h2>
-          <ul><li>Rohan gets ₹50 every week as pocket money.</li><li>He deposits it in his bank account instead of keeping it at home.</li><li>After 10 weeks, he has ₹500 saved safely to buy his favorite toy!</li></ul>
-          <p class="notes">🎙️ Imagine Rohan wants to buy a new toy that costs ₹500. Instead of trying to keep ₹500 in his piggy bank, which could be lost, he puts his ₹50 every week into a bank account. This way, his money is safe and he can track his savings easily.</p>
+          <h2>What is a <span class="hl">Bank</span>?</h2>
+          <ul><li>A financial institution.</li><li>Accepts deposits from the public.</li><li>Provides loans and other services.</li></ul>
+          <p class="notes">🎙️ A bank is a financial institution that accepts deposits from the public and creates credit. It's like a trusted friend for your money, helping you save, spend, and even borrow responsibly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span></div><div class="vcap">Rohan's Saved Toys</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Trust &amp; Service</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>How Does the Bank Keep Money <span class="hl">Safe</span>?</h2>
-          <ul><li>Banks have strong vaults and security systems.</li><li>They have security guards and cameras.</li><li>Only authorized people can access your money.</li></ul>
-          <p class="notes">🎙️ Banks are like fortresses for money! They invest a lot in security. They have thick vaults, alarms, security cameras, and trained guards to ensure that your money is protected from theft or loss. It's much safer than under your mattress!</p>
+          <h2>Key Services: <span class="hl">Saving Money</span></h2>
+          <ul><li>Deposit your money safely.</li><li>Your money is protected.</li><li>Earn a small interest on savings.</li></ul>
+          <p class="notes">🎙️ One of the main services of a bank is to provide a safe place for you to save your money. When you deposit money, the bank keeps it secure for you and even pays you a small amount called interest for keeping it with them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Bank Security</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Main Function 2: Banks <span class="hl">Lend</span> Money (Loans)</h2>
-          <ul><li>Banks give money to people or businesses who need it.</li><li>This is called a 'loan'.</li><li>The borrower repays the money with a little extra (interest).</li></ul>
-          <p class="notes">🎙️ Besides keeping money safe, banks also lend money. If someone needs a large amount of money for a house or a business, a bank can give them a loan. This helps people achieve big goals that they might not be able to afford all at once.</p>
+          <h2>Key Services: <span class="hl">Lending Money</span></h2>
+          <ul><li>Banks provide loans to people.</li><li>Help individuals and businesses.</li><li>Charge interest on borrowed money.</li></ul>
+          <p class="notes">🎙️ Banks also lend money to people and businesses who need it for various purposes, like buying a house or starting a business. They charge a small fee, called interest, for this service, which is how banks earn money.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Giving &amp; Taking</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💸</div><div class="vcap">Loans</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Real Example: Bank Loan for a Home</h2>
-          <ul><li>Mr. Sharma wants to buy a house, which costs a lot.</li><li>He takes a 'home loan' from the bank.</li><li>He repays the loan in small amounts every month for many years.</li></ul>
-          <p class="notes">🎙️ Buying a house is a huge investment. Most people don't have enough money saved up immediately. So, they approach a bank for a home loan. The bank provides the money, and Mr. Sharma gradually pays it back, allowing him to live in his new house.</p>
+          <h2>Example: <span class="hl">Savings Account</span></h2>
+          <ul><li>Most common type of account.</li><li>Deposit and withdraw money anytime.</li><li>Earns a small amount of interest.</li></ul>
+          <p class="notes">🎙️ A Savings Account is where you can deposit your money and withdraw it whenever you need. Banks also give you a small interest on the money you save, meaning your money grows a little over time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Dream Home</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Your Account</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Main Function 3: Easy Money <span class="hl">Transfers</span></h2>
-          <ul><li>Banks help you send money to others quickly.</li><li>You can also receive money from other people.</li><li>No need to carry cash for sending or receiving.</li></ul>
-          <p class="notes">🎙️ Banks make it super easy to send and receive money. If your uncle lives in another city and wants to send you a gift, he doesn't need to mail cash. He can simply transfer it to your bank account, and it reaches you almost instantly.</p>
+          <h2>Example: <span class="hl">Fixed Deposit</span> (FD)</h2>
+          <ul><li>Money kept for a fixed period (e.g., 1 year).</li><li>Cannot be withdrawn easily before time.</li><li>Earns higher interest than a savings account.</li></ul>
+          <p class="notes">🎙️ A Fixed Deposit is where you keep your money in the bank for a fixed period, like one year or five years. You cannot withdraw it easily, but it earns a significantly higher interest rate than a regular savings account.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Money Flow</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Savings Account</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Fixed Deposit</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Real Example: Sending Money to <span class="hl">Nani</span></h2>
-          <ul><li>Your parents want to send money to your Nani (grandmother) in another city.</li><li>They can transfer money from their bank account to Nani's bank account.</li><li>It's fast, safe, and Nani gets the money quickly.</li></ul>
-          <p class="notes">🎙️ This is a very common use of banks. Instead of traveling or sending money through postal services, which can take time, a bank transfer ensures that Nani receives the money within minutes, making life easier for everyone.</p>
+          <h2>Who <span class="hl">Works</span> in a Bank?</h2>
+          <ul><li>Tellers handle cash transactions.</li><li>Customer service helps with queries.</li><li>Managers oversee bank operations.</li></ul>
+          <p class="notes">🎙️ Many people work in a bank, from tellers who handle your cash to customer service representatives who answer your questions, and managers who oversee operations. They all help ensure the bank runs smoothly and serves its customers well.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👵</span></div><div class="vcap">Happy Grandmother</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍💼</div><div class="vcap">Bank Staff</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Types of Bank Accounts: <span class="hl">Savings</span> Account</h2>
-          <ul><li>This is the most common type of account.</li><li>It's for saving money and earning a little extra.</li><li>You can deposit and withdraw money easily.</li></ul>
-          <p class="notes">🎙️ When you open an account at a bank, it's usually a Savings Account. It's designed for people to save their money safely and also earn a small amount of 'interest' on it, which we'll discuss next.</p>
+          <h2>How Banks <span class="hl">Help Us</span>?</h2>
+          <ul><li>Keep money safe and secure.</li><li>Help us save and grow money.</li><li>Provide loans for big purchases.</li><li>Facilitate easy payments.</li></ul>
+          <p class="notes">🎙️ Banks help us in many ways: they keep our money safe, help us earn a little extra through interest, allow us to pay bills easily, and provide loans for big purchases like a house or education.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💲</div><div class="vcap">Saving Money</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Keep Money Safe</span></div><div class="step"><span class="snum">2</span><span>Earn Interest</span></div><div class="step"><span class="snum">3</span><span>Pay Bills Easily</span></div><div class="step"><span class="snum">4</span><span>Get Loans</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Types of Bank Accounts: <span class="hl">Current</span> Account (Briefly)</h2>
-          <ul><li>Mainly for businesses and frequent transactions.</li><li>Money can be deposited and withdrawn many times a day.</li><li>Usually does not earn interest.</li></ul>
-          <p class="notes">🎙️ Another type of account is a Current Account. This is typically used by businesses that need to make and receive many payments throughout the day. Unlike a savings account, it usually doesn't give you extra money for keeping your funds there.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the main reason people put money in a bank?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Think about why banks are so important for keeping our money safe and what advantage they offer over keeping money at home.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💼</div><div class="vcap">Business Account</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>What is <span class="hl">Interest</span>? (The Extra Money!)</h2>
-          <ul><li>Interest is a small amount of extra money the bank pays you.</li><li>It's like a reward for keeping your money with them.</li><li>Your saved money slowly grows bigger!</li></ul>
-          <p class="notes">🎙️ Here's a cool thing about savings accounts: banks give you a little extra money, called interest. It's their way of saying 'thank you' for trusting them with your money. So, your savings don't just stay the same; they slowly increase!</p>
+          <h2>Different <span class="hl">Types</span> of Banks in India</h2>
+          <ul><li>India has various kinds of banks.</li><li>Each type serves different needs.</li><li>Examples include Public, Private, and Cooperative banks.</li></ul>
+          <p class="notes">🎙️ In India, we have different kinds of banks, each serving slightly different purposes and catering to various segments of society. Understanding them helps us choose the right bank for our needs.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Money Growing</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Indian Banking</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>How to Open a Bank Account (Simplified)</h2>
-          <ul><li>Go to a bank with your parents.</li><li>Fill out an application form.</li><li>Provide identity proof (like Aadhaar card) and address proof.</li><li>Make an initial deposit.</li></ul>
-          <p class="notes">🎙️ Opening a bank account is a simple process. Your parents will need to help you with this. You fill out a form, show some identification, and put in your first amount of money. Then, you're officially a bank customer!</p>
+          <h2><span class="hl">Public Sector</span> Banks</h2>
+          <ul><li>Owned and controlled by the government.</li><li>Largest share in Indian banking.</li><li>Examples: State Bank of India, Punjab National Bank.</li></ul>
+          <p class="notes">🎙️ These banks are owned and controlled by the government. They have a large network across the country and play a significant role in India's economy. State Bank of India is a very well-known example.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Fill Form</span></div><div class="step"><span class="snum">2</span><span>Submit ID</span></div><div class="step"><span class="snum">3</span><span>Initial Deposit</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Government Owned</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Who <span class="hl">Works</span> at a Bank?</h2>
-          <ul><li>Bank Tellers: Help with deposits and withdrawals.</li><li>Loan Officers: Help people apply for loans.</li><li>Managers: Oversee all bank operations.</li><li>Security Guards: Keep the bank and money safe.</li></ul>
-          <p class="notes">🎙️ Many people work together to make a bank function smoothly. From the tellers who help you directly at the counter to the managers who make big decisions, everyone plays a crucial role in serving customers and maintaining security.</p>
+          <h2><span class="hl">Private Sector</span> Banks</h2>
+          <ul><li>Owned by private individuals or corporations.</li><li>Focus on technology and customer service.</li><li>Examples: HDFC Bank, ICICI Bank.</li></ul>
+          <p class="notes">🎙️ Private sector banks are owned by private individuals or corporations. They are known for their modern services, technology, and often a strong focus on customer service. HDFC Bank and ICICI Bank are popular examples.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍💼</span><span>👨‍💼</span><span>👨‍💼</span><span>👨‍💼</span></div><div class="vcap">Bank Staff</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏢</div><div class="vcap">Privately Owned</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,47 +264,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Benefits</span> of Using a Bank</h2>
-          <ul><li>Safety: Your money is protected from theft and loss.</li><li>Convenience: Easy to send/receive money and pay bills.</li><li>Growth: Your money earns interest and grows over time.</li></ul>
-          <p class="notes">🎙️ So, why should we use banks? The main reasons are safety, convenience, and the fact that your money can actually grow. It's a smart choice for managing your finances.</p>
+          <h2><span class="hl">Cooperative</span> Banks</h2>
+          <ul><li>Owned and operated by their members.</li><li>Often serve local communities.</li><li>Focus on rural and semi-urban areas.</li></ul>
+          <p class="notes">🎙️ Cooperative banks are unique because they are owned and operated by their members, who are also their customers. They are often found in smaller towns and villages, helping local communities with their financial needs.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Safety</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Convenience</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Growth</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏘️</div><div class="vcap">Community Focused</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
-          <ul><li>What are two main functions of a bank that we discussed?</li><li>Think about how banks help us with our money.</li></ul>
-          <p class="notes">🎙️ Let's quickly test what we've learned! Can you recall two big ways banks help us with our money? Take a moment to think about it.</p>
+          <h2>How to <span class="hl">Open</span> a Bank Account?</h2>
+          <ul><li>Choose a bank and account type.</li><li>Fill out an application form.</li><li>Submit required documents.</li><li>Make an initial deposit.</li></ul>
+          <p class="notes">🎙️ Opening a bank account is a simple process. You need to choose a bank and the type of account, fill out an application form, submit some required documents, and make an initial deposit to activate your account.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose a Bank</span></div><div class="step"><span class="snum">2</span><span>Fill Form</span></div><div class="step"><span class="snum">3</span><span>Submit Documents</span></div><div class="step"><span class="snum">4</span><span>Deposit Money</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
-          <ul><li>Why do banks pay you 'interest' on your savings?</li><li>What is the 'interest' for you?</li></ul>
-          <p class="notes">🎙️ Here's another question! We talked about banks giving you a little extra money called interest. Why do they do that? What is it for?</p>
+          <h2><span class="hl">Documents</span> for Account Opening</h2>
+          <ul><li>Proof of Identity (e.g., Aadhaar Card).</li><li>Proof of Address (e.g., electricity bill).</li><li>Passport-sized photographs.</li><li>This process is called KYC (Know Your Customer).</li></ul>
+          <p class="notes">🎙️ To open an account, you typically need Proof of Identity, like an Aadhaar card or PAN card, and Proof of Address, like an electricity bill or ration card. This is part of the 'Know Your Customer' or KYC process.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📄</span><span>📄</span><span>📄</span><span>📄</span></div><div class="vcap">KYC</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
-          <ul><li>Name one important document or step needed to open a bank account.</li><li>What do you need to show the bank?</li></ul>
-          <p class="notes">🎙️ Last quick question! If you or your parents wanted to open a bank account, what is one key thing you would need to do or provide to the bank?</p>
+          <h2>Understanding Your <span class="hl">Passbook</span></h2>
+          <ul><li>A small book provided by the bank.</li><li>Records all your transactions.</li><li>Shows deposits, withdrawals, and balance.</li></ul>
+          <p class="notes">🎙️ A passbook is a small book issued by the bank that records all your transactions – deposits and withdrawals. It helps you keep track of your money and see how much you have in your account at any time.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Transaction Record</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,33 +312,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Digital</span> Banking: Banking on Your Fingertips!</h2>
-          <ul><li>You can access bank services using mobile apps or websites.</li><li>Check balances, transfer money, and pay bills online.</li><li>It offers convenience 24/7 from anywhere.</li></ul>
-          <p class="notes">🎙️ Today, banking is even easier with digital banking! You don't always need to visit a physical bank. With your parents' help, you can use mobile apps or websites to manage money, making it super convenient.</p>
+          <h2>Understanding <span class="hl">ATM Cards</span></h2>
+          <ul><li>Allows withdrawing money from ATMs.</li><li>Can be used 24/7.</li><li>Requires a Personal Identification Number (PIN).</li></ul>
+          <p class="notes">🎙️ An ATM card, also known as a Debit Card, allows you to withdraw money from an ATM machine anytime, without needing to visit the bank branch. It's very convenient, but you must keep your PIN secret.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📱</div><div class="vcap">Mobile Banking</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Important Bank <span class="hl">Safety</span> Tips</h2>
-          <ul><li>Never share your PIN or passwords with anyone.</li><li>Be careful with online banking; use secure websites.</li><li>Check your bank statements regularly with your parents.</li></ul>
-          <p class="notes">🎙️ While banks are safe, it's important to follow some safety rules. Just like you don't share your house keys, never share your bank PIN or passwords. Always use secure platforms for online transactions.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚨</div><div class="vcap">Alert!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💳</div><div class="vcap">Easy Access</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Recap: What We <span class="hl">Learned</span> Today</h2>
-          <ul><li>Banks are safe places for our money.</li><li>They help us save, lend, and transfer money.</li><li>Savings accounts earn interest, making our money grow.</li><li>Digital banking makes services easy and accessible.</li></ul>
-          <p class="notes">🎙️ Today, we've covered a lot about banks! We learned that they are essential for keeping our money safe, helping people with loans, and making money transfers easy. Remember, banks are a cornerstone of our financial world.</p>
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Name two documents you might need to open a bank account.</li></ul>
+          <p class="notes">🎙️ Let's see if you remember the important papers needed to start your banking journey. Think about what the bank needs to confirm who you are and where you live.</p>
         </div>
         
       </div>
@@ -334,16 +335,29 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Your Financial <span class="hl">Future</span>: Start Saving Early!</h2>
-          <ul><li>Understanding banks is a key part of financial literacy.</li><li>Starting to save early can help you achieve your dreams.</li><li>Banks are partners in your financial journey.</li></ul>
-          <p class="notes">🎙️ Knowing about banks is a great step towards being smart with money. Even small savings can grow over time. As you grow older, banks will be important partners in achieving your financial goals, whether it's for education, a car, or a house.</p>
+          <span class="num">24 / 25</span>
+          <h2>Recap: Banks are Our Financial <span class="hl">Friends</span></h2>
+          <ul><li>Banks keep our money safe.</li><li>They help us save and earn interest.</li><li>Provide services like loans and easy payments.</li><li>Different types of banks serve various needs.</li></ul>
+          <p class="notes">🎙️ Today, we learned that banks are safe places for our money, they help us save and borrow, and offer many useful services like ATM cards and passbooks. They are indeed our financial friends, helping us manage our money wisely!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Bright Future</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Key Learnings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Quiz</span> Time!</h2>
+          <ul><li>Imagine you have ₹100. Why is it safer to keep it in a bank than under your pillow?</li></ul>
+          <p class="notes">🎙️ Think about all the benefits we discussed today. What makes a bank a better choice for your hard-earned money compared to keeping it hidden at home? Share your thoughts!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Financial Literacy</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

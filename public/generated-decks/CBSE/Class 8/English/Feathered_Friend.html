@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Feathered Friend — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Feathered Friend</span>!</h2>
-          <ul><li>Exploring the wonderful world of birds.</li><li>Understanding their lives and importance.</li><li>Learning how we can protect them.</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today, we embark on a beautiful journey to explore the world of our 'Feathered Friends'. Get ready to learn about the amazing birds around us.</p>
+          <h2><span class="hl">Welcome</span> to 'Feathered Friend'!</h2>
+          <ul><li>Exploring the world of birds</li><li>Understanding their lives and habitats</li><li>Learning about their importance</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey into the world of our 'Feathered Friends'. This chapter will introduce us to the amazing lives of birds and why they are so special.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is a <span class="hl">Feathered Friend</span>?</h2>
-          <ul><li>Birds are wonderful creatures.</li><li>They have feathers, wings, and lay eggs.</li><li>Most birds can fly high in the sky!</li></ul>
-          <p class="notes">🎙️ Our 'feathered friends' are simply birds! These incredible animals are easily recognized by their unique covering of feathers, their ability to fly with wings, and how they reproduce by laying eggs.</p>
+          <ul><li>It refers to birds</li><li>Animals covered in feathers</li><li>They can fly (mostly!)</li></ul>
+          <p class="notes">🎙️ When we say 'feathered friend', we are talking about birds! They are unique creatures, primarily defined by their beautiful feathers, which are essential for flight and warmth. Let's dive deeper into their characteristics.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐦</div><div class="vcap">Our Bird Friends</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐦</div><div class="vcap">A bird, our feathered friend</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Why Birds are <span class="hl">Special</span></h2>
-          <ul><li>Beautiful colours and melodious songs.</li><li>Help nature by spreading seeds and pollinating flowers.</li><li>An important part of our ecosystem.</li></ul>
-          <p class="notes">🎙️ Birds are not just pretty to look at; they play vital roles in nature. From their melodious songs to helping plants grow by spreading seeds, they contribute greatly to our environment.</p>
+          <h2><span class="hl">Why Study</span> Birds?</h2>
+          <ul><li>They are part of our ecosystem</li><li>Indicators of environmental health</li><li>Fascinating behaviours and adaptations</li></ul>
+          <p class="notes">🎙️ Studying birds is not just interesting; it's important! Birds play crucial roles in our environment, from pollination to pest control. They also tell us a lot about the health of our planet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Nature's Beauty</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Birds in the ecosystem</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Common Indian Birds: The <span class="hl">Sparrow</span></h2>
-          <ul><li>Small, brown, and chirpy.</li><li>Often seen in gardens and near homes.</li><li>Loves grains and small insects.</li></ul>
-          <p class="notes">🎙️ Let's meet some common birds we see in India. The sparrow is a tiny, friendly bird, often found close to human settlements. They love to chirp and flit around our gardens.</p>
+          <h2>Bird <span class="hl">Habitats</span>: Where do they live?</h2>
+          <ul><li>Forests, wetlands, deserts</li><li>Mountains, oceans, cities</li><li>Birds adapt to many environments</li></ul>
+          <p class="notes">🎙️ Birds are found almost everywhere on Earth! From the dense Amazon rainforests to your own backyard, different species have adapted to specific habitats. Their homes provide food, shelter, and safety.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🕊️</span><span>🕊️</span><span>🕊️</span></div><div class="vcap">Friendly Sparrows</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Diverse bird homes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Common Indian Birds: The <span class="hl">Crow</span></h2>
-          <ul><li>Large, black, and intelligent.</li><li>Known for its distinctive 'caw-caw' sound.</li><li>Eats almost anything, a great scavenger!</li></ul>
-          <p class="notes">🎙️ Next is the crow, a common sight with its glossy black feathers and distinctive call. Crows are very intelligent and adaptable birds, often seen scavenging for food.</p>
+          <h2>Types of <span class="hl">Feathers</span>: More than just flying!</h2>
+          <ul><li>Flight feathers for movement</li><li>Down feathers for warmth</li><li>Contour feathers for body shape</li></ul>
+          <p class="notes">🎙️ Feathers are truly amazing! They come in different types, each with a specific function. Flight feathers help birds soar, down feathers keep them warm like a blanket, and contour feathers give them their sleek shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦅</span><span>🦅</span></div><div class="vcap">Smart Crows</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Flight</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Down</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Contour</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Common Indian Birds: The <span class="hl">Pigeon</span></h2>
-          <ul><li>Grey and plump, with a cooing sound.</li><li>Often found in cities and towns.</li><li>Eats seeds and various grains.</li></ul>
-          <p class="notes">🎙️ Pigeons are another very common bird, especially in urban areas. They are known for their cooing sounds and their ability to find food in busy environments.</p>
+          <h2>Different <span class="hl">Beaks</span>: Tools for Eating</h2>
+          <ul><li>Adapted to their diet</li><li>Seed-eaters have short, strong beaks</li><li>Nectar-feeders have long, thin beaks</li></ul>
+          <p class="notes">🎙️ A bird's beak is like its fork, spoon, and knife all rolled into one! Its shape and size are perfectly suited to the type of food the bird eats. Think about a parrot's strong beak for nuts versus a hummingbird's delicate one for flowers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐦‍⬛</span><span>🐦‍⬛</span><span>🐦‍⬛</span><span>🐦‍⬛</span></div><div class="vcap">City Pigeons</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Seed-eater</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Nectar-feeder</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Predator</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Bird <span class="hl">Habitats</span>: Where Birds Live</h2>
-          <ul><li>Birds live in diverse places: forests, deserts, mountains.</li><li>Also found near water bodies like lakes and rivers.</li><li>Each habitat provides specific food, water, and shelter.</li></ul>
-          <p class="notes">🎙️ Just like us, birds need a place to live, called a habitat. Birds live in diverse places, from dense forests to vast deserts, each chosen for its ability to provide food, water, and safety.</p>
+          <h2>Bird <span class="hl">Nests</span>: Cozy Homes for Eggs</h2>
+          <ul><li>Built for laying eggs and raising chicks</li><li>Made from twigs, mud, grass, and leaves</li><li>Vary greatly in size and structure</li></ul>
+          <p class="notes">🎙️ Nests are incredible examples of bird engineering! They are carefully constructed homes, primarily for protecting eggs and young chicks from predators and weather. Each species has a unique way of building its nest.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Bird Homes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">A bird's nest</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Nests</span>: Bird Homes</h2>
-          <ul><li>Built by birds primarily to lay eggs.</li><li>Protects young chicks from predators and weather.</li><li>Made from twigs, leaves, mud, grass, and other materials.</li></ul>
-          <p class="notes">🎙️ A nest is a bird's special home, primarily built for laying eggs and raising their young. It's a safe haven, crafted meticulously from various natural materials found around them.</p>
+          <h2>Bird <span class="hl">Songs</span>: Nature's Music</h2>
+          <ul><li>Used for communication</li><li>Attracting mates, warning of danger</li><li>Each species has distinct calls</li></ul>
+          <p class="notes">🎙️ Listen closely, and you'll hear nature's symphony! Bird songs and calls are vital for communication. They use different sounds to attract a partner, defend their territory, or alert others to a nearby threat.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">Cozy Nests</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Bird singing</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Types</span> of Nests</h2>
-          <ul><li>Cup-shaped nests in tree branches.</li><li>Cavity nests inside tree holes.</li><li>Platform nests, flat and often large.</li><li>Ground nests, hidden among vegetation.</li></ul>
-          <p class="notes">🎙️ Birds are incredible architects! They build many types of nests. Some are delicate cups, others are in tree holes, some are flat platforms, and some are simply depressions on the ground.</p>
+          <h2><span class="hl">Migration</span>: Long Journeys</h2>
+          <ul><li>Seasonal movement of birds</li><li>Travel to warmer climates for food</li><li>Return to breeding grounds</li></ul>
+          <p class="notes">🎙️ Some birds are incredible travelers! Migration is the regular, seasonal movement of birds, often over vast distances. They undertake these epic journeys to find food and suitable breeding grounds as seasons change.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cup Nest</span></div><div class="step"><span class="snum">2</span><span>Cavity Nest</span></div><div class="step"><span class="snum">3</span><span>Platform Nest</span></div><div class="step"><span class="snum">4</span><span>Ground Nest</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✈️</div><div class="vcap">Birds migrating</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Bird Food</span>: What Do Birds Eat?</h2>
-          <ul><li>Seeds, fruits, and nectar from flowers.</li><li>Insects, worms, and small fish.</li><li>Diet varies greatly depending on the bird species.</li></ul>
-          <p class="notes">🎙️ Birds have diverse diets. Some are vegetarians, eating seeds and fruits, while others are insectivores, enjoying worms and bugs. Some larger birds even hunt small animals or fish!</p>
+          <h2>Example: The Common <span class="hl">Sparrow</span></h2>
+          <ul><li>A small, familiar bird</li><li>Often seen in urban and rural areas</li><li>Known for its chirping sound</li></ul>
+          <p class="notes">🎙️ Let's take a closer look at a very common feathered friend, the sparrow. You've probably seen and heard them many times. Sparrows are adaptable birds that live closely with humans.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍓</div><div class="vcap">Bird Menu</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕊️</div><div class="vcap">A common sparrow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>How Birds <span class="hl">Fly</span></h2>
-          <ul><li>Strong wings push air downwards to create lift.</li><li>Lightweight bones and hollow feathers reduce weight.</li><li>Aerodynamic body shape helps reduce drag.</li></ul>
-          <p class="notes">🎙️ Flight is one of the most amazing abilities of birds. They use their powerful wings to generate lift and thrust, combined with their light bodies and streamlined shapes, to soar through the air.</p>
+          <h2>Sparrow's <span class="hl">Diet</span>: What do they eat?</h2>
+          <ul><li>Mainly seeds and grains</li><li>Also insects, berries, and scraps</li><li>Opportunistic feeders</li></ul>
+          <p class="notes">🎙️ Sparrows are not picky eaters! Their diet primarily consists of seeds and grains, which they find easily in human settlements and fields. They also supplement their diet with insects, especially when feeding their young.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✈️</div><div class="vcap">Flight Mechanics</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span></div><div class="vcap">Sparrows eat seeds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Migration</span>: A Long Journey</h2>
-          <ul><li>Birds travel incredibly long distances.</li><li>They move from colder regions to warmer places.</li><li>This journey happens seasonally, often every year.</li></ul>
-          <p class="notes">🎙️ Many birds undertake incredible journeys called migration. They fly thousands of kilometers, often from colder regions to warmer ones, to find food and suitable breeding grounds.</p>
+          <h2>Sparrow's <span class="hl">Nest</span>: Where do they build?</h2>
+          <ul><li>Often in cavities or crevices</li><li>Under eaves, in bushes, or birdhouses</li><li>Messy, dome-shaped nests</li></ul>
+          <p class="notes">🎙️ Sparrows are clever at finding safe spots for their nests. They prefer building in sheltered cavities, like holes in walls or dense bushes, to protect their eggs and chicks. Their nests might look a bit untidy but are very effective.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Travel</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Sparrow's nest in a tree</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Why</span> Birds Migrate</h2>
-          <ul><li>To find abundant food sources during winter.</li><li>To escape harsh, freezing cold weather.</li><li>To find safe and suitable places for breeding and raising young.</li></ul>
-          <p class="notes">🎙️ Birds migrate for essential reasons: escaping freezing winters where food becomes scarce, finding warmer climates, and locating safe, abundant areas to raise their young.</p>
+          <h2>Quick Check 1: <span class="hl">True or False</span>?</h2>
+          <ul><li>All birds can fly. (True/False)</li><li>Feathers help birds stay warm. (True/False)</li></ul>
+          <p class="notes">🎙️ Time for a quick check of your understanding! Read these statements and decide if they are true or false. Think back to what we just discussed about feathers and bird characteristics.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Food Scarcity</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cold Weather</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Breeding Grounds</div></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Quick Check</span>! What have we learned?</h2>
-          <ul><li>What are two unique features of a bird?</li><li>Name two common Indian birds we discussed.</li><li>What is a bird's home called, and what is its main purpose?</li></ul>
-          <p class="notes">🎙️ Let's see how well you've been listening! Think about these questions and recall the key points we've discussed so far.</p>
+          <h2>Quick Check 2: <span class="hl">Fill in the Blank</span></h2>
+          <ul><li>Birds build ______ to lay their eggs.</li><li>A bird's ______ is adapted to its diet.</li></ul>
+          <p class="notes">🎙️ Here are two fill-in-the-blank questions for you. Use the words we've learned today to complete these sentences. This will help reinforce our new vocabulary.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Bird Sounds</span>: Their Language</h2>
-          <ul><li>Birds communicate through chirps, calls, and songs.</li><li>Used to warn of danger to other birds.</li><li>Also used to attract mates and mark their territory.</li></ul>
-          <p class="notes">🎙️ Birds communicate through a variety of sounds – from simple chirps to complex songs. These sounds are their language, used for everything from warning others of predators to attracting a partner.</p>
+          <h2>Quick Check 3: <span class="hl">Match the Beak</span></h2>
+          <ul><li>Long, thin beak: (a) Seed-eater, (b) Nectar-feeder</li><li>Short, strong beak: (a) Seed-eater, (b) Fish-eater</li></ul>
+          <p class="notes">🎙️ Let's test your knowledge about bird beaks and their functions. Match the description of the beak to the correct type of bird. Remember how different beaks help birds eat different foods.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Nature's Music</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>The <span class="hl">Importance</span> of Birds</h2>
-          <ul><li>Help control pests by eating harmful insects.</li><li>Pollinate flowers and spread seeds, aiding plant growth.</li><li>Clean up the environment as natural scavengers.</li></ul>
-          <p class="notes">🎙️ Birds are crucial for a healthy environment. They help control insect populations, aid in plant reproduction by pollinating flowers and dispersing seeds, and even act as natural clean-up crews.</p>
+          <h2>Why are Birds <span class="hl">Important</span>? (Ecosystem Role)</h2>
+          <ul><li>Pollinate plants</li><li>Disperse seeds</li><li>Control insect populations</li></ul>
+          <p class="notes">🎙️ Birds are not just beautiful; they are vital for a healthy environment! They help plants grow by pollinating flowers and spreading seeds. Many birds also help control pests by eating insects, protecting our crops.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Nature's Helpers</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Pollination</span></div><div class="step"><span class="snum">2</span><span>Seed Dispersal</span></div><div class="step"><span class="snum">3</span><span>Pest Control</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Protecting</span> Our Feathered Friends</h2>
-          <ul><li>Birds face many threats in today's world.</li><li>It's our collective duty to help and protect them.</li><li>Even small actions can make a big difference.</li></ul>
-          <p class="notes">🎙️ Our feathered friends need our help. They face many challenges, and it's our responsibility to protect them. Even small efforts from us can contribute significantly to their well-being.</p>
+          <h2><span class="hl">Threats</span> to Birds: What Harms Them?</h2>
+          <ul><li>Habitat loss and destruction</li><li>Pollution and pesticides</li><li>Climate change</li></ul>
+          <p class="notes">🎙️ Sadly, many birds face serious threats today. The biggest dangers include the loss of their natural homes, pollution from chemicals, and the changing climate, which affects their food sources and migration patterns.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Care for Birds</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Dangers to birds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Threats</span> to Birds</h2>
-          <ul><li>Habitat loss due to deforestation and urbanization.</li><li>Pollution from plastic waste and chemicals.</li><li>Illegal hunting and poaching in some areas.</li></ul>
-          <p class="notes">🎙️ Birds face serious threats. Loss of their natural homes due to human development, pollution from our waste, and illegal hunting all endanger bird populations worldwide.</p>
+          <h2>How Can We <span class="hl">Help Birds</span>?</h2>
+          <ul><li>Plant native trees and shrubs</li><li>Reduce pesticide use</li><li>Provide water and shelter</li></ul>
+          <p class="notes">🎙️ We can all do our part to protect our feathered friends! Simple actions like planting bird-friendly gardens, reducing chemical use, and providing fresh water can make a huge difference to local bird populations.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Habitat Loss</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Pollution</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Hunting</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Helping hands for birds</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>How We Can <span class="hl">Help</span> Birds</h2>
-          <ul><li>Plant more trees and create green spaces.</li><li>Reduce plastic waste and avoid littering.</li><li>Do not disturb nests or young birds.</li></ul>
-          <p class="notes">🎙️ We can all contribute to bird conservation. Planting native trees, reducing our plastic use, and being careful not to disturb their nests are simple yet effective ways to help.</p>
+          <h2>Activity Idea: <span class="hl">Bird Watching</span>!</h2>
+          <ul><li>Observe birds in your garden or park</li><li>Note their colours, sounds, and behaviour</li><li>Use a notebook or a bird guide</li></ul>
+          <p class="notes">🎙️ One of the best ways to learn about birds is to observe them! Grab a notebook and a pair of binoculars, and spend some time watching birds in your surroundings. You'll be amazed by what you discover!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Plant Trees</span></div><div class="step"><span class="snum">2</span><span>Reduce Waste</span></div><div class="step"><span class="snum">3</span><span>Protect Nests</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Observe birds with binoculars</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Story Time: A Friendly <span class="hl">Robin</span></h2>
-          <ul><li>A little robin built a nest near a window.</li><li>The children watched it lay eggs and raise chicks.</li><li>They learned to be quiet, respectful, and observant.</li></ul>
-          <p class="notes">🎙️ Imagine a friendly robin building its nest right outside your window. Observing such a sight teaches us patience, respect for nature, and the miracle of new life.</p>
+          <h2><span class="hl">Vocabulary</span> Builder: New Words</h2>
+          <ul><li>Let's learn some important terms</li><li>These words will help you describe birds</li><li>Expand your English language skills</li></ul>
+          <p class="notes">🎙️ Now, let's enrich our vocabulary with some new words related to birds. Understanding these terms will help you better describe and discuss the fascinating world of our feathered friends.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐣</span><span>🐣</span><span>🐣</span></div><div class="vcap">New Life</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Learning new words</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,47 +300,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Vocabulary</span> Builder</h2>
-          <ul><li>Feathered: Covered with feathers.</li><li>Habitat: The natural home or environment of an animal.</li><li>Migrate: To move from one region or habitat to another according to the seasons.</li><li>Ecosystem: A community of living organisms in conjunction with the nonliving components of their environment.</li></ul>
-          <p class="notes">🎙️ Let's review some important words we learned today. Understanding these terms will help you better describe and appreciate the world of birds.</p>
+          <h2>New Word 1: '<span class="hl">Chirp</span>'</h2>
+          <ul><li>Meaning: A short, sharp, high-pitched sound</li><li>Often made by small birds</li><li>Example: The sparrows began to chirp loudly in the morning.</li></ul>
+          <p class="notes">🎙️ Our first new word is 'chirp'. This is the characteristic sound that many small birds make. Imagine hearing the lively chirping of sparrows outside your window early in the morning.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">New Words</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Quick Check</span>! More Questions!</h2>
-          <ul><li>Name two ways birds help nature and humans.</li><li>What is one major threat that birds face today?</li><li>Mention one simple action we can take to help protect birds.</li></ul>
-          <p class="notes">🎙️ Time for another quick check! Reflect on the importance of birds and the ways we can contribute to their safety and well-being.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2><span class="hl">Recap</span>: What We Learned Today</h2>
-          <ul><li>Birds are unique feathered creatures with amazing abilities.</li><li>They have diverse habitats, diets, and communication methods.</li><li>Birds play vital roles in our ecosystem and environment.</li><li>We must understand and protect them from various threats.</li></ul>
-          <p class="notes">🎙️ To summarize, we discovered that birds are extraordinary creatures, essential to our planet. We explored their lives, their importance, and our shared responsibility to protect them.</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔊</div><div class="vcap">Sound of chirping</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Activity</span> Idea: Bird Watching Journal</h2>
-          <ul><li>Observe birds in your garden, balcony, or a nearby park.</li><li>Note down their colour, size, unique features, and sounds.</li><li>Draw simple sketches of the birds you see and identify them.</li></ul>
-          <p class="notes">🎙️ Here's a fun activity for you! Start a bird-watching journal. Observing birds closely will help you connect with nature and appreciate their beauty even more.</p>
+          <span class="num">22 / 25</span>
+          <h2>New Word 2: '<span class="hl">Perch</span>'</h2>
+          <ul><li>Meaning: To rest on something, like a branch</li><li>A place where a bird rests</li><li>Example: The parrot loved to perch on its owner's shoulder.</li></ul>
+          <p class="notes">🎙️ Next, we have the word 'perch'. This describes how birds sit and rest, usually on a branch, wire, or any elevated spot. Think of a crow perching on a telephone wire, observing its surroundings.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Your Own Journal</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪑</div><div class="vcap">Bird on a perch</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>New Word 3: '<span class="hl">Plumage</span>'</h2>
+          <ul><li>Meaning: A bird's complete covering of feathers</li><li>Refers to the colour, pattern, and arrangement</li><li>Example: The peacock displayed its magnificent plumage.</li></ul>
+          <p class="notes">🎙️ Our final new word is 'plumage'. This term refers to all the feathers on a bird, including their colour, pattern, and how they are arranged. It's what makes each bird species look so unique and beautiful.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Colorful bird plumage</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: What We've Learned</h2>
+          <ul><li>Birds are unique feathered creatures</li><li>They have diverse habitats, beaks, and nests</li><li>Birds play vital roles in nature</li><li>We can help protect them</li></ul>
+          <p class="notes">🎙️ Let's quickly review the key takeaways from our lesson today. We've explored the fascinating world of birds, understanding their features, homes, and their immense importance to our planet. Remember their beauty and their fragility.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Thank You! Let's <span class="hl">Protect</span> Our Feathered Friends!</h2>
-          <ul><li>Be kind and respectful to all living creatures.</li><li>Spread awareness about bird conservation among friends and family.</li><li>Continue to enjoy and cherish the beauty of nature around us.</li></ul>
-          <p class="notes">🎙️ Thank you for your enthusiastic participation! Remember, every small effort counts in protecting these beautiful creatures. Let's continue to be good guardians of our feathered friends.</p>
+          <h2><span class="hl">Thank You</span> &amp; Next Steps!</h2>
+          <ul><li>Continue observing birds around you</li><li>Read more about different bird species</li><li>Think about how you can help local birds</li></ul>
+          <p class="notes">🎙️ Thank you for joining me on this journey into the world of 'Feathered Friend'. I encourage you to continue exploring and learning about these incredible creatures. Every small effort to understand and protect them makes a difference!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 8 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

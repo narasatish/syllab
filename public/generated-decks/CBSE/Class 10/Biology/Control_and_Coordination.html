@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Control and Coordination — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Control and Coordination: The Body's <span class="hl">Symphony</span></h2>
-          <ul><li>How do our bodies manage everything?</li><li>From thinking to blinking, it's all coordinated!</li><li>Explore the amazing systems that keep us in sync.</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today, we embark on an incredible journey into how our bodies are perfectly managed, just like a grand orchestra playing a beautiful symphony. Every part works together, thanks to 'Control and Coordination'.</p>
+          <h2>Control and Coordination: The <span class="hl">Orchestra</span> of Life</h2>
+          <ul><li>How do living organisms manage their body functions?</li><li>What helps us react to changes around us?</li><li>Explore the fascinating systems that keep life in harmony.</li></ul>
+          <p class="notes">🎙️ Welcome, students! Today, we embark on an exciting journey into the world of 'Control and Coordination'. Just like an orchestra needs a conductor to make beautiful music, our bodies need systems to work together perfectly. We'll discover how our bodies manage everything from thinking to running.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is <span class="hl">Control</span> &amp; Coordination?</h2>
-          <ul><li>Maintaining a stable internal environment (homeostasis).</li><li>Responding to changes in the environment.</li><li>Ensuring all body parts work together efficiently.</li></ul>
-          <p class="notes">🎙️ Imagine your body as a complex machine. Control means regulating all its parts and processes. Coordination means making sure these parts work together harmoniously. It's about keeping everything in balance and reacting appropriately to the world around us.</p>
+          <h2><span class="hl">What</span> is Control and Coordination?</h2>
+          <ul><li>Control: Regulating various body activities.</li><li>Coordination: Different parts working together efficiently.</li><li>Ensures proper functioning and response to stimuli.</li></ul>
+          <p class="notes">🎙️ Control refers to the ability to regulate and manage various processes within an organism, like maintaining body temperature. Coordination is about ensuring that all these different parts and processes work together smoothly and in sync. Together, they allow an organism to respond appropriately to its environment and maintain internal balance.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Body's Machinery</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Body's Control Center</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Why is Control &amp; Coordination <span class="hl">Important</span>?</h2>
-          <ul><li>Survival: Reacting to danger, finding food.</li><li>Growth &amp; Development: Regulating internal processes.</li><li>Daily Activities: Walking, talking, learning.</li></ul>
-          <p class="notes">🎙️ Without control and coordination, we couldn't survive! Think about running from a threat, or even just eating food. These actions require precise timing and collaboration between muscles, senses, and the brain. It's crucial for every aspect of life.</p>
+          <h2>Why is Control and Coordination <span class="hl">Essential</span>?</h2>
+          <ul><li>Survival: Respond to dangers and opportunities.</li><li>Efficiency: All organs work in harmony.</li><li>Homeostasis: Maintaining stable internal conditions.</li></ul>
+          <p class="notes">🎙️ Without control and coordination, organisms wouldn't be able to survive. Imagine trying to catch a ball if your eyes, brain, and hands weren't coordinated! These systems are crucial for responding to external changes, for example, running away from danger, and also for maintaining vital internal conditions like body temperature and blood sugar levels.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Survival &amp; Action</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Precise Functioning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Types</span> of Coordination: Nervous vs. Hormonal</h2>
-          <ul><li>Nervous System: Fast, electrical signals, short-lived effects.</li><li>Hormonal System: Slow, chemical signals (hormones), long-lasting effects.</li><li>Both work together for overall body regulation.</li></ul>
-          <p class="notes">🎙️ Our bodies use two main systems for coordination. The nervous system is like a super-fast internet connection, sending quick messages. The hormonal system is more like sending letters, slower but with effects that last longer. Both are vital and often interact.</p>
+          <h2><span class="hl">Two</span> Main Systems of Coordination</h2>
+          <ul><li>Nervous System: Fast, electrical impulses.</li><li>Endocrine System: Slower, chemical messengers (hormones).</li></ul>
+          <p class="notes">🎙️ In animals, there are two primary systems responsible for control and coordination. The nervous system acts like a high-speed internet network, sending rapid electrical signals. The endocrine system, on the other hand, is like a postal service, delivering chemical messages called hormones through the bloodstream, which have a slower but often longer-lasting effect.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Nervous</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Hormonal</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Nervous System</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Endocrine System</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,21 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>The Nervous System: Our Body's <span class="hl">Communication</span> Network</h2>
-          <ul><li>Receives information from the environment.</li><li>Processes information and makes decisions.</li><li>Sends commands to muscles and glands.</li></ul>
-          <p class="notes">🎙️ The nervous system is the ultimate communication network. It gathers information through our senses, like seeing or hearing, then the brain interprets this and decides what to do, finally sending instructions to our muscles to act. It's incredibly complex and efficient.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain &amp; Nerves</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 25</span>
-          <h2><span class="hl">Neurons</span>: The Building Blocks of the Nervous System</h2>
-          <ul><li>Specialized cells that transmit electrical signals.</li><li>Also called nerve cells.</li><li>Billions of neurons form an intricate network.</li></ul>
-          <p class="notes">🎙️ Just as bricks build a house, neurons are the fundamental units of our nervous system. These tiny cells are masters of communication, capable of carrying electrical messages throughout our body. Imagine billions of tiny wires all connected!</p>
+          <h2>The Nervous System: Our Body's <span class="hl">Wiring</span></h2>
+          <ul><li>Network of specialized cells called neurons.</li><li>Transmits information rapidly throughout the body.</li><li>Controls voluntary and involuntary actions.</li></ul>
+          <p class="notes">🎙️ The nervous system is an incredibly complex and efficient communication network. It's made up of billions of tiny cells called neurons that act like electrical wires, carrying messages at astonishing speeds. This system allows us to think, feel, move, and react to everything around us, from seeing a friend to feeling pain.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electrical Signals</div></div></div>
       </div>
@@ -118,12 +119,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Structure</span> of a Neuron: Dendrites, Cell Body, Axon</h2>
-          <ul><li>Dendrites: Receive information.</li><li>Cell Body (Soma): Processes information.</li><li>Axon: Transmits information away.</li></ul>
-          <p class="notes">🎙️ A neuron has three main parts. Dendrites are like antennas, picking up signals. The cell body is the control center. The axon is a long cable that carries the signal away to other neurons or muscles. This structure allows for one-way, efficient signal transmission.</p>
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Neurons</span>: Building Blocks of the Nervous System</h2>
+          <ul><li>Dendrite: Receives signals.</li><li>Cell Body: Processes signals.</li><li>Axon: Transmits signals away.</li><li>Nerve Ending: Passes signal to next neuron/effector.</li></ul>
+          <p class="notes">🎙️ Neurons are the fundamental units of the nervous system. Each neuron has distinct parts, each with a specific role in transmitting information. Dendrites are like antennas, picking up signals, the cell body processes them, and the axon acts as a long cable carrying the signal away. Finally, nerve endings release neurotransmitters to pass the message on.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Blausen_0657_MultipolarNeuron.png?width=500" data-fb="🌿" alt="A neuron (nerve cell) is the basic unit of the nervous system. It receives, processes, and"/><div class="vcap">A neuron (nerve cell) is the basic unit of the nervous system. It receives, processes, and</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Dendrite</span></div><div class="step"><span class="snum">2</span><span>Cell Body</span></div><div class="step"><span class="snum">3</span><span>Axon</span></div><div class="step"><span class="snum">4</span><span>Nerve Ending</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>How Nerve Impulses <span class="hl">Travel</span></h2>
+          <ul><li>Electrical impulse generated at dendrite.</li><li>Travels along the axon.</li><li>Crosses a synapse (gap) to the next neuron using chemicals.</li><li>A rapid chain reaction.</li></ul>
+          <p class="notes">🎙️ When a stimulus is received, an electrical signal, called a nerve impulse, is generated. This impulse travels swiftly along the neuron's axon. When it reaches the end of the neuron, it doesn't jump directly to the next; instead, it releases chemical messengers called neurotransmitters into a tiny gap called a synapse, which then excite the next neuron.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span></div><div class="vcap">Signal Flow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>How Nerve <span class="hl">Impulses</span> Travel: The Synapse</h2>
-          <ul><li>Electrical signal travels along the axon.</li><li>At the nerve ending, chemicals (neurotransmitters) are released.</li><li>These chemicals cross the synapse and bind to the next neuron.</li></ul>
-          <p class="notes">🎙️ Nerve impulses are like a relay race. The electrical signal rushes down the axon. When it reaches the end, it doesn't jump to the next neuron directly. Instead, it releases chemical messengers called neurotransmitters across a tiny gap called a synapse, which then pass the message on.</p>
+          <h2>Real-life Example: Reflex Arc</h2>
+          <ul><li>Sudden, involuntary response to a stimulus.</li><li>Protective mechanism, no conscious thought.</li><li>Example: Withdrawing hand from a hot object.</li></ul>
+          <p class="notes">🎙️ A reflex arc is an amazing example of how our nervous system protects us. It's an automatic, unconscious action that happens incredibly fast, often before your brain even fully registers what happened. Imagine touching a hot stove; your hand pulls away instantly, thanks to a reflex arc, preventing serious injury.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Signal from Dendrite</span></div><div class="step"><span class="snum">2</span><span>Travels Axon</span></div><div class="step"><span class="snum">3</span><span>Neurotransmitter Release</span></div><div class="step"><span class="snum">4</span><span>Signal to Next Neuron</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Patellar_tendon_reflex_arc.png?width=500" data-fb="🔥" alt="A reflex arc is the neural pathway that controls a reflex action — an automatic, rapid res"/><div class="vcap">A reflex arc is the neural pathway that controls a reflex action — an automatic, rapid res</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Reflex Action</span>: Our Body's Automatic Responses</h2>
-          <ul><li>Sudden, involuntary response to a stimulus.</li><li>No conscious thought involved.</li><li>Protective mechanism for quick reactions.</li></ul>
-          <p class="notes">🎙️ Have you ever accidentally touched something hot and pulled your hand back immediately, even before you felt the pain? That's a reflex action! It's an automatic, unconscious response designed to protect us from harm, happening incredibly fast.</p>
+          <h2><span class="hl">Pathway</span> of a Reflex Arc</h2>
+          <ul><li>Receptor: Detects stimulus (e.g., skin sensors).</li><li>Sensory Neuron: Carries signal to spinal cord.</li><li>Spinal Cord: Processes and sends signal.</li><li>Motor Neuron: Carries signal to muscle.</li><li>Effector: Muscle contracts, causing action.</li></ul>
+          <p class="notes">🎙️ The reflex arc follows a specific pathway. A receptor in your skin detects heat, sending a signal via a sensory neuron to your spinal cord. The spinal cord quickly processes this and sends a command through a motor neuron to the muscles in your arm, which then contract to pull your hand away. This bypasses the brain for speed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Touching a Hot Object</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Receptor</span></div><div class="step"><span class="snum">2</span><span>Sensory Neuron</span></div><div class="step"><span class="snum">3</span><span>Spinal Cord</span></div><div class="step"><span class="snum">4</span><span>Motor Neuron</span></div><div class="step"><span class="snum">5</span><span>Effector</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>The Reflex Arc <span class="hl">Pathway</span>: A Shortcut for Speed</h2>
-          <ul><li>Stimulus detected by receptors.</li><li>Sensory neuron carries signal to spinal cord.</li><li>Interneuron connects sensory to motor neuron.</li><li>Motor neuron sends signal to effector (muscle/gland).</li></ul>
-          <p class="notes">🎙️ The reflex arc is a direct route that bypasses the brain for super-fast reactions. The signal goes from the receptor, through a sensory neuron, directly to the spinal cord, then immediately back out via a motor neuron to the muscle. The brain gets the message later, which is why you feel the pain *after* you've reacted.</p>
+          <h2>The Human Brain: Our <span class="hl">Command</span> Center</h2>
+          <ul><li>Most complex organ in the body.</li><li>Controls thoughts, memory, emotions, movements.</li><li>Protected by the skull and cerebrospinal fluid.</li></ul>
+          <p class="notes">🎙️ The human brain is truly the marvel of evolution, acting as the ultimate command and control center for our entire body. It's responsible for everything that makes us human – our ability to learn, remember, feel, and create. This vital organ is housed safely within the skull and cushioned by a special fluid.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Patellar_tendon_reflex_arc.png?width=500" data-fb="🌿" alt="A reflex arc is the neural pathway that controls a reflex action — an automatic, rapid res"/><div class="vcap">A reflex arc is the neural pathway that controls a reflex action — an automatic, rapid res</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Skull_and_brain_normal_human.svg?width=500" data-fb="💡" alt="The human brain is the central organ of the nervous system. It is protected by the skull a"/><div class="vcap">The human brain is the central organ of the nervous system. It is protected by the skull a</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>The Human <span class="hl">Brain</span>: Our Body's Command Centre</h2>
-          <ul><li>Coordinates all conscious and unconscious activities.</li><li>Responsible for thinking, memory, emotions, senses.</li><li>Protected by the skull and meninges.</li></ul>
-          <p class="notes">🎙️ The brain is arguably the most complex organ in the universe! It's where all our thoughts, feelings, memories, and decisions come from. It continuously processes information from our senses and sends out commands to keep our body functioning. It's truly our master controller.</p>
+          <h2><span class="hl">Main</span> Parts of the Brain</h2>
+          <ul><li>Forebrain: Cerebrum, controls thinking, voluntary actions.</li><li>Midbrain: Connects forebrain and hindbrain, visual/auditory reflexes.</li><li>Hindbrain: Cerebellum, Pons, Medulla; controls balance, involuntary actions.</li></ul>
+          <p class="notes">🎙️ The brain is broadly divided into three main regions. The forebrain is the largest part, handling higher-level functions. The midbrain acts as a relay station, connecting the other two. The hindbrain is crucial for maintaining basic life functions and coordination. Each part plays a unique and essential role in our daily lives.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Skull_and_brain_normal_human.svg?width=500" data-fb="🧠" alt="The human brain is the central organ of the nervous system. It is protected by the skull a"/><div class="vcap">The human brain is the central organ of the nervous system. It is protected by the skull a</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Forebrain</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Midbrain</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Hindbrain</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Parts</span> of the Brain: Forebrain, Midbrain, Hindbrain</h2>
-          <ul><li>Forebrain: Thinking, memory, voluntary actions (Cerebrum).</li><li>Midbrain: Connects forebrain and hindbrain, vision/hearing reflexes.</li><li>Hindbrain: Balance, posture, involuntary actions (Cerebellum, Medulla).</li></ul>
-          <p class="notes">🎙️ Our brain isn't just one lump; it's divided into three main regions. The forebrain is where our higher thinking happens. The midbrain acts as a bridge. The hindbrain controls essential life functions like breathing and heartbeat, and helps with balance. Each part has vital roles.</p>
+          <h2>Forebrain: The <span class="hl">Thinking</span> Part</h2>
+          <ul><li>Includes the Cerebrum, the largest part.</li><li>Responsible for voluntary actions, intelligence, memory.</li><li>Processes sensory information (sight, hearing, touch).</li></ul>
+          <p class="notes">🎙️ The forebrain, especially the cerebrum, is where our conscious thought and decision-making happen. It's what allows us to solve problems, remember facts, and express emotions. When you're studying for an exam or deciding what to wear, your forebrain is actively at work, making sense of the world around you.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Forebrain</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Hindbrain</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Midbrain</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💭</span><span>💭</span><span>💭</span><span>💭</span></div><div class="vcap">Cognitive Functions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>The <span class="hl">Spinal Cord</span>: Information Highway</h2>
-          <ul><li>Extends from the brainstem down the back.</li><li>Carries nerve signals between the brain and the body.</li><li>Crucial for reflexes and transmitting sensory/motor information.</li></ul>
-          <p class="notes">🎙️ Think of the spinal cord as a superhighway for information. It's a long, delicate tube of nervous tissue that runs down your back, protected by the backbone. It's the main connection between your brain and the rest of your body, allowing signals to travel up and down quickly and efficiently.</p>
+          <h2>Midbrain and Hindbrain: <span class="hl">Vital</span> Controls</h2>
+          <ul><li>Midbrain: Controls reflex movements of head, neck, trunk.</li><li>Hindbrain (Cerebellum): Maintains posture, balance, precision of voluntary actions.</li><li>Hindbrain (Medulla): Controls involuntary actions like heartbeat, breathing, blood pressure.</li></ul>
+          <p class="notes">🎙️ While the forebrain handles higher thinking, the midbrain and hindbrain are critical for maintaining our basic bodily functions and coordination. The cerebellum ensures smooth, coordinated movements, preventing you from falling over. The medulla is constantly working in the background, keeping your heart beating and lungs breathing, even when you're asleep.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Signal Pathway</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance &amp; Stability</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Protection</span> of the Nervous System: Skull, Vertebral Column, Fluid</h2>
-          <ul><li>Brain protected by the hard bony skull.</li><li>Spinal cord protected by the vertebral column (backbone).</li><li>Both are surrounded by cerebrospinal fluid for shock absorption.</li></ul>
-          <p class="notes">🎙️ Our nervous system is so vital that it's extremely well-protected. The brain sits safely inside the skull, and the spinal cord is encased within the bony vertebral column. Additionally, a special fluid called cerebrospinal fluid acts as a cushion, absorbing shocks and impacts.</p>
+          <h2>Quick <span class="hl">Check</span>: Nervous System</h2>
+          <ul><li>What is the basic unit of the nervous system?</li><li>Name one part of a neuron and its function.</li><li>What is a reflex arc and why is it important?</li><li>Which part of the brain controls voluntary actions?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding of the nervous system. Think about the structure of a neuron and how signals travel. Also, recall the different parts of the brain and their specific roles. These questions will help solidify your knowledge before we move on to the next system.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Safety First</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Hormones</span>: Our Body's Chemical Messengers</h2>
-          <ul><li>Chemical substances secreted by endocrine glands.</li><li>Travel through the bloodstream to target organs.</li><li>Regulate growth, metabolism, reproduction, mood.</li></ul>
-          <p class="notes">🎙️ Beyond the nervous system, our body also uses hormones. These are like chemical letters sent through the bloodstream, carrying messages to specific organs and tissues. They influence many long-term processes, from how we grow to how we react to stress.</p>
+          <h2>The Endocrine System: <span class="hl">Chemical</span> Messengers</h2>
+          <ul><li>Composed of glands that produce hormones.</li><li>Hormones are chemical substances secreted directly into the bloodstream.</li><li>Regulates slow, long-term processes like growth, metabolism, reproduction.</li></ul>
+          <p class="notes">🎙️ Now, let's explore the endocrine system, our body's slower but equally powerful communication network. Instead of electrical impulses, this system uses chemical messengers called hormones. These hormones travel through the blood to target specific organs, influencing a wide range of processes from how much you grow to how your body uses energy.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Endocrine_glands.svg?width=500" data-fb="✉️" alt="The endocrine system consists of glands that secrete hormones to regulate bodily functions"/><div class="vcap">The endocrine system consists of glands that secrete hormones to regulate bodily functions</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Endocrine_glands.svg?width=500" data-fb="🧪" alt="The endocrine system consists of glands that secrete hormones to regulate bodily functions"/><div class="vcap">The endocrine system consists of glands that secrete hormones to regulate bodily functions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Endocrine Glands</span>: Hormone Factories</h2>
-          <ul><li>Ductless glands that secrete hormones directly into the blood.</li><li>Unlike exocrine glands, which have ducts (e.g., sweat glands).</li><li>Examples: Pituitary, Thyroid, Adrenal, Pancreas, Gonads.</li></ul>
-          <p class="notes">🎙️ Endocrine glands are special factories that produce and release hormones. The key difference is they don't have ducts; they release their products directly into the bloodstream to travel to their targets. We have several important endocrine glands scattered throughout our body.</p>
+          <h2>Hormones: Body's <span class="hl">Regulators</span></h2>
+          <ul><li>Specific chemical signals produced by endocrine glands.</li><li>Travel through the bloodstream to target cells/organs.</li><li>Act as 'keys' that fit specific 'locks' (receptors) on cells.</li><li>Bring about specific changes.</li></ul>
+          <p class="notes">🎙️ Hormones are powerful chemical substances, even in tiny amounts. Think of them as special messages sent to specific addresses. Each hormone has a unique shape, like a key, that can only unlock certain cells or organs that have the matching 'lock' or receptor. This specificity ensures that each hormone performs its intended function without affecting other parts of the body unnecessarily.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏭</span><span>🏭</span><span>🏭</span><span>🏭</span><span>🏭</span></div><div class="vcap">Many Glands</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✉️</span><span>✉️</span><span>✉️</span></div><div class="vcap">Messages Delivered</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Key Endocrine Glands and Their Hormones</h2>
-          <ul><li>Thyroid Gland: Thyroxine (metabolism, growth).</li><li>Pancreas: Insulin &amp; Glucagon (blood sugar regulation).</li><li>Adrenal Glands: Adrenaline (fight or flight response).</li></ul>
-          <p class="notes">🎙️ Let's look at a few crucial examples. The thyroid gland controls how fast your body uses energy. The pancreas keeps your blood sugar balanced. And the adrenal glands release adrenaline, giving you that burst of energy when you're scared or excited – the 'fight or flight' hormone.</p>
+          <h2><span class="hl">Key</span> Endocrine Glands and Their Hormones</h2>
+          <ul><li>Pituitary: 'Master gland', controls other glands.</li><li>Thyroid: Thyroxine, regulates metabolism.</li><li>Pancreas: Insulin/Glucagon, controls blood sugar.</li><li>Adrenal: Adrenaline, 'fight or flight' response.</li></ul>
+          <p class="notes">🎙️ Our body houses several crucial endocrine glands, each producing specific hormones. The pituitary gland is often called the master gland because it controls many other glands. The thyroid regulates our energy use, while the pancreas is vital for managing blood sugar. The adrenal glands prepare us for emergencies.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance &amp; Regulation</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Pituitary</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Thyroid</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Pancreas</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Adrenal</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Feedback</span> Mechanism: Keeping Hormones in Check</h2>
-          <ul><li>Regulates hormone secretion.</li><li>Levels of hormones are constantly monitored.</li><li>If too high, secretion stops; if too low, secretion increases.</li></ul>
-          <p class="notes">🎙️ Imagine a thermostat in your home. It turns the heater on when it's cold and off when it's warm. Our bodies use a similar 'feedback mechanism' to control hormone levels. This ensures that hormones are released only when needed and in the right amounts, maintaining a perfect balance.</p>
+          <h2><span class="hl">Adrenaline</span>: The 'Fight or Flight' Hormone</h2>
+          <ul><li>Secreted by adrenal glands during stress or excitement.</li><li>Increases heart rate, blood pressure, blood flow to muscles.</li><li>Prepares the body to either confront or escape a threat.</li></ul>
+          <p class="notes">🎙️ Imagine you suddenly encounter a stray dog on the road. Your adrenal glands immediately release adrenaline, preparing your body for a rapid response. Your heart pounds, breathing quickens, and blood rushes to your muscles, giving you a burst of energy to either run away or stand your ground. This is the amazing 'fight or flight' response.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hormone Level High</span></div><div class="step"><span class="snum">2</span><span>Gland Stops Secretion</span></div><div class="step"><span class="snum">3</span><span>Hormone Level Low</span></div><div class="step"><span class="snum">4</span><span>Gland Starts Secretion</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Ready for Action</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Plant Movements</span>: Tropic vs. Nastic</h2>
-          <ul><li>Tropic Movements: Directional, growth-related (e.g., towards light).</li><li>Nastic Movements: Non-directional, independent of stimulus direction (e.g., touch-me-not plant).</li><li>Plants respond to stimuli too!</li></ul>
-          <p class="notes">🎙️ Plants might not move like animals, but they certainly respond to their environment! Tropic movements are like a plant 'reaching' for something, like sunlight. Nastic movements are more like a sudden 'flinch', such as the 'touch-me-not' plant closing its leaves when touched. Both are forms of coordination.</p>
+          <h2><span class="hl">Insulin</span>: Regulating Blood Sugar</h2>
+          <ul><li>Produced by the pancreas.</li><li>Lowers blood glucose levels after a meal.</li><li>Helps cells absorb glucose for energy or storage.</li><li>Deficiency leads to diabetes.</li></ul>
+          <p class="notes">🎙️ Insulin is a vital hormone produced by the pancreas that acts like a key, allowing glucose from your blood to enter your body cells for energy. After you eat, your blood sugar rises, and insulin brings it back down to a healthy level. If the pancreas doesn't produce enough insulin, or the body can't use it properly, it leads to a condition called diabetes.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tropic</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Nastic</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">High Sugar</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Low Sugar</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Plant Hormones (<span class="hl">Phytohormones</span>): Plant Growth Regulators</h2>
-          <ul><li>Chemical substances that control growth and development in plants.</li><li>Produced in small quantities.</li><li>Influence cell division, elongation, fruit ripening, etc.</li></ul>
-          <p class="notes">🎙️ Just like animals, plants also have hormones, called phytohormones. These are crucial for their growth and development, even though they are produced in very small amounts. They dictate everything from how a plant grows towards light to when its fruits ripen.</p>
+          <h2>Control and Coordination in <span class="hl">Plants</span></h2>
+          <ul><li>Plants also respond to stimuli, but without a nervous system.</li><li>They use chemical coordination (plant hormones).</li><li>Responses are generally slower than in animals.</li></ul>
+          <p class="notes">🎙️ It's not just animals that exhibit control and coordination; plants do too! While they don't have a nervous system or a brain, they still respond to their environment in remarkable ways. Their coordination relies entirely on chemical messengers, or plant hormones, which regulate growth, development, and responses to light, water, and gravity. These responses are typically much slower than animal responses.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_hormones.svg?width=500" data-fb="🌱" alt="Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel"/><div class="vcap">Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Plant Responses</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Key <span class="hl">Phytohormones</span> and Their Roles</h2>
-          <ul><li>Auxins: Cell elongation, phototropism, gravitropism.</li><li>Gibberellins: Stem elongation, seed germination.</li><li>Cytokinins: Cell division, breaking dormancy.</li></ul>
-          <p class="notes">🎙️ Let's explore some key plant hormones. Auxins help plants bend towards light and grow roots. Gibberellins make stems grow taller and help seeds sprout. Cytokinins are like little cheerleaders for cell division, helping new leaves and shoots form.</p>
+          <h2>Plant <span class="hl">Hormones</span>: Growth and Development</h2>
+          <ul><li>Auxins: Promote cell elongation, growth towards light.</li><li>Gibberellins: Promote stem elongation, seed germination.</li><li>Cytokinins: Promote cell division, break bud dormancy.</li><li>Abscisic Acid: Inhibits growth, promotes dormancy.</li></ul>
+          <p class="notes">🎙️ Plants produce various hormones, often called phytohormones, that regulate their entire life cycle. Auxins help plants bend towards light, while gibberellins are crucial for stem growth. Cytokinins encourage new cells to form, and abscisic acid acts as a growth inhibitor, helping plants cope with stress and promoting dormancy during unfavorable conditions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌿</span><span>🌿</span><span>🌿</span></div><div class="vcap">Growth Regulators</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_structure.svg?width=500" data-fb="🌿" alt="A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts."/><div class="vcap">A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Phototropism</span> &amp; Geotropism: Plant Responses to Light &amp; Gravity</h2>
-          <ul><li>Phototropism: Plant growth towards light (stems positive, roots negative).</li><li>Geotropism (Gravitropism): Plant growth in response to gravity (roots positive, stems negative).</li><li>Crucial for survival and proper orientation.</li></ul>
-          <p class="notes">🎙️ These are classic examples of tropic movements. Phototropism explains why plants grow towards a window – they need light! Geotropism explains why roots always grow downwards into the soil, anchoring the plant and seeking water, while stems grow upwards against gravity.</p>
+          <h2><span class="hl">Tropic</span> Movements: Plants Responding to Stimuli</h2>
+          <ul><li>Phototropism: Growth towards light (e.g., stem).</li><li>Geotropism: Growth towards/away from gravity (e.g., roots down, shoots up).</li><li>Hydrotropism: Growth towards water (e.g., roots).</li><li>Chemotropism: Growth in response to chemicals (e.g., pollen tube).</li></ul>
+          <p class="notes">🎙️ Tropic movements are growth-related responses in plants where the direction of growth is influenced by an external stimulus. Phototropism explains why stems grow upwards towards sunlight. Geotropism ensures roots grow downwards into the soil and shoots grow upwards. Hydrotropism guides roots towards water sources, while chemotropism is important for processes like pollen tube growth during fertilization.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Light Source</span></div><div class="step"><span class="snum">2</span><span>Stem Bends Up</span></div><div class="step"><span class="snum">3</span><span>Root Grows Down</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Phototropism</span></div><div class="step"><span class="snum">2</span><span>Geotropism</span></div><div class="step"><span class="snum">3</span><span>Hydrotropism</span></div><div class="step"><span class="snum">4</span><span>Chemotropism</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check</span>! Time for a Brain Teaser!</h2>
-          <ul><li>Q1: Which part of the brain controls involuntary actions like heartbeat and breathing?</li><li>Q2: What is the gap between two neurons called?</li></ul>
-          <p class="notes">🎙️ Alright, let's see how much you've absorbed! Take a moment to think about these questions. The answers relate directly to what we've just discussed about the nervous system and the brain's functions.</p>
+          <h2>Example: <span class="hl">Sunflower</span> Tracking the Sun</h2>
+          <ul><li>A classic example of phototropism.</li><li>Young sunflowers turn their heads to face the sun throughout the day.</li><li>Helps maximize light absorption for photosynthesis.</li><li>Controlled by auxins.</li></ul>
+          <p class="notes">🎙️ The sunflower is a beautiful example of phototropism in action. Young sunflowers exhibit a phenomenon called heliotropism, where their heads actually track the sun's movement across the sky. This ensures they receive maximum sunlight for photosynthesis, a process driven by the uneven distribution of auxins within the plant stem.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌻</div><div class="vcap">Sun Following</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>More Quick Checks! Test Your <span class="hl">Knowledge</span>!</h2>
-          <ul><li>Q3: Name two plant hormones and their main functions.</li><li>Q4: Describe the difference between nervous and hormonal coordination.</li></ul>
-          <p class="notes">🎙️ Excellent! Now for a couple more questions, focusing on both plant and animal coordination. These questions will help reinforce your understanding of the different systems and their unique characteristics.</p>
+          <h2>Quick <span class="hl">Check</span>: Hormones and Plants</h2>
+          <ul><li>Name one endocrine gland and the hormone it produces.</li><li>What is the function of adrenaline?</li><li>How do plants respond to stimuli without a nervous system?</li><li>Define phototropism with an example.</li></ul>
+          <p class="notes">🎙️ Let's do a final quick check to see how well you've grasped the concepts of the endocrine system and plant coordination. Think about the roles of different hormones in both animals and plants. Understanding these examples will help you remember the key principles of control and coordination in all living organisms.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Recap: Control and Coordination - The Body's <span class="hl">Masterpiece</span></h2>
-          <ul><li>Nervous system: Fast, electrical, for immediate responses.</li><li>Hormonal system: Slow, chemical, for long-term regulation.</li><li>Plants also use hormones for growth and respond to stimuli.</li></ul>
-          <p class="notes">🎙️ To summarize, both animals and plants exhibit incredible control and coordination. In animals, the nervous system provides rapid communication, while the hormonal system handles slower, sustained changes. Plants rely on hormones and various movements to adapt and thrive. It's a truly remarkable aspect of life!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Control and Coordination</h2>
+          <ul><li>Nervous system for rapid, electrical communication.</li><li>Endocrine system for slower, chemical communication.</li><li>Brain as the command center, reflex arcs for quick responses.</li><li>Plant hormones regulate growth and tropic movements.</li></ul>
+          <p class="notes">🎙️ Today, we've explored the incredible ways living organisms control and coordinate their functions. From the lightning-fast electrical signals of the nervous system to the slower, yet powerful, chemical messages of the endocrine system, our bodies are finely tuned machines. Plants, too, show amazing coordination through their hormones and movements, adapting perfectly to their environment. Remember that life's harmony depends on these intricate control systems.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 10 · Biology</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

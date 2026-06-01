@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Reflection of Light at Curved Surfaces — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Reflection of Light at <span class="hl">Curved Surfaces</span></h2>
+          <ul><li>Introduction to spherical mirrors</li><li>Understanding how images are formed</li><li>Exploring real-life applications</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter on how light behaves when it hits surfaces that are not flat, but curved. We'll learn about different types of curved mirrors and their fascinating uses.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>A Quick Recap: What is <span class="hl">Reflection</span>?</h2>
+          <ul><li>Bouncing back of light</li><li>Happens when light hits a surface</li><li>Plane mirrors give erect, same-size images</li></ul>
+          <p class="notes">🎙️ Before we dive into curved surfaces, let's quickly remember what reflection is. It's the phenomenon where light bounces back from a surface. We've seen this with plane mirrors, like the ones we use every day.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=500" data-fb="↩️" alt="Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra"/><div class="vcap">Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Beyond Flat: Introducing <span class="hl">Curved Surfaces</span></h2>
+          <ul><li>Not flat like plane mirrors</li><li>Part of a hollow sphere</li><li>Can be inward or outward curving</li></ul>
+          <p class="notes">🎙️ Imagine a mirror that isn't flat. What happens then? Curved surfaces are like pieces cut from a big hollow ball. They can curve inwards or outwards, leading to very different reflections.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪞</div><div class="vcap">Curved Mirror</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Two Main Types: <span class="hl">Spherical Mirrors</span></h2>
+          <ul><li>Mirrors that are part of a sphere</li><li>Concave mirrors curve inwards</li><li>Convex mirrors curve outwards</li></ul>
+          <p class="notes">🎙️ Curved mirrors are generally called spherical mirrors because they are parts of a sphere. We'll focus on two main types: concave mirrors, which are curved inwards, and convex mirrors, which bulge outwards.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Concave</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Convex</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Concave Mirror</span>: Reflecting Inwards</h2>
+          <ul><li>Reflecting surface curves inwards</li><li>Like the inside of a spoon</li><li>Converges parallel light rays</li></ul>
+          <p class="notes">🎙️ A concave mirror is one where the reflecting surface is curved inwards, much like the inner surface of a spoon. These mirrors are known for converging, or bringing together, parallel rays of light.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Concave_mirror.svg?width=500" data-fb="🥣" alt="A concave mirror (converging mirror) reflects light inward toward a focal point. The type "/><div class="vcap">A concave mirror (converging mirror) reflects light inward toward a focal point. The type </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Convex Mirror</span>: Reflecting Outwards</h2>
+          <ul><li>Reflecting surface bulges outwards</li><li>Like the back of a spoon</li><li>Diverges parallel light rays</li></ul>
+          <p class="notes">🎙️ In contrast, a convex mirror has its reflecting surface bulging outwards, similar to the outer surface of a spoon. Unlike concave mirrors, convex mirrors diverge, or spread out, parallel rays of light.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥄</div><div class="vcap">Back of a Spoon</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Important Terms: The <span class="hl">Pole (P)</span></h2>
+          <ul><li>Exact centre of the mirror's reflecting surface</li><li>Denoted by 'P'</li><li>A reference point for measurements</li></ul>
+          <p class="notes">🎙️ To understand how images form, we need to define some key terms. The Pole, denoted by 'P', is the geometric center of the mirror's reflecting surface. It's a crucial reference point for all measurements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Centre Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Important Terms: <span class="hl">Centre of Curvature (C)</span></h2>
+          <ul><li>Centre of the sphere the mirror is part of</li><li>Denoted by 'C'</li><li>Not on the mirror surface itself</li></ul>
+          <p class="notes">🎙️ Imagine the spherical mirror as part of a larger hollow sphere. The center of that imaginary sphere is called the Centre of Curvature, 'C'. For a concave mirror, C is in front; for a convex mirror, it's behind.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔵</div><div class="vcap">Sphere Center</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Important Terms: <span class="hl">Radius of Curvature (R)</span></h2>
+          <ul><li>Distance from Pole (P) to Centre of Curvature (C)</li><li>Denoted by 'R'</li><li>Radius of the imaginary sphere</li></ul>
+          <p class="notes">🎙️ The distance between the Pole (P) and the Centre of Curvature (C) is known as the Radius of Curvature, 'R'. It's essentially the radius of the large imaginary sphere from which the mirror was cut.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Distance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Important Terms: The <span class="hl">Principal Axis</span></h2>
+          <ul><li>Imaginary straight line</li><li>Passes through P and C</li><li>Perpendicular to the mirror at P</li></ul>
+          <p class="notes">🎙️ The Principal Axis is a very important imaginary straight line. It passes through the Pole (P) and the Centre of Curvature (C). This axis is perpendicular to the mirror's surface at the Pole.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Straight Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Principal Focus (F)</span> for Concave Mirrors</h2>
+          <ul><li>Point where parallel rays converge after reflection</li><li>Located between P and C</li><li>Denoted by 'F'</li></ul>
+          <p class="notes">🎙️ For a concave mirror, when parallel rays of light strike its surface, they all converge to a single point on the principal axis after reflection. This point is called the Principal Focus, 'F'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Light Rays</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Principal Focus (F)</span> for Convex Mirrors</h2>
+          <ul><li>Point from which parallel rays *appear* to diverge</li><li>Located behind the mirror</li><li>Denoted by 'F'</li></ul>
+          <p class="notes">🎙️ For a convex mirror, parallel rays of light diverge after reflection. If you trace these reflected rays backwards, they appear to come from a single point behind the mirror. This point is its Principal Focus, 'F'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Diverging Light</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Important Terms: <span class="hl">Focal Length (f)</span></h2>
+          <ul><li>Distance from Pole (P) to Principal Focus (F)</li><li>Denoted by 'f'</li><li>Relation: f = R/2</li></ul>
+          <p class="notes">🎙️ The distance between the Pole (P) and the Principal Focus (F) is called the Focal Length, 'f'. For spherical mirrors, the focal length is half of the radius of curvature, meaning f = R/2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Short Distance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Concave Mirror Ray Rule 1: <span class="hl">Parallel Ray</span></h2>
+          <ul><li>Ray parallel to principal axis</li><li>Passes through Focus (F) after reflection</li><li>Essential for image formation</li></ul>
+          <p class="notes">🎙️ Let's learn the rules for drawing ray diagrams. Rule 1: Any ray of light that is parallel to the principal axis of a concave mirror will, after reflection, pass through its Principal Focus (F).</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parallel ray</span></div><div class="step"><span class="snum">2</span><span>Reflects through F</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Concave Mirror Ray Rule 2: Ray <span class="hl">Through Focus</span></h2>
+          <ul><li>Ray passing through Focus (F)</li><li>Becomes parallel to principal axis after reflection</li><li>Reverse of Rule 1</li></ul>
+          <p class="notes">🎙️ Rule 2 is the inverse of Rule 1. A ray of light passing through the Principal Focus (F) of a concave mirror will, after reflection, emerge parallel to the principal axis.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ray through F</span></div><div class="step"><span class="snum">2</span><span>Reflects parallel</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Concave Mirror Ray Rule 3: Ray <span class="hl">Through Centre of Curvature</span></h2>
+          <ul><li>Ray passing through C</li><li>Reflects back along the same path</li><li>Normal to the mirror surface</li></ul>
+          <p class="notes">🎙️ Rule 3 states that a ray of light passing through the Centre of Curvature (C) of a concave mirror will, after reflection, be reflected back along the same path. This is because it strikes the mirror normally.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ray through C</span></div><div class="step"><span class="snum">2</span><span>Reflects back</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Concave Mirror Ray Rule 4: Ray <span class="hl">Towards Pole</span></h2>
+          <ul><li>Ray incident obliquely at Pole (P)</li><li>Reflects obliquely</li><li>Follows laws of reflection</li></ul>
+          <p class="notes">🎙️ Finally, Rule 4: A ray of light incident obliquely to the principal axis, directed towards the Pole (P) of the mirror, will reflect obliquely. The incident and reflected rays make equal angles with the principal axis.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ray to P</span></div><div class="step"><span class="snum">2</span><span>Reflects symmetrically</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Image Formation: <span class="hl">Concave Mirrors</span></h2>
+          <ul><li>Image nature depends on object position</li><li>Can form real or virtual images</li><li>Can be inverted or erect, magnified or diminished</li></ul>
+          <p class="notes">🎙️ Concave mirrors are versatile; they can form different types of images depending on where the object is placed. We can get real or virtual, inverted or erect, and even magnified or diminished images.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖼️</span><span>🖼️</span><span>🖼️</span></div><div class="vcap">Image Types</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Concave Mirrors in <span class="hl">Daily Life</span></h2>
+          <ul><li>Shaving mirrors: magnified image</li><li>Dentist mirrors: magnified view of teeth</li><li>Car headlights: strong parallel beam</li></ul>
+          <p class="notes">🎙️ Concave mirrors have many practical uses. Shaving mirrors give a magnified, erect image, helping us see details. Dentists use them for a magnified view of teeth. Car headlights use them to produce a powerful, parallel beam of light.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Car Headlight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Ray Rules for <span class="hl">Convex Mirrors</span></h2>
+          <ul><li>Parallel ray *appears* to diverge from F</li><li>Ray directed towards F becomes parallel</li><li>Ray directed towards C reflects back</li></ul>
+          <p class="notes">🎙️ For convex mirrors, the rules are similar but consider that the focus and center of curvature are behind the mirror. A parallel ray appears to diverge from F, and a ray directed towards F becomes parallel after reflection.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lens1.svg?width=500" data-fb="🔬" alt="A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima"/><div class="vcap">A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Image Formation: <span class="hl">Convex Mirrors</span></h2>
+          <ul><li>Always form virtual and erect images</li><li>Image is always diminished (smaller)</li><li>Image is always formed behind the mirror</li></ul>
+          <p class="notes">🎙️ Convex mirrors are simpler in image formation. They always form virtual, erect, and diminished images, regardless of the object's position. The image is always located behind the mirror, between P and F.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔎</span></div><div class="vcap">Smaller Image</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Convex Mirrors in <span class="hl">Daily Life</span></h2>
+          <ul><li>Rear-view mirrors in vehicles: wider field of view</li><li>Shop security mirrors: view large area</li><li>Street light reflectors: spread light</li></ul>
+          <p class="notes">🎙️ Convex mirrors are crucial for safety. Vehicle rear-view mirrors provide a wider field of view, letting drivers see more of the road behind them. They are also used as security mirrors in shops to monitor large areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚘</div><div class="vcap">Rear View Mirror</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Test Your Understanding!</h2>
+          <ul><li>Which mirror converges parallel rays?</li><li>Where is C for a concave mirror?</li><li>What is the relation between f and R?</li><li>What kind of image does a convex mirror always form?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think about these questions to see if you've grasped the main concepts we've covered today. Take a moment to recall the definitions and rules.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Worked Example</span>: Image by Concave Mirror</h2>
+          <ul><li>Object placed beyond C of a concave mirror</li><li>Image will be real, inverted, and diminished</li><li>Formed between F and C</li></ul>
+          <p class="notes">🎙️ Let's consider an object placed beyond the Centre of Curvature (C) of a concave mirror. Using ray diagrams, we would find that the image formed is real, inverted, and diminished, located between F and C.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Problem Solving</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Reflection at Curved Surfaces: A Quick <span class="hl">Recap</span></h2>
+          <ul><li>Concave mirrors converge, convex mirrors diverge</li><li>Key terms: P, C, R, F, f</li><li>Ray diagram rules predict image formation</li><li>Real-life uses in various applications</li></ul>
+          <p class="notes">🎙️ To summarize, we learned about concave and convex mirrors, their key terminologies like Pole, Focus, and Centre of Curvature. We also explored the rules for ray diagrams and their diverse applications in our daily lives. Keep practicing those ray diagrams!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

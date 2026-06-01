@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Some Natural Phenomena — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to "Some Natural <span class="hl">Phenomena</span>"</h2>
-          <ul><li>Exploring the powerful forces of nature</li><li>Understanding lightning and earthquakes</li><li>Learning how to stay safe</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey to understand some of the most awe-inspiring and sometimes frightening events our planet experiences. We'll explore natural phenomena like lightning and earthquakes and learn how to protect ourselves.</p>
+          <h2>Welcome to 'Some <span class="hl">Natural Phenomena</span>'</h2>
+          <ul><li>Explore powerful events in nature.</li><li>Understand their causes and effects.</li><li>Learn how to stay safe during these events.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter where we'll explore some of the most awe-inspiring and sometimes frightening events that occur naturally on our planet. We'll uncover the science behind them and understand how we can protect ourselves.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are <span class="hl">Natural</span> Phenomena?</h2>
-          <ul><li>Events occurring in nature, not caused by humans</li><li>Often powerful and can cause significant changes</li><li>Examples: Lightning, Earthquakes, Cyclones, Volcanic Eruptions</li></ul>
-          <p class="notes">🎙️ Natural phenomena are events that happen in nature, without human intervention. They showcase the immense power of our planet and can sometimes be destructive, but they are a fundamental part of Earth's processes.</p>
+          <h2>What are <span class="hl">Natural Phenomena</span>?</h2>
+          <ul><li>Events occurring in nature, not caused by humans.</li><li>Can be beautiful, destructive, or both.</li><li>Examples: Lightning, Earthquakes, Cyclones.</li></ul>
+          <p class="notes">🎙️ Natural phenomena are simply events that happen in nature, without any human intervention. They are a part of our planet's dynamic processes. Some are gentle, like rainfall, while others, like earthquakes, can be very powerful.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our Dynamic Earth</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌎</div><div class="vcap">Earth's natural events</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Lightning: A Giant <span class="hl">Spark</span></h2>
-          <ul><li>A sudden, massive electric discharge</li><li>Occurs between clouds, or between clouds and the ground</li><li>Accompanied by thunder, a loud sound</li></ul>
-          <p class="notes">🎙️ Lightning is one of the most spectacular natural phenomena. It's essentially a huge electrical spark, similar to the small sparks you might see, but on a grand scale, carrying immense energy.</p>
+          <h2><span class="hl">Lightning</span>: A Giant Spark</h2>
+          <ul><li>A sudden, massive electric discharge.</li><li>Occurs during thunderstorms.</li><li>Produces a bright flash and thunder.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a flash of lightning during a storm? It's one of nature's most spectacular displays of electricity. Lightning is essentially a huge electrical spark that jumps between clouds, or between a cloud and the ground.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electric Discharge</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electric discharge</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>How Lightning Forms: Charge <span class="hl">Separation</span></h2>
-          <ul><li>Water droplets and ice crystals collide in thunderclouds</li><li>Friction causes charges to separate</li><li>Positive charges gather at the top, negative at the bottom of the cloud</li></ul>
-          <p class="notes">🎙️ Inside a thundercloud, tiny water droplets and ice crystals are constantly moving and colliding. This friction causes them to become electrically charged, with positive charges moving upwards and negative charges settling at the bottom.</p>
+          <h2>How Lightning Occurs: Part 1 - <span class="hl">Charge Separation</span></h2>
+          <ul><li>Air currents rub water droplets and ice crystals.</li><li>Positive charges gather at the top of the cloud.</li><li>Negative charges accumulate near the bottom.</li></ul>
+          <p class="notes">🎙️ The process of lightning begins inside a thundercloud. Strong updrafts and downdrafts cause water droplets and ice crystals to rub against each other, creating friction. This friction leads to the separation of electric charges within the cloud.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Colliding Particles</span></div><div class="step"><span class="snum">2</span><span>Friction &amp; Charge</span></div><div class="step"><span class="snum">3</span><span>Charge Separation</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Air currents rub</span></div><div class="step"><span class="snum">2</span><span>Water/ice collide</span></div><div class="step"><span class="snum">3</span><span>Charges separate</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>How Lightning Forms: The <span class="hl">Discharge</span></h2>
-          <ul><li>Negative charges at cloud base attract positive charges on ground</li><li>When the charge difference is huge, electricity flows</li><li>This rapid flow creates a bright flash of light – lightning!</li></ul>
-          <p class="notes">🎙️ As negative charges build up at the bottom of the cloud, they strongly attract positive charges on the ground. When the electrical potential difference becomes too great, a path is created, and electricity rapidly flows, causing the brilliant flash we call lightning.</p>
+          <h2>How Lightning Occurs: Part 2 - The <span class="hl">Discharge</span></h2>
+          <ul><li>Negative charges at cloud bottom repel ground electrons.</li><li>Positive charges accumulate on the ground below.</li><li>When potential difference is huge, electricity discharges.</li></ul>
+          <p class="notes">🎙️ As the negative charges build up at the bottom of the cloud, they repel the electrons on the ground below, making the ground positively charged. When the difference in charge becomes too great, the air, which is normally an insulator, breaks down, allowing electricity to flow rapidly, creating a lightning bolt.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Charge Build-up</span></div><div class="step"><span class="snum">2</span><span>Path Forms</span></div><div class="step"><span class="snum">3</span><span>Bright Flash</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ground charges up</span></div><div class="step"><span class="snum">2</span><span>Potential difference</span></div><div class="step"><span class="snum">3</span><span>Electric discharge!</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Real Example: Lightning's <span class="hl">Impact</span></h2>
-          <ul><li>Can strike trees, buildings, and open ground</li><li>Causes fires and damage to structures</li><li>Can be fatal to humans and animals</li></ul>
-          <p class="notes">🎙️ Lightning is incredibly powerful. A single strike can carry millions of volts of electricity. It can ignite fires, damage electrical systems, and tragically, can be deadly if it strikes a person or animal directly.</p>
+          <h2>Lightning <span class="hl">Safety</span>: Do's and Don'ts</h2>
+          <ul><li>DO seek shelter indoors or in a car.</li><li>DON'T stand under tall trees or in open fields.</li><li>DON'T touch electrical appliances or use landlines.</li></ul>
+          <p class="notes">🎙️ Lightning can be very dangerous. It's crucial to know how to protect yourself. Always remember to go indoors during a thunderstorm. Avoid open spaces and tall objects that can act as lightning rods. Also, stay away from water and electrical items.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Trees Struck by Lightning</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☔</span><span>☔</span><span>☔</span><span>☔</span></div><div class="vcap">Stay safe during storms</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Lightning Safety: When <span class="hl">Indoors</span></h2>
-          <ul><li>Stay away from windows and doors</li><li>Avoid using landline phones and wired appliances</li><li>Do not take a bath or shower</li></ul>
-          <p class="notes">🎙️ If you are indoors during a thunderstorm, it's crucial to stay safe. Avoid contact with anything that conducts electricity, like water pipes or electrical wiring, and definitely stay away from windows.</p>
+          <h2>Lightning <span class="hl">Conductors</span>: Protecting Buildings</h2>
+          <ul><li>Metal rod installed on top of tall buildings.</li><li>Provides an easy path for lightning to ground.</li><li>Protects the building from damage.</li></ul>
+          <p class="notes">🎙️ To protect tall structures from lightning, we use lightning conductors. These are metal rods that extend above the building and are connected to the ground by thick copper wires. If lightning strikes, it hits the rod and is safely diverted into the earth, preventing damage to the building.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Safe Inside</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗼</div><div class="vcap">Lightning conductor on a building</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,35 +144,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Lightning Safety: When <span class="hl">Outdoors</span></h2>
-          <ul><li>Seek shelter in a sturdy building or car</li><li>Avoid open fields, tall trees, and water bodies</li><li>If caught in open, crouch low (lightning position)</li></ul>
-          <p class="notes">🎙️ Being outdoors during a thunderstorm is more dangerous. Always try to find a safe, enclosed shelter. If no shelter is available, squat low to the ground, minimizing your contact with the earth.</p>
+          <h2>Real-life Example: <span class="hl">Empire State Building</span></h2>
+          <ul><li>Iconic skyscraper in New York City.</li><li>Struck by lightning approximately 100 times a year.</li><li>Equipped with a lightning rod system for protection.</li></ul>
+          <p class="notes">🎙️ The Empire State Building is a famous example of a structure that frequently gets struck by lightning due to its height. However, thanks to its effective lightning conductor system, these strikes cause no harm to the building or its occupants, demonstrating the importance of such safety measures.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☂️</div><div class="vcap">Seeking Shelter</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Lightning <span class="hl">Conductors</span>: Protecting Buildings</h2>
-          <ul><li>Metal rod installed on top of tall buildings</li><li>Provides a safe path for lightning to ground</li><li>Protects the building from damage and fire</li></ul>
-          <p class="notes">🎙️ Lightning conductors are ingenious devices that protect tall structures. They safely channel the immense electrical energy of a lightning strike directly into the ground, preventing damage to the building and its occupants.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗼</div><div class="vcap">Conductor on Building</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏢</div><div class="vcap">Tall building and lightning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Quick Check: Lightning <span class="hl">Safety</span></h2>
-          <ul><li>True or False: It is safe to stand under a tall tree during a thunderstorm.</li><li>What should you avoid using indoors during lightning?</li><li>Why are lightning conductors important?</li></ul>
-          <p class="notes">🎙️ Let's quickly test your understanding. Think about the safety measures we just discussed. These questions will help reinforce what you've learned about protecting yourself from lightning.</p>
+          <span class="num">9 / 25</span>
+          <h2>Quick <span class="hl">Question 1</span>: True or False?</h2>
+          <ul><li>Lightning is caused by human activities.</li><li>It is safe to stand under a tree during a thunderstorm.</li><li>Lightning conductors protect buildings from damage.</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about what we just learned about lightning. Which of these statements are true and which are false? Take a moment to consider each one.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Earthquakes</span>: The Shaking Earth</h2>
+          <ul><li>Sudden trembling or shaking of the Earth's surface.</li><li>Caused by movements deep within the Earth's crust.</li><li>Can cause immense destruction.</li></ul>
+          <p class="notes">🎙️ Now, let's move on to another powerful natural phenomenon: earthquakes. Imagine the ground beneath your feet suddenly shaking violently. That's an earthquake, and it's caused by forces deep within our planet.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Shaking Earth</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Earthquakes: <span class="hl">Shaking</span> the Ground</h2>
-          <ul><li>Sudden shaking or trembling of the Earth's surface</li><li>Caused by the sudden release of energy in Earth's crust</li><li>Can last for a few seconds to several minutes</li></ul>
-          <p class="notes">🎙️ Earthquakes are another powerful natural phenomenon where the ground suddenly shakes. This shaking is caused by energy released deep within the Earth's crust, and it can be incredibly destructive.</p>
+          <h2>Causes of Earthquakes: Part 1 - <span class="hl">Tectonic Plates</span></h2>
+          <ul><li>Earth's outer layer (crust) is broken into huge pieces.</li><li>These pieces are called tectonic plates.</li><li>They are constantly moving very slowly.</li></ul>
+          <p class="notes">🎙️ Our Earth's outermost layer, the crust, isn't a single solid shell. Instead, it's like a giant puzzle made of enormous, irregularly shaped pieces called tectonic plates. These plates are always on the move, though very slowly, floating on the semi-fluid mantle beneath.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">揺</div><div class="vcap">Ground Shaking</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Earth's puzzle pieces</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Causes of Earthquakes: <span class="hl">Tectonic</span> Plates</h2>
-          <ul><li>Earth's outer layer (crust) is broken into large pieces</li><li>These pieces are called tectonic plates</li><li>These plates are constantly moving, but very slowly</li></ul>
-          <p class="notes">🎙️ Our Earth's outermost layer isn't a single solid shell; it's like a giant puzzle made of huge pieces called tectonic plates. These plates are always in motion, though usually too slowly for us to notice.</p>
+          <h2>Causes of Earthquakes: Part 2 - Plate <span class="hl">Movement &amp; Friction</span></h2>
+          <ul><li>Plates slide past, collide, or pull apart.</li><li>Friction at plate boundaries builds up stress.</li><li>When stress is released suddenly, an earthquake occurs.</li></ul>
+          <p class="notes">🎙️ As these tectonic plates move, they often rub against each other, get stuck, or collide at their boundaries. This creates immense stress and energy that builds up over time. When this stored energy is suddenly released, it causes the ground to shake, resulting in an earthquake.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Earth's Puzzle Pieces</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Plates move</span></div><div class="step"><span class="snum">2</span><span>Friction builds stress</span></div><div class="step"><span class="snum">3</span><span>Stress releases (quake!)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Causes of Earthquakes: Plate <span class="hl">Movement</span></h2>
-          <ul><li>Plates rub against each other or pull apart</li><li>Stress builds up at the plate boundaries (fault lines)</li><li>When stress is released suddenly, an earthquake occurs</li></ul>
-          <p class="notes">🎙️ As these massive tectonic plates move, they often collide, slide past each other, or pull apart. This movement creates immense stress along their edges, known as fault lines. When this built-up stress suddenly releases, it sends shockwaves through the Earth, causing an earthquake.</p>
+          <h2><span class="hl">Seismic Waves</span>: The Energy of an Earthquake</h2>
+          <ul><li>Energy released during an earthquake travels as waves.</li><li>These are called seismic waves.</li><li>They cause the ground to shake and vibrate.</li></ul>
+          <p class="notes">🎙️ When an earthquake occurs, the sudden release of energy sends vibrations through the Earth, much like ripples in a pond. These vibrations are called seismic waves, and they are what cause the ground to shake during an earthquake.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Plates Move</span></div><div class="step"><span class="snum">2</span><span>Stress Builds</span></div><div class="step"><span class="snum">3</span><span>Energy Release</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Waves of energy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Seismic <span class="hl">Waves</span>: Earth's Vibrations</h2>
-          <ul><li>Energy released during an earthquake travels as waves</li><li>These are called seismic waves</li><li>They cause the ground to shake and buildings to sway</li></ul>
-          <p class="notes">🎙️ When an earthquake occurs, the released energy doesn't just stay in one place. It travels outwards in all directions through the Earth as seismic waves, which are responsible for the shaking and trembling we feel.</p>
+          <h2><span class="hl">Measuring</span> Earthquakes: Richter Scale &amp; Seismograph</h2>
+          <ul><li>Seismograph: Instrument to detect and record seismic waves.</li><li>Richter Scale: Measures the magnitude (strength) of an earthquake.</li><li>Higher numbers on Richter scale mean stronger earthquakes.</li></ul>
+          <p class="notes">🎙️ Scientists use special instruments to study earthquakes. A seismograph detects and records the seismic waves. The strength of an earthquake is measured using the Richter scale; each whole number increase represents a tenfold increase in measured amplitude and about 32 times more energy released.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Waves of Energy</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Seismograph</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Richter Scale</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Measuring Earthquakes: <span class="hl">Richter</span> Scale</h2>
-          <ul><li>Magnitude: measured by the Richter Scale</li><li>Intensity: measured by the Modified Mercalli Intensity Scale</li><li>Seismograph: instrument used to detect and record seismic waves</li></ul>
-          <p class="notes">🎙️ Earthquakes are measured using two main scales: the Richter scale for magnitude, which indicates the energy released, and the Mercalli scale for intensity, which describes the effects felt. A seismograph is the instrument that records these ground motions.</p>
+          <h2>Earthquake <span class="hl">Safety</span>: Before, During, After</h2>
+          <ul><li>BEFORE: Prepare an emergency kit, identify safe spots.</li><li>DURING: Drop, Cover, and Hold On under sturdy furniture.</li><li>AFTER: Check for injuries, avoid damaged areas.</li></ul>
+          <p class="notes">🎙️ Knowing what to do before, during, and after an earthquake can save lives. Preparing an emergency kit and knowing your safe spots are crucial. During a quake, the 'Drop, Cover, and Hold On' technique is vital. Afterwards, assess the situation and stay safe from further hazards.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Small Quake (2.0)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Moderate Quake (5.0)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Major Quake (8.0)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛡️</span><span>🛡️</span><span>🛡️</span></div><div class="vcap">Protect yourself during a quake</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,69 +240,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Real Example: <span class="hl">Devastating</span> Earthquakes</h2>
-          <ul><li>Gujarat Earthquake (2001): Magnitude 7.7, caused widespread destruction</li><li>Nepal Earthquake (2015): Magnitude 7.8, massive damage and loss of life</li><li>Show the immense power and impact on human settlements</li></ul>
-          <p class="notes">🎙️ History is unfortunately filled with examples of devastating earthquakes. The Gujarat earthquake in 2001 and the Nepal earthquake in 2015 are stark reminders of how powerful these events can be, causing immense loss of life and property.</p>
+          <h2>Real-life Example: <span class="hl">Bhuj Earthquake</span> (2001)</h2>
+          <ul><li>Devastating earthquake hit Gujarat, India, on Jan 26, 2001.</li><li>Measured 7.7 on the Richter scale.</li><li>Caused widespread destruction and loss of life.</li></ul>
+          <p class="notes">🎙️ The Bhuj earthquake in 2001 was one of the most destructive in India's history. It served as a stark reminder of the immense power of earthquakes and the importance of earthquake-resistant building design and disaster preparedness in seismic zones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏚️</span><span>🏚️</span><span>🏚️</span><span>🏚️</span></div><div class="vcap">Damaged Structures</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Earthquake Safety: <span class="hl">Before</span> an Earthquake</h2>
-          <ul><li>Prepare an emergency kit (water, food, first aid)</li><li>Identify safe spots in your home (under sturdy tables)</li><li>Know how to turn off gas, water, and electricity</li></ul>
-          <p class="notes">🎙️ Preparation is key for earthquake safety. Having an emergency kit ready, knowing safe spots in your home, and understanding how to shut off utilities can make a significant difference when an earthquake strikes.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎒</div><div class="vcap">Emergency Kit</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Earthquake Safety: <span class="hl">During</span> an Earthquake</h2>
-          <ul><li>Drop, Cover, and Hold On!</li><li>If indoors, stay inside. If outdoors, stay outside.</li><li>Stay away from windows, heavy furniture, and falling objects</li></ul>
-          <p class="notes">🎙️ During an earthquake, remember 'Drop, Cover, and Hold On'. Get under a sturdy piece of furniture, cover your head and neck, and hold on until the shaking stops. Stay calm and prioritize your safety.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Drop</span></div><div class="step"><span class="snum">2</span><span>Cover</span></div><div class="step"><span class="snum">3</span><span>Hold On</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>Earthquake Safety: <span class="hl">After</span> an Earthquake</h2>
-          <ul><li>Check for injuries and provide first aid</li><li>Be aware of aftershocks</li><li>Stay informed via radio and follow official instructions</li></ul>
-          <p class="notes">🎙️ Once the shaking stops, assess your surroundings and check for injuries. Be prepared for aftershocks, which are smaller tremors that can occur after the main quake. Listen to emergency broadcasts for guidance.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🩹</div><div class="vcap">First Aid Ready</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">Tsunamis</span>: Ocean's Giant Waves</h2>
-          <ul><li>Giant ocean waves caused by underwater earthquakes or volcanic eruptions</li><li>Can travel across entire oceans</li><li>Cause massive destruction when they hit coastlines</li></ul>
-          <p class="notes">🎙️ Sometimes, powerful underwater earthquakes can trigger another devastating phenomenon: tsunamis. These are not typical ocean waves but massive walls of water that can travel for thousands of kilometers and cause catastrophic damage upon reaching land.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Powerful Ocean Waves</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏚️</div><div class="vcap">Devastated city</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick Check: <span class="hl">Earthquakes</span></h2>
-          <ul><li>What are the large pieces of Earth's crust called?</li><li>Which instrument is used to record seismic waves?</li><li>What should you do during an earthquake (the three main actions)?</li></ul>
-          <p class="notes">🎙️ Time for another quick check! Reflect on the causes, measurement, and safety procedures related to earthquakes. Your understanding of these concepts is vital for your safety and knowledge.</p>
+          <span class="num">17 / 25</span>
+          <h2>Quick <span class="hl">Question 2</span>: Fill in the Blanks</h2>
+          <ul><li>Earthquakes are caused by the movement of ____ plates.</li><li>The instrument used to detect seismic waves is a ____.</li><li>The strength of an earthquake is measured on the ____ scale.</li></ul>
+          <p class="notes">🎙️ Let's see if you can recall these key terms about earthquakes. Fill in the blanks with the correct words. This will help reinforce your understanding of the causes and measurement of earthquakes.</p>
         </div>
         
       </div>
@@ -298,12 +263,60 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Natural Phenomena: <span class="hl">Friend or Foe</span>?</h2>
-          <ul><li>Essential for Earth's processes (e.g., shaping landforms)</li><li>Can be destructive, causing loss of life and property</li><li>Understanding them helps us coexist and prepare</li></ul>
-          <p class="notes">🎙️ Natural phenomena are a double-edged sword. While they are vital for shaping our planet and its ecosystems, they can also be incredibly destructive. Our goal is to understand them better so we can live safely alongside these powerful forces.</p>
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Tsunamis</span>: Ocean's Giant Waves</h2>
+          <ul><li>Series of powerful ocean waves.</li><li>Often caused by underwater earthquakes or volcanic eruptions.</li><li>Can travel across entire oceans and cause massive devastation.</li></ul>
+          <p class="notes">🎙️ Sometimes, an earthquake under the ocean can trigger another terrifying natural phenomenon: a tsunami. These aren't your typical ocean waves; they are incredibly powerful and can travel vast distances, bringing destruction to coastal areas.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of Nature</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reactivity_series_of_metals.svg?width=500" data-fb="🌊" alt="The reactivity series ranks metals by their tendency to lose electrons and form positive i"/><div class="vcap">The reactivity series ranks metals by their tendency to lose electrons and form positive i</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Formation</span> of a Tsunami: Underwater Disturbance</h2>
+          <ul><li>Underwater earthquake causes sudden vertical displacement of seabed.</li><li>Massive amount of ocean water is displaced.</li><li>This displacement generates a series of waves.</li></ul>
+          <p class="notes">🎙️ A tsunami usually starts when an underwater earthquake causes a sudden, large vertical shift in the ocean floor. This movement displaces a huge volume of water above it, sending out powerful waves that can travel at incredible speeds across the ocean.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Underwater quake</span></div><div class="step"><span class="snum">2</span><span>Seabed displaces</span></div><div class="step"><span class="snum">3</span><span>Water generates waves</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Tsunami <span class="hl">Safety</span>: Recognising Warnings</h2>
+          <ul><li>Natural Warning: Strong earthquake, loud ocean roar, sudden sea retreat.</li><li>Official Warning: Alerts from disaster management agencies.</li><li>ACTION: Move immediately to higher ground.</li></ul>
+          <p class="notes">🎙️ Recognizing tsunami warning signs is critical for survival. If you feel a strong earthquake near the coast, hear a loud ocean roar, or see the sea suddenly recede unusually far, do not wait for official warnings – evacuate to higher ground immediately.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚨</span><span>🚨</span><span>🚨</span></div><div class="vcap">Tsunami warning signs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Real-life Example: <span class="hl">Indian Ocean Tsunami</span> (2004)</h2>
+          <ul><li>Massive tsunami hit several countries around the Indian Ocean.</li><li>Caused by a magnitude 9.1 earthquake off Sumatra.</li><li>Resulted in over 230,000 deaths across 14 countries.</li></ul>
+          <p class="notes">🎙️ The 2004 Indian Ocean Tsunami was one of the deadliest natural disasters in recorded history. It highlighted the need for effective early warning systems and better disaster preparedness in coastal regions worldwide. Many lives were lost due to lack of awareness and warning.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏝️</div><div class="vcap">Coastal devastation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Question 3: Which is <span class="hl">NOT a cause</span> of Tsunami?</h2>
+          <ul><li>Underwater earthquake</li><li>Volcanic eruption under the sea</li><li>Heavy rainfall</li><li>Landslide into the ocean</li></ul>
+          <p class="notes">🎙️ Let's check your understanding of tsunami causes. Among these options, which one is NOT a direct cause of a tsunami? Think carefully about how tsunamis are generated.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,11 +324,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Mitigation</span> Strategies: Reducing Impact</h2>
-          <ul><li>Building earthquake-resistant structures</li><li>Early warning systems for tsunamis and severe weather</li><li>Community awareness and preparedness drills</li></ul>
-          <p class="notes">🎙️ We cannot stop natural phenomena, but we can reduce their impact. This involves adopting mitigation strategies like constructing buildings that can withstand quakes, developing early warning systems, and educating communities on preparedness.</p>
+          <h2><span class="hl">Mitigation</span> and Preparedness: Reducing Impact</h2>
+          <ul><li>Mitigation: Actions to reduce the severity of natural disasters.</li><li>Preparedness: Planning for what to do before, during, and after.</li><li>Examples: Earthquake-resistant buildings, early warning systems.</li></ul>
+          <p class="notes">🎙️ While we cannot stop natural phenomena, we can certainly reduce their impact. Mitigation involves constructing safer buildings and infrastructure. Preparedness means having emergency plans, kits, and early warning systems in place to save lives and minimize damage.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Resilient Structures</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👷</div><div class="vcap">Building safer communities</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Recap: Key <span class="hl">Takeaways</span></h2>
-          <ul><li>Lightning is an electric discharge in the atmosphere.</li><li>Earthquakes are caused by tectonic plate movement.</li><li>Safety measures are crucial for both phenomena.</li><li>Understanding helps us prepare and protect ourselves.</li></ul>
-          <p class="notes">🎙️ To summarize, we learned that lightning is a giant electric spark, and earthquakes are caused by the movement of Earth's tectonic plates. Most importantly, we've covered essential safety measures to protect ourselves from these powerful natural events.</p>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Lightning is an electric discharge during thunderstorms.</li><li>Earthquakes are caused by tectonic plate movements.</li><li>Tsunamis are giant waves often triggered by underwater quakes.</li><li>Safety and preparedness are crucial for all natural phenomena.</li></ul>
+          <p class="notes">🎙️ To summarize, we've learned about lightning, earthquakes, and tsunamis – three powerful natural phenomena. We've understood their causes, how they occur, and most importantly, how we can protect ourselves and our communities through safety measures and preparedness.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span>!</h2>
-          <ul><li>Stay curious, stay safe!</li><li>Further reading: NCERT Class 8 Science Chapter 15</li><li>Questions?</li></ul>
-          <p class="notes">🎙️ Thank you for your attention and active participation today! Remember to review your textbook for more details and always prioritize safety during natural events. If you have any further questions, please feel free to ask.</p>
+          <h2>Stay Curious, <span class="hl">Stay Safe!</span></h2>
+          <ul><li>Natural phenomena are a part of our dynamic Earth.</li><li>Understanding them helps us live safely.</li><li>Continue exploring and learning about our amazing world!</li></ul>
+          <p class="notes">🎙️ Always remember that our Earth is a living, dynamic planet, and these phenomena are a part of its natural processes. By understanding them, we can learn to coexist with nature's power and ensure our safety. Keep observing and keep learning!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 8 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

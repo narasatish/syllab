@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Principles of Inheritance and Variation — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Principles of <span class="hl">Inheritance</span> and Variation</h2>
-          <ul><li>Class 12 Biology: Chapter 5</li><li>CBSE Board Exam Focus</li><li>Understanding how traits pass on</li></ul>
-          <p class="notes">🎙️ Welcome, students! Today, we begin a fascinating chapter in Biology: 'Principles of Inheritance and Variation'. This chapter is crucial for your CBSE board exams and forms the foundation of genetics.</p>
+          <ul><li>Chapter 5: Class 12 Biology</li><li>CBSE Curriculum</li><li>Exploring the fascinating world of genetics</li></ul>
+          <p class="notes">🎙️ Welcome to a fundamental chapter in Biology. Understanding inheritance is key to comprehending life itself and how traits are passed through generations.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Genetics</span>?</h2>
-          <ul><li>Branch of biology studying heredity and variation.</li><li>Deals with how traits are passed from parents to offspring.</li><li>Explains similarities and differences within species.</li></ul>
-          <p class="notes">🎙️ Genetics is the core of understanding why we resemble our parents but are not identical copies. It explores the mechanisms and patterns of trait transmission.</p>
+          <ul><li>Study of heredity and variation</li><li>Explains how traits pass from parents to offspring</li><li>Basis for understanding evolution and biodiversity</li></ul>
+          <p class="notes">🎙️ Genetics is the branch of biology concerned with the study of heredity and variation. It's about how characteristics are passed down through generations and why offspring are similar yet different from their parents.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Study of Genes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">DNA Helix</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Heredity</span> vs. Variation</h2>
-          <ul><li>Heredity: Transmission of characters from parents to offspring.</li><li>Variation: Differences among individuals of the same species.</li><li>Both are fundamental to evolution and adaptation.</li></ul>
-          <p class="notes">🎙️ Heredity ensures continuity of species, while variation provides the raw material for evolutionary change. Think of a family – everyone shares traits (heredity) but also has unique features (variation).</p>
+          <h2>Gregor <span class="hl">Mendel</span>: The Pioneer</h2>
+          <ul><li>Austrian monk and botanist</li><li>Conducted hybridization experiments on garden peas (Pisum sativum)</li><li>Proposed fundamental laws of inheritance, laying foundation for modern genetics</li></ul>
+          <p class="notes">🎙️ Gregor Mendel's meticulous work with pea plants in the mid-19th century provided the first concrete understanding of how traits are inherited. His quantitative approach was revolutionary for his time.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Heredity</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Variation</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🔬</div><div class="vcap">Scientist</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Gregor <span class="hl">Mendel</span>: Father of Genetics</h2>
-          <ul><li>Austrian monk, performed experiments on pea plants (1856-1863).</li><li>Proposed fundamental laws of inheritance.</li><li>His work was rediscovered in 1900.</li></ul>
-          <p class="notes">🎙️ Mendel's meticulous experiments and mathematical approach were revolutionary. His work laid the groundwork for modern genetics, though it went unrecognized for decades.</p>
+          <h2>Fundamental <span class="hl">Vocabulary</span> - Part 1</h2>
+          <ul><li>Gene: Unit of inheritance, codes for a specific trait</li><li>Allele: Alternative forms of a gene (e.g., Tall or Dwarf)</li><li>Homozygous: Having identical alleles for a trait (e.g., TT or tt)</li></ul>
+          <p class="notes">🎙️ Before diving into Mendel's laws, it's crucial to understand these basic terms. Genes are the instructions, and alleles are the different versions of those instructions that an organism can inherit.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🔬</div><div class="vcap">Pioneer Scientist</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Genetic Pieces</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Why <span class="hl">Pea Plant</span> (Pisum sativum)?</h2>
-          <ul><li>Easy to cultivate and short life cycle.</li><li>Produces many offspring in one generation.</li><li>Clearly distinguishable contrasting traits.</li></ul>
-          <p class="notes">🎙️ Mendel chose the pea plant wisely. Its characteristics made it perfect for studying inheritance patterns, allowing him to observe multiple generations quickly.</p>
+          <h2>Fundamental Vocabulary - Part 2</h2>
+          <ul><li>Heterozygous: Having different alleles for a trait (e.g., Tt)</li><li>Dominant allele: Expresses itself phenotypically even in heterozygous state</li><li>Recessive allele: Expresses only in homozygous state, masked by dominant allele</li></ul>
+          <p class="notes">🎙️ These terms describe how alleles combine and interact to determine an organism's characteristics. Understanding dominant and recessive relationships is key to predicting inheritance patterns.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Ideal Model</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Allele Interaction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Mendel's <span class="hl">7 Contrasting</span> Traits</h2>
-          <ul><li>Seed shape: Round/Wrinkled</li><li>Seed colour: Yellow/Green</li><li>Flower colour: Purple/White</li><li>Pod shape: Inflated/Constricted</li></ul>
-          <p class="notes">🎙️ Mendel studied seven pairs of traits, each with a dominant and a recessive form. Knowing these specific traits is important for understanding his crosses.</p>
+          <h2>Phenotype <span class="hl">vs.</span> Genotype</h2>
+          <ul><li>Phenotype: Observable physical characteristics (e.g., tall, dwarf, red)</li><li>Genotype: Genetic constitution of an organism (e.g., TT, Tt, tt)</li><li>Genotype determines phenotype, but not always directly visible</li></ul>
+          <p class="notes">🎙️ It's vital to distinguish between what an organism looks like (phenotype) and its underlying genetic makeup (genotype). They are related but distinct concepts, crucial for problem-solving.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🫛</span><span>🫛</span><span>🫛</span><span>🫛</span><span>🫛</span><span>🫛</span><span>🫛</span></div><div class="vcap">Seven Distinct Pairs</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Phenotype</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Genotype</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Monohybrid</span> Cross: Concept</h2>
-          <ul><li>Cross involving a single pair of contrasting characters.</li><li>Example: Tall plant x Dwarf plant.</li><li>Used to study the inheritance of one gene at a time.</li></ul>
-          <p class="notes">🎙️ A monohybrid cross is the simplest type of genetic cross, focusing on how one specific trait, like height, is passed down through generations.</p>
+          <h2>Mendel's First Law: Law of <span class="hl">Dominance</span></h2>
+          <ul><li>In a pair of contrasting traits, one allele is dominant and the other is recessive</li><li>Dominant allele expresses itself in the F1 (first filial) generation</li><li>Recessive allele remains masked in the presence of a dominant allele</li></ul>
+          <p class="notes">🎙️ This law explains why, when you cross two pure-breeding parents with contrasting traits, only one trait appears in the first filial (F1) generation. The dominant trait 'wins out'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">One Trait Focus</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👑</div><div class="vcap">Dominant Rule</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Monohybrid Cross: <span class="hl">Steps</span> (Tall x Dwarf)</h2>
-          <ul><li>1. Parental (P) generation: Pure Tall (TT) x Pure Dwarf (tt)</li><li>2. Gamete formation: T and t</li><li>3. F1 generation: All Tall (Tt)</li><li>4. F1 self-pollination: Tt x Tt</li></ul>
-          <p class="notes">🎙️ Let's trace the steps. Starting with pure parents, we observe the F1 generation, then self-pollinate F1 to get the F2 generation. This systematic approach reveals inheritance patterns.</p>
+          <h2><span class="hl">Monohybrid</span> Cross - Introduction</h2>
+          <ul><li>A genetic cross involving a single pair of contrasting characters</li><li>Example: Crossing a pure tall pea plant with a pure dwarf pea plant</li><li>Helps study the inheritance pattern of one gene</li></ul>
+          <p class="notes">🎙️ A monohybrid cross simplifies the study by focusing on just one trait at a time. Mendel started with these simple crosses to establish his foundational principles.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>P Generation</span></div><div class="step"><span class="snum">2</span><span>Gametes</span></div><div class="step"><span class="snum">3</span><span>F1 Generation</span></div><div class="step"><span class="snum">4</span><span>F1 Self-cross</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Punnett_square.svg?width=500" data-fb="🌿" alt="Monohybrid and dihybrid crosses demonstrate Mendel's laws through Punnett squares showing "/><div class="vcap">Monohybrid and dihybrid crosses demonstrate Mendel's laws through Punnett squares showing </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Mendel's First Law: Law of <span class="hl">Dominance</span></h2>
-          <ul><li>In a pair of contrasting factors (alleles), one is dominant, the other recessive.</li><li>Dominant character expresses itself in F1 generation.</li><li>Recessive character is masked in F1, appears in F2.</li></ul>
-          <p class="notes">🎙️ This law explains why, in the F1 generation of a monohybrid cross, only one parental trait is expressed. The dominant allele masks the effect of the recessive allele.</p>
+          <h2>Worked Example: Monohybrid Cross (F1)</h2>
+          <ul><li>Parental (P) Generation: TT (Tall) x tt (Dwarf)</li><li>Gametes produced: T from Tall parent, t from Dwarf parent</li><li>F1 Generation: All Tt (Heterozygous Tall)</li></ul>
+          <p class="notes">🎙️ Here, we see the first step of a monohybrid cross. All offspring in the F1 generation are heterozygous and express the dominant tall phenotype, illustrating the Law of Dominance.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👑</div><div class="vcap">One Trait Rules</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parents (TT x tt)</span></div><div class="step"><span class="snum">2</span><span>Gametes (T, t)</span></div><div class="step"><span class="snum">3</span><span>F1 Progeny (Tt)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Mendel's Second Law: Law of <span class="hl">Segregation</span></h2>
-          <ul><li>Alleles for a trait separate during gamete formation.</li><li>Each gamete receives only one allele.</li><li>The alleles reunite randomly during fertilization.</li></ul>
-          <p class="notes">🎙️ The Law of Segregation is universal and states that alleles do not blend. They remain discrete units and separate cleanly during gamete formation, ensuring variation.</p>
+          <h2>Worked Example: Monohybrid Cross (F2 <span class="hl">Phenotypic Ratio</span>)</h2>
+          <ul><li>F1 self-cross: Tt (Tall) x Tt (Tall)</li><li>F2 Phenotypes: 3 Tall : 1 Dwarf</li><li>The phenotypic ratio is always 3:1 for complete dominance in F2</li></ul>
+          <p class="notes">🎙️ When F1 individuals self-pollinate, the recessive trait reappears in the F2 generation. This 3:1 phenotypic ratio is characteristic of a monohybrid cross with complete dominance.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Alleles Separate</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📈</span><span>📈</span><span>📈</span><span>📈</span></div><div class="vcap">3 Tall, 1 Dwarf</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Monohybrid Cross: <span class="hl">F2 Ratios</span></h2>
-          <ul><li>Cross: Tt x Tt (F1 self-cross)</li><li>F2 Genotypes: TT, Tt, tt</li><li>F2 Phenotypes: Tall, Dwarf</li><li>Phenotypic Ratio: 3 Tall : 1 Dwarf; Genotypic Ratio: 1 TT : 2 Tt : 1 tt</li></ul>
-          <p class="notes">🎙️ After an F1 self-cross, the F2 generation shows both dominant and recessive traits. Remember the classic 3:1 phenotypic and 1:2:1 genotypic ratios for monohybrid crosses.</p>
+          <h2>Worked Example: Monohybrid Cross (F2 <span class="hl">Genotypic Ratio</span>)</h2>
+          <ul><li>F1 self-cross: Tt (Tall) x Tt (Tall)</li><li>F2 Genotypes: 1 TT : 2 Tt : 1 tt</li><li>The genotypic ratio is always 1:2:1 for complete dominance in F2</li></ul>
+          <p class="notes">🎙️ While the phenotype is 3:1, the underlying genetic makeup shows a different ratio: one homozygous dominant, two heterozygous, and one homozygous recessive. Understand both!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📊</span><span>📊</span><span>📊</span><span>📊</span></div><div class="vcap">F2 Offspring</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">TT</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tt</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">tt</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Common Mistake: Phenotypic vs. Genotypic Ratios</h2>
-          <ul><li>Phenotypic ratio: Based on observable traits (e.g., 3 Tall : 1 Dwarf).</li><li>Genotypic ratio: Based on genetic makeup (e.g., 1 TT : 2 Tt : 1 tt).</li><li>Always specify which ratio is asked in the exam.</li></ul>
-          <p class="notes">🎙️ A frequent error is mixing these two up. Phenotype is what you see, genotype is the underlying genetic code. Understand the difference clearly for accurate answers.</p>
+          <h2>Common <span class="hl">Mistake</span>: Confusing Ratios</h2>
+          <ul><li>Always distinguish between phenotypic and genotypic ratios</li><li>Phenotypic ratio (e.g., 3:1) describes observable traits</li><li>Genotypic ratio (e.g., 1:2:1) describes the genetic makeup</li></ul>
+          <p class="notes">🎙️ This is a very common error in exams. Always read the question carefully to determine if it asks for phenotypic or genotypic ratios. They are distinct and tested frequently.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Phenotypic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Genotypic</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Ratio Confusion</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Monohybrid Cross</h2>
-          <ul><li>If a homozygous dominant pea plant is crossed with a homozygous recessive plant, what percentage of F1 offspring will be heterozygous?</li><li>A) 0%</li><li>B) 25%</li><li>C) 50%</li><li>D) 100%</li></ul>
-          <p class="notes">🎙️ Take a moment to solve this. This question tests your understanding of the initial steps of a monohybrid cross and the F1 generation. (Answer: D)</p>
+          <h2>Mendel's Second Law: Law of <span class="hl">Segregation</span></h2>
+          <ul><li>Alleles for a trait separate (segregate) during gamete formation</li><li>Each gamete receives only one of the two alleles</li><li>Ensures the purity of gametes (Law of Purity of Gametes)</li></ul>
+          <p class="notes">🎙️ This law states that during meiosis, the two alleles for a character separate from each other, so that each gamete gets only one allele. This separation is random and complete.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Allele Separation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Dihybrid</span> Cross: Concept</h2>
-          <ul><li>Cross involving two pairs of contrasting characters.</li><li>Example: Seed shape (Round/Wrinkled) and Seed colour (Yellow/Green).</li><li>Studies independent inheritance of two genes.</li></ul>
-          <p class="notes">🎙️ Moving on from one trait, a dihybrid cross allows us to observe how two different traits are inherited simultaneously. This reveals a more complex pattern.</p>
+          <h2>The <span class="hl">Test Cross</span></h2>
+          <ul><li>Cross an individual with unknown genotype (but dominant phenotype) with a homozygous recessive parent</li><li>Purpose: To determine if the unknown individual is homozygous dominant or heterozygous</li><li>Results indicate the genotype of the unknown parent</li></ul>
+          <p class="notes">🎙️ A test cross is a powerful tool to determine the genotype of an individual showing a dominant phenotype. It helps us distinguish between TT and Tt by observing the offspring ratios.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✌️</div><div class="vcap">Two Traits Together</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Uncovering Genotype</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Dihybrid Cross: <span class="hl">Steps</span> (RRYY x rryy)</h2>
-          <ul><li>1. Parental (P) generation: Round Yellow (RRYY) x Wrinkled Green (rryy)</li><li>2. Gamete formation: RY and ry</li><li>3. F1 generation: All Round Yellow (RrYy)</li><li>4. F1 self-pollination: RrYy x RrYy</li></ul>
-          <p class="notes">🎙️ The steps are similar to monohybrid, but now we track two genes. The F1 generation will be heterozygous for both traits. The F1 self-cross is where the magic happens.</p>
+          <h2><span class="hl">Dihybrid</span> Cross - Introduction</h2>
+          <ul><li>A genetic cross involving two pairs of contrasting characters</li><li>Example: Seed shape (Round/Wrinkled) and Seed color (Yellow/Green)</li><li>Analyzes the simultaneous inheritance of two different genes</li></ul>
+          <p class="notes">🎙️ A dihybrid cross takes us a step further, examining how two different traits are inherited together. It's more complex but reveals another important principle of inheritance.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>P Generation</span></div><div class="step"><span class="snum">2</span><span>Gametes</span></div><div class="step"><span class="snum">3</span><span>F1 Generation</span></div><div class="step"><span class="snum">4</span><span>F1 Self-cross</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟡</span><span>🟡</span><span>🟡</span><span>🟡</span></div><div class="vcap">Two Traits</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Mendel's Third Law: Law of <span class="hl">Independent Assortment</span></h2>
-          <ul><li>When two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair.</li><li>Alleles for different traits assort independently during gamete formation.</li><li>Leads to new combinations of traits in offspring.</li></ul>
-          <p class="notes">🎙️ This law is a cornerstone of genetics. It explains why traits like seed shape and seed color don't always travel together, leading to diverse offspring combinations.</p>
+          <h2>Mendel's Third Law: Law of Independent <span class="hl">Assortment</span></h2>
+          <ul><li>When two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair</li><li>Alleles for different traits sort independently into gametes</li><li>Leads to new combinations of traits in the offspring</li></ul>
+          <p class="notes">🎙️ This law states that the alleles for different genes segregate independently of one another during gamete formation. This leads to new combinations of traits in the offspring, increasing variation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Random Combinations</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Random Sorting</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Dihybrid Cross: <span class="hl">F2 Phenotypic</span> Ratio</h2>
-          <ul><li>Cross: RrYy x RrYy (F1 self-cross)</li><li>F2 Phenotypes: Round Yellow, Round Green, Wrinkled Yellow, Wrinkled Green</li><li>Phenotypic Ratio: 9 : 3 : 3 : 1</li></ul>
-          <p class="notes">🎙️ The 9:3:3:1 phenotypic ratio is characteristic of a dihybrid cross where both genes assort independently. Make sure you can derive this ratio using a Punnett square.</p>
+          <h2>Worked Example: Dihybrid Cross (F1)</h2>
+          <ul><li>Parental (P) Generation: RRYY (Round Yellow) x rryy (Wrinkled Green)</li><li>Gametes produced: RY from RRYY, ry from rryy</li><li>F1 Generation: All RrYy (Heterozygous Round Yellow)</li></ul>
+          <p class="notes">🎙️ Similar to the monohybrid cross, the F1 generation of a dihybrid cross shows only the dominant phenotypes for both traits, being heterozygous for both. This confirms the Law of Dominance for two traits.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Phenotypes Displayed</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parents (RRYY x rryy)</span></div><div class="step"><span class="snum">2</span><span>Gametes (RY, ry)</span></div><div class="step"><span class="snum">3</span><span>F1 Progeny (RrYy)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,33 +264,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Common Mistake: Incorrect <span class="hl">Gamete Formation</span></h2>
-          <ul><li>For RrYy, gametes are RY, Ry, rY, ry (four types).</li><li>Do not write Rr, Yy as gametes.</li><li>Each gamete must receive one allele for each gene.</li></ul>
-          <p class="notes">🎙️ This is a critical step in dihybrid crosses. If gametes are formed incorrectly, the entire Punnett square and resulting ratios will be wrong. Practice forming gametes carefully.</p>
+          <h2>Worked Example: Dihybrid Cross (F2 <span class="hl">Phenotypic Ratio</span>)</h2>
+          <ul><li>F1 self-cross: RrYy x RrYy</li><li>F2 Phenotypes: 9 Round Yellow : 3 Round Green : 3 Wrinkled Yellow : 1 Wrinkled Green</li><li>The phenotypic ratio is always 9:3:3:1 for independent assortment in F2</li></ul>
+          <p class="notes">🎙️ The 9:3:3:1 phenotypic ratio is the hallmark of a dihybrid cross where both genes show complete dominance and assort independently. Memorize this ratio, it's frequently tested!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Crucial Step</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Dihybrid Cross</h2>
-          <ul><li>In a dihybrid cross, if the F1 generation is self-crossed, how many different types of gametes are produced by the F1 individuals?</li><li>A) 2</li><li>B) 4</li><li>C) 8</li><li>D) 16</li></ul>
-          <p class="notes">🎙️ Think about the genotype of the F1 individual in a standard dihybrid cross and apply the law of independent assortment to determine the gamete types. (Answer: B)</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📊</span><span>📊</span><span>📊</span><span>📊</span></div><div class="vcap">Dihybrid Ratio</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Beyond Mendel: <span class="hl">Incomplete Dominance</span></h2>
-          <ul><li>F1 hybrid shows an intermediate phenotype.</li><li>Neither allele is completely dominant.</li><li>Example: Snapdragon flower color (Red x White -&gt; Pink F1).</li></ul>
-          <p class="notes">🎙️ Not all traits follow strict dominant-recessive patterns. In incomplete dominance, the heterozygote expresses a phenotype that is a blend of the two homozygous parents.</p>
+          <span class="num">19 / 25</span>
+          <h2>Beyond Mendelian Genetics: <span class="hl">Incomplete</span> Dominance</h2>
+          <ul><li>F1 hybrid shows an intermediate phenotype, a blend of parental traits</li><li>Neither allele is completely dominant over the other</li><li>Example: Flower color in Mirabilis jalapa (snapdragon) - Red x White -&gt; Pink</li></ul>
+          <p class="notes">🎙️ Not all traits follow simple Mendelian dominance. In incomplete dominance, the heterozygous phenotype is a blend of the two homozygous phenotypes, like mixing paint colors.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌸</div><div class="vcap">Blended Traits</div></div></div>
       </div>
@@ -286,10 +287,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Beyond Mendel: <span class="hl">Co-dominance</span></h2>
-          <ul><li>Both alleles express themselves fully in the heterozygote.</li><li>No blending or intermediate phenotype.</li><li>Example: ABO blood groups (A and B alleles both expressed in AB blood type).</li></ul>
-          <p class="notes">🎙️ Co-dominance is different from incomplete dominance. Here, both alleles contribute equally and distinctly to the phenotype, rather than blending.</p>
+          <span class="num">20 / 25</span>
+          <h2>Beyond Mendelian Genetics: <span class="hl">Co-dominance</span></h2>
+          <ul><li>Both alleles express themselves fully and simultaneously in the F1 hybrid</li><li>No blending; both traits are distinctly visible</li><li>Example: ABO blood groups (IAIB expresses both A and B antigens)</li></ul>
+          <p class="notes">🎙️ In co-dominance, both alleles contribute to the phenotype without blending. A classic example is the AB blood type, where both A and B antigens are present on the red blood cells.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Both Expressed</div></div></div>
       </div>
@@ -298,24 +299,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Beyond Mendel: <span class="hl">Multiple Allelism</span></h2>
-          <ul><li>More than two alleles exist for a single gene in a population.</li><li>An individual can still only have two alleles.</li><li>Example: ABO blood groups (I^A, I^B, i alleles).</li></ul>
-          <p class="notes">🎙️ While an individual inherits only two alleles for a gene, the population can have many. ABO blood groups are a classic example, involving three alleles for blood type.</p>
+          <span class="num">21 / 25</span>
+          <h2>Beyond Mendelian Genetics: <span class="hl">Multiple Alleles</span></h2>
+          <ul><li>More than two alleles exist for a single gene within a population</li><li>An individual still possesses only two alleles for that gene</li><li>Example: ABO blood group system (IA, IB, and i alleles)</li></ul>
+          <p class="notes">🎙️ While an individual carries only two alleles for a gene, a population can have many more. The ABO blood group system is a prime example of multiple allelism, leading to four blood types.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🩸</span><span>🩸</span><span>🩸</span></div><div class="vcap">Multiple Blood Alleles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🩸</div><div class="vcap">Blood Types</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! (Question 1)</h2>
+          <ul><li>What is the phenotypic ratio of the F2 generation in a monohybrid cross involving complete dominance?</li><li>(A) 1:2:1</li><li>(B) 3:1</li><li>(C) 9:3:3:1</li><li>(D) 1:1</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. Recall the classic ratio for a single trait cross where one allele completely dominates the other. Think carefully about phenotype versus genotype.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Chromosomal Theory</span> of Inheritance</h2>
-          <ul><li>Proposed by Sutton and Boveri (1902).</li><li>Mendel's 'factors' (genes) are located on chromosomes.</li><li>Homologous chromosomes carry alleles and segregate during meiosis.</li></ul>
-          <p class="notes">🎙️ This theory was a major breakthrough, linking Mendel's abstract factors to physical structures within the cell. It provided a physical basis for the laws of inheritance.</p>
+          <h2>Quick Check! (Question 2)</h2>
+          <ul><li>What is the primary purpose of a test cross?</li><li>(A) To determine the phenotypic ratio of F2 generation</li><li>(B) To find the genotypic ratio of F2 generation</li><li>(C) To determine the genotype of an individual with a dominant phenotype</li><li>(D) To study dihybrid inheritance patterns</li></ul>
+          <p class="notes">🎙️ Remember the specific application of a test cross. What key piece of information does it help us uncover when an organism displays a dominant trait?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Genes on Chromosomes</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Quick Check</span>: Non-Mendelian Inheritance</h2>
-          <ul><li>Which of the following is an example of co-dominance?</li><li>A) Pink flowers in Snapdragon</li><li>B) AB blood group in humans</li><li>C) Tall and dwarf pea plants</li><li>D) Skin color in humans</li></ul>
-          <p class="notes">🎙️ Recall the definitions of incomplete dominance and co-dominance. This question directly tests your understanding of these non-Mendelian inheritance patterns. (Answer: B)</p>
+          <h2>Quick Check! (Question 3)</h2>
+          <ul><li>A red flower crossed with a white flower produces pink offspring. This is an example of:</li><li>(A) Co-dominance</li><li>(B) Complete Dominance</li><li>(C) Incomplete Dominance</li><li>(D) Multiple Alleles</li></ul>
+          <p class="notes">🎙️ This scenario describes a specific type of allele interaction where neither allele fully masks the other, resulting in an intermediate expression. What is this phenomenon called?</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Principles of Inheritance</h2>
-          <ul><li>Mendelian Genetics: Dominance, Segregation, Independent Assortment.</li><li>Monohybrid (3:1) and Dihybrid (9:3:3:1) ratios.</li><li>Non-Mendelian: Incomplete Dominance, Co-dominance, Multiple Allelism.</li><li>Chromosomal Theory: Genes on chromosomes.</li></ul>
-          <p class="notes">🎙️ We've covered the foundational principles of inheritance, from Mendel's laws to exceptions and the chromosomal basis. Ensure you understand all key concepts for your exams.</p>
+          <h2>Chapter <span class="hl">Recap</span> &amp; Exam Tips</h2>
+          <ul><li>Revisit Mendel's Laws: Dominance, Segregation, Independent Assortment</li><li>Master key genetic terms: gene, allele, homozygous, heterozygous, phenotype, genotype</li><li>Practice Punnett squares for monohybrid and dihybrid crosses thoroughly</li><li>Differentiate between Mendelian and Non-Mendelian inheritance patterns</li></ul>
+          <p class="notes">🎙️ This chapter forms the bedrock of genetics. Master the concepts, practice problem-solving, and pay attention to the nuances between different types of inheritance for exam success. Good luck!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Biology</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

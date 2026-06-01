@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Digital Money — UPI, Cards &amp; Online Payments — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Digital Money</span>: UPI, Cards &amp; Online Payments</h2>
-          <ul><li>Exploring how we pay without cash!</li><li>Understanding UPI, Debit/Credit Cards &amp; Online Payments.</li><li>Learning to transact safely in the digital world.</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we're diving into the exciting world of Digital Money. Have you ever seen your parents pay using their phone or a card? That's what we'll explore – how money moves without physical cash, making our lives easier and faster.</p>
+          <h2>Chapter 1: <span class="hl">Digital Money</span> — UPI, Cards &amp; Online Payments</h2>
+          <ul><li>Welcome to the world of easy payments!</li><li>Today, we'll explore how money works without cash.</li><li>Get ready to learn about UPI, different cards, and online payments.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into the world of digital money. We'll discover how payments are made instantly and conveniently without needing physical cash. This chapter will equip you with essential knowledge for navigating the modern financial landscape.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Digital Money</span>?</h2>
-          <ul><li>Money that exists and is exchanged electronically.</li><li>No physical cash needed for transactions.</li><li>Stored in digital form, like in bank accounts.</li></ul>
-          <p class="notes">🎙️ Digital money is simply money that lives on computers and phones, not in your wallet. Instead of coins and notes, it's represented by numbers in your bank account. When you make a digital payment, these numbers are just transferred from one account to another.</p>
+          <ul><li>Money that exists only in electronic form.</li><li>No physical cash, coins, or paper notes involved.</li><li>Transactions happen through computers, phones, or payment terminals.</li></ul>
+          <p class="notes">🎙️ Digital money is simply money that you can't touch or hold. It's stored as data in bank accounts and digital wallets. Think of it as numbers on a screen that represent your funds, allowing for quick and secure transactions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💻</div><div class="vcap">Electronic Money</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📱</div><div class="vcap">Money on your phone!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Why Use</span> Digital Money?</h2>
-          <ul><li>Convenience: Pay anytime, anywhere.</li><li>Speed: Transactions happen instantly.</li><li>Security: Less risk of losing cash.</li></ul>
-          <p class="notes">🎙️ Imagine you don't have to carry a heavy wallet full of cash, or search for exact change! Digital money offers incredible convenience and speed. It's also safer in some ways, as you're not carrying large amounts of physical cash that could be lost or stolen.</p>
+          <h2>Why Use Digital Money? <span class="hl">Benefits</span>!</h2>
+          <ul><li>Convenient: Pay anytime, anywhere.</li><li>Safe: No need to carry large amounts of cash.</li><li>Fast: Transactions happen almost instantly.</li><li>Trackable: Easily monitor your spending.</li></ul>
+          <p class="notes">🎙️ Digital money offers many advantages. It's incredibly convenient, letting you make payments from your home or on the go. It also enhances safety as you don't risk losing physical cash, and all your transactions are recorded, making budgeting easier.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span></div><div class="vcap">Fast &amp; Easy Payments</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Advantages of Digital</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Types</span> of Digital Money</h2>
-          <ul><li>UPI (Unified Payments Interface)</li><li>Debit &amp; Credit Cards</li><li>Online Banking &amp; Wallets</li></ul>
-          <p class="notes">🎙️ There are several popular ways we use digital money in India. Today, we'll focus on three main categories: UPI, which is very popular for instant transfers, Debit and Credit Cards, and other online payment methods like net banking and mobile wallets.</p>
+          <h2>Exploring Digital Payment <span class="hl">Methods</span></h2>
+          <ul><li>We'll learn about three main types:</li><li>UPI: Unified Payments Interface</li><li>Cards: Debit and Credit Cards</li><li>Online Payments: Net Banking &amp; Digital Wallets</li></ul>
+          <p class="notes">🎙️ Today, we'll focus on the most popular digital payment methods in India. UPI is a revolutionary system for instant transfers. We'll also cover the plastic cards you often see, and how you can pay online using various platforms.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💳</div><div class="vcap">Various Methods</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💳</span><span>💳</span><span>💳</span></div><div class="vcap">Three ways to pay</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">UPI</span>: India's Instant Payment System</h2>
-          <ul><li>Developed by NPCI (National Payments Corporation of India).</li><li>Allows instant bank-to-bank transfers.</li><li>Uses a Virtual Payment Address (VPA) or mobile number.</li></ul>
-          <p class="notes">🎙️ UPI stands for Unified Payments Interface. It's a revolutionary system that has changed how we pay in India. It links multiple bank accounts into a single mobile application, letting you send or receive money instantly using just a mobile number or a unique ID.</p>
+          <h2>Understanding <span class="hl">UPI</span>: India's Payment Revolution</h2>
+          <ul><li>UPI stands for Unified Payments Interface.</li><li>It's an instant payment system developed by NPCI.</li><li>Allows you to link multiple bank accounts to one app.</li><li>Make payments directly from your bank to another, instantly!</li></ul>
+          <p class="notes">🎙️ UPI is a game-changer for digital payments in India. It's like a superhighway for money, allowing you to send or receive funds directly between bank accounts using just your mobile phone. It's simple, fast, and very secure.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📱</div><div class="vcap">Phone-based Payments</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">UPI: Instant Connection</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>How UPI Works: <span class="hl">Simple Steps</span></h2>
-          <ul><li>1. Link bank account to UPI app.</li><li>2. Enter amount &amp; recipient's VPA/number.</li><li>3. Authorize with UPI PIN.</li></ul>
-          <p class="notes">🎙️ The process is quite straightforward. First, you link your bank account to a UPI-enabled app like Google Pay or PhonePe. Then, you just enter the amount and the recipient's details, and finally, confirm with your secret UPI PIN. The money transfers instantly!</p>
+          <h2>Simple <span class="hl">Steps</span> for UPI Payments</h2>
+          <ul><li>Open your UPI-enabled app (e.g., Google Pay, PhonePe).</li><li>Select 'Send Money' or 'Scan QR'.</li><li>Enter recipient's VPA, phone number, or scan QR.</li><li>Enter amount &amp; your UPI PIN to confirm.</li></ul>
+          <p class="notes">🎙️ Making a UPI payment is straightforward. You just need a smartphone, a UPI app, and your unique UPI PIN. Once you enter the details and your PIN, the money is transferred in seconds, making it ideal for everyday transactions.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Open UPI App</span></div><div class="step"><span class="snum">2</span><span>Enter Details</span></div><div class="step"><span class="snum">3</span><span>Confirm PIN</span></div><div class="step"><span class="snum">4</span><span>Payment Done!</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Open App</span></div><div class="step"><span class="snum">2</span><span>Choose Recipient</span></div><div class="step"><span class="snum">3</span><span>Enter Amount</span></div><div class="step"><span class="snum">4</span><span>Confirm with PIN</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>UPI in Action: <span class="hl">Paying at a Shop</span></h2>
-          <ul><li>Scan the shop's QR code.</li><li>Enter the bill amount.</li><li>Confirm with your UPI PIN.</li></ul>
-          <p class="notes">🎙️ Imagine you're buying snacks at a small shop. Instead of fumbling for change, you can simply open your UPI app, scan the QR code displayed at the counter, enter the amount shown on the bill, and confirm. The shopkeeper gets the money instantly, and you're good to go!</p>
+          <h2>VPA &amp; QR Codes: UPI's <span class="hl">Superpowers</span></h2>
+          <ul><li>VPA (Virtual Payment Address): Like an email ID for your bank account (e.g., 'yourname@bank').</li><li>QR Code: A scannable image that holds payment details.</li><li>Both make sending and receiving money very easy.</li></ul>
+          <p class="notes">🎙️ VPA and QR codes are two brilliant features of UPI. A VPA simplifies sharing your bank details, while a QR code allows you to make payments by simply scanning, eliminating the need to type in account numbers. They make payments seamless and error-free.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛒</span></div><div class="vcap">Shop Payment</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Easy Payment Links</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>UPI <span class="hl">Benefits</span>: Quick, Secure &amp; Easy</h2>
-          <ul><li>24/7 Availability: Transact anytime.</li><li>No Bank Details Needed: Use VPA/number.</li><li>Direct Bank Transfer: No middle wallets.</li></ul>
-          <p class="notes">🎙️ UPI is a game-changer because it works round the clock, unlike traditional bank timings. You don't need to know the recipient's account number or IFSC code; a simple VPA or mobile number is enough. Plus, the money goes directly from your bank to theirs, making it very efficient.</p>
+          <h2>Why Choose UPI? <span class="hl">Benefits</span>!</h2>
+          <ul><li>Instant transfers, 24/7.</li><li>No transaction fees for most payments.</li><li>Highly secure with multi-factor authentication.</li><li>Works with many banks and payment apps.</li></ul>
+          <p class="notes">🎙️ UPI is incredibly beneficial because it's available round the clock, making payments possible even on holidays. Most transactions are free, and with features like UPI PIN, it offers strong security, giving you peace of mind with every transfer.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">UPI</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Traditional Bank Transfer</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">UPI Advantages</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Debit Cards</span>: Your Bank Account in Your Pocket</h2>
-          <ul><li>Linked directly to your bank savings account.</li><li>Money is deducted instantly from your account.</li><li>Use for payments at stores or online.</li></ul>
-          <p class="notes">🎙️ A debit card is like carrying your bank account in a plastic card. When you use it, the money is immediately taken out of your own bank account. You can only spend what you have in your account, which helps you manage your money responsibly.</p>
+          <h2>Real-life UPI Example: Paying for <span class="hl">Groceries</span></h2>
+          <ul><li>You buy vegetables worth ₹150 at the local shop.</li><li>The shopkeeper displays a QR code.</li><li>You scan the QR code with your UPI app.</li><li>Enter ₹150 and your UPI PIN. Payment done!</li></ul>
+          <p class="notes">🎙️ Imagine you're at the market. Instead of fumbling for cash, you just pull out your phone, scan the shopkeeper's QR code, enter the amount, and confirm. The payment is instant, and both you and the shopkeeper get a confirmation. It's that simple and efficient!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💳</div><div class="vcap">Your Money Card</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛒</span></div><div class="vcap">Quick shop payment</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Credit Cards</span>: Borrowing to Pay</h2>
-          <ul><li>Allows you to borrow money from the bank.</li><li>You pay back the borrowed amount later, usually with interest.</li><li>Different from debit cards as it uses borrowed money.</li></ul>
-          <p class="notes">🎙️ Credit cards are different from debit cards. With a credit card, you are essentially borrowing money from the bank to make a purchase. You then have to pay this borrowed amount back to the bank, often with interest if not paid on time. For Class 7, we mainly focus on debit cards.</p>
+          <h2>Keeping Your UPI Payments <span class="hl">Safe</span></h2>
+          <ul><li>Never share your UPI PIN with anyone.</li><li>Always check the recipient's details before paying.</li><li>Use strong screen locks on your phone.</li><li>Beware of fake payment requests or links.</li></ul>
+          <p class="notes">🎙️ Security is paramount with UPI. Your UPI PIN is like the key to your bank account, so never share it. Always double-check the name of the person or shop you are paying to avoid sending money to the wrong account. Be vigilant against scams!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💸</div><div class="vcap">Bank's Money</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">UPI Security</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">How Cards Work</span>: In-Store &amp; Online</h2>
-          <ul><li>In-store: Swipe/tap card, enter PIN.</li><li>Online: Enter card number, expiry, CVV, OTP.</li></ul>
-          <p class="notes">🎙️ When you use a card in a shop, you typically swipe, insert, or tap it on a machine called a POS terminal and then enter your PIN. For online shopping, you enter the card's details like its number, expiry date, and the CVV code on the back, followed by an OTP sent to your phone for security.</p>
+          <h2>What is a <span class="hl">Debit Card</span>?</h2>
+          <ul><li>A plastic card linked directly to your bank account.</li><li>Allows you to spend only the money you have in your account.</li><li>Used for ATM withdrawals, online shopping, and point-of-sale payments.</li></ul>
+          <p class="notes">🎙️ A debit card is essentially an electronic checkbook. When you use it, the money is immediately deducted from your bank account. It's a convenient way to access your own funds without carrying cash, and it helps you stick to your budget.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Choose Card</span></div><div class="step"><span class="snum">2</span><span>Enter Details/Swipe</span></div><div class="step"><span class="snum">3</span><span>Verify (PIN/OTP)</span></div><div class="step"><span class="snum">4</span><span>Payment Done!</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💳</div><div class="vcap">Your Bank's Card</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Card in Action: <span class="hl">Buying Groceries</span></h2>
-          <ul><li>At the checkout, give your debit card.</li><li>The cashier swipes it on the POS machine.</li><li>You enter your 4-digit PIN to approve.</li></ul>
-          <p class="notes">🎙️ Imagine you're at the supermarket buying groceries. When it's time to pay, you hand over your debit card. The cashier processes it, and you'll be prompted to enter your secret 4-digit PIN on the machine. Once verified, the payment is complete, and you receive a receipt.</p>
+          <h2>How Debit Cards Work: Using Your <span class="hl">Own Money</span></h2>
+          <ul><li>Swipe/Insert/Tap your card at a machine.</li><li>Enter your 4-digit PIN (Personal Identification Number).</li><li>The amount is deducted instantly from your bank account.</li><li>You receive a transaction confirmation.</li></ul>
+          <p class="notes">🎙️ When you make a purchase with your debit card, the payment terminal communicates with your bank to verify funds. Once approved, the money is transferred from your account to the merchant's. It's a direct and immediate transaction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛍️</span></div><div class="vcap">Grocery Shopping</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Use Card</span></div><div class="step"><span class="snum">2</span><span>Enter PIN</span></div><div class="step"><span class="snum">3</span><span>Money Deducted</span></div><div class="step"><span class="snum">4</span><span>Confirmation</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,9 +204,57 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Online Payments</span>: Paying from Anywhere</h2>
-          <ul><li>Making payments using the internet.</li><li>Includes online shopping, bill payments, money transfers.</li><li>Can use net banking, cards, or mobile wallets.</li></ul>
-          <p class="notes">🎙️ Online payments refer to any transaction made over the internet. This could be buying something from an e-commerce website, paying your electricity bill, or sending money to a friend. It offers immense flexibility, allowing you to pay from the comfort of your home.</p>
+          <h2>Real-life Debit Card Example: Shopping for <span class="hl">Books</span></h2>
+          <ul><li>You buy a set of books for ₹800 at a bookstore.</li><li>You hand over your debit card at the counter.</li><li>The cashier uses the card machine, and you enter your PIN.</li><li>₹800 is debited from your bank account. You get your books!</li></ul>
+          <p class="notes">🎙️ Imagine you've found your favorite books. Instead of counting out cash, you simply use your debit card. The transaction is quick, and you get an SMS or app notification confirming the purchase, making it very transparent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span></div><div class="vcap">Bookstore payment</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Introduction to <span class="hl">Credit Cards</span> (for later use!)</h2>
+          <ul><li>A plastic card that allows you to borrow money from the bank.</li><li>You spend the bank's money, not your own.</li><li>You must repay the borrowed amount, usually with interest.</li><li>Important for responsible use when you are older.</li></ul>
+          <p class="notes">🎙️ While debit cards use your own money, credit cards allow you to make purchases by borrowing money from the bank. It's crucial to understand that this is a loan, and you must pay it back. We will learn more about them when you are older and responsible enough to manage credit.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💳</div><div class="vcap">Borrowing Card</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Debit Cards vs. Credit Cards: Know the <span class="hl">Difference</span>!</h2>
+          <ul><li>Debit: Uses your own money, no debt.</li><li>Credit: Uses borrowed money, creates debt.</li><li>Debit: No interest charges.</li><li>Credit: Interest charged if not paid on time.</li></ul>
+          <p class="notes">🎙️ The fundamental difference is whose money you are spending. With a debit card, it's always your money. With a credit card, you are using the bank's money and promising to pay it back. Understanding this distinction is key to smart financial habits.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Debit Card (Your Money)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Credit Card (Bank's Money)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Protecting Your Plastic Money: Card <span class="hl">Security</span></h2>
+          <ul><li>Keep your PIN secret; never write it down.</li><li>Check your card transactions regularly.</li><li>Never share your card number, CVV, or expiry date with strangers.</li><li>Report lost or stolen cards immediately to your bank.</li></ul>
+          <p class="notes">🎙️ Your debit and credit cards are valuable, so protecting them is vital. Treat your PIN like a secret code. Regularly checking your bank statements helps you spot any unauthorized transactions quickly. Always be careful about sharing card details online or over the phone.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Card Protection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>What are <span class="hl">Online Payments</span>?</h2>
+          <ul><li>Making payments over the internet.</li><li>Used for shopping, bill payments, booking tickets, etc.</li><li>Can use various methods like Net Banking, cards, or digital wallets.</li></ul>
+          <p class="notes">🎙️ Online payments refer to any transaction where money is exchanged electronically via the internet. It has transformed how we shop, pay bills, and access services, making everything accessible from our homes. It's a vast category covering many digital methods.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Internet Payments</div></div></div>
       </div>
@@ -202,60 +263,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Other Online Payment Methods</h2>
-          <ul><li>Net Banking: Direct bank account access.</li><li>Mobile Wallets: Store money digitally (e.g., Paytm, Amazon Pay).</li><li>UPI is also a form of online payment.</li></ul>
-          <p class="notes">🎙️ Besides UPI and cards, net banking allows you to log into your bank's website or app to make payments directly. Mobile wallets are like digital purses where you can store money and use it for various payments. All these methods contribute to the vast world of online payments.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏦</div><div class="vcap">Diverse Options</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2><span class="hl">Staying Safe</span>: Online Payment Security</h2>
-          <ul><li>Use strong, unique passwords.</li><li>Never share your PIN, OTP, or CVV.</li><li>Only use trusted websites and apps.</li></ul>
-          <p class="notes">🎙️ Security is paramount when dealing with digital money. Always create strong passwords that are hard to guess. Never, ever share your secret PIN, OTP (One-Time Password), or CVV with anyone, not even bank officials. And always ensure you're using secure, reputable websites and apps.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Protect Your Money</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>Which system allows instant bank-to-bank transfers using a VPA?</li></ul>
-          <p class="notes">🎙️ Let's test our understanding! Think about the system we discussed that allows you to send money instantly between bank accounts using a simple address or mobile number. What was it called?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>What is the main difference between a Debit Card and a Credit Card?</li></ul>
-          <p class="notes">🎙️ Now, let's recall the difference between the two types of cards we learned about. One uses your own money, and the other lets you borrow. Can you explain the main difference?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 3</span></h2>
-          <ul><li>What is one important security tip for online payments?</li></ul>
-          <p class="notes">🎙️ Finally, thinking about safety, what is one crucial thing you should always remember to do, or never do, when making online payments?</p>
+          <h2>Online Payment <span class="hl">Methods</span>: Net Banking &amp; Digital Wallets</h2>
+          <ul><li>Net Banking: Access your bank account online to transfer funds or pay bills.</li><li>Digital Wallets (e.g., Paytm, PhonePe): Apps to store money and make payments.</li><li>Both offer convenience for various online transactions.</li></ul>
+          <p class="notes">🎙️ Net Banking allows you to manage your bank account directly through your bank's website or app. Digital wallets, on the other hand, are like virtual purses where you can store money and use it for quick payments, often linking to your bank account or cards.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📱</span><span>📱</span></div><div class="vcap">Two ways to pay online</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked Example: Sending Money via UPI</h2>
-          <ul><li>1. Open PhonePe app.</li><li>2. Tap 'Send Money' to contact.</li><li>3. Enter friend's mobile number, Rs. 200.</li><li>4. Enter UPI PIN. Money sent!</li></ul>
-          <p class="notes">🎙️ Let's walk through an example. Suppose you want to send Rs. 200 to a friend using UPI. You'd open your UPI app, select 'Send Money,' choose your friend from contacts, enter the amount, and then securely enter your UPI PIN. The money reaches them instantly!</p>
+          <h2><span class="hl">Steps</span> for Online Transactions</h2>
+          <ul><li>Choose your item/service on a website/app.</li><li>Select your preferred payment method (e.g., Net Banking, Card, Wallet).</li><li>Enter necessary details (e.g., card number, login details).</li><li>Confirm payment with OTP or PIN.</li></ul>
+          <p class="notes">🎙️ Online transactions typically follow these steps. After selecting what you want to buy, you choose how you want to pay. Always ensure you are on a secure website before entering any sensitive information, and always confirm with an OTP or PIN.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Open App</span></div><div class="step"><span class="snum">2</span><span>Choose Recipient</span></div><div class="step"><span class="snum">3</span><span>Enter Amount &amp; PIN</span></div><div class="step"><span class="snum">4</span><span>Transaction Complete</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Select Item</span></div><div class="step"><span class="snum">2</span><span>Choose Method</span></div><div class="step"><span class="snum">3</span><span>Enter Details</span></div><div class="step"><span class="snum">4</span><span>Confirm Payment</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Worked Example: Online Shopping with Debit Card</h2>
-          <ul><li>1. Select item on Amazon.</li><li>2. Choose 'Debit Card' at checkout.</li><li>3. Enter Card Number, Expiry, CVV.</li><li>4. Enter OTP received on phone. Order placed!</li></ul>
-          <p class="notes">🎙️ Now, for an online card payment. Imagine buying a book on Amazon. After adding it to your cart, at checkout, you select 'Debit Card.' You then carefully input your card number, expiry date, and the CVV code. Finally, you'll receive an OTP on your registered mobile, which you enter to complete the purchase.</p>
+          <h2>Real-life Online Payment Example: <span class="hl">Ordering Food</span></h2>
+          <ul><li>You order a pizza from a food delivery app.</li><li>At checkout, you choose 'Pay Online'.</li><li>You select 'Digital Wallet' and complete the payment.</li><li>Your pizza is on its way, paid digitally!</li></ul>
+          <p class="notes">🎙️ Imagine you're hungry and want to order food. Instead of paying cash on delivery, you can pay instantly through the app using your digital wallet or net banking. This makes the delivery process smoother and often provides discounts.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Add to Cart</span></div><div class="step"><span class="snum">2</span><span>Select Card Payment</span></div><div class="step"><span class="snum">3</span><span>Enter Card Details</span></div><div class="step"><span class="snum">4</span><span>Verify OTP</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍔</span></div><div class="vcap">Ordering dinner</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,63 +300,64 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Recap: Why Digital Money is <span class="hl">Great!</span></h2>
-          <ul><li>Convenience: Pay from anywhere, anytime.</li><li>Speed: Instant transactions.</li><li>Safety: Less risk of carrying cash.</li><li>Tracking: Easy to keep records of spending.</li></ul>
-          <p class="notes">🎙️ So, to recap, digital money offers amazing benefits. It's incredibly convenient, allowing payments from anywhere at any time. Transactions are super fast, and you don't have the worry of carrying or losing physical cash. Plus, your bank statements provide a clear record of all your spending.</p>
+          <h2>Safe Surfing for Online Payments: <span class="hl">Security Tips</span></h2>
+          <ul><li>Only use trusted and secure websites (look for 'https://').</li><li>Never click on suspicious links or emails.</li><li>Use strong, unique passwords for all online accounts.</li><li>Keep your device's software updated.</li></ul>
+          <p class="notes">🎙️ Online security is crucial. Always verify that a website is secure by checking for 'https://' in the address bar. Be cautious of phishing attempts and use complex passwords. Regularly updating your software protects against vulnerabilities.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">Money Made Easy</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>The Other Side: Digital Money <span class="hl">Risks</span></h2>
-          <ul><li>Cyber Fraud: Phishing, scams.</li><li>Technical Glitches: Network issues, server errors.</li><li>Requires Internet/Smartphone access.</li><li>Overspending (especially with credit cards).</li></ul>
-          <p class="notes">🎙️ While digital money is fantastic, it also comes with certain risks. We must be aware of cyber fraud like phishing emails or fake calls trying to get your details. Technical problems can sometimes delay transactions. Also, you need a smartphone and internet, and it's easy to overspend if not careful, especially with credit cards.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Be Aware of Dangers</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Smart &amp; <span class="hl">Safe Digital Transactions</span></h2>
-          <ul><li>Keep PINs/passwords secret.</li><li>Check transaction details carefully.</li><li>Use official apps and secure websites.</li><li>Monitor bank statements regularly.</li></ul>
-          <p class="notes">🎙️ To ensure safety, always guard your PINs and passwords. Double-check all transaction details before confirming. Only download official apps and ensure websites have 'https://' for security. And regularly check your bank statements to spot any unauthorized transactions immediately.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Your Safety Shield</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>The <span class="hl">Future</span> is Digital!</h2>
-          <ul><li>More widespread adoption.</li><li>Newer, faster technologies.</li><li>Less reliance on physical cash.</li><li>Increased financial inclusion.</li></ul>
-          <p class="notes">🎙️ The world is rapidly moving towards a cashless future. Digital money will become even more common, with new technologies making payments even faster and more seamless. This also means more people, even in remote areas, will have access to banking and financial services, leading to greater financial inclusion.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Evolving Payments</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚨</div><div class="vcap">Online Safety</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span> &amp; Your Questions</h2>
-          <ul><li>Learned about UPI, Debit/Credit Cards &amp; Online Payments.</li><li>Understood benefits like speed and convenience.</li><li>Identified risks and safe practices.</li><li>Ready for the digital financial world!</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! From understanding what digital money is, to how UPI and cards work, and how to stay safe online. I hope you now feel more confident about this important aspect of financial literacy. Now, I'm happy to answer any questions you might have.</p>
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Quick Check</span> 1: Test Your Knowledge!</h2>
+          <ul><li>Question: Which of these is NOT a form of digital money?</li><li>A) UPI</li><li>B) Debit Card</li><li>C) Cash</li><li>D) Online Wallet</li></ul>
+          <p class="notes">🎙️ Alright class, let's see how much you've absorbed so far! Take a moment to think about the different types of money we've discussed. Which one doesn't fit the 'digital' description? The answer is C) Cash, as it's physical money.</p>
         </div>
         
       </div>
     </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check 2: <span class="hl">UPI Basics</span></h2>
+          <ul><li>Question: What does VPA stand for in UPI?</li><li>A) Virtual Payment Account</li><li>B) Verified Payment Address</li><li>C) Virtual Payment Address</li><li>D) Valid Payment Account</li></ul>
+          <p class="notes">🎙️ Let's test your memory on UPI terms. Remember what VPA simplifies for us? The correct answer is C) Virtual Payment Address, which acts as your unique identifier for UPI transactions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check 3: <span class="hl">Card Knowledge</span></h2>
+          <ul><li>Question: When you use a Debit Card, whose money are you spending?</li><li>A) The Bank's Money</li><li>B) Your Own Money</li><li>C) The Shopkeeper's Money</li><li>D) A Friend's Money</li></ul>
+          <p class="notes">🎙️ Last quick question about cards! Think about the core difference between debit and credit cards. The correct answer is B) Your Own Money, as a debit card directly deducts funds from your bank account.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Digital Money</h2>
+          <ul><li>Digital money offers convenient, fast, and secure payments.</li><li>UPI allows instant bank-to-bank transfers using VPA/QR codes.</li><li>Debit cards use your own money; credit cards involve borrowing.</li><li>Online payments include Net Banking and Digital Wallets, requiring strong security.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today about digital money! Remember the key benefits of going digital, how UPI simplifies payments, the difference between debit and credit cards, and the importance of security in all online transactions. Keep practicing safe digital habits!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Key Learnings</div></div></div>
+      </div>
+    </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Financial Literacy</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

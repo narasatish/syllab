@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Reproduction in Animals — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2><span class="hl">Reproduction</span> in Animals</h2>
-          <ul><li>Subject: Science</li><li>Class: 8</li><li>Board: CBSE</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter on 'Reproduction in Animals'. This topic is fundamental to understanding how life continues on Earth.</p>
+          <ul><li>Welcome to our Science class!</li><li>Chapter: Reproduction in Animals</li><li>Subject: Science, Class 8, CBSE</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on a fascinating journey to understand how living beings ensure the continuation of their kind. Get ready to explore the wonders of reproduction in animals!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Reproduction</span>?</h2>
-          <ul><li>Process of producing new individuals.</li><li>Ensures continuation of species.</li><li>Essential for life on Earth.</li></ul>
-          <p class="notes">🎙️ Reproduction is the amazing process by which living organisms create offspring, or new individuals. It's crucial because without it, species would eventually disappear from our planet.</p>
+          <ul><li>Process by which living organisms produce new individuals.</li><li>Ensures the continuation of life on Earth.</li></ul>
+          <p class="notes">🎙️ Reproduction is a fundamental biological process. Think about it – without reproduction, species would simply vanish! It's how life passes from one generation to the next.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👶</div><div class="vcap">New Life</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👪</div><div class="vcap">New life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Types</span> of Reproduction</h2>
-          <ul><li>Two main ways animals reproduce.</li><li>Asexual Reproduction</li><li>Sexual Reproduction</li></ul>
-          <p class="notes">🎙️ Animals reproduce mainly in two ways: Asexual reproduction, which involves a single parent, and Sexual reproduction, which typically involves two parents.</p>
+          <h2>Why is Reproduction <span class="hl">Important</span>?</h2>
+          <ul><li>Ensures the survival of species.</li><li>Replaces old and dying individuals.</li><li>Maintains the balance of nature.</li></ul>
+          <p class="notes">🎙️ Imagine a world where animals couldn't reproduce. Soon, there would be no animals left! Reproduction is vital for keeping populations healthy and diverse.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Asexual</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sexual</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Life Continues</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Asexual</span> Reproduction</h2>
-          <ul><li>Single parent produces offspring.</li><li>Offspring are identical to parent.</li><li>No fusion of gametes involved.</li></ul>
-          <p class="notes">🎙️ In asexual reproduction, only one parent is needed to create new individuals. The offspring produced are usually exact copies of the parent, genetically speaking.</p>
+          <h2>Two Main <span class="hl">Types</span> of Reproduction</h2>
+          <ul><li>Asexual Reproduction</li><li>Sexual Reproduction</li></ul>
+          <p class="notes">🎙️ In the animal kingdom, we broadly classify reproduction into two main categories: asexual and sexual. Each has its unique characteristics and examples.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Single Parent</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Asexual</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sexual</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Asexual Reproduction: <span class="hl">Budding</span> in Hydra</h2>
-          <ul><li>Small bud grows on parent body.</li><li>Bud detaches and develops.</li><li>Forms a new, independent Hydra.</li></ul>
-          <p class="notes">🎙️ A great example is budding in Hydra. A small outgrowth, or bud, forms on the parent's body, grows, and eventually separates to become a new, independent Hydra.</p>
+          <h2><span class="hl">Asexual</span> Reproduction</h2>
+          <ul><li>Single parent produces offspring.</li><li>Offspring are genetically identical to the parent.</li><li>No fusion of gametes.</li></ul>
+          <p class="notes">🎙️ Asexual reproduction is like making a perfect copy of yourself! It's a simpler process involving only one parent, resulting in offspring that are clones.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent Hydra</span></div><div class="step"><span class="snum">2</span><span>Bud formation</span></div><div class="step"><span class="snum">3</span><span>Bud detaches</span></div><div class="step"><span class="snum">4</span><span>New Hydra</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👤</div><div class="vcap">One Parent</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Asexual Reproduction: Binary <span class="hl">Fission</span> in Amoeba</h2>
-          <ul><li>Parent cell divides into two.</li><li>Two identical daughter cells.</li><li>Common in single-celled organisms.</li></ul>
-          <p class="notes">🎙️ Another example is binary fission in Amoeba. The single-celled Amoeba simply divides into two identical daughter cells, a very efficient way to reproduce.</p>
+          <h2><span class="hl">Budding</span> in Hydra</h2>
+          <ul><li>A small outgrowth (bud) forms on the parent body.</li><li>The bud develops into a new individual.</li><li>Detaches and lives independently.</li></ul>
+          <p class="notes">🎙️ Hydra, a small freshwater animal, reproduces by budding. You can see a tiny bud growing on the side of the parent, which eventually breaks off to become a new Hydra.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent Amoeba</span></div><div class="step"><span class="snum">2</span><span>Nucleus divides</span></div><div class="step"><span class="snum">3</span><span>Cytoplasm divides</span></div><div class="step"><span class="snum">4</span><span>Two Amoebae</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent Hydra</span></div><div class="step"><span class="snum">2</span><span>Bud Forms</span></div><div class="step"><span class="snum">3</span><span>New Hydra</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Sexual</span> Reproduction</h2>
-          <ul><li>Involves two parents (male &amp; female).</li><li>Fusion of male and female gametes.</li><li>Offspring are not identical to parents.</li></ul>
-          <p class="notes">🎙️ Sexual reproduction is different; it involves two parents, a male and a female. Their specialized cells, called gametes, fuse to form a new individual, which has characteristics from both parents.</p>
+          <h2>Binary <span class="hl">Fission</span> in Amoeba</h2>
+          <ul><li>Parent cell divides into two equal halves.</li><li>Each half grows into a new individual.</li><li>Common in single-celled organisms.</li></ul>
+          <p class="notes">🎙️ Amoeba, a microscopic organism, reproduces by binary fission. It simply splits into two, like dividing a cake into two equal pieces, with each piece becoming a new amoeba.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Two Parents</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🔬" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Key <span class="hl">Processes</span> in Sexual Reproduction</h2>
-          <ul><li>Formation of male gametes (sperms).</li><li>Formation of female gametes (ova/eggs).</li><li>Fertilization: fusion of gametes.</li></ul>
-          <p class="notes">🎙️ The main steps are the production of male gametes, called sperms, and female gametes, called ova or eggs. These then fuse together in a process called fertilization.</p>
+          <h2><span class="hl">Sexual</span> Reproduction</h2>
+          <ul><li>Involves two parents (male and female).</li><li>Fusion of male and female gametes.</li><li>Offspring are genetically different from parents.</li></ul>
+          <p class="notes">🎙️ Sexual reproduction is more complex, requiring contributions from two parents. This mixing of genetic material leads to offspring that have unique combinations of traits, making them different from either parent.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Gamete Formation</span></div><div class="step"><span class="snum">2</span><span>Fertilization</span></div><div class="step"><span class="snum">3</span><span>Zygote Development</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Adolescent_hormones.svg?width=500" data-fb="👫" alt="Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation "/><div class="vcap">Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,9 +156,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
+          <h2><span class="hl">Features</span> of Sexual Reproduction</h2>
+          <ul><li>Involves gametes (sex cells).</li><li>Leads to genetic variation.</li><li>Common in most higher animals.</li></ul>
+          <p class="notes">🎙️ The key to sexual reproduction is the combining of genetic information from two individuals. This genetic variation is crucial for adaptation and evolution of species over time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Genetic Mix</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
           <h2><span class="hl">Male</span> Reproductive System</h2>
-          <ul><li>Produces male gametes (sperms).</li><li>Also produces male hormones.</li><li>Example: Testes in humans.</li></ul>
-          <p class="notes">🎙️ In animals, the male reproductive system is responsible for producing sperm cells. For example, in humans and many other animals, the testes are the primary male reproductive organs.</p>
+          <ul><li>Produces male gametes (sperm).</li><li>Example: Testes in mammals.</li></ul>
+          <p class="notes">🎙️ In most animals, the male reproductive system is designed to produce and deliver sperm. The testes are the primary organs responsible for sperm production.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/MaleReproductiveAnatomy.svg?width=500" data-fb="♂️" alt="The male reproductive system produces sperm and delivers it to the female reproductive sys"/><div class="vcap">The male reproductive system produces sperm and delivers it to the female reproductive sys</div></div></div>
       </div>
@@ -154,10 +179,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">10 / 25</span>
+          <span class="num">11 / 25</span>
           <h2><span class="hl">Female</span> Reproductive System</h2>
-          <ul><li>Produces female gametes (ova/eggs).</li><li>Also produces female hormones.</li><li>Example: Ovaries in humans.</li></ul>
-          <p class="notes">🎙️ Similarly, the female reproductive system produces the egg cells, or ova. In humans and many animals, the ovaries are the main female reproductive organs.</p>
+          <ul><li>Produces female gametes (ova or eggs).</li><li>Example: Ovaries in mammals.</li></ul>
+          <p class="notes">🎙️ Similarly, the female reproductive system produces the female gametes, called ova or eggs. The ovaries are the main organs where these eggs develop.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Uterus_and_fallopian_tube.svg?width=500" data-fb="♀️" alt="The female reproductive system produces eggs and provides the site for fertilization and f"/><div class="vcap">The female reproductive system produces eggs and provides the site for fertilization and f</div></div></div>
       </div>
@@ -166,22 +191,58 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Fertilization</span>: The Beginning of Life</h2>
-          <ul><li>Fusion of male gamete (sperm) and female gamete (ovum).</li><li>Forms a single cell called a zygote.</li><li>The first step in creating a new individual.</li></ul>
-          <p class="notes">🎙️ Fertilization is the pivotal moment where the male sperm and female egg unite. This fusion creates a single new cell called a zygote, which is the very first cell of a new organism.</p>
+          <span class="num">12 / 25</span>
+          <h2>Male and Female <span class="hl">Gametes</span></h2>
+          <ul><li>Sperm: Male gamete, usually small and motile.</li><li>Ovum (Egg): Female gamete, usually large and non-motile.</li></ul>
+          <p class="notes">🎙️ Sperm cells are typically tiny and have a tail to help them swim, while egg cells are much larger and contain nutrients for the developing embryo. These two cells are vital for creating new life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Fusion</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Sperm</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ovum</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Types</span> of Fertilization</h2>
-          <ul><li>Where fertilization occurs matters.</li><li>Internal Fertilization</li><li>External Fertilization</li></ul>
-          <p class="notes">🎙️ Fertilization can happen in two main ways, depending on where the sperm and egg meet. It can be internal, inside the female's body, or external, outside the body.</p>
+          <span class="num">13 / 25</span>
+          <h2>What is <span class="hl">Fertilisation</span>?</h2>
+          <ul><li>The fusion of a male gamete (sperm) and a female gamete (ovum).</li><li>Forms a single cell called a zygote.</li></ul>
+          <p class="notes">🎙️ Fertilisation is the magical moment when sperm and egg unite. This union creates a brand new cell, the zygote, which contains genetic material from both parents.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Fusion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Internal</span> Fertilisation</h2>
+          <ul><li>Occurs inside the female body.</li><li>Common in mammals, birds, reptiles, and insects.</li></ul>
+          <p class="notes">🎙️ In internal fertilisation, the sperm meets the egg within the mother's body. This provides a protected environment for the initial stages of development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤰</div><div class="vcap">Inside Body</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">External</span> Fertilisation</h2>
+          <ul><li>Occurs outside the female body.</li><li>Common in aquatic animals like fish and frogs.</li></ul>
+          <p class="notes">🎙️ External fertilisation happens in the environment, usually water. The female releases eggs, and the male releases sperm, hoping they will meet and fuse.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Outside Body</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Internal vs. External Fertilisation</h2>
+          <ul><li>Internal: Higher success rate, parental care.</li><li>External: Many eggs produced, less parental care.</li></ul>
+          <p class="notes">🎙️ Both types of fertilisation have advantages. Internal fertilisation offers more protection and a higher chance of survival for the offspring, while external fertilisation often involves producing many offspring to ensure some survive.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Internal</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">External</div></div></div></div>
       </div>
@@ -190,60 +251,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2><span class="hl">Internal</span> Fertilization</h2>
-          <ul><li>Fusion occurs inside the female body.</li><li>Higher chance of survival for zygote.</li><li>Seen in humans, cows, hens, dogs.</li></ul>
-          <p class="notes">🎙️ In internal fertilization, the sperm fertilizes the egg within the female's body. This method offers greater protection to the developing embryo and is common in mammals and birds.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Inside Body</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2><span class="hl">External</span> Fertilization</h2>
-          <ul><li>Fusion occurs outside the female body.</li><li>Usually in water environment.</li><li>Seen in frogs, fish, starfish.</li></ul>
-          <p class="notes">🎙️ External fertilization happens when the sperm and egg fuse outside the female's body, typically in water. Animals like frogs and many fish use this method, releasing their gametes into the water.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Outside Body</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>From <span class="hl">Zygote</span> to Fetus</h2>
-          <ul><li>Zygote repeatedly divides.</li><li>Forms an embryo.</li><li>Embryo develops into a fetus.</li></ul>
-          <p class="notes">🎙️ After fertilization, the zygote begins to divide rapidly, forming a ball of cells called an embryo. The embryo then continues to develop, growing into a fetus with recognizable body parts.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Zygote</span></div><div class="step"><span class="snum">2</span><span>Embryo</span></div><div class="step"><span class="snum">3</span><span>Fetus</span></div><div class="step"><span class="snum">4</span><span>Newborn</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Viviparous</span> Animals</h2>
-          <ul><li>Animals that give birth to young ones.</li><li>Development occurs inside mother's body.</li><li>Examples: Humans, dogs, cats, cows.</li></ul>
-          <p class="notes">🎙️ Viviparous animals are those that give birth to live young. The entire development of the embryo and fetus takes place inside the mother's body, providing protection and nourishment.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍼</div><div class="vcap">Live Birth</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Oviparous</span> Animals</h2>
-          <ul><li>Animals that lay eggs.</li><li>Development occurs outside the mother's body.</li><li>Examples: Hens, frogs, fish, lizards.</li></ul>
-          <p class="notes">🎙️ Oviparous animals, on the other hand, lay eggs. The embryo develops inside the egg, outside the mother's body, often relying on external warmth for incubation.</p>
+          <h2>From Zygote to <span class="hl">Embryo</span></h2>
+          <ul><li>Zygote divides repeatedly.</li><li>Forms a ball of cells.</li><li>This structure is called an embryo.</li></ul>
+          <p class="notes">🎙️ After fertilisation, the single-celled zygote begins a remarkable journey of growth. It divides again and again, forming a small ball of cells, which we call an embryo.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">Egg Laying</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Zygote</span></div><div class="step"><span class="snum">2</span><span>Cell Division</span></div><div class="step"><span class="snum">3</span><span>Embryo</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Metamorphosis</span>: A Big Change</h2>
-          <ul><li>Dramatic transformation of larva into adult.</li><li>Different stages in life cycle.</li><li>Example: Frog life cycle.</li></ul>
-          <p class="notes">🎙️ Metamorphosis is an incredible biological process where an animal undergoes a significant physical change during its development from an immature form to an adult. The frog is a classic example.</p>
+          <h2>From Embryo to <span class="hl">Foetus</span></h2>
+          <ul><li>Embryo develops body parts (hands, legs, head, eyes, ears).</li><li>At this stage, it is called a foetus.</li></ul>
+          <p class="notes">🎙️ As the embryo continues to grow and develop distinct body parts, it reaches the stage of a foetus. This is when it starts to look more like the adult animal.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Egg</span></div><div class="step"><span class="snum">2</span><span>Larva (Tadpole)</span></div><div class="step"><span class="snum">3</span><span>Adult Frog</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Embryo</span></div><div class="step"><span class="snum">2</span><span>Body Parts Develop</span></div><div class="step"><span class="snum">3</span><span>Foetus</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,33 +276,57 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Life Cycle of a <span class="hl">Frog</span></h2>
-          <ul><li>Eggs laid in water.</li><li>Hatch into tadpoles (larva).</li><li>Tadpoles transform into adult frogs.</li></ul>
-          <p class="notes">🎙️ The frog's life cycle starts with eggs laid in water. These hatch into tadpoles, which are aquatic larvae. Tadpoles then undergo metamorphosis, developing legs and losing their gills to become adult frogs.</p>
+          <h2><span class="hl">Viviparous</span> Animals</h2>
+          <ul><li>Animals that give birth to young ones.</li><li>Development of offspring occurs inside the mother's body.</li><li>Example: Humans, dogs, cats.</li></ul>
+          <p class="notes">🎙️ Viviparous animals are those that give birth to live young. The baby develops fully inside the mother and is born relatively mature, like puppies or kittens.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=500" data-fb="🔬" alt="The water cycle describes how water circulates through Earth's atmosphere, land, and ocean"/><div class="vcap">The water cycle describes how water circulates through Earth's atmosphere, land, and ocean</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐶</span><span>🐶</span><span>🐶</span></div><div class="vcap">Live Birth</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>What is the key difference between asexual and sexual reproduction?</li></ul>
-          <p class="notes">🎙️ Let's quickly test your understanding. Can you recall the main difference between asexual and sexual reproduction? Think about the number of parents involved.</p>
+          <h2><span class="hl">Oviparous</span> Animals</h2>
+          <ul><li>Animals that lay eggs.</li><li>Development of offspring occurs outside the mother's body.</li><li>Example: Hens, frogs, fish.</li></ul>
+          <p class="notes">🎙️ Oviparous animals lay eggs, and the development of the young happens outside the mother's body. The embryo gets its nourishment from the yolk within the egg.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥚</span><span>🥚</span><span>🥚</span><span>🥚</span><span>🥚</span></div><div class="vcap">Egg Laying</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
+          <h2>Viviparous vs. Oviparous Animals</h2>
+          <ul><li>Viviparous: Live young, internal development, more parental care.</li><li>Oviparous: Lay eggs, external development, less parental care.</li></ul>
+          <p class="notes">🎙️ Both strategies ensure survival. Viviparous animals invest heavily in fewer, well-developed offspring, while oviparous animals often produce many eggs, hoping some will survive.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Viviparous</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Oviparous</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>What is <span class="hl">Metamorphosis</span>?</h2>
+          <ul><li>Drastic change in form during development.</li><li>Transition from larva to adult.</li><li>Example: Tadpole to frog.</li></ul>
+          <p class="notes">🎙️ Metamorphosis is an incredible transformation, often seen in insects and amphibians. Think of a tiny tadpole turning into a jumping frog – that's metamorphosis!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Egg</span></div><div class="step"><span class="snum">2</span><span>Tadpole</span></div><div class="step"><span class="snum">3</span><span>Froglet</span></div><div class="step"><span class="snum">4</span><span>Adult Frog</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
           <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Give one example each for internal and external fertilization.</li></ul>
-          <p class="notes">🎙️ Next question: Can you provide an example of an animal that undergoes internal fertilization, and another that undergoes external fertilization?</p>
+          <ul><li>Which type of reproduction involves a single parent?</li></ul>
+          <p class="notes">🎙️ Time for a quick check of your understanding! Think back to the first few slides we discussed today. What's the term for reproduction with only one parent?</p>
         </div>
         
       </div>
@@ -298,36 +335,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">22 / 25</span>
+          <span class="num">24 / 25</span>
           <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Are hens viviparous or oviparous? Why?</li></ul>
-          <p class="notes">🎙️ Last quick question for today: Are hens viviparous or oviparous? And importantly, why do you say so? What's the defining characteristic?</p>
+          <ul><li>Where does external fertilisation usually occur?</li></ul>
+          <p class="notes">🎙️ Another question for you! Remember the difference between internal and external fertilisation. In which environment does external fertilisation typically take place?</p>
         </div>
         
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Reproductive <span class="hl">Health</span></h2>
-          <ul><li>Maintaining hygiene is crucial.</li><li>Prevents infections and diseases.</li><li>Balanced diet and exercise are important.</li></ul>
-          <p class="notes">🎙️ Maintaining good reproductive health is vital. This includes practicing proper hygiene, eating a balanced diet, and getting regular exercise to prevent infections and ensure overall well-being.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Stay Healthy</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span></h2>
-          <ul><li>Reproduction ensures species survival.</li><li>Asexual (one parent) &amp; Sexual (two parents).</li><li>Internal &amp; External Fertilization.</li><li>Viviparous (live birth) &amp; Oviparous (egg laying).</li><li>Metamorphosis (e.g., frog).</li></ul>
-          <p class="notes">🎙️ To summarize, we learned that reproduction is essential for life's continuation. We explored asexual and sexual reproduction, different types of fertilization, and how animals are classified as viviparous or oviparous, along with the fascinating process of metamorphosis.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Key Takeaways</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span>!</h2>
-          <ul><li>Hope you enjoyed learning about Reproduction in Animals!</li><li>Any questions?</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our lesson on Reproduction in Animals. I hope you found it informative and interesting. Please feel free to ask any questions you might have.</p>
+          <h2>Today We <span class="hl">Learned</span></h2>
+          <ul><li>Reproduction ensures species survival.</li><li>Two types: Asexual and Sexual.</li><li>Fertilisation (internal/external) forms a zygote.</li><li>Zygote develops into embryo, then foetus.</li><li>Animals are Viviparous or Oviparous.</li></ul>
+          <p class="notes">🎙️ We covered a lot today! From the basic idea of reproduction to its different types, how new life begins, and how animals bring their young into the world. You've done a great job understanding these complex processes!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 8 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

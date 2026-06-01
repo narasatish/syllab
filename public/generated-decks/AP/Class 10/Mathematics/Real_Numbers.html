@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Real Numbers - Class 10 Mathematics (AP Board) — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Real Numbers</span>!</h2>
+          <ul><li>Unlocking the world of numbers</li><li>From counting to complex calculations</li><li>Let's explore the foundation of mathematics!</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we embark on an exciting journey into the world of 'Real Numbers'. These numbers are the building blocks of almost everything we do in mathematics. Get ready to understand their fascinating properties and applications!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Real Numbers</span>?</h2>
+          <ul><li>Numbers we use in everyday life.</li><li>Include rational and irrational numbers.</li><li>Represent all points on a number line.</li></ul>
+          <p class="notes">🎙️ Real numbers are basically all the numbers you've encountered so far – from simple counting numbers to fractions, decimals, and even some special numbers you might have seen. They are called 'real' because they can represent actual quantities and distances.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">All Numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Revisiting <span class="hl">Natural</span> Numbers (N)</h2>
+          <ul><li>Counting numbers: 1, 2, 3, ...</li><li>Used for counting objects.</li><li>Smallest natural number is 1.</li></ul>
+          <p class="notes">🎙️ Remember natural numbers? These are the numbers we use for simple counting, like counting apples or students in a class. They start from 1 and go on infinitely. Think of them as the most basic set of numbers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Counting Apples</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Revisiting <span class="hl">Whole</span> Numbers (W)</h2>
+          <ul><li>Natural numbers + zero: 0, 1, 2, 3, ...</li><li>Include zero, unlike natural numbers.</li><li>Smallest whole number is 0.</li></ul>
+          <p class="notes">🎙️ Whole numbers are just like natural numbers, but with one important addition: zero! If you have no donuts, you have zero donuts. This set is crucial for representing 'nothing' or the origin point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍩</span></div><div class="vcap">Zero Donuts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Revisiting <span class="hl">Integers</span> (Z)</h2>
+          <ul><li>Whole numbers + negative numbers: ..., -2, -1, 0, 1, 2, ...</li><li>Represent quantities with direction (e.g., temperature).</li><li>No smallest or largest integer.</li></ul>
+          <p class="notes">🎙️ Integers expand our number system to include negative values. Think about temperatures below zero or money owed. They represent movement in opposite directions from a starting point. There's no end to integers in either positive or negative direction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Revisiting <span class="hl">Rational</span> Numbers (Q)</h2>
+          <ul><li>Numbers expressed as p/q, where p, q are integers and q ≠ 0.</li><li>Includes fractions and terminating/repeating decimals.</li><li>Example: 1/2, -3/4, 5 (which is 5/1).</li></ul>
+          <p class="notes">🎙️ Rational numbers are all numbers that can be written as a fraction, a ratio of two integers. This means all integers are rational (e.g., 5 = 5/1), and so are many decimals that either end or repeat a pattern. They are very common in daily calculations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Division</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Rational Numbers: Real <span class="hl">Examples</span></h2>
+          <ul><li>Sharing a pizza: 1/4 slice per person.</li><li>Measuring ingredients: 0.5 kg of flour.</li><li>Stock market changes: +1.25 points or -0.75 points.</li></ul>
+          <p class="notes">🎙️ Rational numbers are everywhere! When you cut a pizza into equal slices, you're dealing with fractions. When you measure ingredients for cooking, you often use decimals. Even financial markets use rational numbers to show gains or losses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">Pizza Slices</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Introducing <span class="hl">Irrational</span> Numbers</h2>
+          <ul><li>Numbers that cannot be expressed as p/q.</li><li>Non-terminating and non-repeating decimals.</li><li>Example: √2, π (pi), e.</li></ul>
+          <p class="notes">🎙️ Now, let's meet the 'irrational' numbers. These are the rebels of the number world – they cannot be written as a simple fraction. Their decimal expansions go on forever without repeating any pattern. They seem a bit mysterious but are very important in geometry and other fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Never-ending Pattern</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Irrational Numbers: Key <span class="hl">Examples</span></h2>
+          <ul><li>Square root of non-perfect squares (e.g., √2, √3, √5).</li><li>Pi (π): Ratio of a circle's circumference to its diameter (approx. 3.14159...).</li><li>Euler's number (e): Base of natural logarithms (approx. 2.71828...).</li></ul>
+          <p class="notes">🎙️ The most famous irrational numbers are probably the square root of 2 and Pi. You can never write down the exact decimal value of Pi, it just keeps going! These numbers show up naturally in many geometric and scientific contexts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Circle &amp; Pi</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Real Numbers: <span class="hl">All Encompassing</span></h2>
+          <ul><li>Real Numbers = Rational Numbers + Irrational Numbers.</li><li>Every point on a number line corresponds to a unique real number.</li><li>Forms the complete number system for measurements.</li></ul>
+          <p class="notes">🎙️ So, real numbers are the grand total of both rational and irrational numbers. Think of the number line as a continuous stretch, where every single point, no matter how tiny, corresponds to a real number. It's a complete system for all practical measurements.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rational</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Irrational</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Real Numbers on a <span class="hl">Number Line</span></h2>
+          <ul><li>Visual representation of all real numbers.</li><li>Rational numbers are densely packed.</li><li>Irrational numbers fill the 'gaps' between rationals.</li></ul>
+          <p class="notes">🎙️ Imagine a perfectly straight line stretching infinitely in both directions. Every single point on that line represents a unique real number. The rational numbers are like the major landmarks, but the irrational numbers fill in all the tiny spaces in between, making the line continuous.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Continuous Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Euclid's Division <span class="hl">Lemma</span></h2>
+          <ul><li>Given positive integers a and b, there exist unique integers q and r.</li><li>Such that a = bq + r, where 0 ≤ r &lt; b.</li><li>Helps in finding HCF of two positive integers.</li></ul>
+          <p class="notes">🎙️ Euclid's Division Lemma is a fundamental concept. It simply states that when you divide one positive integer 'a' by another positive integer 'b', you'll always get a unique quotient 'q' and a remainder 'r'. The remainder will always be less than the divisor 'b'. This lemma is the basis for the Euclidean Algorithm.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Division Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Example</span>: Using Euclid's Division Lemma</h2>
+          <ul><li>Find HCF of 135 and 225.</li><li>Step 1: 225 = 135 × 1 + 90</li><li>Step 2: 135 = 90 × 1 + 45</li><li>Step 3: 90 = 45 × 2 + 0. HCF is 45.</li></ul>
+          <p class="notes">🎙️ Let's see this in action to find the HCF of 135 and 225. We repeatedly apply the lemma. We divide 225 by 135, get a remainder of 90. Then we divide 135 by 90, get 45. Finally, we divide 90 by 45, getting a remainder of 0. The divisor at this stage, 45, is our HCF.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>225 = 135(1) + 90</span></div><div class="step"><span class="snum">2</span><span>135 = 90(1) + 45</span></div><div class="step"><span class="snum">3</span><span>90 = 45(2) + 0</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Fundamental</span> Theorem of Arithmetic</h2>
+          <ul><li>Every composite number can be expressed as a product of primes.</li><li>This factorization is unique, apart from the order of factors.</li><li>Helps in finding HCF and LCM of numbers.</li></ul>
+          <p class="notes">🎙️ This is a very powerful theorem! It says that any composite number can be broken down into a unique set of prime numbers multiplied together. Think of it like a prime 'fingerprint' for every number. The order in which you write the prime factors doesn't matter, but the factors themselves are always the same.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Prime Factor Tree</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Example: Prime <span class="hl">Factorization</span> using FTA</h2>
+          <ul><li>Factorize 360 into prime factors.</li><li>Step 1: 360 = 2 × 180</li><li>Step 2: 180 = 2 × 90</li><li>Step 3: 90 = 2 × 45</li><li>Step 4: 45 = 3 × 15</li><li>Step 5: 15 = 3 × 5. So, 360 = 2³ × 3² × 5.</li></ul>
+          <p class="notes">🎙️ Let's apply the FTA to factorize 360. We keep dividing by the smallest prime factors until we can't divide anymore. We find that 360 is made up of three 2s, two 3s, and one 5 multiplied together. This unique combination gives us 360.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>360 ÷ 2 = 180</span></div><div class="step"><span class="snum">2</span><span>180 ÷ 2 = 90</span></div><div class="step"><span class="snum">3</span><span>90 ÷ 2 = 45</span></div><div class="step"><span class="snum">4</span><span>45 ÷ 3 = 15</span></div><div class="step"><span class="snum">5</span><span>15 ÷ 3 = 5</span></div><div class="step"><span class="snum">6</span><span>5 ÷ 5 = 1</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">HCF &amp; LCM</span> using Prime Factorization</h2>
+          <ul><li>HCF: Product of the smallest power of each common prime factor.</li><li>LCM: Product of the greatest power of each prime factor (common or not).</li><li>FTA simplifies finding HCF and LCM for larger numbers.</li></ul>
+          <p class="notes">🎙️ The Fundamental Theorem of Arithmetic makes finding HCF and LCM much easier. For HCF, we look for prime factors that are common to both numbers and take the lowest power. For LCM, we take all prime factors from both numbers, using their highest powers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Common Factors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Example</span>: HCF &amp; LCM of 12 and 18</h2>
+          <ul><li>Prime factors of 12 = 2² × 3¹</li><li>Prime factors of 18 = 2¹ × 3²</li><li>HCF(12, 18) = 2¹ × 3¹ = 6 (common, lowest power)</li><li>LCM(12, 18) = 2² × 3² = 4 × 9 = 36 (all, highest power)</li></ul>
+          <p class="notes">🎙️ Let's find the HCF and LCM of 12 and 18. First, we find their prime factorizations. Then, for HCF, we pick the common primes (2 and 3) with their smallest powers. For LCM, we pick all primes (2 and 3) with their largest powers. This method is systematic and always works.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>12 = 2² × 3</span></div><div class="step"><span class="snum">2</span><span>18 = 2 × 3²</span></div><div class="step"><span class="snum">3</span><span>HCF = 2¹ × 3¹ = 6</span></div><div class="step"><span class="snum">4</span><span>LCM = 2² × 3² = 36</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>HCF, LCM, and Product of Numbers</h2>
+          <ul><li>For any two positive integers a and b:</li><li>HCF(a, b) × LCM(a, b) = a × b</li><li>This relationship is useful for verifying calculations or finding one value if others are known.</li></ul>
+          <p class="notes">🎙️ There's a beautiful relationship between the HCF, LCM, and the numbers themselves. For any two positive integers, if you multiply their HCF and LCM, you will get the same result as multiplying the two numbers themselves. This is a handy formula to remember and use.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Product Link</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Proving</span> Irrationality (Brief)</h2>
+          <ul><li>Method of 'Proof by Contradiction'.</li><li>Assume the number is rational (p/q form).</li><li>Derive a contradiction to the initial assumption.</li><li>Commonly used for √2, √3, √5, etc.</li></ul>
+          <p class="notes">🎙️ How do we *know* a number is irrational? We use a method called 'proof by contradiction'. We start by assuming the opposite – that the number *is* rational. Then, through logical steps, we show that this assumption leads to something impossible or false. This means our initial assumption must have been wrong, and the number is indeed irrational.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Logical Proof</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Example: Proving <span class="hl">√2</span> is Irrational</h2>
+          <ul><li>Assume √2 = a/b (a, b are coprime integers).</li><li>Squaring both sides: 2 = a²/b² =&gt; a² = 2b².</li><li>This means a² is even, so a must be even (a=2c).</li><li>Substitute a=2c: (2c)² = 2b² =&gt; 4c² = 2b² =&gt; 2c² = b².</li><li>This means b² is even, so b must be even. Contradiction! (a and b are coprime).</li><li>Therefore, √2 is irrational.</li></ul>
+          <p class="notes">🎙️ This is a classic proof. If √2 were rational, we could write it as a fraction a/b where a and b have no common factors. But through algebraic manipulation, we find that both 'a' and 'b' must be even, meaning they *do* have a common factor of 2. This contradicts our initial assumption, proving √2 is irrational.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Assume √2 = a/b</span></div><div class="step"><span class="snum">2</span><span>a² = 2b² (a is even)</span></div><div class="step"><span class="snum">3</span><span>b² = 2c² (b is even)</span></div><div class="step"><span class="snum">4</span><span>Contradiction (a,b coprime)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Terminating &amp; Non-terminating <span class="hl">Decimals</span></h2>
+          <ul><li>Terminating: Decimal expansion ends (e.g., 1/4 = 0.25).</li><li>Non-terminating: Decimal expansion goes on forever.</li><li>Repeating (Rational): Non-terminating with a repeating block (e.g., 1/3 = 0.333...).</li><li>Non-repeating (Irrational): Non-terminating with no repeating pattern (e.g., √2, π).</li></ul>
+          <p class="notes">🎙️ Rational numbers can have two types of decimal expansions: terminating (they end) or non-terminating but repeating (a block of digits repeats). Irrational numbers, on the other hand, have non-terminating and non-repeating decimal expansions. This is a key way to distinguish them.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Terminating</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Repeating</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Non-Repeating</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Identifying</span> Decimal Expansions of Rational Numbers</h2>
+          <ul><li>A rational number p/q (in simplest form) has a terminating decimal expansion if the prime factorization of q is of the form 2ⁿ5ᵐ, where n, m are non-negative integers.</li><li>Otherwise, it has a non-terminating repeating decimal expansion.</li><li>Example: 3/8 = 3/(2³) (terminating). 1/7 (non-terminating repeating).</li></ul>
+          <p class="notes">🎙️ There's a neat trick to tell if a rational number's decimal expansion will terminate without actually dividing! Just look at the prime factors of its denominator (after simplifying the fraction). If the denominator only has prime factors of 2 or 5, it will terminate. Otherwise, it will repeat.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Denominator Check</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>Is 0 a natural number?</li><li>Which set includes -5?</li><li>Is 22/7 a rational or irrational number?</li></ul>
+          <p class="notes">🎙️ Time for a quick check of your understanding! Think about these questions. Remember the definitions of natural numbers, integers, and rational/irrational numbers. We'll discuss the answers shortly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check! (<span class="hl">Continued</span>)</h2>
+          <ul><li>What is the HCF of 10 and 15?</li><li>If HCF(a,b)=5 and LCM(a,b)=30, what is a×b?</li><li>True or False: Every real number can be written as p/q.</li></ul>
+          <p class="notes">🎙️ Let's continue with a few more questions. Apply what you've learned about HCF, LCM, and the relationship between them. And remember the definition of real numbers and their components.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Real Numbers: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>Real Numbers = Rational + Irrational.</li><li>Rational numbers can be p/q, decimals terminate or repeat.</li><li>Irrational numbers are non-terminating, non-repeating decimals.</li><li>Euclid's Lemma: a = bq + r (for HCF).</li><li>FTA: Unique prime factorization (for HCF/LCM).</li></ul>
+          <p class="notes">🎙️ To summarize, we've explored the entire family of real numbers, distinguishing between rationals and irrationals. We also learned powerful tools like Euclid's Division Lemma and the Fundamental Theorem of Arithmetic, which are essential for working with numbers. Keep practicing these concepts!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · AP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

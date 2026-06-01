@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>North, South, East, West — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to Our Direction <span class="hl">Adventure</span>!</h2>
-          <ul><li>Let's explore North, South, East, and West!</li><li>Discover how directions help us every day.</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey to understand directions. Knowing directions helps us find our way and describe places.</p>
+          <h2>Welcome to Our <span class="hl">Directional Journey</span>!</h2>
+          <ul><li>Explore North, South, East, West</li><li>Understand their importance in daily life</li><li>Learn to use them accurately</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we're embarking on an exciting journey to understand the fundamental directions: North, South, East, and West. These directions help us navigate our world every single day.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are <span class="hl">Directions</span>?</h2>
-          <ul><li>They tell us where things are.</li><li>They guide us from one place to another.</li><li>Like a secret code for finding places!</li></ul>
-          <p class="notes">🎙️ Directions are like special instructions that tell us 'which way to go' or 'where something is located'. Think of them as invisible arrows pointing the way.</p>
+          <h2>Why Directions <span class="hl">Matter</span></h2>
+          <ul><li>Helps us find places</li><li>Guides us in travel</li><li>Essential for understanding maps</li><li>Used in stories and descriptions</li></ul>
+          <p class="notes">🎙️ Imagine trying to find your friend's house without knowing 'left' or 'right', or even 'north'! Directions are crucial for navigation, understanding geography, and even setting the scene in a story.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Our Guide</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Finding Our Way</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Why are Directions <span class="hl">Important</span>?</h2>
-          <ul><li>Finding your way to school.</li><li>Reading maps and navigating.</li><li>Describing locations to others.</li></ul>
-          <p class="notes">🎙️ Imagine trying to find your friend's house without knowing directions! They are crucial for travel, understanding maps, and even giving simple instructions.</p>
+          <h2>The Four <span class="hl">Cardinal Directions</span></h2>
+          <ul><li>North (N)</li><li>South (S)</li><li>East (E)</li><li>West (W)</li><li>These are the main points on a compass</li></ul>
+          <p class="notes">🎙️ These four directions are known as the cardinal directions. They form the basic framework for all our spatial understanding, just like the primary colours form the basis for all other colours.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗺️</span><span>🗺️</span><span>🗺️</span></div><div class="vcap">Maps &amp; Travel</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Compass Rose</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>The Four <span class="hl">Main</span> Directions</h2>
-          <ul><li>North, South, East, and West.</li><li>These are the primary guides.</li><li>Always remember them like friends!</li></ul>
-          <p class="notes">🎙️ There are four main directions that form the basis of all navigation. These are North, South, East, and West. Let's learn about each one.</p>
+          <h2>Understanding <span class="hl">North</span></h2>
+          <ul><li>Usually at the top of a map</li><li>Points towards the North Pole</li><li>Often associated with cold regions</li></ul>
+          <p class="notes">🎙️ North is typically considered the 'up' direction on most maps. If you imagine standing on the Earth, the North Pole is in this direction, which is why we often associate it with colder climates.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>North</span></div><div class="step"><span class="snum">2</span><span>South</span></div><div class="step"><span class="snum">3</span><span>East</span></div><div class="step"><span class="snum">4</span><span>West</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Upwards Direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Understanding <span class="hl">North</span></h2>
-          <ul><li>Often points towards the top of a map.</li><li>Where the North Star (Dhruv Tara) is.</li><li>Opposite to South.</li></ul>
-          <p class="notes">🎙️ North is generally considered the 'up' direction on most maps. If you face the North Star at night, you are facing North. It's a very important reference point.</p>
+          <h2>Example of <span class="hl">North</span> in India</h2>
+          <ul><li>The majestic Himalayan Mountains are in the North of India.</li><li>Many rivers like the Ganga originate from the North.</li></ul>
+          <p class="notes">🎙️ Think of the towering Himalayas, home to some of the world's highest peaks. These magnificent mountains form the northern boundary of our country, making it a natural landmark for the North.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Upwards</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏔️</span><span>🏔️</span><span>🏔️</span></div><div class="vcap">Himalayan Peaks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -108,10 +121,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">6 / 25</span>
           <h2>Understanding <span class="hl">South</span></h2>
-          <ul><li>Directly opposite to North.</li><li>Points towards the bottom of a map.</li><li>Think of the South Pole!</li></ul>
-          <p class="notes">🎙️ South is always directly opposite to North. If you know where North is, South is easily found by looking in the exact opposite direction. It's like a mirror image.</p>
+          <ul><li>Opposite to North</li><li>Points towards the South Pole</li><li>Often associated with warmer regions</li></ul>
+          <p class="notes">🎙️ South is directly opposite to North. If you travel south from India, you would eventually reach the warmer waters of the Indian Ocean and eventually the South Pole, far down on the globe.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Downwards</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Downwards Direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Understanding <span class="hl">East</span></h2>
-          <ul><li>The direction where the sun rises.</li><li>To your right if you face North.</li><li>Opposite to West.</li></ul>
-          <p class="notes">🎙️ East is a very easy direction to find! Just look for where the sun rises in the morning. This is a reliable way to determine East anywhere you are.</p>
+          <h2>Example of <span class="hl">South</span> in India</h2>
+          <ul><li>Kanyakumari, the southernmost tip of mainland India, is in the South.</li><li>The Indian Ocean lies to the South of India.</li></ul>
+          <p class="notes">🎙️ Kanyakumari, in Tamil Nadu, is a beautiful coastal town famous for its sunrise and sunset views over three seas. It marks the extreme south of our mainland, a perfect real-world example of the South direction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sun's Rise</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏖️</span><span>🏖️</span><span>🏖️</span></div><div class="vcap">Southern Shores</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Understanding <span class="hl">West</span></h2>
-          <ul><li>The direction where the sun sets.</li><li>To your left if you face North.</li><li>Opposite to East.</li></ul>
-          <p class="notes">🎙️ Just as the sun rises in the East, it always sets in the West. So, if you know where the sun sets, you've found West! It's directly opposite to East.</p>
+          <h2>Understanding <span class="hl">East</span></h2>
+          <ul><li>Where the Sun rises</li><li>To your right if you face North</li><li>Associated with new beginnings</li></ul>
+          <p class="notes">🎙️ The East is a very familiar direction because it's where we see the sun rise every morning. If you stand facing North, East will always be to your right side.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌇</div><div class="vcap">Sun's Set</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Rising Sun Direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Visualizing Directions with a <span class="hl">Compass</span></h2>
-          <ul><li>A compass helps us find directions.</li><li>The needle always points North.</li><li>A handy tool for explorers!</li></ul>
-          <p class="notes">🎙️ A compass is a fantastic tool that helps us find our way. Its special needle is always attracted to the Earth's magnetic north pole, showing us where North is.</p>
+          <h2>Example of <span class="hl">East</span> in India</h2>
+          <ul><li>Arunachal Pradesh is India's easternmost state, where the sun rises first.</li><li>The Bay of Bengal is to the East of India.</li></ul>
+          <p class="notes">🎙️ In India, the state of Arunachal Pradesh is known as the 'Land of the Dawn-lit Mountains' because it is where the sun's first rays touch our country each day. This clearly shows us the East.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Compass Pointer</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☀️</span><span>☀️</span><span>☀️</span></div><div class="vcap">Sunrise in the East</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Activity: Finding Directions in Your <span class="hl">Classroom</span></h2>
-          <ul><li>Imagine the front of the class is North.</li><li>Where is the window? Is it East or West?</li><li>Where is the door? Is it South or West?</li></ul>
-          <p class="notes">🎙️ Let's try this in our own classroom. If we assume the front of our class is North, can you identify the other directions for the window, the door, or even your friend's desk?</p>
+          <h2>Understanding <span class="hl">West</span></h2>
+          <ul><li>Where the Sun sets</li><li>Opposite to East</li><li>To your left if you face North</li></ul>
+          <p class="notes">🎙️ Just as the sun rises in the East, it sets in the West, marking the end of the day. If you are facing North, West will be directly to your left side.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏫</span></div><div class="vcap">Our School</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬅️</div><div class="vcap">Setting Sun Direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Sub-Directions</span> (Intermediate Directions)</h2>
-          <ul><li>Between the main directions.</li><li>Northeast, Northwest, Southeast, Southwest.</li><li>They help us be more precise!</li></ul>
-          <p class="notes">🎙️ Sometimes, just North, South, East, or West isn't enough. We need to be more specific! That's where sub-directions come in, like Northeast or Southwest.</p>
+          <h2>Example of <span class="hl">West</span> in India</h2>
+          <ul><li>Gujarat is India's westernmost state, where the sun sets last.</li><li>The Arabian Sea is to the West of India.</li></ul>
+          <p class="notes">🎙️ Gujarat, with its vibrant culture and beautiful coastline, is the westernmost state of India. It's the last place in India to witness the sunset each evening, a beautiful daily reminder of the West direction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">More Precise</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌇</span><span>🌇</span><span>🌇</span></div><div class="vcap">Sunset in the West</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Understanding <span class="hl">Northeast</span></h2>
-          <ul><li>Between North and East.</li><li>Example: The Himalayas are to the Northeast of India.</li><li>A mix of two main directions.</li></ul>
-          <p class="notes">🎙️ Northeast is the direction exactly halfway between North and East. Think of it as a diagonal path. For example, many beautiful regions of India are in the Northeast.</p>
+          <h2>Beyond Cardinal: <span class="hl">Ordinal Directions</span></h2>
+          <ul><li>North-East (NE)</li><li>South-East (SE)</li><li>South-West (SW)</li><li>North-West (NW)</li><li>These provide more precise locations</li></ul>
+          <p class="notes">🎙️ While the four cardinal directions are fundamental, sometimes we need to be more specific. That's where ordinal directions come in, helping us pinpoint locations between the main points.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">North + East</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Full Compass</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Understanding <span class="hl">Northwest</span></h2>
-          <ul><li>Between North and West.</li><li>Example: Many historical forts are in the Northwest of India.</li><li>Points towards the upper-left on a map.</li></ul>
-          <p class="notes">🎙️ Northwest is the direction between North and West. It's like going diagonally up and to the left on a map. Rajasthan, for instance, is in the Northwest of India.</p>
+          <h2><span class="hl">Why Use</span> Ordinal Directions?</h2>
+          <ul><li>For greater accuracy</li><li>When a location isn't exactly N, S, E, or W</li><li>Important for navigation and mapping</li></ul>
+          <p class="notes">🎙️ Imagine trying to describe a house that isn't exactly north or east of you, but somewhere in between. Ordinal directions like North-East allow us to describe its position with much greater accuracy and clarity.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↖️</div><div class="vcap">North + West</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cardinal: North</span></div><div class="step"><span class="snum">2</span><span>Cardinal: East</span></div><div class="step"><span class="snum">3</span><span>Ordinal: North-East (between N &amp; E)</span></div><div class="step"><span class="snum">4</span><span>More Specific</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Understanding <span class="hl">Southeast</span></h2>
-          <ul><li>Between South and East.</li><li>Example: The Bay of Bengal is to the Southeast of India.</li><li>Points towards the lower-right on a map.</li></ul>
-          <p class="notes">🎙️ Southeast is the direction between South and East. Imagine a diagonal line going down and to the right. The beautiful coastal areas of India often lie in the Southeast.</p>
+          <h2>Using Directions in <span class="hl">Sentences</span></h2>
+          <ul><li>My house is east of the market.</li><li>The library is to the north-west of the school.</li><li>Go south for two blocks, then turn east.</li></ul>
+          <p class="notes">🎙️ We use directions as adjectives or adverbs to describe where things are or which way to go. Practice forming sentences using these words to make your descriptions clearer and more precise.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↘️</div><div class="vcap">South + East</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Writing Directions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Understanding <span class="hl">Southwest</span></h2>
-          <ul><li>Between South and West.</li><li>Example: The Arabian Sea is to the Southwest of India.</li><li>Points towards the lower-left on a map.</li></ul>
-          <p class="notes">🎙️ Southwest is the direction between South and West. It's like moving diagonally down and to the left. States like Kerala are located in the Southwest of India.</p>
+          <h2>Real-Life: <span class="hl">Giving Directions</span></h2>
+          <ul><li>Start with a clear reference point.</li><li>Use cardinal and ordinal directions.</li><li>Give clear, concise steps.</li></ul>
+          <p class="notes">🎙️ Giving directions is a common and important skill. Always imagine you are guiding someone step-by-step, using landmarks and clear directional terms to prevent confusion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↙️</div><div class="vcap">South + West</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start Point</span></div><div class="step"><span class="snum">2</span><span>Direction &amp; Distance</span></div><div class="step"><span class="snum">3</span><span>Landmark &amp; Turn</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Using Directions in Sentences (<span class="hl">Prepositions</span>)</h2>
-          <ul><li>We use words like 'to the', 'in the', 'of' with directions.</li><li>Example: 'The temple is *to the east of* the market.'</li><li>Helps describe relative positions.</li></ul>
-          <p class="notes">🎙️ In English, we use specific prepositions to talk about directions. Understanding these phrases helps us give clear instructions and describe locations accurately to others.</p>
+          <h2>Real-Life: <span class="hl">Reading Maps</span></h2>
+          <ul><li>Look for the compass rose on the map.</li><li>Identify North to orient the map correctly.</li><li>Use directions to locate places and routes.</li></ul>
+          <p class="notes">🎙️ Maps always have a compass rose or a North arrow to help you orient yourself. Once you know which way is North, you can easily find East, South, and West, making map reading much simpler.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💬</div><div class="vcap">Talking Directions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Map Navigation</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Example</span> Sentences</h2>
-          <ul><li>My school is *in the North* of the city.</li><li>The sun rises *in the East*.</li><li>Go *towards the West* to find the park.</li><li>Kolkata is *to the East of* Delhi.</li></ul>
-          <p class="notes">🎙️ Here are some practical examples of how we use directions in everyday sentences. Notice how the prepositions change depending on the context, like 'in the' or 'to the'.</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>Which direction does the sun rise from?</li></ul>
+          <p class="notes">🎙️ Let's test our understanding with a quick question. Think about your everyday experience. Which direction brings us the start of a new day?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📍</span><span>📍</span><span>📍</span><span>📍</span></div><div class="vcap">Location Markers</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Quick Question 1: Fill in the <span class="hl">Blank</span></h2>
-          <ul><li>The sun sets in the _________.</li><li>a) North b) South c) East d) West</li></ul>
-          <p class="notes">🎙️ Let's test our understanding! Try to fill in the blank with the correct direction. Think about what we just learned about the sun's movement.</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>If you face the rising sun, what direction is directly behind you?</li></ul>
+          <p class="notes">🎙️ This question requires a little bit of spatial reasoning. If you know where the sun rises, and you face it, what direction is exactly opposite to where you are looking?</p>
         </div>
         
       </div>
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick Question 2: Which direction is opposite to East?</h2>
-          <ul><li>a) North b) South c) West d) Northeast</li></ul>
-          <p class="notes">🎙️ This question checks if you remember the relationship between the main directions. Which direction is always directly across from East?</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>My school is to the ______ of the park. (Fill in the blank with a direction)</li></ul>
+          <p class="notes">🎙️ This is an open-ended question. Imagine your own school and a nearby park. How would you describe the location of your school relative to the park using a direction?</p>
         </div>
         
       </div>
@@ -275,9 +288,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Question 3: Where is Mount <span class="hl">Everest</span> located relative to India?</h2>
-          <ul><li>a) Northeast b) Southwest c) Southeast d) Northwest</li></ul>
-          <p class="notes">🎙️ Thinking about the map of India, where would you place Mount Everest? This combines your knowledge of directions with general geography.</p>
+          <h2>Quick Check! <span class="hl">Question 4</span></h2>
+          <ul><li>Name two important geographical features or states located in the North of India.</li></ul>
+          <p class="notes">🎙️ Think back to our examples for the North direction. Can you recall two significant features or regions that are situated in the northern part of our country?</p>
         </div>
         
       </div>
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Directions in <span class="hl">India</span>: Famous Landmarks</h2>
-          <ul><li>Taj Mahal: North India (Uttar Pradesh).</li><li>Gateway of India: West India (Maharashtra).</li><li>Kanyakumari: South India (Tamil Nadu).</li><li>Sundarbans: East India (West Bengal).</li></ul>
-          <p class="notes">🎙️ India is a vast country with landmarks in every direction. Knowing their general location helps us understand its geography and cultural diversity.</p>
+          <h2>Directions in <span class="hl">Stories</span> and Literature</h2>
+          <ul><li>Creates vivid imagery for the reader.</li><li>Helps describe settings and character movements.</li><li>Adds realism to fictional worlds.</li></ul>
+          <p class="notes">🎙️ Authors often use directional words to paint a clear picture in the reader's mind. Describing a character walking 'east towards the rising sun' or a 'house facing south' adds depth and realism to a story.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">North</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">South</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">East</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">West</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Descriptive Writing</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Map Reading</span> with Directions</h2>
-          <ul><li>Maps usually have a North arrow.</li><li>Use this arrow to orient your map.</li><li>Then find other places using N, S, E, W.</li></ul>
-          <p class="notes">🎙️ Maps are designed to use directions. Always look for the 'North arrow' on a map. Once you know North, you can easily find everything else!</p>
+          <h2>Activity: My <span class="hl">Hometown Directions</span></h2>
+          <ul><li>Draw a simple map of your neighbourhood.</li><li>Mark your home, school, and a local landmark.</li><li>Use arrows and labels to show directions between them.</li></ul>
+          <p class="notes">🎙️ Let's apply what we've learned to our own surroundings. Create a small map and practice using directions to describe the path from your home to your school or any other familiar place.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Map Skills</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Local Map</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,39 +324,40 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check: <span class="hl">True or False</span>?</h2>
-          <ul><li>1. The sun rises in the West. (True/False)</li><li>2. North is opposite to South. (True/False)</li><li>3. Northeast is between North and West. (True/False)</li></ul>
-          <p class="notes">🎙️ Let's quickly check your understanding with these true or false statements. Think carefully before answering!</p>
+          <h2><span class="hl">Recap</span>: What We've Learned</h2>
+          <ul><li>Four Cardinal Directions: N, S, E, W</li><li>Four Ordinal Directions: NE, SE, SW, NW</li><li>Importance in navigation, maps, and communication</li><li>Examples from India and daily life</li></ul>
+          <p class="notes">🎙️ We've covered the basics of directions, from the cardinal points to the more specific ordinal ones. Remember how crucial they are for finding our way, understanding maps, and even telling compelling stories.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: What We Learned</h2>
-          <ul><li>Four main directions: N, S, E, W.</li><li>Sub-directions: NE, NW, SE, SW.</li><li>A compass helps find North.</li><li>Directions are vital for maps and travel.</li></ul>
-          <p class="notes">🎙️ Today, we covered the essential concept of directions. We learned about the main and sub-directions, how to use a compass, and why they are so important in our daily lives.</p>
+          <h2>Quiz Time! <span class="hl">Final Question</span></h2>
+          <ul><li>If your shadow is in front of you in the morning, which direction are you facing?</li></ul>
+          <p class="notes">🎙️ Here's a thought-provoking question to end our lesson. Think about where the sun is in the morning and how shadows are cast. This will help you deduce the direction you are facing.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Key Takeaways</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Thank You! Keep <span class="hl">Exploring</span>!</h2>
-          <ul><li>Practice finding directions around you.</li><li>Use a map to plan your next imaginary trip!</li><li>Your direction adventure continues!</li></ul>
-          <p class="notes">🎙️ Thank you for your active participation today! Remember, learning about directions is a continuous journey. Keep practicing and exploring the world around you!</p>
+          <h2><span class="hl">Thank You</span>! Keep Exploring!</h2>
+          <ul><li>Practice using directions daily.</li><li>Pay attention to directions on maps.</li><li>The world is full of directions waiting to be discovered!</li></ul>
+          <p class="notes">🎙️ Thank you for your active participation today! Keep practicing these concepts in your daily life, whether you're navigating to a new place or reading a story. Directions are everywhere!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">Continue Learning</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

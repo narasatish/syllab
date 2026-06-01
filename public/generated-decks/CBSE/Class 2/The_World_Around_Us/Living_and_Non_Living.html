@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Living and Non-Living: The World Around Us — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Hello, Little <span class="hl">Explorers</span>!</h2>
-          <ul><li>Let's discover the amazing world around us!</li><li>Some things are alive, and some are not.</li></ul>
-          <p class="notes">🎙️ Namaste, my dear students! Today, we are going on a fun adventure to explore everything around us. We will learn to tell the difference between things that are alive and things that are not.</p>
+          <h2><span class="hl">Our World</span>: Living and Non-Living Things!</h2>
+          <ul><li>Welcome to our amazing world, children!</li><li>Let's learn about everything around us.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on a fun adventure to explore all the wonderful things we see every day. We will learn to tell them apart!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What Makes Something <span class="hl">Alive</span>?</h2>
-          <ul><li>Living things can grow bigger.</li><li>They need food and water to live.</li></ul>
-          <p class="notes">🎙️ Imagine a tiny seed becoming a big plant. This is what living things do! They grow. Just like us, they also need to eat food and drink water to stay healthy and strong.</p>
+          <h2>What are <span class="hl">Living Things</span>?</h2>
+          <ul><li>Look at the little chick!</li><li>It will grow big and strong.</li></ul>
+          <p class="notes">🎙️ Living things are like us! They can do many special things. One big thing they do is grow!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">A tiny plant growing</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐥</div><div class="vcap">A growing chick</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Look at Us! We are <span class="hl">Living</span>!</h2>
-          <ul><li>We eat yummy food and drink water.</li><li>We grow tall and strong every day.</li></ul>
-          <p class="notes">🎙️ You and I, our families, our friends – we are all living things! Think about how much you have grown since you were a baby. We also feel hungry and thirsty, don't we?</p>
+          <h2>Living Things Can <span class="hl">GROW</span>!</h2>
+          <ul><li>A tiny seed becomes a big tree.</li><li>You were a baby, now you are bigger!</li></ul>
+          <p class="notes">🎙️ Just like a small plant grows taller, and you grow from a baby to a big child, living things change and get bigger over time. This is a super power of living things!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌍" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌱" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,9 +96,69 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Animals</span> are Living Things Too!</h2>
-          <ul><li>A puppy grows into a big dog.</li><li>Birds eat seeds and fly high in the sky.</li></ul>
-          <p class="notes">🎙️ All the animals we see around us, from tiny ants to huge elephants, are living things. They also grow, move, and need food and water to survive. They are a big part of our living world.</p>
+          <h2>Living Things Need <span class="hl">FOOD</span>!</h2>
+          <ul><li>We eat food to get energy.</li><li>Plants need sunlight and water.</li></ul>
+          <p class="notes">🎙️ To grow and play, living things need food. We eat chapatis and vegetables, and plants make their own food using sunlight. Food gives them power!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="🌍" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 20</span>
+          <h2>Living Things Can <span class="hl">MOVE</span>!</h2>
+          <ul><li>A bird flies in the sky.</li><li>A fish swims in the water.</li></ul>
+          <p class="notes">🎙️ Living things can move from one place to another by themselves. Think about how you run and jump, or how animals walk and fly. They don't need anyone to push them!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/House_sparrow04.jpg?width=460" data-fb="🏃‍♂️" alt="Birds have feathers and can fly."/><div class="vcap">Birds have feathers and can fly.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 20</span>
+          <h2>Living Things Can <span class="hl">BREATHE</span>!</h2>
+          <ul><li>We breathe in air to live.</li><li>Plants breathe too, through tiny holes.</li></ul>
+          <p class="notes">🎙️ All living things need air to live. We breathe in and out, and even plants take in air through their leaves. It's like a special air pump inside them!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Taking a deep breath</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 20</span>
+          <h2>Living Things Can <span class="hl">FEEL</span>!</h2>
+          <ul><li>When you are happy, you smile.</li><li>A dog wags its tail when excited.</li></ul>
+          <p class="notes">🎙️ Living things can feel things like joy, sadness, or even pain. If you touch a hot stove, you feel it! If you pet a cat, it feels good to the cat. They have feelings!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤗</div><div class="vcap">Feeling happy or sad</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Living Things Make <span class="hl">BABIES</span>!</h2>
+          <ul><li>A hen lays eggs, and chicks hatch.</li><li>A mother gives birth to a baby.</li></ul>
+          <p class="notes">🎙️ Living things can make more of their own kind. A small puppy grows from a big dog, and a small plant grows from a seed. This is how life continues!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Family growing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>Examples of Living Things: <span class="hl">People and Animals</span></h2>
+          <ul><li>We are living things!</li><li>Dogs, cats, birds are living.</li></ul>
+          <p class="notes">🎙️ Look at your family and pets! We all eat, grow, move, and breathe. These are all examples of living things around us.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🌍" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
@@ -94,72 +167,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">5 / 20</span>
-          <h2>Even <span class="hl">Plants</span> are Living!</h2>
-          <ul><li>A tiny seed grows into a big tree.</li><li>Plants need sunlight and water to live.</li></ul>
-          <p class="notes">🎙️ It might be hard to believe, but plants are also living things! They start as small seeds and grow into tall trees or beautiful flowers. They drink water from the soil and use sunlight to make their food.</p>
-        </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌍" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">6 / 20</span>
-          <h2>What are <span class="hl">Non-Living</span> Things?</h2>
-          <ul><li>They do not grow bigger or smaller.</li><li>They do not need food or water to live.</li></ul>
-          <p class="notes">🎙️ Now, let's look at things that are not alive. These are called non-living things. They don't change size on their own, and they don't get hungry or thirsty like living things do.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">A solid brick</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2>My Favourite <span class="hl">Toy</span> is Non-Living.</h2>
-          <ul><li>Your teddy bear doesn't eat food.</li><li>It stays the same size forever.</li></ul>
-          <p class="notes">🎙️ Think about your favourite toy, like a teddy bear or a doll. Does it ever grow? Does it ask for food? No, right? That's because it is a non-living thing. We play with it, but it doesn't live.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span></div><div class="vcap">A soft teddy bear</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Things in Our <span class="hl">Home</span> are Non-Living.</h2>
-          <ul><li>Your chair does not grow taller.</li><li>Your table doesn't get hungry at all.</li></ul>
-          <p class="notes">🎙️ Look around your room. Your bed, your table, your books – all these are non-living things. They don't breathe, they don't eat, and they don't grow. They are always there for us to use.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span></div><div class="vcap">A sturdy chair</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Living Things <span class="hl">Grow</span>, Non-Living Don't.</h2>
-          <ul><li>You were a baby, now you are big!</li><li>Your school bag stays the same size.</li></ul>
-          <p class="notes">🎙️ One big difference is growth. Living things, like you, grow from small to big. But non-living things, like your pencil box, will always remain the same size. They don't grow at all.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Child</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Toy</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Living Things <span class="hl">Move</span>, Non-Living Don't (on their own).</h2>
-          <ul><li>A bird flies, a fish swims freely.</li><li>Your pencil only moves if you pick it up.</li></ul>
-          <p class="notes">🎙️ Living things can move by themselves, like when you run or a bird flies. Non-living things can only move if someone or something else moves them. A ball won't roll unless you kick it.</p>
+          <h2>Examples of Living Things: <span class="hl">Plants</span></h2>
+          <ul><li>Trees, flowers, and grass are living.</li><li>They also grow and need food.</li></ul>
+          <p class="notes">🎙️ Don't forget plants! Even though they don't run around, they are very much alive. They grow, make their own food, and breathe air.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">A person running</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Beautiful green plants</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Living Things Need <span class="hl">Food &amp; Water</span>.</h2>
-          <ul><li>We eat to get energy to play.</li><li>Plants drink water to stay healthy.</li></ul>
-          <p class="notes">🎙️ Just like you feel hungry and thirsty, all living things need food and water. Food gives them energy, and water helps them stay alive. Non-living things do not need any food or water.</p>
+          <h2>What are <span class="hl">Non-Living Things</span>?</h2>
+          <ul><li>Now, let's look at other things.</li><li>They are very different from us.</li></ul>
+          <p class="notes">🎙️ Now, let's talk about things that are not like us. They don't have the special powers that living things have. They are called non-living things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎💧</div><div class="vcap">Apple and water</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">A strong brick wall</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Living Things <span class="hl">Breathe</span> Air.</h2>
-          <ul><li>We breathe in and out all the time.</li><li>A stone does not breathe at all.</li></ul>
-          <p class="notes">🎙️ Another important thing is breathing. All living things, whether it's a person, an animal, or a plant, need to breathe air to live. Non-living things, like your book, do not breathe.</p>
+          <h2>Non-Living Things <span class="hl">Don't GROW</span>!</h2>
+          <ul><li>Your toy car stays the same size.</li><li>A rock does not get bigger.</li></ul>
+          <p class="notes">🎙️ Unlike us, non-living things do not grow. A small teddy bear will always stay small. It won't become a giant teddy bear!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌬️" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧸</div><div class="vcap">A teddy bear doesn't grow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Living Things Can <span class="hl">Feel</span> and Respond.</h2>
-          <ul><li>If you touch a hot stove, you pull back!</li><li>A book doesn't feel anything if you drop it.</li></ul>
-          <p class="notes">🎙️ Living things can feel things, like pain, joy, or cold, and they react to them. If you touch something hot, you quickly move your hand away. Non-living things have no feelings and do not react.</p>
+          <h2>Non-Living Things <span class="hl">Don't Need FOOD</span>!</h2>
+          <ul><li>Your school bag doesn't get hungry.</li><li>A book doesn't need to eat.</li></ul>
+          <p class="notes">🎙️ Non-living things don't need any food to live or grow. You don't feed your pencil, right? It works fine without eating!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️🔥</div><div class="vcap">Hand near fire</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Books don't eat!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! What is this?</h2>
-          <ul><li>It grows tall and strong.</li><li>It needs water and sunlight to live.</li></ul>
-          <p class="notes">🎙️ Look at this beautiful tree. Is it a living thing or a non-living thing? Think about all the things we just learned. Does it grow? Does it need water? Yes, it does!</p>
+          <h2>Non-Living Things <span class="hl">Don't MOVE</span> by Themselves!</h2>
+          <ul><li>Your chair stays where you put it.</li><li>A ball only moves if you kick it.</li></ul>
+          <p class="notes">🎙️ Non-living things cannot move on their own. They need someone or something else to move them. Like your bicycle, it only moves when you pedal it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span></div><div class="vcap">A big green tree</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪑</div><div class="vcap">A chair stays in place</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Another <span class="hl">Question</span>! What about this?</h2>
-          <ul><li>It moves with petrol, not on its own.</li><li>It does not grow bigger or smaller.</li></ul>
-          <p class="notes">🎙️ Here is a car. Does a car grow? Does it eat food or drink water? It moves, but only if someone drives it or puts petrol in it. So, what do you think it is?</p>
+          <h2>Non-Living Things <span class="hl">Don't BREATHE</span>!</h2>
+          <ul><li>A table does not need air.</li><li>Your clothes don't breathe.</li></ul>
+          <p class="notes">🎙️ Non-living things do not need to breathe air. They don't have lungs or tiny holes like plants. They just exist without needing to breathe.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Oil_well.jpg?width=480" data-fb="🌍" alt="Crude oil prices affect petrol costs everywhere."/><div class="vcap">Crude oil prices affect petrol costs everywhere.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">Clothes don't breathe</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>One <span class="hl">More</span>! Living or Non-Living?</h2>
-          <ul><li>It flies and eats small worms.</li><li>It lays eggs to have baby birds.</li></ul>
-          <p class="notes">🎙️ Look at this cute bird. It flies from tree to tree, builds nests, and sings songs. It also eats food and has babies. So, is a bird living or non-living? You know the answer!</p>
+          <h2>Non-Living Things <span class="hl">Don't FEEL</span>!</h2>
+          <ul><li>If you drop a stone, it doesn't cry.</li><li>A wall doesn't feel cold or hot.</li></ul>
+          <p class="notes">🎙️ Non-living things cannot feel anything. They don't have feelings like happy or sad, and they don't feel pain or pleasure. They are just objects.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐦</span></div><div class="vcap">A little bird</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪨</div><div class="vcap">A rock feels nothing</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,35 +252,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Last</span> One! What do you think?</h2>
-          <ul><li>It stays in one place always.</li><li>It does not need food or water.</li></ul>
-          <p class="notes">🎙️ Here is a big rock. Does it move by itself? Does it get bigger? Does it need to eat? No, it just sits there. So, a rock is a perfect example of a non-living thing.</p>
+          <h2>Non-Living Things <span class="hl">Don't Make BABIES</span>!</h2>
+          <ul><li>A car cannot have baby cars.</li><li>Your school bag won't have little bags.</li></ul>
+          <p class="notes">🎙️ Non-living things cannot make more of their own kind. A toy train will always be just one toy train. It will never make baby toy trains!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪨</span></div><div class="vcap">A solid rock</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">A car cannot have a baby car</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Remember <span class="hl">Living</span> Things!</h2>
-          <ul><li>They grow and change.</li><li>They move on their own.</li><li>They need food, water, and air.</li><li>They can feel and respond.</li></ul>
-          <p class="notes">🎙️ Let's quickly remember the special qualities of living things. They are active, they grow, and they need things to survive. Think about yourself and your pets – you fit all these points!</p>
+          <h2>Quick Check! Is this <span class="hl">LIVING or NON-LIVING?</span></h2>
+          <ul><li>Look at the beautiful butterfly.</li><li>Does it grow? Does it fly?</li></ul>
+          <p class="notes">🎙️ Think about all the things we learned about living things. Does a butterfly do those things? Is it alive or not?</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦋</div><div class="vcap">A pretty butterfly</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Remember <span class="hl">Non-Living</span> Things!</h2>
-          <ul><li>They do not grow.</li><li>They do not move on their own.</li><li>They don't need food, water, or air.</li><li>They don't feel anything.</li></ul>
-          <p class="notes">🎙️ Now, let's recap about non-living things. They are still and unchanging. They don't have any needs like living things. Your toys, books, and furniture are all non-living.</p>
+          <h2>Quick Check! Is this <span class="hl">LIVING or NON-LIVING?</span></h2>
+          <ul><li>Look at this cool bicycle.</li><li>Does it eat? Does it breathe?</li></ul>
+          <p class="notes">🎙️ Now think about the bicycle. Can it grow by itself? Does it need food? What do you think, is it living or non-living?</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚲</div><div class="vcap">A fun bicycle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Our <span class="hl">Amazing</span> World!</h2>
-          <ul><li>Now you know the difference between living and non-living!</li><li>Look around and spot living and non-living things every day.</li></ul>
-          <p class="notes">🎙️ You all did a wonderful job today! You are now experts at telling the difference. Keep exploring and observing the beautiful world around you. You will find living and non-living things everywhere!</p>
+          <h2>Time to <span class="hl">RECAP</span>: Living vs. Non-Living</h2>
+          <ul><li>Living things grow, eat, move, breathe, feel, make babies.</li><li>Non-living things do none of these.</li></ul>
+          <p class="notes">🎙️ Great job, everyone! Today we learned that our world is full of amazing things, some are alive like us, and some are not. Keep looking around and spotting them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our Earth</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Shapes Around Us — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Welcome to <span class="hl">Shapes</span> Around Us!</h2>
-          <ul><li>Let's explore the world of shapes!</li><li>Everything around us has a shape.</li></ul>
-          <p class="notes">🎙️ Hello, little mathematicians! Today, we will go on a fun journey to find shapes all around us. Get ready to open your eyes wide and spot them!</p>
+          <ul><li>Let's discover shapes together!</li><li>They are everywhere we look.</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we are going on a fun adventure to find shapes all around us. Get ready to open your eyes and see the world in a new way!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What are <span class="hl">Shapes</span>?</h2>
-          <ul><li>Look around your room!</li><li>What shapes do you see?</li></ul>
-          <p class="notes">🎙️ Can you see the door? What shape is it? How about the clock on the wall? We see so many shapes every day, but sometimes we don't even notice them!</p>
+          <ul><li>Shapes are how things look.</li><li>They have different sides and corners.</li><li>Like a ball is round, a book is flat.</li></ul>
+          <p class="notes">🎙️ Everything we see has a shape! Some things are round, some are long, some have pointy corners. Shapes help us describe things.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="👀" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🔺" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 20</span>
           <h2>Meet the <span class="hl">Circle</span>!</h2>
-          <ul><li>It is round and round.</li><li>It has no corners.</li></ul>
-          <p class="notes">🎙️ Our first friend is the Circle! Imagine drawing a big, perfect circle in the air. It just keeps going and going without stopping.</p>
+          <ul><li>A circle is round and round.</li><li>It has no corners.</li><li>It has no straight sides.</li></ul>
+          <p class="notes">🎙️ Look at this happy circle! It loves to roll. Can you make a circle with your finger in the air? It's so smooth!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Round &amp; Round</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟠</div><div class="vcap">A perfect circle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Things that are <span class="hl">Circles</span></h2>
-          <ul><li>A yummy cookie is a circle.</li><li>A car wheel is a circle.</li></ul>
-          <p class="notes">🎙️ Think of a delicious cookie your mom bakes. It's perfectly round like a circle! Or the wheels on your toy car, they are also circles that help the car move.</p>
+          <h2><span class="hl">Circles</span> Around Us!</h2>
+          <ul><li>A yummy cookie is a circle.</li><li>The sun looks like a big circle.</li><li>A wheel on a car is also a circle.</li></ul>
+          <p class="notes">🎙️ Think about all the round things you see every day! Cookies, wheels, and even the big bright sun are all circles. Isn't that wonderful?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Yummy Cookies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Yummy circle treats!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Hello, <span class="hl">Square</span>!</h2>
-          <ul><li>It has four straight sides.</li><li>All four sides are the same length.</li></ul>
-          <p class="notes">🎙️ Next, we meet the Square! It's very neat. All its four sides are exactly the same, like four brothers holding hands tightly.</p>
+          <h2>Meet the <span class="hl">Square</span>!</h2>
+          <ul><li>A square has four straight sides.</li><li>All its sides are the same length.</li><li>It also has four corners.</li></ul>
+          <p class="notes">🎙️ This is our friend, the square! It has four strong sides that are all equal, like four best friends holding hands. And it has four neat corners.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔲</div><div class="vcap">Four Equal Sides</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟦</div><div class="vcap">A strong square</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Things that are <span class="hl">Squares</span></h2>
-          <ul><li>A window pane can be a square.</li><li>A chessboard has many squares.</li></ul>
-          <p class="notes">🎙️ Look at a window in your house. Some window panes are shaped like squares. Or the small boxes on a chessboard, they are all squares!</p>
+          <h2><span class="hl">Squares</span> Around Us!</h2>
+          <ul><li>A dice has square faces.</li><li>A chessboard has many squares.</li><li>Some windows are square.</li></ul>
+          <p class="notes">🎙️ Can you spot squares in your house? A dice you play with, a yummy cracker, or even some picture frames are squares! They are everywhere!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖼️</span><span>🖼️</span></div><div class="vcap">Square Windows</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span><span>🎲</span></div><div class="vcap">Fun square things!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Meet the <span class="hl">Rectangle</span>!</h2>
-          <ul><li>It also has four straight sides.</li><li>Two sides are long, two sides are short.</li></ul>
-          <p class="notes">🎙️ The Rectangle is like a stretched-out square. It has four sides too, but two of them are longer and two are shorter. Can you see the difference?</p>
+          <h2>Meet the <span class="hl">Triangle</span>!</h2>
+          <ul><li>A triangle has three straight sides.</li><li>It has three corners.</li><li>It looks like a pointy hat!</li></ul>
+          <p class="notes">🎙️ Here comes the triangle! It has three sides and three corners. It loves to stand tall, like a mountain peak or a slice of pizza!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">▭</div><div class="vcap">Long &amp; Short Sides</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">A pointy triangle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Things that are <span class="hl">Rectangles</span></h2>
-          <ul><li>Your school book is a rectangle.</li><li>A door in your house is a rectangle.</li></ul>
-          <p class="notes">🎙️ Your favorite storybook is a rectangle! And the door you walk through every day, that's also a rectangle. They are very common around us.</p>
+          <h2><span class="hl">Triangles</span> Around Us!</h2>
+          <ul><li>A slice of pizza is a triangle.</li><li>A party hat is a triangle.</li><li>The roof of a small house looks like a triangle.</li></ul>
+          <p class="notes">🎙️ Next time you eat pizza, remember its shape! Party hats, yummy sandwiches cut diagonally, and even some road signs are triangles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚪</span><span>🚪</span></div><div class="vcap">Doors</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">Delicious triangle shapes!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Here comes the <span class="hl">Triangle</span>!</h2>
-          <ul><li>It has three straight sides.</li><li>It has three corners.</li></ul>
-          <p class="notes">🎙️ Our next friend is the Triangle! It's easy to spot because it only has three sides and three points, or corners. Imagine a small mountain peak!</p>
+          <h2>Meet the <span class="hl">Rectangle</span>!</h2>
+          <ul><li>A rectangle has four straight sides.</li><li>Its opposite sides are equal in length.</li><li>It also has four corners.</li></ul>
+          <p class="notes">🎙️ This is the rectangle! It's like a stretched-out square. Its opposite sides are equal – two long sides and two short sides. It also has four corners.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Three Sides</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟥</div><div class="vcap">A long rectangle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,23 +168,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Things that are <span class="hl">Triangles</span></h2>
-          <ul><li>A slice of pizza is a triangle.</li><li>A party hat can be a triangle.</li></ul>
-          <p class="notes">🎙️ Who loves pizza? A slice of pizza is a perfect triangle! And the fun party hats you wear on your birthday, many of them are shaped like triangles.</p>
+          <h2><span class="hl">Rectangles</span> Around Us!</h2>
+          <ul><li>Your classroom door is a rectangle.</li><li>A chocolate bar is a rectangle.</li><li>Most books are rectangles.</li></ul>
+          <p class="notes">🎙️ Look around your classroom! The door, your desk, and even your book are all rectangles. Rectangles are very common shapes!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">Pizza Slices</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍫</span><span>🍫</span><span>🍫</span></div><div class="vcap">Everyday rectangle items!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Which <span class="hl">Shape</span> Is It?</h2>
-          <ul><li>Is this a Circle or a Square?</li><li>Look at the object carefully.</li></ul>
-          <p class="notes">🎙️ Let's play a game! I'll show you two things, and you tell me what shape they are. Is a coin a circle or a square? What about a window?</p>
+          <h2>Let's Play a <span class="hl">Game</span>!</h2>
+          <ul><li>Can you guess the shape?</li><li>Look carefully at the pictures!</li></ul>
+          <p class="notes">🎙️ Now that we know our shapes, let's play a fun guessing game! I will show you some pictures, and you tell me what shape you see.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Coin</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Window</div></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>More Shape <span class="hl">Fun</span>!</h2>
-          <ul><li>Is this a Rectangle or a Triangle?</li><li>Think about the sides and corners.</li></ul>
-          <p class="notes">🎙️ Great job! Now, let's try two more. What shape is your school book? And what about a sandwich cut diagonally?</p>
+          <h2>Question 1: What <span class="hl">Shape</span> is This?</h2>
+          <ul><li>It is bright and round.</li><li>It gives us light and warmth.</li></ul>
+          <p class="notes">🎙️ Look at the picture! What shape does the sun remind you of? Is it a circle, a square, or a triangle?</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Book</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Sandwich</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">The bright sun</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Meet the <span class="hl">Oval</span>!</h2>
-          <ul><li>It is like a stretched circle.</li><li>It is also round, but longer.</li></ul>
-          <p class="notes">🎙️ The Oval is a special shape. It's like a circle that has been gently pulled from its sides, making it a bit longer. Think of an egg!</p>
+          <h2>Question 2: What <span class="hl">Shape</span> is This?</h2>
+          <ul><li>It has four equal sides.</li><li>You can hang it on a wall.</li></ul>
+          <p class="notes">🎙️ This is a picture frame! What shape is it? Does it have four equal sides and four corners? Is it a square?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥚</div><div class="vcap">Like an Egg</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">A picture frame</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Things that are <span class="hl">Ovals</span></h2>
-          <ul><li>An egg is an oval.</li><li>Some mirrors are ovals.</li></ul>
-          <p class="notes">🎙️ Next time you see an egg, remember it's an oval! And some pretty mirrors or even some fruits can be shaped like an oval.</p>
+          <h2>Question 3: What <span class="hl">Shape</span> is This?</h2>
+          <ul><li>It has three sides.</li><li>People use it for camping.</li></ul>
+          <p class="notes">🎙️ Look at this tent! What shape do you see on its front? Does it have three sides and three corners? Is it a triangle?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥚</span><span>🥚</span><span>🥚</span><span>🥚</span></div><div class="vcap">Eggs</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛺</div><div class="vcap">A camping tent</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Look, a <span class="hl">Star</span>!</h2>
-          <ul><li>It has many points.</li><li>It shines bright!</li></ul>
-          <p class="notes">🎙️ Our last new shape for today is the Star! It has many pointy tips and is truly special. We see them twinkling in the night sky.</p>
+          <h2>Question 4: What <span class="hl">Shape</span> is This?</h2>
+          <ul><li>It has four sides, two long and two short.</li><li>You use it to enter your room.</li></ul>
+          <p class="notes">🎙️ This is a door! What shape is a door? Does it have four sides, with opposite sides being equal? Is it a rectangle?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="⭐" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚪</div><div class="vcap">A classroom door</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Things that are <span class="hl">Stars</span></h2>
-          <ul><li>Stars in the night sky.</li><li>A star badge for good work.</li></ul>
-          <p class="notes">🎙️ When you look up at night, you see many stars twinkling. Sometimes, teachers give you a star sticker for doing good work, that's a star shape too!</p>
+          <h2>Let's <span class="hl">Count</span> the Shapes!</h2>
+          <ul><li>How many circles do you see?</li><li>How many squares are there?</li><li>How many triangles and rectangles?</li></ul>
+          <p class="notes">🎙️ Now, let's look at a picture with many shapes! Can you count how many of each shape you find? This helps us recognize them better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">Twinkling Stars</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>Which shape is like a ball?</li><li>Is it a circle, square, or triangle?</li></ul>
-          <p class="notes">🎙️ Time for some quick questions! Think about your favorite ball. What shape is it? Is it round like a circle, or does it have straight sides?</p>
+          <h2><span class="hl">Making</span> Shapes with Sticks!</h2>
+          <ul><li>Use three sticks to make a triangle.</li><li>Use four equal sticks for a square.</li><li>Use two long and two short sticks for a rectangle.</li></ul>
+          <p class="notes">🎙️ We can also make shapes using small sticks or even matchsticks! It's a fun way to understand how many sides each shape has. Try it at home!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="⚽" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>3 sticks -&gt; Triangle</span></div><div class="step"><span class="snum">2</span><span>4 equal sticks -&gt; Square</span></div><div class="step"><span class="snum">3</span><span>4 sticks (2 long, 2 short) -&gt; Rectangle</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Another <span class="hl">Question</span>!</h2>
-          <ul><li>Which shape has four equal sides?</li><li>Remember the Square and Rectangle.</li></ul>
-          <p class="notes">🎙️ Now, think about the shapes with four sides. Which one has all its sides exactly the same length? Is it the square or the rectangle?</p>
+          <h2>Shapes All <span class="hl">Around Us</span>!</h2>
+          <ul><li>Our houses have many shapes.</li><li>Cars, trees, and toys too!</li><li>Shapes make our world beautiful.</li></ul>
+          <p class="notes">🎙️ From the smallest button to the biggest building, shapes are everywhere! Our world is full of amazing shapes, making everything unique and interesting.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Sides</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Shapes in our world</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Last <span class="hl">Question</span>!</h2>
-          <ul><li>Which shape has three sides?</li><li>Think of a pizza slice!</li></ul>
-          <p class="notes">🎙️ You're doing great! Here's the last one. Which shape do we know that has only three sides and three corners? Imagine a small mountain.</p>
+          <h2>Time for a <span class="hl">Recap</span>!</h2>
+          <ul><li>We learned about Circle, Square.</li><li>We learned about Triangle, Rectangle.</li><li>Shapes are fun to find!</li></ul>
+          <p class="notes">🎙️ Let's quickly remember our shape friends! We met the round circle, the equal-sided square, the three-sided triangle, and the rectangle with its long and short sides.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Three Corners</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="✨" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Shapes <span class="hl">Everywhere</span>!</h2>
-          <ul><li>We learned about Circle, Square, Rectangle, Triangle.</li><li>Also Oval and Star!</li><li>Shapes make our world beautiful.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so many shapes today! From round circles to pointy stars, shapes are all around us, making everything interesting and fun to look at. Keep spotting them!</p>
+          <h2>Keep <span class="hl">Exploring</span> Shapes!</h2>
+          <ul><li>Look for shapes in your home.</li><li>Find shapes in your school.</li><li>Shapes are everywhere!</li></ul>
+          <p class="notes">🎙️ The fun never ends! Keep looking for shapes wherever you go. You'll be surprised how many you can find! Happy shape hunting, my little explorers!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Circle</span></div><div class="step"><span class="snum">2</span><span>Square</span></div><div class="step"><span class="snum">3</span><span>Rectangle</span></div><div class="step"><span class="snum">4</span><span>Triangle</span></div><div class="step"><span class="snum">5</span><span>Oval</span></div><div class="step"><span class="snum">6</span><span>Star</span></div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 1 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

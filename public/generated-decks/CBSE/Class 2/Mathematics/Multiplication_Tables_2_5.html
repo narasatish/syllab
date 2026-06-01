@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Multiplication Tables 2-5 — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Let's Learn <span class="hl">Multiplication</span>!</h2>
-          <ul><li>A fun way to add things quickly!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting journey to learn about something called Multiplication. It's like a superpower that helps us add big numbers very, very fast!</p>
+          <h2>Welcome to the World of <span class="hl">Multiplication</span>!</h2>
+          <ul><li>Get ready for a fun math journey!</li><li>We will learn about groups and counting faster.</li></ul>
+          <p class="notes">🎙️ Hello, my dear little mathematicians! Today, we are going to learn a super cool trick called multiplication. It helps us count things much faster and easier.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Multiplication</span>?</h2>
-          <ul><li>It means 'repeated addition'.</li><li>Adding the same number many times.</li></ul>
-          <p class="notes">🎙️ Imagine you have 2 apples, and your friend gives you 2 more, and then another friend gives you 2 more. You keep adding 2! Multiplication helps us do this faster.</p>
+          <ul><li>It's a quick way to add the same number many times.</li><li>It helps us count groups of things.</li></ul>
+          <p class="notes">🎙️ Imagine you have many groups, and each group has the same number of items. Instead of adding them one by one, multiplication helps us find the total quickly!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="➕" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="✖️" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Making Equal <span class="hl">Groups</span></h2>
-          <ul><li>Multiplication is about making groups.</li><li>Each group must have the same number.</li></ul>
-          <p class="notes">🎙️ Look at these cookies! We have two groups, and each group has 3 cookies. So, we have 3 + 3 cookies, which is 6. This is the start of multiplication!</p>
+          <h2>Multiplication as <span class="hl">Repeated Addition</span></h2>
+          <ul><li>Look at these yummy apples!</li><li>2 apples + 2 apples + 2 apples = 6 apples.</li></ul>
+          <p class="notes">🎙️ See, we added '2' three times. That's what repeated addition means. Multiplication is just a shortcut for this!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">2 groups of 3 cookies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">3 groups of 2 apples</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Table of 2</span> - Our First Friend!</h2>
-          <ul><li>Let's learn to count in twos.</li><li>It's like having pairs of things.</li></ul>
-          <p class="notes">🎙️ Our first special friend is the number 2! We will learn how to multiply with 2. Think of things that come in twos, like your eyes or your ears.</p>
+          <h2>Counting in <span class="hl">Groups</span></h2>
+          <ul><li>We have 3 groups of 2.</li><li>So, 3 times 2 equals 6.</li></ul>
+          <p class="notes">🎙️ When we say '3 times 2', it means we have 3 groups, and each group has 2 items. The total is 6.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">2️⃣</div><div class="vcap">The Number Two</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">3 groups of 2 apples</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">2 times 1</span> is 2</h2>
-          <ul><li>One group of two things.</li><li>Like your two eyes!</li></ul>
-          <p class="notes">🎙️ Look at your face in the mirror! You have one nose, but how many eyes? Two! So, 1 group of 2 is 2. We write it as 2 x 1 = 2.</p>
+          <h2><span class="hl">Table of 2</span>: Double the Fun!</h2>
+          <ul><li>Let's learn to count in twos!</li><li>It's like having pairs of things.</li></ul>
+          <p class="notes">🎙️ The table of 2 is all about doubling! If you have one thing, doubling it makes two. If you have two things, doubling them makes four!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">2️⃣</div><div class="vcap">Table of Two</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">2 times 2</span> is 4</h2>
-          <ul><li>Two groups of two things.</li><li>Like two pairs of shoes.</li></ul>
-          <p class="notes">🎙️ If you have two pairs of shoes, how many shoes are there in total? Each pair has two shoes. So, 2 + 2 makes 4 shoes. We write this as 2 x 2 = 4.</p>
+          <h2>Table of 2: <span class="hl">Example</span></h2>
+          <ul><li>You have 2 hands.</li><li>Each hand has 5 fingers.</li><li>How many fingers on 2 hands?</li></ul>
+          <p class="notes">🎙️ We have 2 hands, and each hand has 5 fingers. So, it's 2 times 5. That means 5 + 5 = 10. So, 2 x 5 = 10!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👟</span><span>👟</span><span>👟</span><span>👟</span></div><div class="vcap">2 groups of 2 shoes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span></div><div class="vcap">2 groups of 5 fingers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2><span class="hl">2 times 3</span> is 6</h2>
-          <ul><li>Three groups of two things.</li><li>Three bicycles have 6 wheels.</li></ul>
-          <p class="notes">🎙️ A bicycle has 2 wheels. If you see three bicycles parked together, how many wheels are there? Count them! 2 + 2 + 2 equals 6 wheels. So, 2 x 3 = 6.</p>
+          <h2><span class="hl">Practice</span> Table of 2</h2>
+          <ul><li>2 x 1 = 2 (1 group of 2)</li><li>2 x 2 = 4 (2 groups of 2)</li><li>2 x 3 = 6 (3 groups of 2)</li></ul>
+          <p class="notes">🎙️ Remember, 2 times 1 means one group of 2. 2 times 2 means two groups of 2. Keep practicing!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span></div><div class="vcap">3 groups of 2 wheels</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">3 groups of 2 balloons</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -131,9 +144,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Quick <span class="hl">Question</span>!</h2>
-          <ul><li>How many wings on 4 birds?</li><li>Remember, each bird has 2 wings!</li></ul>
-          <p class="notes">🎙️ Time for a quick brain exercise! If you see 4 birds flying, and each bird has 2 beautiful wings, how many wings do you see in total? Think about 2 + 2 + 2 + 2!</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>How many wheels on 4 bicycles?</li><li>(Hint: each bicycle has 2 wheels).</li><li>What is 2 x 4?</li></ul>
+          <p class="notes">🎙️ Think about 4 bicycles. Each one has two wheels. So, we have 4 groups of 2 wheels. What's the total?</p>
         </div>
         
       </div>
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Table of 3</span> - Our Next Friend!</h2>
-          <ul><li>Let's learn to count in threes.</li><li>Like the three primary colours!</li></ul>
-          <p class="notes">🎙️ Now, let's welcome our next friend, the number 3! We will learn how to multiply with 3. Think of things that come in threes, like the three leaves on some plants.</p>
+          <h2><span class="hl">Table of 3</span>: Triple the Joy!</h2>
+          <ul><li>Now, let's count in threes!</li><li>It's like having triplets.</li></ul>
+          <p class="notes">🎙️ The table of 3 is about having three of something. If you have one group of 3, it's 3. If you have two groups of 3, it's 6!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">3️⃣</div><div class="vcap">The Number Three</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">3️⃣</div><div class="vcap">Table of Three</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2><span class="hl">3 times 1</span> is 3</h2>
-          <ul><li>One group of three things.</li><li>Like one bunch of 3 flowers.</li></ul>
-          <p class="notes">🎙️ Imagine you pick one lovely bunch of flowers, and there are 3 flowers in that bunch. So, 1 group of 3 is 3. We write it as 3 x 1 = 3.</p>
+          <h2>Table of 3: <span class="hl">Example</span></h2>
+          <ul><li>Each auto-rickshaw has 3 wheels.</li><li>How many wheels on 3 auto-rickshaws?</li></ul>
+          <p class="notes">🎙️ We have 3 auto-rickshaws. Each one has 3 wheels. So, it's 3 times 3. That means 3 + 3 + 3 = 9. So, 3 x 3 = 9!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌸</span><span>🌸</span><span>🌸</span></div><div class="vcap">1 group of 3 flowers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚕</span><span>🚕</span><span>🚕</span></div><div class="vcap">3 auto-rickshaws</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">3 times 2</span> is 6</h2>
-          <ul><li>Two groups of three things.</li><li>Two tricycles have 6 wheels.</li></ul>
-          <p class="notes">🎙️ Remember bicycles have 2 wheels? Tricycles have 3 wheels! If you see two tricycles, how many wheels are there? 3 + 3 makes 6 wheels. So, 3 x 2 = 6.</p>
+          <h2><span class="hl">Practice</span> Table of 3</h2>
+          <ul><li>3 x 1 = 3 (1 group of 3)</li><li>3 x 2 = 6 (2 groups of 3)</li><li>3 x 3 = 9 (3 groups of 3)</li></ul>
+          <p class="notes">🎙️ Imagine you have 3 plates, and each plate has 3 cookies. How many cookies in total? That's 3 times 3.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span></div><div class="vcap">2 groups of 3 wheels</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">3 groups of 3 cookies</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">3 times 3</span> is 9</h2>
-          <ul><li>Three groups of three things.</li><li>Three sets of 3 fingers.</li></ul>
-          <p class="notes">🎙️ If you show 3 fingers with one hand, and then another 3 with the other, and then imagine one more set of 3 fingers, how many fingers do you have? 3 + 3 + 3 is 9. So, 3 x 3 = 9.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>A flower has 3 petals.</li><li>How many petals on 5 such flowers?</li><li>What is 3 x 5?</li></ul>
+          <p class="notes">🎙️ Picture 5 beautiful flowers. Each one has 3 petals. Count them in groups of three. What's your answer?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☝️</span><span>☝️</span><span>☝️</span><span>☝️</span><span>☝️</span><span>☝️</span><span>☝️</span><span>☝️</span><span>☝️</span></div><div class="vcap">3 groups of 3 fingers</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sunflower_sky_backdrop.jpg?width=460" data-fb="🔢" alt="Flowers are the colourful part of plants."/><div class="vcap">Flowers are the colourful part of plants.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Quick <span class="hl">Question</span>!</h2>
-          <ul><li>How many sides on 3 triangles?</li><li>Each triangle has 3 sides!</li></ul>
-          <p class="notes">🎙️ Another quick challenge! A triangle has 3 sides. If you draw 3 triangles on your notebook, how many sides did you draw in total? Remember, it's 3 + 3 + 3!</p>
+          <h2><span class="hl">Table of 4</span>: Quadruple Fun!</h2>
+          <ul><li>Let's count in fours!</li><li>Think of things that come in sets of four.</li></ul>
+          <p class="notes">🎙️ The table of 4 helps us count items that often come in fours, like legs of a table or wheels of a car.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🔢" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">4️⃣</div><div class="vcap">Table of Four</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Table of 4</span> - Our Strong Friend!</h2>
-          <ul><li>Let's learn to count in fours.</li><li>Like the legs of many animals!</li></ul>
-          <p class="notes">🎙️ Our next friend is the number 4! Many things around us have four parts. Think of a car, or a table, or even your pet dog! We will learn to multiply with 4.</p>
+          <h2>Table of 4: <span class="hl">Example</span></h2>
+          <ul><li>A car has 4 wheels.</li><li>How many wheels on 2 cars?</li></ul>
+          <p class="notes">🎙️ We have 2 cars. Each car has 4 wheels. So, it's 2 times 4. That means 4 + 4 = 8. So, 2 x 4 = 8!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">4️⃣</div><div class="vcap">The Number Four</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span></div><div class="vcap">2 cars</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">4 times 1</span> is 4</h2>
-          <ul><li>One group of four things.</li><li>Like one car has 4 wheels.</li></ul>
-          <p class="notes">🎙️ If you look at one car, how many wheels does it have? Four! So, 1 group of 4 is 4. We write it as 4 x 1 = 4.</p>
+          <h2><span class="hl">Practice</span> Table of 4</h2>
+          <ul><li>4 x 1 = 4 (1 group of 4)</li><li>4 x 2 = 8 (2 groups of 4)</li><li>4 x 3 = 12 (3 groups of 4)</li></ul>
+          <p class="notes">🎙️ Imagine 3 boxes, and each box has 4 toy blocks. How many blocks in total? That's 4 times 3.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">1 group of 4 wheels</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⏹️</span><span>⏹️</span><span>⏹️</span><span>⏹️</span><span>⏹️</span><span>⏹️</span><span>⏹️</span><span>⏹️</span><span>⏹️</span><span>⏹️</span></div><div class="vcap">3 groups of 4 blocks</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">4 times 2</span> is 8</h2>
-          <ul><li>Two groups of four things.</li><li>Two dogs have 8 legs.</li></ul>
-          <p class="notes">🎙️ A dog has 4 legs. If you see two dogs playing in the park, how many legs are moving around? 4 + 4 makes 8 legs! So, 4 x 2 = 8.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>A table has 4 legs.</li><li>How many legs on 3 tables?</li><li>What is 4 x 3?</li></ul>
+          <p class="notes">🎙️ Think about three tables in your classroom. Each table has four legs. How many legs are there if you count them all?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐕</span><span>🐕</span><span>🐕</span><span>🐕</span><span>🐕</span><span>🐕</span><span>🐕</span><span>🐕</span></div><div class="vcap">2 groups of 4 legs</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Table of 5</span> - Our Handy Friend!</h2>
-          <ul><li>Let's learn to count in fives.</li><li>Like the fingers on your hand!</li></ul>
-          <p class="notes">🎙️ Finally, let's meet our handy friend, the number 5! This is a very easy table to learn. Just look at your hand and count your fingers. How many do you see?</p>
+          <h2><span class="hl">Table of 5</span>: High Five!</h2>
+          <ul><li>Let's count in fives!</li><li>This is easy, like counting fingers or toes.</li></ul>
+          <p class="notes">🎙️ The table of 5 is super helpful because we often count in fives, especially with money or when telling time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">5️⃣</div><div class="vcap">The Number Five</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">5️⃣</div><div class="vcap">Table of Five</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">5 times 1</span> is 5</h2>
-          <ul><li>One group of five things.</li><li>Like one hand has 5 fingers.</li></ul>
-          <p class="notes">🎙️ Hold up one hand. How many fingers do you have on that hand? Five! So, 1 group of 5 is 5. We write it as 5 x 1 = 5.</p>
+          <h2>Table of 5: <span class="hl">Example</span></h2>
+          <ul><li>Each hand has 5 fingers.</li><li>How many fingers on 3 hands?</li></ul>
+          <p class="notes">🎙️ We have 3 hands. Each hand has 5 fingers. So, it's 3 times 5. That means 5 + 5 + 5 = 15. So, 3 x 5 = 15!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">1 group of 5 fingers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✋</span><span>✋</span><span>✋</span></div><div class="vcap">3 hands</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2><span class="hl">5 times 2</span> is 10</h2>
-          <ul><li>Two groups of five things.</li><li>Two hands have 10 fingers.</li></ul>
-          <p class="notes">🎙️ Now hold up both your hands! Count all the fingers. You have 5 fingers on one hand and 5 on the other. So, 5 + 5 makes 10 fingers! We write it as 5 x 2 = 10.</p>
+          <h2><span class="hl">Practice</span> Table of 5</h2>
+          <ul><li>5 x 1 = 5 (1 group of 5)</li><li>5 x 2 = 10 (2 groups of 5)</li><li>5 x 3 = 15 (3 groups of 5)</li></ul>
+          <p class="notes">🎙️ Imagine 3 rows of stars, and each row has 5 stars. How many stars in total? That's 5 times 3.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span><span>🖐️</span></div><div class="vcap">2 groups of 5 fingers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">3 groups of 5 stars</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Tables 2, 3, 4, 5!</h2>
-          <ul><li>We learned about multiplication.</li><li>Practiced tables 2, 3, 4, and 5.</li><li>You are a Multiplication Star!</li></ul>
-          <p class="notes">🎙️ Wow! We learned so much today. We understood what multiplication is and practiced our tables from 2 to 5. Keep practicing, and you will become a multiplication superstar!</p>
+          <h2>Time to <span class="hl">Recap</span>!</h2>
+          <ul><li>We learned multiplication is repeated addition.</li><li>We practiced tables 2, 3, 4, and 5.</li></ul>
+          <p class="notes">🎙️ We had so much fun learning about multiplication today! Keep practicing your tables every day. You're all doing a fantastic job!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

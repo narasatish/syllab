@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Problem Solving — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Problem Solving: A Math Adventure! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to <span class="hl">Problem Solving</span>!</h2>
-          <ul><li>Let's become super thinkers!</li><li>We will learn to solve math stories.</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today we are going to learn how to solve problems, just like a detective finds clues. It's going to be a fun journey where we learn to think smartly.</p>
+          <h2>Welcome to Problem Solving <span class="hl">Fun</span>!</h2>
+          <ul><li>Let's learn to solve math puzzles!</li><li>It's like being a detective!</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today we are going on an exciting adventure to learn how to solve problems in Math. It's like being a super detective and finding clues to solve a mystery!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is <span class="hl">Problem Solving</span>?</h2>
-          <ul><li>It means finding answers to questions.</li><li>Like a detective finding clues!</li></ul>
-          <p class="notes">🎙️ Problem solving is like solving a puzzle. We read a story or a question, and then we find the answer. It helps us understand things better.</p>
+          <h2>What is a '<span class="hl">Problem</span>'?</h2>
+          <ul><li>A problem is a question that needs an answer.</li><li>It's like a puzzle we need to solve!</li></ul>
+          <p class="notes">🎙️ A problem in Math is just a question that asks us to figure something out. Think of it as a puzzle where you need to put the pieces together to find the solution.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Find the Answer!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">A thinking face</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why is Problem Solving <span class="hl">Important</span>?</h2>
-          <ul><li>It helps us in daily life.</li><li>Like sharing toys or counting sweets.</li></ul>
-          <p class="notes">🎙️ Why is this important? Because we solve problems every day! Like when you need to share your toys with a friend or count how many sweets you have. It makes our life easier.</p>
+          <h2>Problems <span class="hl">Around Us</span></h2>
+          <ul><li>How many candies do I have?</li><li>How many friends can share this cake equally?</li></ul>
+          <p class="notes">🎙️ We see problems every day! Like when you want to share your toys with friends, or count how many storybooks you have. Math helps us solve these daily little puzzles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Bright Ideas!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧒</span><span>🧒</span><span>🧒</span></div><div class="vcap">Kids thinking</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Step 1: <span class="hl">Understand</span> the Problem</h2>
-          <ul><li>Read the story carefully.</li><li>What is it asking? What numbers are there?</li></ul>
-          <p class="notes">🎙️ Our first step is to really understand the problem. Read the story carefully, maybe even twice. Find out what the question is asking and what important numbers are given.</p>
+          <h2>Solving Problems Makes Us <span class="hl">Smart</span>!</h2>
+          <ul><li>It helps us think better.</li><li>It makes us good at finding answers!</li></ul>
+          <p class="notes">🎙️ When we solve problems, our brains get stronger! It helps us think clearly and logically, which is a very important skill not just for math, but for everything in life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Read Carefully</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Idea lightbulb</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Let's <span class="hl">Understand</span> a Problem!</h2>
-          <ul><li>"Papa bought 5 mangoes. Mummy bought 2 more mangoes.</li><li>How many mangoes in total?"</li></ul>
-          <p class="notes">🎙️ Look at this problem about mangoes. Papa bought 5, Mummy bought 2 more. The question is 'how many in total?'. We need to find the total number of mangoes.</p>
+          <h2>Step 1: <span class="hl">Read</span> Carefully</h2>
+          <ul><li>Read the whole question slowly.</li><li>Understand what the story is about.</li></ul>
+          <p class="notes">🎙️ The very first step is super important: read the problem carefully. Don't rush! Understand the story it's telling and what characters or things are involved.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥭</span><span>🥭</span><span>🥭</span><span>🥭</span><span>🥭</span><span>🥭</span><span>🥭</span></div><div class="vcap">Many Mangoes!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Open book</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Step 2: <span class="hl">Plan</span> How to Solve</h2>
-          <ul><li>Think: Should we add, subtract, multiply, or divide?</li><li>What action is needed?</li></ul>
-          <p class="notes">🎙️ Once we understand, the next step is to plan. We ask ourselves: Do we need to add things together? Take them away? Or make groups? This plan helps us choose the right way to solve.</p>
+          <h2>Step 2: Spot the <span class="hl">Numbers</span>!</h2>
+          <ul><li>Find all the numbers in the story.</li><li>Circle them or write them down.</li></ul>
+          <p class="notes">🎙️ After reading, look for all the numbers given in the problem. These numbers are like clues! Write them down so you don't forget them.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="📝" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2><span class="hl">Planning</span> Our Mango Problem</h2>
-          <ul><li>"Papa bought 5 mangoes. Mummy bought 2 more."</li><li>"More" means adding!</li></ul>
-          <p class="notes">🎙️ For our mango problem, Papa got 5 and Mummy added 2 'more'. When we hear 'more' or 'total', it usually means we need to add. So, our plan is to add the numbers.</p>
+          <h2>Step 3: What's the <span class="hl">Question</span>?</h2>
+          <ul><li>Find out what you need to calculate.</li><li>What is the problem asking you to find?</li></ul>
+          <p class="notes">🎙️ This step is about understanding what the problem wants from you. Is it asking for a total, or how many are left, or how many in each group? The last sentence often tells you this.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Read Story</span></div><div class="step"><span class="snum">2</span><span>Find Numbers</span></div><div class="step"><span class="snum">3</span><span>Decide Operation</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Question mark</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Step 3: <span class="hl">Solve</span> It!</h2>
-          <ul><li>Now do the math!</li><li>Use the numbers and the operation you chose.</li></ul>
-          <p class="notes">🎙️ Now comes the exciting part: solving it! We use the numbers we found and the plan we made. If our plan was to add, we add the numbers. If it was to subtract, we subtract.</p>
+          <h2>Step 4: Pick Your Math <span class="hl">Tool</span>!</h2>
+          <ul><li>Choose the right math operation.</li><li>Will you Add, Subtract, Multiply, or Divide?</li></ul>
+          <p class="notes">🎙️ Now that you know the numbers and the question, you need to pick the correct math tool. These tools are addition, subtraction, multiplication, and division. Each tool helps with a different kind of problem.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Do the Math!</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">+ Add</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">- Subtract</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">x Multiply</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">÷ Divide</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Solving</span> Our Mango Problem</h2>
-          <ul><li>We decided to add: 5 + 2 = ?</li><li>The answer is 7!</li></ul>
-          <p class="notes">🎙️ So, for the mango problem, we planned to add. We take Papa's 5 mangoes and add Mummy's 2 mangoes. 5 plus 2 makes 7. So, there are 7 mangoes in total!</p>
+          <h2>When to <span class="hl">ADD</span> (+)</h2>
+          <ul><li>When you need to find the 'total' or 'in all'.</li><li>When things are 'put together'.</li></ul>
+          <p class="notes">🎙️ We use addition when we want to combine things or find a total. Look for words like 'altogether', 'sum', 'total', or 'in all'. It means things are joining up!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✔️</div><div class="vcap">Problem Solved!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span></div><div class="vcap">Plus sign</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Step 4: <span class="hl">Check</span> Your Answer</h2>
-          <ul><li>Does your answer make sense?</li><li>Is it too big or too small?</li></ul>
-          <p class="notes">🎙️ After solving, it's very important to check your answer. Does it make sense? Is it a reasonable number? This step helps us catch any mistakes.</p>
+          <h2>When to <span class="hl">SUBTRACT</span> (-)</h2>
+          <ul><li>When you need to find 'how many left'.</li><li>When you find the 'difference' or 'take away'.</li></ul>
+          <p class="notes">🎙️ Subtraction is used when you take away things or want to find how many are remaining. Words like 'left', 'difference', 'take away', or 'how many more' are clues for subtraction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Look Again!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➖</span></div><div class="vcap">Minus sign</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,69 +180,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Checking</span> Our Mango Answer</h2>
-          <ul><li>Papa had 5, Mummy added 2. Total is 7 mangoes.</li><li>Yes, 7 is more than 5, so it makes sense!</li></ul>
-          <p class="notes">🎙️ We found 7 mangoes. Papa had 5, Mummy added 2. Yes, 7 is bigger than 5, which makes sense because more mangoes were added. So, our answer is correct!</p>
+          <h2>When to <span class="hl">MULTIPLY</span> (x)</h2>
+          <ul><li>When you have 'groups of' the same thing.</li><li>It's like fast addition of the same number.</li></ul>
+          <p class="notes">🎙️ Multiplication is useful when you have several groups of the same size and want to find the total. If you see words like 'times', 'product', or 'groups of', think multiplication.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">All Correct!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✖️</span></div><div class="vcap">Multiplication sign</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Let's Try <span class="hl">Another</span> Problem!</h2>
-          <ul><li>Remember our 4 steps:</li><li>Understand, Plan, Solve, Check.</li></ul>
-          <p class="notes">🎙️ Now that we know the four steps, let's try to solve some new problems together. Remember to go step-by-step to find the right answer.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">13 / 20</span>
-          <h2>Problem 1: <span class="hl">Toys</span>!</h2>
-          <ul><li>Rohan has 3 blue cars. His friend gave him 6 red cars.</li><li>How many cars does Rohan have now?</li></ul>
-          <p class="notes">🎙️ In this problem, Rohan has 3 blue cars and gets 6 red cars. We need to find the total. This is an addition problem: 3 + 6 = 9 cars.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">Total Cars</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>Problem 2: <span class="hl">Cookies</span>!</h2>
-          <ul><li>There were 8 cookies on a plate. My brother ate 3 cookies.</li><li>How many cookies are left?</li></ul>
-          <p class="notes">🎙️ Here, we started with 8 cookies, and 3 were eaten. We need to find how many are left. This is a subtraction problem: 8 - 3 = 5 cookies.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Cookies Left</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 20</span>
-          <h2>Problem 3: <span class="hl">Wheels</span>!</h2>
-          <ul><li>A bicycle has 2 wheels.</li><li>How many wheels do 4 bicycles have?</li></ul>
-          <p class="notes">🎙️ For wheels, one bicycle has 2 wheels. We want to know how many for 4 bicycles. This is repeated addition or multiplication: 4 x 2 = 8 wheels.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚲</span><span>🚲</span><span>🚲</span><span>🚲</span></div><div class="vcap">Many Bicycles</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 20</span>
-          <h2>Problem 4: <span class="hl">Sweets</span>!</h2>
-          <ul><li>Mummy has 10 sweets. She wants to share them equally among 5 children.</li><li>How many sweets does each child get?</li></ul>
-          <p class="notes">🎙️ Mummy has 10 sweets and wants to share them equally among 5 children. This means we divide the sweets: 10 ÷ 5 = 2 sweets for each child.</p>
+          <h2>When to <span class="hl">DIVIDE</span> (÷)</h2>
+          <ul><li>When you 'share equally' into groups.</li><li>When you find 'how many in each group'.</li></ul>
+          <p class="notes">🎙️ Division is for sharing things equally or splitting a big group into smaller, equal parts. Look for words like 'share equally', 'distribute', or 'how many in each'.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Bombay_Stock_Exchange.jpg?width=500" data-fb="🔢" alt="Shares of companies are bought and sold at the stock exchange."/><div class="vcap">Shares of companies are bought and sold at the stock exchange.</div></div></div>
       </div>
@@ -238,12 +203,60 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 1</h2>
-          <ul><li>A tree had 7 birds. 2 birds flew away.</li><li>How many birds are left?</li></ul>
-          <p class="notes">🎙️ Read this problem carefully. Think about what operation you need to do. How many birds are left after some fly away?</p>
+          <span class="num">13 / 20</span>
+          <h2>Step 5: Do the <span class="hl">Math</span>!</h2>
+          <ul><li>Write down your calculation neatly.</li><li>Solve it carefully.</li></ul>
+          <p class="notes">🎙️ Once you've picked your tool, it's time to do the actual calculation! Write down your steps clearly and solve the problem. Take your time and be careful with your numbers.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔢" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Writing hand</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>Step 6: Is Your Answer <span class="hl">Right</span>?</h2>
+          <ul><li>Check your work again.</li><li>Does your answer make sense?</li></ul>
+          <p class="notes">🎙️ Always check your answer! Read the question one last time and see if your answer makes sense in the story. Did you answer what the question asked?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Check mark</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 20</span>
+          <h2>Example: Sharing <span class="hl">Candies</span> (Addition)</h2>
+          <ul><li>Ria has 3 candies. Her friend gives her 2 more.</li><li>How many candies does Ria have 'in all'?</li></ul>
+          <p class="notes">🎙️ Here's an example! Ria has 3 candies, and gets 2 more. The words 'in all' tell us to add. So, 3 + 2 = 5 candies. Ria has 5 candies in all.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Sweet candies</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 20</span>
+          <h2>Example: <span class="hl">Balloons</span> Fly Away (Subtraction)</h2>
+          <ul><li>There were 7 balloons. 3 balloons flew away.</li><li>How many balloons are 'left'?</li></ul>
+          <p class="notes">🎙️ Let's try another one. You had 7 balloons, but 3 flew away. The word 'left' tells us to subtract. So, 7 - 3 = 4 balloons. There are 4 balloons left.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Balloons floating</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 20</span>
+          <h2>Quick <span class="hl">Question 1</span>!</h2>
+          <ul><li>A baker made 10 cakes. He made 5 more.</li><li>How many cakes did he make 'altogether'?</li></ul>
+          <p class="notes">🎙️ Time for a quick question! Remember our steps: Read, Spot numbers, Question, Pick tool, Solve, Check. Think about the word 'altogether' to pick your tool.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 2</h2>
-          <ul><li>There are 3 groups of children.</li><li>Each group has 4 children. How many children are there in total?</li></ul>
-          <p class="notes">🎙️ Here, we have groups of children. When we have equal groups and want to find the total, what operation do we use? Think about it!</p>
+          <h2>Quick <span class="hl">Question 2</span>!</h2>
+          <ul><li>Mummy bought 12 apples. We ate 4 apples.</li><li>How many apples are 'remaining'?</li></ul>
+          <p class="notes">🎙️ Here's another one! Mummy bought 12 apples, and we ate 4. Pay attention to the word 'remaining' to decide which math tool you need to use.</p>
         </div>
         
       </div>
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Question</span> 3</h2>
-          <ul><li>You have 6 pencils. You want to put them equally into 2 pencil cases.</li><li>How many pencils in each case?</li></ul>
-          <p class="notes">🎙️ You are sharing pencils equally into cases. When you share equally, what operation comes to mind? Solve it in your mind!</p>
+          <h2>Quick <span class="hl">Question 3</span>!</h2>
+          <ul><li>There are 4 boxes. Each box has 2 toys.</li><li>How many toys are there 'in total'?</li></ul>
+          <p class="notes">🎙️ Last quick question! We have 4 boxes, and each box has 2 toys. The phrase 'each box has' and 'in total' can give you a hint about the operation.</p>
         </div>
         
       </div>
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Let's <span class="hl">Recap</span>!</h2>
-          <ul><li>Remember the 4 steps:</li><li>1. Understand, 2. Plan, 3. Solve, 4. Check.</li><li>You are a super problem solver!</li></ul>
-          <p class="notes">🎙️ Great job, everyone! We learned the four magic steps to solve any problem: Understand, Plan, Solve, and Check. Keep practicing, and you'll be a problem-solving superstar!</p>
+          <h2>We <span class="hl">Solved</span> Problems!</h2>
+          <ul><li>Remember our 6 steps to solve any problem.</li><li>Practice makes us perfect problem solvers!</li></ul>
+          <p class="notes">🎙️ Great job, everyone! We learned the 6 steps to solve math problems. Keep practicing these steps with different problems, and you'll become a super problem solver!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Smart Thinker!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Trophy for success</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

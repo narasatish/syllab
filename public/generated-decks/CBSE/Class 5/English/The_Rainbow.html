@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>The Rainbow — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>The <span class="hl">Rainbow</span></h2>
-          <ul><li>A magical arch in the sky!</li><li>Let's learn about this colourful wonder.</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going to talk about something truly beautiful that appears in the sky. It's called the Rainbow!</p>
+          <h2>Welcome to the World of <span class="hl">Rainbows</span>!</h2>
+          <ul><li>Have you ever seen a beautiful arc of colours in the sky?</li></ul>
+          <p class="notes">🎙️ Hello, children! Today, we are going on a magical journey to learn about something truly wonderful. It appears after the rain and fills the sky with joy. Can you guess what it is?</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is a <span class="hl">Rainbow</span>?</h2>
-          <ul><li>It's a big colourful arc.</li><li>It shines brightly in the sky.</li></ul>
-          <p class="notes">🎙️ A rainbow is like a big, colourful bridge made of light. It's not a solid thing you can touch, but a beautiful sight!</p>
+          <ul><li>It is a colourful arc you see in the sky.</li><li>It has many bright colours.</li></ul>
+          <p class="notes">🎙️ A rainbow is like a giant painting in the sky. It's a beautiful curve made of different colours, all lined up together.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🌈" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">When</span> Do We See a Rainbow?</h2>
-          <ul><li>Usually after it rains.</li><li>When the sun also shines.</li></ul>
-          <p class="notes">🎙️ Rainbows love to play hide-and-seek! They usually appear after a gentle rain shower, when the sun peeks out from behind the clouds.</p>
+          <h2><span class="hl">When</span> do we see a Rainbow?</h2>
+          <ul><li>We often see it after it rains.</li><li>The sun must be shining at the same time.</li></ul>
+          <p class="notes">🎙️ Rainbows love to play hide-and-seek! They usually appear when the rain has just stopped, and the sun peeks out from behind the clouds. So, you need both rain and sunshine!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌦️</div><div class="vcap">Rain and Sun</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌧️</span><span>🌧️</span><span>🌧️</span></div><div class="vcap">Rainy day</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 20</span>
           <h2>How is a Rainbow <span class="hl">Formed</span>?</h2>
-          <ul><li>Sunlight shines through tiny raindrops.</li><li>The raindrops act like little prisms.</li></ul>
-          <p class="notes">🎙️ Imagine tiny raindrops floating in the air after the rain. When sunlight passes through these little water drops, they bend the light and split it into many colours.</p>
+          <ul><li>Sunlight goes through tiny water drops.</li><li>The water drops split the sunlight into colours.</li></ul>
+          <p class="notes">🎙️ It's like magic, but it's science! The sun's light passes through the small drops of water left in the air after rain. These tiny drops act like little glass balls.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Sunlight and Raindrop</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sunlight</span></div><div class="step"><span class="snum">2</span><span>Water Drops</span></div><div class="step"><span class="snum">3</span><span>Colours!</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>The <span class="hl">Colours</span> of the Rainbow</h2>
-          <ul><li>A rainbow has seven beautiful colours.</li><li>They always appear in the same order.</li></ul>
-          <p class="notes">🎙️ Isn't it amazing? Every rainbow always shows us seven special colours! They are like a secret code, always in the same sequence.</p>
+          <h2>Sunlight is <span class="hl">White</span></h2>
+          <ul><li>The light from the sun looks white to us.</li><li>But it is actually made of many colours.</li></ul>
+          <p class="notes">🎙️ When you look at the sun, its light seems plain white or yellow. But guess what? This white light is a secret mix of all the rainbow colours hiding together!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span></div><div class="vcap">Seven Colours</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="☀️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">Remembering</span> the Colours</h2>
-          <ul><li>We use a special word to remember them.</li><li>It's called VIBGYOR!</li></ul>
-          <p class="notes">🎙️ It can be tricky to remember all seven colours in order. So, we have a fun little trick! We use the word 'VIBGYOR' to help us.</p>
+          <h2>Water Droplets are Tiny <span class="hl">Prisms</span></h2>
+          <ul><li>After rain, there are tiny water droplets in the air.</li><li>These droplets act like small glass prisms.</li></ul>
+          <p class="notes">🎙️ Think of a water droplet as a tiny, round magnifying glass. When sunlight hits these little water drops, something amazing happens inside them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Memory Trick</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">A water drop</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>V for <span class="hl">Violet</span></h2>
-          <ul><li>Violet is a deep purple colour.</li><li>It's often seen at the bottom of the rainbow.</li></ul>
-          <p class="notes">🎙️ The first colour in VIBGYOR is Violet. It's a beautiful, rich purple colour, like some flowers you might see.</p>
+          <h2><span class="hl">Splitting</span> of Light</h2>
+          <ul><li>When sunlight enters a water drop, it bends.</li><li>It splits into all its different colours.</li></ul>
+          <p class="notes">🎙️ Just like a prism, the water drop takes the white sunlight and breaks it apart. Each colour bends a little differently, so they spread out.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💜</div><div class="vcap">Violet Colour</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Light becomes colours</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>I for <span class="hl">Indigo</span></h2>
-          <ul><li>Indigo is a dark blue colour.</li><li>It's between violet and blue.</li></ul>
-          <p class="notes">🎙️ Next comes Indigo. It's a very dark shade of blue, almost like the colour of deep ocean water or some jeans.</p>
+          <h2>The <span class="hl">Colours</span> of the Rainbow</h2>
+          <ul><li>There are seven main colours in a rainbow.</li><li>We can remember them using 'VIBGYOR'.</li></ul>
+          <p class="notes">🎙️ Now we know how rainbows are made! Let's learn the names of these seven beautiful colours. We have a special secret word to help us remember them all!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💙</div><div class="vcap">Indigo Colour</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌈</span><span>🌈</span><span>🌈</span><span>🌈</span><span>🌈</span><span>🌈</span><span>🌈</span></div><div class="vcap">Seven colours</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>B for <span class="hl">Blue</span></h2>
-          <ul><li>Blue is the colour of the clear sky.</li><li>It makes us feel calm.</li></ul>
-          <p class="notes">🎙️ Then we have Blue, just like the beautiful sky on a sunny day. It's a very common and lovely colour.</p>
+          <h2>VIBGYOR: V for <span class="hl">Violet</span></h2>
+          <ul><li>Violet is a deep purple colour.</li><li>It is at the very bottom of the rainbow.</li></ul>
+          <p class="notes">🎙️ The first letter 'V' stands for Violet. It's a dark, beautiful purple, like some flowers or grapes. It's the innermost colour of the rainbow.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔵</div><div class="vcap">Blue Colour</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💜</div><div class="vcap">Violet colour</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>G for <span class="hl">Green</span></h2>
-          <ul><li>Green is the colour of grass and leaves.</li><li>It reminds us of nature.</li></ul>
-          <p class="notes">🎙️ After blue, we see Green! Think of all the lovely green grass in your park or the leaves on trees. Green is the colour of life.</p>
+          <h2>VIBGYOR: I for <span class="hl">Indigo</span></h2>
+          <ul><li>Indigo is a dark blue colour.</li><li>It is between Violet and Blue.</li></ul>
+          <p class="notes">🎙️ Next is 'I' for Indigo. It's a very deep blue, almost like the night sky just before it gets completely dark. It sits right next to violet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟢</div><div class="vcap">Green Colour</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💙</div><div class="vcap">Indigo colour</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Y for <span class="hl">Yellow</span></h2>
-          <ul><li>Yellow is the colour of the bright sun.</li><li>It makes us feel happy and warm.</li></ul>
-          <p class="notes">🎙️ The middle colour is Yellow! It's bright and cheerful, just like the sun that gives us light and warmth, or a yummy mango!</p>
+          <h2>VIBGYOR: B for <span class="hl">Blue</span></h2>
+          <ul><li>Blue is the colour of the sky and ocean.</li><li>It is a calm and cool colour.</li></ul>
+          <p class="notes">🎙️ Then comes 'B' for Blue! This is a colour we see every day – the big blue sky and the vast blue ocean. It's a very common and soothing colour.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🟡" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Cumulus_clouds_in_fair_weather.jpeg?width=500" data-fb="🔵" alt="Clouds bring us rain."/><div class="vcap">Clouds bring us rain.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>O for <span class="hl">Orange</span></h2>
-          <ul><li>Orange is a warm, bright colour.</li><li>Like the fruit, or a sunset.</li></ul>
-          <p class="notes">🎙️ Next up is Orange! It's a vibrant colour, like the juicy orange fruit you love to eat, or the beautiful colour of a sunset.</p>
+          <h2>VIBGYOR: G for <span class="hl">Green</span></h2>
+          <ul><li>Green is the colour of grass and leaves.</li><li>It is in the middle of the rainbow.</li></ul>
+          <p class="notes">🎙️ After blue, we have 'G' for Green. Think of all the trees, plants, and grass around us. Green is the colour of nature and life. It's right in the middle of our rainbow.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟠</div><div class="vcap">Orange Colour</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💚</div><div class="vcap">Green colour</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,35 +204,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>R for <span class="hl">Red</span></h2>
-          <ul><li>Red is the colour of apples and roses.</li><li>It's often at the top of the rainbow.</li></ul>
-          <p class="notes">🎙️ Finally, we have Red! It's a very strong and noticeable colour, like a juicy red apple or a beautiful red rose. It's usually at the very top of the rainbow arch.</p>
+          <h2>VIBGYOR: Y for <span class="hl">Yellow</span></h2>
+          <ul><li>Yellow is the colour of the sun and lemons.</li><li>It is a bright and happy colour.</li></ul>
+          <p class="notes">🎙️ Next is 'Y' for Yellow! This is the bright colour of the sun, happy smiley faces, and delicious lemons. It's a very cheerful colour in the rainbow.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔴</div><div class="vcap">Red Colour</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💛</div><div class="vcap">Yellow colour</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>How many colours are there in a rainbow?</li><li>Can you recall the number?</li></ul>
-          <p class="notes">🎙️ Alright, my smart students, let's see how much you've remembered! How many colours does a rainbow have in total?</p>
+          <h2>VIBGYOR: O for <span class="hl">Orange</span></h2>
+          <ul><li>Orange is the colour of an orange fruit.</li><li>It is a mix of red and yellow.</li></ul>
+          <p class="notes">🎙️ Then comes 'O' for Orange. Just like the yummy fruit! It's a warm colour, a mix of red and yellow, and it's very bright and inviting.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="🧡" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Name any two colours of the rainbow.</li><li>Think of VIBGYOR!</li></ul>
-          <p class="notes">🎙️ Excellent! Now, can you tell me any two colours that you remember from our VIBGYOR list? Take your time and think.</p>
+          <h2>VIBGYOR: R for <span class="hl">Red</span></h2>
+          <ul><li>Red is the colour of apples and roses.</li><li>It is at the very top of the rainbow.</li></ul>
+          <p class="notes">🎙️ Finally, 'R' for Red! This is a strong, bold colour, like juicy apples, beautiful roses, and even a stop sign. It's the outermost colour of the rainbow.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Red colour</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,35 +240,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Rainbows in <span class="hl">Everyday</span> Life</h2>
-          <ul><li>Sometimes, you can see mini rainbows.</li><li>In water spray from a hose pipe.</li><li>Or through a glass of water in sunlight.</li></ul>
-          <p class="notes">🎙️ Rainbows aren't just in the sky! If you spray water from a hose pipe on a sunny day, you might see tiny rainbows. You can even make one with a glass of water and sunlight!</p>
+          <h2>More Rainbows in <span class="hl">Real Life</span>!</h2>
+          <ul><li>You can see small rainbows near waterfalls.</li><li>Sometimes, even a garden hose can make one!</li></ul>
+          <p class="notes">🎙️ Rainbows aren't just in the sky after rain! If you stand with your back to the sun and spray water from a garden hose, you might see a tiny rainbow. You can also spot them near big waterfalls.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🚿" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚿</div><div class="vcap">Garden hose</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Can We <span class="hl">Touch</span> a Rainbow?</h2>
-          <ul><li>No, a rainbow is not a solid object.</li><li>It's just light bending in the air.</li></ul>
-          <p class="notes">🎙️ Even though rainbows look so close and real, we cannot actually touch them. They are made of light, not a solid thing, so they disappear as you get closer.</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>When do we usually see a rainbow?</li><li>A) At night B) After rain C) On a very hot day</li></ul>
+          <p class="notes">🎙️ Let's test our memory! Think back to when we talked about the perfect time for a rainbow to appear. Is it during the night, after some rain, or when it's super hot?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✋🚫</div><div class="vcap">Cannot Touch</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Why are Rainbows <span class="hl">Special</span>?</h2>
-          <ul><li>They are a sign of beauty and hope.</li><li>They make us feel happy and amazed.</li></ul>
-          <p class="notes">🎙️ Rainbows are truly special. They bring a smile to our faces and remind us of the beauty in nature. They are like a colourful promise after the rain.</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>What is the secret word to remember rainbow colours?</li><li>A) VIBGYOR B) ROYGBIV C) COLOURS</li></ul>
+          <p class="notes">🎙️ Remember that special word we learned to help us list all the colours in order? What was it? Is it VIBGYOR, ROYGBIV, or just COLOURS?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div><div class="vcap">Joyful Sight</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Let's <span class="hl">Recap</span>!</h2>
-          <ul><li>Rainbows appear after rain and sun.</li><li>They have seven colours: VIBGYOR.</li><li>Violet, Indigo, Blue, Green, Yellow, Orange, Red.</li></ul>
-          <p class="notes">🎙️ So, what did we learn today? We learned about the beautiful rainbow, how it forms, and its seven magical colours. Remember VIBGYOR!</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>Which colour is at the top of the rainbow?</li><li>A) Violet B) Green C) Red</li></ul>
+          <p class="notes">🎙️ Let's remember our VIBGYOR! Which colour is the very first one, the one that is at the outermost part or the top of the rainbow arc?</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Keep Looking for <span class="hl">Rainbows</span>!</h2>
-          <ul><li>Nature is full of wonders.</li><li>Enjoy the magic around you!</li></ul>
-          <p class="notes">🎙️ Thank you for joining me today! Now you know all about rainbows. Keep your eyes open and you might spot one soon. The world is full of amazing things!</p>
+          <h2><span class="hl">Recap</span>: Our Rainbow Journey!</h2>
+          <ul><li>Rainbows are colourful arcs in the sky.</li><li>They form when sunlight passes through water drops.</li><li>The seven colours are VIBGYOR (Violet, Indigo, Blue, Green, Yellow, Orange, Red).</li></ul>
+          <p class="notes">🎙️ Wow, what a colourful journey we've had today! We learned that rainbows are nature's beautiful gift, formed by light and water, showing us all the hidden colours of the sun. Keep an eye out for them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Magic of Nature</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

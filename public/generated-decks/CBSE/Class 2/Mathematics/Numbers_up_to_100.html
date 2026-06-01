@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Numbers up to 100 — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to "<span class="hl">Numbers</span> up to 100"!</h2>
-          <ul><li>We will learn about big numbers today!</li><li>Let's count fun things.</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure with numbers. We will learn to count and understand numbers all the way up to 100!</p>
+          <h2>Our Big Adventure with <span class="hl">Numbers</span>!</h2>
+          <ul><li>Welcome to our fun math class!</li><li>Today, we will learn about numbers up to 100.</li><li>It's like counting all the stars in the sky!</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Get ready for an exciting journey into the world of numbers. We will discover how numbers help us count everything around us, from toys to friends.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Let's count from <span class="hl">1 to 10</span>!</h2>
-          <ul><li>Remember these numbers?</li><li>We see them every day!</li></ul>
-          <p class="notes">🎙️ Do you remember counting your fingers or the stars in the sky? Let's quickly count together from one to ten. Great job!</p>
+          <h2>Let's <span class="hl">Count</span> Our Fingers and Toes!</h2>
+          <ul><li>We know how to count from 1 to 10.</li><li>Let's count together!</li><li>One, two, three, four, five, six, seven, eight, nine, ten.</li></ul>
+          <p class="notes">🎙️ Counting is super easy! We use numbers every day, like when we count our fingers or the number of pencils in our box. Let's practice counting to 10.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🖐️" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Now, let's count from <span class="hl">11 to 20</span>!</h2>
-          <ul><li>We added more to our small numbers.</li></ul>
-          <p class="notes">🎙️ After ten, we have eleven, twelve, and so on. Imagine you have ten balloons and then get five more. How many do you have? Fifteen!</p>
+          <h2><span class="hl">More</span> Friends to Count!</h2>
+          <ul><li>After 10, we keep counting.</li><li>11, 12, 13, 14, 15, 16, 17, 18, 19, 20.</li><li>These are numbers from 11 to 20.</li></ul>
+          <p class="notes">🎙️ Once we finish counting to 10, we don't stop! We continue with 11, 12, and so on, all the way up to 20. Imagine counting all your friends!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Fifteen colourful balloons!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👧</span><span>👧</span><span>👧</span><span>👧</span><span>👧</span><span>👧</span><span>👧</span><span>👧</span><span>👧</span><span>👧</span></div><div class="vcap">20 happy children!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Let's Count in <span class="hl">Groups of Ten</span>!</h2>
-          <ul><li>It's easier to count big numbers in groups.</li><li>Like a bundle of sticks!</li></ul>
-          <p class="notes">🎙️ When numbers get big, it can be tricky to count one by one. So, we make small groups of ten. This makes counting much faster and simpler!</p>
+          <h2>Making Groups of <span class="hl">Ten</span>!</h2>
+          <ul><li>A group of 10 things is called a 'ten'.</li><li>It helps us count bigger numbers easily.</li><li>See the bundle of 10 carrots!</li></ul>
+          <p class="notes">🎙️ Think of a bundle of 10 sticks or 10 marbles. That's one 'ten'. This idea of making groups of ten is very important for understanding larger numbers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span></div><div class="vcap">A bundle of 10 sticks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span><span>🥕</span></div><div class="vcap">A group of 10 carrots!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>What is a '<span class="hl">Ten</span>'?</h2>
-          <ul><li>Ten ones make one 'Ten'.</li><li>It's like a team of 10!</li></ul>
-          <p class="notes">🎙️ Imagine you have 10 friends. That's one team! In numbers, when you have 10 single items, they make one group of 'Ten'. This is a very important idea!</p>
+          <h2>What is <span class="hl">15</span>?</h2>
+          <ul><li>15 is made of 1 'ten' and 5 'ones'.</li><li>The 'tens' place tells us how many groups of 10.</li><li>The 'ones' place tells us how many single items are left.</li></ul>
+          <p class="notes">🎙️ When we see a number like 15, we can break it down. It has one group of ten, and five single units. This is called place value and it helps us understand what numbers mean.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔟</div><div class="vcap">One 'Ten' means 10 things</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Tens</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ones</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Counting by Tens: <span class="hl">10, 20, 30</span>!</h2>
-          <ul><li>One ten is 10.</li><li>Two tens are 20.</li><li>Three tens are 30.</li></ul>
-          <p class="notes">🎙️ See how easy it is? If you have one bundle of ten flowers, that's 10. If you have two bundles, it's 20. And three bundles make 30!</p>
+          <h2>Jumping by <span class="hl">Tens</span>!</h2>
+          <ul><li>We can count in big jumps of 10.</li><li>10, 20, 30, 40, 50...</li><li>It's like a number train!</li></ul>
+          <p class="notes">🎙️ Counting by tens is a super skill! It helps us count much faster. Imagine you have 10 friends, then another 10, then another 10... you'd quickly reach 30!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌺</span><span>🌺</span><span>🌺</span><span>🌺</span><span>🌺</span><span>🌺</span><span>🌺</span><span>🌺</span><span>🌺</span><span>🌺</span></div><div class="vcap">Three groups of 10 flowers</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>10</span></div><div class="step"><span class="snum">2</span><span>20</span></div><div class="step"><span class="snum">3</span><span>30</span></div><div class="step"><span class="snum">4</span><span>40</span></div><div class="step"><span class="snum">5</span><span>50</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>More Tens: <span class="hl">40, 50, 60</span>!</h2>
-          <ul><li>Four tens are 40.</li><li>Five tens are 50.</li><li>Six tens are 60.</li></ul>
-          <p class="notes">🎙️ Keep going! If you have four groups of ten pencils, it's forty pencils. Five groups give you fifty, and six groups make sixty. You're doing great!</p>
+          <h2><span class="hl">Twenty</span> and Some More!</h2>
+          <ul><li>After 20, we add ones again.</li><li>2 tens and 1 one make 21.</li><li>2 tens and 5 ones make 25.</li></ul>
+          <p class="notes">🎙️ Once we reach 20, which is two groups of ten, we start adding ones again. So, 21 is like having two bundles of 10 and one extra balloon.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">Five groups of 10 pencils</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Like 2 tens and 5 ones make 25!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>All the Way to <span class="hl">100</span>: 70, 80, 90, 100!</h2>
-          <ul><li>Seven tens is 70.</li><li>Eight tens is 80.</li><li>Nine tens is 90.</li><li>Ten tens is 100!</li></ul>
-          <p class="notes">🎙️ We have reached 100! That's a big number. One hundred means you have ten groups, and each group has ten things. Wow!</p>
+          <h2><span class="hl">Thirty</span> and Friends!</h2>
+          <ul><li>When we have 3 tens, it's called thirty.</li><li>3 tens and 1 one is 31.</li><li>3 tens and 4 ones is 34.</li></ul>
+          <p class="notes">🎙️ Now we're moving to the thirties! If you have three groups of ten, you have thirty. And if you add four more, you get thirty-four. Easy peasy!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span></div><div class="vcap">Ten groups of 10 butterflies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span></div><div class="vcap">3 tens and 4 ones make 34!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Tens and Ones</span> Make New Numbers!</h2>
-          <ul><li>We use tens and ones to make all numbers.</li></ul>
-          <p class="notes">🎙️ Now, what if you have some groups of ten AND some single items? We put them together! This is how we make all the numbers between the tens.</p>
+          <h2><span class="hl">Forty</span> and Beyond!</h2>
+          <ul><li>4 tens make forty.</li><li>4 tens and 1 one is 41.</li><li>4 tens and 8 ones is 48.</li></ul>
+          <p class="notes">🎙️ We're getting bigger now! Four groups of ten make forty. So, if you see 48 cars, it means there are 4 bundles of 10 cars and 8 single cars.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Tens + Ones = Number</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">4 tens and 8 ones make 48!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Let's Make Number <span class="hl">23</span>!</h2>
-          <ul><li>23 means 2 Tens and 3 Ones.</li></ul>
-          <p class="notes">🎙️ Look at the number 23. The '2' means two groups of ten, and the '3' means three single ones. So, 20 + 3 makes 23! Easy, right?</p>
+          <h2>Numbers <span class="hl">Around Us</span>!</h2>
+          <ul><li>How many fingers do you have?</li><li>How many eggs in a carton?</li><li>How many students in your class?</li></ul>
+          <p class="notes">🎙️ Numbers are everywhere! Look around your home or classroom. You'll find numbers on clocks, calendars, books, and even on the bus when you travel. They help us understand the world.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Two groups of 10 balloons and 3 loose balloons</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Numbers in our home!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Let's Make Number <span class="hl">45</span>!</h2>
-          <ul><li>45 means 4 Tens and 5 Ones.</li></ul>
-          <p class="notes">🎙️ What about 45? The first digit, 4, tells us there are four tens. The second digit, 5, tells us there are five ones. So, 40 + 5 = 45!</p>
+          <h2><span class="hl">Fifty</span> and More!</h2>
+          <ul><li>5 tens make fifty.</li><li>5 tens and 1 one is 51.</li><li>5 tens and 3 ones is 53.</li></ul>
+          <p class="notes">🎙️ You're doing great! Five groups of ten means fifty. If you collected 53 stars, it would be five groups of ten stars and three more shining stars.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">Four groups of 10 pencils and 5 loose pencils</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">5 tens and 3 ones make 53!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Writing Numbers: <span class="hl">Words to Digits</span>!</h2>
-          <ul><li>We can write numbers using words or digits.</li></ul>
-          <p class="notes">🎙️ Sometimes we hear numbers said aloud, like "twenty-five". We need to know how to write that using numbers, like 25. Let's try some!</p>
+          <h2><span class="hl">Sixty</span> and New Friends!</h2>
+          <ul><li>6 tens make sixty.</li><li>6 tens and 1 one is 61.</li><li>6 tens and 7 ones is 67.</li></ul>
+          <p class="notes">🎙️ Keep counting! Six groups of ten makes sixty. Imagine you have 67 puzzle pieces. That's six full boxes of ten pieces and seven extra pieces.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Write the number</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span></div><div class="vcap">6 tens and 7 ones make 67!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>What is "<span class="hl">Thirty-seven</span>"?</h2>
-          <ul><li>"Thirty" means 3 tens.</li><li>"Seven" means 7 ones.</li></ul>
-          <p class="notes">🎙️ If someone says "thirty-seven", you know "thirty" is 3 tens, and "seven" is 7 ones. So, 3 tens and 7 ones make the number 37!</p>
+          <h2><span class="hl">Seventy</span> and Its Family!</h2>
+          <ul><li>7 tens make seventy.</li><li>7 tens and 1 one is 71.</li><li>7 tens and 5 ones is 75.</li></ul>
+          <p class="notes">🎙️ We are getting closer to 100! Seven groups of ten makes seventy. Think of a long train with 71 bogies. That's seven sets of ten bogies, and one extra bogie!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Three groups of 10 sweets and 7 loose sweets</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚂</span></div><div class="vcap">7 tens and 1 one makes 71!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Writing Numbers: <span class="hl">Digits to Words</span>!</h2>
-          <ul><li>We can also say the numbers we see.</li></ul>
-          <p class="notes">🎙️ Just like we write words as numbers, we can also read numbers and say them in words. For example, if you see '68', how do you say it?</p>
+          <h2><span class="hl">Eighty</span> and Its Group!</h2>
+          <ul><li>8 tens make eighty.</li><li>8 tens and 1 one is 81.</li><li>8 tens and 9 ones is 89.</li></ul>
+          <p class="notes">🎙️ Almost there! Eight groups of ten makes eighty. If you see 89 candles on a very big birthday cake, it means there are 8 groups of ten candles and 9 single candles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Read the number</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎂</span><span>🎂</span><span>🎂</span><span>🎂</span><span>🎂</span><span>🎂</span><span>🎂</span><span>🎂</span><span>🎂</span></div><div class="vcap">8 tens and 9 ones make 89!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>What is the number <span class="hl">52</span>?</h2>
-          <ul><li>52 means 5 tens and 2 ones.</li><li>We say it as "Fifty-two".</li></ul>
-          <p class="notes">🎙️ The number 52 has 5 in the tens place and 2 in the ones place. So, we say "fifty-two". Very good!</p>
+          <h2>Ninety and The Big <span class="hl">Hundred</span>!</h2>
+          <ul><li>9 tens make ninety.</li><li>9 tens and 1 one is 91.</li><li>10 tens make one hundred (100)!</li></ul>
+          <p class="notes">🎙️ Wow! We reached ninety! And when we have ten groups of ten, we get to the biggest number we are learning today: ONE HUNDRED! It's a very special number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Five groups of 10 cookies and 2 loose cookies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">10 tens make 100!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,35 +240,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Which Number is <span class="hl">Bigger or Smaller</span>?</h2>
-          <ul><li>We can compare numbers using tens and ones.</li></ul>
-          <p class="notes">🎙️ Now that we know numbers up to 100, we can compare them! Which number has more tens? That number is usually bigger. If tens are same, check the ones!</p>
+          <h2>Finding Our <span class="hl">Place</span>: Before, After, Between!</h2>
+          <ul><li>What number comes 'before' 50?</li><li>What number comes 'after' 75?</li><li>What number is 'between' 30 and 32?</li></ul>
+          <p class="notes">🎙️ Numbers have a special order, like people in a line. Knowing the number before, after, or between helps us understand this order better. It's like finding your spot in the queue!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Comparing numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Numbers in order</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>How many Tens and Ones are in the number 64?</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Think about the number 64. How many groups of ten does it have, and how many single ones are left?</p>
+          <h2>Who is Bigger? Who is Smaller?</h2>
+          <ul><li>We use symbols: &gt; (greater than), &lt; (less than), = (equal to).</li><li>Is 35 &gt; 21?</li><li>Is 15 &lt; 51?</li></ul>
+          <p class="notes">🎙️ Comparing numbers means finding out which one is larger or smaller. We use special signs to show this. Always remember, the open mouth of the sign eats the bigger number!</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">35</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">21</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>Write the number for "Eighty-nine".</li></ul>
-          <p class="notes">🎙️ Next question! If your friend tells you they have "eighty-nine" candies, how would you write that number down?</p>
+          <h2>Line Them Up! <span class="hl">Ordering</span> Numbers!</h2>
+          <ul><li>We can put numbers from smallest to biggest.</li><li>Or from biggest to smallest.</li><li>Let's order: 25, 12, 53, 40.</li></ul>
+          <p class="notes">🎙️ Ordering numbers is like arranging your toys from the smallest to the biggest. It helps us see the pattern and sequence of numbers. We can do it in increasing or decreasing order.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>12</span></div><div class="step"><span class="snum">2</span><span>25</span></div><div class="step"><span class="snum">3</span><span>40</span></div><div class="step"><span class="snum">4</span><span>53</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>Which number is smaller: 73 or 37?</li></ul>
-          <p class="notes">🎙️ Last question! Look carefully at 73 and 37. Which one has fewer tens? That will be the smaller number.</p>
+          <h2>Quick <span class="hl">Questions</span>!</h2>
+          <ul><li>What is 3 tens and 7 ones?</li><li>Which number comes after 99?</li><li>Is 62 greater than or less than 26?</li></ul>
+          <p class="notes">🎙️ Time to test our super smart brains! These questions will help us remember everything we've learned today. Think carefully before you answer!</p>
         </div>
         
       </div>
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What Did We <span class="hl">Learn</span> Today?</h2>
-          <ul><li>We counted up to 100.</li><li>We learned about Tens and Ones.</li><li>We wrote numbers in words and digits.</li><li>We compared numbers!</li></ul>
-          <p class="notes">🎙️ We had a fantastic journey with numbers today! You are now experts at counting, understanding, and writing numbers up to 100. Keep practicing every day!</p>
+          <h2>Recap: Our Number Journey!</h2>
+          <ul><li>We learned to count up to 100.</li><li>We understood 'tens' and 'ones'.</li><li>We practiced finding before/after, comparing, and ordering numbers.</li></ul>
+          <p class="notes">🎙️ What a fantastic journey we had with numbers today! You all did a wonderful job. Keep practicing, and you'll be number champions in no time!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

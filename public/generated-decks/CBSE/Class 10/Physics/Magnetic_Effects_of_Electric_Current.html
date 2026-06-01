@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Magnetic Effects of Electric Current — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,20 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2><span class="hl">Magnetic</span> Effects of Electric Current</h2>
-          <ul><li>Welcome to Class 10 Physics!</li><li>Chapter: Magnetic Effects of Electric Current</li><li>Subject: Physics, CBSE Board</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today, we're diving into a fascinating chapter: 'Magnetic Effects of Electric Current'. Get ready to explore how electricity and magnetism are deeply connected. This topic is crucial for understanding many technologies around us.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">2 / 25</span>
-          <h2>Electricity and Magnetism: Are they <span class="hl">Connected</span>?</h2>
-          <ul><li>Ever wondered if electricity can create magnetism?</li><li>What exactly is magnetism?</li><li>How do these two powerful forces interact?</li></ul>
-          <p class="notes">🎙️ Before we start, let's ponder a question. We know about electricity and we know about magnets. But are they related? Can one produce the other? This chapter will answer these exciting questions and reveal their profound connection.</p>
+          <ul><li>Unveiling the invisible connection between electricity and magnetism.</li><li>Discover how electric currents create magnetic fields.</li><li>Explore the principles behind motors, generators, and everyday devices.</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we embark on a fascinating journey to explore the 'Magnetic Effects of Electric Current'. This chapter connects two seemingly different forces: electricity and magnetism, revealing how they are deeply intertwined.</p>
         </div>
         
       </div>
@@ -70,10 +71,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Magnetic Effects</span>?</h2>
+          <ul><li>The phenomenon where electric current produces a magnetic field.</li><li>This magnetic field can exert force on other magnets or current-carrying conductors.</li><li>It's the foundation for many modern technologies, from motors to data storage.</li></ul>
+          <p class="notes">🎙️ Imagine electricity, which we know powers our homes, also creating magnetism! This amazing phenomenon, where moving charges (electric current) generate a magnetic field, is what we call the magnetic effect of electric current. It's not just a curious fact; it's a fundamental principle that underpins much of our modern world.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Earths_magnetosphere_and_field.svg?width=500" data-fb="⚡" alt="Earth acts as a giant magnet with a magnetic field extending far into space, protecting li"/><div class="vcap">Earth acts as a giant magnet with a magnetic field extending far into space, protecting li</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Understanding <span class="hl">Magnets</span></h2>
-          <ul><li>Magnets attract magnetic materials like iron and nickel.</li><li>Every magnet has two poles: North (N) and South (S).</li><li>Like poles repel (N-N, S-S), unlike poles attract (N-S).</li></ul>
-          <p class="notes">🎙️ Let's start with the basics of magnets. They are objects that produce a magnetic field. Remember, they always have two poles, and these poles behave in specific ways: opposites attract, and likes repel. This fundamental property is key to understanding magnetism.</p>
+          <h2><span class="hl">Magnets</span>: A Quick Review</h2>
+          <ul><li>Magnets have two poles: North (N) and South (S).</li><li>Like poles repel each other, while unlike poles attract.</li><li>They create an invisible region around them called a magnetic field.</li></ul>
+          <p class="notes">🎙️ Before we dive into how electricity creates magnetism, let's quickly recall what we already know about magnets. Remember how a compass needle always points North? That's because of Earth's magnetic field! And how two magnets can push each other away or pull each other closer depending on their poles.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Attraction &amp; Repulsion</div></div></div>
       </div>
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>What is a Magnetic <span class="hl">Field</span>?</h2>
-          <ul><li>It's the region around a magnet.</li><li>Where the force of the magnet can be detected.</li><li>It's an invisible field but has a powerful influence.</li></ul>
-          <p class="notes">🎙️ Imagine a magnet. The space around it, where its magnetic force can be felt by another magnet or a magnetic material, is called its magnetic field. It's invisible, but its effects, like attracting iron filings, are very real and powerful.</p>
+          <h2>Understanding the <span class="hl">Magnetic Field</span></h2>
+          <ul><li>The region around a magnet or a current-carrying conductor where its magnetic influence can be detected.</li><li>Represented by magnetic field lines.</li><li>It's a vector quantity, having both magnitude and direction.</li></ul>
+          <p class="notes">🎙️ Just like how the Earth has a gravitational field around it, a magnet has a magnetic field. This is the invisible area where another magnet or a magnetic material would feel a force. We can't see it, but we can detect its presence, for example, by using iron filings around a bar magnet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Invisible Influence</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Invisible Influence</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Visualizing Magnetic Field <span class="hl">Lines</span></h2>
-          <ul><li>These are imaginary lines used to represent the magnetic field.</li><li>They show both the direction and strength of the field.</li><li>Crucially, magnetic field lines never intersect each other.</li></ul>
-          <p class="notes">🎙️ Since magnetic fields are invisible, we use 'magnetic field lines' to help us visualize them. These lines are imaginary, but they give us a clear picture of the field's pattern, where it's strong, and in what direction the force would act.</p>
+          <h2>Magnetic <span class="hl">Field Lines</span>: Visualising the Field</h2>
+          <ul><li>Imaginary lines that represent the direction and strength of a magnetic field.</li><li>They emerge from the North pole and merge into the South pole outside the magnet.</li><li>They never intersect each other.</li></ul>
+          <p class="notes">🎙️ Magnetic field lines are a useful way to visualize the invisible magnetic field. Think of them as pathways that a tiny North pole would follow if placed in the field. They are closer where the field is stronger and spread out where it's weaker. An important rule is that they never cross each other.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Magnet0873.png?width=500" data-fb="〰️" alt="Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet"/><div class="vcap">Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Magnet0873.png?width=500" data-fb="🧭" alt="Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet"/><div class="vcap">Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Magnetic Field Around a <span class="hl">Bar Magnet</span></h2>
-          <ul><li>Field lines emerge from the North pole and enter the South pole.</li><li>Inside the magnet, they go from South to North.</li><li>The lines are closer where the field is stronger (near the poles).</li></ul>
-          <p class="notes">🎙️ Let's look at a classic example: a bar magnet. The magnetic field lines form closed loops. They always start from the North pole, curve around, and enter the South pole outside the magnet. Inside the magnet, they travel from South to North, completing the loop.</p>
+          <h2><span class="hl">Oersted's Discovery</span>: Current Creates Magnetism</h2>
+          <ul><li>Hans Christian Oersted observed that a compass needle deflected when placed near a current-carrying wire.</li><li>This deflection showed that electric current produces a magnetic field.</li><li>A landmark experiment linking electricity and magnetism.</li></ul>
+          <p class="notes">🎙️ In 1820, a Danish physicist named Hans Christian Oersted made a groundbreaking discovery. He noticed that when he switched on an electric current through a wire, a nearby compass needle moved! This simple observation proved that electric currents can produce magnetic fields, just like a permanent magnet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span></div><div class="vcap">Field Direction</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Electricity ➡️ Magnetism</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>The <span class="hl">Compass</span>: A Mini Magnet</h2>
-          <ul><li>A compass needle is a small, pivoted magnet.</li><li>It aligns itself with the Earth's magnetic field.</li><li>Its North pole points towards the Earth's geographic North.</li></ul>
-          <p class="notes">🎙️ A compass is a simple yet powerful tool. It works because its tiny magnetic needle is free to rotate and align itself with any external magnetic field it encounters, including the Earth's own magnetic field. This is how it helps us find directions.</p>
+          <h2><span class="hl">Right-Hand Thumb Rule</span>: Direction of Field</h2>
+          <ul><li>Imagine holding the current-carrying wire in your right hand.</li><li>Your thumb points in the direction of the current.</li><li>Your curled fingers indicate the direction of the magnetic field lines.</li></ul>
+          <p class="notes">🎙️ So, a current-carrying wire produces a magnetic field. But in which direction? The Right-Hand Thumb Rule helps us figure this out easily. If you point your thumb in the direction the current is flowing, your fingers naturally curl in the direction of the magnetic field lines around the wire.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Direction Finder</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Thumb for Current, Fingers for Field</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Oersted's</span> Discovery: Current Creates Magnetism</h2>
-          <ul><li>In 1820, Hans Christian Oersted made a groundbreaking discovery.</li><li>He observed that an electric current could deflect a compass needle.</li><li>This proved that electricity and magnetism are fundamentally linked.</li></ul>
-          <p class="notes">🎙️ This was a pivotal moment in physics! Oersted's simple experiment showed that moving electric charges, i.e., an electric current, produce a magnetic field around them. This opened up a whole new field of study: electromagnetism.</p>
+          <h2>Magnetic Field: <span class="hl">Circular Loop</span></h2>
+          <ul><li>When current flows through a circular loop, the magnetic field lines are concentric circles near the wire.</li><li>At the center of the loop, the field lines are almost straight and perpendicular to the plane of the loop.</li><li>The direction can still be found using the Right-Hand Thumb Rule for each segment.</li></ul>
+          <p class="notes">🎙️ What happens if we bend the wire into a circle? For a circular loop, the magnetic field lines are still concentric circles near the wire, but they become almost straight and concentrated at the center, passing through the loop. This effectively creates a stronger and more uniform magnetic field inside the loop.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electric to Magnetic</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Field through a Ring</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Right-Hand <span class="hl">Thumb Rule</span> for Direction</h2>
-          <ul><li>Used to find the direction of the magnetic field.</li><li>Imagine grasping the current-carrying wire with your right hand.</li><li>Thumb points in current direction, curled fingers show magnetic field direction.</li></ul>
-          <p class="notes">🎙️ The Right-Hand Thumb Rule is super useful! It helps us quickly determine the direction of the magnetic field produced by a straight current-carrying conductor. Just point your thumb with the current, and your fingers will tell you where the field lines go.</p>
+          <h2>Magnetic Field: The <span class="hl">Solenoid</span></h2>
+          <ul><li>A solenoid is a coil of many circular turns of insulated copper wire closely wound in the shape of a cylinder.</li><li>It behaves like a bar magnet when current passes through it.</li><li>The magnetic field inside a solenoid is uniform and strong, similar to a bar magnet.</li></ul>
+          <p class="notes">🎙️ If we take many circular loops and coil them together, we get a solenoid. When current flows through a solenoid, it creates a powerful and uniform magnetic field inside, very much like a bar magnet. One end acts as a North pole and the other as a South pole.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Direction Guide</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧵</div><div class="vcap">Coiled Wire Magnet</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Field Around a <span class="hl">Straight Wire</span></h2>
-          <ul><li>The magnetic field lines form concentric circles around the wire.</li><li>The field strength decreases as you move further from the wire.</li><li>The direction is given by the Right-Hand Thumb Rule.</li></ul>
-          <p class="notes">🎙️ When current flows through a straight wire, it creates a magnetic field pattern of concentric circles around it. The circles are closer together near the wire, indicating a stronger field, and spread out further away as the field weakens.</p>
+          <h2><span class="hl">Electromagnets</span>: Temporary Magnets</h2>
+          <ul><li>A strong magnet made by passing electric current through a solenoid wound around a soft iron core.</li><li>They can be switched on or off, and their strength can be varied.</li><li>Used in cranes, electric bells, and MRI machines.</li></ul>
+          <p class="notes">🎙️ The solenoid gives us a powerful tool: the electromagnet. Unlike permanent magnets, electromagnets can be turned on and off just by controlling the current. We can also make them stronger or weaker by changing the current or the number of turns. This makes them incredibly useful in many applications.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭕</span><span>⭕</span><span>⭕</span><span>⭕</span></div><div class="vcap">Concentric Circles</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="🏗️" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Magnetic Fields from <span class="hl">Power Lines</span></h2>
-          <ul><li>High currents in transmission lines create magnetic fields.</li><li>These fields are usually weak at ground level.</li><li>This is an everyday example of current-induced magnetism.</li></ul>
-          <p class="notes">🎙️ Think about the large power lines you see. They carry enormous currents, and as per Oersted's discovery, they generate magnetic fields around them. While the fields are generally weak and harmless at a distance, it's a real-world demonstration of what we're learning.</p>
+          <h2>Real-life Example: The <span class="hl">Electric Bell</span></h2>
+          <ul><li>Uses an electromagnet to produce sound.</li><li>When the switch is pressed, current flows, energizing the electromagnet.</li><li>The electromagnet attracts an armature, causing a hammer to strike the gong.</li></ul>
+          <p class="notes">🎙️ A common example of an electromagnet in action is the electric bell. When you press the button, current flows, activating an electromagnet. This electromagnet pulls a small metal strip with a hammer attached, causing it to strike the bell. The movement also breaks the circuit, deactivating the magnet, and the hammer springs back, ready for the next ring.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗼</div><div class="vcap">Electric Grid</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Switch ON</span></div><div class="step"><span class="snum">2</span><span>Magnet activates</span></div><div class="step"><span class="snum">3</span><span>Hammer strikes</span></div><div class="step"><span class="snum">4</span><span>Circuit breaks</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Field Through a <span class="hl">Circular Loop</span></h2>
-          <ul><li>Each segment of the loop produces concentric circles of field lines.</li><li>At the center, the field lines are nearly straight and parallel.</li><li>The field inside the loop behaves like a tiny bar magnet.</li></ul>
-          <p class="notes">🎙️ When a current flows through a circular loop, the magnetic field lines are different from a straight wire. They become more concentrated and nearly straight at the center of the loop, giving it properties similar to a small bar magnet.</p>
+          <h2><span class="hl">Force</span> on a Current-Carrying Conductor in a Magnetic Field</h2>
+          <ul><li>When a current-carrying conductor is placed in a magnetic field, it experiences a force.</li><li>This force is perpendicular to both the direction of current and the magnetic field.</li><li>The magnitude of the force depends on current, field strength, and wire length.</li></ul>
+          <p class="notes">🎙️ We've seen that current creates a magnetic field. Now, what happens if we place a current-carrying wire *inside* another magnetic field? It experiences a force! This is a crucial concept, as it's the fundamental principle behind how electric motors work. The wire gets pushed or pulled.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Loop Field</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Push from the Field</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Induction</span> Cooktop: Heating with Magnetic Fields</h2>
-          <ul><li>Induction cooktops use rapidly changing magnetic fields.</li><li>These fields induce electric currents (Eddy currents) in magnetic cookware.</li><li>The induced currents generate heat directly in the pot, making it efficient.</li></ul>
-          <p class="notes">🎙️ Here's a cool application! Induction cooktops don't use direct heat. Instead, they create strong, changing magnetic fields below the cooking surface. These fields interact with special cookware, inducing currents that heat the pot itself, not the cooktop or the air.</p>
+          <h2>Fleming's <span class="hl">Left-Hand Rule</span>: Direction of Force</h2>
+          <ul><li>Stretch the thumb, forefinger, and middle finger of your left hand mutually perpendicular to each other.</li><li>Forefinger points in the direction of the Magnetic Field (Father).</li><li>Middle finger points in the direction of the Current (Mother).</li><li>Thumb indicates the direction of the Force (Child) on the conductor.</li></ul>
+          <p class="notes">🎙️ To determine the direction of this force, we use Fleming's Left-Hand Rule. It's an easy way to remember the relationship between the magnetic field, the current, and the resulting force. Just remember 'Father, Mother, Child' for Field, Current, and Force, respectively, using your left hand.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍳</div><div class="vcap">Cooking Tech</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👈</div><div class="vcap">Force, Field, Current</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,35 +216,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>The <span class="hl">Solenoid</span>: A Coil of Wire</h2>
-          <ul><li>A solenoid is a long coil containing many turns of insulated copper wire.</li><li>When current flows, it produces a strong, uniform magnetic field inside.</li><li>It acts just like a bar magnet, with distinct North and South poles.</li></ul>
-          <p class="notes">🎙️ A solenoid is essentially multiple circular loops stacked together. This arrangement creates a very strong and uniform magnetic field inside the coil when current passes through it. It's a very useful component in many electrical devices.</p>
+          <h2>Real-life Example: The <span class="hl">Electric Motor</span></h2>
+          <ul><li>Converts electrical energy into mechanical energy.</li><li>Based on the principle that a current-carrying conductor in a magnetic field experiences a force.</li><li>This force causes a coil to rotate continuously.</li></ul>
+          <p class="notes">🎙️ One of the most important applications of the force on a current-carrying conductor is the electric motor. From fans to washing machines, motors power countless devices. They work by using the force created when current flows through a coil placed in a magnetic field, causing the coil to spin and generate motion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Coiled Field</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Electric_motor_of_an_electric_vehicle.svg?width=500" data-fb="🚗" alt="An electric motor converts electrical energy to mechanical energy by rotating a current-ca"/><div class="vcap">An electric motor converts electrical energy to mechanical energy by rotating a current-ca</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Electromagnets</span>: Temporary Magnets</h2>
-          <ul><li>An electromagnet is a solenoid with a soft iron core inserted inside it.</li><li>The soft iron core greatly enhances the magnetic field.</li><li>They are temporary magnets: magnetism can be switched on and off.</li></ul>
-          <p class="notes">🎙️ Electromagnets are incredibly useful because their magnetism can be controlled. By switching the current on or off, we can turn the magnet on or off. Inserting a soft iron core inside a solenoid makes the electromagnet much stronger, capable of lifting heavy objects.</p>
+          <h2>Quick Check: <span class="hl">Oersted's</span> Experiment</h2>
+          <ul><li>What did Oersted's experiment demonstrate?</li><li>a) Magnets attract iron.</li><li>b) Electric current produces heat.</li><li>c) Electric current produces a magnetic field.</li><li>d) Magnetic fields produce electric current.</li></ul>
+          <p class="notes">🎙️ Let's test our understanding with a quick question. Think back to Oersted's famous discovery. What was the key takeaway from his experiment involving a current-carrying wire and a compass needle?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Heavy Lifting</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Electric Bell</span>: Ringing with Electromagnetism</h2>
-          <ul><li>An electric bell uses an electromagnet to make a hammer strike a gong.</li><li>When current flows, the electromagnet attracts an armature.</li><li>This movement breaks the circuit, causing the electromagnet to switch off, and the process repeats.</li></ul>
-          <p class="notes">🎙️ The electric bell is a classic example of an electromagnet in action. When you press the button, current flows, activating the electromagnet. This pulls a hammer to strike the gong, but in doing so, it also breaks the circuit, turning the electromagnet off. The hammer springs back, reconnecting the circuit, and the cycle repeats, causing continuous ringing.</p>
+          <h2>Quick Check: <span class="hl">Right-Hand</span> Thumb Rule</h2>
+          <ul><li>Which finger in the Right-Hand Thumb Rule represents the direction of the magnetic field?</li><li>a) Thumb</li><li>b) Forefinger</li><li>c) Curled fingers</li><li>d) Pinky finger</li></ul>
+          <p class="notes">🎙️ Another quick check! When using the Right-Hand Thumb Rule to find the direction of the magnetic field around a straight current-carrying conductor, which part of your hand indicates the magnetic field?</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Current ON</span></div><div class="step"><span class="snum">2</span><span>Electromagnet ON</span></div><div class="step"><span class="snum">3</span><span>Hammer Strikes</span></div><div class="step"><span class="snum">4</span><span>Circuit Breaks</span></div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Force</span> on a Wire in a Field</h2>
-          <ul><li>A current-carrying conductor experiences a force.</li><li>This force occurs when it is placed in an external magnetic field.</li><li>This principle is the basis for electric motors.</li></ul>
-          <p class="notes">🎙️ So far, we've seen how current creates a magnetic field. Now, what happens if we put a current-carrying wire inside *another* magnetic field? It experiences a force! This force can make the wire move, and this is a fundamental concept behind how electric motors work.</p>
+          <h2>Electromagnetic <span class="hl">Induction</span>: Producing Current from Magnetism</h2>
+          <ul><li>The phenomenon of producing an induced electric current in a conductor by changing the magnetic field around it.</li><li>Discovered by Michael Faraday.</li><li>It's the reverse effect of Oersted's discovery.</li></ul>
+          <p class="notes">🎙️ We've seen how electricity can create magnetism. Now, let's explore the opposite: can magnetism create electricity? Yes! This is called electromagnetic induction, discovered by Faraday. It's the principle behind how generators produce electricity.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Push/Pull</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Electromagnetic_induction_-_solenoid_to_solenoid.svg?width=500" data-fb="🔄" alt="Electromagnetic induction is the generation of electric current by a changing magnetic fie"/><div class="vcap">Electromagnetic induction is the generation of electric current by a changing magnetic fie</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Fleming's <span class="hl">Left-Hand Rule</span> for Force</h2>
-          <ul><li>Used to determine the direction of force on a current-carrying conductor.</li><li>Thumb: Direction of Force (Motion).</li><li>Forefinger: Direction of Magnetic Field.</li><li>Middle Finger: Direction of Current.</li></ul>
-          <p class="notes">🎙️ Just like the Right-Hand Thumb Rule for field direction, Fleming's Left-Hand Rule helps us find the direction of the force. Stretch your left hand's thumb, forefinger, and middle finger mutually perpendicular to each other, and align them as described to find the direction of the force.</p>
+          <h2>Fleming's <span class="hl">Right-Hand Rule</span>: Direction of Induced Current</h2>
+          <ul><li>Stretch the thumb, forefinger, and middle finger of your right hand mutually perpendicular.</li><li>Forefinger points in the direction of the Magnetic Field (Father).</li><li>Thumb points in the direction of Motion/Force (Mother).</li><li>Middle finger indicates the direction of the Induced Current (Child).</li></ul>
+          <p class="notes">🎙️ Just like we had a rule for the force on a current, we have a rule for the direction of induced current: Fleming's Right-Hand Rule. This rule helps us determine which way the current will flow when a conductor moves through a magnetic field, or when the magnetic field around it changes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Motor Rule</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👉</div><div class="vcap">Motion, Field, Current</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Electric Motor</span>: Converting Energy</h2>
-          <ul><li>An electric motor converts electrical energy into mechanical energy.</li><li>It uses the principle of force acting on a current-carrying conductor.</li><li>This force causes rotation, making things move.</li></ul>
-          <p class="notes">🎙️ Electric motors are everywhere, from fans to cars! They work by taking electrical energy and using the magnetic force principle to create rotational motion. This conversion of energy is a cornerstone of modern technology.</p>
+          <h2>Real-life Example: The <span class="hl">Electric Generator</span></h2>
+          <ul><li>Converts mechanical energy into electrical energy.</li><li>Based on the principle of electromagnetic induction.</li><li>A coil rotates in a magnetic field, inducing an electric current.</li></ul>
+          <p class="notes">🎙️ The electric generator is a perfect example of electromagnetic induction. Whether it's a small hand-crank generator or a massive power plant turbine, they all work by rotating a coil within a magnetic field, causing electrons to move and generate electricity that powers our homes and cities.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Motion Power</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔌</div><div class="vcap">Motion to Electricity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,75 +288,76 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>How an Electric <span class="hl">Motor Works</span></h2>
-          <ul><li>A coil placed in a magnetic field rotates due to forces on its sides.</li><li>A commutator reverses the direction of current in the coil every half rotation.</li><li>This ensures the coil continues to rotate in the same direction.</li></ul>
-          <p class="notes">🎙️ In an electric motor, the forces on the current-carrying sides of a coil cause it to rotate. The commutator is a clever device that periodically reverses the direction of the current in the coil, ensuring that the force always acts in a way that keeps the coil spinning continuously in one direction.</p>
+          <h2><span class="hl">DC vs. AC</span>: Two Types of Current</h2>
+          <ul><li>Direct Current (DC): Current flows in one constant direction (e.g., batteries).</li><li>Alternating Current (AC): Current reverses direction periodically (e.g., household supply).</li><li>Most power plants generate AC, which is then distributed.</li></ul>
+          <p class="notes">🎙️ When we talk about electric current, there are two main types: Direct Current (DC) and Alternating Current (AC). DC flows steadily in one direction, like from a battery. AC, on the other hand, constantly changes its direction, which is what comes out of our wall sockets. Both have their uses, but AC is preferred for long-distance power transmission.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Current Flows</span></div><div class="step"><span class="snum">2</span><span>Force Acts</span></div><div class="step"><span class="snum">3</span><span>Coil Rotates</span></div><div class="step"><span class="snum">4</span><span>Commutator Flips</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Check</span>: Magnetic Fields</h2>
-          <ul><li>What did Oersted's experiment prove?</li><li>How do you find the direction of magnetic field around a straight wire?</li><li>What is the shape of magnetic field lines around a straight current-carrying conductor?</li></ul>
-          <p class="notes">🎙️ Alright, time for a quick check! Think back to Oersted's experiment and the rules for magnetic field direction. Can you answer these questions confidently?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check: <span class="hl">Coils</span> and Magnets</h2>
-          <ul><li>What is a solenoid?</li><li>How is an electromagnet different from a permanent magnet?</li><li>Name one application of an electromagnet.</li></ul>
-          <p class="notes">🎙️ Let's test your understanding of solenoids and electromagnets. These are important components in many devices. Can you recall their definitions and key differences?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check: <span class="hl">Force</span> and Motion</h2>
-          <ul><li>State Fleming's Left-Hand Rule.</li><li>What energy conversion happens in an electric motor?</li><li>What is the effect of placing a current-carrying conductor in a magnetic field?</li></ul>
-          <p class="notes">🎙️ Finally, let's review the concepts of force and motion related to electromagnetism. Fleming's Left-Hand Rule is crucial here, and understanding motors is key. Take a moment to answer these questions.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Electric current produces magnetic fields.</li><li>Right-Hand Thumb Rule gives field direction.</li><li>Solenoids and electromagnets are powerful controlled magnets.</li><li>A current-carrying wire in a magnetic field experiences a force.</li><li>Fleming's Left-Hand Rule gives force direction.</li><li>Electric motors convert electrical to mechanical energy.</li></ul>
-          <p class="notes">🎙️ Let's quickly summarize what we've learned. The connection between electricity and magnetism is profound. We've covered how current creates fields, how to find their direction, the power of electromagnets, and how these principles drive electric motors. </p>
-        </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">DC</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">AC</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Conclusion: The Power of <span class="hl">Electromagnetism</span></h2>
-          <ul><li>Electromagnetism is a fundamental force of nature.</li><li>It powers countless modern technologies.</li><li>From simple bells to complex motors, its applications are vast.</li></ul>
-          <p class="notes">🎙️ This chapter has introduced you to the incredible world of electromagnetism. It's not just a physics concept; it's the driving force behind much of our modern world. Understanding it opens doors to understanding how many devices around us truly work. Keep exploring!</p>
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Advantages of AC</span> for Power Transmission</h2>
+          <ul><li>AC can be transmitted over long distances with minimal energy loss.</li><li>Its voltage can be easily stepped up or stepped down using transformers.</li><li>This makes AC ideal for large-scale power distribution networks.</li></ul>
+          <p class="notes">🎙️ Why do we use AC for our main power supply? The biggest advantage is that AC voltage can be easily changed using devices called transformers. This allows us to transmit electricity at very high voltages over long distances, which significantly reduces energy loss, making power delivery much more efficient.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Innovation</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Energy_transformation.svg?width=500" data-fb="📡" alt="Work is done when force causes displacement. Energy is the capacity to do work. Power is t"/><div class="vcap">Work is done when force causes displacement. Energy is the capacity to do work. Power is t</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Domestic Electric Circuits: Powering Our Homes</h2>
+          <ul><li>Our homes receive electricity through a main supply, usually AC.</li><li>Circuits have live wire (red), neutral wire (black), and earth wire (green).</li><li>Different appliances are connected in parallel to receive the same voltage.</li></ul>
+          <p class="notes">🎙️ Let's look inside our homes. Our domestic circuits are designed to safely deliver electricity to all our appliances. They typically use three wires – live, neutral, and earth. Appliances are connected in parallel so they all get the full supply voltage, and if one breaks, the others continue to work.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home Wiring</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Electrical <span class="hl">Hazards</span>: Short Circuiting &amp; Overloading</h2>
+          <ul><li>Short circuit: Live wire touches neutral wire directly, causing a very large current flow.</li><li>Overloading: Too many appliances draw current from a single circuit, exceeding its safe limit.</li><li>Both can cause excessive heat, leading to fires or damage.</li></ul>
+          <p class="notes">🎙️ Electricity is powerful, and with power comes responsibility. Two common and dangerous electrical hazards are short-circuiting and overloading. A short circuit is when current takes an unintended, low-resistance path, leading to a huge surge. Overloading happens when too many devices draw too much current from one circuit. Both can generate dangerous amounts of heat.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Short Circuit</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Overloading</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Safety Measures</span>: Protecting Our Circuits</h2>
+          <ul><li>Electric Fuse: A safety device that breaks the circuit if current exceeds a safe limit.</li><li>Earthing: Connects the metallic body of appliances to the earth to prevent electric shock.</li><li>MCBs (Miniature Circuit Breakers) are also used as modern alternatives to fuses.</li></ul>
+          <p class="notes">🎙️ To protect ourselves and our homes from electrical hazards, we use safety devices. The electric fuse is a critical component that melts and breaks the circuit if the current becomes too high. Earthing provides a safe path for fault current to flow into the ground, preventing shocks. Modern homes often use MCBs which can be reset after tripping.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_circuit.png?width=500" data-fb="🛡️" alt="An electric circuit is a closed path through which electric current flows. It requires a s"/><div class="vcap">An electric circuit is a closed path through which electric current flows. It requires a s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Magnetic Effects of Electric Current</h2>
+          <ul><li>Electric current produces a magnetic field (Oersted's discovery).</li><li>Right-Hand Thumb Rule, Fleming's Left-Hand Rule, Fleming's Right-Hand Rule.</li><li>Electromagnets, Electric Motors, and Electric Generators.</li><li>AC vs. DC, and safety in domestic circuits.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From Oersted's initial discovery linking electricity and magnetism, to understanding how motors convert electricity into motion and generators do the opposite. We also learned about the different types of current and crucial safety measures for our homes. This chapter truly shows the power and utility of electromagnetism.</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 10 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

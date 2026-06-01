@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>System of Particles and Rotational Motion - Class 11 Physics — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>System of Particles and Rotational Motion — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2><span class="hl">Welcome</span> to System of Particles and Rotational Motion!</h2>
-          <ul><li>Explore the fascinating world of rigid bodies.</li><li>Understand how objects rotate and what makes them do so.</li><li>Key concepts for CBSE Class 11 Physics exams.</li><li>Let's master this crucial chapter together!</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on a journey into one of the most fundamental and intriguing chapters of Class 11 Physics: System of Particles and Rotational Motion. This chapter builds upon our understanding of linear motion and introduces us to the dynamics of rotating objects, which is essential for many real-world applications.</p>
+          <ul><li>Understanding how multiple particles interact.</li><li>Exploring the dynamics of rotating bodies.</li><li>Crucial for advanced physics concepts.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into System of Particles and Rotational Motion, a fundamental chapter in Class 11 Physics. This topic is not just about formulas; it's about understanding the world around us, from the spinning tops to the planets orbiting the sun. Pay close attention, as this forms the bedrock for many advanced concepts.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is a <span class="hl">Rigid Body</span>?</h2>
-          <ul><li>An object with a definite shape and size.</li><li>Distances between constituent particles remain constant.</li><li>Idealization: no deformation under external forces.</li><li>Examples: a stone, a wheel, a wooden block.</li></ul>
-          <p class="notes">🎙️ A rigid body is a body that does not deform under the action of external forces. In simpler terms, the distances between any two particles within the body remain unchanged, regardless of how forces are applied. While no object is perfectly rigid in reality, this concept is a powerful idealization that helps us simplify and understand complex motions.</p>
+          <h2>What is a <span class="hl">System</span> of Particles?</h2>
+          <ul><li>A collection of two or more particles.</li><li>Particles can be interacting with each other.</li><li>External forces may also act on the system.</li></ul>
+          <p class="notes">🎙️ A 'system of particles' is simply a group of individual particles that we choose to study together. These particles can exert forces on each other, known as internal forces, and forces from outside the system, called external forces. Understanding this distinction is key to applying conservation laws effectively.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Solid Structure</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌌</div><div class="vcap">Interacting bodies</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">System</span> of Particles</h2>
-          <ul><li>A collection of a large number of particles.</li><li>These particles interact with each other.</li><li>Can be rigid or non-rigid (e.g., gas, liquid).</li><li>Our focus: rigid bodies as systems of particles.</li></ul>
-          <p class="notes">🎙️ A system of particles refers to any collection of individual particles. These particles can be atoms, molecules, or even larger macroscopic objects. In this chapter, we primarily consider systems where the particles are bound together, forming a rigid body, allowing us to study their collective motion and interactions.</p>
+          <h2><span class="hl">Centre of Mass</span> (COM): The Balancing Point</h2>
+          <ul><li>A hypothetical point representing the average position of the mass.</li><li>Behaves as if the entire mass of the system is concentrated there.</li><li>Crucial for analyzing the motion of a system.</li></ul>
+          <p class="notes">🎙️ The Centre of Mass is a very important concept. Imagine trying to balance an irregularly shaped object on your finger; the point where it balances perfectly is its centre of mass. For a system, the COM's motion describes the overall motion of the system, even if individual particles move complexly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟣</span><span>🟣</span><span>🟣</span><span>🟣</span><span>🟣</span></div><div class="vcap">Many Particles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">The balance point</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Centre of Mass</span> (CM)</h2>
-          <ul><li>A point where the entire mass of a system is concentrated.</li><li>Its motion describes the translational motion of the entire system.</li><li>Crucial for analyzing complex motions.</li><li>May or may not lie within the physical body.</li></ul>
-          <p class="notes">🎙️ The Centre of Mass is a very special point within a system of particles. It's the unique point where, if you apply an external force, the entire system would accelerate as if all its mass were concentrated there. Understanding the CM simplifies the analysis of a system's motion, separating its translational movement from its rotational movement.</p>
+          <h2>COM for <span class="hl">Two Particles</span></h2>
+          <ul><li>For two particles m1 and m2 at positions r1 and r2.</li><li>COM position: R = (m1r1 + m2r2) / (m1 + m2).</li><li>Lies on the line joining the two particles.</li></ul>
+          <p class="notes">🎙️ When dealing with just two particles, the formula for the centre of mass is straightforward. Remember, the COM is closer to the heavier mass. This formula is fundamental and often appears in introductory problems, so make sure you understand its application.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Balance Point</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span></div><div class="vcap">Two masses</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>CM for <span class="hl">Two Particles</span></h2>
-          <ul><li>For two particles m₁ and m₂ at positions r₁ and r₂.</li><li>Position vector of CM: R_CM = (m₁r₁ + m₂r₂) / (m₁ + m₂).</li><li>If origin is at m₁, R_CM = m₂r / (m₁ + m₂).</li><li>CM lies closer to the heavier mass.</li></ul>
-          <p class="notes">🎙️ Let's start with the simplest case: two particles. The formula shown helps us pinpoint the exact location of their centre of mass. Notice that if one mass is significantly larger than the other, the CM will be much closer to the heavier particle, intuitively making sense as it's the 'balance point' of the system.</p>
+          <h2>COM for <span class="hl">N Particles</span></h2>
+          <ul><li>Generalizes the two-particle formula.</li><li>R_COM = (Σmiri) / (Σmi).</li><li>Can be applied in 2D or 3D coordinates (x, y, z).</li></ul>
+          <p class="notes">🎙️ For a system with 'N' particles, we simply extend the sum. Each particle's mass is multiplied by its position vector, and these products are summed up, then divided by the total mass of the system. This general formula is powerful for any discrete system of particles.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Particle 1: m₁, r₁</span></div><div class="step"><span class="snum">2</span><span>Particle 2: m₂, r₂</span></div><div class="step"><span class="snum">3</span><span>R_CM = (m₁r₁ + m₂r₂) / (m₁ + m₂)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span></div><div class="vcap">Multiple masses</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,35 +120,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>CM for <span class="hl">N Particles</span> &amp; Rigid Bodies</h2>
-          <ul><li>For N particles: R_CM = (∑ mᵢrᵢ) / (∑ mᵢ).</li><li>For rigid bodies (continuous mass distribution): R_CM = (∫ r dm) / (∫ dm).</li><li>Integration is over the entire volume/area/length of the body.</li><li>Symmetry often simplifies CM calculation for uniform bodies.</li></ul>
-          <p class="notes">🎙️ Extending the concept, for a system with many discrete particles, we sum up the product of each particle's mass and position vector, then divide by the total mass. For continuous bodies like rods or spheres, we use integration, treating the body as an infinite collection of infinitesimal mass elements. Symmetry is a great shortcut here; for uniform objects, the CM is often at the geometric center.</p>
+          <h2>COM for <span class="hl">Continuous Bodies</span></h2>
+          <ul><li>For objects with continuous mass distribution (e.g., rod, disc).</li><li>Requires integration: R_COM = (∫r dm) / (∫dm).</li><li>Symmetry often simplifies calculations.</li></ul>
+          <p class="notes">🎙️ When the mass is spread continuously, like in a solid rod or a sphere, we use integration instead of summation. If the body has a uniform density and a symmetrical shape, its centre of mass often coincides with its geometric centre. This can save a lot of calculation time in exams.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Summation/Integration</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: CM Calculation</h2>
-          <ul><li>Problem: Two particles, m₁=1kg at (0,0) and m₂=2kg at (3,0). Find CM.</li><li>Solution: R_CM = (1*(0î+0ĵ) + 2*(3î+0ĵ)) / (1+2).</li><li>R_CM = (6î) / 3 = 2î.</li><li>Answer: Centre of Mass is at (2,0).</li></ul>
-          <p class="notes">🎙️ Here's a straightforward example. We apply the formula for two particles directly. Notice how the CM is closer to the heavier 2kg mass, which is at (3,0). The CM is at (2,0), which is indeed closer to (3,0) than to (0,0). Always check if your answer makes physical sense!</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Extended object</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">8 / 25</span>
+          <span class="num">7 / 25</span>
           <h2><span class="hl">Motion</span> of Centre of Mass</h2>
-          <ul><li>Velocity of CM: V_CM = (∑ mᵢvᵢ) / M_total.</li><li>Acceleration of CM: A_CM = (∑ mᵢaᵢ) / M_total.</li><li>Newton's Second Law for a system: F_ext = M_total * A_CM.</li><li>CM moves as if all external forces act on it.</li></ul>
-          <p class="notes">🎙️ The beauty of the Centre of Mass concept is evident when we study its motion. The velocity and acceleration of the CM are simply weighted averages of the individual particle velocities and accelerations. Most importantly, the total external force acting on a system equals the total mass times the acceleration of its CM. This means the CM's motion is purely translational, unaffected by internal forces.</p>
+          <ul><li>Velocity of COM: V_COM = (Σmivi) / (Σmi).</li><li>Acceleration of COM: A_COM = (Σmiai) / (Σmi).</li><li>F_external = M_total * A_COM (Newton's Second Law for a system).</li></ul>
+          <p class="notes">🎙️ The most important aspect of COM is its motion. The total external force acting on a system is equal to the total mass of the system multiplied by the acceleration of its centre of mass. This means internal forces do not affect the motion of the COM, only external forces do. This principle is extremely useful in problem-solving.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Overall Movement</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Direction of motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Worked <span class="hl">Example 1</span>: COM Calculation</h2>
+          <ul><li>Three particles of masses 1kg, 2kg, and 3kg are placed at (0,0), (1,0), and (0,1) respectively.</li><li>Find the coordinates of the centre of mass.</li><li>Solution: X_COM = (1*0 + 2*1 + 3*0)/(1+2+3) = 2/6 = 1/3 m.</li><li>Y_COM = (1*0 + 2*0 + 3*1)/(1+2+3) = 3/6 = 1/2 m. So, COM is (1/3, 1/2).</li></ul>
+          <p class="notes">🎙️ Let's apply the formula for N particles to a concrete example. We simply plug in the mass and coordinate values for each particle into the X and Y COM formulas separately. Always remember to divide by the total mass. This is a common type of question in exams.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Vector Product of Two Vectors (<span class="hl">Cross Product</span>)</h2>
-          <ul><li>A x B = |A||B| sinθ n̂, where n̂ is perpendicular to A and B.</li><li>Magnitude: Area of parallelogram formed by A and B.</li><li>Direction: Given by right-hand thumb rule.</li><li>Non-commutative: A x B = - (B x A).</li></ul>
-          <p class="notes">🎙️ Before diving into rotational dynamics, we need to master the vector product, also known as the cross product. Unlike the scalar dot product, the cross product results in a vector. Its direction is crucial and determined by the right-hand rule, pointing perpendicular to both original vectors. This will be fundamental for understanding torque and angular momentum.</p>
+          <h2><span class="hl">Rigid Body</span>: The Ideal Model</h2>
+          <ul><li>An ideal body that does not deform under external forces.</li><li>Distance between any two particles remains constant.</li><li>Simplifies analysis of rotational motion.</li></ul>
+          <p class="notes">🎙️ In reality, no body is perfectly rigid, but this concept is extremely useful for simplifying complex problems. For a rigid body, the internal forces ensure that its shape and size do not change. This allows us to focus purely on its translational and rotational motion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Directional Product</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Undeformable object</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Angular</span> Displacement &amp; Velocity</h2>
-          <ul><li>Angular Displacement (Δθ): Angle rotated by a particle/body.</li><li>Angular Velocity (ω): Rate of change of angular displacement (ω = dθ/dt).</li><li>Vector quantity, direction along axis of rotation (Right-Hand Rule).</li><li>Relation to linear velocity: v = rω (for a point at radius r).</li></ul>
-          <p class="notes">🎙️ Just as linear motion has displacement and velocity, rotational motion has angular displacement and angular velocity. Angular displacement measures how much an object has rotated. Angular velocity, the rate of this rotation, is a vector pointing along the axis of rotation using the right-hand rule. Remember the crucial link: linear velocity 'v' for a point on a rotating body is 'rω'.</p>
+          <h2>Translational <span class="hl">vs.</span> Rotational Motion</h2>
+          <ul><li>Translational: All particles move along parallel paths.</li><li>Rotational: Particles move in circles about a fixed axis.</li><li>Often, real-world motion is a combination (e.g., rolling).</li></ul>
+          <p class="notes">🎙️ It's vital to distinguish between these two fundamental types of motion. In pure translation, every point on the body has the same velocity. In pure rotation, every point has the same angular velocity, but their linear velocities depend on their distance from the axis of rotation. Many objects exhibit a combination of both.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Rotating Motion</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Rotational_motion.svg?width=500" data-fb="⚛️" alt="Rotational motion involves objects spinning about an axis. Key concepts include moment of "/><div class="vcap">Rotational motion involves objects spinning about an axis. Key concepts include moment of </div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Angular <span class="hl">Acceleration</span> (α)</h2>
-          <ul><li>Rate of change of angular velocity (α = dω/dt).</li><li>Vector quantity, direction same as Δω.</li><li>Relation to linear acceleration: a_t = rα (tangential acceleration).</li><li>Units: radians per second squared (rad/s²).</li></ul>
-          <p class="notes">🎙️ When an object's angular velocity changes, it experiences angular acceleration. If the angular velocity increases, α is in the same direction as ω; if it decreases, α is opposite to ω. This angular acceleration directly relates to the tangential linear acceleration of a point on the rotating body, 'a_t = rα'. This is distinct from centripetal acceleration, which only changes direction.</p>
+          <h2><span class="hl">Rotational Variables</span>: Describing Spin</h2>
+          <ul><li>Angular Displacement (θ): Angle rotated (radians).</li><li>Angular Velocity (ω): Rate of change of angular displacement (rad/s).</li><li>Angular Acceleration (α): Rate of change of angular velocity (rad/s²).</li></ul>
+          <p class="notes">🎙️ Just as we have linear displacement, velocity, and acceleration, we have their rotational counterparts. These are vector quantities, and their direction is given by the right-hand rule. Understanding these variables is the first step to solving rotational kinematics problems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Speeding Up/Down Rotation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Spinning motion</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Torque</span> (Moment of Force)</h2>
-          <ul><li>Rotational analogue of force.</li><li>Causes or tends to cause rotational motion.</li><li>τ = r x F (vector product of position vector and force).</li><li>Magnitude: τ = rF sinθ, where θ is angle between r and F.</li></ul>
-          <p class="notes">🎙️ Torque is the rotational equivalent of linear force. While force causes linear acceleration, torque causes angular acceleration. It depends not only on the magnitude of the force but also on where and how it's applied relative to the axis of rotation. The 'lever arm' or perpendicular distance from the axis to the line of action of the force is key here.</p>
+          <h2><span class="hl">Kinematics</span> of Rotational Motion</h2>
+          <ul><li>Equations are analogous to linear kinematics.</li><li>ω = ω₀ + αt</li><li>θ = ω₀t + ½αt²</li><li>ω² = ω₀² + 2αθ</li></ul>
+          <p class="notes">🎙️ These are the three fundamental equations for rotational motion with constant angular acceleration. Notice how they mirror the linear equations (v=u+at, s=ut+½at², v²=u²+2as). By substituting linear variables with their rotational equivalents, you can solve a wide range of problems efficiently.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔧</div><div class="vcap">Turning Effect</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>ω = ω₀ + αt</span></div><div class="step"><span class="snum">2</span><span>θ = ω₀t + ½αt²</span></div><div class="step"><span class="snum">3</span><span>ω² = ω₀² + 2αθ</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Torque: Real-Life <span class="hl">Examples</span></h2>
-          <ul><li>Opening a door: pushing far from hinges creates more torque.</li><li>Tightening a bolt with a wrench: longer wrench, more torque.</li><li>Pedaling a bicycle: force on pedal creates torque on crank.</li><li>See-saw balance: depends on weight and distance from pivot.</li></ul>
-          <p class="notes">🎙️ Torque is all around us! Think about opening a heavy door – it's much easier to push near the handle (far from the hinges) than near the hinges themselves. This is because pushing further away increases the 'lever arm', thus increasing the torque for the same applied force. Similarly, a longer wrench provides more torque, making it easier to tighten a stubborn bolt.</p>
+          <h2><span class="hl">Real-Life</span> Rotational Motion</h2>
+          <ul><li>A spinning fan blade.</li><li>The rotation of a car wheel (pure rotation if car is stationary).</li><li>A potter's wheel in action.</li></ul>
+          <p class="notes">🎙️ Rotational motion is everywhere! Think about a ceiling fan; its blades exhibit pure rotational motion around a fixed axis. Or consider a merry-go-round. These examples help visualize the concepts we are learning and make them more relatable.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚪</span><span>🚪</span><span>🚪</span></div><div class="vcap">Door Opening</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Everyday spin</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Calculating Torque</h2>
-          <ul><li>Problem: Force F = (3î + 2ĵ) N acts at r = (1î - 1ĵ) m. Find torque.</li><li>Solution: τ = r x F = (1î - 1ĵ) x (3î + 2ĵ).</li><li>τ = (1*2 - (-1)*3) k̂ = (2 + 3) k̂ = 5 k̂ Nm.</li><li>Answer: Torque is 5 Nm along the +z direction.</li></ul>
-          <p class="notes">🎙️ Here, we use the determinant method for the cross product in component form. Remember that î x ĵ = k̂, ĵ x k̂ = î, k̂ x î = ĵ, and any vector crossed with itself is zero. Also, î x î = ĵ x ĵ = k̂ x k̂ = 0. The result is a vector perpendicular to both 'r' and 'F', giving the direction of rotation.</p>
+          <h2><span class="hl">Torque</span>: The Rotational Force</h2>
+          <ul><li>The rotational analogue of force.</li><li>Causes or tends to cause rotational motion.</li><li>τ = r × F = rFsinθ (vector cross product).</li></ul>
+          <p class="notes">🎙️ Just as force causes linear acceleration, torque causes angular acceleration. It's the 'turning effect' of a force. The magnitude of torque depends not only on the force applied but also on the distance from the axis of rotation (lever arm) and the angle at which the force is applied. Max torque occurs when force is perpendicular to the lever arm.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔧</div><div class="vcap">Turning effect</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Angular Momentum</span> (L)</h2>
-          <ul><li>Rotational analogue of linear momentum (p = mv).</li><li>For a single particle: L = r x p = r x (mv).</li><li>For a rigid body: L = Iω (where I is Moment of Inertia).</li><li>Vector quantity, direction same as ω (if I is scalar).</li></ul>
-          <p class="notes">🎙️ Angular momentum is a measure of an object's tendency to continue rotating. For a single particle, it's the cross product of its position vector and its linear momentum. For a rigid body, it's the product of its moment of inertia and angular velocity. Like linear momentum, it's a conserved quantity under certain conditions, making it incredibly important in physics.</p>
+          <h2><span class="hl">Moment of Inertia</span> (I): Rotational Mass</h2>
+          <ul><li>Rotational analogue of mass.</li><li>Measures resistance to change in rotational motion.</li><li>I = Σmiri² for discrete particles; I = ∫r²dm for continuous bodies.</li></ul>
+          <p class="notes">🎙️ Moment of Inertia is a crucial concept. It tells us how difficult it is to get an object to rotate or to stop it from rotating. Unlike mass, Moment of Inertia depends not only on the mass but also on how that mass is distributed relative to the axis of rotation. A heavier object or one with mass further from the axis will have a larger moment of inertia.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Rotational Inertia</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏋️</div><div class="vcap">Rotational resistance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Conservation</span> of Angular Momentum</h2>
-          <ul><li>If net external torque (τ_ext) on a system is zero, L is conserved.</li><li>L_initial = L_final, or I₁ω₁ = I₂ω₂.</li><li>Examples: ice skater spinning faster by pulling arms in.</li><li>Earth's rotation, planetary orbits.</li></ul>
-          <p class="notes">🎙️ This is a cornerstone principle! If no external torque acts on a system, its total angular momentum remains constant. This means if the moment of inertia changes, the angular velocity must adjust to keep the product Iω constant. The classic example is an ice skater: as she pulls her arms in, her moment of inertia decreases, so her angular velocity increases dramatically.</p>
+          <h2><span class="hl">Radius of Gyration</span> (k)</h2>
+          <ul><li>A hypothetical distance from the axis of rotation.</li><li>If all mass were concentrated at 'k', it would have the same Moment of Inertia.</li><li>I = Mk², where M is the total mass.</li></ul>
+          <p class="notes">🎙️ The radius of gyration is a convenient way to express the distribution of mass. It's not a physical radius but a mathematical construct that simplifies comparing the rotational inertia of different bodies. It's a scalar quantity and its unit is meters.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Initial Torque</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Final Torque</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Effective radius</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,23 +252,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2><span class="hl">Moment of Inertia</span> (I)</h2>
-          <ul><li>Rotational analogue of mass.</li><li>Measures resistance to change in rotational motion.</li><li>Depends on mass distribution and axis of rotation.</li><li>For a system of particles: I = ∑ mᵢrᵢ².</li></ul>
-          <p class="notes">🎙️ Moment of Inertia is to rotational motion what mass is to linear motion. It quantifies how difficult it is to change an object's state of rotation. Crucially, it depends not just on the total mass but also on how that mass is distributed relative to the axis of rotation. A heavier mass further from the axis contributes more to the moment of inertia.</p>
+          <h2><span class="hl">Theorems</span> of Parallel and Perpendicular Axes</h2>
+          <ul><li>Parallel Axis Theorem: I = I_COM + Md² (for axis parallel to COM axis).</li><li>Perpendicular Axis Theorem: Iz = Ix + Iy (for planar bodies, axes in plane).</li></ul>
+          <p class="notes">🎙️ These two theorems are incredibly powerful for calculating Moment of Inertia for various axes without complex integration. The Parallel Axis Theorem is used when shifting the axis of rotation, while the Perpendicular Axis Theorem is specific to planar objects and axes lying within its plane. Master these for exam success.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪨</div><div class="vcap">Rotational Mass</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Parallel Axis</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Perpendicular Axis</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Radius of Gyration</span> (k)</h2>
-          <ul><li>Hypothetical distance where entire mass could be concentrated.</li><li>Would yield the same moment of inertia as actual body.</li><li>I = Mk², where M is total mass.</li><li>k = √(I/M), unit is meters.</li></ul>
-          <p class="notes">🎙️ The radius of gyration is a convenient way to express the moment of inertia in terms of a single distance. Imagine all the mass of a body concentrated into a single point mass; 'k' is the distance this point mass would need to be from the axis of rotation to have the same moment of inertia as the original body. It's a useful parameter for comparing rotational properties of different bodies.</p>
+          <h2>Worked <span class="hl">Example 2</span>: Moment of Inertia</h2>
+          <ul><li>A thin rod of mass M and length L. Find its MI about an axis perpendicular to the rod passing through one end.</li><li>Solution: MI about COM is ML²/12. Using Parallel Axis Theorem, I = I_COM + Md².</li><li>Here d = L/2. So, I = ML²/12 + M(L/2)² = ML²/12 + ML²/4 = ML²/12 + 3ML²/12 = 4ML²/12 = ML²/3.</li></ul>
+          <p class="notes">🎙️ This example demonstrates the application of the Parallel Axis Theorem. Always first identify the Moment of Inertia about the centre of mass, then use the theorem to find it about any parallel axis. This method is much faster than direct integration for many standard shapes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Effective Radius</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Theorems</span> of Parallel and Perpendicular Axes</h2>
-          <ul><li>Parallel Axis Theorem: I = I_CM + Md².</li><li>Perpendicular Axis Theorem: I_z = I_x + I_y (for planar bodies).</li><li>These theorems simplify calculation of Moment of Inertia.</li><li>I_CM is moment of inertia about an axis through CM.</li></ul>
-          <p class="notes">🎙️ These two theorems are incredibly powerful tools for calculating moments of inertia without having to perform complex integrations every time. The Parallel Axis Theorem allows us to find 'I' about any axis if we know 'I' about a parallel axis passing through the CM. The Perpendicular Axis Theorem is specific to planar objects, relating moments of inertia about three mutually perpendicular axes.</p>
+          <h2><span class="hl">Angular Momentum</span> (L): Rotational Inertia in Motion</h2>
+          <ul><li>Rotational analogue of linear momentum (p = mv).</li><li>For a particle: L = r × p = r × (mv).</li><li>For a rigid body: L = Iω.</li></ul>
+          <p class="notes">🎙️ Angular momentum is a measure of the 'quantity of rotation' an object possesses. It's a vector quantity. For a rigid body rotating about a fixed axis, it's simply the product of its Moment of Inertia and its angular velocity. This concept is fundamental to understanding the stability of rotating objects.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Axis Transformation</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💫</div><div class="vcap">Spinning motion quantity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Rotational <span class="hl">Kinetic Energy</span></h2>
-          <ul><li>Energy due to rotational motion.</li><li>K_rot = ½ Iω².</li><li>Analogous to K_linear = ½ mv².</li><li>Total kinetic energy = K_translational + K_rotational (for rolling).</li></ul>
-          <p class="notes">🎙️ Just like objects moving linearly have kinetic energy, rotating objects also possess kinetic energy, but it's expressed in terms of moment of inertia and angular velocity. This rotational kinetic energy is distinct from translational kinetic energy. For objects that are both translating and rotating, like a rolling wheel, the total kinetic energy is the sum of these two forms.</p>
+          <h2><span class="hl">Conservation</span> of Angular Momentum</h2>
+          <ul><li>If no external torque acts on a system, its total angular momentum remains constant.</li><li>I₁ω₁ = I₂ω₂.</li><li>Implies L_initial = L_final.</li></ul>
+          <p class="notes">🎙️ This is a powerful conservation law, similar to the conservation of linear momentum. If the net external torque on a system is zero, its angular momentum is conserved. This means if the Moment of Inertia changes, the angular velocity must change proportionally to keep the product constant. This principle explains many phenomena.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Rotational_motion.svg?width=500" data-fb="🔋" alt="Rotational motion involves objects spinning about an axis. Key concepts include moment of "/><div class="vcap">Rotational motion involves objects spinning about an axis. Key concepts include moment of </div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Fixed quantity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Rolling Motion</span></h2>
-          <ul><li>Combination of translational and rotational motion.</li><li>Pure rolling: Point of contact with surface is instantaneously at rest.</li><li>Condition for pure rolling: v_CM = Rω.</li><li>Total KE = ½ Mv_CM² + ½ I_CMω².</li></ul>
-          <p class="notes">🎙️ Rolling motion is a very common type of motion, seen in wheels, balls, and cylinders. It's a superimposition of translational motion of the center of mass and rotational motion about the center of mass. For pure rolling, there's no slipping at the point of contact, leading to the crucial condition v_CM = Rω. The total kinetic energy is the sum of its translational and rotational components.</p>
+          <h2><span class="hl">Real-Life</span> Conservation of Angular Momentum</h2>
+          <ul><li>An ice skater pulling her arms in to spin faster.</li><li>A diver tucking their body to increase rotational speed.</li><li>The Earth's rotation speed slightly changing due to mass redistribution.</li></ul>
+          <p class="notes">🎙️ The ice skater example is classic. When she pulls her arms in, her Moment of Inertia decreases. To conserve angular momentum, her angular velocity (spin speed) must increase dramatically. Similarly, a diver changes their body shape to control their rotation during a dive. These are fantastic demonstrations of this principle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏎️</div><div class="vcap">Combined Motion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛸️</div><div class="vcap">Skater's spin</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Comparison</span>: Linear vs. Rotational Motion</h2>
-          <ul><li>Mass (m) ↔ Moment of Inertia (I).</li><li>Linear displacement (x) ↔ Angular displacement (θ).</li><li>Linear velocity (v) ↔ Angular velocity (ω).</li><li>Force (F) ↔ Torque (τ).</li></ul>
-          <p class="notes">🎙️ This slide summarizes the beautiful analogy between linear and rotational dynamics. For every concept in linear motion, there's a direct rotational counterpart. Understanding these parallels helps in grasping the new rotational concepts more easily. For example, Newton's second law F=ma has its rotational equivalent τ=Iα.</p>
+          <h2><span class="hl">Rolling Motion</span>: Translation + Rotation</h2>
+          <ul><li>A combination of translational and rotational motion.</li><li>Point of contact with surface is instantaneously at rest (pure rolling).</li><li>No slipping occurs at the point of contact.</li></ul>
+          <p class="notes">🎙️ Rolling motion is a very common type of motion, like a wheel rolling on the ground. In pure rolling, the point of contact between the rolling body and the surface has zero velocity. This condition is crucial for solving problems related to rolling motion and understanding its dynamics.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Mass (m)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Moment of Inertia (I)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Force (F)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Torque (τ)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚴</div><div class="vcap">Wheel in motion</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check &amp; Common <span class="hl">Mistakes</span></h2>
-          <ul><li>Is angular momentum conserved if external torque is non-zero?</li><li>What's the difference between torque and force?</li><li>Can CM be outside the body? (e.g., a ring)</li><li>Remember vector nature: direction matters for torque &amp; angular momentum.</li></ul>
-          <p class="notes">🎙️ Let's quickly test our understanding and highlight some common pitfalls. Angular momentum is conserved ONLY when the net external torque is zero. Torque is the turning effect of force, not just force itself. And yes, the CM can indeed be outside the physical boundaries of an object, like for a hollow ring or a boomerang. Always pay attention to directions with cross products!</p>
+          <h2><span class="hl">Kinetic Energy</span> of a Rolling Body</h2>
+          <ul><li>Total KE = Translational KE + Rotational KE.</li><li>KE_total = ½MV_COM² + ½I_COMω².</li><li>Can also be expressed in terms of radius of gyration: KE_total = ½MV_COM²(1 + k²/R²).</li></ul>
+          <p class="notes">🎙️ Since rolling motion is a combination of translation and rotation, its total kinetic energy is the sum of the kinetic energy due to the translation of its centre of mass and the kinetic energy due to its rotation about its centre of mass. The second form, using the radius of gyration, is particularly useful for comparing rolling bodies.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy of motion</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Solved Problem</span>: Rolling Down an Incline</h2>
-          <ul><li>Problem: A solid sphere rolls down an incline without slipping. Find its acceleration.</li><li>Forces: mg sinθ (down incline), friction (up incline).</li><li>Equations: mg sinθ - f = Ma (linear), fR = Iα (rotational).</li><li>For sphere: I = (2/5)MR², and a = Rα.</li><li>Solution: a = (5/7)g sinθ.</li></ul>
-          <p class="notes">🎙️ This is a classic exam problem. We apply both Newton's second law for linear motion and its rotational equivalent for the sphere. The crucial part is relating linear acceleration 'a' to angular acceleration 'α' through the pure rolling condition. By solving these simultaneous equations, we arrive at the acceleration. Note that a hollow sphere would have a different acceleration due to different 'I'.</p>
+          <h2>Quick <span class="hl">Question</span>: Torque Direction</h2>
+          <ul><li>A force F is applied at position vector r from the origin.</li><li>If r = (2i + 3j) m and F = (4i + 5j) N, what is the direction of the torque τ = r × F?</li><li>A) +z direction</li><li>B) -z direction</li><li>C) +x direction</li><li>D) +y direction</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of torque and vector cross products. Remember the right-hand rule for cross products or calculate the determinant. The cross product of two vectors in the xy-plane will always result in a vector along the z-axis. Take a moment to calculate it.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Centre of Mass: Representative point for translational motion.</li><li>Torque: Rotational effect of force (τ = r x F).</li><li>Angular Momentum: Rotational inertia in motion (L = Iω).</li><li>Conservation of L: If τ_ext = 0, L is constant.</li><li>Moment of Inertia: Rotational equivalent of mass (I = ∑mr²).</li><li>Rolling Motion: Combination of translation and rotation (v_CM = Rω).</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember, the Centre of Mass helps us simplify complex motions. Torque is what causes rotation, and Angular Momentum is a crucial conserved quantity. Moment of Inertia tells us how mass is distributed and resists rotational changes. Finally, rolling motion elegantly combines both translational and rotational dynamics. Master these concepts for success in your exams!</p>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Centre of Mass: average position of mass, describes system's translation.</li><li>Torque: causes rotational acceleration (τ = Iα).</li><li>Moment of Inertia: rotational resistance, depends on mass distribution.</li><li>Angular Momentum: conserved in absence of external torque (L = Iω).</li><li>Rolling Motion: combination of translation and rotation.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the core concepts: Centre of Mass helps us analyze system motion, Torque is the rotational equivalent of force, Moment of Inertia is rotational mass, Angular Momentum is conserved, and Rolling Motion combines both. Practice these concepts diligently, as they are frequently tested in exams. Thank you!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

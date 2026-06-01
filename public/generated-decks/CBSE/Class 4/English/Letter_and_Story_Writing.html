@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Letter and Story Writing — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2><span class="hl">Welcome</span> to Our English Class!</h2>
-          <ul><li>Today we will learn about writing letters.</li><li>We will also learn how to write fun stories.</li><li>It's like sending a message and telling an adventure!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going to explore two very exciting things: writing letters and writing stories. Have you ever received a letter or told a story? We will learn how to do both beautifully.</p>
+          <h2>Welcome to Letter and Story <span class="hl">Writing</span>!</h2>
+          <ul><li>Let's learn to share our thoughts.</li><li>It's fun to write!</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today we are going to learn about something very exciting: writing letters and stories. Writing helps us share our ideas and feelings with others.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is a <span class="hl">Letter</span>?</h2>
-          <ul><li>A letter is a written message.</li><li>We send it to someone far away or nearby.</li><li>It helps us share news and feelings.</li></ul>
-          <p class="notes">🎙️ Think of a letter like a special message you put on paper. Just like your parents might get letters from friends or family, you can also write to people you care about. It's a lovely way to stay in touch.</p>
+          <h2>Why Do We <span class="hl">Write</span>?</h2>
+          <ul><li>To tell others what we think.</li><li>To share our feelings.</li></ul>
+          <p class="notes">🎙️ We write to talk to people who are not with us. It's like sending a part of our mind to them. Imagine telling your friend about your day even when they are far away!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✉️</div><div class="vcap">A message in an envelope</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Sharing Ideas</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Why</span> Do We Write Letters?</h2>
-          <ul><li>To say 'Hello' to family.</li><li>To invite friends to a party.</li><li>To thank someone for a gift.</li></ul>
-          <p class="notes">🎙️ We write letters for many reasons! Maybe you want to tell your grandparents about your new toy, or invite your friend to your birthday party, or simply say 'Thank You' for something nice. Letters make people happy.</p>
+          <h2>Two <span class="hl">Kinds</span> of Writing</h2>
+          <ul><li>Letters are for talking to someone.</li><li>Stories are for telling an adventure.</li></ul>
+          <p class="notes">🎙️ There are many ways to write, but today we will focus on two important ones: letters and stories. They are different but both are super fun to create!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎉</span><span>🎉</span><span>🎉</span></div><div class="vcap">Reasons to write</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Letters</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Stories</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Two Kinds</span> of Letters</h2>
-          <ul><li>1. Informal Letters: To family and friends.</li><li>2. Formal Letters: To schools or offices (we learn later).</li><li>Today, we focus on Informal Letters.</li></ul>
-          <p class="notes">🎙️ There are two main types of letters. Informal letters are like a friendly chat on paper, for people you know well. Formal letters are for more serious things, like writing to your principal, but we will learn about those later. For now, let's focus on friendly letters!</p>
+          <h2>What is a <span class="hl">Letter</span>?</h2>
+          <ul><li>A letter is a message you write.</li><li>You send it to someone else.</li></ul>
+          <p class="notes">🎙️ Think of a letter like a special message in an envelope. You write it, put it in an envelope, and send it to your friend or family member.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Informal (Friends &amp; Family)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Formal (Office &amp; School)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✉️</div><div class="vcap">A Message</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Parts of an Informal Letter: <span class="hl">Your Address</span></h2>
-          <ul><li>This is where you live.</li><li>Write your house number, street, city.</li><li>It helps the other person write back to you!</li></ul>
-          <p class="notes">🎙️ Every letter starts with your address. Imagine if someone wants to send you a reply, they need to know where you live! So, first, we write our own address clearly at the top right side of the paper.</p>
+          <h2><span class="hl">Who</span> Gets Our Letters?</h2>
+          <ul><li>We write to our friends.</li><li>We write to our family.</li><li>We can write to our teachers too.</li></ul>
+          <p class="notes">🎙️ We write letters to people we know and care about. It could be your best friend, your grandparents, or even your teacher to thank them.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🏠" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">Friends &amp; Family</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Parts of an Informal Letter: <span class="hl">The Date</span></h2>
-          <ul><li>After your address, write the date.</li><li>Example: May 15, 2024.</li><li>It tells when you wrote the letter.</li></ul>
-          <p class="notes">🎙️ Next, we write the date. This is important because it tells the person when you sent the letter. It helps them remember when they received your news. Just like how we write the date in our notebooks every day.</p>
+          <h2><span class="hl">Parts</span> of a Friendly Letter</h2>
+          <ul><li>Every letter has special parts.</li><li>These parts help the letter be clear.</li></ul>
+          <p class="notes">🎙️ Just like a house has different rooms, a letter has different parts. Each part has its own place and job to make the letter complete.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Today's date</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Your Address &amp; Date</span></div><div class="step"><span class="snum">2</span><span>Greeting (Dear...)</span></div><div class="step"><span class="snum">3</span><span>The Main Message</span></div><div class="step"><span class="snum">4</span><span>Closing (Love, Your friend)</span></div><div class="step"><span class="snum">5</span><span>Your Name</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Parts of an Informal Letter: The <span class="hl">Salutation</span></h2>
-          <ul><li>This is your greeting!</li><li>Start with 'Dear' and the person's name.</li><li>Example: 'Dear Grandpa,' or 'Dear Priya,'.</li></ul>
-          <p class="notes">🎙️ After the date, we start with a friendly greeting. This is called the salutation. Since it's an informal letter, we use 'Dear' followed by the name of the person we are writing to, like 'Dear Mom' or 'Dear Uncle'.</p>
+          <h2>Letter to a <span class="hl">Friend</span></h2>
+          <ul><li>Start with 'Dear [Friend's Name]'.</li><li>Tell them about your day.</li><li>End with 'Your friend, [Your Name]'.</li></ul>
+          <p class="notes">🎙️ Imagine writing to your friend about your new toy or a fun game you played. It's a sweet way to stay connected and share happiness.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👋</div><div class="vcap">Saying hello</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="👋" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,45 +144,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Parts of an Informal Letter: The <span class="hl">Body</span></h2>
-          <ul><li>This is the main message.</li><li>Write what you want to say.</li><li>Keep it simple and clear.</li></ul>
-          <p class="notes">🎙️ The body is the most important part! This is where you write everything you want to share. Tell them about your day, ask questions, or describe something fun you did. Use simple sentences, just like you talk.</p>
+          <h2>Letter to <span class="hl">Grandma</span></h2>
+          <ul><li>Tell her you miss her.</li><li>Share what you learned in school.</li><li>Ask her about her day.</li></ul>
+          <p class="notes">🎙️ Your grandma would be so happy to get a letter from you! She would love to hear all about what you are doing. It shows her you are thinking of her.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="✍️" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Parts of an Informal Letter: The <span class="hl">Closing</span></h2>
-          <ul><li>How you end your letter.</li><li>Use words like 'Love,' 'Yours lovingly,' or 'Best wishes,'.</li></ul>
-          <p class="notes">🎙️ After you have written your message, it's time to end the letter. This is called the closing. You can use sweet words like 'Love,' 'Yours lovingly,' or 'Best wishes,' to show your affection.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💖</div><div class="vcap">Ending with love</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>Parts of an Informal Letter: <span class="hl">Your Name</span></h2>
-          <ul><li>Write your name below the closing.</li><li>This is your signature.</li><li>It tells who sent the letter.</li></ul>
-          <p class="notes">🎙️ Finally, after the closing, you write your own name. This is like signing your artwork, it shows who the letter is from. Make sure to write your name clearly so the person knows it's from you!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Your name</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👵</span></div><div class="vcap">Dear Grandma</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>Let's <span class="hl">Write a Letter</span>!</h2>
-          <ul><li>Imagine writing to your friend, Rahul, about your new puppy.</li><li>Remember all the parts we learned.</li><li>Practice makes perfect!</li></ul>
-          <p class="notes">🎙️ Now, let's put all the parts together and imagine writing a letter. Think about what you would say to your friend about something exciting, like getting a new puppy. This helps us understand how a letter flows from start to finish.</p>
+          <span class="num">9 / 20</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the first part of a friendly letter?</li><li>Who do you usually write letters to?</li></ul>
+          <p class="notes">🎙️ Let's see if you remember! Think about the parts we just learned. It's important to remember these things when you write.</p>
         </div>
         
       </div>
@@ -178,22 +167,34 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 20</span>
+          <span class="num">10 / 20</span>
           <h2>What is a <span class="hl">Story</span>?</h2>
-          <ul><li>A story is an exciting tale.</li><li>It has characters and things that happen.</li><li>Stories can be real or imaginary!</li></ul>
-          <p class="notes">🎙️ Now, let's move to stories! Have you ever heard a story from your grandparents? A story is like a magical journey where we meet new people or animals, and exciting things happen to them. Stories can be true or made up.</p>
+          <ul><li>A story tells about events.</li><li>It can be real or imagined.</li></ul>
+          <p class="notes">🎙️ A story is like a little movie in words! It takes you to new places and introduces you to interesting characters. You can make up anything you want!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">A book of stories</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">A Tale</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 20</span>
-          <h2>Parts of a Story: <span class="hl">Characters</span></h2>
-          <ul><li>Characters are the people or animals in a story.</li><li>Who is doing the actions?</li><li>They make the story interesting!</li></ul>
-          <p class="notes">🎙️ Every good story needs characters! These are the stars of your story – the people, animals, or even magical creatures who do things and have adventures. Who will be in your story today? A brave boy, a clever fox, or a fairy?</p>
+          <span class="num">11 / 20</span>
+          <h2><span class="hl">Parts</span> of a Good Story</h2>
+          <ul><li>Every story needs these parts.</li><li>They make the story complete.</li></ul>
+          <p class="notes">🎙️ Just like a recipe needs ingredients, a story needs its special parts. When you have all these, your story will be amazing!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Characters (Who)</span></div><div class="step"><span class="snum">2</span><span>Setting (Where)</span></div><div class="step"><span class="snum">3</span><span>Problem (What happens)</span></div><div class="step"><span class="snum">4</span><span>Solution (How it ends)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 20</span>
+          <h2><span class="hl">Characters</span> in a Story</h2>
+          <ul><li>Characters are the people or animals.</li><li>They do things in the story.</li></ul>
+          <p class="notes">🎙️ Characters are the stars of your story! They can be brave knights, talking animals, or even a magical tree. Who will be in your story?</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="📖" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
@@ -202,12 +203,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>Parts of a Story: <span class="hl">Setting</span></h2>
-          <ul><li>The setting is where and when the story happens.</li><li>Is it in a forest, a school, or a magical castle?</li><li>Is it day or night, long ago or today?</li></ul>
-          <p class="notes">🎙️ The setting tells us where and when the story takes place. Is it a sunny morning in a park, or a dark night in a spooky house? Describing the setting helps us imagine the world of the story clearly.</p>
+          <span class="num">13 / 20</span>
+          <h2><span class="hl">Setting</span> of a Story</h2>
+          <ul><li>The setting is where the story happens.</li><li>It can be a jungle, a school, or outer space.</li></ul>
+          <p class="notes">🎙️ The setting paints a picture of the place. Is it a sunny beach? A dark forest? Or maybe your own cozy room? The setting helps us imagine the story better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Where and when?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Where it happens</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>What <span class="hl">Happens</span>? (Plot)</h2>
+          <ul><li>The problem is what goes wrong.</li><li>The solution is how it gets fixed.</li></ul>
+          <p class="notes">🎙️ Every good story has some excitement! There's usually a problem that the characters need to solve. And then, they find a way to fix it, which is the solution!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓➡️✅</div><div class="vcap">Problem to Solution</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Parts of a Story: <span class="hl">Plot</span> (What Happens)</h2>
-          <ul><li>The plot is what happens in the story.</li><li>It has a beginning, a middle, and an end.</li><li>Like a journey from start to finish.</li></ul>
-          <p class="notes">🎙️ The plot is the sequence of events, what happens from start to finish. Every story has a beginning where we meet characters, a middle where things get exciting, and an end where everything is resolved. Think of it as a path the characters follow.</p>
+          <h2>Story Example: The Thirsty <span class="hl">Crow</span></h2>
+          <ul><li>Character: A crow.</li><li>Setting: A hot field.</li><li>Problem: Crow is thirsty, water is low.</li><li>Solution: Drops stones to raise water.</li></ul>
+          <p class="notes">🎙️ Remember the story of the thirsty crow? It's a perfect example of a story with a clear character, setting, problem, and a clever solution!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Beginning</span></div><div class="step"><span class="snum">2</span><span>Middle</span></div><div class="step"><span class="snum">3</span><span>End</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐦</div><div class="vcap">Clever Crow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,47 +240,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Parts of a Story: <span class="hl">Problem and Solution</span></h2>
-          <ul><li>Most stories have a problem the characters face.</li><li>Then they find a way to solve it!</li><li>This makes the story exciting.</li></ul>
-          <p class="notes">🎙️ In many stories, the characters face a problem or a challenge. This makes the story interesting! But don't worry, they usually find a clever solution. This journey from problem to solution is what keeps us hooked.</p>
+          <h2>Telling Your <span class="hl">Day</span> as a Story</h2>
+          <ul><li>You are the character.</li><li>Your home/school is the setting.</li><li>A lost pencil is a problem.</li><li>Finding it is the solution.</li></ul>
+          <p class="notes">🎙️ Even your day can be a story! You are the main character. What was the most exciting thing that happened today? How did you solve a small problem?</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Problem</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Solution</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗣️</span></div><div class="vcap">My Day's Story</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 20</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Name one part of a story.</li><li>What is the 'setting' of a story?</li></ul>
+          <p class="notes">🎙️ Great job! Let's quickly review what we just learned about stories. Thinking about these parts will help you write your own amazing stories.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2>Parts of a Story: The <span class="hl">Moral</span></h2>
-          <ul><li>Some stories teach us a lesson.</li><li>This lesson is called the moral.</li><li>Example: 'Honesty is the best policy'.</li></ul>
-          <p class="notes">🎙️ Sometimes, a story teaches us something important about life. This lesson is called the moral of the story. Like 'The Lion and the Mouse' teaches us that even small friends can be helpful. It's a wise thought to take away.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">A lesson learned</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Let's Create a Small Story!</h2>
-          <ul><li>Think of a character, like a small bird.</li><li>Where does it live? What problem does it face?</li><li>How does it solve the problem? What does it learn?</li></ul>
-          <p class="notes">🎙️ Now, let's try to make a tiny story together! Imagine a little bird. Where does it live? What if it loses its way? How does it find its way back home? And what does it learn from this adventure? This is how we build a story.</p>
+          <h2>Letters <span class="hl">vs.</span> Stories</h2>
+          <ul><li>Letters are personal messages.</li><li>Stories are imaginative tales.</li><li>Both share ideas!</li></ul>
+          <p class="notes">🎙️ So, remember, letters are like talking to one person on paper. Stories are like sharing an adventure with many people. Both are wonderful ways to write!</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Letters (To someone)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Stories (About something)</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Questions</span>!</h2>
-          <ul><li>1. Name one part of a letter.</li><li>2. Who are 'characters' in a story?</li><li>3. What is the 'setting' of a story?</li><li>4. Which type of letter is for friends and family?</li></ul>
-          <p class="notes">🎙️ Time for some quick thinking! Let's see how much you remember. Think about the parts of a letter and the elements of a story we just discussed. Don't worry if you don't know all the answers, we are still learning!</p>
+          <h2>Let's <span class="hl">Practice</span> Writing!</h2>
+          <ul><li>Try writing a short letter to your mom.</li><li>Or make up a tiny story about a talking frog.</li></ul>
+          <p class="notes">🎙️ Now that you know the basics, it's your turn to try! Don't worry about making mistakes, just have fun putting your thoughts on paper.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Your Turn!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Letters and Stories</h2>
-          <ul><li>Letters help us talk to people far away.</li><li>Stories take us on exciting adventures.</li><li>Both are fun ways to share and imagine!</li></ul>
-          <p class="notes">🎙️ Today, we learned about the different parts of a friendly letter and how to write one. We also discovered the exciting elements that make up a story, like characters, setting, and plot. Keep practicing, and you'll be a great writer!</p>
+          <h2>What We <span class="hl">Learned</span> Today</h2>
+          <ul><li>We learned about letters and stories.</li><li>We know their main parts.</li><li>We can now start writing our own!</li></ul>
+          <p class="notes">🎙️ Wonderful job, everyone! Today we unlocked the magic of writing. Keep practicing, and you will become amazing writers of letters and stories!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

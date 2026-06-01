@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Simple Writing — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Welcome to <span class="hl">Simple Writing</span>!</h2>
-          <ul><li>Let's learn to write clearly.</li><li>It's like telling a story easily.</li></ul>
-          <p class="notes">🎙️ Hello, my dear children! Today, we are going to learn something very interesting called 'Simple Writing'. It means writing in a way that everyone can understand easily.</p>
+          <ul><li>Let's learn to write simple sentences.</li><li>It's like drawing with words!</li></ul>
+          <p class="notes">🎙️ Hello, young writers! Today we will begin our journey into the wonderful world of writing. It's like drawing pictures, but using words instead!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is <span class="hl">Simple Writing</span>?</h2>
-          <ul><li>Writing that is easy to read.</li><li>Writing that is easy to understand.</li></ul>
-          <p class="notes">🎙️ Imagine you tell your friend a story. If you use simple words and short sentences, your friend will understand quickly, right? Simple writing is just like that!</p>
+          <h2>What is <span class="hl">Writing</span>?</h2>
+          <ul><li>We use words to tell stories.</li><li>We write to share our thoughts.</li></ul>
+          <p class="notes">🎙️ Writing helps us put our ideas on paper. It's like talking, but with your pen or pencil! We can share many things through writing.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Writing Hand</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why is Simple Writing <span class="hl">Important</span>?</h2>
-          <ul><li>Everyone can understand you.</li><li>Your ideas become clear.</li></ul>
-          <p class="notes">🎙️ When you write simply, it's like opening a door for everyone to come in and understand what you mean. Your teacher, your friends, even your parents will find your writing easy to read.</p>
+          <h2><span class="hl">Words</span> are Like Bricks</h2>
+          <ul><li>Each word is a small part.</li><li>We join words to make sentences.</li></ul>
+          <p class="notes">🎙️ Imagine building a house. You need many bricks, right? Similarly, to write, we need many words. Words are our building blocks.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Building Blocks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Rule 1: Use <span class="hl">Short Sentences</span></h2>
-          <ul><li>Don't make sentences too long.</li><li>Keep them like small, clear steps.</li></ul>
-          <p class="notes">🎙️ Our first rule is to keep sentences short. Think of it like a small train with just a few carriages. It's easier to see what's inside each carriage.</p>
+          <h2>What is a <span class="hl">Sentence</span>?</h2>
+          <ul><li>A sentence is a group of words.</li><li>It tells a complete idea.</li></ul>
+          <p class="notes">🎙️ A sentence is like a complete thought or message. It makes sense all by itself and gives us full information.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">A Complete Idea</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Short Sentences: An <span class="hl">Example</span></h2>
-          <ul><li>Long: The big, fluffy cat sat on the soft, warm mat and looked at the tiny, red ball.</li><li>Simple: The cat sat on the mat. It looked at the ball.</li></ul>
-          <p class="notes">🎙️ Look at these two sentences. The first one is very long. The second one is shorter and easier to read. Both tell us about the cat, but the simple one is quicker to understand.</p>
+          <h2>Rule 1: Always <span class="hl">Start Big</span>!</h2>
+          <ul><li>Every sentence begins with a Capital Letter.</li><li>Like your name starts with a big letter!</li></ul>
+          <p class="notes">🎙️ Look at the first letter of your name. It's a capital letter! Sentences are important, so they also start with a big, capital letter.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐾</span><span>🐾</span></div><div class="vcap">Short Sentences</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🅰️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Rule 2: Use <span class="hl">Simple Words</span></h2>
-          <ul><li>Choose words everyone knows.</li><li>Like 'big' instead of 'enormous'.</li></ul>
-          <p class="notes">🎙️ Our second rule is to use simple words. Instead of using very fancy or difficult words, pick words that you hear and use every day. This makes your writing friendly and welcoming.</p>
+          <h2>Rule 2: <span class="hl">Stop with a Dot</span>!</h2>
+          <ul><li>Every sentence ends with a Full Stop (.).</li><li>It tells us to pause.</li></ul>
+          <p class="notes">🎙️ When you finish talking, you pause, right? A full stop tells us that the sentence is over and we should pause before the next one.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">•</div><div class="vcap">Full Stop</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Simple Words: An <span class="hl">Example</span></h2>
-          <ul><li>Difficult: The colossal elephant ambled through the verdant jungle.</li><li>Simple: The big elephant walked in the green jungle.</li></ul>
-          <p class="notes">🎙️ See how 'colossal' and 'big' mean almost the same thing? But 'big' is much easier for everyone to understand. And 'walked' is simpler than 'ambled.'</p>
+          <h2>Let's Make a <span class="hl">Sentence</span>! (Example 1)</h2>
+          <ul><li>The sun shines brightly.</li></ul>
+          <p class="notes">🎙️ See how 'The' starts with a capital 'T' and ends with a full stop? This sentence tells us one complete idea about the sun.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Colossal</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Big</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">The Sun</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Rule 3: Have <span class="hl">Clear Ideas</span></h2>
-          <ul><li>Say one main thing at a time.</li><li>Don't mix too many thoughts.</li></ul>
-          <p class="notes">🎙️ Our third rule is about having clear ideas. Imagine you want to draw a picture. You draw one thing at a time, right? Not everything at once. Writing is similar.</p>
+          <h2>Let's Make a Sentence! (Example 2)</h2>
+          <ul><li>The cat drinks milk.</li></ul>
+          <p class="notes">🎙️ Here, 'The' is capital, and we have a full stop. This sentence tells us exactly what the cat is doing. It's a clear idea.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="💡" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Milk</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Clear Ideas: An <span class="hl">Example</span></h2>
-          <ul><li>Confused: I went to the park and saw a dog, and then I ate an apple, and my friend was there.</li><li>Clear: I went to the park. I saw a dog. I ate an apple. My friend was there.</li></ul>
-          <p class="notes">🎙️ In the first example, everything is mixed up. In the second, each sentence tells one clear thing. It's like telling a story step by step, making it easy to follow.</p>
+          <h2><span class="hl">Describing</span> Words</h2>
+          <ul><li>Words that tell us more about things.</li><li>They tell us how something looks or feels.</li></ul>
+          <p class="notes">🎙️ Describing words are like magic! They add colour and detail to our writing. They make things more interesting for the reader.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Go to park</span></div><div class="step"><span class="snum">2</span><span>See dog</span></div><div class="step"><span class="snum">3</span><span>Eat apple</span></div><div class="step"><span class="snum">4</span><span>Meet friend</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Add Sparkle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Let's <span class="hl">Practice</span> Simple Writing!</h2>
-          <ul><li>We will make long sentences short.</li><li>We will choose simple words.</li></ul>
-          <p class="notes">🎙️ Now that we know the rules, let's try to write simply! It's like playing a game where we make our writing super easy for everyone to read.</p>
+          <h2>Example: Describing a <span class="hl">Ball</span></h2>
+          <ul><li>This is a red ball.</li><li>It is a big ball.</li></ul>
+          <p class="notes">🎙️ 'Red' tells us the colour of the ball. 'Big' tells us about its size. These are describing words that help us imagine the ball better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span><span>🔴</span></div><div class="vcap">Red Balls</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2><span class="hl">Story Time</span>: The Little Bird</h2>
-          <ul><li>Once, there was a little bird.</li><li>It flew high in the sky.</li><li>It sang a sweet song.</li></ul>
-          <p class="notes">🎙️ Let's read a short story written in simple sentences. Notice how each sentence is short and easy to understand. You can easily imagine the bird flying and singing!</p>
+          <h2>Example: Describing a <span class="hl">Flower</span></h2>
+          <ul><li>This is a pretty flower.</li><li>It smells sweet.</li></ul>
+          <p class="notes">🎙️ 'Pretty' tells us how the flower looks. 'Sweet' tells us how it smells. Can you think of other words to describe this flower?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐦</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sunflower_sky_backdrop.jpg?width=460" data-fb="📖" alt="Flowers are the colourful part of plants."/><div class="vcap">Flowers are the colourful part of plants.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Describe Your <span class="hl">Favorite Toy</span></h2>
-          <ul><li>What is its name?</li><li>What does it look like?</li><li>What do you do with it?</li></ul>
-          <p class="notes">🎙️ Now, let's write about your favorite toy using simple writing. Think about its color, shape, and what you do with it. Use short sentences and simple words.</p>
+          <h2>Writing About Yourself</h2>
+          <ul><li>My name is ____.</li><li>I am _____ years old.</li></ul>
+          <p class="notes">🎙️ Let's write about ourselves! It's fun to share who we are. Remember to start with a capital letter and end with a full stop for each sentence.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧸</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧒</div><div class="vcap">A Child</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Quick Question 1: Is this <span class="hl">simple</span>?</h2>
-          <ul><li>'The quick brown fox jumped over the lazy dog.'</li><li>Is this sentence simple? Yes or No?</li></ul>
-          <p class="notes">🎙️ Read the sentence carefully. Does it use simple words? Is it too long? Think about what we learned today about short sentences and simple words.</p>
+          <h2>Writing About My <span class="hl">Pet</span></h2>
+          <ul><li>I have a dog.</li><li>Its name is Buddy.</li><li>Buddy is playful.</li></ul>
+          <p class="notes">🎙️ If you have a pet, you can write about it! What does your pet look like? What does it do? Use describing words to make it interesting.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐶</div><div class="vcap">A Dog</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick Question 2: Which word is <span class="hl">simpler</span>?</h2>
-          <ul><li>'Start' or 'Commence'?</li><li>Which one would you choose for simple writing?</li></ul>
-          <p class="notes">🎙️ Both words mean to begin something. But one is used more often in everyday talk. Which one do you think is easier for a Class 2 student to understand?</p>
+          <h2>Quick Check: Spot the <span class="hl">Mistake</span>!</h2>
+          <ul><li>my favourite fruit is mango.</li></ul>
+          <p class="notes">🎙️ Can you see what is wrong with this sentence? Remember our rules for sentences! Look closely at the start of the sentence.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="❓" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="❌" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick Question 3: Make it <span class="hl">simple</span>!</h2>
-          <ul><li>'My mother, who is very kind, baked a delicious cake for my birthday party.'</li><li>How can we make this sentence simpler?</li></ul>
-          <p class="notes">🎙️ This sentence is a bit long. How can we break it into two or three shorter sentences? Remember to keep the main ideas clear and use simple words.</p>
+          <h2>Quick Check: <span class="hl">Fix It</span>!</h2>
+          <ul><li>My favourite fruit is mango.</li></ul>
+          <p class="notes">🎙️ Yes! 'My' should start with a capital 'M'. And it already ends with a full stop. Great job fixing the sentence!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Corrected!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Let's Check Our <span class="hl">Answers</span>!</h2>
-          <ul><li>Q1: Yes, it is simple.</li><li>Q2: 'Start' is simpler.</li><li>Q3: 'My mother is kind. She baked a cake for my birthday.'</li></ul>
-          <p class="notes">🎙️ Great job, everyone! Let's see if your answers were correct. It's okay if you made a mistake; we are all learning together! The most important thing is to try.</p>
+          <h2>Quick Check: Add a <span class="hl">Describing Word</span>!</h2>
+          <ul><li>The ____ bird sings.</li></ul>
+          <p class="notes">🎙️ Look at the bird. What word can you use to describe it? You can choose from 'small', 'happy', or 'blue'. There can be many correct answers!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🐦" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>More <span class="hl">Tips</span> for Simple Writing</h2>
-          <ul><li>Read your writing aloud.</li><li>Ask a friend to read it.</li><li>Does it sound easy to understand?</li></ul>
-          <p class="notes">🎙️ A good way to check if your writing is simple is to read it out loud. If it sounds natural and easy to follow, you're doing a great job! You can also ask a friend to read it.</p>
+          <h2>Quick Check: Write a <span class="hl">Sentence</span>!</h2>
+          <ul><li>What is the girl doing?</li></ul>
+          <p class="notes">🎙️ Look at the picture. Can you write one simple sentence about what the girl is doing? Remember the rules: start big, end with a dot!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👂</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Reading a Book</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Practice at <span class="hl">Home</span>!</h2>
-          <ul><li>Write 3 simple sentences about your day.</li><li>Describe your breakfast using simple words.</li></ul>
-          <p class="notes">🎙️ Keep practicing simple writing every day! You can write about what you did, what you saw, or what you ate. The more you practice, the better you will become.</p>
+          <h2><span class="hl">Recap</span>: What We Learned!</h2>
+          
+          <p class="notes">🎙️ We learned many important things today! These rules will help you write clear and simple sentences that everyone can understand.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sentences tell complete ideas.</span></div><div class="step"><span class="snum">2</span><span>Start with a capital letter.</span></div><div class="step"><span class="snum">3</span><span>End with a full stop.</span></div><div class="step"><span class="snum">4</span><span>Use describing words.</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today</h2>
-          <ul><li>Simple writing is easy to read.</li><li>Use short sentences.</li><li>Use simple words.</li><li>Have clear ideas.</li></ul>
-          <p class="notes">🎙️ Today, we learned how to make our writing simple and clear. Remember our three main rules: short sentences, simple words, and clear ideas. These will help you write wonderfully!</p>
+          <h2>Let's <span class="hl">Practice</span> Writing!</h2>
+          <ul><li>Write 2-3 sentences about your favourite toy.</li></ul>
+          <p class="notes">🎙️ Now it's your turn! Pick your favourite toy and write a few sentences about it. Describe it and what you do with it. Have fun!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧸</div><div class="vcap">Favourite Toy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Keep Writing <span class="hl">Simply</span>!</h2>
-          <ul><li>You are all amazing writers!</li><li>See you next time!</li></ul>
-          <p class="notes">🎙️ Thank you for paying attention and participating, my dear students! Keep practicing these tips, and you will become excellent writers. See you in the next class!</p>
+          <h2>Keep <span class="hl">Writing</span>!</h2>
+          <ul><li>Practice makes perfect.</li><li>Enjoy telling your stories!</li></ul>
+          <p class="notes">🎙️ The more you write, the better you will become. Don't be afraid to make mistakes, just keep trying and sharing your wonderful thoughts!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">😊</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭐</div><div class="vcap">You're a Star!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Mathematics: Data Handling — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Data Handling: Collecting and Understanding Information! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to <span class="hl">Data Handling</span>!</h2>
-          <ul><li>Let's learn to collect and understand information!</li><li>It's like being a detective with numbers.</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going to start a very interesting chapter called 'Data Handling'. It's all about collecting information and making sense of it, just like a detective!</p>
+          <h2>Welcome to "<span class="hl">Data Handling</span>"!</h2>
+          <ul><li>Let's learn to collect and understand information!</li><li>It's like being a detective with clues.</li></ul>
+          <p class="notes">🎙️ Hello, little explorers! Today, we're going on an exciting journey to learn about 'Data Handling.' It's like being a detective, gathering clues and putting them together to solve mysteries!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is <span class="hl">Data</span>?</h2>
-          <ul><li>Data is a collection of facts or numbers.</li><li>It is information about different things.</li></ul>
-          <p class="notes">🎙️ Imagine you want to know how many red pencils you have, or how many friends like mangoes. All these facts and numbers you collect are called 'Data'.</p>
+          <h2>What is "<span class="hl">Data</span>"?</h2>
+          <ul><li>Data is just information or facts.</li><li>It can be numbers, names, or things we count.</li></ul>
+          <p class="notes">🎙️ Imagine you count how many red cars you see on your way to school. That count is 'data'! Or if you list your friends' favorite colors, that's also data. It's any piece of information.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="📝" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Information</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Why</span> do we collect Data?</h2>
-          <ul><li>We collect data to learn new things.</li><li>It helps us make good decisions.</li></ul>
-          <p class="notes">🎙️ Collecting data helps us understand things better. For example, if we know how many students like to read, we can ask the library to get more storybooks!</p>
+          <h2>Why Do We "<span class="hl">Handle</span>" Data?</h2>
+          <ul><li>To make sense of lots of information.</li><li>To answer questions easily.</li></ul>
+          <p class="notes">🎙️ If you have a big pile of toys, it's hard to find your favorite car. But if you organize them, it's easy! Data handling helps us organize information to understand it better and find what we need.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Understand Better</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Understand</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Our <span class="hl">Favourite Fruits</span>!</h2>
-          <ul><li>Let's ask our friends about their favourite fruit.</li><li>We will collect this information from them.</li></ul>
-          <p class="notes">🎙️ Think about your friends. Does everyone like the same fruit? Let's pretend we asked 7 friends, and they told us their favourite fruits. This is how we collect data!</p>
+          <h2><span class="hl">Collecting</span> "Data"</h2>
+          <ul><li>We gather information from many places.</li><li>Like asking friends or observing things.</li></ul>
+          <p class="notes">🎙️ To collect data, you might ask your friends about their favorite ice cream flavors, or you might count how many birds visit your garden. It's like collecting treasures or clues!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Collecting Fruit Choices</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Gathering</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">Tally Marks</span>: Our Counting Helper</h2>
-          <ul><li>Tally marks are special lines we draw.</li><li>They help us count things quickly and easily.</li></ul>
-          <p class="notes">🎙️ When we collect a lot of data, it can be hard to count everything just by looking. Tally marks are a very simple and smart way to keep track of our counts.</p>
+          <h2><span class="hl">Organizing</span> Our "Data"</h2>
+          <ul><li>After collecting, we arrange the data.</li><li>This makes it neat and easy to read.</li></ul>
+          <p class="notes">🎙️ Once you have all your information, you need to put it in order. We can use special ways like tables or pictures to make it tidy and easy to understand, just like putting books on a shelf.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Counting Tool</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="🗃️" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>How to use <span class="hl">Tally Marks</span></h2>
-          <ul><li>Draw a line for each item.</li><li>For the fifth item, draw a line across the first four.</li></ul>
-          <p class="notes">🎙️ It's like making bundles! One line for one, two for two, and when you reach five, you tie the bundle with a diagonal line. This makes counting bigger numbers much easier.</p>
+          <h2>Tally Marks: A Fun Way to "<span class="hl">Count</span>"</h2>
+          <ul><li>Tally marks help us count things quickly.</li><li>We draw lines for each item.</li></ul>
+          <p class="notes">🎙️ Tally marks are like little sticks! For every item you count, you draw one stick. It's a very old and simple way to keep track of numbers without writing big digits.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1: |</span></div><div class="step"><span class="snum">2</span><span>2: ||</span></div><div class="step"><span class="snum">3</span><span>3: |||</span></div><div class="step"><span class="snum">4</span><span>4: ||||</span></div><div class="step"><span class="snum">5</span><span>5: ||||</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="✔️" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Let's Count <span class="hl">Favourite Colours</span>!</h2>
-          <ul><li>We asked 10 friends their favourite colour.</li><li>Let's use tally marks to count them.</li></ul>
-          <p class="notes">🎙️ Imagine we asked ten children about their favourite colours. Some said red, some blue, some green. We will make tally marks for each child's choice.</p>
+          <h2>How to Make "<span class="hl">Tally Marks</span>"</h2>
+          <ul><li>1 item = |</li><li>2 items = ||</li><li>3 items = |||</li><li>4 items = ||||</li></ul>
+          <p class="notes">🎙️ See how we draw one line for each item? It's like counting on your fingers, but with lines! This helps us keep track as we count more and more things.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span></div><div class="vcap">Counting Colours</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>One</span></div><div class="step"><span class="snum">2</span><span>Two</span></div><div class="step"><span class="snum">3</span><span>Three</span></div><div class="step"><span class="snum">4</span><span>Four</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Organizing Data in a <span class="hl">Table</span></h2>
-          <ul><li>After counting, we put data in a table.</li><li>A table makes data neat and easy to read.</li></ul>
-          <p class="notes">🎙️ Once we have all our tally marks, we can write down the total numbers. A table helps us arrange our data with clear headings, so everyone can understand it quickly.</p>
+          <h2>Tally Marks: The "<span class="hl">Group</span>" of Five</h2>
+          <ul><li>For the fifth item, we draw a line across the first four.</li><li>This makes a neat group of five!</li></ul>
+          <p class="notes">🎙️ When you reach five, you make a diagonal line over the four straight lines. This helps us count big numbers faster, by seeing groups of five, just like your hand has five fingers!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Neat Data</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Five Together</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>What is a <span class="hl">Pictograph</span>?</h2>
-          <ul><li>A pictograph uses pictures to show data.</li><li>Each picture stands for a certain number of items.</li></ul>
-          <p class="notes">🎙️ Isn't it fun to see pictures? A pictograph is like a picture story of our data. Instead of numbers, we use small pictures to represent the count of things.</p>
+          <h2>Example: Our "<span class="hl">Favorite Fruits</span>"</h2>
+          <ul><li>Let's count how many friends like each fruit!</li><li>Apple: ||| (3 friends)</li></ul>
+          <p class="notes">🎙️ If 3 friends like apples, we draw 3 tally marks. If 5 friends like bananas, we draw 4 lines and one line across them. It helps us see who likes what at a glance.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Pictures Tell a Story</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Apple</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Making a Pictograph of <span class="hl">Toys</span></h2>
-          <ul><li>Let's show how many toys children have.</li><li>One teddy bear picture means 2 toys.</li></ul>
-          <p class="notes">🎙️ If one teddy bear picture means 2 toys, then if we draw 4 teddy bear pictures, it means a child has 8 toys! It's a clever way to show big numbers with fewer pictures.</p>
+          <h2>"<span class="hl">Pictographs</span>": Pictures Tell a Story</h2>
+          <ul><li>A pictograph uses pictures to show data.</li><li>Each picture stands for a certain number of things.</li></ul>
+          <p class="notes">🎙️ Imagine you want to show how many students like different colors. Instead of numbers, you can draw little pictures of students! It makes data look fun and easy to understand.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span></div><div class="vcap">Teddy Bear Toys</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Picture Chart</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Reading a Pictograph about <span class="hl">Pets</span></h2>
-          <ul><li>Look at the pictures to find out how many pets.</li><li>One 🐾 means 1 pet.</li></ul>
-          <p class="notes">🎙️ Here is a pictograph showing favourite pets. Can you tell how many children like dogs? Just count the dog paw pictures! It's that simple.</p>
+          <h2>Steps to Make a "<span class="hl">Pictograph</span>"</h2>
+          <ul><li>1. Collect data.</li><li>2. Choose a simple picture.</li><li>3. Decide what each picture means (the key).</li><li>4. Draw pictures for each item.</li></ul>
+          <p class="notes">🎙️ The 'key' is very important! It tells us if one picture means 1 thing, or 2 things, or even 5 things. Always look at the key first to understand the pictograph.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Dogs 🐕</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Cats 🐈</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Fish 🐠</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Collect Data</span></div><div class="step"><span class="snum">2</span><span>Choose Picture</span></div><div class="step"><span class="snum">3</span><span>Make a Key</span></div><div class="step"><span class="snum">4</span><span>Draw Pictures</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Quick Question: Garden <span class="hl">Flowers</span></h2>
-          <ul><li>How many roses are there?</li><li>(One 🌷 means 1 flower)</li></ul>
-          <p class="notes">🎙️ Look at this pictograph showing flowers in a garden. Remember, each flower picture means one flower. Now, quickly count the roses!</p>
+          <h2>Example: "<span class="hl">Favorite Animals</span>"</h2>
+          <ul><li>Key: Each 🐾 = 2 children.</li><li>Dog: 🐾🐾🐾 (6 children)</li><li>Cat: 🐾🐾 (4 children)</li></ul>
+          <p class="notes">🎙️ If 6 children like dogs, we draw 3 paw prints because each paw print means 2 children (2+2+2=6). If 4 children like cats, we draw 2 paw prints. See how easy it is to compare?</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Roses 🌷</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Lilies 💮</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Daisies 🌼</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🔢" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>What is a <span class="hl">Bar Graph</span>?</h2>
-          <ul><li>A bar graph uses bars to show data.</li><li>The height of the bar shows the quantity.</li></ul>
-          <p class="notes">🎙️ A bar graph is another way to show data, but instead of pictures, we use tall rectangles called 'bars'. The taller the bar, the more of that item there is.</p>
+          <h2>"<span class="hl">Bar Graphs</span>": Tall Towers of Information</h2>
+          <ul><li>A bar graph uses bars to show data.</li><li>The height or length of the bar shows the amount.</li></ul>
+          <p class="notes">🎙️ Bar graphs are like building blocks or tall towers! Each bar stands for something, and how tall it is tells us how much of that thing there is. Taller bar means more!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Bars Show Amount</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Bar Chart</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Making a Bar Graph of <span class="hl">Heights</span></h2>
-          <ul><li>We can compare heights of friends.</li><li>Each bar shows how tall they are.</li></ul>
-          <p class="notes">🎙️ Imagine we measured the heights of three friends. We can draw a bar for each friend, and the height of the bar will show how tall they are. It's easy to see who is tallest!</p>
+          <h2>Steps to Make a "<span class="hl">Bar Graph</span>"</h2>
+          <ul><li>1. Collect data.</li><li>2. Draw two lines (axes).</li><li>3. Label what each line means.</li><li>4. Draw bars for each item.</li></ul>
+          <p class="notes">🎙️ One line might show the names of things, and the other line might show the numbers. It's important to label them clearly so everyone can understand what the graph is showing.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Rohan</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Priya</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Amit</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Collect Data</span></div><div class="step"><span class="snum">2</span><span>Draw Axes</span></div><div class="step"><span class="snum">3</span><span>Label Axes</span></div><div class="step"><span class="snum">4</span><span>Draw Bars</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Reading a Bar Graph about <span class="hl">Sports</span></h2>
-          <ul><li>Which sport is liked the most?</li><li>Which sport is liked the least?</li></ul>
-          <p class="notes">🎙️ Here is a bar graph showing favourite sports. Look at the height of each bar. The tallest bar tells you the most popular sport, and the shortest bar tells you the least popular.</p>
+          <h2>Example: "<span class="hl">Students in Classes</span>"</h2>
+          <ul><li>Class 1 has 20 students.</li><li>Class 2 has 25 students.</li><li>Class 3 has 15 students.</li></ul>
+          <p class="notes">🎙️ Here, we can see Class 2 has the tallest bar, so it has the most students. Class 3 has the shortest bar, so it has the least. Bar graphs help us compare numbers quickly.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Football ⚽</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Cricket 🏏</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Badminton 🏸</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Class 1</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Class 2</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Class 3</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick Question: <span class="hl">Ice Cream</span> Flavors</h2>
-          <ul><li>How many children like chocolate ice cream?</li><li>Which flavor is most popular?</li></ul>
-          <p class="notes">🎙️ This bar graph shows favorite ice cream flavors. Read the graph carefully. How many children chose chocolate? And which flavor is the king of all?</p>
+          <h2>Data Handling in Our "<span class="hl">Real Life</span>"</h2>
+          <ul><li>We see data handling everywhere!</li><li>In stores, on TV, in games and sports.</li></ul>
+          <p class="notes">🎙️ When you see a scoreboard in a cricket match, or a chart showing how many ice creams were sold today, that's data handling! It helps us make smart choices and understand the world around us.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Vanilla 🍦</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Chocolate 🍫</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Strawberry 🍓</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Everywhere!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Real-life Data: School <span class="hl">Attendance</span></h2>
-          <ul><li>Our teacher takes attendance every day.</li><li>This is also collecting data!</li></ul>
-          <p class="notes">🎙️ Every morning, your teacher counts how many students are present. This is a very important type of data! It helps the school know how many children are learning each day.</p>
+          <h2>Quick Question: "<span class="hl">Ice Cream Flavors</span>"</h2>
+          <ul><li>Key: Each 🍦 = 1 child.</li><li>How many children like Vanilla?</li></ul>
+          <p class="notes">🎙️ Look at the picture for vanilla ice cream. Count how many ice cream cones you see. Each cone means one child. So, how many children love vanilla?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏫</span><span>🏫</span><span>🏫</span><span>🏫</span><span>🏫</span><span>🏫</span><span>🏫</span><span>🏫</span></div><div class="vcap">Students in School</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍦</span><span>🍦</span><span>🍦</span><span>🍦</span></div><div class="vcap">Vanilla</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick Question: <span class="hl">Weekly Attendance</span></h2>
-          <ul><li>On which day were most students present?</li><li>On which day were the least students present?</li></ul>
-          <p class="notes">🎙️ Look at this attendance chart for a week. Each bar shows the number of students present. Can you find the day with the highest attendance and the lowest?</p>
+          <h2>Quick Question: "<span class="hl">Favorite Colors</span>"</h2>
+          <ul><li>Which color is liked by the most children?</li></ul>
+          <p class="notes">🎙️ Look at the bars for Red, Blue, and Green. Which bar is the tallest? That color is liked by the most children. Bar graphs make it easy to spot the biggest or smallest.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mon</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Tue</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Wed</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Thu</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Fri</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Red</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Blue</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Green</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2><span class="hl">Recap</span>: What We Learned Today!</h2>
-          <ul><li>We learned about Data and why we collect it.</li><li>We used Tally Marks to count.</li><li>We saw Pictographs and Bar Graphs.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much about data handling today! We started with what data is, then used tally marks, and finally explored how to show data using pictures and bars.</p>
+          <h2>Quick Question: "<span class="hl">Count the Balls</span>"</h2>
+          <ul><li>How would you show 7 balls using tally marks?</li></ul>
+          <p class="notes">🎙️ Remember how we draw tally marks? One line for each ball, and a special way for groups of five. Try to draw them in your mind or on a paper. How would you show 7?</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span></div><div class="vcap">Count these!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Fun Activity: Be a <span class="hl">Data Detective</span>!</h2>
-          <ul><li>Collect data at home!</li><li>Ask family members their favourite fruit or colour.</li><li>Make a small table or pictograph!</li></ul>
-          <p class="notes">🎙️ Now it's your turn to be a data detective! Try collecting some simple data at home. You can ask your family about anything you like, and then try to show it using what we learned today!</p>
+          <h2>"<span class="hl">Recap</span>": What We Learned!</h2>
+          <ul><li>We learned about Data, Tally Marks, Pictographs, and Bar Graphs.</li><li>Data handling helps us understand information better!</li></ul>
+          <p class="notes">🎙️ Wow! You've learned so much about data handling today. You are now a data detective, ready to collect, organize, and understand information around you! Great job, everyone!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

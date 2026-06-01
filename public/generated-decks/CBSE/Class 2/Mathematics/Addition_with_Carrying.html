@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Addition with Carrying — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Let's Learn Addition with <span class="hl">Carrying</span>!</h2>
-          <ul><li>A fun way to add bigger numbers!</li><li>We will learn to carry over numbers.</li></ul>
-          <p class="notes">🎙️ Hello, children! Today we are going to learn a very exciting new way to add numbers. It's called 'Addition with Carrying'. It will help us solve even bigger addition problems easily.</p>
+          <h2>Let's Add <span class="hl">Big Numbers</span>!</h2>
+          <ul><li>Are you ready for a new maths adventure?</li><li>We will learn to add bigger numbers today!</li></ul>
+          <p class="notes">🎙️ Hello, my bright students! Today, we are going to learn a very exciting new way to add numbers. It's like a superpower for adding big numbers!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Addition</span>?</h2>
-          <ul><li>Putting things together.</li><li>Finding the total number.</li></ul>
-          <p class="notes">🎙️ Before we start with carrying, let's quickly remember what addition means. Addition is simply joining groups of things to find out how many there are in total. Like adding your toys to your friend's toys.</p>
+          <ul><li>Addition means putting things together.</li><li>We find out how many there are in total.</li></ul>
+          <p class="notes">🎙️ Remember, addition is simply counting how many items we have when we join different groups. Like having two apples and getting three more, makes five apples in total.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="➕" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Tens and Ones</span> Houses</h2>
-          <ul><li>Numbers live in special houses.</li><li>The 'Ones' house is for single digits.</li><li>The 'Tens' house is for groups of ten.</li></ul>
-          <p class="notes">🎙️ Remember our Tens and Ones houses? Every number has digits that live in these houses. The rightmost digit lives in the Ones house, and the next digit to its left lives in the Tens house. This helps us keep numbers organized.</p>
+          <h2>Adding <span class="hl">More Things</span>!</h2>
+          <ul><li>Let's count how many cars we have.</li><li>3 red cars + 4 blue cars = ?</li></ul>
+          <p class="notes">🎙️ If you have 3 red toy cars and your friend gives you 4 blue toy cars, how many do you have? You count them all together, and you get 7 cars!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Tens House</span></div><div class="step"><span class="snum">2</span><span>Ones House</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">3 cars + 4 cars = 7 cars</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Too Many</span> in the Ones House!</h2>
-          <ul><li>What if we have more than 9 ones?</li><li>The Ones house gets too crowded!</li><li>It can only hold numbers 0 to 9.</li></ul>
-          <p class="notes">🎙️ Imagine the Ones house can only hold 9 little babies. What happens if 10 babies try to fit in? It's too crowded! This is where 'carrying' helps us manage the numbers when there are too many in one place.</p>
+          <h2>Meet Our New Friends: <span class="hl">Two-Digit Numbers</span>!</h2>
+          <ul><li>Numbers like 10, 25, 30 are two-digit numbers.</li><li>They have two places: Ones and Tens.</li></ul>
+          <p class="notes">🎙️ Until now, we mostly added small numbers. But what about numbers like 15 or 23? These are two-digit numbers, and we need a special trick to add them when they get tricky!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span><span>👶</span></div><div class="vcap">Too many in the house!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Numbers with two digits</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">Carrying</span>: A New Friend!</h2>
-          <ul><li>When 10 Ones are together...</li><li>They become 1 Ten!</li><li>We send this 1 Ten to the Tens house.</li></ul>
-          <p class="notes">🎙️ When we have 10 or more in the Ones house, we 'bundle' 10 ones together. This bundle of 10 ones becomes 1 ten. We then 'carry' or send this 1 ten to join the other tens in the Tens house. It's like a promotion!</p>
+          <h2>Understanding <span class="hl">Ones Place</span></h2>
+          <ul><li>The first digit from the right is the Ones place.</li><li>It tells us how many single items we have.</li></ul>
+          <p class="notes">🎙️ Look at the number 23. The '3' is in the Ones place. It means we have 3 single stars. The Ones place can hold numbers from 0 to 9.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Moving Up!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">9 single stars</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Story: Rahul's <span class="hl">Toy Cars</span></h2>
-          <ul><li>Rahul has 7 red cars.</li><li>His friend gave him 5 blue cars.</li></ul>
-          <p class="notes">🎙️ Let's hear a story about Rahul's toy cars. Rahul had 7 red cars. One day, his friend gifted him 5 new blue cars. Rahul was very happy and wanted to know how many cars he had in total.</p>
+          <h2>Understanding <span class="hl">Tens Place</span></h2>
+          <ul><li>The second digit from the right is the Tens place.</li><li>It tells us how many groups of ten we have.</li></ul>
+          <p class="notes">🎙️ In the number 23, the '2' is in the Tens place. It means we have 2 groups of ten. So, 2 tens is equal to 20. Each box here has 10 blocks.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">Rahul's Red Cars</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">3 groups of ten blocks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>How Many Cars in <span class="hl">Total</span>?</h2>
-          <ul><li>Let's add 7 red cars and 5 blue cars.</li><li>7 + 5 = 12 cars!</li></ul>
-          <p class="notes">🎙️ When Rahul counted them all, he found he had 12 cars. Now, 12 is a two-digit number. How do we write 12 in our Tens and Ones houses? We have 1 ten and 2 ones.</p>
+          <h2>Always Start with <span class="hl">Ones</span>!</h2>
+          <ul><li>When we add numbers written one below the other,</li><li>We always start adding from the Ones place first.</li></ul>
+          <p class="notes">🎙️ This is a very important rule! Imagine you have two towers of blocks. You always start building from the bottom, right? Similarly, in addition, we start adding from the Ones column.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">Total Cars</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">1️⃣</div><div class="vcap">Start with Ones</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>12 Cars: <span class="hl">Carrying Time</span>!</h2>
-          <ul><li>We have 12 ones in total.</li><li>We keep 2 in the Ones house.</li><li>We carry 1 (Ten) to the Tens house.</li></ul>
-          <p class="notes">🎙️ So, from 12 cars, we keep the '2' in the Ones place. The '1' from 12 is actually '1 ten'. We carry this '1 ten' over to the Tens place. This is the magic of carrying!</p>
+          <h2>Oh No! <span class="hl">Too Many Ones!</span></h2>
+          <ul><li>What happens if the sum of Ones is 10 or more?</li><li>We can't write 10 or 12 in the Ones place!</li></ul>
+          <p class="notes">🎙️ If we add 5 candies and 7 candies, we get 12 candies. But we can only write a single digit in the Ones place. So, what do we do with the '1' from '12'?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔄" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">12 candies</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Steps</span> to Add with Carrying</h2>
-          <ul><li>Step 1: Add the Ones.</li><li>Step 2: Carry over to the Tens.</li><li>Step 3: Add the Tens.</li></ul>
-          <p class="notes">🎙️ Here are the three simple steps we follow for addition with carrying. Always remember to start from the Ones house, then move to the Tens house. Let's look at each step carefully.</p>
+          <h2>Making a New Ten: <span class="hl">Carrying</span>!</h2>
+          <ul><li>When we have 10 or more Ones,</li><li>We make a new group of ten and 'carry' it to the Tens place.</li></ul>
+          <p class="notes">🎙️ This special action is called 'carrying'. It's like you have 12 candies, you bundle 10 of them together to make one big packet of ten, and the remaining 2 are left as single candies.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Add Ones</span></div><div class="step"><span class="snum">2</span><span>Carry Ten</span></div><div class="step"><span class="snum">3</span><span>Add Tens</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Moving up to the next place</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Step 1: Add the <span class="hl">Ones</span></h2>
-          <ul><li>Always start from the right side.</li><li>Add the numbers in the Ones column first.</li></ul>
-          <p class="notes">🎙️ The first and most important step is to add the numbers that are in the Ones column. This is always where we begin our addition, just like reading from right to left in some languages.</p>
+          <h2>Our Special <span class="hl">Carry Bag</span></h2>
+          <ul><li>Imagine a small bag for our new 'ten'.</li><li>We put the 'ten' in the bag and take it to the Tens column.</li></ul>
+          <p class="notes">🎙️ This carry bag helps us remember to add the new 'ten' when we are adding the numbers in the Tens place. It's a little reminder on top of the Tens column.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Add Ones First</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎒</div><div class="vcap">Carrying a ten</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Step 2: <span class="hl">Carry Over</span> to Tens</h2>
-          <ul><li>If the sum of Ones is 10 or more:</li><li>Write the Ones digit below.</li><li>Carry the '1' (Ten) to the Tens column.</li></ul>
-          <p class="notes">🎙️ If your total in the Ones column is 10 or more, you write the last digit (the Ones digit) in the Ones answer box. Then, you take the '1' (which is actually 1 ten) and write it above the Tens column, ready to be added there.</p>
+          <h2>Story Time: Rohit's <span class="hl">Toy Cars</span>!</h2>
+          <ul><li>Rohit has 15 toy cars.</li><li>His friend gave him 8 more toy cars.</li><li>How many cars does Rohit have in total?</li></ul>
+          <p class="notes">🎙️ Let's help Rohit count his cars! This is a perfect problem for us to use our new 'carrying' skill. We need to find 15 + 8.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👆</div><div class="vcap">Carry Up</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Step 3: Add the <span class="hl">Tens</span></h2>
-          <ul><li>Now, add all numbers in the Tens column.</li><li>Don't forget to add the carried '1'!</li></ul>
-          <p class="notes">🎙️ Finally, move to the Tens column. Add all the numbers there, including the '1' that you carried over from the Ones column. This will give you the complete answer for the Tens place.</p>
+          <h2>Step 1: Write <span class="hl">Neatly</span></h2>
+          <ul><li>Write the numbers one below the other.</li><li>Make sure the Ones are under Ones, and Tens under Tens.</li></ul>
+          <p class="notes">🎙️ Good handwriting helps a lot in maths! Always write your numbers in straight columns. This way, you won't get confused about which numbers to add.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Add All Tens</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Write numbers in columns</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Let's Try One Together! (<span class="hl">25 + 17</span>)</h2>
-          <ul><li>Ones: 5 + 7 = 12.</li><li>Write '2' in the Ones place.</li><li>Carry '1' to the Tens place.</li></ul>
-          <p class="notes">🎙️ Let's do an example together: 25 + 17. First, add the Ones: 5 + 7 makes 12. We write '2' in the Ones answer box, and carry the '1' (which is 1 ten) to the top of the Tens column.</p>
+          <h2>Step 2: Add the <span class="hl">Ones Column</span></h2>
+          <ul><li>First, add the numbers in the Ones place.</li><li>For 15 + 8, add 5 + 8.</li></ul>
+          <p class="notes">🎙️ In our problem, 15 + 8, we add 5 and 8. Counting them together, we get 13. Remember, 13 has '3' ones and '1' ten.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Example Sum</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍓</span><span>🍓</span><span>🍓</span><span>🍓</span><span>🍓</span><span>🍓</span><span>🍓</span><span>🍓</span><span>🍓</span><span>🍓</span></div><div class="vcap">5 + 8 = 13</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Finishing</span> Our Sum (25 + 17)</h2>
-          <ul><li>Tens: 2 + 1 + (carried 1) = 4.</li><li>So, 25 + 17 = 42.</li></ul>
-          <p class="notes">🎙️ Now, let's add the Tens. We have 2 tens, plus 1 ten, plus the 1 ten we carried over. That makes 2 + 1 + 1 = 4 tens. So, our final answer for 25 + 17 is 42. Great job!</p>
+          <h2>Step 3: <span class="hl">Carry the Ten!</span></h2>
+          <ul><li>Write '3' in the Ones place.</li><li>Take the '1' (which is one ten) to the Tens place.</li></ul>
+          <p class="notes">🎙️ Since we have 13, we write the '3' in the Ones column. The '1' from 13 is actually one 'ten'. We carry this '1' to the top of the Tens column.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Solved!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👆</div><div class="vcap">Carry the 1 to Tens column</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Another Example: <span class="hl">Sweets</span>! (38 + 14)</h2>
-          <ul><li>You have 38 delicious sweets.</li><li>Your friend gives you 14 more.</li><li>How many sweets do you have now?</li></ul>
-          <p class="notes">🎙️ Here's another real-life example. Imagine you have 38 yummy sweets, and your friend gives you 14 more. To find out your total, we add 38 and 14 using carrying. Try to do it in your mind or on a paper.</p>
+          <h2>Step 4: Add the <span class="hl">Tens Column</span></h2>
+          <ul><li>Now, add the numbers in the Tens place.</li><li>Don't forget to add the '1' you carried over!</li></ul>
+          <p class="notes">🎙️ In our example, we have '1' in the Tens place from the number 15. And we carried over '1' from the Ones place. So, we add 1 + 1, which gives us 2.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍬</div><div class="vcap">Lots of Sweets!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span></div><div class="vcap">1 ten + 1 carried ten = 2 tens</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">Practice Time</span>! Question 1</h2>
-          <ul><li>Add: 46 + 25</li><li>Remember the steps!</li><li>Start with the Ones.</li></ul>
-          <p class="notes">🎙️ It's practice time! Take out your notebooks and try to solve this problem: 46 + 25. Remember to add the Ones first, then carry if needed, and finally add the Tens.</p>
+          <h2>Rohit Has <span class="hl">23 Cars!</span></h2>
+          <ul><li>So, 15 + 8 = 23.</li><li>Rohit is very happy with his new cars!</li></ul>
+          <p class="notes">🎙️ When we put the 2 (from Tens) and 3 (from Ones) together, we get 23. Great job, everyone! We successfully added two numbers with carrying!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct Answer!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Practice Time</span>! Question 2</h2>
-          <ul><li>Add: 59 + 13</li><li>Be careful with carrying!</li><li>You can do it!</li></ul>
-          <p class="notes">🎙️ Here's another one for you to practice: 59 + 13. Don't forget that little carried number when you add the Tens. Take your time and check your answer.</p>
+          <h2>Let's Practice! <span class="hl">Question 1</span></h2>
+          <ul><li>Add these numbers carefully:</li><li>24 + 17 = ?</li></ul>
+          <p class="notes">🎙️ Now it's your turn to try! Remember the steps: add ones first, carry if needed, then add tens. Take out your notebooks and pencils!</p>
         </div>
         
       </div>
@@ -251,9 +264,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">Practice Time</span>! Question 3</h2>
-          <ul><li>Add: 37 + 28</li><li>Practice makes perfect!</li><li>Show your working.</li></ul>
-          <p class="notes">🎙️ Last practice question for today: 37 + 28. Keep practicing these sums, and soon you'll be a master of addition with carrying. Remember to write down your steps.</p>
+          <h2>Let's Practice! <span class="hl">Question 2</span></h2>
+          <ul><li>Solve this one:</li><li>36 + 25 = ?</li></ul>
+          <p class="notes">🎙️ Another practice question for you. Keep focusing on carrying the 'ten' correctly. You are doing great!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>Let's Practice! <span class="hl">Question 3</span></h2>
+          <ul><li>Last practice question for today:</li><li>58 + 14 = ?</li></ul>
+          <p class="notes">🎙️ One more time, show me your amazing addition skills! This will help you become a super maths whiz. Solve this one carefully.</p>
         </div>
         
       </div>
@@ -262,28 +287,17 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>Why is Carrying <span class="hl">Important</span>?</h2>
-          <ul><li>It helps us add very big numbers.</li><li>Makes maths easy and fun!</li><li>It's used in everyday life.</li></ul>
-          <p class="notes">🎙️ Carrying is a super important skill! It helps us to add numbers that are bigger than 9 in the Ones place, making it possible to solve any addition problem. You'll use this skill a lot, even when you grow up!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strong Math Skills</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>We Learned <span class="hl">Carrying</span>!</h2>
-          <ul><li>Start with Ones.</li><li>Carry over Tens.</li><li>Add the Tens (including carried).</li></ul>
-          <p class="notes">🎙️ Fantastic work, everyone! Today we learned all about addition with carrying. You now know how to handle those 'too many' numbers in the Ones house. Keep practicing, and you'll become a math wizard!</p>
+          <h2>What We <span class="hl">Learned Today!</span></h2>
+          <ul><li>We learned to add two-digit numbers.</li><li>We learned about 'carrying over' a ten.</li><li>Always start adding from the Ones place!</li></ul>
+          <p class="notes">🎙️ You all did a wonderful job today! You are now experts in 'Addition with Carrying'. Keep practicing these sums, and you'll be adding big numbers like a pro!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="⭐" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">New knowledge!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

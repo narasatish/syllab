@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Our School - A Happy Place — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Our School - A <span class="hl">Happy Place</span></h2>
-          <ul><li>Welcome, little learners!</li><li>Let's explore our school!</li><li>It's a place full of joy!</li></ul>
-          <p class="notes">🎙️ Hello, children! Today we are going on a fun adventure to explore our very own school. It's a place where we learn, play, and make many friends.</p>
+          <h2>Welcome to Our <span class="hl">Happy School</span>!</h2>
+          <ul><li>Hello, little learners!</li><li>Today, we will talk about a very special place.</li><li>It is our school, where we learn and play.</li></ul>
+          <p class="notes">🎙️ Good morning, children! I am so excited to start our new chapter today. We are going to explore our school, a place we all love. Let's learn what makes it so special and happy for all of us.</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is a <span class="hl">School</span>?</h2>
-          <ul><li>A school is like our second home.</li><li>It's a special building.</li><li>We come here every day.</li></ul>
-          <p class="notes">🎙️ Think of your school as a big, friendly house where many children come together. It's not just a building, it's a place where we grow.</p>
+          <ul><li>A school is like our second home.</li><li>It is a wonderful place where we come to learn new things.</li><li>We also meet our friends and teachers here.</li></ul>
+          <p class="notes">🎙️ Think of school as a big, friendly house where many children come together. It's not just about books; it's about growing up, making memories, and discovering the world around us. Every day is an adventure here!</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🏫</div><div class="vcap">Our School</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Why do we <span class="hl">go to School</span>?</h2>
-          <ul><li>We come to school to learn new things.</li><li>We read books and write stories.</li><li>We learn to count and solve problems.</li></ul>
-          <p class="notes">🎙️ We come to school to fill our minds with wonderful knowledge. Our teachers help us discover new worlds through books and numbers.</p>
+          <h2>My Favourite Place - The <span class="hl">Classroom</span></h2>
+          <ul><li>Our classroom is where we spend most of our time.</li><li>We sit, read, write, and draw together.</li><li>It is filled with colourful charts and our work.</li></ul>
+          <p class="notes">🎙️ Look around our own classroom right now! This is our special learning space. We share desks, listen to stories, and even play fun learning games here. It's a place where our minds grow with every lesson.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Learning Books</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🧑‍🏫" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Who makes our School <span class="hl">Special</span>?</h2>
-          <ul><li>Many people work in our school.</li><li>They help us learn and stay safe.</li><li>Everyone is important.</li></ul>
-          <p class="notes">🎙️ Our school is like a big family, and many people are part of it. Each person has a special role to play to make our school happy and smooth.</p>
+          <h2>Who <span class="hl">Helps Us Learn</span> in School?</h2>
+          <ul><li>Many people help us in school.</li><li>Our teachers guide us every day.</li><li>The Principal leads our school.</li></ul>
+          <p class="notes">🎙️ It takes many wonderful people to make our school a happy and safe place. From the moment we arrive until we go home, different people are always there to help us. Let's meet some of them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">School Friends</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍🏫</span><span>👨‍🏫</span><span>👨‍🏫</span></div><div class="vcap">Our Helpers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -96,10 +109,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">5 / 20</span>
           <h2>Our Wonderful <span class="hl">Teachers</span></h2>
-          <ul><li>Teachers guide us to learn.</li><li>They teach us good manners.</li><li>They answer our questions.</li></ul>
-          <p class="notes">🎙️ Our teachers are like superheroes! They share their knowledge, help us understand difficult things, and always encourage us to do our best.</p>
+          <ul><li>Teachers are like our guides.</li><li>They teach us to read, write, and count.</li><li>They also teach us good manners and values.</li></ul>
+          <p class="notes">🎙️ Our teachers work very hard to make learning fun and easy for us. They answer our questions, tell us stories, and help us understand new things. We should always respect and listen to our teachers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👩‍🏫</div><div class="vcap">My Teacher</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👩‍🏫</div><div class="vcap">Our Teacher</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Our Dear <span class="hl">Friends</span></h2>
-          <ul><li>We play and share with friends.</li><li>We learn to care for each other.</li><li>Friends make school fun!</li></ul>
-          <p class="notes">🎙️ Friends are like sunshine in our school day. We learn to share our toys, help each other, and have so much fun playing games together.</p>
+          <h2>The <span class="hl">Principal</span> - Our School Leader</h2>
+          <ul><li>The Principal is the head of our school.</li><li>They make sure everything runs smoothly.</li><li>Our Principal cares for all the students and staff.</li></ul>
+          <p class="notes">🎙️ Just like a captain leads a ship, our Principal leads our school. They make important decisions and ensure our school is the best place for us to learn and grow. They are always there to support us.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Bombay_Stock_Exchange.jpg?width=500" data-fb="🤝" alt="Shares of companies are bought and sold at the stock exchange."/><div class="vcap">Shares of companies are bought and sold at the stock exchange.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍💼</div><div class="vcap">School Principal</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Other Helpful People</h2>
-          <ul><li>The Principal leads our school.</li><li>The Librarian helps with books.</li><li>The Guard keeps us safe.</li></ul>
-          <p class="notes">🎙️ Besides teachers and friends, many other people help us every day. Our Principal, the librarian, the guard, and the support staff all work hard for us.</p>
+          <h2><span class="hl">Friends</span> in School - Sharing Joy</h2>
+          <ul><li>School is where we make many friends.</li><li>We play games and share our tiffin with them.</li><li>Friends make school more fun and exciting!</li></ul>
+          <p class="notes">🎙️ Think about your best friend in school. What do you enjoy doing together? Friends teach us about sharing, caring, and working together. They are an important part of our happy school life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🔧</div><div class="vcap">School Staff</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">School Friends</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Our Bright <span class="hl">Classroom</span></h2>
-          <ul><li>This is where we sit and learn.</li><li>We have desks, chairs, and a blackboard.</li><li>We keep it neat and clean.</li></ul>
-          <p class="notes">🎙️ Our classroom is our special learning space. It's where we spend most of our time, listening to our teacher, writing, and doing activities.</p>
+          <h2><span class="hl">Different Rooms</span> in Our School</h2>
+          <ul><li>Our school has many special rooms.</li><li>Each room has a different purpose.</li><li>Let's explore some of them!</li></ul>
+          <p class="notes">🎙️ Our school is not just classrooms! It has many other interesting places where we learn, play, and discover new things. Each room is designed to help us in a special way. Shall we take a tour?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🎓</div><div class="vcap">Learning Here</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚪</div><div class="vcap">School Rooms</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>The Quiet <span class="hl">Library</span></h2>
-          <ul><li>A room full of wonderful books.</li><li>We can read stories and learn facts.</li><li>We must be quiet here.</li></ul>
-          <p class="notes">🎙️ The library is a magical place where stories come alive! We can find books on any topic we like, from fairy tales to science facts. Remember to be quiet!</p>
+          <h2>The School <span class="hl">Library</span> - A World of Books</h2>
+          <ul><li>The library is a quiet place.</li><li>It has many storybooks and learning books.</li><li>We can read and borrow books from here.</li></ul>
+          <p class="notes">🎙️ Imagine a room filled with thousands of stories and facts! That's our library. It's a peaceful place where we can sit and get lost in the magic of books. Remember to be quiet and respectful here.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Story Books</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">School Library</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>The Fun <span class="hl">Playground</span></h2>
-          <ul><li>We play games and run around here.</li><li>Swings, slides, and open space.</li><li>It's time for exercise and fun.</li></ul>
-          <p class="notes">🎙️ After sitting in class, the playground is where we can stretch our legs and have a blast! It's important to play safely and share the equipment.</p>
+          <h2>The Fun <span class="hl">Playground</span> - Let's Play!</h2>
+          <ul><li>The playground is our favourite place to run and jump.</li><li>We play games like hide-and-seek and tag.</li><li>Playing helps us stay fit and happy.</li></ul>
+          <p class="notes">🎙️ Recess time is the best, isn't it? The playground is where we can let out all our energy. We learn important skills like sharing equipment and taking turns while having so much fun with our friends.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚽</div><div class="vcap">Play Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤸</div><div class="vcap">Playground Fun</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>The Caring <span class="hl">Sick Room</span></h2>
-          <ul><li>If we feel unwell, we go here.</li><li>A nurse or teacher helps us.</li><li>We rest until we feel better.</li></ul>
-          <p class="notes">🎙️ Sometimes we might not feel well at school. The sick room is a quiet place where we can rest and get help from an adult until we are ready to go back to class or home.</p>
+          <h2>The <span class="hl">Art Room</span> - Let's Create!</h2>
+          <ul><li>In the art room, we use colours and brushes.</li><li>We draw, paint, and make beautiful crafts.</li><li>It's a place to show our creativity.</li></ul>
+          <p class="notes">🎙️ Do you love drawing and painting? The art room is where our imaginations come to life! We can express ourselves through colours and shapes, creating unique masterpieces. It's a very joyful place.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🩹</div><div class="vcap">Feel Better</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎨</div><div class="vcap">Art &amp; Craft</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>The Teachers' <span class="hl">Staff Room</span></h2>
-          <ul><li>Where our teachers relax and prepare.</li><li>They plan lessons and talk to each other.</li><li>It's a special room for them.</li></ul>
-          <p class="notes">🎙️ The staff room is a place where our teachers can take a short break, discuss lessons, and prepare for their classes. It's their special space in the school.</p>
+          <h2>How Do We <span class="hl">Keep Our School Clean</span>?</h2>
+          <ul><li>A clean school is a happy school.</li><li>We must always throw waste in the dustbin.</li><li>We should not litter on the floor or walls.</li></ul>
+          <p class="notes">🎙️ Just like we keep our homes clean, we must keep our school clean too. It's everyone's responsibility! When our school is clean, it feels fresh, healthy, and more pleasant for everyone to learn and play in.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☕</div><div class="vcap">Teachers' Break</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧹</div><div class="vcap">Keeping Clean</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>The <span class="hl">Principal's Office</span></h2>
-          <ul><li>Our Principal works from this office.</li><li>They manage the whole school.</li><li>It's an important place.</li></ul>
-          <p class="notes">🎙️ The Principal is like the head of our school family. They make sure everything runs smoothly, from teaching to events, and they work from their office.</p>
+          <h2>Why is School <span class="hl">Important</span> for Us?</h2>
+          <ul><li>School helps us learn new things every day.</li><li>It teaches us good habits and manners.</li><li>We grow into smart and responsible children here.</li></ul>
+          <p class="notes">🎙️ School is like a garden where we all grow. It helps us prepare for the future, teaching us skills we will use our whole lives. It's where we become better people and good citizens.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍💼</div><div class="vcap">Principal's Desk</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Growing Up</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Our Important <span class="hl">School Rules</span></h2>
-          <ul><li>Rules help us stay safe.</li><li>Rules help us learn better.</li><li>Rules make school fair for everyone.</li></ul>
-          <p class="notes">🎙️ Just like games have rules, our school has rules too. They are there to keep us safe, help us learn without disturbance, and ensure everyone is treated fairly.</p>
+          <h2><span class="hl">Rules</span> of Our School</h2>
+          <ul><li>Rules help us stay safe and organised.</li><li>We must come to school on time.</li><li>Always listen to our teachers and be polite.</li></ul>
+          <p class="notes">🎙️ Rules are like helpful guidelines. They ensure that everyone is treated fairly and that our school runs smoothly. Following rules makes school a better and safer place for all of us.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚦</div><div class="vcap">Follow Rules</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=420" data-fb="📝" alt="Our body has many organs working together."/><div class="vcap">Our body has many organs working together.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Keeping Our School <span class="hl">Clean</span></h2>
-          <ul><li>We must keep our school tidy.</li><li>Use dustbins for waste.</li><li>A clean school is a healthy school.</li></ul>
-          <p class="notes">🎙️ Our school is beautiful, and it's our job to keep it that way. Always throw rubbish in the dustbin and help keep our classrooms and surroundings neat.</p>
+          <h2><span class="hl">Being Kind</span> to Everyone</h2>
+          <ul><li>Kindness makes our school a happy place.</li><li>Share your things and help your friends.</li><li>Use polite words like 'please' and 'thank you'.</li></ul>
+          <p class="notes">🎙️ Kindness is a superpower! When we are kind to our friends, teachers, and all staff, we spread happiness. A kind word or a helping hand can make a big difference in someone's day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧹</div><div class="vcap">Clean School</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Be Kind</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Caring for School <span class="hl">Property</span></h2>
-          <ul><li>School things belong to everyone.</li><li>Do not break or damage anything.</li><li>Treat everything with care.</li></ul>
-          <p class="notes">🎙️ The desks, chairs, books, and playground equipment are for all of us to use. We must be careful with them and not damage anything, so others can use them too.</p>
+          <h2>Quick Question 1: Who <span class="hl">teaches us</span> in school?</h2>
+          <ul><li>Think about the people who help you learn new things every day.</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the different people we discussed. Who is the person who stands in front of the class and guides you through your lessons? Shout out your answer!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Take Care</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Check!</span></h2>
-          <ul><li>Who helps you learn new things in school?</li><li>A) The Sweeper</li><li>B) Your Teacher</li><li>C) The Guard</li></ul>
-          <p class="notes">🎙️ Let's see how much you remember! Think about who spends time teaching you every day. Choose the best answer.</p>
+          <h2>Quick Question 2: Where do you <span class="hl">read books</span> in school?</h2>
+          <ul><li>Remember the special quiet room with many stories.</li></ul>
+          <p class="notes">🎙️ Imagine yourself looking for a new adventure in a book. Which room in our school is filled with shelves of books just waiting to be read? Where do we go to borrow books?</p>
         </div>
         
       </div>
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Check!</span></h2>
-          <ul><li>Where do you go to read storybooks?</li><li>A) The Playground</li><li>B) The Sick Room</li><li>C) The Library</li></ul>
-          <p class="notes">🎙️ Imagine you want to find a new adventure story. Which special room in school would you visit for that?</p>
+          <h2>Quick Question 3: Why should we <span class="hl">keep our school clean</span>?</h2>
+          <ul><li>Think about how a clean place makes you feel.</li></ul>
+          <p class="notes">🎙️ Why is it important not to throw litter and to keep our surroundings tidy? What are the benefits of having a clean and organised school environment for everyone?</p>
         </div>
         
       </div>
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Check!</span></h2>
-          <ul><li>Why do we have school rules?</li><li>A) To make noise</li><li>B) To stay safe</li><li>C) To waste time</li></ul>
-          <p class="notes">🎙️ Think about why rules are important, not just in school but everywhere. What is the main reason for having them?</p>
+          <h2>Recap: Our <span class="hl">Happy School Journey</span>!</h2>
+          <ul><li>Our school is a place to learn, grow, and play.</li><li>Teachers, Principal, and friends make it special.</li><li>We have fun rooms like the library and playground.</li><li>Let's always keep our school clean and follow rules.</li></ul>
+          <p class="notes">🎙️ Today, we explored all the wonderful things that make our school a happy place. From learning new things to making friends, every part of our school helps us become better. Let's cherish our school!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Our School - A Happy Place (<span class="hl">Recap</span>)</h2>
-          <ul><li>School is our second home.</li><li>Many people make it special.</li><li>Different rooms for different activities.</li></ul>
-          <p class="notes">🎙️ We learned that our school is a wonderful place where we learn, play, and grow. Everyone, from teachers to friends, helps make it a happy and safe environment. Let's always cherish our school!</p>
+          <h2><span class="hl">Thank You</span> for Learning with Me!</h2>
+          <ul><li>Hope you enjoyed learning about our school.</li><li>Let's continue to make our school a happy place!</li><li>See you in the next lesson!</li></ul>
+          <p class="notes">🎙️ It was lovely sharing this journey with you all. Remember, our school is a community, and each one of us plays a part in making it happy and successful. Keep smiling and keep learning!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🙏</div><div class="vcap">Thank You</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

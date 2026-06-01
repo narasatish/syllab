@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Beyond Earth — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Beyond Earth: Exploring Our Universe — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to "Beyond <span class="hl">Earth</span>"!</h2>
-          <ul><li>Journey into space</li><li>Discover wonders</li><li>Our cosmic home</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey far beyond our planet. Get ready to explore the mysteries and marvels of the universe that surround us.</p>
+          <h2>Welcome to "<span class="hl">Beyond Earth</span>"!</h2>
+          <ul><li>Embark on an exciting journey.</li><li>Discover the wonders of space.</li><li>Explore stars, planets, and galaxies.</li></ul>
+          <p class="notes">🎙️ Namaste, young explorers! Today, we're taking off on an incredible adventure, far beyond our planet. Get ready to discover the amazing secrets of the universe!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What Do We See in the <span class="hl">Night Sky</span>?</h2>
-          <ul><li>Twinkling stars</li><li>Bright Moon</li><li>Occasional planets</li></ul>
-          <p class="notes">🎙️ When the Sun sets, a magnificent display unfolds above us. We see countless tiny points of light and often a bright, glowing orb, which is the Moon.</p>
+          <h2>What is the <span class="hl">Universe</span>?</h2>
+          <ul><li>Everything that exists, from tiny atoms to giant galaxies.</li><li>It includes all matter, energy, space, and time.</li><li>Vast, mysterious, and constantly expanding.</li></ul>
+          <p class="notes">🎙️ The Universe is simply everything! Imagine the biggest thing you can think of, and then multiply it by infinity – that's the Universe. It holds countless wonders.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Twinkling Stars</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌌</div><div class="vcap">Vastness of Space</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Stars</span>: Distant Suns</h2>
-          <ul><li>Huge balls of hot gas</li><li>Produce their own light and heat</li><li>Look small due to vast distance</li></ul>
-          <p class="notes">🎙️ Stars are actually giant furnaces, much like our own Sun, but much farther away. They appear tiny because they are incredibly distant from Earth, millions of light-years sometimes.</p>
+          <h2><span class="hl">Building Blocks</span> of the Universe</h2>
+          <ul><li>Galaxies: Huge collections of stars, gas, and dust.</li><li>Stars: Giant balls of hot, glowing gas.</li><li>Planets: Celestial bodies orbiting stars.</li><li>Moons, Asteroids, Comets: Other fascinating objects.</li></ul>
+          <p class="notes">🎙️ Just like a building is made of bricks, the Universe is made of different parts. Galaxies are like cities of stars, and within them, we find stars, planets, and many other objects.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Like Our Sun</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Many cosmic components</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Constellations</span>: Star Patterns</h2>
-          <ul><li>Groups of stars</li><li>Form recognizable shapes</li><li>Named after animals, myths, objects</li></ul>
-          <p class="notes">🎙️ Imagine connecting the dots in the sky! Ancient people did this and saw patterns, calling them constellations. One famous example is Ursa Major, also known as the Big Dipper or Saptarishi in India.</p>
+          <h2><span class="hl">Galaxies</span> - Cosmic Islands</h2>
+          <ul><li>Massive systems of stars, gas, dust, and dark matter.</li><li>Held together by gravity.</li><li>Can contain billions to trillions of stars.</li></ul>
+          <p class="notes">🎙️ Think of galaxies as enormous islands in the vast ocean of space. Each island has billions of stars, and they come in different shapes, like spirals or ovals.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Ursa Major (Big Dipper)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌠</div><div class="vcap">Stars in a galaxy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>The <span class="hl">Moon</span>: Earth's Celestial Companion</h2>
-          <ul><li>Earth's only natural satellite</li><li>Orbits our planet</li><li>Reflects sunlight, doesn't produce its own light</li></ul>
-          <p class="notes">🎙️ The Moon is our closest neighbour in space, constantly circling around Earth. It shines so brightly because it acts like a mirror, reflecting the Sun's light towards us.</p>
+          <h2>Our Home Galaxy: The <span class="hl">Milky Way</span></h2>
+          <ul><li>The galaxy where our Solar System resides.</li><li>It's a spiral galaxy.</li><li>Looks like a milky band of light across the night sky.</li></ul>
+          <p class="notes">🎙️ Our Earth, our Sun, and all the planets are part of a huge galaxy called the Milky Way. On a very dark night, you might even see a faint, cloudy band of light across the sky – that's our galaxy!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌕</div><div class="vcap">Earth's Satellite</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Planets2013.svg?width=500" data-fb="🌀" alt="The solar system consists of the Sun and eight planets (Mercury, Venus, Earth, Mars, Jupit"/><div class="vcap">The solar system consists of the Sun and eight planets (Mercury, Venus, Earth, Mars, Jupit</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Phases</span> of the Moon: Changing Shapes</h2>
-          <ul><li>Moon's appearance changes</li><li>Depends on how much sunlight we see</li><li>Occurs over about a month</li></ul>
-          <p class="notes">🎙️ Have you noticed the Moon looking different on various nights? These are called phases, and they happen as the Moon orbits Earth, changing how much of its sunlit side we can observe.</p>
+          <h2><span class="hl">Stars</span> - Twinkling Lights</h2>
+          <ul><li>Giant balls of very hot, glowing gases.</li><li>They produce their own light and heat.</li><li>Our Sun is a star, but appears bigger because it's closer.</li></ul>
+          <p class="notes">🎙️ Stars are like gigantic cosmic furnaces! They burn incredibly hot and shine brightly, giving off light and heat. The 'twinkling' we see is actually due to Earth's atmosphere.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>New Moon</span></div><div class="step"><span class="snum">2</span><span>Crescent Moon</span></div><div class="step"><span class="snum">3</span><span>Half Moon</span></div><div class="step"><span class="snum">4</span><span>Full Moon</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭐</div><div class="vcap">A shining star</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Full Moon</span> and New Moon</h2>
-          <ul><li>Full Moon: Entire side visible</li><li>New Moon: Not visible from Earth</li><li>Cycle repeats every ~29.5 days</li></ul>
-          <p class="notes">🎙️ The Full Moon is when we see the entire illuminated face. The New Moon is when the Moon is between the Sun and Earth, appearing invisible from our perspective. This cycle repeats approximately every month.</p>
+          <h2>The <span class="hl">Sun</span> - Our Life-Giver Star</h2>
+          <ul><li>The closest star to Earth.</li><li>Provides light, heat, and energy essential for life.</li><li>Much larger than Earth, but looks small from far away.</li></ul>
+          <p class="notes">🎙️ The Sun is the most important star for us! Without its warmth and light, life on Earth wouldn't be possible. It's a massive star, but appears as a small disc because it's millions of kilometers away.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Full Moon</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">New Moon</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Hertzsprung-Russell_diagram_en.svg?width=500" data-fb="☀️" alt="Stars form from gas clouds and evolve over billions of years. Protostar → Main Sequence (y"/><div class="vcap">Stars form from gas clouds and evolve over billions of years. Protostar → Main Sequence (y</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>The <span class="hl">Solar System</span>: Our Cosmic Home</h2>
-          <ul><li>Sun, planets, moons, asteroids, comets</li><li>All orbit the Sun</li><li>Held together by gravity</li></ul>
-          <p class="notes">🎙️ Our Solar System is like a cosmic family, with the Sun as its powerful parent. Everything in it, from tiny dust particles to giant planets, is bound together by the Sun's strong gravitational pull.</p>
+          <h2>The <span class="hl">Solar System</span> - Our Cosmic Neighbourhood</h2>
+          <ul><li>Consists of the Sun, eight planets, moons, asteroids, and comets.</li><li>All celestial bodies orbit the Sun.</li><li>Held together by the Sun's strong gravitational pull.</li></ul>
+          <p class="notes">🎙️ Our Solar System is like a family, with the Sun as the parent and all the planets and other objects as its children, orbiting around it. Gravity keeps everything in its place.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Planets2013.svg?width=500" data-fb="🪐" alt="The solar system consists of the Sun and eight planets (Mercury, Venus, Earth, Mars, Jupit"/><div class="vcap">The solar system consists of the Sun and eight planets (Mercury, Venus, Earth, Mars, Jupit</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪐</div><div class="vcap">A solar system</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>The <span class="hl">Sun</span>: Our Star</h2>
-          <ul><li>Center of our Solar System</li><li>Gaseous, extremely hot</li><li>Provides light and heat for Earth</li></ul>
-          <p class="notes">🎙️ The Sun is the most important object in our Solar System. It's a massive ball of fire that gives us the warmth and light essential for life to thrive on Earth.</p>
+          <h2>Eight Amazing Planets</h2>
+          <ul><li>Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.</li><li>Each planet has unique characteristics.</li><li>They orbit the Sun in elliptical paths.</li></ul>
+          <p class="notes">🎙️ We have eight wonderful planets in our Solar System, each with its own story! From the closest to the Sun to the farthest, they all dance around our central star.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌞</div><div class="vcap">Life-giving Star</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span></div><div class="vcap">Eight planets</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Planets</span>: Orbiting Worlds</h2>
-          <ul><li>Large celestial bodies</li><li>Orbit the Sun in fixed paths (orbits)</li><li>Do not produce their own light</li></ul>
-          <p class="notes">🎙️ Planets are like Earth, but they vary greatly in size and composition. They follow specific paths around the Sun, always moving in the same direction, reflecting the Sun's light.</p>
+          <h2><span class="hl">Inner Planets</span> - The Rocky Crew</h2>
+          <ul><li>Mercury, Venus, Earth, Mars.</li><li>Closer to the Sun, smaller in size.</li><li>Primarily made of rock and metal.</li></ul>
+          <p class="notes">🎙️ The four planets closest to the Sun are called inner planets. They are generally smaller and have solid, rocky surfaces, much like our Earth.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span><span>🌎</span></div><div class="vcap">Eight Major Planets</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Earth</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Mars</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Venus</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Mercury</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,21 +180,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Inner Planets</span>: Rocky Worlds</h2>
-          <ul><li>Mercury, Venus, Earth, Mars</li><li>Closer to the Sun</li><li>Mostly solid, rocky surfaces</li></ul>
-          <p class="notes">🎙️ These four planets are called terrestrial planets because they have solid, rocky surfaces, similar to Earth. They are also much smaller and denser than their outer counterparts.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Mercury</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Venus</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Earth</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Mars</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Outer Planets</span>: Gas Giants</h2>
-          <ul><li>Jupiter, Saturn, Uranus, Neptune</li><li>Farther from the Sun</li><li>Mostly made of gases (hydrogen, helium)</li></ul>
-          <p class="notes">🎙️ These are the giants of our Solar System, primarily composed of gases with no solid surface. They are much colder and have ring systems, unlike the inner planets.</p>
+          <h2><span class="hl">Outer Planets</span> - The Gas Giants</h2>
+          <ul><li>Jupiter, Saturn, Uranus, Neptune.</li><li>Farther from the Sun, much larger.</li><li>Composed mainly of gas (hydrogen, helium) and ice.</li></ul>
+          <p class="notes">🎙️ Beyond the inner planets are the mighty gas giants! These planets are enormous and don't have solid surfaces like Earth; they are mostly made of swirling gases.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Jupiter</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Saturn</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Uranus</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Neptune</div></div></div></div>
       </div>
@@ -190,12 +191,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>Earth: Our <span class="hl">Unique Home</span></h2>
-          <ul><li>Only known planet with liquid water</li><li>Atmosphere supports life</li><li>Perfect distance from the Sun</li></ul>
-          <p class="notes">🎙️ Earth is truly special! It's the only place we know of that has the perfect conditions, like liquid water and a breathable atmosphere, to support life as we know it.</p>
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Earth</span> - Our Blue Marble</h2>
+          <ul><li>The only known planet to support life.</li><li>Has liquid water, a suitable atmosphere, and moderate temperatures.</li><li>Often called the 'Blue Planet' due to its oceans.</li></ul>
+          <p class="notes">🎙️ Earth is truly special! It's the only place we know of in the entire Universe where life thrives. Its unique conditions, like water and air, make it our perfect home.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">The Blue Planet</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>The <span class="hl">Moon</span> - Earth's Companion</h2>
+          <ul><li>Earth's only natural satellite.</li><li>Orbits Earth, taking about 27 days to complete one revolution.</li><li>Has no light of its own; reflects sunlight.</li></ul>
+          <p class="notes">🎙️ Our Moon is Earth's loyal companion, constantly orbiting around us. It doesn't produce its own light, but we see it shine because it reflects the Sun's light.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌕</div><div class="vcap">Full Moon</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Asteroids</span>: Rocky Remnants</h2>
-          <ul><li>Small, rocky objects</li><li>Orbit the Sun, mostly in asteroid belt</li><li>Leftovers from solar system formation</li></ul>
-          <p class="notes">🎙️ Imagine tiny planets that never quite formed! Asteroids are like cosmic rubble, mostly found in a belt between Mars and Jupiter, constantly orbiting the Sun.</p>
+          <h2><span class="hl">Phases</span> of the Moon</h2>
+          <ul><li>The different shapes of the Moon we see from Earth.</li><li>Caused by the changing angles of sunlight on its surface.</li><li>Cycles from New Moon to Full Moon and back.</li></ul>
+          <p class="notes">🎙️ Have you ever noticed how the Moon changes shape in the sky? These are called phases, and they happen because we see different amounts of the Moon lit by the Sun as it orbits Earth.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span></div><div class="vcap">Asteroid Belt</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>New Moon</span></div><div class="step"><span class="snum">2</span><span>Crescent</span></div><div class="step"><span class="snum">3</span><span>First Quarter</span></div><div class="step"><span class="snum">4</span><span>Gibbous</span></div><div class="step"><span class="snum">5</span><span>Full Moon</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Meteors and Meteorites: <span class="hl">Shooting Stars</span></h2>
-          <ul><li>Meteor: Rock burning in atmosphere</li><li>Meteorite: Rock that reaches Earth's surface</li><li>Often seen at night</li></ul>
-          <p class="notes">🎙️ When a small piece of rock enters Earth's atmosphere, it burns up due to friction, creating a bright streak of light we call a 'shooting star' or meteor. If it survives and hits the ground, it's a meteorite.</p>
+          <h2><span class="hl">Other Celestial Bodies</span></h2>
+          <ul><li>Apart from planets and moons, space has many other objects.</li><li>Asteroids: Rocky fragments.</li><li>Meteors: 'Shooting stars'.</li><li>Comets: Icy bodies with tails.</li></ul>
+          <p class="notes">🎙️ Our Solar System isn't just about planets and moons! There are many other fascinating objects, like rocky asteroids, streaking meteors, and beautiful comets, each with its own story.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☄️</div><div class="vcap">Falling Star</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☄️</div><div class="vcap">Comet</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,21 +240,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Comets</span>: Icy Visitors</h2>
-          <ul><li>Balls of ice, dust, and rock</li><li>Develop a tail when near the Sun</li><li>Have very elliptical orbits</li></ul>
-          <p class="notes">🎙️ Comets are like dirty snowballs from the outer reaches of our Solar System. As they get closer to the Sun, the ice melts and forms a beautiful, glowing tail that points away from the Sun.</p>
+          <h2><span class="hl">Asteroids</span> - Space Rocks</h2>
+          <ul><li>Small, rocky objects orbiting the Sun.</li><li>Most are found in the Asteroid Belt between Mars and Jupiter.</li><li>Vary in size from pebbles to hundreds of kilometers wide.</li></ul>
+          <p class="notes">🎙️ Asteroids are like giant space rocks, left over from the formation of our Solar System. Most of them hang out together in a 'belt' between Mars and Jupiter.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💫</div><div class="vcap">Comet with a Tail</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span></div><div class="vcap">Asteroid rocks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Meteors</span> and Meteorites - Shooting Stars</h2>
+          <ul><li>Meteor: A streak of light when a space rock enters Earth's atmosphere.</li><li>Often called a 'shooting star'.</li><li>Meteorite: A meteor that survives the burn and hits Earth's surface.</li></ul>
+          <p class="notes">🎙️ When a small piece of space rock burns up in our atmosphere, it creates a bright streak we call a meteor. If it's big enough to survive and land on Earth, it's called a meteorite.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Burning meteor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Comets</span> - Icy Visitors</h2>
+          <ul><li>Balls of ice, dust, and rock.</li><li>Develop a glowing 'tail' when they get close to the Sun.</li><li>Their tails always point away from the Sun due to solar wind.</li></ul>
+          <p class="notes">🎙️ Comets are often called 'dirty snowballs' because they are made of ice and dust. As they get closer to the Sun, the ice melts and forms a beautiful, long tail that always points away from the Sun.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💫</div><div class="vcap">Comet with tail</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>1. What makes stars appear small?</li><li>2. Name two inner planets.</li><li>3. What is a meteor?</li></ul>
-          <p class="notes">🎙️ Let's see how much you've absorbed so far! Take a moment to think about these questions. We'll discuss the answers shortly, so be ready.</p>
+          <span class="num">19 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1</h2>
+          <ul><li>Which is our home galaxy?</li><li>Name the inner planets.</li><li>What causes the phases of the Moon?</li></ul>
+          <p class="notes">🎙️ Let's see how much we've learned so far! Take a moment to think about these questions. Don't worry if you don't know all the answers, we'll discuss them.</p>
         </div>
         
       </div>
@@ -250,36 +287,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2><span class="hl">Galaxies</span>: Island Universes</h2>
-          <ul><li>Huge collections of stars, gas, dust</li><li>Held together by gravity</li><li>Our galaxy is the Milky Way</li></ul>
-          <p class="notes">🎙️ Beyond our Solar System, there are billions of stars grouped together in massive structures called galaxies. Our Sun and everything in our Solar System are part of the Milky Way galaxy.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌌</div><div class="vcap">Millions of Stars</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">19 / 25</span>
-          <h2>The <span class="hl">Universe</span>: Everything!</h2>
-          <ul><li>All of space and time</li><li>All matter and energy</li><li>Contains billions of galaxies</li></ul>
-          <p class="notes">🎙️ The Universe is the biggest thing we can imagine – it encompasses absolutely everything that exists! It's constantly expanding, and its true size is beyond our comprehension.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Vastness of the Universe</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Exploring Space: Why Do We Go?</h2>
-          <ul><li>To understand our origins</li><li>To search for other life</li><li>To develop new technologies</li></ul>
-          <p class="notes">🎙️ Exploring space isn't just for fun; it helps us answer fundamental questions about where we came from and if we are alone. It also leads to amazing inventions that benefit us on Earth.</p>
+          <h2><span class="hl">Space Exploration</span> - Reaching for the Stars</h2>
+          <ul><li>Using technology to explore space and celestial bodies.</li><li>Helps us understand the Universe and our place in it.</li><li>Involves spacecraft, telescopes, and satellites.</li></ul>
+          <p class="notes">🎙️ Humans have always been curious about what lies beyond Earth. Space exploration is our way of sending machines and even people to discover new things and expand our knowledge of the cosmos.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Space Exploration</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Rocket launch</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Space Missions: <span class="hl">Indian</span> Contributions</h2>
-          <ul><li>ISRO: Indian Space Research Organisation</li><li>Chandrayaan: India's lunar missions</li><li>Mangalyaan: India's Mars Orbiter Mission</li></ul>
-          <p class="notes">🎙️ India has a proud history in space exploration! ISRO has launched successful missions like Chandrayaan to the Moon and Mangalyaan to Mars, showcasing our scientific capabilities to the world.</p>
+          <h2>Artificial <span class="hl">Satellites</span> - Our Eyes in Space</h2>
+          <ul><li>Man-made objects launched into orbit around Earth.</li><li>Used for communication (TV, phone, internet).</li><li>Help with weather forecasting, navigation (GPS), and scientific research.</li></ul>
+          <p class="notes">🎙️ Artificial satellites are like our helpers in space! They orbit Earth and do many important jobs, from letting us watch TV and make phone calls to predicting the weather and helping us find our way with GPS.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Proud Indian Space</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📡</div><div class="vcap">Satellite dish</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Astronauts</span>: Space Voyagers</h2>
-          <ul><li>People trained to travel in space</li><li>Live and work in zero gravity</li><li>Perform experiments and repairs</li></ul>
-          <p class="notes">🎙️ Astronauts are brave individuals who venture into space. They undergo rigorous training to adapt to the unique environment of space and conduct vital research for humanity.</p>
+          <h2><span class="hl">India's Space Journey</span> - ISRO</h2>
+          <ul><li>Indian Space Research Organisation (ISRO) is India's space agency.</li><li>Known for cost-effective and successful missions.</li><li>Notable missions: Chandrayaan (Moon), Mangalyaan (Mars).</li></ul>
+          <p class="notes">🎙️ India has made incredible contributions to space exploration! ISRO is our national space agency, and they have achieved amazing feats, like sending missions to the Moon and Mars, making us very proud.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🚀</div><div class="vcap">Space Explorers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Indian Flag</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,9 +324,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>1. What is our galaxy called?</li><li>2. Name one reason to explore space.</li><li>3. What is ISRO?</li></ul>
-          <p class="notes">🎙️ Another quick check to reinforce our learning! Think about these questions, and we'll review them together to ensure everyone understands the concepts.</p>
+          <h2>Quick <span class="hl">Check</span> 2</h2>
+          <ul><li>What is a 'shooting star'?</li><li>Name two uses of artificial satellites.</li><li>Which Indian agency explores space?</li></ul>
+          <p class="notes">🎙️ Time for another quick check! These questions cover some of the new concepts we just discussed. Think about the answers and we'll go over them together.</p>
         </div>
         
       </div>
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Our Journey Beyond Earth</h2>
-          <ul><li>We saw stars, constellations, Moon phases</li><li>Explored Sun, planets, asteroids, comets</li><li>Understood galaxies and the Universe</li></ul>
-          <p class="notes">🎙️ We've covered a vast amount of information today, from the stars twinkling above to the far reaches of the Universe. Remember the key celestial bodies and their characteristics that make our cosmos so amazing.</p>
+          <h2><span class="hl">Recap</span> - Our Cosmic Journey</h2>
+          <ul><li>The Universe is vast, containing galaxies, stars, and planets.</li><li>Our Solar System has 8 planets orbiting the Sun.</li><li>Earth is unique, supporting life.</li><li>Space exploration helps us learn more.</li></ul>
+          <p class="notes">🎙️ We've covered so much today! From the tiny dust particles to the enormous galaxies, the Universe is full of wonders. Remember, our Earth is a special place in this vast cosmos.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>What's <span class="hl">Next</span>?</h2>
-          <ul><li>Keep observing the night sky!</li><li>Read more about space exploration</li><li>Ask questions and stay curious!</li></ul>
-          <p class="notes">🎙️ The universe is full of endless wonders! I encourage you all to continue looking up, asking questions, and learning more about the incredible world beyond Earth. Our journey of discovery never ends!</p>
+          <h2>Beyond Earth - <span class="hl">What Next?</span></h2>
+          <ul><li>Keep observing the night sky!</li><li>Read more about space and astronomy.</li><li>Who knows, maybe one of you will be a future astronaut or space scientist!</li></ul>
+          <p class="notes">🎙️ The journey of discovery never truly ends. Look up at the stars tonight and remember all the amazing things we discussed. Keep your curiosity alive, and who knows what you might discover!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

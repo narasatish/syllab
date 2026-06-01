@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Place Value — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to Our <span class="hl">Place Value</span> Adventure!</h2>
-          <ul><li>Hello, little explorers!</li><li>Today, we're learning a secret code for numbers.</li></ul>
-          <p class="notes">🎙️ Hello, little explorers! Today, we're going on an exciting adventure to learn about something called 'Place Value.' It's like a secret code that helps us understand numbers better!</p>
+          <h2>Welcome to "<span class="hl">Place Value</span>" Adventure!</h2>
+          <ul><li>Let's explore numbers together!</li><li>It's like finding a special 'home' for each number part.</li></ul>
+          <p class="notes">🎙️ Hello, young mathematicians! Today, we're going on an exciting adventure to learn about 'Place Value'. It's a super important idea that helps us understand numbers better.</p>
         </div>
         
       </div>
@@ -59,9 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What is a <span class="hl">Digit</span>?</h2>
-          <ul><li>Digits are like tiny building blocks of numbers.</li><li>They are 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9.</li></ul>
-          <p class="notes">🎙️ Imagine you're building a tower. Digits are the individual bricks! We only have ten special digits, from zero to nine, that we use to make all numbers.</p>
+          <h2>What are <span class="hl">Numbers</span>?</h2>
+          <ul><li>Numbers help us count things.</li><li>We use them every day!</li></ul>
+          <p class="notes">🎙️ Remember how we count our fingers, toys, or even cookies? Numbers are like magic tools that help us do that! We see numbers everywhere, like on clocks or bus numbers.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Numbers</span> are Made of Digits</h2>
-          <ul><li>We use digits to make all the numbers we know.</li><li>Like 1 and 2 make the number 12!</li></ul>
-          <p class="notes">🎙️ Just like letters make words, digits come together to make numbers. When you see numbers like 5, 10, or 23, they are all made from these simple digits.</p>
+          <h2>Let's <span class="hl">Count</span> Together!</h2>
+          <ul><li>How many balloons do you see?</li><li>Counting helps us know 'how much'.</li></ul>
+          <p class="notes">🎙️ Look at these colorful balloons! Let's count them together. One, two, three, four, five, six, seven! We have seven balloons. Counting is the first step to understanding numbers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📝</span><span>📝</span><span>📝</span></div><div class="vcap">Digits combine to make numbers!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Seven Balloons</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Meet Our First Friend: <span class="hl">Ones Place</span></h2>
-          <ul><li>Every number has a special 'place' for its digits.</li><li>The first place from the right is called the 'Ones Place'.</li></ul>
-          <p class="notes">🎙️ Imagine numbers are standing in a line. The digit at the very end, on the right side, is in the Ones Place. It's the simplest place and tells us about single items.</p>
+          <h2>What is <span class="hl">Place Value</span>?</h2>
+          <ul><li>Each digit in a number has a special place.</li><li>This place tells us its value.</li></ul>
+          <p class="notes">🎙️ Imagine numbers living in special houses. Each room in the house is a 'place', and depending on which room a digit lives in, its 'value' changes! This is what Place Value is all about.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Starting from the right!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Number Homes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Let's See <span class="hl">Ones Place</span>!</h2>
-          <ul><li>If you have 5 candies, the digit '5' is in the Ones Place.</li><li>It just means 5 single candies.</li></ul>
-          <p class="notes">🎙️ Look at these yummy candies! There are 5 of them. The number 5 shows us how many single candies we have. So, 5 is in the Ones Place, meaning 5 units.</p>
+          <h2>Meet the <span class="hl">Ones Place</span>!</h2>
+          <ul><li>The first place from the right is the Ones place.</li><li>It's for single things, like 1, 2, 3...</li></ul>
+          <p class="notes">🎙️ The Ones place is like the smallest room in the number house. It holds single items. If you have 4 stars, they all live in the Ones place because there are less than ten.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">5 Candies</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">Four Stars (Ones)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Meet Our Second Friend: <span class="hl">Tens Place</span></h2>
-          <ul><li>The place next to the Ones Place (on its left) is the 'Tens Place'.</li><li>It tells us how many groups of ten we have.</li></ul>
-          <p class="notes">🎙️ If you move one step to the left from the Ones Place, you find the Tens Place. This place is very important because it helps us count bigger numbers faster!</p>
+          <h2>Meet the <span class="hl">Tens Place</span>!</h2>
+          <ul><li>The second place from the right is the Tens place.</li><li>It's for groups of ten.</li></ul>
+          <p class="notes">🎙️ Now, if you have ten things, they don't fit in the Ones place anymore! They form a 'group of ten' and move to the Tens place. The Tens place is for these special groups.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬅️</div><div class="vcap">Next to Ones Place!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Ten Apples (One Ten)</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Let's See <span class="hl">Tens Place</span>!</h2>
-          <ul><li>If you have 10 pencils, that's one group of ten.</li><li>So, the digit '1' goes in the Tens Place.</li></ul>
-          <p class="notes">🎙️ Imagine tying 10 pencils together. That's one bundle! The digit '1' in the Tens Place tells us we have one such bundle of ten, which has a value of 10.</p>
+          <h2><span class="hl">Number 7</span>: Only Ones</h2>
+          <ul><li>The number 7 means 7 single items.</li><li>It only has a digit in the Ones place.</li></ul>
+          <p class="notes">🎙️ Look at these yummy cookies! If you have 7 cookies, you just count them one by one. There are no groups of ten. So, the digit '7' is in the Ones place.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">1 Group of 10 Pencils</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span><span>🍪</span></div><div class="vcap">Seven Cookies</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Tens and Ones Work <span class="hl">Together</span>!</h2>
-          <ul><li>Numbers like 12, 25, or 30 have both Tens and Ones.</li><li>Tens tell us bundles, Ones tell us singles.</li></ul>
-          <p class="notes">🎙️ Most numbers you see everyday have digits in both the Tens and Ones places. They team up to tell us how big a number is by showing groups of ten and single units.</p>
+          <h2><span class="hl">Number 10</span>: One Ten and Zero Ones</h2>
+          <ul><li>Ten single items make one group of Ten.</li><li>So, 10 has '1' in the Tens place and '0' in the Ones place.</li></ul>
+          <p class="notes">🎙️ What happens when we have 10 lollipops? We can tie them together to make one big bunch! This bunch is 'one ten'. Since there are no single lollipops left, we write '0' in the Ones place.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tens</div></div><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Ones</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍭</span><span>🍭</span><span>🍭</span><span>🍭</span><span>🍭</span><span>🍭</span><span>🍭</span><span>🍭</span><span>🍭</span><span>🍭</span></div><div class="vcap">One Group of Ten Lollipops</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Let's Make Number <span class="hl">12</span>!</h2>
-          <ul><li>The number 12 has 1 Ten and 2 Ones.</li><li>'1' in Tens Place means 1 group of 10.</li><li>'2' in Ones Place means 2 single items.</li></ul>
-          <p class="notes">🎙️ See how 12 is made? One group of ten and two single items. The 1 tells us about the tens, and the 2 tells us about the ones. Together they make twelve.</p>
+          <h2><span class="hl">Marbles</span> Fun: Groups of Ten</h2>
+          <ul><li>Rohan has 15 marbles.</li><li>He can make 1 group of ten and have 5 single marbles left.</li></ul>
+          <p class="notes">🎙️ Imagine Rohan has 15 marbles. He puts 10 marbles in one bag – that's 1 group of ten. The remaining 5 marbles are single. So, 15 is 1 Ten and 5 Ones.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1 Ten (10)</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">2 Ones (2)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span><span>🔵</span></div><div class="vcap">1 Ten and 5 Ones</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Let's Make Number <span class="hl">25</span>!</h2>
-          <ul><li>The number 25 has 2 Tens and 5 Ones.</li><li>'2' in Tens Place means 2 groups of 10.</li><li>'5' in Ones Place means 5 single items.</li></ul>
-          <p class="notes">🎙️ For 25 cookies, imagine two big plates with ten cookies each, and then five cookies left on the side. That's 2 tens and 5 ones, making the number twenty-five!</p>
+          <h2><span class="hl">Flowers</span> in a Vase: Tens and Ones</h2>
+          <ul><li>Mom bought 24 flowers.</li><li>She put 2 groups of ten in big vases and 4 single flowers in a small vase.</li></ul>
+          <p class="notes">🎙️ Mom brought home 24 beautiful flowers. She made two big bouquets, each with ten flowers. That's 2 Tens! And she had 4 flowers left over, which are 4 Ones.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">2 Tens (20)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">5 Ones (5)</div></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sunflower_sky_backdrop.jpg?width=460" data-fb="🔢" alt="Flowers are the colourful part of plants."/><div class="vcap">Flowers are the colourful part of plants.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>What is <span class="hl">Place Value</span>?</h2>
-          <ul><li>Place value is the value of a digit based on its position in a number.</li><li>The digit '1' in 12 means 10 (Tens Place).</li><li>The digit '2' in 12 means 2 (Ones Place).</li></ul>
-          <p class="notes">🎙️ This is the main idea! The same digit can mean different things depending on where it sits. It's like a player on a team; their role changes based on their position.</p>
+          <h2><span class="hl">Breaking Down</span> Numbers</h2>
+          <ul><li>Every two-digit number has a Tens and a Ones part.</li><li>We can separate them to understand their value.</li></ul>
+          <p class="notes">🎙️ Just like we can break a big chocolate bar into smaller pieces, we can break down numbers into their Tens and Ones parts. This helps us see what each digit truly means.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Position matters!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Cut and Separate</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Finding Place Value: Example 1 (<span class="hl">18</span>)</h2>
-          <ul><li>In the number 18:</li><li>The digit '8' is in the Ones Place. Its value is 8.</li><li>The digit '1' is in the Tens Place. Its value is 10.</li></ul>
-          <p class="notes">🎙️ Let's look at 18. The 8 is easy, it's just 8 ones. But the 1 is in the Tens Place, so it's not just 1, it's 1 ten, which is 10! The place gives it value.</p>
+          <h2>Let's Break Down <span class="hl">23</span>!</h2>
+          <ul><li>The number is 23.</li><li>The digit '3' is in the Ones place.</li><li>The digit '2' is in the Tens place.</li></ul>
+          <p class="notes">🎙️ For the number 23, the '3' is in the Ones place, meaning 3 single units. The '2' is in the Tens place, meaning 2 groups of ten, which is 20. So, 23 is 20 + 3.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>8 in Ones Place (value 8)</span></div><div class="step"><span class="snum">2</span><span>1 in Tens Place (value 10)</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>2 Tens</span></div><div class="step"><span class="snum">2</span><span>3 Ones</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Finding Place Value: Example 2 (<span class="hl">30</span>)</h2>
-          <ul><li>In the number 30:</li><li>The digit '0' is in the Ones Place. Its value is 0.</li><li>The digit '3' is in the Tens Place. Its value is 30.</li></ul>
-          <p class="notes">🎙️ What about 30? The 0 in the Ones Place means there are no single items. The 3 in the Tens Place means we have 3 groups of ten, which is 30.</p>
+          <h2>Let's Break Down <span class="hl">40</span>!</h2>
+          <ul><li>The number is 40.</li><li>The digit '0' is in the Ones place.</li><li>The digit '4' is in the Tens place.</li></ul>
+          <p class="notes">🎙️ For the number 40, the '0' in the Ones place tells us there are no single units. The '4' in the Tens place means 4 groups of ten, which is 40. So, 40 is just 40!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>0 in Ones Place (value 0)</span></div><div class="step"><span class="snum">2</span><span>3 in Tens Place (value 30)</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>4 Tens</span></div><div class="step"><span class="snum">2</span><span>0 Ones</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Place Value in Our <span class="hl">Toy Box</span>!</h2>
-          <ul><li>You have 23 toy cars.</li><li>That's 2 groups of ten cars and 3 single cars.</li></ul>
-          <p class="notes">🎙️ Imagine lining up your toy cars. If you have 23 cars, you can make two lines of ten cars each, and then you'll have 3 cars left over. This shows 2 tens and 3 ones.</p>
+          <h2>Let's Break Down <span class="hl">5</span>!</h2>
+          <ul><li>The number is 5.</li><li>It only has a digit in the Ones place.</li><li>There are no Tens.</li></ul>
+          <p class="notes">🎙️ For a single-digit number like 5, there are no groups of ten. So, we say it has '0' Tens and '5' Ones. It's important to remember that the Tens place can be empty for small numbers.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">2 Tens (20 cars)</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">3 Ones (3 cars)</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>0 Tens</span></div><div class="step"><span class="snum">2</span><span>5 Ones</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Place Value with <span class="hl">Money</span>!</h2>
-          <ul><li>You have 15 rupees.</li><li>That's one note of ten rupees and five one-rupee coins.</li></ul>
-          <p class="notes">🎙️ When you have money, place value helps too! 15 rupees means you have one ten-rupee note and five one-rupee coins. This is a great real-life example.</p>
+          <h2><span class="hl">Your Turn</span>: What are the Ones and Tens?</h2>
+          <ul><li>For the number 36:</li><li>How many Tens are there?</li><li>How many Ones are there?</li></ul>
+          <p class="notes">🎙️ Alright, little detectives, time to solve a mystery! Look at the number 36. Can you tell me which digit is in the Tens place and which is in the Ones place?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/2_Rupee_coin_India.jpg?width=440" data-fb="🔢" alt="Learn money using real coins."/><div class="vcap">Learn money using real coins.</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -227,9 +240,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick <span class="hl">Question</span> Time!</h2>
-          <ul><li>In the number 47, which digit is in the Tens Place?</li><li>Which digit is in the Ones Place?</li></ul>
-          <p class="notes">🎙️ Time to test your super-smart brains! Look at the number 47 very carefully. Can you tell me which digit sits where? Think about our friends, Tens and Ones.</p>
+          <h2>Another <span class="hl">Challenge</span>: Ones and Tens!</h2>
+          <ul><li>For the number 81:</li><li>Which digit is in the Ones place?</li><li>Which digit is in the Tens place?</li></ul>
+          <p class="notes">🎙️ You did great on the last one! Here's another number: 81. Think about the special 'homes' for each digit. What do you think?</p>
         </div>
         
       </div>
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Another <span class="hl">Question</span>!</h2>
-          <ul><li>What is the place value of the digit '6' in the number 16?</li><li>What is the place value of the digit '1' in the number 16?</li></ul>
-          <p class="notes">🎙️ Remember, place value is about what a digit is worth based on its home. Think about the number 16. What does each digit really mean, based on its position?</p>
+          <h2><span class="hl">Value Check</span>!</h2>
+          <ul><li>In the number 52, what is the value of the digit '5'?</li><li>Is it 5 or 50?</li></ul>
+          <p class="notes">🎙️ This is a tricky one! In 52, the digit '5' is in a special place. What value does it represent because of its place? Is it just 5, or something bigger?</p>
         </div>
         
       </div>
@@ -251,9 +264,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Last <span class="hl">Question</span>!</h2>
-          <ul><li>If you have 3 tens and 4 ones, what number do you make?</li></ul>
-          <p class="notes">🎙️ This is like putting our building blocks together. If you have 3 bundles of ten and 4 single items, what number do you get? Try to form the number in your mind.</p>
+          <h2><span class="hl">Build a Number</span>!</h2>
+          <ul><li>If you have 6 Tens and 4 Ones,</li><li>What number do you make?</li></ul>
+          <p class="notes">🎙️ Let's try building a number! If you have 6 groups of ten and 4 single items, what number do you get when you put them together?</p>
         </div>
         
       </div>
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today!</h2>
-          <ul><li>Digits are building blocks of numbers.</li><li>Every digit has a 'place' (Ones, Tens).</li><li>Place Value tells us how much a digit is worth in its place.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much today! We started with tiny digits and saw how they grow into bigger numbers with the help of Place Value. You've all been very smart!</p>
+          <h2>Why is Place Value <span class="hl">Important</span>?</h2>
+          <ul><li>It helps us read and write big numbers.</li><li>It helps us add and subtract easily.</li></ul>
+          <p class="notes">🎙️ Knowing about Place Value is super useful! It helps us understand how big or small numbers are, and it makes doing sums like addition and subtraction much, much easier as you grow up.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Smart Kids!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Smart Thinking</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Practicing</span> Place Value!</h2>
-          <ul><li>Look for numbers around you and identify their Tens and Ones.</li><li>Practice counting in groups of ten!</li></ul>
-          <p class="notes">🎙️ The more you practice, the better you become! Look at house numbers, page numbers, or even count your toys using Tens and Ones. You're all Place Value stars!</p>
+          <h2><span class="hl">Recap</span>: Our Place Value Journey</h2>
+          <ul><li>Numbers have Ones and Tens places.</li><li>Ones are for single items (1-9).</li><li>Tens are for groups of ten.</li><li>Place tells us the digit's value.</li></ul>
+          <p class="notes">🎙️ We've learned so much today! Remember, every digit has a special home, either in the Ones place or the Tens place. This home tells us how much that digit is worth. Great job, everyone!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎉</div><div class="vcap">You are a Place Value Star!</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

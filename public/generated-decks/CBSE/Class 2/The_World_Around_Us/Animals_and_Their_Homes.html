@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Animals and Their Homes — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to 'Animals and Their <span class="hl">Homes</span>'!</h2>
-          <ul><li>Hello, little explorers!</li><li>Today, we will learn about where different animals live.</li><li>It's a fun journey into the animal world!</li></ul>
-          <p class="notes">🎙️ Good morning, children! I'm so excited to start our new chapter today. We're going to discover all the amazing places animals call home. Get ready to learn some cool facts!</p>
+          <h2>Animals and Their <span class="hl">Homes</span></h2>
+          <ul><li>Welcome to our lesson!</li><li>Today we will learn about where animals live.</li></ul>
+          <p class="notes">🎙️ Hello, dear children! Today, we will go on an exciting journey to explore the wonderful world of animals and their special homes. Just like we have our houses, animals also have places they call home.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Why Do Animals Need <span class="hl">Homes</span>?</h2>
-          <ul><li>Just like us, animals need a safe place.</li><li>Homes protect them from rain, sun, and cold.</li><li>They keep baby animals safe too.</li></ul>
-          <p class="notes">🎙️ Think about why you love your home. It keeps you warm and safe, right? Animals need homes for the very same reasons. It's their special shelter.</p>
+          <h2><span class="hl">Why</span> Do Animals Need Homes?</h2>
+          <ul><li>Homes keep animals safe.</li><li>They protect from rain, sun, and cold.</li></ul>
+          <p class="notes">🎙️ Imagine it's raining outside. Where do you go? Inside your home, right? Animals also need a safe place to live, to protect themselves from bad weather and other dangers.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🏠" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🏡" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Animals Live in <span class="hl">Different</span> Homes</h2>
-          <ul><li>Not all animals live in the same kind of home.</li><li>Some build their homes, others find them.</li><li>Let's explore some of these amazing homes!</li></ul>
-          <p class="notes">🎙️ Imagine if everyone lived in the same kind of house – how boring! Animals are just as unique, and so are their homes. We'll see many different kinds today.</p>
+          <h2>Animals Live in <span class="hl">Different Homes</span></h2>
+          <ul><li>Each animal has a special home.</li><li>Some build, some find, some live in nature.</li></ul>
+          <p class="notes">🎙️ Just like people live in different types of houses – flats, bungalows, or huts – animals also have many different kinds of homes. Some animals are very clever and build their own homes!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Many Types of Homes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏘️</div><div class="vcap">Many Homes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 20</span>
           <h2>Birds Build <span class="hl">Nests</span></h2>
-          <ul><li>Little birds make cozy nests.</li><li>They use twigs, leaves, and feathers.</li><li>Nests are where birds lay their eggs and raise babies.</li></ul>
-          <p class="notes">🎙️ Have you ever seen a bird's nest high up in a tree? They are so clever to weave all those materials together. It's a perfect cradle for their tiny chicks.</p>
+          <ul><li>Birds collect twigs and leaves.</li><li>They weave them into cozy nests.</li><li>Baby birds grow up here.</li></ul>
+          <p class="notes">🎙️ Look up in the trees, and you might spot a bird's nest! Mama bird and Papa bird work very hard to build these soft homes for their little chicks, high up and safe.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐦</div><div class="vcap">Bird and Nest</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/House_sparrow04.jpg?width=460" data-fb="🌍" alt="Birds have feathers and can fly."/><div class="vcap">Birds have feathers and can fly.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Where Can We Find <span class="hl">Nests</span>?</h2>
-          <ul><li>Birds build nests in tall trees.</li><li>Sometimes, they build them under the roofs of our houses.</li><li>Keep an eye out for them!</li></ul>
-          <p class="notes">🎙️ Next time you go for a walk, look up! You might spot a little nest hidden amongst the leaves. It's a secret world up there.</p>
+          <h2>Lions Live in <span class="hl">Dens</span></h2>
+          <ul><li>Lions are big, wild animals.</li><li>They rest and raise cubs in dens.</li><li>Dens are often caves or hidden spots.</li></ul>
+          <p class="notes">🎙️ The majestic lion, the king of the jungle, needs a strong home too! They find or make dens, which are like secret rooms or caves, to stay safe and keep their babies warm.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌍" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦁</div><div class="vcap">A Lion's Den</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Dogs Live in <span class="hl">Kennels</span></h2>
-          <ul><li>Our pet dogs need a home too.</li><li>We build them a special house called a kennel.</li><li>It keeps them warm and dry.</li></ul>
-          <p class="notes">🎙️ Many of us have a furry friend at home. If you have a dog, you might have a kennel for it in your garden. It's their own little doggy house!</p>
+          <h2>Rabbits Dig <span class="hl">Burrows</span></h2>
+          <ul><li>Rabbits dig holes in the ground.</li><li>These tunnels are called burrows.</li><li>They are cool and safe underground.</li></ul>
+          <p class="notes">🎙️ Little rabbits are amazing diggers! They dig long tunnels under the ground called burrows. These burrows are their cozy homes, safe from other animals and the hot sun.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐕</div><div class="vcap">Dog in a Kennel</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐰</div><div class="vcap">Rabbit's Burrow</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Cows Live in <span class="hl">Sheds</span></h2>
-          <ul><li>Cows give us delicious milk.</li><li>They live in a big shelter called a shed.</li><li>Farmers take care of cows in sheds.</li></ul>
-          <p class="notes">🎙️ When you drink milk, remember the cows! They live in sheds on farms, where they are safe and comfortable. It's a busy place on a farm.</p>
+          <h2>Bees Live in <span class="hl">Hives</span></h2>
+          <ul><li>Many bees live together in a hive.</li><li>Hives are made of wax.</li><li>They store honey here.</li></ul>
+          <p class="notes">🎙️ Buzz, buzz! Bees live in big families inside their homes called hives. They build these amazing structures from wax and fill them with delicious honey. It's a very busy home!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐄</div><div class="vcap">Cow in a Shed</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐝</span><span>🐝</span><span>🐝</span><span>🐝</span><span>🐝</span></div><div class="vcap">Busy Beehive</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Horses Live in <span class="hl">Stables</span></h2>
-          <ul><li>Beautiful horses live in stables.</li><li>A stable is like a special barn for horses.</li><li>Each horse has its own space.</li></ul>
-          <p class="notes">🎙️ Horses are magnificent animals. They need a strong and safe home, and that's what a stable provides. It's a place where they can rest and eat.</p>
+          <h2>Ants Make <span class="hl">Anthills</span></h2>
+          <ul><li>Tiny ants build huge anthills.</li><li>Anthills have many rooms and tunnels.</li><li>They work together to build them.</li></ul>
+          <p class="notes">🎙️ Even tiny ants have incredible homes! They build anthills using soil and sand. These anthills are like busy cities with many rooms and paths for all the ants to live and work.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐎</div><div class="vcap">Horse in a Stable</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐜</div><div class="vcap">Ant's Anthill</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Lions Live in <span class="hl">Dens</span></h2>
-          <ul><li>The king of the jungle, the lion, lives in a den.</li><li>Dens are usually caves or rocky shelters.</li><li>It's a strong, safe home for their family.</li></ul>
-          <p class="notes">🎙️ Lions are powerful animals, and they need a secure place to live. Their dens are often hidden and offer great protection for them and their cubs.</p>
+          <h2>Dogs Live in <span class="hl">Kennels</span></h2>
+          <ul><li>Our pet dogs live with us.</li><li>Sometimes they have a kennel.</li><li>Kennels are small dog houses.</li></ul>
+          <p class="notes">🎙️ Our furry friends, dogs, are often part of our families. If they don't sleep inside with us, they might have a special dog house outside called a kennel, which keeps them sheltered.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦁</div><div class="vcap">Lion in a Den</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐶</div><div class="vcap">Dog's Kennel</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Rabbits Dig <span class="hl">Burrows</span></h2>
-          <ul><li>Cute rabbits dig tunnels underground.</li><li>These tunnels are called burrows.</li><li>Burrows keep them safe from other animals.</li></ul>
-          <p class="notes">🎙️ Rabbits are very good at digging! They make a whole network of tunnels underground. It's like their own secret hideaway, safe from harm.</p>
+          <h2>Cows Live in <span class="hl">Sheds</span></h2>
+          <ul><li>Cows are farm animals.</li><li>Farmers build big sheds for them.</li><li>Sheds protect cows from weather.</li></ul>
+          <p class="notes">🎙️ On a farm, you'll see big, gentle cows. Farmers build large, open shelters called sheds for them. These sheds protect the cows from too much sun or heavy rain.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐇</div><div class="vcap">Rabbit in a Burrow</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐄</div><div class="vcap">Cow Shed</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Honeybees Live in <span class="hl">Hives</span></h2>
-          <ul><li>Busy honeybees live together in a hive.</li><li>Hives are made of wax, with many small cells.</li><li>This is where they store honey!</li></ul>
-          <p class="notes">🎙️ Next time you enjoy honey, think of the bees and their amazing homes! Beehives are incredible structures, full of busy bees making delicious honey.</p>
+          <h2>Horses Live in <span class="hl">Stables</span></h2>
+          <ul><li>Horses are strong and beautiful.</li><li>They live in buildings called stables.</li><li>Each horse has its own stall.</li></ul>
+          <p class="notes">🎙️ Horses, with their flowing manes and tails, also live on farms or special ranches. Their homes are called stables, which have individual spaces for each horse to rest.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐝</div><div class="vcap">Beehive</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐎</div><div class="vcap">Horse Stable</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Spiders Spin <span class="hl">Webs</span></h2>
-          <ul><li>Spiders are clever builders!</li><li>They spin sticky webs from their bodies.</li><li>Webs are homes and also traps for insects.</li></ul>
-          <p class="notes">🎙️ Spider webs might look fragile, but they are very strong and sticky! They serve as a home for the spider and a clever way to catch their food.</p>
+          <h2>Fish Live in <span class="hl">Water</span></h2>
+          <ul><li>Fish live in ponds, rivers, and oceans.</li><li>Water is their natural home.</li><li>They cannot live without water.</li></ul>
+          <p class="notes">🎙️ Some animals don't build houses, their whole environment is their home! Fish, for example, live happily in water, whether it's a small pond or a vast ocean. Water is where they breathe and swim.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕷️</div><div class="vcap">Spider Web</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🐠" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Who <span class="hl">Builds</span> Their Own Home?</h2>
-          <ul><li>Some animals build their homes all by themselves.</li><li>Like birds building nests and bees building hives.</li><li>Others, like dogs and cows, have homes built for them.</li></ul>
-          <p class="notes">🎙️ Isn't it amazing how some animals are natural architects? They don't need tools, just their instincts! While others depend on humans to provide shelter.</p>
+          <h2>Monkeys Live in <span class="hl">Trees</span></h2>
+          <ul><li>Monkeys jump and play in trees.</li><li>Trees provide food and shelter.</li><li>They are very agile climbers.</li></ul>
+          <p class="notes">🎙️ Monkeys are excellent climbers and love to swing from branch to branch! For them, the tall trees of the forest are their homes, offering both food and a safe place to sleep.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔨</div><div class="vcap">Animal Builders</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🐒" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -203,9 +216,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick Check! Where does a <span class="hl">bird</span> live?</h2>
-          <ul><li>A. Kennel</li><li>B. Nest</li><li>C. Stable</li></ul>
-          <p class="notes">🎙️ Time for a quick test! Think back to what we just learned. Where would you find a little bird making its home?</p>
+          <h2>Quick <span class="hl">Check!</span></h2>
+          <ul><li>Where does a bird live?</li><li>Where does a lion live?</li></ul>
+          <p class="notes">🎙️ Alright, little explorers, let's see how much you remember! Think about what we just learned and tell me the homes of these animals.</p>
         </div>
         
       </div>
@@ -215,35 +228,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick Check! What is a <span class="hl">dog's</span> home called?</h2>
-          <ul><li>A. Shed</li><li>B. Burrow</li><li>C. Kennel</li></ul>
-          <p class="notes">🎙️ Let's try another one! What is the special name for the house we build for our pet dogs? Pick the right answer.</p>
+          <h2>More <span class="hl">Questions!</span></h2>
+          <ul><li>What is a home for a dog?</li><li>What is a home for a bee?</li></ul>
+          <p class="notes">🎙️ Excellent! You're doing great. Now, try these two. What do we call the homes of our friendly dogs and the busy bees?</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick Check! <span class="hl">Lions</span> live in a _____.</h2>
-          <ul><li>A. Den</li><li>B. Hive</li><li>C. Nest</li></ul>
-          <p class="notes">🎙️ Last question for our quick check! Where does the mighty lion make its home in the wild? Fill in the blank with the correct word.</p>
+          <h2>Why Are Homes <span class="hl">Important</span>?</h2>
+          <ul><li>Homes offer protection and safety.</li><li>They keep families together.</li><li>Animals feel secure in their homes.</li></ul>
+          <p class="notes">🎙️ So, we've seen many different homes! But why are they all so important? Because every home, big or small, gives animals a safe place to live, raise their young, and feel secure.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Can You <span class="hl">Match</span> Them?</h2>
-          <ul><li>Dog - Kennel</li><li>Cow - Shed</li><li>Bird - Nest</li><li>Lion - Den</li></ul>
-          <p class="notes">🎙️ Now let's play a matching game! I'll say an animal, and you tell me its home. Let's see how many you remember correctly!</p>
+          <h2><span class="hl">Caring</span> for Animal Homes</h2>
+          <ul><li>We should protect animal homes.</li><li>Don't litter in forests or rivers.</li><li>Respect nature and all living things.</li></ul>
+          <p class="notes">🎙️ Just as we care for our own homes, we should also care for the homes of animals. Let's promise not to throw garbage in parks or rivers, and always be kind to nature.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Care for Nature</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Recap: Why Homes are <span class="hl">Important</span></h2>
-          <ul><li>Homes keep animals safe from danger.</li><li>They provide a place to rest and sleep.</li><li>Animals raise their babies in their homes.</li></ul>
-          <p class="notes">🎙️ Just like your home is important to you, animal homes are vital for their survival and well-being. It's where they feel secure and can grow.</p>
+          <h2><span class="hl">Match</span> the Animal to Its Home</h2>
+          <ul><li>Can you match the animal to its home?</li><li>Think carefully about each one!</li></ul>
+          <p class="notes">🎙️ Let's play a matching game! I will say an animal, and you tell me its home. For example, if I say 'rabbit', you say 'burrow'!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Safety and Love</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connect Them</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Recap: Many <span class="hl">Different Homes</span></h2>
-          <ul><li>Birds live in nests.</li><li>Dogs live in kennels, cows in sheds.</li><li>Lions in dens, rabbits in burrows, bees in hives.</li></ul>
-          <p class="notes">🎙️ We saw so many interesting homes today! From tiny nests to grand stables, every animal has a special place to call its own. Isn't that fascinating?</p>
+          <h2>Fun Fact About Homes!</h2>
+          <ul><li>Some animals share homes!</li><li>Like woodpeckers make holes for other birds.</li><li>Or crabs use empty shells.</li></ul>
+          <p class="notes">🎙️ Here's a super interesting fact! Sometimes, animals don't build their own homes but use homes made by others, or even things left behind, like a crab finding an empty shell!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Variety of Homes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Amazing Fact</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Thank You! Keep <span class="hl">Exploring</span>!</h2>
-          <ul><li>The world around us is full of wonders.</li><li>Look for animal homes in your garden or park.</li><li>Keep learning and exploring!</li></ul>
-          <p class="notes">🎙️ That's all for today, little explorers! Remember to observe the world around you. You might discover even more amazing animal homes. Happy exploring!</p>
+          <h2>What Did We <span class="hl">Learn Today?</span></h2>
+          <ul><li>Animals need homes for safety.</li><li>Many different types of homes exist.</li><li>We must care for animal homes.</li></ul>
+          <p class="notes">🎙️ Wow, what a journey we had today! We learned that every animal has a special home, and these homes are super important for their safety and happiness. And remember, it's our job to protect them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Discover More</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

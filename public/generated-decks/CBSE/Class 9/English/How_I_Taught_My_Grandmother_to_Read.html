@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>How I Taught My Grandmother to Read — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Welcome</span> to 'How I Taught My Grandmother to Read'</h2>
-          <ul><li>A heartwarming story by Sudha Murty.</li><li>Explores the power of education and love.</li><li>A tale of determination and intergenerational bonding.</li></ul>
-          <p class="notes">🎙️ Hello students! Today, we embark on a beautiful journey through 'How I Taught My Grandmother to Read'. This chapter is not just a story; it's a lesson in life, perseverance, and the timeless bond between a grandmother and her granddaughter. Get ready to be inspired!</p>
+          <h2>Welcome to Our Chapter: How I Taught My <span class="hl">Grandmother</span> to Read</h2>
+          <ul><li>A heartwarming story by Sudha Murty.</li><li>Explores themes of education, love, and dedication.</li><li>Set in a simple village, focusing on a unique relationship.</li></ul>
+          <p class="notes">🎙️ Good morning, class! Today, we embark on a beautiful journey into a story that touches our hearts and minds. 'How I Taught My Grandmother to Read' is more than just a tale; it's a celebration of the human spirit.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Meet the Author: <span class="hl">Sudha Murty</span></h2>
-          <ul><li>An acclaimed Indian author and philanthropist.</li><li>Known for her simple, relatable storytelling.</li><li>Writes in Kannada and English, often drawing from real-life experiences.</li></ul>
-          <p class="notes">🎙️ Sudha Murty is a truly inspiring figure. Her stories often carry deep moral values, presented in a very accessible way. She's also the chairperson of the Infosys Foundation, showing her commitment to social work alongside her literary contributions.</p>
+          <h2>Can You Imagine Life <span class="hl">Without Books</span>?</h2>
+          <ul><li>How do we learn new things?</li><li>How do we share stories and knowledge?</li><li>What role does reading play in our daily lives?</li></ul>
+          <p class="notes">🎙️ Think for a moment. What would our lives be like if we couldn't read? Books open up entire worlds to us. This story will show us just how precious and transformative the gift of literacy can be.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👩‍🏫</div><div class="vcap">Author &amp; Teacher</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Power of Reading</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Chapter <span class="hl">Introduction</span>: What's the Story About?</h2>
-          <ul><li>A young girl teaches her illiterate grandmother to read.</li><li>Set in a village, reflecting traditional Indian life.</li><li>Highlights the grandmother's desire for independence.</li></ul>
-          <p class="notes">🎙️ This story is a poignant narrative about a grandmother who missed out on formal education and her granddaughter who helps her achieve her dream. It beautifully illustrates how age is no bar to learning and how a simple act of teaching can bridge generations.</p>
+          <h2>Meet Our Author: <span class="hl">Sudha Murty</span></h2>
+          <ul><li>An acclaimed Indian author, engineer, and philanthropist.</li><li>Known for her simple yet profound storytelling.</li><li>Chairperson of the Infosys Foundation.</li></ul>
+          <p class="notes">🎙️ Our author, Sudha Murty, is a remarkable personality. Her stories often draw from real-life experiences and convey strong moral values, making them relatable and impactful for all ages.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">A Story of Learning</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Author &amp; Storyteller</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Key Character: The <span class="hl">Grandmother</span> (Krishhtakka)</h2>
-          <ul><li>An elderly woman, gentle and loving.</li><li>Illiterate, but wise and hardworking.</li><li>Deeply desires to read on her own.</li></ul>
-          <p class="notes">🎙️ The grandmother, Krishhtakka, is the heart of our story. Despite her lack of formal education, she possesses immense wisdom and a strong will. Her yearning to read 'Kashi Yatre' herself is a powerful motivator for the entire narrative.</p>
+          <h2>Chapter Introduction: A Heartwarming Tale of <span class="hl">Literacy</span></h2>
+          <ul><li>The narrator, a young girl, teaches her grandmother to read.</li><li>Inspired by the grandmother's deep desire for knowledge.</li><li>A true story celebrating determination and love.</li></ul>
+          <p class="notes">🎙️ This chapter is a beautiful narrative about a granddaughter's love and a grandmother's unwavering spirit. It highlights how the simple act of reading can bring immense joy and self-respect, regardless of age.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👵</div><div class="vcap">Wise &amp; Loving</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Love for Learning</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Key Character: The <span class="hl">Granddaughter</span> (Sudha)</h2>
-          <ul><li>A bright and observant young girl.</li><li>Reads stories aloud to her grandmother.</li><li>Patient and dedicated teacher.</li></ul>
-          <p class="notes">🎙️ The granddaughter, who is the narrator, plays a crucial role. Her empathy and willingness to help her grandmother are commendable. She takes on the responsibility of teaching with great patience and understanding, making her an ideal mentor.</p>
+          <h2>Who Are Our Main <span class="hl">Characters</span>?</h2>
+          <ul><li>The Granddaughter: The narrator and teacher, a caring young girl.</li><li>Grandamma (Krishhtakka): The grandmother, eager to learn, around 62 years old.</li></ul>
+          <p class="notes">🎙️ The story revolves around these two central figures. Their bond is the driving force of the narrative, and it's through their interactions that the main themes unfold. Pay attention to their relationship.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👧</div><div class="vcap">Patient Teacher</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Granddaughter</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Grandamma</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>The <span class="hl">Setting</span>: A Village Home</h2>
-          <ul><li>Story takes place in a rural village.</li><li>Reflects a simpler, traditional lifestyle.</li><li>The home is a place of comfort and learning.</li></ul>
-          <p class="notes">🎙️ The story's setting in a village home is important. It highlights the close-knit family environment where such a personal endeavor like learning to read can truly flourish. It also reflects a time and place where formal education for women might not have been common.</p>
+          <h2>Life in the <span class="hl">Village</span>: Grandamma's Routine</h2>
+          <ul><li>Grandamma lived a traditional life in a remote village.</li><li>Her days were filled with household chores and cooking.</li><li>She loved listening to her granddaughter read stories aloud.</li></ul>
+          <p class="notes">🎙️ The grandmother's life was typical of many women in rural India of that era. Despite her busy schedule, listening to stories was a cherished part of her day, revealing her underlying love for narratives and knowledge.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Cozy Village Home</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Simple Village Life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Grandmother's <span class="hl">Desire</span> to Read</h2>
-          <ul><li>Grandmother often listens to her granddaughter read.</li><li>Feels dependent on others for stories.</li><li>Wants to be self-reliant in reading.</li></ul>
-          <p class="notes">🎙️ Imagine wanting to read your favorite story but needing someone else to do it for you. This was the grandmother's daily reality. Her desire wasn't just about reading, but about gaining independence and the joy of discovering stories on her own terms.</p>
+          <h2>A Desire Awakens: The Power of '<span class="hl">Kashi Yatre</span>'</h2>
+          <ul><li>The grandmother was deeply engrossed in the novel 'Kashi Yatre'.</li><li>It was published serially in a popular Kannada magazine.</li><li>She would eagerly wait for her granddaughter to read each new episode.</li></ul>
+          <p class="notes">🎙️ 'Kashi Yatre' became a window to another world for the grandmother. The suspense and emotional depth of the story captivated her, making her realize the beauty of reading and the joy of following a narrative independently.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗞️</div><div class="vcap">Wanting to Read</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Captivating Story</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>The Trigger: The Novel '<span class="hl">Kashi Yatre</span>'</h2>
-          <ul><li>A popular Kannada novel.</li><li>Grandmother loves its weekly installments.</li><li>Relates deeply to the protagonist's journey.</li></ul>
-          <p class="notes">🎙️ 'Kashi Yatre' is not just any book; it's a story that deeply resonates with the grandmother. The protagonist's yearning to visit Kashi mirrors the grandmother's own unfulfilled desires. This novel becomes the primary motivation for her learning.</p>
+          <h2>What Was '<span class="hl">Kashi Yatre</span>' About?</h2>
+          <ul><li>The story of an old woman's pilgrimage to Kashi (Varanasi).</li><li>Her journey was filled with challenges and moral dilemmas.</li><li>The grandmother deeply identified with the protagonist's struggles and faith.</li></ul>
+          <p class="notes">🎙️ The novel resonated with the grandmother because it depicted a character much like herself – an elderly woman with deep faith and a simple desire. This connection fueled her own wish to experience the story first-hand.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Beloved Story</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🙏</div><div class="vcap">Pilgrimage Tale</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Grandmother's Plea: A <span class="hl">Promise</span> Made</h2>
-          <ul><li>Grandmother feels helpless when Sudha leaves.</li><li>Asks Sudha to teach her to read and write.</li><li>Sets a deadline: Saraswati Pooja.</li></ul>
-          <p class="notes">🎙️ This moment is a turning point. When Sudha goes away, the grandmother realizes her vulnerability. Her earnest plea and the setting of a deadline for Saraswati Pooja show her serious commitment and the sacredness of her promise to herself and her granddaughter.</p>
+          <h2>Grandmother's <span class="hl">Regret</span>: A Missed Opportunity</h2>
+          <ul><li>She realized she was dependent on others to access stories.</li><li>Her biggest regret was not receiving formal education as a child.</li><li>This feeling intensified when her granddaughter went away for a wedding.</li></ul>
+          <p class="notes">🎙️ The grandmother's regret was profound. She understood that illiteracy meant missing out on a fundamental human right – the ability to read and learn independently. This moment was a turning point for her.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">A Sacred Vow</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">😔</div><div class="vcap">Feeling of Loss</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>The <span class="hl">Challenge</span>: Teaching an Adult</h2>
-          <ul><li>Teaching an adult requires patience.</li><li>Grandmother had to overcome old habits.</li><li>Learning basic alphabets and words from scratch.</li></ul>
-          <p class="notes">🎙️ Teaching an adult is often more challenging than teaching a child. Adults might be self-conscious or find it harder to absorb new information. For the grandmother, it meant starting from zero, learning each letter and sound, which required immense dedication from both student and teacher.</p>
+          <h2>The Promise: The Granddaughter's <span class="hl">Vow</span></h2>
+          <ul><li>Grandamma expressed her desire to learn to read to her granddaughter.</li><li>The granddaughter, deeply moved, promised to teach her.</li><li>This promise was made with sincerity and determination.</li></ul>
+          <p class="notes">🎙️ The granddaughter's promise was not just a casual assurance; it was a commitment to empower her grandmother. This act of kindness and dedication forms the core of their beautiful relationship in the story.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Overcoming Obstacles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">A Sacred Promise</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Sudha's Simple <span class="hl">Teaching Steps</span></h2>
-          <ul><li>Started with the Kannada alphabet.</li><li>Used flashcards and repetition.</li><li>Practiced reading simple words and sentences.</li></ul>
-          <p class="notes">🎙️ Sudha adopted a very practical and patient approach. She didn't rush her grandmother but built her skills step by step. This method of breaking down a complex task into smaller, manageable parts is effective for any learning process, especially for adults.</p>
+          <h2>The Challenge of Learning: <span class="hl">Age</span> is Just a Number</h2>
+          <ul><li>At 62, learning to read was a significant challenge for Grandamma.</li><li>She faced difficulties with memory and unfamiliar letters.</li><li>Her strong willpower, however, made her determined to succeed.</li></ul>
+          <p class="notes">🎙️ Imagine starting to learn the alphabet at 62! It requires immense courage and patience. The grandmother's age was an obstacle, but her desire to learn proved to be much stronger than any difficulty.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alphabets</span></div><div class="step"><span class="snum">2</span><span>Words</span></div><div class="step"><span class="snum">3</span><span>Sentences</span></div><div class="step"><span class="snum">4</span><span>Stories</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👵</div><div class="vcap">Elderly Learner</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Grandmother's <span class="hl">Dedication</span> and Hard Work</h2>
-          <ul><li>Practiced diligently every day.</li><li>Overcame difficulties with perseverance.</li><li>Her commitment inspired Sudha.</li></ul>
-          <p class="notes">🎙️ The grandmother's dedication is truly remarkable. Despite her age and the challenges, she never gave up. Her consistent effort and strong willpower are a testament to the fact that with enough determination, any goal can be achieved, regardless of one's circumstances.</p>
+          <h2>The Teaching Process: <span class="hl">Step-by-Step</span> Learning</h2>
+          <ul><li>The granddaughter started by teaching the Kannada alphabet.</li><li>She used simple methods, like repetition and pointing to words.</li><li>Lessons were consistent, taking place after dinner.</li></ul>
+          <p class="notes">🎙️ Teaching an adult requires patience and understanding. The granddaughter employed a systematic approach, breaking down the complex task of reading into manageable steps, ensuring her grandmother could grasp each concept.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💪</span><span>💪</span><span>💪</span><span>💪</span><span>💪</span></div><div class="vcap">Strong Will</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alphabet</span></div><div class="step"><span class="snum">2</span><span>Simple Words</span></div><div class="step"><span class="snum">3</span><span>Short Sentences</span></div><div class="step"><span class="snum">4</span><span>Reading Stories</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>The <span class="hl">Breakthrough</span>: Reading Independently</h2>
-          <ul><li>Grandmother finally reads 'Kashi Yatre' on her own.</li><li>Experiences immense joy and satisfaction.</li><li>A moment of triumph for both.</li></ul>
-          <p class="notes">🎙️ Imagine the sheer joy and sense of accomplishment the grandmother must have felt when she finally read her beloved novel by herself! This moment is the climax of their shared journey, a testament to their hard work and the power of their bond. It's truly heartwarming.</p>
+          <h2>Both Teacher and Student Show <span class="hl">Dedication</span></h2>
+          <ul><li>The granddaughter dedicated her time and effort every day.</li><li>Grandamma practiced diligently, often alone, for hours.</li><li>Their mutual commitment led to steady progress.</li></ul>
+          <p class="notes">🎙️ Success in any endeavor requires dedication from all involved. Here, both the teacher and the student showed remarkable commitment. This shared effort created a powerful learning environment.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥳</div><div class="vcap">Joy of Achievement</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💪</span><span>💪</span></div><div class="vcap">Strong Willpower</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>The Touching <span class="hl">Gift</span>: A New Book</h2>
-          <ul><li>Grandmother gifts Sudha a new copy of 'Kashi Yatre'.</li><li>A symbolic gesture of gratitude and love.</li><li>Her way of honoring her teacher.</li></ul>
-          <p class="notes">🎙️ The grandmother's gift of a new 'Kashi Yatre' to Sudha is incredibly touching. It's not just a book; it's a symbol of her profound gratitude, her newfound independence, and the deep love she holds for her granddaughter who made her dream come true.</p>
+          <h2>Concept Recap: Never Give <span class="hl">Up</span>!</h2>
+          <ul><li>The story emphasizes the importance of perseverance.</li><li>Challenges are part of any learning journey.</li><li>With consistent effort, goals can be achieved.</li></ul>
+          <p class="notes">🎙️ This narrative powerfully illustrates the 'never give up' attitude. Whether you are learning a new skill or facing a difficult task, the story reminds us that persistence is key to overcoming obstacles and reaching our aspirations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">A Gift of Gratitude</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Progress &amp; Growth</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Theme 1: Importance of <span class="hl">Education</span></h2>
-          <ul><li>Education empowers individuals at any age.</li><li>Opens doors to knowledge and independence.</li><li>A fundamental right for everyone.</li></ul>
-          <p class="notes">🎙️ This story powerfully conveys the importance of education. It shows how learning to read transformed the grandmother's life, giving her a sense of self-worth and independence. It reminds us that education is a lifelong journey and a valuable asset.</p>
+          <h2>Quick Check 1: What was Grandamma's biggest <span class="hl">regret</span> in life?</h2>
+          <ul><li>A. Not visiting Kashi</li><li>B. Not learning to read</li><li>C. Not having more grandchildren</li><li>D. Not cooking well</li></ul>
+          <p class="notes">🎙️ Let's test our understanding of the story so far. Think back to the moment the grandmother felt most sad about her past. What was that crucial detail?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎓</div><div class="vcap">Power of Learning</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Theme 2: <span class="hl">Love</span> and Respect</h2>
-          <ul><li>The story highlights the deep bond between generations.</li><li>Sudha's respect for her grandmother's wish.</li><li>Grandmother's love and gratitude for Sudha.</li></ul>
-          <p class="notes">🎙️ The love and respect shared between the grandmother and granddaughter are central to the story. Sudha's patience and the grandmother's trust create a beautiful dynamic, showing how family support can help overcome any challenge. It's a heartwarming display of affection.</p>
+          <h2>The Triumph: The <span class="hl">Joy</span> of Reading</h2>
+          <ul><li>Grandamma successfully learned to read the entire novel.</li><li>She experienced immense pride and self-respect.</li><li>Her independence in reading brought her great happiness.</li></ul>
+          <p class="notes">🎙️ The moment the grandmother could read by herself was a huge triumph. It wasn't just about reading words; it was about reclaiming a part of herself, gaining independence, and fulfilling a lifelong dream.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Intergenerational Love</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎉</div><div class="vcap">Achievement Celebrated</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,33 +252,57 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Theme 3: <span class="hl">Determination</span> and Willpower</h2>
-          <ul><li>Grandmother's unwavering resolve to learn.</li><li>She proves that age is no barrier to learning.</li><li>A strong will can overcome any obstacle.</li></ul>
-          <p class="notes">🎙️ The grandmother's determination is truly inspiring. Despite her age and the difficulty of starting from scratch, her willpower never faltered. This theme teaches us that with enough resolve, we can achieve anything we set our minds to, regardless of how daunting it may seem.</p>
+          <h2>A Special Gift: Grandamma's Unique <span class="hl">Present</span></h2>
+          <ul><li>On Dussehra, Grandamma gifted her granddaughter a copy of 'Kashi Yatre'.</li><li>She touched her feet, a gesture of respect for her teacher.</li><li>The book had her own name inscribed, showing her newfound identity.</li></ul>
+          <p class="notes">🎙️ This gift was deeply symbolic. It wasn't just a book; it represented the knowledge and respect she had gained. Her touching the granddaughter's feet showed that age is no barrier to showing gratitude and reverence to a teacher.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Focused Willpower</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">Symbolic Gift</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Quick <span class="hl">Question 1</span></h2>
-          <ul><li>What was the name of the novel the grandmother loved to hear?</li></ul>
-          <p class="notes">🎙️ Think back to the story's central plot device. What was that special book that motivated the grandmother so much? Take a moment to recall its title. This book was key to her desire to learn.</p>
+          <h2>The Power of Literacy: <span class="hl">Education</span> for Everyone</h2>
+          <ul><li>The story highlights that learning has no age limit.</li><li>Literacy empowers individuals and opens up new worlds.</li><li>It emphasizes the importance of basic education for all.</li></ul>
+          <p class="notes">🎙️ This story is a powerful reminder that education is a fundamental right and a lifelong journey. It shows how literacy can transform lives, bringing dignity and opportunity to anyone, regardless of their background or age.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Knowledge is Power</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick <span class="hl">Question 2</span></h2>
-          <ul><li>What deadline did the grandmother set for herself to learn to read?</li></ul>
-          <p class="notes">🎙️ Remember the significant cultural event mentioned in the story that marked the grandmother's target for learning? This deadline showed her serious commitment. What was that special occasion?</p>
+          <h2>Key Themes: What <span class="hl">Lessons</span> Do We Learn?</h2>
+          <ul><li>Dedication and Perseverance</li><li>Love and Respect for Elders</li><li>The Importance of Education</li><li>Age is No Bar to Learning</li></ul>
+          <p class="notes">🎙️ The story is rich with valuable lessons. It teaches us about the strength of human will, the beauty of intergenerational bonds, and the profound impact that education can have on an individual's life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Important Ideas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Real-Life Impact: Education <span class="hl">Transforms</span> Lives</h2>
+          <ul><li>Think about how literacy programs help adults today.</li><li>Empowering individuals to read helps entire communities.</li><li>Knowledge leads to better decision-making and opportunities.</li></ul>
+          <p class="notes">🎙️ The story's message extends beyond the characters. It reflects the real-world impact of education. When one person learns to read, it doesn't just change their life; it can positively influence their family and community.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Impact</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check 2: At what <span class="hl">age</span> did Grandamma decide to learn to read?</h2>
+          <ul><li>A. 50</li><li>B. 62</li><li>C. 70</li><li>D. 80</li></ul>
+          <p class="notes">🎙️ Another quick question to see if you remember the details. This age highlights the extraordinary dedication of the grandmother.</p>
         </div>
         
       </div>
@@ -274,36 +311,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Question 3</span></h2>
-          <ul><li>What was the special gift the grandmother gave to her granddaughter at the end?</li></ul>
-          <p class="notes">🎙️ Consider the symbolic act of gratitude from the grandmother to her teacher. What did she present to Sudha as a token of her appreciation and newfound ability? This gift was very meaningful.</p>
+          <span class="num">22 / 25</span>
+          <h2>Quick Check 3: What was the grandmother's <span class="hl">name</span> mentioned in the story?</h2>
+          <ul><li>A. Sudha</li><li>B. Krishhtakka</li><li>C. Lakshmi</li><li>D. Saraswati</li></ul>
+          <p class="notes">🎙️ Remember, the story gives her a specific name. This helps us connect with her as a real character, not just 'the grandmother'.</p>
         </div>
         
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Connecting to Our Lives: <span class="hl">Real-Life</span> Examples</h2>
-          <ul><li>Many adults learn new skills, like coding or music, later in life.</li><li>Grandparents often learn to use smartphones to connect with family.</li><li>The story inspires us to help others learn and grow.</li></ul>
-          <p class="notes">🎙️ This story isn't just fiction; it reflects real-life experiences. Think about how many people, regardless of age, embrace new challenges. Perhaps your own grandparents learned new technology to stay connected. The core message is about continuous learning and supporting each other's growth.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Learning Everywhere</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Moral</span> of the Story: What Does it Teach Us?</h2>
-          <ul><li>Age is no barrier to learning new things.</li><li>Patience and dedication lead to success.</li><li>The joy of giving and receiving education.</li></ul>
-          <p class="notes">🎙️ The story leaves us with several profound lessons. It reminds us that the human spirit for learning is ageless, and with enough perseverance, anything is possible. It also highlights the beautiful exchange of knowledge and love within a family.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Valuable Lessons</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Simple <span class="hl">Literary Devices</span></h2>
-          <ul><li>First-person narration (Sudha tells the story).</li><li>Simple, direct language for clarity.</li><li>Imagery of village life and emotions.</li></ul>
-          <p class="notes">🎙️ While not heavily focused on complex literary devices, the story uses first-person narration effectively to make it personal and relatable. Sudha Murty's simple yet evocative language paints clear pictures of the characters' emotions and the village setting, making the story very accessible.</p>
+          <h2>Recap of the <span class="hl">Journey</span>: Our Story's Journey</h2>
+          <ul><li>From a desire for knowledge to a heartfelt promise.</li><li>Through dedicated learning and overcoming challenges.</li><li>To the ultimate triumph of literacy and self-respect.</li></ul>
+          <p class="notes">🎙️ We've walked through the grandmother's journey, witnessing her transformation. It's a testament to the fact that with enough will, anything is possible, and the simplest acts of teaching can have the most profound impact.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Storytelling Tools</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Desire</span></div><div class="step"><span class="snum">2</span><span>Promise</span></div><div class="step"><span class="snum">3</span><span>Effort</span></div><div class="step"><span class="snum">4</span><span>Triumph</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Main Points of the Story</h2>
-          <ul><li>Grandmother Krishhtakka's desire to read 'Kashi Yatre'.</li><li>Granddaughter Sudha teaches her patiently.</li><li>Grandmother's determination and hard work.</li><li>The triumph of learning and a touching gift.</li></ul>
-          <p class="notes">🎙️ To quickly summarize, we've seen how Krishhtakka's dream of reading came true with Sudha's help. Their journey was filled with challenges but ultimately led to a beautiful success, showcasing the power of education, love, and sheer willpower. It's a story that truly warms the heart.</p>
+          <h2>Moral of the Story: The Enduring <span class="hl">Message</span></h2>
+          <ul><li>Willpower and determination can overcome any obstacle.</li><li>Love and respect are powerful motivators.</li><li>Education is a timeless gift that empowers everyone.</li></ul>
+          <p class="notes">🎙️ The story leaves us with a beautiful and enduring message. It's a reminder that age, background, or past opportunities should never deter us from pursuing knowledge and fulfilling our dreams. It's truly inspiring.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Guiding Principle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Your Thoughts &amp; <span class="hl">Questions</span></h2>
-          <ul><li>What part of the story resonated most with you?</li><li>Do you know anyone who learned a new skill later in life?</li><li>Any questions about the chapter or its themes?</li></ul>
-          <p class="notes">🎙️ Now, it's your turn to reflect. This story offers so much to think about. Feel free to share your thoughts, ask any questions you might have, or tell us if this story reminded you of someone or something in your own life. Let's have a discussion!</p>
+          <h2>A Concluding Thought: Inspire and Be <span class="hl">Inspired</span>!</h2>
+          <ul><li>How can you inspire someone to learn something new?</li><li>What new skill would you like to acquire, regardless of difficulty?</li><li>Remember the power of empathy and sharing knowledge.</li></ul>
+          <p class="notes">🎙️ Let this story encourage you to not only pursue your own learning but also to be a source of inspiration for others. Knowledge grows when shared, and every act of teaching or learning makes our world a little brighter. Thank you.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 9 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Lines in Two Dimensions — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Lines</span> in Two Dimensions!</h2>
+          <ul><li>Welcome to our Maths class!</li><li>Today, we explore lines.</li><li>Understand their properties and equations.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're embarking on an exciting journey into the world of 'Lines in Two Dimensions'. This chapter is fundamental to understanding many advanced mathematical concepts and even real-world applications.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Two Dimensions</span>?</h2>
+          <ul><li>Length and Width/Height.</li><li>Flat surfaces, like paper or a screen.</li><li>Objects without depth.</li></ul>
+          <p class="notes">🎙️ Imagine drawing on a piece of paper. You can move left-right and up-down, but you can't go 'into' the paper. That's a two-dimensional world. It has length and breadth, but no thickness or depth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Flat World</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>The Cartesian <span class="hl">Coordinate System</span></h2>
+          <ul><li>Invented by René Descartes.</li><li>Uses two perpendicular lines: X-axis and Y-axis.</li><li>Locates any point in a plane using (x, y) coordinates.</li></ul>
+          <p class="notes">🎙️ To precisely locate points in our 2D world, we use the Cartesian Coordinate System. It's like a grid system where the horizontal line is the X-axis and the vertical line is the Y-axis. They meet at a special point called the Origin.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">X and Y Axes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Plotting Points</span> (x, y)</h2>
+          <ul><li>First number (x) is horizontal distance from origin.</li><li>Second number (y) is vertical distance from origin.</li><li>Always move along X-axis first, then Y-axis.</li></ul>
+          <p class="notes">🎙️ To plot a point like (3, 2), you start at the origin (0,0). Move 3 units along the X-axis (right if positive, left if negative), then 2 units along the Y-axis (up if positive, down if negative). This gives us the exact location of the point.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start at Origin (0,0)</span></div><div class="step"><span class="snum">2</span><span>Move X units horizontally</span></div><div class="step"><span class="snum">3</span><span>Move Y units vertically</span></div><div class="step"><span class="snum">4</span><span>Mark the point</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Real-Life Plotting: <span class="hl">Map Locations</span></h2>
+          <ul><li>Finding places on a map using grid references.</li><li>Seating arrangements in a classroom or cinema.</li><li>Chessboard positions.</li></ul>
+          <p class="notes">🎙️ Think about finding a specific shop on a city map. Maps often use a grid, similar to the coordinate system, to help you pinpoint locations. Or, imagine finding your seat in a movie theatre – your ticket might say 'Row E, Seat 12', which is essentially a coordinate!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📍</span><span>📍</span><span>📍</span><span>📍</span></div><div class="vcap">4 Locations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>What Exactly is a <span class="hl">Line</span>?</h2>
+          <ul><li>A straight path of points extending infinitely in both directions.</li><li>Has no thickness or width.</li><li>Defined by at least two points.</li></ul>
+          <p class="notes">🎙️ In geometry, a line isn't just a thick mark; it's an infinitely thin, perfectly straight path. It goes on forever in both directions, without any curves or breaks. You only need two distinct points to draw a unique straight line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Infinite Straightness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>The <span class="hl">Equation</span> of a Line</h2>
+          <ul><li>A mathematical rule that all points on the line satisfy.</li><li>General form: Ax + By + C = 0.</li><li>A, B, C are real numbers, A and B are not both zero.</li></ul>
+          <p class="notes">🎙️ Just like every person has a name, every line has an equation that describes it. This equation is a relationship between the x and y coordinates of every point that lies on that line. The general form helps us represent any straight line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Line's Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Understanding <span class="hl">Slope</span> (Gradient)</h2>
+          <ul><li>Measures the steepness of a line.</li><li>How much the line 'rises' for a given 'run'.</li><li>Denoted by 'm'.</li></ul>
+          <p class="notes">🎙️ Slope, also called gradient, tells us how steep a line is. Is it a gentle hill or a very steep mountain? It's calculated by how much the vertical distance changes (rise) for every unit change in the horizontal distance (run).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Steepness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Calculating Slope from <span class="hl">Two Points</span></h2>
+          <ul><li>Given two points (x1, y1) and (x2, y2).</li><li>Formula: m = (y2 - y1) / (x2 - x1).</li><li>Order of points matters for consistency, but not for final slope value.</li></ul>
+          <p class="notes">🎙️ To find the slope of a line passing through two points, we simply find the difference in their y-coordinates and divide it by the difference in their x-coordinates. Remember to subtract the coordinates in the same order for both numerator and denominator.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify (x1, y1) and (x2, y2)</span></div><div class="step"><span class="snum">2</span><span>Calculate change in Y (y2 - y1)</span></div><div class="step"><span class="snum">3</span><span>Calculate change in X (x2 - x1)</span></div><div class="step"><span class="snum">4</span><span>Divide change in Y by change in X</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Real-Life Slope: <span class="hl">Ramps and Roofs</span></h2>
+          <ul><li>Wheelchair ramps: need a specific, gentle slope.</li><li>Roof pitch: determines how water drains.</li><li>Mountain roads: steepness affects driving difficulty.</li></ul>
+          <p class="notes">🎙️ Slope is everywhere! Architects and engineers use it constantly. A wheelchair ramp must have a certain slope to be accessible. The 'pitch' of a roof is its slope, which helps shed rainwater effectively. Even the gradient signs on roads tell you about the slope.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Roof Pitch</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Different <span class="hl">Types of Slopes</span></h2>
+          <ul><li>Positive Slope: Line goes up from left to right.</li><li>Negative Slope: Line goes down from left to right.</li><li>Zero Slope: Horizontal line.</li><li>Undefined Slope: Vertical line.</li></ul>
+          <p class="notes">🎙️ Slopes can be positive, negative, zero, or undefined. A positive slope means the line is rising, like climbing a hill. A negative slope means it's falling. A horizontal line has zero slope, and a perfectly vertical line has an undefined slope because the 'run' (change in x) is zero.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Positive</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Negative</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Zero</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Undefined</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked Example: <span class="hl">Finding Slope</span></h2>
+          <ul><li>Find the slope of the line passing through (2, 3) and (6, 5).</li><li>x1=2, y1=3, x2=6, y2=5.</li><li>m = (5-3) / (6-2) = 2 / 4 = 1/2.</li></ul>
+          <p class="notes">🎙️ Let's work through an example. If we have points (2, 3) and (6, 5), we apply the formula. (5-3) gives us 2, and (6-2) gives us 4. So, the slope is 2/4, which simplifies to 1/2. This means for every 2 units moved horizontally, the line rises 1 unit vertically.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick Question 1: <span class="hl">Plotting</span></h2>
+          <ul><li>Which quadrant is the point (-3, 4) located in?</li><li>A) Quadrant I</li><li>B) Quadrant II</li><li>C) Quadrant III</li><li>D) Quadrant IV</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Remember how we divide the coordinate plane into four quadrants. Think about the signs of the x and y coordinates for each quadrant. Where would a point with a negative x and positive y value lie?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick Question 2: <span class="hl">Slope Type</span></h2>
+          <ul><li>A line passing through (1, 5) and (4, 5) has what type of slope?</li><li>A) Positive</li><li>B) Negative</li><li>C) Zero</li><li>D) Undefined</li></ul>
+          <p class="notes">🎙️ Another quick question! Look at the coordinates. What do you notice about the y-values? If the y-values are the same, what kind of line does that suggest? And what does that mean for its steepness?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>X-intercept and Y-intercept</h2>
+          <ul><li>X-intercept: Where the line crosses the X-axis (y=0).</li><li>Y-intercept: Where the line crosses the Y-axis (x=0).</li><li>These points are useful for graphing a line.</li></ul>
+          <p class="notes">🎙️ Intercepts are special points where the line cuts across the axes. The x-intercept is where the line meets the x-axis, meaning its y-coordinate is zero. Similarly, the y-intercept is where it meets the y-axis, meaning its x-coordinate is zero. They are very helpful for sketching lines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Crossing Points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>The <span class="hl">Slope-Intercept Form</span>: y = mx + c</h2>
+          <ul><li>A very popular form of a linear equation.</li><li>'m' is the slope of the line.</li><li>'c' is the y-intercept of the line.</li></ul>
+          <p class="notes">🎙️ The slope-intercept form, y = mx + c, is incredibly useful because it directly shows us two key properties of the line: its slope 'm' and its y-intercept 'c'. This makes it very easy to understand and graph a line just by looking at its equation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Slope and Intercept</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example: <span class="hl">Slope-Intercept Form</span></h2>
+          <ul><li>Convert 3x + 2y = 6 to slope-intercept form.</li><li>2y = -3x + 6.</li><li>y = (-3/2)x + 3. Here m = -3/2, c = 3.</li></ul>
+          <p class="notes">🎙️ Let's convert a general form equation into slope-intercept form. We need to isolate 'y'. First, move the 'x' term to the right side, then divide everything by the coefficient of 'y'. From y = (-3/2)x + 3, we can immediately see the slope is -3/2 and the y-intercept is 3.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Understanding <span class="hl">Parallel Lines</span></h2>
+          <ul><li>Lines that are always the same distance apart.</li><li>They never intersect, no matter how far they extend.</li><li>Crucially, parallel lines have the EXACT SAME SLOPE.</li></ul>
+          <p class="notes">🎙️ Think of railway tracks or the opposite edges of a ruler. These are examples of parallel lines. They run alongside each other forever without ever meeting. In terms of mathematics, this means they share the exact same steepness or slope.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛤️</span><span>🛤️</span></div><div class="vcap">Two Tracks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Understanding <span class="hl">Perpendicular Lines</span></h2>
+          <ul><li>Lines that intersect at a right angle (90 degrees).</li><li>The product of their slopes is -1 (m1 * m2 = -1).</li><li>If one line is horizontal, the perpendicular line is vertical.</li></ul>
+          <p class="notes">🎙️ Perpendicular lines are like the corners of a square or the intersection of a crossroad. They meet at a perfect right angle. The mathematical rule for their slopes is very important: if you multiply the slope of one line by the slope of the other, you'll always get -1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Right Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Real-Life</span>: Parallel &amp; Perpendicular Lines</h2>
+          <ul><li>Railway tracks (parallel).</li><li>Crossroads (perpendicular).</li><li>Shelves on a wall (parallel to each other, perpendicular to the wall).</li></ul>
+          <p class="notes">🎙️ Look around you! The opposite sides of your classroom wall are parallel. The way two streets meet at an intersection often forms perpendicular lines. These concepts are fundamental in architecture, city planning, and even art.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Roads Intersect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Worked Example: <span class="hl">Parallel or Perpendicular</span>?</h2>
+          <ul><li>Line 1: y = 2x + 1 (m1 = 2).</li><li>Line 2: y = -1/2x + 5 (m2 = -1/2).</li><li>m1 * m2 = 2 * (-1/2) = -1. So, they are perpendicular.</li></ul>
+          <p class="notes">🎙️ Let's determine if two lines are parallel or perpendicular. We first find their slopes. Here, the slopes are 2 and -1/2. If we multiply them, 2 times -1/2 equals -1. This tells us that these two lines are perpendicular to each other.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Question 3: <span class="hl">Parallel Lines</span></h2>
+          <ul><li>Which line is parallel to y = 3x - 2?</li><li>A) y = -3x + 1</li><li>B) y = (1/3)x + 4</li><li>C) y = 3x + 5</li><li>D) y = -2x + 3</li></ul>
+          <p class="notes">🎙️ Remember the key property of parallel lines! What must be true about their slopes? Look at the given equation and then check the slopes of the options provided. Only one will match the condition for parallel lines.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Question 4: <span class="hl">Perpendicular Lines</span></h2>
+          <ul><li>Which line is perpendicular to y = 4x + 7?</li><li>A) y = 4x - 1</li><li>B) y = -4x + 2</li><li>C) y = (1/4)x + 3</li><li>D) y = (-1/4)x - 5</li></ul>
+          <p class="notes">🎙️ Now for perpendicular lines! This time, the product of their slopes must be -1. If the slope of the given line is 4, what slope would its perpendicular counterpart have? Think about the negative reciprocal.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Lines in Two Dimensions</h2>
+          <ul><li>Cartesian coordinates for plotting points.</li><li>Slope measures steepness (m = rise/run).</li><li>Equations of lines (Ax+By+C=0, y=mx+c).</li><li>Parallel lines have same slope; Perpendicular lines have m1*m2 = -1.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! We started with plotting points, then understood what slope means and how to calculate it. We explored different forms of line equations and learned the special relationships between parallel and perpendicular lines. These are all fundamental concepts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Key Learnings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Conclusion</span> &amp; What's Next?</h2>
+          <ul><li>Lines are fundamental to geometry and algebra.</li><li>Used extensively in science, engineering, and art.</li><li>Next, we might explore distance formula, section formula, or equations of specific lines.</li></ul>
+          <p class="notes">🎙️ Understanding lines in two dimensions is a crucial stepping stone in your mathematical journey. It's not just theory; these concepts have countless real-world applications. In future lessons, we can build upon this foundation to explore more advanced properties and calculations related to lines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Future Learning</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

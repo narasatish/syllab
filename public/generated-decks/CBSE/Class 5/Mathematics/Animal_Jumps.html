@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Animal Jumps: How Far Can They Go? — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Animal Jumps: A Maths Adventure! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Welcome to <span class="hl">Animal Jumps</span>!</h2>
-          <ul><li>Let's learn about animals and their amazing jumps.</li><li>We will find out how far different animals can jump.</li><li>It's going to be a fun adventure!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going to explore a very exciting topic: 'Animal Jumps'. We'll discover how far some of our favourite animals can leap and bound. Get ready for a fun learning journey!</p>
+          <ul><li>Let's learn about how animals jump.</li><li>We will count their steps and distance.</li><li>Get ready for a fun maths journey!</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today we are going on an exciting adventure into the world of animal jumps. We will use maths to understand how far our animal friends jump and how many steps they cover. Let's begin!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is a <span class="hl">Jump</span>?</h2>
-          <ul><li>A jump is when you push off the ground and fly a little!</li><li>Animals jump to move around, catch food, or escape.</li><li>Think about when you jump during play!</li></ul>
-          <p class="notes">🎙️ A jump is like taking a quick flight through the air. Just like you jump when you play or skip, animals also jump for many reasons. It helps them move quickly from one place to another.</p>
+          <ul><li>A jump is like taking many steps at once.</li><li>It helps animals move from one place to another.</li><li>We can measure how far an animal jumps.</li></ul>
+          <p class="notes">🎙️ Think about when you jump. You cover more ground than taking just one small step, right? Animals do the same! Their jumps help them travel, find food, or even play. We will learn to measure these jumps using steps.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤸</div><div class="vcap">A fun leap!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👣</div><div class="vcap">Footsteps</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Measuring</span> How Far Animals Jump</h2>
-          <ul><li>How do we know how far an animal jumps?</li><li>We use a special tool called a measuring tape or ruler.</li><li>This helps us find the 'length' or 'distance' of the jump.</li></ul>
-          <p class="notes">🎙️ To find out exactly how far an animal jumps, we need to measure it. We use tools like a measuring tape, just like we measure our height or the length of a table. This measurement tells us the distance covered by the jump.</p>
+          <h2>Meet Our Jumping <span class="hl">Friends</span>!</h2>
+          <ul><li>We have a tiny Froggy.</li><li>A bouncy Bunny.</li><li>And a powerful Kangaroo!</li></ul>
+          <p class="notes">🎙️ Today, we have three special animal friends who love to jump! Each one jumps in a unique way. Let's meet Froggy, Bunny, and Kangaroo and learn about their special jumping powers.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="📏" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐾</div><div class="vcap">Our Animal Pals</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Meters</span> and Centimeters: Our Measuring Friends</h2>
-          <ul><li>We measure length in 'centimeters' (cm) and 'meters' (m).</li><li>1 meter is equal to 100 centimeters.</li><li>A meter is longer, like the length of a big step.</li></ul>
-          <p class="notes">🎙️ When we measure, we use special units. For animal jumps, we often use centimeters for shorter jumps and meters for longer ones. Remember, 1 meter is the same as 100 centimeters, like 100 small steps make one big step!</p>
+          <h2><span class="hl">Froggy's</span> Little Jumps</h2>
+          <ul><li>Froggy is small and takes small jumps.</li><li>Each of Froggy's jumps covers 1 small step.</li><li>He is quick and agile!</li></ul>
+          <p class="notes">🎙️ Our first friend is Froggy. He is very small, so his jumps are also small. Every time Froggy jumps, he covers a distance of exactly 1 small step. Remember this number for Froggy!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="↔️" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐸</div><div class="vcap">1 Step Jump</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Meet the <span class="hl">Tiny Jumpers</span>!</h2>
-          <ul><li>Some animals make small, quick jumps.</li><li>A little frog can jump about 1 meter.</li><li>A small grasshopper can jump a few centimeters.</li></ul>
-          <p class="notes">🎙️ Let's meet some tiny jumpers! Frogs are excellent at small jumps, often leaping about 1 meter. Even smaller, a grasshopper can jump many times its own body length, but that's still only a few centimeters.</p>
+          <h2><span class="hl">Bunny's</span> Medium Jumps</h2>
+          <ul><li>Bunny is bigger than Froggy.</li><li>Each of Bunny's jumps covers 2 small steps.</li><li>She loves to hop around!</li></ul>
+          <p class="notes">🎙️ Next up is Bunny! She's a bit bigger than Froggy, so her jumps are also a bit longer. When Bunny jumps, she covers a distance of 2 small steps. That's double what Froggy jumps in one go!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐸</span><span>🐸</span><span>🐸</span></div><div class="vcap">Frogs jump!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐰</div><div class="vcap">2 Steps Jump</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Meet the <span class="hl">Mighty Jumpers</span>!</h2>
-          <ul><li>Other animals can make very long, powerful jumps.</li><li>A kangaroo can jump up to 9 meters!</li><li>That's like jumping across many cars!</li></ul>
-          <p class="notes">🎙️ Now, let's look at the mighty jumpers! Kangaroos are champions of long jumps, able to cover huge distances, sometimes up to 9 meters in a single bound. Imagine how far that is!</p>
+          <h2><span class="hl">Kangaroo's</span> Big Jumps</h2>
+          <ul><li>Kangaroo is very big and strong.</li><li>Each of Kangaroo's jumps covers 5 small steps.</li><li>He can jump very far!</li></ul>
+          <p class="notes">🎙️ Our last friend is the mighty Kangaroo! Kangaroos are known for their powerful legs and long jumps. One jump from a Kangaroo covers a whopping 5 small steps! That's a lot of ground covered in a single leap.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦘</span><span>🦘</span></div><div class="vcap">Kangaroos jump far!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦘</div><div class="vcap">5 Steps Jump</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2><span class="hl">Comparing</span> Animal Jumps</h2>
-          <ul><li>Which animal jumps farther?</li><li>We compare their jump lengths to find out.</li><li>It's like comparing who is taller or shorter.</li></ul>
-          <p class="notes">🎙️ Once we know how far different animals jump, we can compare them. Comparing means seeing which jump is longer or shorter. It helps us understand the amazing abilities of different creatures.</p>
+          <h2><span class="hl">Counting Steps</span> with Jumps</h2>
+          <ul><li>We can count how many steps an animal covers.</li><li>We multiply the number of jumps by steps per jump.</li><li>It's like skipping numbers on a number line!</li></ul>
+          <p class="notes">🎙️ Now that we know how many steps each animal jumps in one go, we can figure out the total steps they cover for many jumps. This is a fun way to practice our multiplication and addition skills!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Who jumps farther?</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Example: Frog <span class="hl">vs.</span> Rabbit Jump</h2>
-          <ul><li>A frog jumps 2 meters.</li><li>A rabbit jumps 3 meters.</li><li>The rabbit jumps farther than the frog.</li></ul>
-          <p class="notes">🎙️ Let's compare a frog and a rabbit. If a frog jumps 2 meters and a rabbit jumps 3 meters, we can easily see that the rabbit jumps farther. The difference is 1 meter.</p>
+          <h2>Example: <span class="hl">Froggy Jumps</span>!</h2>
+          <ul><li>Froggy makes 3 jumps.</li><li>Each jump is 1 step.</li><li>How many total steps does Froggy cover?</li></ul>
+          <p class="notes">🎙️ Let's see Froggy in action! If Froggy jumps 3 times, and each jump is 1 step, we can count: 1 step, then 2 steps, then 3 steps. So, 3 jumps multiplied by 1 step per jump equals 3 total steps. Simple, right?</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Frog (2m)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rabbit (3m)</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start</span></div><div class="step"><span class="snum">2</span><span>Jump 1 (1 step)</span></div><div class="step"><span class="snum">3</span><span>Jump 2 (1 step)</span></div><div class="step"><span class="snum">4</span><span>Jump 3 (1 step)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,23 +156,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Worked Example 1: Who Jumps <span class="hl">Farther?</span></h2>
-          <ul><li>A deer jumps 4 meters.</li><li>A lion jumps 3 meters.</li><li>Who jumps farther? The deer or the lion?</li></ul>
-          <p class="notes">🎙️ Here's a problem for us! A deer can jump 4 meters, and a lion can jump 3 meters. By looking at the numbers, we can tell that the deer jumps farther than the lion. Good job, deer!</p>
+          <h2>Example: <span class="hl">Bunny Hops</span>!</h2>
+          <ul><li>Bunny makes 2 jumps.</li><li>Each jump is 2 steps.</li><li>How many total steps does Bunny cover?</li></ul>
+          <p class="notes">🎙️ Now for Bunny! She makes 2 jumps, and each jump is 2 steps. So, we count in twos: 2 steps, then 4 steps. This means 2 jumps multiplied by 2 steps per jump equals 4 total steps. Bunny covered 4 steps!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Deer (4m)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Lion (3m)</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start</span></div><div class="step"><span class="snum">2</span><span>Jump 1 (2 steps)</span></div><div class="step"><span class="snum">3</span><span>Jump 2 (2 steps)</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Quick <span class="hl">Question 1</span></h2>
-          <ul><li>A cat jumps 2 meters.</li><li>A dog jumps 4 meters.</li><li>Which animal jumps farther?</li></ul>
-          <p class="notes">🎙️ Time for a quick question! If a cat jumps 2 meters and a dog jumps 4 meters, can you tell me which animal jumps farther? Think about the numbers we just learned.</p>
+          <h2><span class="hl">Comparing</span> One Jump</h2>
+          <ul><li>Who jumps the furthest in just one go?</li><li>Froggy jumps 1 step.</li><li>Bunny jumps 2 steps.</li><li>Kangaroo jumps 5 steps.</li></ul>
+          <p class="notes">🎙️ Let's quickly compare the power of one jump for each animal. As you can see, Kangaroo jumps the furthest with a single leap, followed by Bunny, and then Froggy. This comparison helps us understand their different strengths.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Froggy</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Bunny</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Kangaroo</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>How Far Can <span class="hl">YOU Jump?</span></h2>
-          <ul><li>We can also measure our own jumps!</li><li>Try to jump as far as you can.</li><li>How many centimeters or meters did you jump?</li></ul>
-          <p class="notes">🎙️ It's not just animals that jump! You can jump too. At home, you can try to measure your own jump. See how many centimeters or even meters you can cover in a single leap! It's a fun way to practice measuring.</p>
+          <h2>Real-Life Jumps: <span class="hl">Long Jump</span></h2>
+          <ul><li>Have you seen athletes jump in sports?</li><li>They try to jump as far as possible.</li><li>We measure their jump distance in metres.</li></ul>
+          <p class="notes">🎙️ Jumping isn't just for animals! Humans also jump in sports like the long jump. Athletes run and then leap into the air, trying to cover the longest distance possible. Their jumps are measured very carefully.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Try jumping!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Athlete Jumping</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>The Clever <span class="hl">Cat's Jump</span></h2>
-          <ul><li>A cat can jump about 1.5 meters high!</li><li>They are very good at jumping onto high places.</li><li>Cats use their strong legs and tail to balance.</li></ul>
-          <p class="notes">🎙️ Cats are amazing jumpers, not just for distance but also for height! They can jump surprisingly high, often 1.5 meters, to reach shelves or climb trees. Their strong legs and tail help them land perfectly.</p>
+          <h2>Real-Life Jumps: <span class="hl">Measuring Height</span></h2>
+          <ul><li>Sometimes we jump up to reach something.</li><li>We can measure how high we jump.</li><li>This also involves distance, but upwards!</li></ul>
+          <p class="notes">🎙️ Think about when you try to jump and touch a high branch or a basketball hoop. You are making a vertical jump! We can also measure how high something jumps or how high you can reach when you jump. It's all about distance!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐈</div><div class="vcap">Cats jump high!</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📏" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,23 +204,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Worked Example 2: <span class="hl">How Much</span> Farther?</h2>
-          <ul><li>A rabbit jumps 3 meters.</li><li>A cat jumps 2 meters.</li><li>How much farther does the rabbit jump than the cat?</li></ul>
-          <p class="notes">🎙️ Let's solve another problem. If a rabbit jumps 3 meters and a cat jumps 2 meters, we want to find the difference. We subtract the smaller number from the larger one: 3 - 2 = 1 meter. So the rabbit jumps 1 meter farther.</p>
+          <h2>Problem: <span class="hl">Combined Jumps</span>!</h2>
+          <ul><li>Froggy jumps 2 times.</li><li>Then Bunny jumps 1 time.</li><li>What is the total number of steps covered?</li></ul>
+          <p class="notes">🎙️ Let's solve a problem together! First, Froggy jumps 2 times (2 x 1 step = 2 steps). Then, Bunny jumps 1 time (1 x 2 steps = 2 steps). To find the total, we add Froggy's steps and Bunny's steps: 2 + 2 = 4 steps. Great job!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Finding the difference</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👣</span><span>👣</span><span>👣</span><span>👣</span></div><div class="vcap">Total Steps</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Quick <span class="hl">Question 2</span></h2>
-          <ul><li>A grasshopper jumps 10 centimeters.</li><li>A cricket jumps 5 centimeters.</li><li>How much farther does the grasshopper jump?</li></ul>
-          <p class="notes">🎙️ Here's your second quick question! A grasshopper jumps 10 centimeters and a cricket jumps 5 centimeters. Can you calculate how much farther the grasshopper jumps than the cricket? Remember to subtract.</p>
+          <h2>Problem: <span class="hl">Who Jumps More</span>?</h2>
+          <ul><li>Kangaroo jumps 2 times.</li><li>Froggy jumps 8 times.</li><li>Who covered more total steps?</li></ul>
+          <p class="notes">🎙️ This is a good comparison problem! Kangaroo jumps 2 times, each 5 steps, so that's 2 x 5 = 10 steps. Froggy jumps 8 times, each 1 step, so that's 8 x 1 = 8 steps. Clearly, Kangaroo covered more total steps this time!</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Kangaroo (2x5)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Froggy (8x1)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>The Great Animal <span class="hl">Race!</span></h2>
-          <ul><li>Imagine animals having a jumping race.</li><li>They take many jumps to reach the finish line.</li><li>We can add their jumps to find the total distance.</li></ul>
-          <p class="notes">🎙️ Let's imagine a fun race where animals jump their way to the finish line! If an animal takes several jumps, we can add all the lengths of those jumps together. This will tell us the total distance they covered.</p>
+          <h2>Quick <span class="hl">Question 1</span>!</h2>
+          <ul><li>A Squirrel jumps 3 times.</li><li>Each jump is 2 steps.</li><li>How many total steps did the Squirrel jump?</li></ul>
+          <p class="notes">🎙️ Time for a quick question! Imagine a squirrel jumping. If it jumps 3 times, and each jump covers 2 steps, how many total steps did it cover? Think about multiplication to find the answer!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏁</span></div><div class="vcap">Who will win?</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐿️</div><div class="vcap">Squirrel's Jumps</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Worked Example 3: <span class="hl">Total Jumps</span></h2>
-          <ul><li>A frog takes 2 jumps.</li><li>Each jump is 1 meter long.</li><li>Total distance jumped = 1m + 1m = 2 meters.</li></ul>
-          <p class="notes">🎙️ If our frog takes two jumps, and each jump is 1 meter long, what is the total distance? We add the length of each jump: 1 meter + 1 meter equals 2 meters. The frog covered a total of 2 meters.</p>
+          <h2>Quick <span class="hl">Question 2</span>!</h2>
+          <ul><li>A Cat jumps 4 times.</li><li>Each jump is 1 step.</li><li>How many total steps did the Cat jump?</li></ul>
+          <p class="notes">🎙️ Here's another one! A playful cat makes 4 jumps. Each of its jumps is a small 1 step. Can you quickly tell me the total number of steps the cat covered? This one is quite straightforward!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding distances</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐈</div><div class="vcap">Cat's Jumps</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Question 3</span></h2>
-          <ul><li>A rabbit takes 3 jumps.</li><li>Each jump is 3 meters long.</li><li>What is the total distance the rabbit jumped?</li></ul>
-          <p class="notes">🎙️ Here's another question for you! A rabbit takes three jumps, and each jump is 3 meters long. Can you tell me the total distance the rabbit jumped? Remember to add all the jumps together.</p>
+          <h2>Quick <span class="hl">Question 3</span>!</h2>
+          <ul><li>A Dog jumps 1 time (5 steps).</li><li>A Bunny jumps 3 times (2 steps each).</li><li>Who jumped further, the Dog or the Bunny?</li></ul>
+          <p class="notes">🎙️ Last question! The dog makes one big jump of 5 steps. The bunny makes 3 jumps, each 2 steps. Who covered a greater distance? Calculate both totals and then compare them. Who is the winner?</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:83%"></div><div class="clabel">Dog (1x5)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bunny (3x2)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Question 4</span></h2>
-          <ul><li>A squirrel jumps 2 meters to a tree.</li><li>Then it jumps 1 meter to another branch.</li><li>How far did the squirrel jump in total?</li></ul>
-          <p class="notes">🎙️ Last quick question! A squirrel makes two jumps: first 2 meters to a tree, then 1 meter to another branch. What is the total distance the squirrel jumped? Add the two distances to find the answer.</p>
+          <h2>Jumps and Math: A <span class="hl">Connection</span>!</h2>
+          <ul><li>Jumps help us understand multiplication.</li><li>Each jump is a group of steps.</li><li>We can add jumps to find total distance.</li></ul>
+          <p class="notes">🎙️ Did you notice how we used multiplication to find the total steps for multiple jumps? And we used addition when different animals jumped? Jumps are a great way to visualize these important math concepts, almost like a moving number line!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔢" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Math Operations</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today!</h2>
-          <ul><li>We learned what a jump is and how to measure it.</li><li>We used meters and centimeters for jump lengths.</li><li>We compared and added animal jump distances.</li><li>Animals have amazing jumping powers!</li></ul>
-          <p class="notes">🎙️ Today, we had a wonderful time learning about animal jumps! We understood how to measure distances using meters and centimeters. We also practiced comparing and adding different jump lengths. Animals truly have incredible jumping abilities!</p>
+          <h2><span class="hl">Recap</span>: What We Learned!</h2>
+          <ul><li>Different animals jump different distances.</li><li>We can calculate total steps by multiplying.</li><li>We can compare distances using our math skills.</li></ul>
+          <p class="notes">🎙️ Today, we learned that every animal has its own unique jump size. We practiced counting steps, using multiplication to find total distances, and even compared who jumped further. You all did a fantastic job!</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="✅" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Jump and Measure <span class="hl">Fun!</span></h2>
-          <ul><li>Go outside and try your own jumps!</li><li>Measure how far you can jump with a tape.</li><li>Compare your jump with a friend's jump!</li><li>Keep exploring the world of numbers!</li></ul>
-          <p class="notes">🎙️ Now it's your turn to have some fun! Go outside, jump around, and try to measure your jumps. You can even compare your jump with a friend's jump. Keep practicing and exploring the exciting world of mathematics!</p>
+          <h2>Keep <span class="hl">Exploring</span> Animal Jumps!</h2>
+          <ul><li>Look for jumps around you every day!</li><li>How many steps do you jump?</li><li>Math is everywhere, even in fun jumps!</li></ul>
+          <p class="notes">🎙️ You can keep practicing by observing animals or even yourself! How many steps do you cover in one jump? Math is all around us, in every jump and every step. Keep exploring and have fun with numbers!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥳</div><div class="vcap">Keep exploring!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Keep Learning!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

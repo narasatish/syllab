@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Biomolecules: The Chemistry of Life — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to <span class="hl">Biomolecules</span>!</h2>
-          <ul><li>Essential for life processes</li><li>Understanding the chemistry of living organisms</li><li>Crucial topic for CBSE Class 12 Chemistry</li></ul>
-          <p class="notes">🎙️ Good morning, students! Today, we embark on a fascinating journey into the world of Biomolecules. These are the very molecules that make life possible, and understanding them is key to mastering the chemistry of living systems. This chapter is vital for your upcoming board exams.</p>
+          <ul><li>Explore the fundamental molecules of life.</li><li>Understand their structure, function, and importance.</li><li>Prepare for your CBSE Class 12 Chemistry exams.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Biomolecules, the very foundation of life. This chapter is crucial for your board exams, so pay close attention to the details and concepts.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What are <span class="hl">Biomolecules</span>?</h2>
-          <ul><li>Organic compounds found in living organisms</li><li>Form the basis of life</li><li>Perform various biological functions</li></ul>
-          <p class="notes">🎙️ Biomolecules are essentially complex organic compounds found in living organisms. They are the fundamental building blocks and machinery that allow life to exist and function. Each type plays a specific and crucial role in maintaining life processes.</p>
+          <ul><li>Complex organic molecules forming living organisms.</li><li>Essential for life processes like growth, metabolism, and reproduction.</li><li>Include carbohydrates, proteins, nucleic acids, lipids, and vitamins.</li></ul>
+          <p class="notes">🎙️ Biomolecules are essentially the organic compounds found within living organisms. They are the chemical machinery that allows life to exist and function, from the smallest cell to the largest organism. We will focus on the main types in detail.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Building Blocks of Life</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Building blocks of life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Major <span class="hl">Classes</span> of Biomolecules</h2>
-          <ul><li>Carbohydrates: Energy and structure</li><li>Proteins: Structure, enzymes, transport</li><li>Nucleic Acids: Genetic information</li><li>Lipids: Energy storage, cell membranes</li></ul>
-          <p class="notes">🎙️ We can broadly classify biomolecules into four main categories: Carbohydrates, Proteins, Nucleic Acids, and Lipids. Each class has distinct structures and functions, which we will explore in detail. Today, we focus on the first three.</p>
+          <h2><span class="hl">Carbohydrates</span>: Energy Houses</h2>
+          <ul><li>Polyhydroxy aldehydes or ketones, or compounds that yield them on hydrolysis.</li><li>General formula: Cx(H2O)y (often, not always).</li><li>Primary source of energy for living systems.</li></ul>
+          <p class="notes">🎙️ Carbohydrates are one of the most abundant biomolecules on Earth. Think of them as the body's primary fuel. They are broadly classified based on the number of sugar units they contain after hydrolysis.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Carbohydrates</span></div><div class="step"><span class="snum">2</span><span>Proteins</span></div><div class="step"><span class="snum">3</span><span>Nucleic Acids</span></div><div class="step"><span class="snum">4</span><span>Lipids</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍚</div><div class="vcap">Energy source</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Carbohydrates</span> - The Energy Source</h2>
-          <ul><li>Polyhydroxy aldehydes or ketones</li><li>General formula: CnH2nOn or CnH2O)n</li><li>Primary source of energy for living organisms</li></ul>
-          <p class="notes">🎙️ Carbohydrates are the most abundant biomolecules on Earth, commonly known as sugars and starches. Chemically, they are polyhydroxy aldehydes or ketones. Their general formula helps us identify them, and remember, they are our body's preferred fuel source.</p>
+          <h2><span class="hl">Monosaccharides</span>: Simple Sugars</h2>
+          <ul><li>Simplest carbohydrates, cannot be hydrolyzed further.</li><li>Examples: Glucose (aldohexose), Fructose (ketohexose), Ribose.</li><li>Classified by carbon atoms: trioses, tetroses, pentoses, hexoses.</li></ul>
+          <p class="notes">🎙️ Monosaccharides are the basic building blocks of all carbohydrates. Glucose is the most important one, often called dextrose, and is found in blood sugar. Fructose is known as fruit sugar and is the sweetest natural sugar.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍚</div><div class="vcap">Energy Food</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span><span>🍬</span></div><div class="vcap">Individual sugar units</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Classification</span> of Carbohydrates</h2>
-          <ul><li>Monosaccharides: Simple sugars (glucose, fructose)</li><li>Disaccharides: Two monosaccharides (sucrose, maltose)</li><li>Polysaccharides: Many monosaccharides (starch, cellulose)</li></ul>
-          <p class="notes">🎙️ Carbohydrates are classified based on their hydrolysis products. Monosaccharides are the simplest and cannot be hydrolyzed further. Disaccharides yield two monosaccharides upon hydrolysis, and polysaccharides yield many. This distinction is crucial for understanding their properties.</p>
+          <h2><span class="hl">Disaccharides</span>: Two Sugars</h2>
+          <ul><li>Formed by two monosaccharide units joined by a glycosidic linkage.</li><li>Examples: Sucrose (glucose + fructose), Lactose (glucose + galactose), Maltose (glucose + glucose).</li><li>Hydrolyze to yield two monosaccharide molecules.</li></ul>
+          <p class="notes">🎙️ Disaccharides are formed when two monosaccharides link together, losing a water molecule. Sucrose, or common table sugar, is a non-reducing sugar. Lactose is milk sugar, and Maltose is found in germinating grains.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Mono</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Di</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Poly</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sucrose</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Lactose</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Maltose</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Monosaccharides</span> - Glucose &amp; Fructose</h2>
-          <ul><li>Glucose: Aldohexose, 'blood sugar'</li><li>Fructose: Ketohexose, 'fruit sugar'</li><li>Both are reducing sugars</li></ul>
-          <p class="notes">🎙️ Glucose and fructose are two common monosaccharides. Glucose is an aldohexose, meaning it contains an aldehyde group and six carbon atoms. Fructose is a ketohexose, with a ketone group. Both are vital energy sources and are reducing sugars, which is an important chemical property.</p>
+          <h2><span class="hl">Polysaccharides</span>: Complex Chains</h2>
+          <ul><li>Contain a large number of monosaccharide units joined by glycosidic linkages.</li><li>Examples: Starch (plant energy storage), Cellulose (plant structural material), Glycogen (animal energy storage).</li><li>Often tasteless and insoluble in water.</li></ul>
+          <p class="notes">🎙️ Polysaccharides are polymers of monosaccharides. Starch is a major dietary source and consists of amylose and amylopectin. Cellulose provides structural rigidity to plants, while glycogen is the animal equivalent of starch, stored mainly in liver and muscles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍬</span><span>🍬</span></div><div class="vcap">Simple Sugars</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Long chains</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Structure</span> of Glucose</h2>
-          <ul><li>Open-chain structure: Straight chain of 6 carbons</li><li>Cyclic structure: Hemiacetal formation</li><li>Anomers: α- and β-glucose forms</li></ul>
-          <p class="notes">🎙️ Glucose exists in both open-chain and cyclic forms. The cyclic structure is more stable and is formed by the reaction between the aldehyde group and a hydroxyl group. This cyclization leads to the formation of new stereoisomers called anomers, specifically α and β forms, differing at C1.</p>
+          <h2><span class="hl">Structure</span> of Glucose: Open Chain &amp; Cyclic</h2>
+          <ul><li>Open chain structure: Pentahydroxy aldehyde (CHO group, 5 -OH groups).</li><li>Cyclic structure: Formed by intramolecular hemiacetal formation (α- and β-anomers).</li><li>Cyclic form explains mutarotation and stability.</li></ul>
+          <p class="notes">🎙️ While glucose exists in an open-chain form, its cyclic structures, specifically the α and β anomers, are more predominant in aqueous solutions. The cyclic structure is a six-membered ring called pyranose, formed by the reaction of the aldehyde group with the C5 hydroxyl group.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Open-chain</span></div><div class="step"><span class="snum">2</span><span>Cyclic (Haworth)</span></div><div class="step"><span class="snum">3</span><span>α-Glucose</span></div><div class="step"><span class="snum">4</span><span>β-Glucose</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Open Chain</span></div><div class="step"><span class="snum">2</span><span>Intramolecular Reaction</span></div><div class="step"><span class="snum">3</span><span>Cyclic (α/β)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Disaccharides</span> - Sucrose &amp; Maltose</h2>
-          <ul><li>Sucrose: Glucose + Fructose (non-reducing)</li><li>Maltose: Glucose + Glucose (reducing)</li><li>Lactose: Glucose + Galactose (reducing)</li></ul>
-          <p class="notes">🎙️ Disaccharides are formed by glycosidic linkage between two monosaccharide units. Sucrose, common table sugar, is unique because it's non-reducing due to the involvement of both anomeric carbons in the bond. Maltose and lactose, however, are reducing sugars as they have a free anomeric carbon.</p>
+          <h2>Worked Example: Glucose <span class="hl">Reactions</span></h2>
+          <ul><li>Oxidation: With bromine water gives gluconic acid (aldose test).</li><li>Reduction: With HI and red P gives n-hexane.</li><li>Fehling's/Tollens' test: Glucose is a reducing sugar, gives positive test.</li></ul>
+          <p class="notes">🎙️ Understanding glucose's reactions helps confirm its structure. Its oxidation to gluconic acid by a mild oxidizing agent like bromine water indicates the presence of an aldehyde group. Reduction to n-hexane confirms the straight-chain nature of carbon atoms.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Two Units Linked</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Redox_reaction.svg?width=500" data-fb="🧪" alt="Redox reactions involve electron transfer between reactants. Oxidation = loss of electrons"/><div class="vcap">Redox reactions involve electron transfer between reactants. Oxidation = loss of electrons</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,33 +156,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Polysaccharides</span> - Starch &amp; Cellulose</h2>
-          <ul><li>Starch: Plant energy storage (amylose + amylopectin)</li><li>Cellulose: Plant structural component (β-glucose units)</li><li>Glycogen: Animal energy storage</li></ul>
-          <p class="notes">🎙️ Polysaccharides are polymers of many monosaccharide units. Starch is the primary energy reserve in plants, composed of amylose and amylopectin. Cellulose provides structural rigidity to plants and is made of β-glucose units, which humans cannot digest. Glycogen is the animal equivalent of starch.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⛓️</span><span>⛓️</span><span>⛓️</span><span>⛓️</span><span>⛓️</span></div><div class="vcap">Long Chains</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Quick <span class="hl">Question</span>: Carbohydrates</h2>
-          <ul><li>Which of the following is a non-reducing sugar?</li><li>A) Glucose</li><li>B) Fructose</li><li>C) Sucrose</li><li>D) Maltose</li></ul>
-          <p class="notes">🎙️ Time for a quick check! Think about the structures we just discussed, especially the involvement of anomeric carbons in glycosidic linkages. The answer to this question is a key concept for your exams.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">11 / 25</span>
-          <h2><span class="hl">Proteins</span> - The Workhorses of the Cell</h2>
-          <ul><li>Polymers of alpha-amino acids</li><li>Essential for structure, function, and regulation</li><li>Contain C, H, O, N (and sometimes S)</li></ul>
-          <p class="notes">🎙️ Proteins are incredibly versatile biomolecules, often called the workhorses of the cell. They are complex polymers built from smaller units called alpha-amino acids. Proteins are involved in almost every biological process, from structural support to catalyzing reactions.</p>
+          <h2><span class="hl">Proteins</span>: The Workhorses of Life</h2>
+          <ul><li>Polymers of α-amino acids linked by peptide bonds.</li><li>Essential for structure, function, and regulation of body tissues and organs.</li><li>Highly specific biological functions: enzymes, hormones, antibodies.</li></ul>
+          <p class="notes">🎙️ Proteins are incredibly diverse and perform a vast array of functions in the body. They are literally the workhorses, building structures, catalyzing reactions, transporting molecules, and defending against pathogens. Their primary building blocks are amino acids.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/GenericAminoAcid.svg?width=500" data-fb="💪" alt="Amino acids form proteins via peptide bonds; structure determines function via primary, se"/><div class="vcap">Amino acids form proteins via peptide bonds; structure determines function via primary, se</div></div></div>
       </div>
@@ -178,12 +167,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">12 / 25</span>
-          <h2><span class="hl">Amino Acids</span> - Building Blocks of Proteins</h2>
-          <ul><li>Contain an amino group (-NH2) and a carboxyl group (-COOH)</li><li>Zwitterionic form in aqueous solution</li><li>Essential vs. Non-essential amino acids</li></ul>
-          <p class="notes">🎙️ Amino acids are the monomers of proteins. Each amino acid has a central carbon atom bonded to an amino group, a carboxyl group, a hydrogen atom, and a unique side chain (R group). In solution, they exist as zwitterions. Remember the distinction between essential amino acids, which our body cannot synthesize, and non-essential ones.</p>
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Amino Acids</span>: Building Blocks</h2>
+          <ul><li>Contain both an amino (-NH2) and a carboxyl (-COOH) group.</li><li>α-amino acids have both groups attached to the same carbon atom (α-carbon).</li><li>Classified as essential (from diet) or non-essential (synthesized in body).</li></ul>
+          <p class="notes">🎙️ There are 20 common α-amino acids that make up proteins. Essential amino acids like valine, leucine, and lysine must be obtained from our diet as our bodies cannot synthesize them. Non-essential ones, like glycine and alanine, can be made by the body.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Essential</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Non-Essential</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Essential</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Non-Essential</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Peptide Bond</span> Formation</h2>
+          <ul><li>Formed between the carboxyl group of one amino acid and the amino group of another.</li><li>A covalent amide linkage (-CO-NH-).</li><li>Water molecule is eliminated during formation.</li></ul>
+          <p class="notes">🎙️ When two amino acids react, they form a dipeptide. The bond formed is called a peptide bond. This process can repeat, forming long chains called polypeptides, which eventually fold into functional proteins.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Amino Acid 1</span></div><div class="step"><span class="snum">2</span><span>Amino Acid 2</span></div><div class="step"><span class="snum">3</span><span>Water Loss</span></div><div class="step"><span class="snum">4</span><span>Peptide Bond</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Levels of Protein <span class="hl">Structure</span></h2>
+          <ul><li>Primary: Sequence of amino acids.</li><li>Secondary: Local folding (α-helix, β-pleated sheet) due to H-bonds.</li><li>Tertiary: 3D folding of the polypeptide chain.</li><li>Quaternary: Arrangement of multiple polypeptide subunits.</li></ul>
+          <p class="notes">🎙️ Protein function is intimately linked to its precise three-dimensional structure. Each level of structure is crucial; even a small change in the primary sequence can drastically alter the protein's function, leading to diseases like sickle cell anemia.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Complex folding</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,57 +204,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Peptide Bond</span> Formation</h2>
-          <ul><li>Condensation reaction between -COOH and -NH2</li><li>Forms an amide linkage (-CO-NH-)</li><li>Release of a water molecule</li></ul>
-          <p class="notes">🎙️ Amino acids link together to form proteins via a peptide bond. This is a condensation reaction where the carboxyl group of one amino acid reacts with the amino group of another, releasing a molecule of water. This forms a strong amide linkage, building the polypeptide chain.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Amino Acid 1</span></div><div class="step"><span class="snum">2</span><span>Amino Acid 2</span></div><div class="step"><span class="snum">3</span><span>Water Release</span></div><div class="step"><span class="snum">4</span><span>Peptide Bond</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">14 / 25</span>
-          <h2>Levels of Protein <span class="hl">Structure</span></h2>
-          <ul><li>Primary: Sequence of amino acids</li><li>Secondary: Alpha-helix, Beta-pleated sheet</li><li>Tertiary: 3D folding of polypeptide chain</li><li>Quaternary: Arrangement of multiple polypeptide units</li></ul>
-          <p class="notes">🎙️ Proteins have complex structures described at four levels. The primary structure is simply the linear sequence of amino acids. Secondary structure involves local folding like alpha-helices and beta-pleated sheets. Tertiary structure is the overall 3D shape, and quaternary structure involves the arrangement of multiple polypeptide chains.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Primary</span></div><div class="step"><span class="snum">2</span><span>Secondary</span></div><div class="step"><span class="snum">3</span><span>Tertiary</span></div><div class="step"><span class="snum">4</span><span>Quaternary</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
           <h2><span class="hl">Denaturation</span> of Proteins</h2>
-          <ul><li>Loss of 3D structure (secondary, tertiary, quaternary)</li><li>Caused by heat, pH changes, chemicals</li><li>Leads to loss of biological activity</li></ul>
-          <p class="notes">🎙️ Denaturation is a critical concept. It refers to the disruption of a protein's higher-order structures—secondary, tertiary, and quaternary—without breaking the primary peptide bonds. This is often irreversible and leads to the loss of the protein's biological function, like when an egg white cooks.</p>
+          <ul><li>Loss of a protein's secondary, tertiary, or quaternary structure.</li><li>Caused by changes in pH, temperature, or presence of salts/solvents.</li><li>Results in loss of biological activity, often irreversible.</li></ul>
+          <p class="notes">🎙️ Denaturation is the process where a protein loses its native shape and thus its biological activity. Think of boiling an egg – the clear liquid protein (albumin) turns solid and opaque, a classic example of irreversible denaturation. This is because the delicate interactions maintaining its 3D structure are disrupted.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Heat Effect</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2><span class="hl">Functions</span> of Proteins</h2>
-          <ul><li>Enzymes: Catalyze biochemical reactions</li><li>Hormones: Regulate body processes</li><li>Structural: Collagen, keratin</li><li>Transport: Hemoglobin</li></ul>
-          <p class="notes">🎙️ Proteins perform an astonishing array of functions. Enzymes are protein catalysts that speed up reactions. Hormones like insulin are proteins. Structural proteins like collagen provide strength, and transport proteins like hemoglobin carry oxygen. Their roles are truly diverse and essential.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Diverse Roles</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💔</div><div class="vcap">Structural breakdown</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Quick <span class="hl">Question</span>: Proteins</h2>
-          <ul><li>Which level of protein structure involves the sequence of amino acids?</li><li>A) Primary</li><li>B) Secondary</li><li>C) Tertiary</li><li>D) Quaternary</li></ul>
-          <p class="notes">🎙️ Another quick check on your understanding of protein structure. This is a fundamental concept that is often tested. Recall the definitions of each structural level to answer correctly.</p>
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 1: Carbohydrates</h2>
+          <ul><li>Which of the following is a non-reducing sugar?</li><li>A) Glucose B) Fructose C) Sucrose D) Maltose</li><li>Hint: Consider the anomeric carbon's availability.</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the properties of different disaccharides. Remember, reducing sugars have a free aldehyde or ketone group, or can isomerize to form one. The answer will be revealed shortly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 2: Proteins</h2>
+          <ul><li>What type of bond links amino acids in a protein?</li><li>A) Glycosidic bond B) Ester bond C) Peptide bond D) Hydrogen bond</li><li>Hint: Recall the condensation reaction.</li></ul>
+          <p class="notes">🎙️ This is a fundamental concept for proteins. Understanding this bond is key to comprehending protein structure and formation. Think about what is formed when an amino group reacts with a carboxyl group.</p>
         </div>
         
       </div>
@@ -250,12 +239,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2><span class="hl">Nucleic Acids</span> - The Genetic Code</h2>
-          <ul><li>Polymers of nucleotides</li><li>Carry genetic information</li><li>DNA (Deoxyribonucleic Acid) and RNA (Ribonucleic Acid)</li></ul>
-          <p class="notes">🎙️ Nucleic acids are the carriers of genetic information and are crucial for heredity and protein synthesis. They are polymers made up of repeating units called nucleotides. The two main types are DNA and RNA, each playing distinct roles in the cell.</p>
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Vitamins</span>: Essential Micronutrients</h2>
+          <ul><li>Organic compounds required in small amounts for normal growth and metabolism.</li><li>Cannot be synthesized by the body (or in sufficient quantity).</li><li>Classified as fat-soluble (A, D, E, K) or water-soluble (B-complex, C).</li></ul>
+          <p class="notes">🎙️ Vitamins are crucial for maintaining good health, though needed in tiny amounts. Their deficiency can lead to specific diseases. Fat-soluble vitamins can be stored in the body, while water-soluble ones are generally excreted, requiring regular intake.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Book of Life</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="🍊" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Nucleic Acids</span>: Genetic Information Carriers</h2>
+          <ul><li>Polymers of nucleotides.</li><li>Responsible for heredity, protein synthesis, and genetic information storage.</li><li>Two main types: Deoxyribonucleic acid (DNA) and Ribonucleic acid (RNA).</li></ul>
+          <p class="notes">🎙️ Nucleic acids are the blueprint of life. DNA carries the genetic instructions for the development, functioning, growth, and reproduction of all known organisms. RNA plays a vital role in expressing these instructions, primarily in protein synthesis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Life's instruction book</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Components</span> of Nucleic Acids</h2>
+          <ul><li>Pentose Sugar: Deoxyribose (in DNA) or Ribose (in RNA).</li><li>Nitrogenous Bases: Purines (Adenine, Guanine) and Pyrimidines (Cytosine, Thymine, Uracil).</li><li>Phosphate Group: Links sugar units together.</li></ul>
+          <p class="notes">🎙️ Each nucleotide is made of three parts: a sugar, a base, and a phosphate. The sugar and phosphate form the backbone, while the nitrogenous bases carry the genetic code. DNA has Thymine, while RNA has Uracil instead.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transcription_initiation.svg?width=500" data-fb="🧪" alt="Transcription is synthesis of RNA from DNA template using RNA polymerase, occurring in thr"/><div class="vcap">Transcription is synthesis of RNA from DNA template using RNA polymerase, occurring in thr</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,33 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Components</span> of Nucleotides</h2>
-          <ul><li>Pentose Sugar: Deoxyribose (DNA) or Ribose (RNA)</li><li>Nitrogenous Base: Purines (A, G) &amp; Pyrimidines (C, T/U)</li><li>Phosphate Group</li></ul>
-          <p class="notes">🎙️ Each nucleotide is composed of three parts: a pentose sugar, a nitrogenous base, and a phosphate group. The sugar differs between DNA (deoxyribose) and RNA (ribose). The nitrogenous bases are either purines (Adenine, Guanine) or pyrimidines (Cytosine, Thymine in DNA, Uracil in RNA).</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧩</span><span>🧩</span><span>🧩</span></div><div class="vcap">Building Blocks</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2><span class="hl">DNA vs. RNA</span></h2>
-          <ul><li>Sugar: Deoxyribose (DNA) vs. Ribose (RNA)</li><li>Bases: T (DNA) vs. U (RNA)</li><li>Structure: Double helix (DNA) vs. Single strand (RNA)</li><li>Function: Genetic blueprint (DNA) vs. Protein synthesis (RNA)</li></ul>
-          <p class="notes">🎙️ This comparison is very important for exams. Remember the key differences: the sugar component, one of the nitrogenous bases, their typical structures, and their primary functions. DNA holds the master plan, while RNA helps execute it.</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">DNA</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">RNA</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Double Helix</span> Structure of DNA</h2>
-          <ul><li>Two polynucleotide strands coiled around each other</li><li>Sugar-phosphate backbone on the outside</li><li>Nitrogenous bases pair in the interior (A-T, G-C)</li><li>Stabilized by hydrogen bonds</li></ul>
-          <p class="notes">🎙️ The iconic double helix structure of DNA, proposed by Watson and Crick, is fundamental. It consists of two antiparallel strands, with the sugar-phosphate backbone forming the outer helix. The bases pair specifically in the interior – Adenine with Thymine, and Guanine with Cytosine – held together by hydrogen bonds.</p>
+          <h2>DNA Structure: The <span class="hl">Double Helix</span></h2>
+          <ul><li>Proposed by Watson and Crick.</li><li>Two polynucleotide strands coiled around a common axis.</li><li>Strands are antiparallel and held by hydrogen bonds between complementary bases.</li><li>A pairs with T (2 H-bonds), G pairs with C (3 H-bonds).</li></ul>
+          <p class="notes">🎙️ The double helix structure of DNA is one of the most significant discoveries in biology. The specific base pairing ensures accurate replication and transcription of genetic information. This elegant structure is fundamental to heredity.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/DNA_double_helix_base_pairs_labeled.svg?width=500" data-fb="🧬" alt="DNA (deoxyribonucleic acid) is a double helix molecule that carries genetic instructions f"/><div class="vcap">DNA (deoxyribonucleic acid) is a double helix molecule that carries genetic instructions f</div></div></div>
       </div>
@@ -298,22 +287,34 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2><span class="hl">Functions</span> of Nucleic Acids</h2>
-          <ul><li>DNA: Storage and transmission of genetic information</li><li>RNA: Involved in protein synthesis (mRNA, tRNA, rRNA)</li><li>Gene expression regulation</li></ul>
-          <p class="notes">🎙️ The primary function of DNA is to store and transmit genetic information from one generation to the next. RNA, on the other hand, plays multiple crucial roles in expressing this genetic information, including carrying messages, transporting amino acids, and forming ribosomes for protein synthesis.</p>
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">RNA</span> Types and Functions</h2>
+          <ul><li>Messenger RNA (mRNA): Carries genetic code from DNA to ribosomes.</li><li>Ribosomal RNA (rRNA): Forms ribosomes, sites of protein synthesis.</li><li>Transfer RNA (tRNA): Carries specific amino acids to ribosomes for protein synthesis.</li></ul>
+          <p class="notes">🎙️ Unlike DNA, RNA is typically single-stranded and has diverse functions. Each type of RNA plays a distinct and crucial role in the central dogma of molecular biology: DNA to RNA to Protein. They are all essential for life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Information Carriers</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">mRNA</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">rRNA</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">tRNA</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Hormones &amp; Enzymes: <span class="hl">Biocatalysts</span></h2>
+          <ul><li>Enzymes: Biological catalysts, mostly globular proteins.</li><li>Accelerate biochemical reactions without being consumed.</li><li>Hormones: Chemical messengers, produced by endocrine glands.</li><li>Regulate physiological processes (e.g., insulin, adrenaline).</li></ul>
+          <p class="notes">🎙️ Enzymes are highly specific and efficient, making life processes possible at body temperature. Hormones act as signaling molecules, maintaining homeostasis and coordinating various bodily functions. Both are crucial for organism survival.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Regulating life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Question</span>: Nucleic Acids</h2>
-          <ul><li>Which nitrogenous base is found in RNA but not in DNA?</li><li>A) Adenine</li><li>B) Guanine</li><li>C) Thymine</li><li>D) Uracil</li></ul>
-          <p class="notes">🎙️ Another quick test of your understanding. This question directly relates to the key differences between DNA and RNA. Make sure you know the unique bases for each nucleic acid.</p>
+          <span class="num">22 / 25</span>
+          <h2>Worked Example: <span class="hl">Identifying</span> Biomolecules</h2>
+          <ul><li>Q: A biomolecule gives a positive Tollens' test and on hydrolysis gives only glucose. Identify it.</li><li>A: Positive Tollens' test implies it's a reducing sugar. Hydrolysis yielding only glucose suggests it's a polysaccharide like starch or glycogen, or a disaccharide like maltose. Given 'only glucose', Maltose is a strong candidate.</li></ul>
+          <p class="notes">🎙️ This type of question tests your understanding of both structure and reactions. Remember that starch and glycogen yield many glucose units, whereas maltose yields two. The Tollens' test confirms the reducing nature.</p>
         </div>
         
       </div>
@@ -322,28 +323,41 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Vitamins</span> - Essential Micronutrients</h2>
-          <ul><li>Organic compounds required in small amounts</li><li>Cannot be synthesized by the body</li><li>Fat-soluble (A, D, E, K) and Water-soluble (B, C)</li></ul>
-          <p class="notes">🎙️ Vitamins are organic compounds that are essential for normal growth and metabolism, though required in very small quantities. Our bodies generally cannot synthesize them, so they must be obtained from the diet. They are broadly classified as fat-soluble or water-soluble, which affects their storage and absorption.</p>
+          <span class="num">23 / 25</span>
+          <h2>Common Mistakes &amp; Exam <span class="hl">Tips</span></h2>
+          <ul><li>Confusing reducing/non-reducing sugars (e.g., Sucrose is non-reducing).</li><li>Incorrectly drawing cyclic structures of glucose (α vs β anomers).</li><li>Mixing up DNA/RNA components (Thymine vs Uracil, Deoxyribose vs Ribose).</li><li>Remember definitions, classifications, and key examples for each biomolecule.</li></ul>
+          <p class="notes">🎙️ Be precise with your terminology and structures. Practice drawing the cyclic forms of glucose and identifying the anomeric carbon. Pay close attention to the differences between DNA and RNA to avoid common errors in exams.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💊</div><div class="vcap">Health Boosters</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Avoid pitfalls</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Recap &amp; <span class="hl">Exam Focus</span></h2>
-          <ul><li>Carbohydrates: Classification, structures (glucose), reducing/non-reducing sugars</li><li>Proteins: Amino acids, peptide bond, structures, denaturation</li><li>Nucleic Acids: Components, DNA vs RNA, double helix</li><li>Practice structures and reactions for board exams!</li></ul>
-          <p class="notes">🎙️ To summarize, we covered the major biomolecules: Carbohydrates, Proteins, and Nucleic Acids. For your CBSE exams, focus on understanding their classifications, key structures like glucose and DNA, the concept of peptide bonds, protein denaturation, and the differences between DNA and RNA. Practice drawing structures and writing reactions!</p>
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 3: Nucleic Acids/Vitamins</h2>
+          <ul><li>Which nitrogenous base is found in DNA but not in RNA?</li><li>A) Adenine B) Guanine C) Thymine D) Uracil</li><li>Hint: Recall the unique base for each nucleic acid.</li></ul>
+          <p class="notes">🎙️ This question directly tests your knowledge of the fundamental differences between the building blocks of DNA and RNA. A quick recall of the base pairings will give you the answer.</p>
         </div>
         
       </div>
     </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Biomolecules are essential for life (Carbohydrates, Proteins, Nucleic Acids, Vitamins).</li><li>Carbohydrates provide energy; classified into mono-, di-, polysaccharides.</li><li>Proteins are polymers of amino acids, performing diverse functions.</li><li>Nucleic acids (DNA, RNA) store and transmit genetic information.</li></ul>
+          <p class="notes">🎙️ You've now covered the major biomolecules! Remember their structures, classifications, and especially their biological roles. This chapter is high-scoring if you understand the concepts well. Keep revising and practicing those diagrams!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Mastered concepts</div></div></div>
+      </div>
+    </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 12 · Chemistry</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

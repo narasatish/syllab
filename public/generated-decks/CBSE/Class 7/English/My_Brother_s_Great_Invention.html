@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>My Brother's Great Invention — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to 'My Brother's Great Invention'</h2>
-          <ul><li>A Story of Innovation and Imagination</li><li>Class 7 English - CBSE Board</li></ul>
-          <p class="notes">🎙️ Good morning, everyone! Today, we embark on an exciting journey into a fascinating story from your English textbook, 'My Brother's Great Invention.' This chapter will introduce us to a world of creativity and determination.</p>
+          <h2>My Brother's Great <span class="hl">Invention</span></h2>
+          <ul><li>Chapter: My Brother's Great Invention</li><li>Subject: English</li><li>Class: 7, CBSE Board</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we're embarking on an exciting journey into a chapter titled 'My Brother's Great Invention'. Get ready to explore a world of creativity and imagination.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2><span class="hl">Unveiling</span> the Story</h2>
-          <ul><li>Meet the narrator and his imaginative brother.</li><li>Discover the setting where the story unfolds.</li><li>Understand the initial spark behind the 'great invention'.</li></ul>
-          <p class="notes">🎙️ Every great story has a beginning. We'll start by understanding who our main characters are and where their adventure takes place. Pay close attention to the details that set the stage for this exciting tale.</p>
+          <h2>What We Will <span class="hl">Learn</span> Today</h2>
+          <ul><li>Understand the story of an invention.</li><li>Learn new vocabulary words.</li><li>Practice identifying adjectives and simple past tense.</li><li>Discuss the moral of the story.</li></ul>
+          <p class="notes">🎙️ In this lesson, we'll dive deep into the story, discover new words, sharpen our grammar skills, and reflect on the important message the chapter conveys. It's going to be an engaging session!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Story Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Learning Journey</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Key <span class="hl">Characters</span></h2>
-          <ul><li>The Narrator: Observant and often amazed.</li><li>The Brother: Creative, persistent, and a dreamer.</li><li>Other supporting roles that influence the plot.</li></ul>
-          <p class="notes">🎙️ Our story revolves around two brothers. The narrator gives us his perspective, while his brother is the central figure, full of ideas. Let's get to know them better and see how their personalities drive the story forward.</p>
+          <h2>Who Are Our Main <span class="hl">Characters</span>?</h2>
+          <ul><li>The Narrator (the younger sibling)</li><li>The Brother (the inventor)</li></ul>
+          <p class="notes">🎙️ Every good story has interesting characters. In 'My Brother's Great Invention', we primarily follow two siblings – the narrator, who tells the story, and his older brother, who is the brilliant mind behind the invention.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🤝‍🧑</div><div class="vcap">Main People</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🤝‍🧑</span><span>🧑‍🤝‍🧑</span></div><div class="vcap">Two Siblings</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Vocabulary</span> Boost - Part 1</h2>
-          <ul><li>'Ingenious': Clever and original.</li><li>'Contraption': A strange or complicated device.</li><li>'Gadget': A small mechanical device or tool.</li></ul>
-          <p class="notes">🎙️ Understanding new words helps us grasp the story better. 'Ingenious' describes someone very smart, like our inventor brother. A 'contraption' is often what his inventions might look like initially, and a 'gadget' is a smaller, often useful device.</p>
+          <h2>Where Does the Story <span class="hl">Unfold</span>?</h2>
+          <ul><li>Set in a typical home environment.</li><li>Focuses on the brother's workshop/room.</li><li>A place of creativity and experimentation.</li></ul>
+          <p class="notes">🎙️ The story takes place in a very relatable setting – a home. Specifically, much of the action happens in the brother's personal space, which transforms into a hub of innovation and scientific exploration.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">New Words</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Story Location</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Vocabulary</span> Boost - Part 2</h2>
-          <ul><li>'Fascinated': Strongly attracted and interested.</li><li>'Perseverance': Steadfastness in doing something despite difficulty.</li><li>'Eureka!': An exclamation of triumph on discovering something.</li></ul>
-          <p class="notes">🎙️ When you are 'fascinated', you are completely engrossed in something. 'Perseverance' is a key trait of our inventor brother, as he never gives up. And 'Eureka!' is that wonderful moment when a discovery is made!</p>
+          <h2>The <span class="hl">Narrator</span>: Our Storyteller</h2>
+          <ul><li>Observant and curious.</li><li>Looks up to his older brother.</li><li>Helps and supports the inventor.</li></ul>
+          <p class="notes">🎙️ The narrator isn't just telling us the story; he's also an active participant. He's curious about his brother's work and often lends a hand, showing us the invention process through his eyes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Understanding</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Curious Mind</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>The <span class="hl">Spark</span> of Invention</h2>
-          <ul><li>How the brother first conceived his great idea.</li><li>What problem or need did he aim to solve?</li><li>The initial excitement and secrecy around his project.</li></ul>
-          <p class="notes">🎙️ Every invention starts with an idea, a spark. What was it that inspired the brother? Was it a common problem, or just a burst of imagination? Let's explore the beginning of his inventive journey.</p>
+          <h2>The Brilliant <span class="hl">Inventor</span> Brother</h2>
+          <ul><li>Creative and imaginative.</li><li>Resourceful and determined.</li><li>Always tinkering with new ideas.</li></ul>
+          <p class="notes">🎙️ The older brother is the heart of the invention. He's a true genius, constantly thinking, planning, and building. His determination to create something new is truly inspiring.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">New Idea</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Idea Generator</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Defining '<span class="hl">Invention</span>'</h2>
-          <ul><li>A new device, process, or method.</li><li>Often solves a problem or improves something existing.</li><li>Requires creativity, experimentation, and hard work.</li></ul>
-          <p class="notes">🎙️ An invention isn't just a random creation; it's a thoughtful process. It starts with an idea, moves to planning, then building, and finally, testing and improving. This is the journey our brother is on.</p>
+          <h2>Understanding "<span class="hl">Invention</span>"</h2>
+          <ul><li>A new device, process, or method.</li><li>Created by study and experimentation.</li><li>Often solves a problem or improves life.</li></ul>
+          <p class="notes">🎙️ An invention is more than just an idea; it's a tangible creation that didn't exist before. It's born from careful thought, hard work, and often, many failed attempts before success.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Brainstorm Idea</span></div><div class="step"><span class="snum">2</span><span>Design &amp; Plan</span></div><div class="step"><span class="snum">3</span><span>Build Prototype</span></div><div class="step"><span class="snum">4</span><span>Test &amp; Improve</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Creating Something New</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Trial and <span class="hl">Error</span></h2>
-          <ul><li>The first few attempts were not perfect.</li><li>Learning from mistakes is crucial for inventors.</li><li>The narrator's observations of these initial failures.</li></ul>
-          <p class="notes">🎙️ No invention is perfect on the first try. The story shows us that the brother faced many challenges and 'errors'. But these weren't failures; they were learning opportunities, pushing him closer to his goal.</p>
+          <h2>A Famous Invention: The <span class="hl">Light Bulb</span></h2>
+          <ul><li>Invented by Thomas Edison.</li><li>Revolutionized how we light our homes.</li><li>Improved daily life significantly.</li></ul>
+          <p class="notes">🎙️ Think about the light bulb. Before it, people relied on candles or oil lamps. Edison's invention changed everything, showing how one ingenious creation can impact millions of lives.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚙️</span><span>⚙️</span><span>⚙️</span></div><div class="vcap">Early Models</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Edison's Light Bulb</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>The Inventor's <span class="hl">Personality</span></h2>
-          <ul><li>Curious: Always asking 'Why?' and 'How?'.</li><li>Determined: Never gives up, even when things are tough.</li><li>Imaginative: Sees possibilities where others don't.</li></ul>
-          <p class="notes">🎙️ Our inventor brother isn't just good with his hands; he has a unique personality. His curiosity drives him, his determination keeps him going, and his imagination fuels his creations. These traits are essential for any inventor.</p>
+          <h2>Vocabulary Boost: "<span class="hl">Ingenious</span>"</h2>
+          <ul><li>Meaning: Clever, original, and inventive.</li><li>Example: 'The brother had an ingenious idea for a new gadget.'</li><li>Synonym: Resourceful, clever.</li></ul>
+          <p class="notes">🎙️ When we describe something as 'ingenious', we mean it's incredibly clever and shows great originality. The inventor brother certainly fits this description with his unique creations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🔬</div><div class="vcap">The Scientist</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Clever Thinking</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Qualities</span> of an Inventor</h2>
-          <ul><li>Creativity: Thinking outside the box.</li><li>Patience: Working steadily towards a goal.</li><li>Problem-Solving: Finding solutions to challenges.</li></ul>
-          <p class="notes">🎙️ Let's compare some key qualities. Notice how important creativity and determination are, often needing to be very high. Patience is also vital, as inventions take time. These qualities are what make a true inventor.</p>
+          <h2>Vocabulary Boost: "<span class="hl">Gadget</span>"</h2>
+          <ul><li>Meaning: A small mechanical device or tool.</li><li>Example: 'He spent hours perfecting his latest gadget.'</li><li>Synonym: Device, contraption.</li></ul>
+          <p class="notes">🎙️ A 'gadget' is a common term for a small, often electronic or mechanical device. Our inventor brother would definitely be surrounded by many interesting gadgets in his workshop!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Creativity</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Patience</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Determination</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Curiosity</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Small Device</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Understanding <span class="hl">Imagery</span></h2>
-          <ul><li>Using descriptive language to create mental pictures.</li><li>Appeals to our five senses (sight, sound, smell, taste, touch).</li><li>Helps readers visualize the story's events and settings.</li></ul>
-          <p class="notes">🎙️ Imagery is like painting with words. Authors use it to make stories vivid and real for us. As we read, pay attention to how the author describes the brother's workshop or his inventions, making us feel like we are right there.</p>
+          <h2>Vocabulary Boost: "<span class="hl">Contraption</span>"</h2>
+          <ul><li>Meaning: A machine or device that appears strange or complicated.</li><li>Example: 'The strange contraption whirred and clicked.'</li><li>Synonym: Device, apparatus.</li></ul>
+          <p class="notes">🎙️ Sometimes, inventions look a bit odd or complex, especially in their early stages. We use the word 'contraption' to describe such a device, often with a hint of curiosity or amusement.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎨</div><div class="vcap">Picture Words</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Complex Machine</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Imagery in <span class="hl">Action</span></h2>
-          <ul><li>'The workshop smelled of sawdust and old oil.' (Smell)</li><li>'Gears whirred and clanked with a metallic symphony.' (Sound)</li><li>'A tangle of wires, gleaming copper, and dull steel.' (Sight)</li></ul>
-          <p class="notes">🎙️ Here are some examples of imagery you might find in a story like ours. The author doesn't just say 'the workshop was messy,' but uses sensory details to bring it to life. This helps us connect more deeply with the narrative.</p>
+          <h2>The <span class="hl">Spark</span> of Inspiration</h2>
+          <ul><li>The brother identifies a common problem.</li><li>He brainstorms various solutions.</li><li>The narrator often observes the early stages.</li></ul>
+          <p class="notes">🎙️ Every great invention starts with an idea. In the story, the brother first notices something that could be improved, and then his mind races with possibilities, often sketching out his thoughts.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Vivid Descriptions</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Problem Identified</span></div><div class="step"><span class="snum">2</span><span>Brainstorming</span></div><div class="step"><span class="snum">3</span><span>Initial Sketch</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>The Invention Takes <span class="hl">Shape</span></h2>
-          <ul><li>The brother refines his design and adds new features.</li><li>More complex components and mechanisms are introduced.</li><li>The narrator observes the progress with growing anticipation.</li></ul>
-          <p class="notes">🎙️ As the story progresses, the invention evolves. It's not a static object but something that grows and improves. The brother moves from basic ideas to a more intricate and functional design, step by step.</p>
+          <h2>Overcoming <span class="hl">Hurdles</span></h2>
+          <ul><li>Experiments don't always work.</li><li>Materials are difficult to find.</li><li>Frustration and setbacks are common.</li></ul>
+          <p class="notes">🎙️ Invention is rarely smooth sailing. The brother faces many challenges, from parts not fitting to the device simply not working as intended. These setbacks are a crucial part of the process.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Initial Design</span></div><div class="step"><span class="snum">2</span><span>Adding Features</span></div><div class="step"><span class="snum">3</span><span>Testing Phases</span></div><div class="step"><span class="snum">4</span><span>Final Touches</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Obstacles Ahead</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,35 +216,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Obstacles</span> on the Path</h2>
-          <ul><li>Technical difficulties and unexpected breakdowns.</li><li>Moments of frustration and doubt for the inventor.</li><li>External factors that might hinder the progress.</li></ul>
-          <p class="notes">🎙️ No journey of creation is without its challenges. The brother faces obstacles, perhaps the machine doesn't work as planned, or he runs out of materials. These moments test his resolve and creativity.</p>
+          <h2>The <span class="hl">Breakthrough</span></h2>
+          <ul><li>After many attempts, a solution is found.</li><li>A moment of sudden understanding.</li><li>Excitement and renewed determination.</li></ul>
+          <p class="notes">🎙️ Finally, after much perseverance, there's a moment of clarity – the 'Eureka!' moment. The brother discovers the missing piece or the correct approach, and the invention starts to take shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Roadblocks</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥳</div><div class="vcap">Success!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Problem-Solving</span> in Action</h2>
-          <ul><li>How the brother devises solutions to his problems.</li><li>The importance of critical thinking and adaptability.</li><li>The satisfaction of overcoming difficulties and moving forward.</li></ul>
-          <p class="notes">🎙️ This is where the brother's true genius shines – in his ability to solve problems. He doesn't give up; he thinks, experiments, and finds ways around the difficulties. This resilience is a valuable lesson for all of us.</p>
+          <h2>Time for a Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Who is the main inventor in the story?</li><li>What kind of problems did he face?</li><li>What is the narrator's role in the story?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding so far. Think about the characters and the journey of the invention. Take a moment to recall these details.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Stronger Through Challenges</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>The Power of <span class="hl">Creativity</span></h2>
-          <ul><li>Imagining what doesn't exist yet.</li><li>Using existing resources in new ways.</li><li>The invention as a product of boundless imagination.</li></ul>
-          <p class="notes">🎙️ Creativity is at the heart of this story. It's the ability to dream up something new and then work to make it real. The brother's invention is a testament to the incredible power of a creative mind.</p>
+          <h2><span class="hl">Vocabulary</span> Challenge!</h2>
+          <ul><li>What does 'ingenious' mean?</li><li>Can you use 'gadget' in a sentence?</li><li>What is a 'contraption'?</li></ul>
+          <p class="notes">🎙️ Now, let's see how well you've grasped our new vocabulary words. Try to define them or use them in your own sentences.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Bright Ideas</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>The Virtue of <span class="hl">Persistence</span></h2>
-          <ul><li>Continuing despite difficulties or opposition.</li><li>Never giving up on a goal or dream.</li><li>The brother's unwavering dedication to his invention.</li></ul>
-          <p class="notes">🎙️ Persistence is about sticking with it, even when you feel like quitting. The brother's journey shows us that great achievements often require long hours, many attempts, and a strong will to see things through.</p>
+          <h2>Describing with <span class="hl">Adjectives</span></h2>
+          <ul><li>Words that describe nouns.</li><li>Give more information about people, places, things.</li><li>Example: 'The clever brother built a strange contraption.'</li></ul>
+          <p class="notes">🎙️ Adjectives are powerful words that add color and detail to our writing and speech. They help us paint a clearer picture of the nouns we are talking about, like the invention or the characters.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃‍♂️</div><div class="vcap">Never Give Up</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Adding Detail</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Understanding <span class="hl">Dialogue</span></h2>
-          <ul><li>Conversations between characters in a story.</li><li>Reveals character personalities and relationships.</li><li>Moves the plot forward and adds realism.</li></ul>
-          <p class="notes">🎙️ Dialogue is how characters speak to each other. In our story, the conversations between the brothers, or with other characters, help us understand their feelings, their thoughts, and what's happening. It makes the story feel alive.</p>
+          <h2>Spot the <span class="hl">Adjectives</span>!</h2>
+          <ul><li>The shiny new gadget gleamed in the sun.</li><li>He had an innovative mind.</li><li>The difficult problem required a creative solution.</li></ul>
+          <p class="notes">🎙️ Let's look at some sentences and identify the adjectives. Notice how they make the sentences more vivid and help us imagine the scene better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💬</div><div class="vcap">Talking Characters</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📝</span><span>📝</span><span>📝</span><span>📝</span></div><div class="vcap">Descriptive Words</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Dialogue's <span class="hl">Role</span> in Story</h2>
-          <ul><li>Shows emotions without direct narration.</li><li>Builds suspense and tension.</li><li>Provides insights into the characters' inner worlds.</li></ul>
-          <p class="notes">🎙️ Through dialogue, an author can show us, rather than just tell us, what characters are like. It can reveal their excitement, their frustration, or their hopes, making the characters more relatable and the story more engaging.</p>
+          <h2>Narrating Past Events: <span class="hl">Simple Past</span> Tense</h2>
+          <ul><li>Used to describe actions completed in the past.</li><li>Often uses '-ed' for regular verbs (walked, played).</li><li>Irregular verbs change forms (went, saw, made).</li></ul>
+          <p class="notes">🎙️ Since 'My Brother's Great Invention' is a story, it's narrated in the past. The simple past tense is essential for recounting events that have already happened.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Expressing Thoughts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Past Actions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>The Story's <span class="hl">Climax</span></h2>
-          <ul><li>The most intense or exciting point of the story.</li><li>The moment of truth for the brother's invention.</li><li>All conflicts and tensions reach their peak.</li></ul>
-          <p class="notes">🎙️ Every good story has a climax – the moment everything has been building towards. For 'My Brother's Great Invention', this is when the invention is finally put to the ultimate test. What will happen? Will it work?</p>
+          <h2><span class="hl">Simple Past</span> in the Story</h2>
+          <ul><li>The brother worked tirelessly on his project.</li><li>He found a solution after many attempts.</li><li>The narrator watched him with admiration.</li></ul>
+          <p class="notes">🎙️ Here are some examples of verbs from the story in the simple past tense. Notice how some are regular, ending in '-ed', while others are irregular and change completely.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Turning Point</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Worked (regular)</span></div><div class="step"><span class="snum">2</span><span>Found (irregular)</span></div><div class="step"><span class="snum">3</span><span>Watched (regular)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,47 +300,47 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>The Outcome and <span class="hl">Resolution</span></h2>
-          <ul><li>How the story's main conflict is resolved.</li><li>The consequences of the invention's success or failure.</li><li>The final feelings and lessons learned by the characters.</li></ul>
-          <p class="notes">🎙️ After the climax, we reach the resolution. This is where the loose ends are tied up, and we see the final result of the brother's efforts. What impact does his invention have? And what lessons do the characters, and we, learn?</p>
+          <h2>The Grand <span class="hl">Reveal</span>!</h2>
+          <ul><li>The invention is finally complete.</li><li>The narrator sees its full potential.</li><li>A moment of pride and accomplishment.</li></ul>
+          <p class="notes">🎙️ After all the hard work, challenges, and breakthroughs, the invention is finally ready! This is the exciting moment when its purpose and brilliance are fully understood.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Conclusion</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>What was the main quality that helped the brother complete his invention?</li><li>A) Laziness B) Perseverance C) Impatience D) Fear</li></ul>
-          <p class="notes">🎙️ Let's quickly test our understanding. Think about the brother's journey and what kept him going through all the difficulties. Choose the option that best describes his most important quality.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>Which literary device helps us visualize the workshop's details?</li><li>A) Dialogue B) Imagery C) Plot D) Theme</li></ul>
-          <p class="notes">🎙️ Remember our discussion on how authors make stories vivid. Which technique uses descriptive words to create pictures in our minds? This is a key tool for bringing settings to life.</p>
-        </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">Unveiling the Creation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Key <span class="hl">Takeaways</span></h2>
-          <ul><li>The importance of imagination and creativity.</li><li>Never giving up on your dreams, despite challenges.</li><li>Learning from failures is part of success.</li></ul>
-          <p class="notes">🎙️ This story teaches us valuable life lessons. It shows us that with a creative mind and a persistent spirit, we can achieve great things. Even mistakes are just steps on the path to learning and success.</p>
+          <span class="num">22 / 25</span>
+          <h2>How the Invention Made a <span class="hl">Difference</span></h2>
+          <ul><li>It solved the initial problem.</li><li>It brought convenience or joy.</li><li>It showcased the brother's talent.</li></ul>
+          <p class="notes">🎙️ Every great invention aims to make a difference. This invention, too, had a significant impact, improving a situation or bringing something new and positive into their lives.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Wisdom Gained</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Life Before</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Life After</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Lessons</span> Learned from the Invention</h2>
+          <ul><li>Perseverance leads to success.</li><li>Creativity and hard work are rewarding.</li><li>Support from family is important.</li></ul>
+          <p class="notes">🎙️ Beyond the exciting story, there are valuable lessons to take away. The chapter teaches us about the importance of not giving up, the rewards of creativity, and the power of family support.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Growth &amp; Learning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Final Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the main message of the story?</li><li>Give an adjective to describe the invention.</li><li>Change 'He builds a machine' to simple past tense.</li></ul>
+          <p class="notes">🎙️ Let's consolidate our learning with a final quick check. Think about the overarching theme and apply your grammar knowledge.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Summary</span></h2>
-          <ul><li>Explored the journey of an inventor brother.</li><li>Understood key vocabulary and literary devices.</li><li>Reflected on themes of creativity and persistence.</li></ul>
-          <p class="notes">🎙️ Today, we journeyed through 'My Brother's Great Invention', meeting memorable characters and witnessing an inspiring tale. We learned about the power of new ideas, the challenges of creation, and the triumph of the human spirit. Keep these lessons in mind as you continue your learning journey!</p>
+          <h2>Today's <span class="hl">Recap</span></h2>
+          <ul><li>Explored 'My Brother's Great Invention'.</li><li>Learned new words: ingenious, gadget, contraption.</li><li>Understood adjectives and simple past tense.</li><li>Discussed the story's moral: perseverance and creativity.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! We journeyed through the story, expanded our vocabulary, strengthened our grammar, and reflected on the important lessons this wonderful chapter offers.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · English</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

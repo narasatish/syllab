@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Force and Motion: Let's Explore! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Force and Motion — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Hello, Little <span class="hl">Explorers</span>!</h2>
-          <ul><li>Welcome to our Science Adventure!</li><li>Today, we will learn about 'Force and Motion'.</li><li>It's all about how things move and why!</li></ul>
-          <p class="notes">🎙️ Namaste, dear children! I'm so excited to start our new chapter today. We will discover many interesting things about how objects move around us and what makes them move.</p>
+          <h2>Welcome to <span class="hl">Force and Motion</span>!</h2>
+          <ul><li>Let's explore how things move.</li><li>And what makes them move!</li></ul>
+          <p class="notes">🎙️ Hello, my dear students! Today, we will start an exciting journey to understand how things around us move and what makes them move. Get ready to learn about 'Force' and 'Motion'!</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Motion</span>?</h2>
-          <ul><li>Motion means when something moves.</li><li>It changes its place from one spot to another.</li><li>Like you running in the park!</li></ul>
-          <p class="notes">🎙️ Imagine you are playing with your friends. When you run, you are in motion. Motion is simply when an object or a person changes its position from one place to another.</p>
+          <ul><li>Motion means when something moves.</li><li>It changes its place.</li></ul>
+          <p class="notes">🎙️ Look around you! Do you see things moving? A car on the road, a bird flying, even you walking! When something changes its position from one place to another, we say it is in motion.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Newtons_cradle_animation_book_2.gif?width=440" data-fb="🏃" alt="Force changes how things move."/><div class="vcap">Force changes how things move.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Things That <span class="hl">Move</span>!</h2>
-          <ul><li>A ball rolling on the ground.</li><li>A bird flying in the sky.</li><li>A car driving on the road.</li></ul>
-          <p class="notes">🎙️ Look around you, children! Many things are always in motion. A ball rolls when you kick it, birds fly from tree to tree, and cars move on the road. These are all examples of motion.</p>
+          <h2>See <span class="hl">Motion</span> Everywhere!</h2>
+          <ul><li>A ball rolling on the ground.</li><li>A bird flying in the sky.</li></ul>
+          <p class="notes">🎙️ Think of a ball rolling after you kick it. Or a bird flapping its wings and flying high. These are all examples of motion. The ball is moving, and the bird is moving!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚽</span><span>⚽</span><span>⚽</span></div><div class="vcap">Moving things</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚽</span></div><div class="vcap">Rolling Ball</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,10 +97,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 20</span>
           <h2>What is <span class="hl">Force</span>?</h2>
-          <ul><li>Force is a push or a pull.</li><li>It makes things move or stop.</li><li>It is like magic that we use every day!</li></ul>
-          <p class="notes">🎙️ Have you ever wondered what makes things move or stop? It's called force! Force is simply a push or a pull that we apply to objects. We use force all the time without even realising it.</p>
+          <ul><li>Force is a push or a pull.</li><li>It makes things move or stop.</li></ul>
+          <p class="notes">🎙️ So, what makes things move? It's called 'Force'! Force is like a superpower. It's when you push something away or pull something towards you.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strong arm</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Push or Pull</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Force Can Make Things <span class="hl">Move</span>!</h2>
-          <ul><li>Pushing your toy car to make it roll.</li><li>Kicking a football to send it flying.</li><li>You use force to start motion.</li></ul>
-          <p class="notes">🎙️ When your toy car is still, how do you make it move? You push it! That push is a force. So, force can make a still object start moving.</p>
+          <h2>Let's Talk About <span class="hl">Push</span>!</h2>
+          <ul><li>We push a door to open it.</li><li>We push a toy car to make it go.</li></ul>
+          <p class="notes">🎙️ When you open a door by moving it away from you, that's a push. When you play with your toy car and make it go forward, you are pushing it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span></div><div class="vcap">Pushing a car</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚪</span></div><div class="vcap">Pushing a Door</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Force Can <span class="hl">Stop</span> Things!</h2>
-          <ul><li>Catching a ball that is coming towards you.</li><li>Pressing the brakes on your bicycle.</li><li>Force can make moving things stop.</li></ul>
-          <p class="notes">🎙️ Just like force can start motion, it can also stop it. When a ball is rolling, you catch it to stop it. When you are cycling fast, you use the brakes to stop. This is another way we use force.</p>
+          <h2>Let's Talk About <span class="hl">Pull</span>!</h2>
+          <ul><li>We pull a rope in a game.</li><li>We pull a trolley in a shop.</li></ul>
+          <p class="notes">🎙️ And what about pulling? When you play tug-of-war, you pull the rope towards you. When your parents go shopping, they pull the trolley.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Stop sign</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛒</span></div><div class="vcap">Pulling a Trolley</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Force Can Change <span class="hl">Direction</span>!</h2>
-          <ul><li>Hitting a cricket ball to a different side.</li><li>Steering your bicycle left or right.</li><li>Force helps things change their path.</li></ul>
-          <p class="notes">🎙️ Imagine you are playing cricket and the ball comes towards you. When you hit it, the ball changes its direction! Force doesn't just make things move or stop, it can also change where they are going.</p>
+          <h2>Force Starts Things Moving!</h2>
+          <ul><li>A kick makes a football move.</li><li>Force helps things begin to move.</li></ul>
+          <p class="notes">🎙️ Imagine a football lying still on the ground. It won't move by itself, right? But if you kick it, it starts rolling! Your kick is a force that makes the ball move.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Turning arrow</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="🔬" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Force Can Change <span class="hl">Shape</span>!</h2>
-          <ul><li>Squeezing a soft clay to make a new shape.</li><li>Crushing an empty plastic bottle.</li><li>Force can make things look different.</li></ul>
-          <p class="notes">🎙️ Have you ever played with clay? When you press or squeeze it, its shape changes. This is another amazing thing force can do! It can change the shape of an object.</p>
+          <h2>Force Stops Things!</h2>
+          <ul><li>A goalkeeper catches a moving ball.</li><li>Force can make moving things stop.</li></ul>
+          <p class="notes">🎙️ Now, imagine the ball is rolling towards the goal. The goalkeeper puts their hands out and catches it. The force from their hands stops the ball from moving.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🤏" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Ball Moving</span></div><div class="step"><span class="snum">2</span><span>Catch Ball</span></div><div class="step"><span class="snum">3</span><span>Ball Stops</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Two Kinds of Force: <span class="hl">Push and Pull</span></h2>
-          <ul><li>Every force is either a push or a pull.</li><li>Push means moving something away from you.</li><li>Pull means moving something closer to you.</li></ul>
-          <p class="notes">🎙️ All the forces we talked about can be grouped into two main types: push or pull. When you push something, you move it away. When you pull something, you bring it closer.</p>
+          <h2>Force Changes <span class="hl">Direction</span>!</h2>
+          <ul><li>Hitting a shuttlecock changes its way.</li><li>Force makes things go a different way.</li></ul>
+          <p class="notes">🎙️ When you play badminton, you hit the shuttlecock. It flies in one direction, but when you hit it, it goes in another direction. That's force changing its path!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Push</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Pull</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏸➡️</div><div class="vcap">Changing Direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Examples of <span class="hl">Push</span>!</h2>
-          <ul><li>Pushing a door open to enter.</li><li>Pushing a swing to make your friend go high.</li><li>Pushing a button to switch on the TV.</li></ul>
-          <p class="notes">🎙️ Think about your daily life. When you open a door, you usually push it. When you want to start a fan, you push the switch. These are all pushes!</p>
+          <h2>Force Changes <span class="hl">Speed</span>!</h2>
+          <ul><li>Pedalling a cycle faster makes it speedy.</li><li>Applying brakes makes it slow down.</li></ul>
+          <p class="notes">🎙️ When you ride your bicycle, if you pedal harder, you go faster. If you press the brakes, you slow down. Force helps you change how fast or slow you move.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚪</div><div class="vcap">Door</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Slow Cycle</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Fast Cycle</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Examples of <span class="hl">Pull</span>!</h2>
-          <ul><li>Pulling a toy train with a string.</li><li>Pulling a chair closer to sit down.</li><li>Pulling a drawer open to take out clothes.</li></ul>
-          <p class="notes">🎙️ Now, let's think about pull. When you play with your toy train, you pull it along. When you need to open a drawer, you pull it towards you. These are all examples of pull.</p>
+          <h2>Force Changes <span class="hl">Shape</span>!</h2>
+          <ul><li>Squeezing clay changes its form.</li><li>Force can make things look different.</li></ul>
+          <p class="notes">🎙️ Take some playdough or clay. When you press it or squeeze it, its shape changes, right? That's force at work, changing the shape of an object.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🚂" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🏺➡️" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Gravity</span>: Earth's Big Pull!</h2>
-          <ul><li>Gravity is a special kind of pull.</li><li>Earth pulls everything towards its center.</li><li>That's why things fall down, not up!</li></ul>
-          <p class="notes">🎙️ Have you ever seen an apple fall from a tree? It always falls down to the ground. This happens because of gravity! Gravity is Earth's invisible force that pulls everything towards itself.</p>
+          <h2>Our Own Force!</h2>
+          <ul><li>We use our muscles to push or pull.</li><li>This is muscular force.</li></ul>
+          <p class="notes">🎙️ Our body has muscles, and when we use them to do things like lifting, pushing, or pulling, we are using 'Muscular Force'. It's the force from our own body!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎⬇️</div><div class="vcap">Apple falling</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Muscles Working</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Friction</span>: The Slow-Down Force!</h2>
-          <ul><li>Friction is a force that slows things down.</li><li>It happens when two surfaces rub against each other.</li><li>It helps us walk without slipping.</li></ul>
-          <p class="notes">🎙️ Imagine you are trying to slide on a rough floor. It's hard, right? That's because of friction. Friction is a force that acts against motion and tries to slow things down or stop them.</p>
+          <h2>Muscular Force in <span class="hl">Action</span>!</h2>
+          <ul><li>Lifting your school bag.</li><li>Kicking a ball with your leg.</li></ul>
+          <p class="notes">🎙️ Every time you lift your heavy school bag, or kick a football, you are using your muscular force. Even writing with a pencil needs your muscles!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧤</div><div class="vcap">Rubbing hands</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎒</span></div><div class="vcap">Lifting a Bag</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Friction</span> in Our Life!</h2>
-          <ul><li>When you walk, friction between your shoes and the ground stops you from slipping.</li><li>When you ride a bicycle, friction helps the brakes work.</li><li>It's a very helpful force!</li></ul>
-          <p class="notes">🎙️ Friction is not always a bad thing! It's very important for us. Without friction, we would slip and fall when we walk. It helps car tires grip the road and helps us hold things.</p>
+          <h2>Earth's Special Pull!</h2>
+          <ul><li>Earth pulls everything down.</li><li>This is called gravity.</li></ul>
+          <p class="notes">🎙️ Have you ever wondered why things fall down and not up? It's because our Earth has a special force called 'Gravitational Force'. It pulls everything towards its center.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚶‍♀️</span><span>🚶‍♀️</span></div><div class="vcap">Walking on ground</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌎⬇️</div><div class="vcap">Earth's Pull</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick <span class="hl">Check</span> 1!</h2>
-          <ul><li>What do we call a push or a pull?</li><li>A) Motion</li><li>B) Force</li><li>C) Gravity</li></ul>
-          <p class="notes">🎙️ Let's see if you remember what we just learned! What is the special word for a push or a pull? Think carefully about the options.</p>
+          <h2><span class="hl">Gravity</span> All Around Us!</h2>
+          <ul><li>An apple falling from a tree.</li><li>Rain falling from the sky.</li></ul>
+          <p class="notes">🎙️ When an apple falls from a tree, or when rain falls from the clouds, it's gravity pulling them down. It's always working, pulling things towards the ground.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔬" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -227,9 +240,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick <span class="hl">Check</span> 2!</h2>
-          <ul><li>Can force change the shape of an object?</li><li>A) Yes</li><li>B) No</li><li>C) Sometimes</li></ul>
-          <p class="notes">🎙️ Remember the example of playing with clay? Does force have the power to change how something looks? Choose the best answer.</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>What makes things move from one place to another?</li><li>(A push or a pull / Air / Water)</li></ul>
+          <p class="notes">🎙️ Let's see if you remember! What is the main thing that makes objects start moving? Is it a push or a pull, or is it air or water?</p>
         </div>
         
       </div>
@@ -239,51 +252,52 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick <span class="hl">Check</span> 3!</h2>
-          <ul><li>What makes an apple fall to the ground?</li><li>A) Push</li><li>B) Friction</li><li>C) Gravity</li></ul>
-          <p class="notes">🎙️ Think about the special pull that our Earth has. What is that force called that brings everything down? You got this!</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Is opening a drawer an example of a push or a pull?</li></ul>
+          <p class="notes">🎙️ Think about opening a drawer to take out your clothes. Are you pushing the drawer away from you or pulling it towards you?</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Time for <span class="hl">Recap</span>!</h2>
-          <ul><li>Motion is when things move.</li><li>Force is a push or pull that makes things move, stop, change direction or shape.</li><li>Gravity pulls things down, and friction slows them down.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much today! We started with motion, then understood what force is and its amazing powers. We also met gravity and friction. Great job, everyone!</p>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>Which force makes an object fall to the ground?</li><li>(Muscular Force / Gravitational Force / Wind Force)</li></ul>
+          <p class="notes">🎙️ Remember what we learned about why things always come down? What is that special force from the Earth called?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔬" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Forces All <span class="hl">Around Us</span>!</h2>
-          <ul><li>Look at children playing in a park.</li><li>They are pushing swings, pulling toys, and running.</li><li>Everywhere you see, there are forces at work!</li></ul>
-          <p class="notes">🎙️ Next time you go to a park or look out of your window, try to spot different forces. A child pushing a swing, someone kicking a ball, or even a leaf falling from a tree – all show force and motion.</p>
+          <h2>What We Learned Today!</h2>
+          <ul><li>Motion is when things move.</li><li>Force is a push or pull.</li><li>Force can start, stop, change direction, speed, or shape.</li><li>We learned about muscular and gravitational force.</li></ul>
+          <p class="notes">🎙️ Today, we had so much fun learning about Force and Motion! We saw how things move, and how a push or a pull, which is force, makes all these changes happen. We also met muscular force and Earth's special gravitational force.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧒</span><span>🧒</span><span>🧒</span></div><div class="vcap">Children playing</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Your Turn to <span class="hl">Explore</span>!</h2>
-          <ul><li>Find 3 things you push at home.</li><li>Find 3 things you pull at home.</li><li>Tell your family what you learned about force!</li></ul>
-          <p class="notes">🎙️ Now it's your turn to be a force detective! Go home and find examples of push and pull. Share your discoveries with your parents or siblings. Keep exploring the world around you!</p>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep exploring the world around you!</li><li>You will see force and motion everywhere!</li></ul>
+          <p class="notes">🎙️ Thank you for being such attentive students! Keep observing the world around you, and you'll notice force and motion in every little action you do and see. See you next time!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Your home</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Patterns - Class 4 Mathematics — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Namaste, Little Explorers! Let's Explore <span class="hl">Patterns</span>!</h2>
-          <ul><li>Today, we will find hidden patterns.</li><li>They are like secret codes all around us!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Get ready for an exciting journey into the world of patterns. It's like a treasure hunt where we discover things that repeat and follow a rule.</p>
+          <h2>Hello little mathematicians! Let's explore <span class="hl">Patterns</span>!</h2>
+          <ul><li>What are patterns?</li><li>Where do we see them?</li><li>Let's find out together!</li></ul>
+          <p class="notes">🎙️ Good morning, my dear students! Today, we are going on a fun adventure to discover something amazing all around us – Patterns! Have you ever noticed things that repeat or follow a rule? That's what we'll be learning about today!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>What are <span class="hl">Patterns</span>?</h2>
-          <ul><li>Patterns are things that repeat.</li><li>They follow a special rule.</li><li>It's like a dance where steps are repeated.</li></ul>
-          <p class="notes">🎙️ Imagine seeing things that happen again and again in the same way. That's a pattern! It's like a secret rule that makes things happen in a specific order.</p>
+          <h2>What is a <span class="hl">Pattern</span>?</h2>
+          <ul><li>A pattern is a design or sequence that repeats.</li><li>It follows a rule or a plan.</li><li>It's like a secret code!</li></ul>
+          <p class="notes">🎙️ Think of a pattern like a special arrangement where things happen again and again in the same way. It's not random; there's always a hidden rule that makes it predictable. Once you find the rule, you can guess what comes next!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">Repeating stars</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Magic of Patterns</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Patterns <span class="hl">Around Us</span></h2>
-          <ul><li>We see patterns every day!</li><li>In clothes, tiles, and even songs.</li><li>Can you spot any patterns now?</li></ul>
-          <p class="notes">🎙️ Look around your house or school. You will find patterns on your curtains, on the floor tiles, or even in the way leaves grow on a tree. They are everywhere!</p>
+          <h2>Patterns in <span class="hl">Nature</span></h2>
+          <ul><li>Look at flowers, leaves, and animals.</li><li>They have beautiful repeating shapes and colours.</li><li>Nature loves patterns!</li></ul>
+          <p class="notes">🎙️ Nature is full of amazing patterns! Have you ever looked closely at a flower's petals, or the stripes on a zebra? Even the way leaves grow on a branch follows a pattern. It's like nature's own artwork!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home with patterns</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🔢" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2><span class="hl">Repeating Patterns</span>: The Same Thing Again and Again!</h2>
-          <ul><li>These patterns show the same thing.</li><li>It repeats over and over.</li><li>Like a song's chorus!</li></ul>
-          <p class="notes">🎙️ Repeating patterns are the easiest to spot. A part of the pattern, called the 'rule', keeps coming back. Think of a simple song where you sing the same line many times.</p>
+          <h2>Patterns in Our <span class="hl">Daily Life</span></h2>
+          <ul><li>From clothes to floor tiles, patterns are everywhere.</li><li>Look at your school uniform or the design on a curtain.</li><li>Can you spot them?</li></ul>
+          <p class="notes">🎙️ Patterns are not just in nature; they are all around us in things we use every day! Your clothes, the tiles on the floor, the design on a rug, or even the fence outside your house might have a pattern. Keep your eyes open!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span></div><div class="vcap">Apple, banana, apple, banana...</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👕</span><span>👕</span><span>👕</span><span>👕</span></div><div class="vcap">Everyday patterns</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,9 +108,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Example: Repeating <span class="hl">Shape Patterns</span></h2>
-          <ul><li>Look at these shapes.</li><li>Triangle, Circle, Triangle, Circle...</li><li>What shape comes next?</li></ul>
-          <p class="notes">🎙️ See how the triangle and circle take turns? This is a repeating pattern of shapes. The rule here is 'Triangle, Circle'. Can you guess what shape will come next in this line?</p>
+          <h2><span class="hl">Repeating</span> Patterns</h2>
+          <ul><li>These patterns show the same thing again and again.</li><li>Like a song that has a chorus.</li><li>They are easy to spot!</li></ul>
+          <p class="notes">🎙️ The simplest type of pattern is a repeating pattern. It's like when you sing a song and the same lines come back again and again. In these patterns, a group of items or colours just keeps showing up in the same order.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔁</div><div class="vcap">Repeat, Repeat!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 20</span>
+          <h2>Example: <span class="hl">Shape Pattern</span></h2>
+          <ul><li>Circle, Square, Circle, Square...</li><li>What comes next?</li><li>The 'rule' is Circle then Square.</li></ul>
+          <p class="notes">🎙️ Look at this pattern: Circle, Square, Circle, Square. Can you guess what shape will come next? Yes, a Circle! The rule here is very simple: first a Circle, then a Square, and this pair keeps repeating.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🔢" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
@@ -106,36 +131,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">6 / 20</span>
-          <h2>Example: Repeating <span class="hl">Colour Patterns</span></h2>
-          <ul><li>See the colours!</li><li>Red, Blue, Red, Blue...</li><li>What colour will be next?</li></ul>
-          <p class="notes">🎙️ Just like shapes, colours can also form repeating patterns. Here, the rule is 'Red, Blue'. If we continue, what colour do you think will follow the last blue?</p>
+          <span class="num">7 / 20</span>
+          <h2>Example: <span class="hl">Colour Pattern</span></h2>
+          <ul><li>Red, Blue, Red, Blue...</li><li>What colour is missing?</li><li>The 'rule' is Red then Blue.</li></ul>
+          <p class="notes">🎙️ Here's another repeating pattern, but this time with colours: Red, Blue, Red, Blue. If I asked you to complete this pattern, you would know that Red comes after Blue. The rule is simply to alternate between Red and Blue.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔴</div><div class="vcap">Red, Blue, Red, Blue</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span><span>🔴</span></div><div class="vcap">Repeating Colours</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2>Example: Repeating <span class="hl">Number Patterns</span> (Counting)</h2>
-          <ul><li>Numbers can repeat too!</li><li>1, 2, 1, 2, 1, 2...</li><li>What number comes next?</li></ul>
-          <p class="notes">🎙️ Numbers can also follow a repeating pattern. In this example, the numbers 1 and 2 keep coming back. The rule is simply '1, 2'. What number would you write after the last 2?</p>
+          <span class="num">8 / 20</span>
+          <h2>Example: <span class="hl">Number Pattern</span> (Counting)</h2>
+          <ul><li>1, 2, 3, 4, 5...</li><li>What is the rule here?</li><li>We are adding 1 each time.</li></ul>
+          <p class="notes">🎙️ Numbers can also form patterns! Look at the numbers 1, 2, 3, 4, 5. What do you notice? Each number is one more than the previous one. So, the rule is to 'add 1' to get the next number. This is a very common number pattern.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Activity: <span class="hl">Find the Next</span> in the Pattern!</h2>
-          <ul><li>Look at this pattern:</li><li>Flower, Leaf, Flower, Leaf...</li><li>What comes after Leaf?</li></ul>
-          <p class="notes">🎙️ Time for a quick challenge! Imagine a string of flowers and leaves. If the pattern is Flower, Leaf, Flower, Leaf... what do you think would be the very next item? Think about the rule!</p>
-        </div>
-        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Growing Patterns</span>: Getting Bigger!</h2>
-          <ul><li>These patterns get bigger.</li><li>Something is added each time.</li><li>Like a plant growing taller!</li></ul>
-          <p class="notes">🎙️ Now, let's look at patterns that don't just repeat, but grow! In these patterns, something new is added or the quantity increases with each step. Think of a small plant that grows bigger every day.</p>
+          <h2><span class="hl">Growing Patterns</span></h2>
+          <ul><li>These patterns get bigger or increase.</li><li>Something is added each time.</li><li>They follow a 'growing' rule.</li></ul>
+          <p class="notes">🎙️ Now, let's look at a different kind of pattern called a growing pattern. Imagine a plant that grows taller every day. In a growing pattern, something is added or increases with each step, making the pattern 'grow'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Growing tree</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Getting Bigger!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Example: <span class="hl">Growing Shape</span> Pattern</h2>
-          <ul><li>One square, then two squares, then three...</li><li>The number of squares is growing!</li><li>What comes next?</li></ul>
-          <p class="notes">🎙️ Here, the rule is to add one more square each time. First one, then two, then three. If we follow this growing rule, how many squares would you expect to see in the next step?</p>
+          <h2>Example: <span class="hl">Growing Pattern</span> (Shapes)</h2>
+          <ul><li>One star, then two stars, then three stars...</li><li>What comes next?</li><li>The rule is 'add one star' each time.</li></ul>
+          <p class="notes">🎙️ Here, we start with one star, then we have two stars, then three stars. What would be the next step? Yes, four stars! The rule for this pattern is to add one star every time. The number of stars keeps growing.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟩</span><span>🟩</span><span>🟩</span></div><div class="vcap">Squares growing in number</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">Stars are growing!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Example: <span class="hl">Growing Number</span> Pattern (Adding)</h2>
-          <ul><li>Look at these numbers:</li><li>1, 3, 5, 7...</li><li>What is the rule? What comes next?</li></ul>
-          <p class="notes">🎙️ Can you see how these numbers are increasing? The rule here is to add 2 to the previous number. So, 1+2=3, 3+2=5, 5+2=7. What number would come after 7?</p>
+          <h2>Example: <span class="hl">Growing Pattern</span> (Numbers)</h2>
+          <ul><li>2, 4, 6, 8...</li><li>What is the rule?</li><li>We are adding 2 each time!</li></ul>
+          <p class="notes">🎙️ Let's look at this number pattern: 2, 4, 6, 8. How do we get from 2 to 4? We add 2. How do we get from 4 to 6? We add 2 again! So, the rule for this growing pattern is to 'add 2' to the previous number.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1</span></div><div class="step"><span class="snum">2</span><span>3</span></div><div class="step"><span class="snum">3</span><span>5</span></div><div class="step"><span class="snum">4</span><span>7</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>2️⃣</span></div><div class="vcap">Add 2 each time</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2><span class="hl">Shrinking Patterns</span>: Getting Smaller!</h2>
-          <ul><li>These patterns get smaller.</li><li>Something is taken away each time.</li><li>Like an ice cube melting!</li></ul>
-          <p class="notes">🎙️ Just like things can grow, they can also shrink! In shrinking patterns, something is removed or the quantity decreases with each step. Imagine an ice cube slowly melting and getting smaller.</p>
+          <h2><span class="hl">Shrinking Patterns</span></h2>
+          <ul><li>These patterns get smaller or decrease.</li><li>Something is taken away each time.</li><li>They follow a 'shrinking' rule.</li></ul>
+          <p class="notes">🎙️ Just like things can grow, they can also shrink! In a shrinking pattern, something is removed or decreases with each step. Imagine a stack of blocks where you take one block away each time. That's a shrinking pattern!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧊</span></div><div class="vcap">Melting ice cube</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Getting Smaller!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Example: <span class="hl">Shrinking Shape</span> Pattern</h2>
-          <ul><li>Five stars, then four, then three...</li><li>The number of stars is shrinking!</li><li>What comes next?</li></ul>
-          <p class="notes">🎙️ Here, the rule is to take away one star each time. First five, then four, then three. If we keep following this shrinking rule, how many stars would you see in the next step?</p>
+          <h2>Example: <span class="hl">Shrinking Pattern</span> (Shapes)</h2>
+          <ul><li>Five hearts, then four hearts, then three hearts...</li><li>What comes next?</li><li>The rule is 'take away one heart' each time.</li></ul>
+          <p class="notes">🎙️ Here, we start with five hearts, then we have four hearts, then three hearts. What do you think comes next? Yes, two hearts! The rule for this pattern is to 'take away one heart' every time. The number of hearts is shrinking.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">Stars shrinking in number</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❤️</span><span>❤️</span><span>❤️</span></div><div class="vcap">Hearts are shrinking!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Example: <span class="hl">Shrinking Number</span> Pattern (Subtracting)</h2>
-          <ul><li>Look at these numbers:</li><li>10, 8, 6, 4...</li><li>What is the rule? What comes next?</li></ul>
-          <p class="notes">🎙️ Can you see how these numbers are decreasing? The rule here is to subtract 2 from the previous number. So, 10-2=8, 8-2=6, 6-2=4. What number would come after 4?</p>
+          <h2>Example: <span class="hl">Shrinking Pattern</span> (Numbers)</h2>
+          <ul><li>10, 8, 6, 4...</li><li>What is the rule?</li><li>We are subtracting 2 each time!</li></ul>
+          <p class="notes">🎙️ Let's look at this number pattern: 10, 8, 6, 4. How do we get from 10 to 8? We subtract 2. How do we get from 8 to 6? We subtract 2 again! So, the rule for this shrinking pattern is to 'subtract 2' from the previous number.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>10</span></div><div class="step"><span class="snum">2</span><span>8</span></div><div class="step"><span class="snum">3</span><span>6</span></div><div class="step"><span class="snum">4</span><span>4</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>2️⃣</span></div><div class="vcap">Subtract 2 each time</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick Check! What Kind of Pattern?</h2>
-          <ul><li>Apple, Apple, Banana, Apple, Apple, Banana...</li><li>Is it repeating, growing, or shrinking?</li><li>Think about the rule!</li></ul>
-          <p class="notes">🎙️ Let's see if you can identify the type of pattern! Look at the sequence: Apple, Apple, Banana, Apple, Apple, Banana... Does it repeat, get bigger, or get smaller? What's the pattern's secret?</p>
+          <h2>Quick Check! What comes <span class="hl">next</span>?</h2>
+          <ul><li>Apple, Banana, Apple, Banana, _____</li><li>What is the rule for this pattern?</li><li>Think about what repeats!</li></ul>
+          <p class="notes">🎙️ Alright, little detectives, time for a quick check! Look at this pattern: Apple, Banana, Apple, Banana. What fruit do you think should come next to complete the pattern? And what is the simple rule we are following?</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="🔢" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -227,9 +240,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick Check! <span class="hl">Complete</span> the Pattern.</h2>
-          <ul><li>Square, Circle, Triangle, Square, Circle, _____</li><li>What shape is missing?</li><li>Say it aloud!</li></ul>
-          <p class="notes">🎙️ Here's another one! Imagine these shapes: Square, Circle, Triangle, Square, Circle, _____. What shape needs to go in the empty space to complete this pattern? Find the repeating block!</p>
+          <h2>Quick Check! What is the <span class="hl">rule</span>?</h2>
+          <ul><li>1, 3, 5, 7, _____</li><li>Is this a growing or shrinking pattern?</li><li>How much is added each time?</li></ul>
+          <p class="notes">🎙️ Now, try this number pattern: 1, 3, 5, 7. Is it getting bigger or smaller? Can you find the secret rule that tells us how to get from one number to the next? What number would come after 7?</p>
         </div>
         
       </div>
@@ -239,9 +252,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick Check! What Comes <span class="hl">Next?</span></h2>
-          <ul><li>10, 20, 30, 40, _____</li><li>Is this pattern growing or shrinking?</li><li>What number should come after 40?</li></ul>
-          <p class="notes">🎙️ Look at this number pattern: 10, 20, 30, 40, _____. Is it getting bigger or smaller? What number is added each time? Use that rule to find the next number!</p>
+          <h2>Quick Check! <span class="hl">Complete</span> the pattern!</h2>
+          <ul><li>15, 12, 9, _____, 3</li><li>Is this growing or shrinking?</li><li>How much is taken away?</li></ul>
+          <p class="notes">🎙️ One last quick check! Look at this pattern: 15, 12, 9, then a blank, and then 3. Is this a growing or shrinking pattern? What number should fill the blank, and what is the rule for taking away numbers?</p>
         </div>
         
       </div>
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Patterns in Our <span class="hl">Daily Life</span></h2>
-          <ul><li>The days of the week are a pattern.</li><li>Morning, Afternoon, Evening is a pattern.</li><li>Even your heartbeat follows a pattern!</li></ul>
-          <p class="notes">🎙️ Patterns are not just in books! The days of the week, the cycle of seasons, and even your daily routine of waking up, going to school, and playing all follow patterns. They bring order to our lives.</p>
+          <h2>Patterns are <span class="hl">Fun</span>!</h2>
+          <ul><li>Patterns help us understand the world.</li><li>They make things beautiful and orderly.</li><li>Keep looking for them everywhere!</li></ul>
+          <p class="notes">🎙️ Isn't it amazing how many patterns we can find once we start looking? Patterns are not just fun puzzles; they help us understand how things work and bring order and beauty to our world. Always be curious and keep spotting them!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Calendar showing patterns</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Find the Patterns!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Why are Patterns <span class="hl">Important</span>?</h2>
-          <ul><li>Patterns help us understand the world.</li><li>They help us guess what might happen next.</li><li>It makes maths fun and easy!</li></ul>
-          <p class="notes">🎙️ Learning about patterns helps us predict things and understand how things work. It's a very important skill in mathematics and in understanding the world around us. It makes everything more interesting!</p>
+          <h2>Let's <span class="hl">Create</span> Our Own Patterns!</h2>
+          <ul><li>You can make patterns with anything!</li><li>Use colours, shapes, numbers, or even sounds.</li><li>Be creative and share your patterns!</li></ul>
+          <p class="notes">🎙️ Now that you are all pattern experts, it's your turn to be creators! You can draw patterns, make them with blocks, or even clap out a sound pattern. Use your imagination and create your very own unique patterns!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Idea bulb</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎨</div><div class="vcap">Time to Create!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Time to <span class="hl">Recap</span>: What Did We Learn?</h2>
-          <ul><li>Patterns are repeating or changing things.</li><li>They can be repeating, growing, or shrinking.</li><li>Patterns are everywhere!</li></ul>
-          <p class="notes">🎙️ Great job, everyone! We learned that patterns are sequences that follow a rule. We saw repeating patterns, growing patterns, and shrinking patterns. Keep an eye out for patterns every day!</p>
+          <h2><span class="hl">Recap</span>: What We Learned</h2>
+          <ul><li>Patterns are repeating designs or sequences.</li><li>They follow a rule.</li><li>We saw repeating, growing, and shrinking patterns.</li></ul>
+          <p class="notes">🎙️ Today, we learned that patterns are everywhere – in nature, in our homes, and in numbers. We discovered that patterns follow rules and can either repeat, grow, or shrink. You all did a fantastic job understanding patterns!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 4 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

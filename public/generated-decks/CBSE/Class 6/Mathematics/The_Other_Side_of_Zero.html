@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>The Other Side of Zero — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>The Other Side of <span class="hl">Zero</span></h2>
-          <ul><li>Explore numbers beyond what you already know!</li><li>Discover a new set of numbers that help us describe more situations.</li></ul>
-          <p class="notes">🎙️ Namaste, students! Today we are going on an exciting journey to explore numbers that live on 'The Other Side of Zero'. Get ready to expand your mathematical world!</p>
+          <h2>Welcome to 'The Other Side of <span class="hl">Zero</span>'!</h2>
+          <ul><li>What lies beyond the numbers we know?</li><li>A fascinating journey into new number friends!</li><li>Get ready to explore!</li></ul>
+          <p class="notes">🎙️ Hello, young mathematicians! Today, we're embarking on an exciting adventure to explore numbers beyond what we've learned so far. Prepare to discover a whole new world on 'The Other Side of Zero'!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2><span class="hl">Beyond</span> Whole Numbers</h2>
-          <ul><li>Whole numbers are 0, 1, 2, 3...</li><li>They help us count and add.</li><li>But what about situations like 'below zero' or 'debt'?</li></ul>
-          <p class="notes">🎙️ We know whole numbers are great for counting things like apples or students. But sometimes, whole numbers aren't enough to describe certain situations. Think about temperature or money.</p>
+          <h2>Our Number <span class="hl">Friends</span> So Far</h2>
+          <ul><li>Natural Numbers: 1, 2, 3, ... (for counting)</li><li>Whole Numbers: 0, 1, 2, 3, ... (includes zero)</li><li>These help us count objects and measure positive quantities.</li></ul>
+          <p class="notes">🎙️ Before we jump into new numbers, let's quickly recall our existing number friends. We use natural numbers for counting things, and whole numbers when we include zero, like when we have nothing.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Counting Up</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Counting Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Introducing <span class="hl">Negative</span> Numbers</h2>
-          <ul><li>Numbers less than zero.</li><li>Represent opposite directions or values.</li><li>Shown with a minus sign (-) before them.</li></ul>
-          <p class="notes">🎙️ Imagine going down a ladder, or the temperature dropping below freezing. For these situations, we need a new kind of number: negative numbers. They are the mirror image of positive numbers on the number line.</p>
+          <h2>What if we go <span class="hl">Below Zero</span>?</h2>
+          <ul><li>Imagine temperature dropping colder than 0°C.</li><li>What if you owe money? That's less than having zero.</li><li>Diving deep below sea level.</li></ul>
+          <p class="notes">🎙️ Sometimes, the numbers we know aren't enough. What happens when the temperature goes colder than zero? Or when you have a debt? These situations require a new type of number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Going Down</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Cold Temperature</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>What are <span class="hl">Integers</span>?</h2>
-          <ul><li>The collection of positive numbers, negative numbers, and zero.</li><li>No fractions or decimals.</li><li>Represented by the symbol 'Z'.</li></ul>
-          <p class="notes">🎙️ Integers are a big family of numbers! They include all the whole numbers you know, their negative counterparts, and zero. The key is, they are 'whole' numbers, no parts or pieces.</p>
+          <h2>Meet the <span class="hl">Integers</span>!</h2>
+          <ul><li>Integers include all whole numbers.</li><li>They also include all negative numbers.</li><li>Integers are positive numbers, negative numbers, and zero.</li></ul>
+          <p class="notes">🎙️ Welcome to the world of Integers! These are like a bigger family of numbers that include all the whole numbers we know, plus their opposites, the negative numbers. So, integers cover positive, negative, and zero.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Number Family</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">Positive and Negative</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Integers in Real Life: <span class="hl">Temperature</span></h2>
-          <ul><li>Above 0°C (positive integers).</li><li>Below 0°C (negative integers).</li><li>0°C is the freezing point of water.</li></ul>
-          <p class="notes">🎙️ When you hear the weather report, sometimes it says 'minus 5 degrees Celsius'. This 'minus 5' is a negative integer, telling us it's very cold, 5 degrees below zero.</p>
+          <h2>The <span class="hl">Positive Side</span>: Positive Integers</h2>
+          <ul><li>Numbers greater than zero.</li><li>They can be written with a '+' sign (e.g., +5) or no sign (e.g., 5).</li><li>Examples: Profit, height above sea level, temperature above 0°C.</li></ul>
+          <p class="notes">🎙️ Positive integers are just like our natural numbers, representing quantities that are 'more than zero'. Think of them as moving upwards or gaining something. We usually don't write the '+' sign, but it's understood.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Weather Forecast</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬆️</span><span>⬆️</span><span>⬆️</span><span>⬆️</span><span>⬆️</span></div><div class="vcap">Going Up!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Integers in Real Life: <span class="hl">Sea Level</span></h2>
-          <ul><li>Above sea level (positive integers).</li><li>Below sea level (negative integers).</li><li>Sea level itself is considered zero.</li></ul>
-          <p class="notes">🎙️ Divers go deep below sea level, while mountains rise high above it. We use positive integers for heights above sea level and negative integers for depths below sea level.</p>
+          <h2>The <span class="hl">Negative Side</span>: Negative Integers</h2>
+          <ul><li>Numbers less than zero.</li><li>Always written with a '-' sign (e.g., -5).</li><li>Examples: Loss, depth below sea level, temperature below 0°C.</li></ul>
+          <p class="notes">🎙️ Negative integers are the 'other side' of zero. They represent quantities that are 'less than zero', like a decrease or a debt. It's crucial to always write the '-' sign for negative numbers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Ocean Depths</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬇️</span><span>⬇️</span><span>⬇️</span><span>⬇️</span><span>⬇️</span></div><div class="vcap">Going Down!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Integers in Real Life: <span class="hl">Money</span></h2>
-          <ul><li>Savings or income (positive integers).</li><li>Debts or expenses (negative integers).</li><li>Zero means no money owed and no money saved.</li></ul>
-          <p class="notes">🎙️ If you have money in your bank, it's a positive balance. If you owe money to someone, that's a debt, represented by a negative integer. Integers help us keep track of our finances.</p>
+          <h2><span class="hl">Zero</span>: Neither Positive Nor Negative</h2>
+          <ul><li>Zero is a special integer.</li><li>It acts as the bridge between positive and negative numbers.</li><li>It is neither positive nor negative.</li></ul>
+          <p class="notes">🎙️ Zero holds a unique position in the integer family. It's the starting point, the neutral ground, separating the positive numbers on one side and the negative numbers on the other. It doesn't have a sign.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Bank Balance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌉</div><div class="vcap">The Bridge</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,9 +144,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Visualizing Integers: The <span class="hl">Number Line</span></h2>
-          <ul><li>A straight line with numbers marked at equal intervals.</li><li>Zero is at the center.</li><li>Positive numbers to the right, negative numbers to the left.</li></ul>
-          <p class="notes">🎙️ The number line is a powerful tool to understand integers. It helps us see their order and relationship to each other. Remember, it extends infinitely in both directions.</p>
+          <h2>Integers in Daily Life: <span class="hl">Temperature</span></h2>
+          <ul><li>Temperature above 0°C is positive (e.g., +25°C).</li><li>Temperature below 0°C is negative (e.g., -5°C).</li><li>0°C is the freezing point of water.</li></ul>
+          <p class="notes">🎙️ Temperature is a perfect real-life example of integers. When it's warm, we use positive numbers. When it's freezing, we use negative numbers to show how cold it is below zero.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Above 0°C (e.g., 25°C)</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Below 0°C (e.g., -5°C)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Integers in Daily Life: <span class="hl">Money</span></h2>
+          <ul><li>Having money or profit is positive (e.g., +₹500).</li><li>Owing money or a loss is negative (e.g., -₹200).</li><li>Having exactly zero means no money and no debt.</li></ul>
+          <p class="notes">🎙️ Integers are also very useful when dealing with money. If you earn money or have savings, that's a positive amount. If you spend more than you have or have a debt, that's a negative amount.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Money Matters</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Representing Integers on a <span class="hl">Number Line</span></h2>
+          <ul><li>A straight line with zero at the center.</li><li>Positive integers are to the right of zero.</li><li>Negative integers are to the left of zero.</li><li>Numbers increase as you move to the right.</li></ul>
+          <p class="notes">🎙️ The number line is a powerful visual tool for understanding integers. It clearly shows the position of each integer relative to zero and to each other. Remember, moving right means increasing value.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Infinite Line</div></div></div>
       </div>
@@ -142,36 +179,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2><span class="hl">Plotting</span> Integers on a Number Line</h2>
-          <ul><li>Start at zero.</li><li>Move right for positive integers.</li><li>Move left for negative integers.</li><li>Mark the point clearly.</li></ul>
-          <p class="notes">🎙️ To plot an integer, find zero first. Then, count the correct number of steps to the right for positive numbers, or to the left for negative numbers. Always make a clear mark!</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start at 0</span></div><div class="step"><span class="snum">2</span><span>Move right for +</span></div><div class="step"><span class="snum">3</span><span>Move left for -</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 25</span>
-          <h2>Understanding <span class="hl">Positive</span> Integers</h2>
-          <ul><li>All natural numbers (1, 2, 3...).</li><li>Always greater than zero.</li><li>Can be written with a '+' sign or no sign.</li></ul>
-          <p class="notes">🎙️ Positive integers are what you've been working with since kindergarten! They represent increases, gains, or movement to the right. The plus sign is optional, but it's always there implicitly.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬆️</span><span>⬆️</span><span>⬆️</span><span>⬆️</span><span>⬆️</span></div><div class="vcap">Going Up</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Understanding <span class="hl">Negative</span> Integers</h2>
-          <ul><li>Numbers less than zero.</li><li>Always written with a '-' sign.</li><li>Represent decreases, losses, or movement to the left.</li></ul>
-          <p class="notes">🎙️ Negative integers are the 'other side' of zero. They represent the opposite of positive integers. Always remember to put that minus sign in front of them!</p>
+          <h2>Let's <span class="hl">Plot</span> Integers!</h2>
+          <ul><li>Draw a straight line and mark zero in the middle.</li><li>Mark points at equal distances to the right for positive integers (1, 2, 3...).</li><li>Mark points at equal distances to the left for negative integers (-1, -2, -3...).</li><li>Example: Plot +3, -2, and 0.</li></ul>
+          <p class="notes">🎙️ Let's practice plotting integers. It's like finding their address on the number line. Always start by marking zero, then evenly space out your positive and negative numbers.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬇️</span><span>⬇️</span><span>⬇️</span><span>⬇️</span><span>⬇️</span></div><div class="vcap">Going Down</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Line &amp; Mark Zero</span></div><div class="step"><span class="snum">2</span><span>Mark Positives to Right</span></div><div class="step"><span class="snum">3</span><span>Mark Negatives to Left</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>The Special Role of <span class="hl">Zero</span></h2>
-          <ul><li>Neither positive nor negative.</li><li>The origin point on the number line.</li><li>A neutral value, representing 'nothing' or 'no change'.</li></ul>
-          <p class="notes">🎙️ Zero is unique! It's the boundary between positive and negative numbers. It's like the starting line in a race, or the balance point on a seesaw.</p>
+          <h2><span class="hl">Comparing</span> Integers: Who's Bigger?</h2>
+          <ul><li>On a number line, the integer to the right is always greater.</li><li>The integer to the left is always smaller.</li><li>Positive numbers are always greater than negative numbers.</li></ul>
+          <p class="notes">🎙️ Comparing integers can sometimes be tricky, especially with negative numbers. The number line is your best friend here: whichever number is further to the right is the larger one. Simple as that!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">0️⃣</div><div class="vcap">The Center</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Ordering</span> Integers: Who is Bigger?</h2>
-          <ul><li>On a number line, numbers to the right are always greater.</li><li>Numbers to the left are always smaller.</li><li>Every positive integer is greater than every negative integer.</li></ul>
-          <p class="notes">🎙️ Just like with whole numbers, we can compare integers. The rule is simple: the further right a number is on the number line, the larger its value. The further left, the smaller.</p>
+          <h2>Comparing Integers: <span class="hl">Example</span></h2>
+          <ul><li>Compare -5 and -2.</li><li>On the number line, -2 is to the right of -5.</li><li>Therefore, -2 is greater than -5 ( -2 &gt; -5 ).</li><li>Remember: -1 is greater than -100!</li></ul>
+          <p class="notes">🎙️ Let's look at an example. Even though 5 is bigger than 2, when they are negative, the number closer to zero is greater. So, having a debt of ₹2 is better than a debt of ₹5!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Increasing Value</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👉👈</div><div class="vcap">Right is Greater</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Comparing Integers (Example 1): <span class="hl">Positive</span> vs Positive</h2>
-          <ul><li>Compare 5 and 2.</li><li>Both are to the right of zero.</li><li>5 is further to the right than 2, so 5 &gt; 2.</li></ul>
-          <p class="notes">🎙️ This is a comparison you're already familiar with. Five is clearly larger than two. On the number line, 5 is to the right of 2.</p>
+          <h2><span class="hl">Ordering</span> Integers: Smallest to Largest</h2>
+          <ul><li>Arranging integers in ascending order (smallest to largest).</li><li>Arranging integers in descending order (largest to smallest).</li><li>Use the number line to help you visualize their positions.</li></ul>
+          <p class="notes">🎙️ Once you can compare integers, ordering them becomes easy. Ascending order means going from the leftmost number on the number line to the rightmost. Descending is the opposite.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">5</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">2</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Arranging Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Comparing Integers (Example 2): <span class="hl">Negative</span> vs Negative</h2>
-          <ul><li>Compare -5 and -2.</li><li>Both are to the left of zero.</li><li>-2 is further to the right than -5, so -2 &gt; -5.</li></ul>
-          <p class="notes">🎙️ This can be tricky! Remember, with negative numbers, the number closer to zero is greater. Think of debt: owing 2 rupees is better than owing 5 rupees.</p>
+          <h2>Ordering Integers: <span class="hl">Example</span></h2>
+          <ul><li>Order these integers in ascending order: 3, -4, 0, 1, -2.</li><li>Step 1: Identify all negative numbers: -4, -2.</li><li>Step 2: Identify zero: 0.</li><li>Step 3: Identify all positive numbers: 1, 3.</li><li>Ascending Order: -4, -2, 0, 1, 3.</li></ul>
+          <p class="notes">🎙️ Here's a step-by-step approach to ordering integers. It's often helpful to first group them into negatives, zero, and positives, then order within those groups. Remember to always start with the smallest (most negative) number.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">-2</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">-5</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List Negatives</span></div><div class="step"><span class="snum">2</span><span>Add Zero</span></div><div class="step"><span class="snum">3</span><span>List Positives</span></div><div class="step"><span class="snum">4</span><span>Combine &amp; Order</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,21 +240,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Comparing Integers (Example 3): <span class="hl">Positive</span> vs Negative</h2>
-          <ul><li>Compare 3 and -4.</li><li>3 is positive (right of zero).</li><li>-4 is negative (left of zero).</li><li>Any positive integer is greater than any negative integer, so 3 &gt; -4.</li></ul>
-          <p class="notes">🎙️ This is the easiest comparison! No matter how large a negative number looks, it will always be smaller than any positive number. Having 3 rupees is always better than owing 4 rupees!</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">-4</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2><span class="hl">Absolute Value</span>: Distance from Zero</h2>
-          <ul><li>The distance of an integer from zero on the number line.</li><li>Always a positive value or zero.</li><li>Represented by two vertical bars, e.g., |-3|.</li></ul>
-          <p class="notes">🎙️ Absolute value tells us 'how far' a number is from zero, regardless of its direction. Think of it as always giving you a positive answer, like a distance.</p>
+          <h2><span class="hl">Absolute Value</span>: How Far From Zero?</h2>
+          <ul><li>The distance of a number from zero on the number line.</li><li>It is always a positive value (or zero).</li><li>Denoted by two vertical bars: |number|.</li></ul>
+          <p class="notes">🎙️ Absolute value tells us 'how far' a number is from zero, regardless of direction. Think of it as taking steps from zero – whether you step left or right, the number of steps is always positive.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Distance</div></div></div>
       </div>
@@ -250,12 +251,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Absolute Value: Worked <span class="hl">Example</span></h2>
-          <ul><li>Find the absolute value of 5: |5| = 5.</li><li>Find the absolute value of -5: |-5| = 5.</li><li>Both 5 and -5 are 5 units away from zero.</li></ul>
-          <p class="notes">🎙️ Whether you walk 5 steps to the right or 5 steps to the left, you've still walked 5 steps. That's the idea behind absolute value – it's just the magnitude.</p>
+          <span class="num">17 / 25</span>
+          <h2>Absolute Value: <span class="hl">Example</span></h2>
+          <ul><li>What is the absolute value of -5? |-5| = 5.</li><li>What is the absolute value of 5? |5| = 5.</li><li>Both -5 and 5 are 5 units away from zero.</li></ul>
+          <p class="notes">🎙️ Whether you go 5 steps to the left (-5) or 5 steps to the right (+5) from zero, the distance covered is still 5 steps. That's what absolute value represents: the magnitude, not the direction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚶</span><span>🚶</span><span>🚶</span><span>🚶</span><span>🚶</span></div><div class="vcap">5 steps away</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👣</span><span>👣</span><span>👣</span><span>👣</span><span>👣</span></div><div class="vcap">Steps from Zero</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
+          <ul><li>Which number is smaller: -10 or -3?</li><li>Think about their positions on the number line.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Take a moment to think about this. Remember our rule for comparing integers using the number line. Which one is further to the left?</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>Which is greater: -5 or -2?</li></ul>
-          <p class="notes">🎙️ Think about the number line. Which of these numbers is further to the right? Take a moment to decide.</p>
+          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
+          <ul><li>What is the absolute value of -7?</li><li>Remember what absolute value represents.</li></ul>
+          <p class="notes">🎙️ Another quick question! This one tests your understanding of absolute value. How many steps away from zero is -7, regardless of direction?</p>
         </div>
         
       </div>
@@ -275,33 +288,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 2</span></h2>
-          <ul><li>What is the absolute value of -7?</li></ul>
-          <p class="notes">🎙️ Remember, absolute value is about distance from zero. Does direction matter when we talk about distance?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 3</span></h2>
-          <ul><li>Represent a loss of Rs 500 using an integer.</li></ul>
-          <p class="notes">🎙️ Is a loss a positive or negative situation? How would you write that mathematically?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 4</span></h2>
-          <ul><li>Identify the positive integers from the list: -3, 0, 5, -1, 10.</li></ul>
-          <p class="notes">🎙️ Carefully look at each number. Which ones fit the definition of a positive integer?</p>
+          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
+          <ul><li>Arrange these integers in ascending order: 5, -1, 0, -3, 2.</li><li>Start with the smallest (most negative) number.</li></ul>
+          <p class="notes">🎙️ Last quick check! Put your ordering skills to the test. Remember to arrange them from the smallest value to the largest value. You can mentally plot them on a number line if it helps.</p>
         </div>
         
       </div>
@@ -310,24 +299,48 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Why Integers <span class="hl">Matter</span>: Practical Uses</h2>
-          <ul><li>Finance (profit/loss, bank balance).</li><li>Science (temperature, elevation).</li><li>Sports (goal difference, points).</li><li>Computer programming.</li></ul>
-          <p class="notes">🎙️ Integers are not just abstract numbers; they are essential tools in many fields. From managing money to understanding weather patterns, they help us make sense of the world.</p>
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Adding</span> Integers: Rules of the Game</h2>
+          <ul><li>Same signs: Add the absolute values and keep the common sign.</li><li>Different signs: Subtract the smaller absolute value from the larger, and keep the sign of the number with the larger absolute value.</li></ul>
+          <p class="notes">🎙️ Now, let's learn how to add integers. There are two main rules to remember, depending on whether the numbers have the same sign or different signs. Pay close attention to the signs!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Real-World Impact</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combining Numbers</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Adding Integers: Example (<span class="hl">Same Signs</span>)</h2>
+          <ul><li>Example 1: (+3) + (+5) = +8 (Add 3 and 5, keep '+' sign).</li><li>Example 2: (-3) + (-5) = -8 (Add 3 and 5, keep '-' sign).</li></ul>
+          <p class="notes">🎙️ When integers have the same sign, it's straightforward: just add their magnitudes and attach that common sign. Think of it as combining two gains or combining two losses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Adding Positives</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Adding Integers: Example (<span class="hl">Different Signs</span>)</h2>
+          <ul><li>Example 1: (+5) + (-2) = +3 (Subtract 2 from 5, keep '+' sign of 5).</li><li>Example 2: (-5) + (+2) = -3 (Subtract 2 from 5, keep '-' sign of 5).</li></ul>
+          <p class="notes">🎙️ When signs are different, it's like a tug-of-war! The stronger side (the number with the larger absolute value) wins, and you subtract the smaller force. The result takes the sign of the winner.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing Signs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Recap: Key <span class="hl">Takeaways</span></h2>
-          <ul><li>Integers include positive numbers, negative numbers, and zero.</li><li>Number line helps visualize order and value.</li><li>Absolute value is distance from zero (always positive).</li><li>Integers help describe opposite situations.</li></ul>
-          <p class="notes">🎙️ So, we've learned about the 'other side of zero' today! Integers are a fundamental concept that you'll use throughout your mathematics journey. Keep practicing!</p>
+          <h2><span class="hl">Subtracting</span> Integers: Add the Opposite!</h2>
+          <ul><li>Subtraction of integers can be converted into addition.</li><li>Change the subtraction sign to an addition sign.</li><li>Change the sign of the second number (find its additive inverse).</li><li>Then, follow the rules for adding integers!</li></ul>
+          <p class="notes">🎙️ Subtracting integers has a clever trick! Instead of subtracting, we 'add the opposite'. This means you flip the sign of the number you are subtracting, and then just apply the addition rules we just learned. It makes things much simpler!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Taking Away</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Thank You &amp; Keep <span class="hl">Practicing</span>!</h2>
-          <ul><li>Continue exploring integers in your textbook.</li><li>Practice comparing and ordering integers.</li><li>Look for integers in your daily life!</li></ul>
-          <p class="notes">🎙️ Thank you for your attention today! Mathematics is all about practice, so keep working with integers. The more you use them, the more natural they will feel. See you next time!</p>
+          <h2><span class="hl">Journey's End</span>: The Other Side of Zero</h2>
+          <ul><li>We explored positive and negative integers, and zero.</li><li>Learned to represent, compare, and order integers on a number line.</li><li>Understood absolute value and basic addition/subtraction.</li><li>Integers are everywhere, making math more powerful!</li></ul>
+          <p class="notes">🎙️ What an incredible journey we've had to 'The Other Side of Zero'! You've now met integers and learned their fundamental properties and operations. Keep practicing, as integers are a cornerstone for more advanced mathematics!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

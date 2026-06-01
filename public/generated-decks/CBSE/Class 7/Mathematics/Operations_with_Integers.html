@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Operations with Integers — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Chapter: Operations with <span class="hl">Integers</span></h2>
-          <ul><li>Subject: Mathematics</li><li>Class: 7</li><li>Board: CBSE</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we're diving into the exciting world of integers and how we perform operations with them. This chapter is fundamental for your mathematical journey ahead.</p>
+          <h2>Welcome to <span class="hl">Mathematics</span> Class 7!</h2>
+          <ul><li>Chapter: Operations with Integers</li><li>Subject: Mathematics</li><li>Class: 7</li><li>Board: CBSE</li></ul>
+          <p class="notes">🎙️ Hello students! Today we embark on an exciting journey into the world of numbers, specifically focusing on 'Operations with Integers'. This chapter is fundamental for your future mathematical studies.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Why are Integers <span class="hl">Important</span>?</h2>
-          <ul><li>Used for temperature (above/below zero)</li><li>Representing depth and height (above/below sea level)</li><li>Financial transactions (profit/loss, credit/debit)</li><li>Tracking scores in games (points gained/lost)</li></ul>
-          <p class="notes">🎙️ Integers help us describe quantities that have both positive and negative directions. Think about a thermometer or your bank balance; integers are everywhere in our daily lives.</p>
+          <h2>Beyond Whole Numbers: Exploring <span class="hl">Integers</span>!</h2>
+          <ul><li>Numbers play a big role in our daily lives.</li><li>What if we need to represent values below zero?</li><li>Integers help us understand these concepts better.</li></ul>
+          <p class="notes">🎙️ Think about situations like temperature below freezing, or depths below sea level. Whole numbers alone aren't enough! That's where integers come in, extending our number system to include negative values.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Real-world uses</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">World of Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Recap: What are <span class="hl">Integers</span>?</h2>
-          <ul><li>Whole numbers including positive numbers (1, 2, 3...), negative numbers (-1, -2, -3...), and zero (0).</li><li>No fractional or decimal parts.</li><li>Positive integers are greater than zero, negative integers are less than zero.</li></ul>
-          <p class="notes">🎙️ Remember, integers are like whole numbers but they also include their negative counterparts. Zero is special, it's neither positive nor negative.</p>
+          <h2>Understanding <span class="hl">Integers</span></h2>
+          <ul><li>Integers include all whole numbers (0, 1, 2, ...) and their negative counterparts (-1, -2, -3, ...).</li><li>They do not include fractions or decimals.</li><li>Represented on a number line.</li></ul>
+          <p class="notes">🎙️ Integers are essentially whole numbers and their opposites. The number line is an excellent tool to visualise integers, with positive numbers to the right of zero and negative numbers to the left.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Numbers with direction</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Number Line</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Integers on a <span class="hl">Number Line</span></h2>
-          <ul><li>Zero is at the center.</li><li>Positive integers are to the right of zero.</li><li>Negative integers are to the left of zero.</li><li>Numbers increase as you move right and decrease as you move left.</li></ul>
-          <p class="notes">🎙️ The number line is a fantastic tool to visualize integers and understand their order. It clearly shows how positive values extend in one direction and negative values in the other.</p>
+          <h2>Integers <span class="hl">Around Us</span></h2>
+          <ul><li>Temperature: -5°C (below freezing)</li><li>Bank Balance: -₹500 (overdrawn account)</li><li>Altitude: 100 meters (above sea level), -10 meters (below sea level)</li></ul>
+          <p class="notes">🎙️ Integers are everywhere! From measuring cold temperatures to managing finances, or even describing depths and heights, they provide a precise way to represent quantities that go both above and below a reference point.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Visualizing Integers</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Profit</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Loss</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Adding Integers with the <span class="hl">Same Sign</span></h2>
-          <ul><li>Add their absolute values.</li><li>Keep the common sign.</li><li>Example: 3 + 5 = 8</li><li>Example: (-3) + (-5) = -8</li></ul>
-          <p class="notes">🎙️ When both integers are positive, it's just like regular addition. If both are negative, you still add the numbers, but the result remains negative, showing a combined decrease.</p>
+          <h2><span class="hl">Absolute Value</span>: Distance from Zero</h2>
+          <ul><li>The absolute value of an integer is its distance from zero on the number line.</li><li>It is always non-negative (positive or zero).</li><li>Represented by two vertical bars: |a|.</li></ul>
+          <p class="notes">🎙️ Think of absolute value as how far a number is from zero, regardless of direction. So, whether a number is positive or negative, its absolute value will always be positive, because distance cannot be negative.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Adding Positives</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Distance</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Real-life</span> Example: Same Sign Addition</h2>
-          <ul><li>Temperature changes:</li><li>Morning temperature: 5°C</li><li>Temperature rises by 3°C during the day.</li><li>New temperature: 5°C + 3°C = 8°C</li></ul>
-          <p class="notes">🎙️ Imagine the temperature rising. If it's already positive and goes up further, the final temperature will be a higher positive value. This is a clear example of adding same-signed integers.</p>
+          <h2><span class="hl">Calculating</span> Absolute Value</h2>
+          <ul><li>|5| = 5 (distance of 5 from zero)</li><li>|-5| = 5 (distance of 5 from zero)</li><li>|0| = 0 (distance of 0 from zero)</li></ul>
+          <p class="notes">🎙️ Let's look at some examples. The absolute value of 5 is 5, and the absolute value of -5 is also 5. Both are 5 units away from zero on the number line. The absolute value of zero is simply zero.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature Increase</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>|-3|</span></div><div class="step"><span class="snum">2</span><span>3 units</span></div><div class="step"><span class="snum">3</span><span>|3|</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Same Sign Addition</h2>
-          <ul><li>Problem: Add (-7) + (-4)</li><li>Step 1: Identify signs (Both negative).</li><li>Step 2: Add absolute values (7 + 4 = 11).</li><li>Step 3: Keep the common sign (Negative).</li><li>Answer: (-7) + (-4) = -11</li></ul>
-          <p class="notes">🎙️ Follow these steps carefully. When both numbers are negative, think of it as accumulating debt; the total debt becomes larger. The process is straightforward once you remember to keep the sign.</p>
+          <h2>Adding Integers with <span class="hl">Same Signs</span></h2>
+          <ul><li>Add the absolute values of the integers.</li><li>Keep the common sign.</li><li>Example: 3 + 5 = 8; (-3) + (-5) = -8</li></ul>
+          <p class="notes">🎙️ When you add integers with the same sign, it's like combining similar quantities. For example, if you gain 3 points and then gain 5 more, you've gained a total of 8 points. If you lose 3 points and then lose 5 more, you've lost 8 points.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Signs</span></div><div class="step"><span class="snum">2</span><span>Add Values</span></div><div class="step"><span class="snum">3</span><span>Keep Sign</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Adding Positives</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Adding Integers with <span class="hl">Different Signs</span></h2>
-          <ul><li>Subtract the smaller absolute value from the larger absolute value.</li><li>Keep the sign of the integer with the larger absolute value.</li><li>Example: 7 + (-3) = 4</li><li>Example: (-7) + 3 = -4</li></ul>
-          <p class="notes">🎙️ When signs are different, one number 'cancels out' part of the other. The result depends on which number has a greater 'strength' or absolute value. Think of it as a tug-of-war.</p>
+          <h2><span class="hl">Real-Life</span> Addition: Same Signs</h2>
+          <ul><li>Scenario: You earn ₹100 on Monday and ₹50 on Tuesday.</li><li>Total earnings: 100 + 50 = ₹150.</li><li>Scenario: You lose 3 marbles, then lose 2 more marbles.</li><li>Total loss: (-3) + (-2) = -5 marbles.</li></ul>
+          <p class="notes">🎙️ Imagine your pocket money. If you get ₹100 and then another ₹50, your total increases. Similarly, if you have a deficit of 3 items and then another deficit of 2 items, your total deficit increases.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚖️</span><span>⚖️</span></div><div class="vcap">Balancing Act</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">Earnings/Losses</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Real-life</span> Example: Different Sign Addition</h2>
-          <ul><li>Financial transactions:</li><li>You have ₹500 in your account.</li><li>You make a purchase of ₹700 (represented as -₹700).</li><li>Balance: ₹500 + (-₹700) = -₹200</li></ul>
-          <p class="notes">🎙️ This example clearly shows how positive and negative values interact. If you spend more than you have, your balance becomes negative, indicating debt. This is a common application of adding integers with different signs.</p>
+          <h2>Adding Integers with <span class="hl">Different Signs</span></h2>
+          <ul><li>Subtract the smaller absolute value from the larger absolute value.</li><li>Keep the sign of the integer with the larger absolute value.</li><li>Example: 5 + (-3) = 2; (-5) + 3 = -2</li></ul>
+          <p class="notes">🎙️ When signs are different, it's like a tug-of-war. The stronger side (the number with the larger absolute value) wins, and you subtract the weaker side. The result takes the sign of the winner.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Credit and Debit</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing Act</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Different Sign Addition</h2>
-          <ul><li>Problem: Add (-12) + 8</li><li>Step 1: Identify signs (Different signs).</li><li>Step 2: Subtract absolute values (12 - 8 = 4).</li><li>Step 3: Keep sign of larger absolute value (12 is larger, its sign is negative).</li><li>Answer: (-12) + 8 = -4</li></ul>
-          <p class="notes">🎙️ Here, the negative number is 'stronger' than the positive one. So, even after the positive 8 'cancels out' part of the negative 12, the result remains negative. Practice these steps carefully.</p>
+          <h2><span class="hl">Real-Life</span> Addition: Different Signs</h2>
+          <ul><li>Scenario: You have ₹500 in your account and withdraw ₹200.</li><li>Balance: 500 + (-200) = ₹300.</li><li>Scenario: Your friend owes you ₹100, but you owe them ₹150.</li><li>Net debt: (-150) + 100 = -₹50 (you still owe ₹50).</li></ul>
+          <p class="notes">🎙️ Consider your bank account. Depositing money is positive, withdrawing is negative. If you deposit ₹500 and withdraw ₹200, you still have money. But if you owe ₹150 and your friend owes you ₹100, you still have a net debt.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Signs</span></div><div class="step"><span class="snum">2</span><span>Subtract Values</span></div><div class="step"><span class="snum">3</span><span>Keep Larger Sign</span></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Credit</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Debit</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Properties of Addition: <span class="hl">Commutative</span> Property</h2>
-          <ul><li>The order of integers in addition does not change the sum.</li><li>For any integers 'a' and 'b', a + b = b + a.</li><li>Example: 3 + (-5) = -2 and (-5) + 3 = -2.</li></ul>
-          <p class="notes">🎙️ This property is very useful! It means you can swap the positions of numbers when adding, and you'll still get the same answer. It simplifies calculations sometimes.</p>
+          <h2>Properties of Addition: <span class="hl">Commutative</span></h2>
+          <ul><li>The order in which you add integers does not change the sum.</li><li>a + b = b + a</li><li>Example: 3 + (-5) = -2 and (-5) + 3 = -2</li></ul>
+          <p class="notes">🎙️ The commutative property simply means that you can swap the positions of the numbers when adding, and the answer will remain the same. It's like putting on your socks then shoes, or shoes then socks – the end result is the same!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Order doesn't matter</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Change Order</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Properties of Addition: <span class="hl">Associative</span> Property</h2>
-          <ul><li>The way integers are grouped in addition does not change the sum.</li><li>For any integers 'a', 'b', and 'c', (a + b) + c = a + (b + c).</li><li>Example: (2 + 3) + (-4) = 5 + (-4) = 1.</li><li>Also: 2 + (3 + (-4)) = 2 + (-1) = 1.</li></ul>
-          <p class="notes">🎙️ This property tells us that when adding three or more integers, we can group them in any way we want without affecting the final sum. It helps in organizing complex additions.</p>
+          <h2>Properties of Addition: <span class="hl">Associative</span></h2>
+          <ul><li>The way you group integers for addition does not change the sum.</li><li>(a + b) + c = a + (b + c)</li><li>Example: (2 + 3) + 4 = 5 + 4 = 9; 2 + (3 + 4) = 2 + 7 = 9</li></ul>
+          <p class="notes">🎙️ The associative property tells us that when adding three or more numbers, how you group them with parentheses doesn't matter. You can add the first two and then the third, or the second and third then the first, and the sum will be identical.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Grouping doesn't matter</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🫂</div><div class="vcap">Group Together</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -192,22 +205,22 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">13 / 25</span>
           <h2>Properties of Addition: <span class="hl">Additive Identity</span></h2>
-          <ul><li>Zero (0) is the additive identity for integers.</li><li>Adding zero to any integer does not change its value.</li><li>For any integer 'a', a + 0 = a and 0 + a = a.</li><li>Example: (-9) + 0 = -9.</li></ul>
-          <p class="notes">🎙️ Zero acts as a special 'neutral' number in addition. It doesn't add or subtract any value, simply leaving the original integer unchanged. This property is quite intuitive.</p>
+          <ul><li>Adding zero to any integer does not change its value.</li><li>a + 0 = a</li><li>Zero is the additive identity.</li><li>Example: -7 + 0 = -7</li></ul>
+          <p class="notes">🎙️ Zero is a special number in addition. When you add zero to any integer, the integer remains unchanged. That's why zero is called the additive identity – it preserves the identity of the number.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">0️⃣</div><div class="vcap">The 'Neutral' Number</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">0️⃣</div><div class="vcap">The Number Zero</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Quick Check 1: <span class="hl">Addition</span></h2>
-          <ul><li>1.  (-6) + (-10) = ?</li><li>2.  15 + (-7) = ?</li><li>3.  (-20) + 20 = ?</li><li>4.  (-5) + 0 = ?</li></ul>
-          <p class="notes">🎙️ Take a moment to solve these problems. Remember the rules for adding integers with same and different signs. This will help you solidify your understanding.</p>
+          <h2><span class="hl">Subtracting</span> Integers: Add the Opposite</h2>
+          <ul><li>To subtract an integer, add its additive inverse (opposite).</li><li>a - b = a + (-b)</li><li>Change the subtraction sign to addition and change the sign of the second number.</li><li>Example: 5 - (-3) = 5 + 3 = 8</li></ul>
+          <p class="notes">🎙️ Subtraction of integers can be tricky, but there's a simple rule: 'Keep, Change, Change'. Keep the first number, change the subtraction sign to addition, and change the sign of the second number to its opposite. Then, follow the rules of addition.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a - b</span></div><div class="step"><span class="snum">2</span><span>a + (-b)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Subtracting</span> Integers</h2>
-          <ul><li>To subtract an integer, add its additive inverse (opposite).</li><li>a - b = a + (-b)</li><li>Example: 5 - 3 = 5 + (-3) = 2</li><li>Example: 5 - (-3) = 5 + 3 = 8</li></ul>
-          <p class="notes">🎙️ Subtraction of integers is often thought of as 'adding the opposite'. This rule transforms every subtraction problem into an addition problem, which you already know how to solve!</p>
+          <h2><span class="hl">Real-Life</span> Subtraction</h2>
+          <ul><li>Scenario: The temperature was 10°C and dropped by 15°C.</li><li>New temperature: 10 - 15 = 10 + (-15) = -5°C.</li><li>Scenario: A submarine is at -50m and descends another 20m.</li><li>New depth: -50 - 20 = -50 + (-20) = -70m.</li></ul>
+          <p class="notes">🎙️ Let's apply this. If the temperature drops, it's a subtraction. A drop of 15 degrees from 10 degrees takes us below freezing. When a submarine descends further, its depth becomes even more negative.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Adding the Opposite</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature Change</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Real-life</span> Example: Subtraction</h2>
-          <ul><li>Elevation difference:</li><li>A bird is flying at 10 meters above sea level (+10 m).</li><li>A fish is swimming at 3 meters below sea level (-3 m).</li><li>Difference: 10 - (-3) = 10 + 3 = 13 meters.</li></ul>
-          <p class="notes">🎙️ Calculating the vertical distance between two points, one above and one below a reference point, is a perfect example of integer subtraction. The 'minus a minus' becomes a 'plus'.</p>
+          <h2><span class="hl">Quick Check!</span> (Addition &amp; Subtraction)</h2>
+          <ul><li>1. Calculate: (-12) + 7</li><li>2. What is 8 - (-4)?</li><li>3. Find the value of |-9| + |3|.</li></ul>
+          <p class="notes">🎙️ Take a moment to solve these problems. Remember the rules for adding and subtracting integers, especially the 'add the opposite' rule for subtraction. Also, don't forget about absolute value!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Above and Below</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Subtraction</h2>
-          <ul><li>Problem: Subtract (-6) from (-2)</li><li>This means: (-2) - (-6)</li><li>Step 1: Change subtraction to addition of the opposite: (-2) + 6</li><li>Step 2: Add integers with different signs: 6 - 2 = 4</li><li>Answer: (-2) - (-6) = 4</li></ul>
-          <p class="notes">🎙️ Remember the golden rule for subtraction: 'keep, change, flip'. Keep the first number, change subtraction to addition, and flip the sign of the second number. Then, solve as an addition problem.</p>
+          <h2>Multiplying Integers: <span class="hl">Rules of Signs</span></h2>
+          <ul><li>Positive × Positive = Positive (e.g., 3 × 4 = 12)</li><li>Negative × Negative = Positive (e.g., (-3) × (-4) = 12)</li><li>Positive × Negative = Negative (e.g., 3 × (-4) = -12)</li><li>Negative × Positive = Negative (e.g., (-3) × 4 = -12)</li></ul>
+          <p class="notes">🎙️ Multiplication of integers has clear rules for signs. When the signs are the same (both positive or both negative), the product is positive. When the signs are different, the product is negative. This is a crucial rule to remember.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Rewrite as Addition</span></div><div class="step"><span class="snum">2</span><span>Add Integers</span></div><div class="step"><span class="snum">3</span><span>Find Result</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Sign Rules</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Properties</span> of Subtraction</h2>
-          <ul><li>Subtraction of integers is NOT commutative: a - b ≠ b - a.</li><li>Example: 5 - 3 = 2, but 3 - 5 = -2.</li><li>Subtraction of integers is NOT associative: (a - b) - c ≠ a - (b - c).</li><li>Example: (10 - 5) - 2 = 3, but 10 - (5 - 2) = 7.</li></ul>
-          <p class="notes">🎙️ It's important to note that subtraction does not follow the commutative or associative properties. The order and grouping absolutely matter when you are subtracting integers. Be careful!</p>
+          <h2><span class="hl">Real-Life</span> Multiplication</h2>
+          <ul><li>Scenario: You lose ₹5 every day for 3 days.</li><li>Total loss: 3 × (-₹5) = -₹15.</li><li>Scenario: A bank charges a penalty of ₹10 for 2 overdrafts.</li><li>Total penalty: 2 × (-₹10) = -₹20.</li></ul>
+          <p class="notes">🎙️ Multiplication can represent repeated addition or repeated subtraction. If you consistently lose money, your total loss will be a negative amount. Similarly, repeated penalties accumulate as a larger negative value.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">No Commutative/Associative</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💸</span><span>💸</span><span>💸</span></div><div class="vcap">Repeated Loss</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Subtraction</span></h2>
-          <ul><li>1.  8 - (-4) = ?</li><li>2.  (-10) - 5 = ?</li><li>3.  (-3) - (-7) = ?</li><li>4.  0 - 12 = ?</li></ul>
-          <p class="notes">🎙️ Apply the 'add the opposite' rule for each of these problems. Take your time and convert each subtraction into an addition problem before finding the answer.</p>
+          <h2><span class="hl">Properties</span> of Multiplication</h2>
+          <ul><li>Commutative: a × b = b × a (e.g., 2 × (-3) = -6; (-3) × 2 = -6)</li><li>Associative: (a × b) × c = a × (b × c) (e.g., (2 × 3) × 4 = 24; 2 × (3 × 4) = 24)</li></ul>
+          <p class="notes">🎙️ Good news! The commutative and associative properties also apply to multiplication of integers, just like with addition. The order and grouping of numbers don't change the final product.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Same as Addition</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Multiplying Integers with <span class="hl">Same Signs</span></h2>
-          <ul><li>The product of two integers with the same sign is always positive.</li><li>(+) × (+) = (+)</li><li>(-) × (-) = (+)</li><li>Example: 4 × 3 = 12</li><li>Example: (-4) × (-3) = 12</li></ul>
-          <p class="notes">🎙️ This is a key rule for multiplication. When the signs are the same, whether both positive or both negative, the answer will always be positive. Remember: 'a friend of a friend is a friend'.</p>
+          <h2>Multiplicative <span class="hl">Identity &amp; Zero</span> Property</h2>
+          <ul><li>Multiplicative Identity: a × 1 = a (1 is the multiplicative identity).</li><li>Zero Property: a × 0 = 0 (Any integer multiplied by zero is zero).</li><li>Example: -9 × 1 = -9; 15 × 0 = 0</li></ul>
+          <p class="notes">🎙️ For multiplication, the number 1 is special. Multiplying any integer by 1 keeps its identity. And the number 0 is also very powerful: anything multiplied by zero becomes zero, always!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Positive Result</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">1️⃣</div><div class="vcap">Identity and Zero</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Multiplying Integers with <span class="hl">Different Signs</span></h2>
-          <ul><li>The product of two integers with different signs is always negative.</li><li>(+) × (-) = (-)</li><li>(-) × (+) = (-)</li><li>Example: 4 × (-3) = -12</li><li>Example: (-4) × 3 = -12</li></ul>
-          <p class="notes">🎙️ If one integer is positive and the other is negative, their product will always be negative. Think of it as: 'a friend of an enemy is an enemy', or 'an enemy of a friend is an enemy'.</p>
+          <h2>Dividing Integers: <span class="hl">Rules of Signs</span></h2>
+          <ul><li>Positive ÷ Positive = Positive (e.g., 12 ÷ 4 = 3)</li><li>Negative ÷ Negative = Positive (e.g., (-12) ÷ (-4) = 3)</li><li>Positive ÷ Negative = Negative (e.g., 12 ÷ (-4) = -3)</li><li>Negative ÷ Positive = Negative (e.g., (-12) ÷ 4 = -3)</li></ul>
+          <p class="notes">🎙️ The rules for signs in division are exactly the same as for multiplication. If the signs of the numbers you are dividing are the same, the quotient is positive. If they are different, the quotient is negative.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Negative Result</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Sign Rules</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,35 +312,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Real-life</span> Example: Multiplication</h2>
-          <ul><li>Repeated financial loss:</li><li>A company loses ₹1000 per day (-₹1000).</li><li>What is the total loss over 5 days?</li><li>Total loss: 5 × (-₹1000) = -₹5000</li></ul>
-          <p class="notes">🎙️ This example shows how multiplication helps calculate repeated additions of negative numbers. A consistent daily loss, when multiplied by the number of days, results in a larger overall loss, which is negative.</p>
+          <h2><span class="hl">Real-Life</span> Division</h2>
+          <ul><li>Scenario: A debt of ₹60 is shared equally among 3 friends.</li><li>Each friend's share of debt: (-₹60) ÷ 3 = -₹20.</li><li>Scenario: The temperature dropped by 10°C over 5 hours, at a constant rate.</li><li>Rate of drop per hour: (-10°C) ÷ 5 = -2°C/hour.</li></ul>
+          <p class="notes">🎙️ Division helps us share or distribute quantities. If a debt is shared, each person takes on a portion of that negative amount. Similarly, an average drop in temperature over time can be found using division.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Accumulated Loss</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Multiplication</h2>
-          <ul><li>Problem: Multiply (-8) × 7</li><li>Step 1: Identify signs (One negative, one positive).</li><li>Step 2: Multiply absolute values (8 × 7 = 56).</li><li>Step 3: Apply the sign rule (Different signs give negative result).</li><li>Answer: (-8) × 7 = -56</li></ul>
-          <p class="notes">🎙️ The process for multiplication is fairly straightforward. First, multiply the numbers as if they were positive, then determine the sign of the product based on the signs of the original integers.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Signs</span></div><div class="step"><span class="snum">2</span><span>Multiply Values</span></div><div class="step"><span class="snum">3</span><span>Apply Sign Rule</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👥</span><span>👥</span><span>👥</span></div><div class="vcap">Sharing Debt</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2>Quick Check 3: <span class="hl">Multiplication</span></h2>
-          <ul><li>1.  (-5) × (-6) = ?</li><li>2.  9 × (-2) = ?</li><li>3.  (-1) × 15 = ?</li><li>4.  0 × (-100) = ?</li></ul>
-          <p class="notes">🎙️ Remember the sign rules for multiplication. Pay close attention to whether the signs are the same or different. Also, recall the property of multiplying by zero.</p>
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check!</span> (Multiplication &amp; Division)</h2>
+          <ul><li>1. Calculate: (-6) × (-7)</li><li>2. What is 24 ÷ (-3)?</li><li>3. Evaluate: (-5) × 0 × 10.</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Apply the sign rules for multiplication and division carefully. Remember the special property involving zero in multiplication.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Order</span> of Operations (BODMAS/PEMDAS)</h2>
+          <ul><li>To solve expressions with multiple operations, follow a specific order.</li><li>BODMAS: Brackets, Orders (powers/roots), Division, Multiplication, Addition, Subtraction.</li><li>PEMDAS: Parentheses, Exponents, Multiplication, Division, Addition, Subtraction.</li></ul>
+          <p class="notes">🎙️ When an expression has more than one operation, we need a standard order to get the correct answer. This order is commonly known as BODMAS or PEMDAS. Always work from left to right for division/multiplication and addition/subtraction.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Brackets/Parentheses</span></div><div class="step"><span class="snum">2</span><span>Orders/Exponents</span></div><div class="step"><span class="snum">3</span><span>Div/Mult (L to R)</span></div><div class="step"><span class="snum">4</span><span>Add/Sub (L to R)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: Operations with Integers</h2>
-          <ul><li>Addition: Same signs (add &amp; keep sign), Different signs (subtract &amp; keep sign of larger absolute value).</li><li>Subtraction: Add the opposite (a - b = a + (-b)).</li><li>Multiplication: Same signs (positive product), Different signs (negative product).</li><li>Properties: Commutative/Associative for Addition, not for Subtraction.</li></ul>
-          <p class="notes">🎙️ We've covered the core operations with integers today. Keep practicing these rules and understanding their real-life applications. Mastery of integers is crucial for higher mathematics. Well done, class!</p>
+          <h2>Chapter <span class="hl">Recap</span>: Operations with Integers</h2>
+          <ul><li>Integers include positive, negative numbers, and zero.</li><li>Addition &amp; Subtraction: Rules depend on signs.</li><li>Multiplication &amp; Division: Rules depend on signs (like signs give positive, unlike signs give negative).</li><li>Remember properties and order of operations!</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that integers are vital for representing quantities in various real-world situations. Mastering the rules for all four basic operations and understanding the properties will make you confident with integers.</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

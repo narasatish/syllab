@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Patterns in Mathematics — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to <span class="hl">Patterns</span> in Mathematics!</h2>
-          <ul><li>Discover the hidden rules in numbers and shapes.</li><li>Learn to predict what comes next.</li><li>Mathematics is full of amazing patterns!</li></ul>
-          <p class="notes">🎙️ Hello Class 6! Today, we're going on an exciting journey to explore patterns. Patterns are everywhere around us, and once you learn to spot them, mathematics becomes even more fun and understandable. Let's begin!</p>
+          <ul><li>Discover the hidden order in numbers and shapes.</li><li>Learn to identify and predict sequences.</li><li>Explore how patterns help us understand the world.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're embarking on an exciting journey into the world of 'Patterns in Mathematics'. Get ready to open your eyes to the fascinating order that exists all around us, both in numbers and in the things we see every day.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What are <span class="hl">Patterns</span>?</h2>
-          <ul><li>A pattern is a repeated arrangement.</li><li>It can be of colours, shapes, numbers, or actions.</li><li>Patterns follow a specific rule or sequence.</li><li>Learning to identify patterns helps us predict.</li></ul>
-          <p class="notes">🎙️ Think of a pattern as something that keeps repeating in an organised way. It's like a design that follows certain rules. Once you understand the rule, you can guess what will appear next in the sequence.</p>
+          <ul><li>A sequence that repeats.</li><li>An arrangement that follows a rule.</li><li>Predictable order in things.</li></ul>
+          <p class="notes">🎙️ Simply put, a pattern is anything that repeats or follows a specific rule. Think of it like a dance step that you do again and again, or a recipe that you follow in a particular order. Patterns bring order and predictability to what might otherwise seem random.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Spotting repetitions</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Order &amp; Repetition</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Visual</span> Patterns</h2>
-          <ul><li>Patterns seen with our eyes.</li><li>Involve repeating shapes, colours, or designs.</li><li>Easy to spot and understand at first glance.</li></ul>
-          <p class="notes">🎙️ Visual patterns are the simplest to identify. They are all about how things look. Look at the example: red, blue, red, blue. Can you guess what colour would come next? Yes, it's red!</p>
+          <h2><span class="hl">Why</span> Study Patterns in Math?</h2>
+          <ul><li>Helps predict what comes next.</li><li>Develops problem-solving skills.</li><li>Unlocks understanding of complex systems.</li></ul>
+          <p class="notes">🎙️ Studying patterns is incredibly useful! It teaches us to observe, analyze, and make predictions. These skills are not just for math, but for solving problems in everyday life and understanding how the world around us works, from nature to technology.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟥🟦🟥🟦🟥</span><span>🟥🟦🟥🟦🟥</span><span>🟥🟦🟥🟦🟥</span><span>🟥🟦🟥🟦🟥</span><span>🟥🟦🟥🟦🟥</span></div><div class="vcap">Colour pattern</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Thinking &amp; Predicting</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Real-Life Visual Pattern: <span class="hl">Rangoli</span></h2>
-          <ul><li>Traditional Indian art form.</li><li>Uses geometric shapes, flowers, and colours.</li><li>Created using rice flour, sand, or flower petals.</li><li>Beautiful patterns for celebrations.</li></ul>
-          <p class="notes">🎙️ Rangoli designs are a perfect example of visual patterns in our daily lives. They use repeated motifs and symmetries to create stunning designs. Each part of the Rangoli often mirrors another, creating a balanced and beautiful pattern.</p>
+          <h2><span class="hl">Types</span> of Patterns</h2>
+          <ul><li>Number Patterns: Involving sequences of numbers.</li><li>Visual Patterns: Involving shapes, colours, or objects.</li></ul>
+          <p class="notes">🎙️ In mathematics, we generally categorize patterns into two main types: Number Patterns, which deal with sequences of digits, and Visual Patterns, which involve shapes, colours, or other elements that we can see. We'll explore both today.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌸</div><div class="vcap">Rangoli pattern</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Categories</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Number</span> Patterns</h2>
-          <ul><li>A sequence of numbers following a rule.</li><li>Each number is related to the previous one.</li><li>We can find the rule to predict future numbers.</li></ul>
-          <p class="notes">🎙️ Now, let's move on to number patterns. These are sequences of numbers where there's a specific mathematical rule connecting them. If you can find that rule, you can extend the pattern indefinitely.</p>
+          <h2>Exploring <span class="hl">Number Patterns</span></h2>
+          <ul><li>A list of numbers following a specific rule.</li><li>Each number is related to the previous one.</li><li>The rule can be addition, subtraction, multiplication, or division.</li></ul>
+          <p class="notes">🎙️ Number patterns are sequences where numbers are arranged according to a fixed rule. This rule could be simple, like adding the same number each time, or a bit more complex. Our goal is to find that hidden rule!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Sequence of numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Numbered Sequence</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -108,10 +121,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">6 / 25</span>
           <h2><span class="hl">Arithmetic</span> Patterns (Addition/Subtraction)</h2>
-          <ul><li>Numbers increase or decrease by a constant value.</li><li>The constant value is called the 'common difference'.</li><li>Rule: Add or subtract the same number each time.</li></ul>
-          <p class="notes">🎙️ In an arithmetic pattern, you either add the same number repeatedly or subtract the same number repeatedly. For example, in the sequence 2, 4, 6, 8... you are adding 2 each time. The 'common difference' here is 2.</p>
+          <ul><li>A pattern where a fixed number is added or subtracted.</li><li>This fixed number is called the 'common difference'.</li><li>Example: 2, 4, 6, 8, ...</li></ul>
+          <p class="notes">🎙️ Arithmetic patterns are one of the most common types. In these patterns, you either add the same number repeatedly or subtract the same number repeatedly to get the next term. This constant value is known as the common difference.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding or Subtracting</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding &amp; Subtracting</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Real-Life Arithmetic Pattern: Counting <span class="hl">Steps</span></h2>
-          <ul><li>Counting steps while climbing stairs.</li><li>Each step adds 1 to your count.</li><li>Example: 1, 2, 3, 4, ...</li><li>The common difference is +1.</li></ul>
-          <p class="notes">🎙️ Imagine climbing a staircase. As you go up each step, your step count increases by one. This is a very simple arithmetic pattern. You are constantly adding 1 to the previous number, making it easy to predict your total steps.</p>
+          <h2><span class="hl">Example</span>: Arithmetic Pattern</h2>
+          <ul><li>Consider the sequence: 5, 10, 15, 20, ...</li><li>What is the rule for this pattern?</li><li>What would be the next number?</li></ul>
+          <p class="notes">🎙️ Let's look at an example. If we have 5, 10, 15, 20... we can see that to get from one number to the next, we are always adding 5. So, the rule is 'add 5', and the next number would be 25.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">One step at a time</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with 5</span></div><div class="step"><span class="snum">2</span><span>Add 5 (to get 10)</span></div><div class="step"><span class="snum">3</span><span>Add 5 (to get 15)</span></div><div class="step"><span class="snum">4</span><span>Add 5 (to get 20)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Arithmetic Pattern</h2>
-          <ul><li>Find the next two numbers in: 5, 10, 15, 20, __, __</li><li>Step 1: Find the difference between consecutive numbers.</li><li>Step 2: The difference is 10 - 5 = 5. So, the rule is 'add 5'.</li><li>Step 3: Apply the rule to find the next numbers.</li></ul>
-          <p class="notes">🎙️ Let's solve this together. The difference between 10 and 5 is 5. Between 15 and 10 is also 5. So, the rule is to add 5. Adding 5 to 20 gives 25, and adding 5 to 25 gives 30. The next numbers are 25 and 30.</p>
+          <h2><span class="hl">Geometric</span> Patterns (Multiplication/Division)</h2>
+          <ul><li>A pattern where a fixed number is multiplied or divided.</li><li>This fixed number is called the 'common ratio'.</li><li>Example: 3, 6, 12, 24, ...</li></ul>
+          <p class="notes">🎙️ Geometric patterns are similar to arithmetic ones, but instead of adding or subtracting, we multiply or divide by the same fixed number each time. This constant multiplier or divisor is called the common ratio.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify rule</span></div><div class="step"><span class="snum">2</span><span>Add 5</span></div><div class="step"><span class="snum">3</span><span>25, 30</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiplying &amp; Dividing</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Geometric</span> Patterns (Multiplication/Division)</h2>
-          <ul><li>Numbers increase or decrease by a constant factor.</li><li>The constant factor is called the 'common ratio'.</li><li>Rule: Multiply or divide by the same number each time.</li></ul>
-          <p class="notes">🎙️ Geometric patterns are different because you multiply or divide by the same number. For instance, in the sequence 2, 4, 8, 16... you are multiplying by 2 each time. The common ratio here is 2.</p>
+          <h2><span class="hl">Example</span>: Geometric Pattern</h2>
+          <ul><li>Consider the sequence: 2, 4, 8, 16, ...</li><li>What is the rule for this pattern?</li><li>What would be the next number?</li></ul>
+          <p class="notes">🎙️ In this sequence, 2, 4, 8, 16..., we are multiplying by 2 each time to get the next number. So the rule is 'multiply by 2', and the next number after 16 would be 32. Notice how quickly numbers can grow with multiplication!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiplying or Dividing</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with 2</span></div><div class="step"><span class="snum">2</span><span>Multiply by 2 (to get 4)</span></div><div class="step"><span class="snum">3</span><span>Multiply by 2 (to get 8)</span></div><div class="step"><span class="snum">4</span><span>Multiply by 2 (to get 16)</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Real-Life Geometric Pattern: Tree <span class="hl">Branching</span></h2>
-          <ul><li>Branches often split into smaller branches.</li><li>One branch divides into two, then each of those divides.</li><li>Roughly follows a multiplying pattern.</li><li>Nature's beautiful geometric design.</li></ul>
-          <p class="notes">🎙️ Look at a tree! A main branch might split into two, and then each of those splits into two more, and so on. This natural growth often resembles a geometric pattern where the number of branches increases by a multiplying factor.</p>
+          <h2><span class="hl">Other</span> Interesting Number Patterns</h2>
+          <ul><li>Square Numbers: 1, 4, 9, 16, 25... (1x1, 2x2, 3x3...)</li><li>Triangular Numbers: 1, 3, 6, 10, 15... (sum of consecutive numbers)</li></ul>
+          <p class="notes">🎙️ Beyond arithmetic and geometric, there are many other fascinating number patterns. Square numbers are formed by multiplying a number by itself, while triangular numbers represent the number of dots needed to form a triangle.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Tree's growth pattern</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Shapes from Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Geometric Pattern</h2>
-          <ul><li>Find the next two numbers in: 3, 6, 12, 24, __, __</li><li>Step 1: Find the ratio between consecutive numbers.</li><li>Step 2: The ratio is 6 ÷ 3 = 2. So, the rule is 'multiply by 2'.</li><li>Step 3: Apply the rule to find the next numbers.</li></ul>
-          <p class="notes">🎙️ Here, 6 divided by 3 is 2. 12 divided by 6 is 2. So, the rule is to multiply by 2. 24 multiplied by 2 is 48. 48 multiplied by 2 is 96. The next numbers are 48 and 96.</p>
+          <h2>The <span class="hl">Fibonacci</span> Sequence</h2>
+          <ul><li>One of the most famous number patterns.</li><li>Each number is the sum of the two preceding ones.</li><li>Starts: 0, 1, 1, 2, 3, 5, 8, 13, ...</li></ul>
+          <p class="notes">🎙️ The Fibonacci sequence is truly special and appears often in nature. It starts with 0 and 1, and then each subsequent number is found by adding up the two numbers before it. It's a wonderful example of a pattern with a simple, yet powerful, rule.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify rule</span></div><div class="step"><span class="snum">2</span><span>Multiply by 2</span></div><div class="step"><span class="snum">3</span><span>48, 96</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐰</span><span>🐰</span><span>🐰</span><span>🐰</span><span>🐰</span><span>🐰</span><span>🐰</span><span>🐰</span></div><div class="vcap">Growing Numbers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Fibonacci</span> Sequence: A Special Pattern</h2>
-          <ul><li>A unique number pattern.</li><li>Each number is the sum of the two preceding ones.</li><li>Starts with 0, 1, 1, 2, 3, 5, 8, 13, ...</li><li>Appears frequently in nature.</li></ul>
-          <p class="notes">🎙️ The Fibonacci sequence is truly special! It's not about adding or multiplying a constant, but about adding the two numbers before to get the next one. It creates a beautiful spiral pattern often seen in nature.</p>
+          <h2><span class="hl">Real-Life</span> Examples of Number Patterns</h2>
+          <ul><li>Calendar: Days of the week repeat every 7 days.</li><li>Clock: Hours repeat every 12 or 24 hours.</li><li>House numbers: Often follow increasing sequences.</li></ul>
+          <p class="notes">🎙️ Number patterns are not just in textbooks! Look at a calendar, and you'll see days repeating in a cycle. Clocks show numbers repeating in a predictable sequence. Even house numbers on a street often follow an arithmetic pattern.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Spiral of growth</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗓️</div><div class="vcap">Time &amp; Order</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Real-Life Fibonacci Example: <span class="hl">Flower Petals</span></h2>
-          <ul><li>Many flowers have petal counts that are Fibonacci numbers.</li><li>Examples: lilies (3), buttercups (5), daisies (21, 34, 55).</li><li>Nature's way of arranging for maximum sunlight.</li><li>A beautiful mathematical secret in plants.</li></ul>
-          <p class="notes">🎙️ It's amazing how often the Fibonacci sequence appears in nature. If you count the petals on many flowers, you'll find the number is a Fibonacci number. This arrangement helps the plant grow efficiently and capture sunlight.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>What comes next in the sequence?</li><li>10, 20, 30, 40, __?</li></ul>
+          <p class="notes">🎙️ Alright class, let's test your understanding of number patterns. Look at this sequence: 10, 20, 30, 40. What is the rule, and what number should come next? Think carefully!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌼</div><div class="vcap">Petal counts</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Fibonacci Sequence</h2>
-          <ul><li>Find the next number in: 0, 1, 1, 2, 3, 5, 8, __</li><li>Step 1: Identify the rule for Fibonacci sequence.</li><li>Step 2: The rule is 'add the previous two numbers'.</li><li>Step 3: Add the last two numbers (3 and 5) to get the next.</li></ul>
-          <p class="notes">🎙️ To find the next number in a Fibonacci sequence, we simply add the last two numbers. Here, the last two numbers are 5 and 8. So, 5 + 8 equals 13. The next number in the sequence is 13.</p>
+          <h2>Exploring <span class="hl">Visual Patterns</span></h2>
+          <ul><li>Arrangements of shapes, colours, or objects.</li><li>Can repeat or grow in a predictable way.</li><li>Found in art, nature, and designs.</li></ul>
+          <p class="notes">🎙️ Now, let's shift our focus to visual patterns. These are patterns we can see, made up of shapes, colours, or objects. They can either repeat the same set of elements or grow in a structured manner.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Recall rule</span></div><div class="step"><span class="snum">2</span><span>Add 5 + 8</span></div><div class="step"><span class="snum">3</span><span>13</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span></div><div class="vcap">Colours &amp; Shapes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Patterns in <span class="hl">Shapes</span> (Growing Patterns)</h2>
-          <ul><li>Patterns where shapes grow or change in a predictable way.</li><li>Each step adds a certain number of units or changes arrangement.</li><li>Often involves geometric progression in terms of area or perimeter.</li></ul>
-          <p class="notes">🎙️ Shape patterns involve geometric figures that change or grow systematically. Imagine building a tower with blocks; each layer might add a certain number of blocks in a pattern. We look for the rule that dictates how the shape transforms.</p>
+          <h2><span class="hl">Repeating</span> Visual Patterns</h2>
+          <ul><li>A specific block of elements repeats over and over.</li><li>Like a wallpaper design or a border pattern.</li><li>Example: Circle, Square, Circle, Square, ...</li></ul>
+          <p class="notes">🎙️ Repeating visual patterns are easy to spot. They have a basic unit or 'core' that is copied and repeated without change. Think of a decorative border on a piece of fabric or a row of tiles.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Growing shapes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔁</div><div class="vcap">Repeating Cycle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Real-Life Shape Pattern: <span class="hl">Tiling</span></h2>
-          <ul><li>Tiles arranged on floors or walls.</li><li>Repeated shapes fit together without gaps.</li><li>Creates a beautiful and functional pattern.</li><li>Example: Square tiles, hexagonal tiles.</li></ul>
-          <p class="notes">🎙️ Tiling is a fantastic everyday example of shape patterns. Tiles are designed to interlock perfectly, creating a repeating pattern across a surface. Different tile shapes can create very different visual effects, all based on mathematical patterns.</p>
+          <h2><span class="hl">Example</span>: Repeating Visual Pattern</h2>
+          <ul><li>Observe the pattern: Triangle, Star, Heart, Triangle, Star, Heart, ...</li><li>What is the repeating unit?</li><li>What would be the next shape?</li></ul>
+          <p class="notes">🎙️ In this pattern, we see 'Triangle, Star, Heart' repeating. This sequence of three shapes is the repeating unit. So, after the last 'Heart', the pattern will start again with a 'Triangle'.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Interlocking tiles</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Triangle</span></div><div class="step"><span class="snum">2</span><span>Star</span></div><div class="step"><span class="snum">3</span><span>Heart</span></div><div class="step"><span class="snum">4</span><span>Repeat</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,23 +252,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Shape Pattern</h2>
-          <ul><li>Observe the pattern: ⬜, ⬜⬜, ⬜⬜⬜, __</li><li>Step 1: Count the number of squares in each step.</li><li>Step 2: The pattern is 1, 2, 3, ...</li><li>Step 3: The next step should have 4 squares.</li></ul>
-          <p class="notes">🎙️ In this simple shape pattern, we see one square, then two, then three. The rule is to add one square in each subsequent step. So, the next shape in the pattern would be four squares arranged in a line.</p>
+          <h2><span class="hl">Growing</span> Visual Patterns</h2>
+          <ul><li>Elements increase in number, size, or complexity.</li><li>Each step adds a certain amount or changes in a specific way.</li><li>Example: One square, then two squares, then three squares.</li></ul>
+          <p class="notes">🎙️ Unlike repeating patterns, growing visual patterns show an increase or change at each step. The pattern evolves, becoming larger, adding more elements, or becoming more intricate according to a rule.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Count units</span></div><div class="step"><span class="snum">2</span><span>Identify rule: +1 square</span></div><div class="step"><span class="snum">3</span><span>Draw 4 squares</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Increase &amp; Growth</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Quick <span class="hl">Question 1</span>: Visual Pattern</h2>
-          <ul><li>What comes next in the pattern?</li><li>🍎🍐🍎🍐🍎 __</li></ul>
-          <p class="notes">🎙️ Look closely at this sequence of fruits. Can you identify the repeating element? What fruit should logically follow the last apple to continue the pattern?</p>
+          <h2><span class="hl">Example</span>: Growing Visual Pattern</h2>
+          <ul><li>Observe the pattern of dots:</li><li>Step 1: 1 dot</li><li>Step 2: 3 dots (in a triangle)</li><li>Step 3: 6 dots (larger triangle)</li></ul>
+          <p class="notes">🎙️ Here, we see a pattern of dots forming triangles. The first step has 1 dot, the second has 3, and the third has 6. To get the next step, we add the next consecutive number (1+2=3, 3+3=6). The next step would add 4, making 10 dots.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:18%"></div><div class="clabel">Step 1</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Step 2</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Step 3</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,35 +276,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick <span class="hl">Question 2</span>: Number Pattern (Arithmetic)</h2>
-          <ul><li>Find the next number:</li><li>10, 13, 16, 19, __</li></ul>
-          <p class="notes">🎙️ Examine the numbers carefully. Is there a constant value being added or subtracted? Once you find that 'common difference', you can easily determine the next number in the sequence.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>Which shape comes next in this pattern?</li><li>Up Arrow, Right Arrow, Down Arrow, Left Arrow, __?</li></ul>
+          <p class="notes">🎙️ Let's try a visual pattern question. We have an arrow pointing up, then right, then down, then left. Can you figure out the rule for its movement and tell me where the next arrow would point?</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Question 3</span>: Number Pattern (Geometric)</h2>
-          <ul><li>Find the next number:</li><li>2, 6, 18, 54, __</li></ul>
-          <p class="notes">🎙️ This time, consider if the numbers are being multiplied or divided by a constant factor. What is the 'common ratio' between consecutive terms? Use that to find the missing number.</p>
+          <h2>Patterns in <span class="hl">Nature</span></h2>
+          <ul><li>Spirals in sunflowers and seashells.</li><li>Symmetry in leaves and butterfly wings.</li><li>Branching of trees and rivers.</li></ul>
+          <p class="notes">🎙️ Nature is full of incredible patterns! From the spirals of a sunflower's seeds to the branching of trees, and the symmetrical wings of a butterfly, patterns are fundamental to the beauty and structure of the natural world.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Natural Beauty</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Question 4</span>: Identify the Rule</h2>
-          <ul><li>What is the rule for this pattern?</li><li>1, 4, 9, 16, 25, ...</li></ul>
-          <p class="notes">🎙️ This pattern is a bit different. Think about what mathematical operation might transform the position of the number into its value. Hint: Think about squares!</p>
+          <h2>Patterns in <span class="hl">Daily Life</span></h2>
+          <ul><li>Traffic light sequence: Red, Yellow, Green, Yellow, Red...</li><li>School timetable: Classes repeat daily/weekly.</li><li>Brick walls: Bricks arranged in a repeating design.</li></ul>
+          <p class="notes">🎙️ Patterns aren't just in nature; they're in our daily lives too! Think about the sequence of traffic lights, your school timetable, or even the way bricks are laid in a wall. These all follow predictable patterns to keep things organized.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚦</div><div class="vcap">Everyday Order</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,35 +312,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Why are Patterns <span class="hl">Important</span>?</h2>
-          <ul><li>Helps us predict future events.</li><li>Used in science, technology, and art.</li><li>Develops problem-solving skills.</li><li>Makes mathematics more logical and interesting.</li></ul>
-          <p class="notes">🎙️ Patterns are not just fun; they are incredibly useful! From predicting weather to designing buildings, understanding patterns helps us make sense of the world. It's a fundamental skill in many fields.</p>
+          <h2>Using Patterns to <span class="hl">Predict</span></h2>
+          <ul><li>Identifying the rule is key.</li><li>Once the rule is known, we can forecast future elements.</li><li>Helps us make informed decisions.</li></ul>
+          <p class="notes">🎙️ The most powerful aspect of understanding patterns is the ability to predict. Once you've figured out the rule, you can confidently say what comes next, whether it's a number, a shape, or an event. This skill is valuable in many areas of life.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Understanding the world</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔮</div><div class="vcap">Future Foresight</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Recap</span>: Types of Patterns</h2>
-          <ul><li>Visual Patterns: Repeating shapes/colours.</li><li>Number Patterns: Sequences with rules.</li><li>Shape Patterns: Growing or changing shapes.</li></ul>
-          <p class="notes">🎙️ Let's quickly review the main types of patterns we discussed today. We looked at visual patterns like Rangoli, number patterns including arithmetic and geometric sequences, and also patterns involving the growth or arrangement of shapes.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>If a pattern is: Apple, Banana, Orange, Apple, Banana, Orange...</li><li>What fruit will be the 7th item in the pattern?</li></ul>
+          <p class="notes">🎙️ One more quick question for you. If we have a repeating pattern of fruits: Apple, Banana, Orange, Apple, Banana, Orange... Can you tell me what the 7th fruit in this sequence will be?</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Visual</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Number</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Shape</div></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Recap: Key <span class="hl">Takeaways</span></h2>
-          <ul><li>Patterns are everywhere, in maths and daily life.</li><li>Finding the 'rule' is key to understanding a pattern.</li><li>Arithmetic: add/subtract a constant.</li><li>Geometric: multiply/divide by a constant.</li></ul>
-          <p class="notes">🎙️ Remember, the most important skill is to identify the underlying rule. Whether it's adding, subtracting, multiplying, or a special rule like Fibonacci, once you find the rule, you can unlock the entire pattern.</p>
+          <h2><span class="hl">Recap</span>: What We Learned</h2>
+          <ul><li>Patterns are predictable sequences or arrangements.</li><li>They can be number-based (arithmetic, geometric) or visual.</li><li>Patterns help us understand, organize, and predict.</li></ul>
+          <p class="notes">🎙️ To recap, we've learned that patterns are fundamental to mathematics and the world. They provide order, whether it's in a sequence of numbers or a series of shapes. Recognizing and understanding these patterns is a powerful skill.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Learning complete</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span>!</h2>
-          <ul><li>Keep exploring patterns around you.</li><li>Practice identifying different types of patterns.</li><li>See you in the next class!</li></ul>
-          <p class="notes">🎙️ Thank you for your active participation today! I encourage you to look for patterns in your surroundings – in nature, in designs, and in numbers. The more you observe, the better you'll become at understanding mathematics. Have a great day!</p>
+          <h2>Keep <span class="hl">Exploring</span> Patterns!</h2>
+          <ul><li>Look for patterns in your daily life.</li><li>Challenge yourself to find the rules.</li><li>Mathematics is full of amazing patterns waiting to be discovered!</li></ul>
+          <p class="notes">🎙️ Your journey with patterns doesn't end here! Keep your eyes open for them everywhere – in your surroundings, in games, and in other subjects. The more you practice recognizing patterns, the better you'll become at understanding the world through a mathematical lens. Thank you!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

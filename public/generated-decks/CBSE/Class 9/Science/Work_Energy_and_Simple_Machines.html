@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Work, Energy, and Simple Machines — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Work</span>, Energy, and Simple Machines</h2>
-          <ul><li>Explore how we do 'work' in science!</li><li>Discover the different forms of 'energy'.</li><li>Learn about helpful 'simple machines'.</li></ul>
-          <p class="notes">🎙️ Welcome, class! Today we embark on an exciting journey into the world of Work, Energy, and Simple Machines. These concepts are fundamental to understanding how our world works, from lifting heavy objects to generating electricity.</p>
+          <h2>Welcome to Work, Energy, and Simple Machines!</h2>
+          <ul><li>Understanding the basics of how things move and change.</li><li>Exploring the power behind every action.</li><li>Discovering tools that make work easier.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're embarking on an exciting journey into the world of Work, Energy, and Simple Machines. These concepts are fundamental to understanding how our world works, from lifting objects to generating electricity.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is <span class="hl">Work</span>?</h2>
-          <ul><li>In science, 'work' has a specific meaning.</li><li>Work is done when a force causes displacement.</li><li>Both force and displacement are crucial.</li></ul>
-          <p class="notes">🎙️ When we talk about 'work' in everyday life, it might mean studying hard or doing chores. But in physics, work means something very precise. It's about applying a force and seeing something move because of it.</p>
+          <h2>What is '<span class="hl">Work</span>'?</h2>
+          <ul><li>Everyday meaning: Any activity requiring effort.</li><li>Scientific meaning: Specific conditions must be met.</li></ul>
+          <p class="notes">🎙️ In our daily lives, we often say we're 'working' if we're studying, cooking, or even thinking hard. But in science, 'work' has a very precise definition. It's not just about effort, but about causing a change.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Force &amp; Motion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Effort vs. Effect</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Conditions</span> for Work Done</h2>
-          <ul><li>A force must act on an object.</li><li>The object must move (be displaced).</li><li>Force and displacement must be in the same direction or have a component in that direction.</li></ul>
-          <p class="notes">🎙️ For work to be done, two main conditions must be met. First, there needs to be a force pushing or pulling. Second, that force must actually cause the object to move. If you push a wall, you apply force, but the wall doesn't move, so no work is done.</p>
+          <h2>Work in <span class="hl">Science</span></h2>
+          <ul><li>Work is done when a force causes displacement.</li><li>An object must move for work to be done.</li><li>Force and displacement must be in the same direction.</li></ul>
+          <p class="notes">🎙️ Scientifically, work is done only when two things happen: a force acts on an object, AND the object moves a certain distance in the direction of that force. If there's no movement, or movement is perpendicular to the force, no work is done.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Apply Force</span></div><div class="step"><span class="snum">2</span><span>Object Moves</span></div><div class="step"><span class="snum">3</span><span>Direction Aligned</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Force causing movement</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>When is Work <span class="hl">Zero</span>?</h2>
-          <ul><li>No displacement (object doesn't move).</li><li>Force and displacement are perpendicular (at 90 degrees).</li><li>Example: Carrying a bag horizontally.</li></ul>
-          <p class="notes">🎙️ There are situations where we apply force, but no work is done in the scientific sense. If an object doesn't move, or if the force is applied at a right angle to the direction of motion, then the work done is zero. Imagine carrying a heavy school bag and walking on a flat road – the force of gravity is downwards, your motion is horizontal, so gravity does no work.</p>
+          <h2><span class="hl">Factors</span> Affecting Work Done</h2>
+          <ul><li>Magnitude of the applied force.</li><li>Distance the object moves (displacement).</li></ul>
+          <p class="notes">🎙️ Think about pushing a box. The harder you push (more force), or the further you push it (more displacement), the more work you do. Both force and displacement are crucial for work to occur.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">No Work Done</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">More Force</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">More Displacement</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Positive</span> &amp; Negative Work</h2>
-          <ul><li>Positive work: Force and displacement are in the same direction.</li><li>Negative work: Force and displacement are in opposite directions.</li><li>Example: Braking a car.</li></ul>
-          <p class="notes">🎙️ Work can also be positive or negative. When you push a trolley forward, and it moves forward, that's positive work. But when you apply brakes to a moving car, the braking force acts opposite to the car's motion, doing negative work, which slows it down.</p>
+          <h2>Calculating Work Done</h2>
+          <ul><li>Work (W) = Force (F) × Displacement (s)</li><li>W = F × s</li><li>This formula applies when force and displacement are in the same direction.</li></ul>
+          <p class="notes">🎙️ To calculate the amount of work done, we simply multiply the force applied by the distance the object moved in the direction of the force. Remember this simple formula, W equals F times s.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Positive Work</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Negative Work</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Force times Displacement</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,23 +120,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Units</span> of Work</h2>
-          <ul><li>The SI unit of work is Joule (J).</li><li>1 Joule = 1 Newton × 1 meter.</li><li>Named after James Prescott Joule.</li></ul>
-          <p class="notes">🎙️ Just like we measure length in meters or mass in kilograms, work has its own unit. The standard international unit for work is the Joule, named after a famous scientist. One Joule is the amount of work done when a force of one Newton moves an object by one meter.</p>
+          <h2>Units of Work: <span class="hl">Joule</span> (J)</h2>
+          <ul><li>The SI unit of work is Joule (J).</li><li>1 Joule = 1 Newton × 1 Metre (1 J = 1 N·m).</li><li>Named after James Prescott Joule.</li></ul>
+          <p class="notes">🎙️ Just like we measure length in metres and mass in kilograms, work is measured in Joules. One Joule is the amount of work done when a force of one Newton moves an object by one metre. It's a small unit, so we often see kilojoules or megajoules.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Joule (J)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Unit of Energy and Work</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>When is work done in the scientific sense?</li><li>What is the SI unit of work?</li><li>Can work be negative? Give an example.</li></ul>
-          <p class="notes">🎙️ Let's quickly test our understanding. Think about the conditions for work, its unit, and the concept of negative work. Take a moment to recall the examples we discussed.</p>
+          <h2>Example: Pushing a <span class="hl">Wall</span></h2>
+          <ul><li>You push a wall with great force.</li><li>The wall does not move.</li><li>No displacement means no work done scientifically.</li></ul>
+          <p class="notes">🎙️ Imagine trying to push a sturdy wall. You might exert a lot of effort and feel tired, but if the wall doesn't budge, then according to science, you haven't done any work. This is because there is zero displacement.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span></div><div class="vcap">Immovable Wall</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>What is <span class="hl">Energy</span>?</h2>
-          <ul><li>Energy is the capacity to do work.</li><li>Without energy, no work can be done.</li><li>It exists in many forms.</li></ul>
-          <p class="notes">🎙️ If work is about doing something, energy is the ability to do it. You need energy to push a box, to run, or even to think! Think of energy as the fuel that makes things happen.</p>
+          <h2>Example: <span class="hl">Lifting</span> a School Bag</h2>
+          <ul><li>You lift your bag off the floor.</li><li>You apply an upward force.</li><li>The bag moves upward (displacement).</li></ul>
+          <p class="notes">🎙️ Now consider lifting your school bag. You apply an upward force, and the bag moves upwards. Both force and displacement are present and in the same direction, so work is done against gravity. This is a clear example of work.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Capacity to Work</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎒</div><div class="vcap">Bag being lifted</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,23 +156,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Different <span class="hl">Forms</span> of Energy</h2>
-          <ul><li>Mechanical Energy (Kinetic + Potential)</li><li>Heat Energy, Light Energy, Sound Energy</li><li>Chemical Energy, Electrical Energy, Nuclear Energy</li></ul>
-          <p class="notes">🎙️ Energy isn't just one thing; it comes in various disguises. We see it as the movement of objects, the warmth of a fire, the glow of a bulb, or the sound of music. All these are different forms of energy.</p>
+          <h2>Worked Example: <span class="hl">Calculating</span> Work</h2>
+          <ul><li>A force of 10 N moves a box by 2 m.</li><li>Force (F) = 10 N</li><li>Displacement (s) = 2 m</li><li>Work (W) = F × s = 10 N × 2 m = 20 J</li></ul>
+          <p class="notes">🎙️ Let's try a simple calculation. If you push a box with a force of 10 Newtons and it moves 2 metres, the work done is 10 times 2, which equals 20 Joules. Always remember to include the units in your answer.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span><span>⚡</span></div><div class="vcap">Many Forms</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Force</span></div><div class="step"><span class="snum">2</span><span>Identify Displacement</span></div><div class="step"><span class="snum">3</span><span>Apply Formula</span></div><div class="step"><span class="snum">4</span><span>State Answer</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Kinetic</span> Energy</h2>
-          <ul><li>Energy possessed by an object due to its motion.</li><li>Formula: KE = 1/2 mv² (m=mass, v=velocity).</li><li>Example: A moving car, a flying bird.</li></ul>
-          <p class="notes">🎙️ Any object that is moving has kinetic energy. The faster it moves and the heavier it is, the more kinetic energy it possesses. A speeding car has a lot of kinetic energy, which is why it can do a lot of work if it hits something.</p>
+          <h2>Quick <span class="hl">Check</span>: Work</h2>
+          <ul><li>When is work done?</li><li>What is the unit of work?</li><li>If you carry a book horizontally, is work done on the book by you?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about the conditions for work, its unit, and the direction of force versus displacement in the last question. We'll discuss the answers shortly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Energy of Motion</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Potential</span> Energy</h2>
-          <ul><li>Energy stored in an object due to its position or state.</li><li>Gravitational Potential Energy: PE = mgh (m=mass, g=gravity, h=height).</li><li>Example: Water stored in a dam, a stretched rubber band.</li></ul>
-          <p class="notes">🎙️ Potential energy is like hidden energy, waiting to be released. A ball held high above the ground has gravitational potential energy because of its position. When you let it go, this stored energy turns into kinetic energy as it falls.</p>
+          <h2>What is <span class="hl">Energy</span>?</h2>
+          <ul><li>Energy is the capacity to do work.</li><li>Without energy, no work can be done.</li><li>Energy exists in various forms.</li></ul>
+          <p class="notes">🎙️ Now let's move on to Energy. Energy is closely related to work because it's essentially the ability to do work. If an object has energy, it has the potential to exert a force and cause displacement.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Stored Energy</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Energy_transformation.svg?width=500" data-fb="💡" alt="Work is done when force causes displacement. Energy is the capacity to do work. Power is t"/><div class="vcap">Work is done when force causes displacement. Energy is the capacity to do work. Power is t</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Law of <span class="hl">Conservation</span> of Energy</h2>
-          <ul><li>Energy can neither be created nor destroyed.</li><li>It can only be transformed from one form to another.</li><li>Total energy in an isolated system remains constant.</li></ul>
-          <p class="notes">🎙️ This is one of the most fundamental laws in physics. It means we can't just 'make' energy out of nothing, nor can it disappear. It simply changes its form, like electrical energy becoming light and heat in a bulb.</p>
+          <h2>Different <span class="hl">Forms</span> of Energy</h2>
+          <ul><li>Mechanical Energy (Kinetic &amp; Potential)</li><li>Heat Energy</li><li>Light Energy</li><li>Sound Energy</li><li>Chemical Energy</li><li>Electrical Energy</li><li>Nuclear Energy</li></ul>
+          <p class="notes">🎙️ Energy isn't just one thing; it comes in many different forms. We see it as light from the sun, heat from a fire, and the electricity that powers our homes. All these forms can be converted from one to another.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Energy Transforms</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚛️</span><span>⚛️</span><span>⚛️</span><span>⚛️</span><span>⚛️</span><span>⚛️</span><span>⚛️</span></div><div class="vcap">Many forms</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Energy <span class="hl">Transformations</span></h2>
-          <ul><li>Electrical to Light and Heat (bulb).</li><li>Chemical to Heat and Light (burning wood).</li><li>Potential to Kinetic (falling object).</li></ul>
-          <p class="notes">🎙️ Energy is constantly changing forms around us. When you switch on a fan, electrical energy transforms into kinetic energy of the blades. When you eat food, the chemical energy stored in it powers your body, turning into kinetic energy for movement and heat energy to keep you warm.</p>
+          <h2><span class="hl">Kinetic</span> Energy (KE)</h2>
+          <ul><li>Energy possessed by an object due to its motion.</li><li>Faster an object moves, more KE it has.</li><li>Formula: KE = ½ mv² (m=mass, v=velocity)</li></ul>
+          <p class="notes">🎙️ Kinetic energy is the energy of movement. Anything that is moving possesses kinetic energy. A rolling ball, a flying bird, or a running person all have kinetic energy. Its amount depends on both mass and speed.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Chemical</span></div><div class="step"><span class="snum">2</span><span>Heat</span></div><div class="step"><span class="snum">3</span><span>Kinetic</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Energy of motion</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>What is <span class="hl">Power</span>?</h2>
-          <ul><li>Power is the rate at which work is done.</li><li>Power = Work / Time.</li><li>It tells us how fast energy is used or transferred.</li></ul>
-          <p class="notes">🎙️ While work tells us *how much* is done, power tells us *how quickly* it's done. A strong person might lift a heavy box (doing work), but a powerful person can lift the same box much faster, meaning they have more power.</p>
+          <h2><span class="hl">Potential</span> Energy (PE)</h2>
+          <ul><li>Energy stored in an object due to its position or state.</li><li>Gravitational Potential Energy: PE = mgh (m=mass, g=gravity, h=height)</li><li>Elastic Potential Energy: Stored in springs/stretched bands.</li></ul>
+          <p class="notes">🎙️ Potential energy is stored energy. It's the energy an object has because of its position, like a book on a high shelf, or its state, like a stretched rubber band. It has the 'potential' to do work.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Work per Unit Time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Stored energy</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,23 +228,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Units</span> of Power</h2>
-          <ul><li>The SI unit of power is Watt (W).</li><li>1 Watt = 1 Joule / 1 second.</li><li>Named after James Watt, inventor of the improved steam engine.</li></ul>
-          <p class="notes">🎙️ The standard unit for power is the Watt, named after the famous engineer James Watt. One Watt means one Joule of work is done every second. You often see power ratings on electrical appliances like bulbs or motors.</p>
+          <h2>Example: A Moving <span class="hl">Car</span></h2>
+          <ul><li>A car speeding down the road has high kinetic energy.</li><li>Its motion allows it to do work (e.g., crash into something).</li><li>The heavier and faster the car, the more KE.</li></ul>
+          <p class="notes">🎙️ Think about a moving car. Because it's in motion, it possesses kinetic energy. This energy can be transferred to other objects, for example, if it hits a barrier, causing damage. The car's speed and mass directly influence its kinetic energy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Watt (W)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">Cars in motion</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>What is the main difference between work and energy?</li><li>Give two examples of energy transformation.</li><li>If a machine does 100 J of work in 10 seconds, what is its power?</li></ul>
-          <p class="notes">🎙️ Time for another quick check. Think about the definitions of energy and power, and how energy changes form. Try to solve the simple power calculation.</p>
+          <h2>Example: Water in a <span class="hl">Dam</span></h2>
+          <ul><li>Water stored at a height in a dam has gravitational potential energy.</li><li>This stored energy can be converted to kinetic energy.</li><li>Used to generate electricity in hydroelectric power plants.</li></ul>
+          <p class="notes">🎙️ Water held back by a dam is a perfect example of potential energy. Because of its height, it has the potential to flow downwards and do work. When released, this potential energy converts into kinetic energy, turning turbines to generate electricity.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water at height</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>What are <span class="hl">Simple Machines</span>?</h2>
-          <ul><li>Basic mechanical devices that change the direction or magnitude of a force.</li><li>They make work easier for us.</li><li>No internal moving parts, unlike complex machines.</li></ul>
-          <p class="notes">🎙️ Now let's shift our focus to simple machines. These are fundamental tools that have been used by humans for thousands of years to make tasks easier. They don't have complex engines or electronics, just basic mechanical principles.</p>
+          <h2>Law of <span class="hl">Conservation</span> of Energy</h2>
+          <ul><li>Energy can neither be created nor destroyed.</li><li>It can only be transformed from one form to another.</li><li>Total energy in an isolated system remains constant.</li></ul>
+          <p class="notes">🎙️ This is a fundamental law of physics. It states that the total amount of energy in the universe is constant. We can't create new energy or destroy existing energy; we can only change its form, like from chemical to kinetic in a car engine.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_machines.svg?width=500" data-fb="🛠️" alt="Simple machines are devices with few moving parts that help us do work more easily. The si"/><div class="vcap">Simple machines are devices with few moving parts that help us do work more easily. The si</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Energy transformation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Why Do We Use Simple Machines?</h2>
-          <ul><li>To multiply force (mechanical advantage).</li><li>To change the direction of force.</li><li>To increase speed or distance moved.</li></ul>
-          <p class="notes">🎙️ The main reason we use simple machines is to gain an advantage. They can help us lift heavy objects with less effort, or push things in a more convenient direction. They don't reduce the total work done, but they make it easier for us to do it.</p>
+          <h2>Worked Example: Energy <span class="hl">Conversion</span></h2>
+          <ul><li>A ball is dropped from a height.</li><li>At the top: Max Potential Energy, Min Kinetic Energy.</li><li>Mid-way: PE converts to KE.</li><li>At the bottom (just before impact): Min PE, Max KE.</li></ul>
+          <p class="notes">🎙️ Consider a ball dropped from a height. At the very top, it has maximum potential energy and zero kinetic energy. As it falls, its height decreases, so PE converts into KE, until just before it hits the ground, where it has maximum kinetic energy.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Effort without SM</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Effort with SM</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start: High PE</span></div><div class="step"><span class="snum">2</span><span>Falling: PE -&gt; KE</span></div><div class="step"><span class="snum">3</span><span>End: High KE</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Simple Machines: The <span class="hl">Lever</span></h2>
-          <ul><li>A rigid bar that pivots around a fixed point called a fulcrum.</li><li>Three classes based on fulcrum, effort, and load positions.</li><li>Example: See-saw, crowbar, tweezers.</li></ul>
-          <p class="notes">🎙️ The lever is one of the most common simple machines. Think of a see-saw: the pivot in the middle is the fulcrum. By applying force (effort) at one end, you can lift a load at the other end. Crowbars and even your arm are examples of levers.</p>
+          <h2>Quick Check: <span class="hl">Energy</span></h2>
+          <ul><li>What is the definition of energy?</li><li>Give an example of kinetic energy.</li><li>State the Law of Conservation of Energy.</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Reflect on what energy means, think of an everyday example of something moving, and recall the important law we just discussed about energy changes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Pivot Point</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Simple Machines: The <span class="hl">Pulley</span></h2>
-          <ul><li>A wheel with a groove, often used with a rope or cable.</li><li>Can change direction of force or multiply force.</li><li>Example: Well bucket system, flagpoles, construction cranes.</li></ul>
-          <p class="notes">🎙️ Pulleys are incredibly useful for lifting things. A single fixed pulley simply changes the direction of your pull, making it easier to pull down to lift something up. Systems with multiple pulleys can significantly reduce the effort needed to lift very heavy loads.</p>
+          <h2>What are <span class="hl">Simple Machines</span>?</h2>
+          <ul><li>Tools that make work easier.</li><li>Change the direction or magnitude of force.</li><li>Don't reduce the total work done, just make it more convenient.</li></ul>
+          <p class="notes">🎙️ Now, let's talk about simple machines. These are basic mechanical devices that help us perform tasks more easily. They don't reduce the total work you have to do, but they allow you to apply less force over a longer distance, or change the direction of force.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Lift with Ease</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_machines.svg?width=500" data-fb="⚙️" alt="Simple machines are devices with few moving parts that help us do work more easily. The si"/><div class="vcap">Simple machines are devices with few moving parts that help us do work more easily. The si</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Simple Machines: <span class="hl">Inclined Plane</span></h2>
-          <ul><li>A flat surface set at an angle to the horizontal.</li><li>Makes it easier to move objects to a higher elevation.</li><li>Example: Ramp, slide, mountain road.</li></ul>
-          <p class="notes">🎙️ An inclined plane, or a ramp, is a simple way to move objects up or down without lifting them directly. Instead of lifting a heavy box straight up, you can push it up a ramp, spreading the work over a longer distance but requiring less force at any given moment.</p>
+          <h2>Common Simple Machines</h2>
+          <ul><li>Lever (e.g., crowbar, see-saw)</li><li>Pulley (e.g., well pulley, flag pole)</li><li>Inclined Plane (e.g., ramp, slide)</li><li>Wheel &amp; Axle (e.g., car wheel, doorknob)</li><li>Wedge (e.g., axe, knife)</li><li>Screw (e.g., screw, jar lid)</li></ul>
+          <p class="notes">🎙️ There are six classic types of simple machines. We use them every day without even realizing it! From opening a bottle with a lever to rolling a heavy barrel up an inclined plane, they simplify our lives.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">坡</div><div class="vcap">Go Up Easier</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Levers</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Pulleys</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ramps</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,23 +312,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Other</span> Simple Machines</h2>
-          <ul><li>Wheel and Axle: A wheel attached to a rod (axle) for rotation.</li><li>Wedge: Two inclined planes joined back-to-back (axe, knife).</li><li>Screw: An inclined plane wrapped around a cylinder (bolt, jar lid).</li></ul>
-          <p class="notes">🎙️ Besides levers, pulleys, and inclined planes, there are other simple machines that are essentially variations of these. The wheel and axle helps us move things easily, a wedge helps us split things, and a screw is very effective for fastening objects together.</p>
+          <h2>Example: A <span class="hl">See-Saw</span> (Lever)</h2>
+          <ul><li>A see-saw is a type of lever.</li><li>It uses a pivot point (fulcrum) to lift weight.</li><li>Allows a smaller force to lift a larger weight by increasing distance.</li></ul>
+          <p class="notes">🎙️ A see-saw is a great example of a lever. The fulcrum in the middle allows you to lift a heavier person on one side by pushing down on the other side, especially if you sit further away from the fulcrum. It's all about balancing forces and distances.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚙️</span><span>⚙️</span><span>⚙️</span></div><div class="vcap">More Tools</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balancing forces</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>Name three types of simple machines.</li><li>How does an inclined plane make work easier?</li><li>What is the fixed point of a lever called?</li></ul>
-          <p class="notes">🎙️ Let's review our understanding of simple machines. Can you recall their names, how they function, and the key terms associated with them?</p>
+          <h2>Example: Drawing Water from a Well (<span class="hl">Pulley</span>)</h2>
+          <ul><li>A pulley system helps lift heavy objects.</li><li>Changes the direction of force (pull down to lift up).</li><li>Can also multiply force with multiple pulleys.</li></ul>
+          <p class="notes">🎙️ Think about drawing water from a well. A pulley makes it much easier to lift the heavy bucket. Instead of pulling upwards against gravity, you pull downwards, using your body weight to assist. Some pulley systems can even reduce the force needed.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪣</div><div class="vcap">Lifting with ease</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span></h2>
-          <ul><li>Work: Force causes displacement.</li><li>Energy: Capacity to do work (Kinetic, Potential).</li><li>Power: Rate of doing work.</li><li>Simple Machines: Make work easier (Lever, Pulley, Inclined Plane, etc.).</li></ul>
-          <p class="notes">🎙️ Today, we covered a lot of ground! We learned the scientific definitions of work, energy, and power, and how they are all interconnected. We also explored the fascinating world of simple machines and how they empower us to accomplish tasks more efficiently.</p>
+          <h2>Quick Check: Simple <span class="hl">Machines</span></h2>
+          <ul><li>What is the main purpose of a simple machine?</li><li>Name two types of simple machines.</li><li>How does an inclined plane make work easier?</li></ul>
+          <p class="notes">🎙️ Final quick check! What's the big idea behind simple machines? Can you recall any of the types we discussed? And how do ramps, which are inclined planes, help us move heavy things?</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span>!</h2>
-          <ul><li>Keep observing work, energy, and machines around you!</li><li>Practice problems to strengthen your understanding.</li><li>Stay curious and keep learning!</li></ul>
-          <p class="notes">🎙️ Thank you for your active participation today. These concepts are everywhere, from playing sports to using everyday tools. I encourage you to look for examples in your daily life and continue exploring the wonders of physics!</p>
+          <h2>Chapter <span class="hl">Recap</span></h2>
+          <ul><li>Work is done when force causes displacement.</li><li>Energy is the capacity to do work (Kinetic &amp; Potential).</li><li>Energy is conserved, only transforms.</li><li>Simple machines make work easier by changing force/direction.</li></ul>
+          <p class="notes">🎙️ Today, we covered the core concepts of Work, Energy, and Simple Machines. We learned that work has a scientific definition, energy is the power behind work, and simple machines are clever tools that help us manage forces. Keep observing these principles in your daily life!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

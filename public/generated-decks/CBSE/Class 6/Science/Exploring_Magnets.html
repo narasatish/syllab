@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Exploring Magnets — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Exploring <span class="hl">Magnets</span></h2>
-          <ul><li>Welcome to the fascinating world of magnets!</li><li>Discover how magnets work and their uses.</li><li>Get ready for some exciting experiments!</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today, we're going to embark on an exciting journey to explore the mysterious and wonderful world of magnets. Get ready to uncover their secrets and see how they are all around us!</p>
+          <h2>Welcome to 'Exploring <span class="hl">Magnets</span>'!</h2>
+          <ul><li>Discover the fascinating world of magnets.</li><li>Learn what they are and how they work.</li><li>See their uses in our daily lives.</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we're embarking on an exciting journey to explore magnets. We'll uncover their mysteries and understand why they are so useful in our world.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is a <span class="hl">Magnet</span>?</h2>
-          <ul><li>A material that produces a magnetic field.</li><li>Attracts certain metals like iron and nickel.</li><li>Has two poles: North and South.</li></ul>
-          <p class="notes">🎙️ A magnet is a special kind of material that has an invisible force around it, called a magnetic field. This force allows it to pull in or attract things made of certain metals, like iron. Every magnet, no matter how small, always has two ends called poles.</p>
+          <h2>What are <span class="hl">Magnets</span>?</h2>
+          <ul><li>Objects that attract iron, nickel, and cobalt.</li><li>They create an invisible force around them.</li><li>Used in many devices we use every day.</li></ul>
+          <p class="notes">🎙️ A magnet is any object that produces its own persistent magnetic field. This field is responsible for the force that pulls on other ferromagnetic materials like iron, and attracts or repels other magnets.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">A magnet</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">A magnet attracting metal</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>The <span class="hl">Discovery</span> of Magnets</h2>
-          <ul><li>Shepherd Magnes found a special rock.</li><li>It attracted his iron staff and shoe nails.</li><li>This rock was named 'Lodestone'.</li></ul>
-          <p class="notes">🎙️ The story of magnets begins with an old shepherd named Magnes. He was tending his sheep when he noticed that the iron tip of his staff and the nails in his shoes were sticking to a black rock on the ground. This rock was a natural magnet and was later called 'Lodestone', meaning 'leading stone'.</p>
+          <h2>The Story of <span class="hl">Magnes</span>: Discovery of Magnets</h2>
+          <ul><li>Ancient Greek shepherd named Magnes.</li><li>His iron-tipped staff stuck to a rock.</li><li>This rock was 'lodestone', a natural magnet.</li></ul>
+          <p class="notes">🎙️ Legend says that a shepherd named Magnes discovered the first magnet when the iron tip of his staff got stuck to a black rock. This rock was later called 'lodestone,' which means 'leading stone' because it could point directions.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Magnes' Staff</span></div><div class="step"><span class="snum">2</span><span>Attracted Iron</span></div><div class="step"><span class="snum">3</span><span>Lodestone Found</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐑</div><div class="vcap">Magnes and his sheep</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Natural</span> Magnets</h2>
-          <ul><li>Found in nature, like Lodestone.</li><li>Weaker than artificial magnets.</li><li>Often irregular in shape.</li></ul>
-          <p class="notes">🎙️ Natural magnets are those that occur naturally in the Earth. The most famous natural magnet is Lodestone, which is a naturally magnetized mineral called magnetite. These magnets are generally weaker and have irregular shapes compared to the magnets we make.</p>
+          <h2><span class="hl">Natural</span> vs. Artificial Magnets</h2>
+          <ul><li>Natural magnets: Found in nature (e.g., lodestone).</li><li>Artificial magnets: Man-made (e.g., bar, horseshoe).</li><li>Artificial magnets can be shaped for specific uses.</li></ul>
+          <p class="notes">🎙️ Natural magnets are found in the Earth, like lodestone. Artificial magnets are made by humans and can be created in various shapes and sizes, such as bar magnets or horseshoe magnets, to suit different purposes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪨</div><div class="vcap">Lodestone</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Natural Magnet (Lodestone)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Artificial Magnet (Bar Magnet)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Artificial</span> Magnets</h2>
-          <ul><li>Man-made from magnetic materials.</li><li>Can be made in various shapes and sizes.</li><li>Stronger and more useful than natural magnets.</li></ul>
-          <p class="notes">🎙️ Artificial magnets are magnets that humans create by using special techniques. We can shape them into different forms like bar magnets, horseshoe magnets, or cylindrical magnets. These magnets are usually much stronger and are used in countless applications every day.</p>
+          <h2>What do Magnets <span class="hl">Attract</span>?</h2>
+          <ul><li>Magnets attract objects made of iron.</li><li>They also attract nickel and cobalt.</li><li>These are called magnetic materials.</li></ul>
+          <p class="notes">🎙️ Magnets have a special ability to pull certain materials towards them. The most common materials attracted by magnets are iron, nickel, and cobalt. Think of how a magnet picks up paper clips or iron nails.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Man-made</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔩</span><span>🔩</span><span>🔩</span><span>🔩</span><span>🔩</span></div><div class="vcap">Iron screws attracted by a magnet</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Magnetic</span> Materials</h2>
-          <ul><li>Materials attracted by a magnet.</li><li>Examples: Iron, Nickel, Cobalt.</li><li>These materials can be magnetized.</li></ul>
-          <p class="notes">🎙️ Magnetic materials are those substances that get attracted to a magnet. The most common examples you'll encounter are iron, nickel, and cobalt. If you bring a magnet near these materials, you'll see them stick to it. These materials can also be turned into temporary or permanent magnets.</p>
+          <h2><span class="hl">Poles</span> of a Magnet</h2>
+          <ul><li>Every magnet has two poles: North and South.</li><li>The magnetic force is strongest at the poles.</li><li>These poles are always at the ends of a magnet.</li></ul>
+          <p class="notes">🎙️ No matter how small or large a magnet is, it will always have two ends where its magnetic strength is concentrated. We call these the North Pole and the South Pole. These poles are crucial for understanding how magnets interact.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📎</span><span>📎</span><span>📎</span><span>📎</span><span>📎</span></div><div class="vcap">Paperclips (Iron)</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔀</div><div class="vcap">North and South poles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Non-Magnetic</span> Materials</h2>
-          <ul><li>Materials not attracted by a magnet.</li><li>Examples: Wood, Plastic, Copper, Paper.</li><li>They do not interact with a magnetic field.</li></ul>
-          <p class="notes">🎙️ On the other hand, non-magnetic materials are those that do not get attracted by a magnet. No matter how strong the magnet is, it won't pull in items made of wood, plastic, copper, or paper. These materials don't have the internal structure needed to respond to a magnetic field.</p>
+          <h2>Like Poles <span class="hl">Repel</span>, Unlike Poles Attract</h2>
+          <ul><li>North pole attracts a South pole (and vice-versa).</li><li>North pole repels another North pole.</li><li>South pole repels another South pole.</li></ul>
+          <p class="notes">🎙️ This is a fundamental law of magnetism. If you bring two similar poles together, like two North poles, they will push each other away. But if you bring opposite poles together, like a North and a South pole, they will pull towards each other.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span><span>🪵</span></div><div class="vcap">Wood pieces</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">N-N (Repel)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">N-S (Attract)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Activity: <span class="hl">Test</span> Materials</h2>
-          <ul><li>Collect various items: coin, key, paperclip, eraser, pencil.</li><li>Bring a magnet close to each item.</li><li>Observe which items are attracted and which are not.</li></ul>
-          <p class="notes">🎙️ Let's try a simple experiment! Gather a few everyday objects around you – maybe a coin, a key, a paperclip, an eraser, and a pencil. Now, take a magnet and bring it close to each item, one by one. You'll quickly discover which ones are magnetic and which are non-magnetic!</p>
+          <h2>Poles Always Exist in <span class="hl">Pairs</span></h2>
+          <ul><li>You cannot have a magnet with only one pole.</li><li>If you break a magnet, each piece becomes a new magnet.</li><li>Each new piece will have its own North and South poles.</li></ul>
+          <p class="notes">🎙️ It's impossible to isolate a single pole of a magnet. Even if you break a bar magnet into tiny pieces, each small piece will instantly develop its own North and South poles. The magnetic poles always come in pairs.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Experiment time!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Broken magnet, new poles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Poles</span> of a Magnet</h2>
-          <ul><li>Every magnet has two poles.</li><li>North Pole (N) and South Pole (S).</li><li>The magnetic force is strongest at the poles.</li></ul>
-          <p class="notes">🎙️ Imagine a magnet like a tiny planet with two special ends. These ends are called the North Pole and the South Pole. The magnetic power, or the force of attraction, is always strongest at these poles. Even if you break a magnet, each new piece will still have its own North and South poles!</p>
+          <h2>Real-Life Use: <span class="hl">Refrigerator</span> Magnets</h2>
+          <ul><li>Used to hold notes, photos, or decorations.</li><li>The magnet on the back sticks to the metal fridge door.</li><li>A common example of magnetic attraction.</li></ul>
+          <p class="notes">🎙️ Think about the magnets on your refrigerator. They use magnetic attraction to stick firmly to the metal surface of the fridge door, holding up your important notes or drawings. This is a simple yet effective daily application of magnets.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">North &amp; South</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Magnet on a fridge</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Finding</span> the Poles</h2>
-          <ul><li>Dip a bar magnet in iron filings.</li><li>Filings cluster heavily at the ends.</li><li>These ends are the North and South poles.</li></ul>
-          <p class="notes">🎙️ There's a cool way to visualize where a magnet's poles are strongest. If you sprinkle some iron filings over a magnet, you'll notice that the tiny filings clump together most densely at the two ends of the magnet. These areas of highest concentration are precisely where the North and South poles are located.</p>
+          <h2>Real-Life Use: Magnetic <span class="hl">Compass</span></h2>
+          <ul><li>A small magnet (needle) suspended freely.</li><li>The needle aligns itself with Earth's magnetic field.</li><li>Its North pole points towards Earth's geographic North.</li></ul>
+          <p class="notes">🎙️ The magnetic compass is one of the oldest and most important uses of magnets. It helps us find directions by using a small magnetic needle that always points North, guided by the Earth's own natural magnetic field.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Iron filings</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Magnetic compass showing direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Magnetic <span class="hl">Field</span></h2>
-          <ul><li>Invisible area around a magnet.</li><li>Where the magnetic force is felt.</li><li>Can be visualized using iron filings.</li></ul>
-          <p class="notes">🎙️ Just like the Earth has an invisible atmosphere, a magnet has an invisible area around it called a magnetic field. This is the region where the magnet's force can act on other magnetic materials. Although we can't see it, we can observe its effects, for example, by how iron filings arrange themselves around a magnet.</p>
+          <h2>Making Your Own Magnet: <span class="hl">Rubbing</span> Method</h2>
+          <ul><li>Take an iron nail and a strong magnet.</li><li>Rub the magnet along the nail in one direction.</li><li>Repeat 30-40 times carefully.</li><li>The nail will become a temporary magnet.</li></ul>
+          <p class="notes">🎙️ You can create a temporary magnet at home! By stroking an iron object like a nail with a strong magnet repeatedly in the same direction, you can align the tiny magnetic particles within the nail, turning it into a weak magnet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Invisible force</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Take an iron nail</span></div><div class="step"><span class="snum">2</span><span>Rub with a magnet</span></div><div class="step"><span class="snum">3</span><span>Rub in one direction</span></div><div class="step"><span class="snum">4</span><span>Repeat many times</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Property 1: <span class="hl">Attraction</span></h2>
-          <ul><li>Magnets attract magnetic materials.</li><li>Example: A magnet picks up iron nails.</li><li>This is the most common property we observe.</li></ul>
-          <p class="notes">🎙️ The first and most familiar property of magnets is attraction. A magnet will always pull in or attract objects made of magnetic materials like iron, nickel, or cobalt. Think about how a refrigerator magnet holds notes or how a crane uses a strong magnet to lift scrap metal.</p>
+          <h2><span class="hl">Magnetic</span> Materials</h2>
+          <ul><li>Materials that are attracted by a magnet.</li><li>Examples: Iron, steel, nickel, cobalt.</li><li>They can be made into temporary or permanent magnets.</li></ul>
+          <p class="notes">🎙️ Magnetic materials are those substances that are strongly attracted to a magnet. Iron, steel, nickel, and cobalt are common examples. These materials are essential for making various types of magnets and magnetic devices.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Pulling together</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📎</span><span>📎</span><span>📎</span><span>📎</span><span>📎</span><span>📎</span></div><div class="vcap">Magnetic paper clips</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Property 2: <span class="hl">Repulsion</span></h2>
-          <ul><li>Like poles repel each other (N-N, S-S).</li><li>Unlike poles attract each other (N-S).</li><li>You can feel this pushing force.</li></ul>
-          <p class="notes">🎙️ Now for a fascinating property: repulsion! If you try to bring two North poles of magnets together, or two South poles, you'll feel a strong pushing force that tries to move them apart. However, if you bring a North pole and a South pole together, they will attract each other strongly. Remember: Like poles repel, unlike poles attract!</p>
+          <h2><span class="hl">Non-Magnetic</span> Materials</h2>
+          <ul><li>Materials that are NOT attracted by a magnet.</li><li>Examples: Wood, plastic, paper, glass, copper.</li><li>They do not interact with a magnetic field.</li></ul>
+          <p class="notes">🎙️ In contrast to magnetic materials, non-magnetic materials are those that a magnet will not pull towards itself. Common examples include wood, plastic, paper, and glass. These materials are unaffected by magnetic forces.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Pushing apart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span><span>✏️</span></div><div class="vcap">Non-magnetic pencils</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Property 3: <span class="hl">Directional</span></h2>
-          <ul><li>A freely suspended magnet always points North-South.</li><li>North pole points to Earth's geographic North.</li><li>South pole points to Earth's geographic South.</li></ul>
-          <p class="notes">🎙️ This property is incredibly useful! If you hang a magnet freely, allowing it to rotate, it will always settle in a particular direction: its North pole will point towards the Earth's geographic North, and its South pole towards the Earth's geographic South. This is because our Earth itself acts like a giant magnet!</p>
+          <h2>Activity: <span class="hl">Sorting</span> Magnetic and Non-Magnetic Items</h2>
+          <ul><li>Collect various items: paper clip, coin, key, eraser, safety pin.</li><li>Use a magnet to test each item.</li><li>Sort them into two groups: magnetic and non-magnetic.</li></ul>
+          <p class="notes">🎙️ Let's try a simple activity! Gather different small objects from around your home or classroom. Use a magnet to test each one and see if it sticks. This will help you easily identify which materials are magnetic and which are not.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Finding direction</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗂️</div><div class="vcap">Sorting items</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Real-life Example: Magnetic <span class="hl">Compass</span></h2>
-          <ul><li>Uses a small, freely rotating magnet.</li><li>Helps travelers find directions.</li><li>The needle always points North.</li></ul>
-          <p class="notes">🎙️ The directional property of magnets is the principle behind the magnetic compass. A compass has a tiny magnetised needle that is free to spin. Because of Earth's magnetic field, this needle always points towards the geographic North, helping sailors, hikers, and explorers find their way.</p>
+          <h2>Magnetic Field: The <span class="hl">Invisible</span> Influence</h2>
+          <ul><li>The area around a magnet where its force can be felt.</li><li>It's an invisible region of influence.</li><li>Magnetic field lines show its direction and strength.</li></ul>
+          <p class="notes">🎙️ Even though you can't see it, every magnet is surrounded by an invisible area called a magnetic field. This is where the magnet's force acts. We can visualize this field using iron filings, which form patterns along the magnetic field lines.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Navigation tool</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Earths_magnetosphere_and_field.svg?width=500" data-fb="🌀" alt="Earth acts as a giant magnet with a magnetic field extending far into space, protecting li"/><div class="vcap">Earth acts as a giant magnet with a magnetic field extending far into space, protecting li</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Making</span> Your Own Magnet</h2>
-          <ul><li>You can magnetize an iron object.</li><li>Use a strong magnet and stroke in one direction.</li><li>Repeat many times carefully.</li></ul>
-          <p class="notes">🎙️ Did you know you can make your own temporary magnet? Take an iron object, like a nail or a paperclip, and a strong magnet. Stroke the iron object with one pole of the magnet, always in the same direction, and lift the magnet completely after each stroke. After many strokes, your iron object will become a magnet!</p>
+          <h2><span class="hl">Strength</span> of Magnetic Field</h2>
+          <ul><li>The magnetic field is strongest near the poles.</li><li>It is weakest in the middle of the magnet.</li><li>This is why poles have the greatest attractive force.</li></ul>
+          <p class="notes">🎙️ The force of a magnet isn't uniform everywhere. It's most powerful at its North and South poles, which is why objects are most strongly attracted there. The strength gradually decreases as you move towards the center of the magnet.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Take Iron Nail</span></div><div class="step"><span class="snum">2</span><span>Stroke with Magnet</span></div><div class="step"><span class="snum">3</span><span>Test Attraction</span></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">At Poles</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">At Centre</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Worked Example: <span class="hl">Paperclip</span> Magnet</h2>
-          <ul><li>Rub a bar magnet along a paperclip 20-30 times.</li><li>Stroke only in one direction.</li><li>Test if the paperclip can pick up a pin.</li></ul>
-          <p class="notes">🎙️ Let's apply the method! Take a large paperclip and a bar magnet. Stroke the paperclip with one pole of the bar magnet, say the North pole, about 20 to 30 times. Make sure you lift the magnet high each time before starting a new stroke. After this, try to pick up a small pin or another paperclip with your newly magnetised paperclip. You'll be surprised!</p>
+          <h2>How Magnets <span class="hl">Lose</span> Their Properties (Demagnetization)</h2>
+          <ul><li>Heating a magnet can destroy its magnetism.</li><li>Hammering or dropping a magnet repeatedly.</li><li>Improper storage can also weaken magnets.</li></ul>
+          <p class="notes">🎙️ Magnets can lose their magnetic properties, a process called demagnetization. High heat, strong impacts like hammering or dropping, and even incorrect storage can cause the internal alignment of magnetic particles to get disturbed, weakening the magnet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">DIY Magnet</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Heating</span></div><div class="step"><span class="snum">2</span><span>Hammering</span></div><div class="step"><span class="snum">3</span><span>Dropping</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Losing</span> Magnetic Properties</h2>
-          <ul><li>Magnets can lose their strength.</li><li>Heating a magnet weakens it.</li><li>Hammering or dropping can demagnetize it.</li></ul>
-          <p class="notes">🎙️ Magnets are not indestructible! They can lose their magnetic power if not handled carefully. Exposing a magnet to high heat, repeatedly hammering it, or dropping it from a height can cause it to lose its magnetism. This is because the tiny internal magnetic units get disarranged.</p>
+          <h2><span class="hl">Storing</span> Magnets Safely</h2>
+          <ul><li>Keep bar magnets in pairs with opposite poles together.</li><li>Use wooden or plastic 'keepers' at the ends.</li><li>Keep magnets away from electronics and credit cards.</li></ul>
+          <p class="notes">🎙️ To ensure your magnets last long and retain their strength, proper storage is key. Bar magnets should be stored in pairs with opposite poles facing each other, separated by wooden or plastic pieces called keepers. Also, keep them away from sensitive electronics.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat &amp; Shock</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Proper magnet storage</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Storing</span> Magnets Properly</h2>
-          <ul><li>Keep away from electronics and credit cards.</li><li>Store bar magnets in pairs with opposite poles facing.</li><li>Use 'keepers' (soft iron pieces) for horseshoe magnets.</li></ul>
-          <p class="notes">🎙️ To ensure your magnets last a long time, proper storage is key. Keep them away from sensitive electronics like phones and computers, and especially credit cards, as they can damage them. Bar magnets should be stored in pairs with opposite poles aligned and two pieces of soft iron, called keepers, placed across their ends.</p>
+          <h2>Quick Question 1: <span class="hl">True or False</span>?</h2>
+          <ul><li>A magnet can have only one pole.</li></ul>
+          <p class="notes">🎙️ Think back to what we learned about magnetic poles. Can you ever have a North pole without a South pole, or vice-versa? Consider what happens when you break a magnet.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Safe storage</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,9 +288,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check! <span class="hl">Question</span> 1</h2>
-          <ul><li>Which of these is a magnetic material?</li><li>A) Plastic B) Wood C) Iron D) Copper</li></ul>
-          <p class="notes">🎙️ Time for a quick check of your understanding! Look at the options provided. Which of these materials do you think would be attracted to a magnet? Take a moment to recall what we discussed about magnetic materials.</p>
+          <h2>Quick Question 2: <span class="hl">Identify</span> the Magnetic Material</h2>
+          <ul><li>Which of these is attracted by a magnet: a piece of wood, an iron nail, or a plastic ruler?</li></ul>
+          <p class="notes">🎙️ Recall the materials that magnets are known to attract. Out of wood, an iron nail, and a plastic ruler, which one contains a ferromagnetic element that magnets love to pull?</p>
         </div>
         
       </div>
@@ -287,21 +300,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick Check! <span class="hl">Question</span> 2</h2>
-          <ul><li>What happens when two North poles are brought close?</li><li>A) They attract B) They repel C) Nothing D) They become stronger</li></ul>
-          <p class="notes">🎙️ Next question! Imagine you have two magnets, and you bring their North poles very close to each other. What do you think will happen? Will they pull together, push apart, or something else entirely?</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Quick Check! <span class="hl">Question</span> 3</h2>
-          <ul><li>A freely suspended magnet always points in which direction?</li><li>A) East-West B) North-South C) Up-Down D) Randomly</li></ul>
-          <p class="notes">🎙️ Last quick question for today! If you hang a magnet so it can spin freely, what specific direction will its ends point towards? Think about our Earth acting like a giant magnet.</p>
+          <h2>Quick Question 3: <span class="hl">What Happens</span>?</h2>
+          <ul><li>What happens when you bring the North pole of one magnet near the North pole of another magnet?</li></ul>
+          <p class="notes">🎙️ Remember the fundamental rule of how magnetic poles interact with each other. Do like poles attract or repel? And what about unlike poles? Apply that rule to this scenario.</p>
         </div>
         
       </div>
@@ -310,24 +311,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Everyday <span class="hl">Uses</span> of Magnets</h2>
-          <ul><li>Refrigerator magnets.</li><li>Loudspeakers and microphones.</li><li>Magnetic door catches.</li><li>In toys and compasses.</li></ul>
-          <p class="notes">🎙️ Magnets are truly everywhere! From the simple magnets holding notes on your fridge to the complex ones inside your headphones, speakers, and even electric motors. They are also used in MRI machines for medical imaging, in toys, and of course, in compasses for navigation. Their applications are incredibly diverse!</p>
+          <span class="num">22 / 25</span>
+          <h2>More <span class="hl">Uses</span> of Magnets in Daily Life</h2>
+          <ul><li>Speakers and headphones use magnets to produce sound.</li><li>Credit cards and ATM cards have magnetic strips.</li><li>Electric motors and generators rely on magnets.</li><li>MRI machines for medical imaging.</li></ul>
+          <p class="notes">🎙️ Beyond simple fridge magnets and compasses, magnets are crucial in many technologies. They are found in speakers, motors, generators, and even advanced medical equipment like MRI machines, making our modern world possible.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Many applications</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚙️</span><span>⚙️</span><span>⚙️</span><span>⚙️</span></div><div class="vcap">Gears representing technology</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Exploring Magnets</h2>
-          <ul><li>Magnets attract magnetic materials (iron, nickel, cobalt).</li><li>Every magnet has North and South poles.</li><li>Like poles repel, unlike poles attract.</li><li>A free magnet points North-South.</li></ul>
-          <p class="notes">🎙️ Let's quickly review what we've learned today. We discovered what magnets are, how they were found, and the difference between magnetic and non-magnetic materials. We explored their fascinating properties: attraction, repulsion, and their ability to point North-South. We also learned how to make and care for magnets.</p>
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Learnings About Magnets</h2>
+          <ul><li>Magnets attract iron, nickel, cobalt.</li><li>Every magnet has North and South poles.</li><li>Like poles repel, unlike poles attract.</li><li>Magnets can be natural or artificial.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that magnets have poles, attract specific metals, and follow a simple rule of attraction and repulsion. They are powerful forces of nature, both natural and man-made.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Recap: More Key <span class="hl">Learnings</span></h2>
+          <ul><li>Magnets have an invisible magnetic field.</li><li>The field is strongest at the poles.</li><li>Magnets can lose their properties by heating or hammering.</li><li>Proper storage helps preserve magnetism.</li></ul>
+          <p class="notes">🎙️ We also learned about the invisible magnetic field around magnets and how its strength varies. Always remember to handle magnets carefully, as heat or impact can cause them to lose their special powers.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Magnet0873.png?width=500" data-fb="🔬" alt="Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet"/><div class="vcap">Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -336,14 +349,15 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">25 / 25</span>
           <h2><span class="hl">Thank You</span>!</h2>
-          <ul><li>Keep exploring the world around you!</li><li>Magnets are a part of many amazing technologies.</li><li>Any questions?</li></ul>
-          <p class="notes">🎙️ That brings us to the end of our lesson on magnets! I hope you enjoyed learning about these incredible objects. Remember, science is all about asking questions and exploring, so keep your curiosity alive! If you have any questions, feel free to ask.</p>
+          <ul><li>Hope you enjoyed exploring the world of magnets!</li><li>Keep observing and discovering science around you.</li><li>See you in the next lesson!</li></ul>
+          <p class="notes">🎙️ Thank you for joining me on this journey into the world of magnets. I hope you now have a clearer understanding of these fascinating objects and their importance. Keep exploring and asking questions!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

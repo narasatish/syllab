@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Motion in a Straight Line - Class 11 Physics (CBSE) — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Motion in a Straight Line - Class 11 Physics — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Motion</span> in a Straight Line!</h2>
-          <ul><li>Physics Class 11</li><li>CBSE Board Syllabus</li><li>Exam-focused approach</li><li>Foundation of Mechanics</li></ul>
-          <p class="notes">🎙️ Greetings, students! Today we embark on a fascinating journey into the world of motion. This chapter, 'Motion in a Straight Line,' is foundational for your understanding of mechanics and crucial for your exams.</p>
+          <h2><span class="hl">Motion</span> in a Straight Line</h2>
+          <ul><li>Chapter 3: Physics Class 11</li><li>Understanding 1D kinematics</li><li>Exam-focused approach</li></ul>
+          <p class="notes">🎙️ Welcome students! Today we begin a fundamental chapter in physics: Motion in a Straight Line. This chapter lays the groundwork for understanding how objects move and is crucial for your upcoming exams.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is <span class="hl">Mechanics</span>?</h2>
-          <ul><li>Branch of Physics</li><li>Studies motion and rest of objects</li><li>Divided into three main parts</li></ul>
-          <p class="notes">🎙️ Mechanics is the oldest branch of physics, dealing with how objects move or stay still. We classify it into Statics, Kinematics, and Dynamics. In this chapter, we'll focus on Kinematics, which describes motion without considering its causes.</p>
+          <h2>Understanding <span class="hl">Motion</span></h2>
+          <ul><li>Change in position with time</li><li>Relative concept</li><li>Rest vs. Motion</li></ul>
+          <p class="notes">🎙️ Motion is simply the change in an object's position over time. It's a relative concept, meaning an object can be at rest relative to one observer but in motion relative to another. We'll differentiate between rest and motion based on a chosen reference point.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Statics</span></div><div class="step"><span class="snum">2</span><span>Kinematics</span></div><div class="step"><span class="snum">3</span><span>Dynamics</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♂️</div><div class="vcap">Changing Position</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Rest and Motion: <span class="hl">Relative</span> Concepts</h2>
-          <ul><li>Object is at rest if its position doesn't change</li><li>Object is in motion if its position changes</li><li>Both are relative to an observer or frame of reference</li></ul>
-          <p class="notes">🎙️ An object is never truly at rest or in motion in an absolute sense. It always depends on the chosen frame of reference, or the observer. Think of passengers in a moving train: they are at rest relative to each other but in motion relative to the ground.</p>
+          <h2>The Concept of a <span class="hl">Point Object</span></h2>
+          <ul><li>Idealization in kinematics</li><li>Size negligible compared to distance</li><li>Simplifies analysis</li></ul>
+          <p class="notes">🎙️ For simplicity, when the size of an object is very small compared to the distance it travels, we treat it as a 'point object'. This idealization helps us focus solely on its translational motion without considering rotation or deformation.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Observer's Frame</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">A Tiny Dot</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>The '<span class="hl">Point Object</span>' Idealization</h2>
-          <ul><li>Object's size is negligible</li><li>Compared to the distance it travels</li><li>Simplifies the analysis of motion</li></ul>
-          <p class="notes">🎙️ To simplify problems, we often treat objects as 'point objects.' This is valid when the object's dimensions are much smaller than the distances it covers or the size of its environment. For example, a car traveling hundreds of kilometers can be treated as a point.</p>
+          <h2><span class="hl">Reference Frame</span> &amp; Origin</h2>
+          <ul><li>Coordinate system + clock</li><li>Defines position and time</li><li>Crucial for describing motion</li></ul>
+          <p class="notes">🎙️ To describe motion, we need a reference frame – a coordinate system with an origin and a clock. This frame allows us to precisely define an object's position at any given time, making our observations consistent and measurable.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span></div><div class="vcap">Car on a long road</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Where and When</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Path Length &amp; <span class="hl">Displacement</span></h2>
-          <ul><li>Path Length: Total distance covered by an object</li><li>Displacement: Shortest distance from initial to final position</li><li>Path Length is scalar, Displacement is vector</li></ul>
-          <p class="notes">🎙️ These are two fundamental quantities describing motion. Path length is a scalar, always positive, representing the actual route taken. Displacement is a vector, indicating both magnitude and direction, focusing only on the net change in position.</p>
+          <h2>Path Length (<span class="hl">Distance</span>)</h2>
+          <ul><li>Total length of the path covered</li><li>Scalar quantity</li><li>Always positive or zero</li></ul>
+          <p class="notes">🎙️ Path length, commonly known as distance, is the actual length of the path an object travels, regardless of its direction. It's a scalar quantity, meaning it only has magnitude, and it can never be negative.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring paths</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Total Path</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2><span class="hl">Comparing</span> Path Length and Displacement</h2>
-          <ul><li>Path Length: Scalar, always positive, depends on actual path</li><li>Displacement: Vector, can be zero/negative, independent of path</li><li>Displacement ≤ Path Length</li></ul>
-          <p class="notes">🎙️ Remember, path length tells you how much ground was covered, while displacement tells you how far and in what direction you are from where you started. They are equal only for straight-line motion without a change in direction.</p>
+          <h2><span class="hl">Displacement</span></h2>
+          <ul><li>Change in position vector</li><li>Shortest distance between start &amp; end</li><li>Vector quantity (magnitude + direction)</li></ul>
+          <p class="notes">🎙️ Displacement, on the other hand, is the change in an object's position. It's the shortest straight-line distance from the initial to the final position, and crucially, it's a vector quantity, meaning it has both magnitude and direction.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Path Length</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Displacement</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Straight Line Change</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Worked <span class="hl">Example</span> 1: Path Length &amp; Displacement</h2>
-          <ul><li>A person walks 5m East, then 3m West.</li><li>Calculate the total path length.</li><li>Calculate the net displacement.</li></ul>
-          <p class="notes">🎙️ Let's apply what we just learned. For path length, we simply add the magnitudes of the distances covered. For displacement, we must consider the directions, typically assigning positive to one direction and negative to the opposite.</p>
+          <h2>Distance vs. Displacement: Key <span class="hl">Differences</span></h2>
+          <ul><li>Distance: Scalar, Path dependent</li><li>Displacement: Vector, Path independent</li><li>Distance ≥ |Displacement|</li><li>Displacement can be zero, even if distance is not</li></ul>
+          <p class="notes">🎙️ This slide highlights the critical distinctions. Remember, distance tracks the entire journey, while displacement only cares about the starting and ending points. This difference is vital for solving problems accurately.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Walking problem</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Distance</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Displacement</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Solution</span>: Path Length &amp; Displacement</h2>
-          <ul><li>Path Length = 5m (East) + 3m (West) = 8m</li><li>Displacement = 5m (East) - 3m (West) = 2m (East)</li><li>Final position is 2m East of starting point</li></ul>
-          <p class="notes">🎙️ The path length is the total distance covered, which is 8 meters. The displacement is the net change in position, which is 2 meters towards the East from the starting point. Note how direction matters for displacement.</p>
+          <h2><span class="hl">Speed</span>: How Fast?</h2>
+          <ul><li>Rate of change of path length</li><li>Scalar quantity</li><li>Average speed = Total distance / Total time</li></ul>
+          <p class="notes">🎙️ Speed tells us how fast an object is moving. It's the rate at which distance is covered and is a scalar quantity. Average speed gives us an overall idea of the journey's pace.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➡️</span><span>➡️</span></div><div class="vcap">2m East</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Rate of Travel</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Speed and Velocity: How <span class="hl">Fast</span>?</h2>
-          <ul><li>Speed: Rate of change of path length</li><li>Velocity: Rate of change of displacement</li><li>Speed is scalar, Velocity is vector</li></ul>
-          <p class="notes">🎙️ Just like path length and displacement, speed and velocity are related but distinct. Speed is a scalar, telling you how quickly an object is moving. Velocity is a vector, indicating both the speed and the direction of motion.</p>
+          <h2><span class="hl">Velocity</span>: How Fast &amp; Which Way?</h2>
+          <ul><li>Rate of change of displacement</li><li>Vector quantity (magnitude + direction)</li><li>Average velocity = Total displacement / Total time</li></ul>
+          <p class="notes">🎙️ Velocity is a more comprehensive measure than speed because it includes direction. It's the rate of change of displacement, making it a vector quantity. Average velocity considers the net change in position over time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Time is key</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️💨</div><div class="vcap">Speed with Direction</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Uniform</span> and Non-uniform Motion</h2>
-          <ul><li>Uniform Motion: Equal distances in equal time intervals</li><li>Non-uniform Motion: Unequal distances in equal time intervals</li><li>Uniform velocity means constant speed and constant direction</li></ul>
-          <p class="notes">🎙️ Uniform motion implies constant speed and constant direction, meaning constant velocity. Non-uniform motion means either the speed, direction, or both are changing. Most real-world motion you observe is non-uniform.</p>
+          <h2>Speed vs. Velocity: Key <span class="hl">Differences</span></h2>
+          <ul><li>Speed: Scalar, |Velocity|</li><li>Velocity: Vector, Rate of displacement</li><li>Speed cannot be negative</li><li>Velocity can be positive, negative, or zero</li></ul>
+          <p class="notes">🎙️ While the magnitude of velocity is speed, they are distinct concepts due to direction. Understanding when to use each is crucial for problem-solving. Velocity's sign indicates the direction of motion.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Uniform</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Non-uniform</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Speed</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Velocity</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Average</span> Speed and Average Velocity</h2>
-          <ul><li>Average Speed = Total path length / Total time taken</li><li>Average Velocity = Total displacement / Total time taken</li><li>Describe motion over a specific time interval</li></ul>
-          <p class="notes">🎙️ These quantities describe the motion over a longer duration. Average speed doesn't care about the stops or turns, just the total distance and total time. Average velocity focuses on the net change in position over the time interval.</p>
+          <h2><span class="hl">Instantaneous</span> Speed &amp; Velocity</h2>
+          <ul><li>Speed/velocity at a specific instant</li><li>Calculated using derivatives (calculus)</li><li>Limit as time interval approaches zero</li></ul>
+          <p class="notes">🎙️ Instantaneous speed or velocity refers to the speed or velocity of an object at a particular moment in time. Conceptually, it's the average velocity over an infinitesimally small time interval, which mathematically involves derivatives.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Overall change</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">At This Moment</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Worked <span class="hl">Example</span> 2: Average Speed &amp; Velocity</h2>
-          <ul><li>Car travels 100km North in 2h</li><li>Then 50km South in 1h</li><li>Calculate its average speed and average velocity</li></ul>
-          <p class="notes">🎙️ This example combines both concepts of average speed and average velocity. Remember to account for directions when calculating displacement and average velocity, while for average speed, we only sum the magnitudes of distances.</p>
+          <h2><span class="hl">Acceleration</span></h2>
+          <ul><li>Rate of change of velocity</li><li>Vector quantity</li><li>Can be positive, negative (retardation), or zero</li></ul>
+          <p class="notes">🎙️ Acceleration is the rate at which an object's velocity changes. Since velocity is a vector, acceleration can mean a change in speed, a change in direction, or both. It's a key concept for understanding non-uniform motion.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Car travel</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Change in Velocity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Solution</span>: Average Speed &amp; Velocity</h2>
-          <ul><li>Total Path Length = 100km + 50km = 150km</li><li>Total Displacement = 100km (North) - 50km (South) = 50km (North)</li><li>Total Time = 2h + 1h = 3h</li></ul>
-          <p class="notes">🎙️ Average Speed = 150km / 3h = 50 km/h. Average Velocity = 50km (North) / 3h = 16.67 km/h (North). Notice how the values and directions differ significantly due to the change in direction.</p>
+          <h2><span class="hl">Types</span> of Motion</h2>
+          <ul><li>Uniform motion: Constant velocity, zero acceleration</li><li>Non-uniform motion: Changing velocity, non-zero acceleration</li><li>Uniformly accelerated motion: Constant acceleration</li></ul>
+          <p class="notes">🎙️ We categorize motion into uniform and non-uniform. Uniform motion is straightforward, with constant velocity. Non-uniform motion involves changing velocity, and a special case is uniformly accelerated motion, where acceleration is constant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬆️</span><span>⬆️</span><span>⬆️</span><span>⬆️</span><span>⬆️</span></div><div class="vcap">50km North</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span><span>➡️</span></div><div class="vcap">Consistent or Varied</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Instantaneous</span> Speed &amp; Velocity</h2>
-          <ul><li>Speed/Velocity at a particular instant in time</li><li>Calculated using calculus (derivatives)</li><li>Limit of average velocity as time interval approaches zero</li></ul>
-          <p class="notes">🎙️ These are what a speedometer measures. For non-uniform motion, instantaneous values are crucial for understanding the motion at any given moment. Mathematically, instantaneous velocity is the derivative of position with respect to time.</p>
+          <h2>Kinematic Equations for <span class="hl">Constant Acceleration</span> (1)</h2>
+          <ul><li>For motion with constant acceleration only</li><li>Relates initial velocity (u), final velocity (v), acceleration (a), time (t)</li><li>Equation 1: v = u + at</li></ul>
+          <p class="notes">🎙️ These three equations are foundational for solving problems involving constant acceleration. The first equation, v = u + at, directly links the change in velocity to acceleration and time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📸</div><div class="vcap">Snapshot in time</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Equation 1</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Acceleration</span>: Change in Velocity</h2>
-          <ul><li>Rate of change of velocity</li><li>Vector quantity, having both magnitude and direction</li><li>Units: meters per second squared (m/s²)</li></ul>
-          <p class="notes">🎙️ Acceleration tells us how quickly an object's velocity is changing. This change can be in magnitude (speeding up or slowing down) or direction. A car turning a corner is accelerating even if its speed is constant.</p>
+          <h2>Kinematic Equations for <span class="hl">Constant Acceleration</span> (2)</h2>
+          <ul><li>Relates displacement (s), initial velocity (u), acceleration (a), time (t)</li><li>Equation 2: s = ut + ½ at²</li><li>Describes displacement over time</li></ul>
+          <p class="notes">🎙️ The second kinematic equation, s = ut + ½ at², allows us to calculate the displacement of an object given its initial velocity, acceleration, and the time duration. It's crucial for finding how far an object travels.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Speeding up/down</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Velocity_graph.svg?width=500" data-fb="📝" alt="Velocity-time graphs show how an object's velocity changes over time. The slope represents"/><div class="vcap">Velocity-time graphs show how an object's velocity changes over time. The slope represents</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2><span class="hl">Uniform</span> and Non-uniform Acceleration</h2>
-          <ul><li>Uniform Acceleration: Velocity changes by equal amounts in equal time intervals</li><li>Non-uniform Acceleration: Velocity changes by unequal amounts</li><li>Constant acceleration simplifies motion analysis</li></ul>
-          <p class="notes">🎙️ An object falling freely under gravity experiences uniform acceleration (ignoring air resistance). A car in city traffic typically experiences non-uniform acceleration due to varying speeds and braking. We primarily focus on uniform acceleration in this chapter.</p>
+          <h2>Kinematic Equations for <span class="hl">Constant Acceleration</span> (3)</h2>
+          <ul><li>Relates final velocity (v), initial velocity (u), acceleration (a), displacement (s)</li><li>Equation 3: v² = u² + 2as</li><li>Useful when time (t) is not known or required</li></ul>
+          <p class="notes">🎙️ The third equation, v² = u² + 2as, is particularly useful when you don't know or need to find the time taken. It directly connects the initial and final velocities with acceleration and displacement.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Uniform 'a'</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Non-uniform 'a'</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Equation 3</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Kinematic <span class="hl">Equations</span> for Uniform Acceleration</h2>
-          <ul><li>Describe motion of objects</li><li>Under constant acceleration only</li><li>Powerful tools for problem-solving</li></ul>
-          <p class="notes">🎙️ These three equations are the backbone of kinematics for uniformly accelerated motion. They relate initial velocity, final velocity, acceleration, time, and displacement, allowing us to predict and analyze motion.</p>
+          <h2>Worked <span class="hl">Example</span> 1: Car Acceleration</h2>
+          <ul><li>Problem: A car accelerates from rest at 2 m/s² for 5 seconds.</li><li>Find its final velocity and displacement.</li><li>Solution: Given u=0, a=2 m/s², t=5 s.</li><li>v = u + at = 0 + (2)(5) = 10 m/s.</li><li>s = ut + ½ at² = 0 + ½ (2)(5)² = 25 m.</li></ul>
+          <p class="notes">🎙️ Here's a direct application of the kinematic equations. We identify the given values and then apply the appropriate equations to find the final velocity and the total displacement. Always clearly state your knowns and unknowns.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Calculating motion</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,23 +264,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>The <span class="hl">Three</span> Kinematic Equations</h2>
-          <ul><li>1. v = u + at</li><li>2. s = ut + ½at²</li><li>3. v² = u² + 2as</li></ul>
-          <p class="notes">🎙️ Make sure you know these equations by heart and understand what each variable represents. 'u' is initial velocity, 'v' is final velocity, 'a' is acceleration, 't' is time, and 's' is displacement. Choose the correct equation based on your knowns and unknowns.</p>
+          <h2>Motion Under <span class="hl">Gravity</span></h2>
+          <ul><li>Special case of constant acceleration</li><li>Acceleration due to gravity (g) = 9.8 m/s² (approx 10 m/s²)</li><li>Direction of 'g' is always downwards</li></ul>
+          <p class="notes">🎙️ Motion under gravity is a crucial application of constant acceleration. The acceleration 'g' is approximately 9.8 m/s² near the Earth's surface and always acts downwards. Remember to choose your sign convention consistently.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📝</span><span>📝</span><span>📝</span></div><div class="vcap">Formulas to remember</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Falling Objects</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked Example 3: <span class="hl">Applying</span> Kinematic Equations</h2>
-          <ul><li>Car accelerates from rest at 2 m/s² for 5s.</li><li>Find its final velocity (v).</li><li>Find the distance covered (s).</li></ul>
-          <p class="notes">🎙️ This is a classic problem that tests your ability to apply the kinematic equations. Remember that 'from rest' implies an initial velocity of zero. Identify your knowns and unknowns, then select the appropriate equations.</p>
+          <h2>Worked Example 2: Ball Drop</h2>
+          <ul><li>Problem: A ball is dropped from a height of 20m. Find time to hit ground and final velocity.</li><li>Assume g = 10 m/s².</li><li>Solution: Given u=0, s=20m, a=g=10 m/s².</li><li>s = ut + ½ at² =&gt; 20 = 0 + ½ (10)t² =&gt; t = 2 s.</li><li>v = u + at = 0 + (10)(2) = 20 m/s.</li></ul>
+          <p class="notes">🎙️ This example shows motion under gravity. Remember that 'dropped' implies an initial velocity of zero. We use the kinematic equations, substituting 'a' with 'g', and solve for time and final velocity.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏁</div><div class="vcap">Start of a race</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Solution</span>: Kinematic Equations</h2>
-          <ul><li>Given: u=0, a=2 m/s², t=5s</li><li>Using v = u + at: v = 0 + (2)(5) = 10 m/s</li><li>Using s = ut + ½at²: s = (0)(5) + ½(2)(5)² = 25m</li></ul>
-          <p class="notes">🎙️ The car reaches a final velocity of 10 m/s after 5 seconds of acceleration. During this time, it covers a displacement of 25 meters. Always double-check your units and calculations.</p>
+          <h2>Position-Time (x-t) Graphs</h2>
+          <ul><li>Slope of x-t graph gives velocity</li><li>Horizontal line: object at rest</li><li>Straight line with slope: uniform velocity</li><li>Curved line: non-uniform velocity (acceleration)</li></ul>
+          <p class="notes">🎙️ Graphs are powerful tools in kinematics. The slope of a position-time graph directly tells us the object's velocity. A straight line means constant velocity, while a curve indicates changing velocity or acceleration.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏎️</span></div><div class="vcap">Accelerating car</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Position over Time</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,23 +300,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Motion Under <span class="hl">Gravity</span>: A Special Case</h2>
-          <ul><li>Free fall is uniformly accelerated motion</li><li>Acceleration 'a' becomes 'g' (approx. 9.8 m/s²)</li><li>Direction of 'g' is always downwards</li></ul>
-          <p class="notes">🎙️ When objects fall or are thrown vertically, their motion is governed by gravity. We use the same kinematic equations, replacing 'a' with 'g'. Remember to choose a consistent sign convention for 'g' based on your chosen positive direction.</p>
+          <h2>Velocity-Time (v-t) Graphs</h2>
+          <ul><li>Slope of v-t graph gives acceleration</li><li>Area under v-t graph gives displacement</li><li>Horizontal line: uniform velocity (zero acceleration)</li><li>Straight line with slope: uniform acceleration</li></ul>
+          <p class="notes">🎙️ Velocity-time graphs are even more informative. Their slope gives acceleration, and the area enclosed by the graph and the time axis gives the displacement. These graphs are essential for understanding and solving complex motion problems.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Falling apple</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Velocity over Time</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Avoid These Common <span class="hl">Mistakes</span>!</h2>
-          <ul><li>Confusing scalar and vector quantities (e.g., speed vs. velocity)</li><li>Incorrect sign conventions for direction or 'g'</li><li>Not identifying 'from rest' (u=0) or 'comes to stop' (v=0)</li><li>Mixing units without conversion</li></ul>
-          <p class="notes">🎙️ Pay close attention to the details in problem statements. Always list your knowns and unknowns with units. Consistency in sign convention for direction is paramount, especially in problems involving vertical motion or changes in direction.</p>
+          <h2>Quick <span class="hl">Question</span> 1: Distance or Displacement?</h2>
+          <ul><li>A person walks 5 km East, then 3 km West.</li><li>What is the total distance covered?</li><li>What is the magnitude of their displacement?</li></ul>
+          <p class="notes">🎙️ Think carefully about the definitions of distance and displacement. Remember which one is a scalar and which is a vector. This question tests your fundamental understanding of these two concepts.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Don't make these errors</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,9 +324,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 1: Rest or Motion?</h2>
-          <ul><li>A passenger sitting in a moving train is at rest with respect to the train but in motion with respect to the ground.</li><li>True or False?</li></ul>
-          <p class="notes">🎙️ This question tests your understanding of the relative nature of rest and motion. Think about the frame of reference for each part of the statement. The answer is True, emphasizing that motion is always relative.</p>
+          <h2>Quick <span class="hl">Question</span> 2: Velocity Change</h2>
+          <ul><li>An object moves with constant speed in a circular path.</li><li>Is its velocity constant?</li><li>Is its acceleration constant?</li></ul>
+          <p class="notes">🎙️ This question probes your understanding of velocity and acceleration as vector quantities. Consider what it means for a vector to be constant – both magnitude AND direction must remain unchanged.</p>
         </div>
         
       </div>
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick <span class="hl">Check</span> 2: Path &amp; Displacement</h2>
-          <ul><li>A particle moves in a circle of radius R.</li><li>What is its displacement after completing half a circle?</li><li>What is its path length after half a circle?</li></ul>
-          <p class="notes">🎙️ Visualize the path. Displacement is the straight line connecting the start and end points. Path length is the actual distance traveled along the circular arc. For half a circle, the displacement is the diameter, and the path length is half the circumference.</p>
+          <h2>Quick <span class="hl">Question</span> 3: Kinematic Application</h2>
+          <ul><li>A car moving at 15 m/s applies brakes and decelerates at 3 m/s².</li><li>How far does it travel before coming to rest?</li></ul>
+          <p class="notes">🎙️ Identify the knowns and unknowns. 'Coming to rest' implies a final velocity of zero. Choose the most appropriate kinematic equation to solve for the distance traveled.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Rest &amp; Motion are relative concepts</li><li>Path Length (scalar) vs. Displacement (vector)</li><li>Speed (scalar) vs. Velocity (vector)</li><li>Acceleration (vector) as rate of change of velocity</li><li>Three Kinematic Equations for uniform acceleration</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! Remember the crucial distinction between scalar and vector quantities, and master the kinematic equations for uniformly accelerated motion. Consistent practice with problems will solidify your understanding and prepare you for exams.</p>
+          <h2><span class="hl">Recap</span>: Motion in a Straight Line</h2>
+          <ul><li>Distance vs. Displacement (Scalar vs. Vector)</li><li>Speed vs. Velocity (Scalar vs. Vector)</li><li>Acceleration: Rate of change of velocity</li><li>3 Kinematic Equations for constant acceleration</li><li>Graphical analysis (x-t, v-t graphs)</li></ul>
+          <p class="notes">🎙️ To summarize, we've covered the fundamental concepts of motion, distinguished between scalar and vector quantities, learned the three kinematic equations for constant acceleration, and understood how to interpret motion using graphs. Master these for success!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

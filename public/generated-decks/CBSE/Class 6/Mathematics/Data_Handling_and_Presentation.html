@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Data Handling and Presentation — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Welcome</span> to Data Handling and Presentation!</h2>
-          <ul><li>Understand what data is.</li><li>Learn how to collect and organize data.</li><li>Discover different ways to present data visually.</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today we begin an exciting chapter on Data Handling and Presentation. We will learn how to collect information, make sense of it, and show it in easy-to-understand ways. This skill is very useful in everyday life!</p>
+          <h2><span class="hl">Welcome</span> to Data Handling!</h2>
+          <ul><li>What is Data?</li><li>Why is it important?</li><li>How do we use it?</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're starting an exciting new chapter: Data Handling and Presentation. We'll learn how to collect, organize, and understand information around us. It's like being a detective with numbers and facts!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 25</span>
           <h2>What is <span class="hl">Data</span>?</h2>
-          <ul><li>Data means a collection of facts, figures, numbers, or information.</li><li>It's raw, unorganized information.</li><li>Example: Number of students in your class, marks in a test.</li></ul>
-          <p class="notes">🎙️ Imagine you want to know how many students like mangoes in your class. The answers you get from each student – 'yes' or 'no', or the count of students – that's data. It's just the basic information we gather.</p>
+          <ul><li>Data is a collection of facts, figures, or information.</li><li>It can be numbers, words, measurements, or observations.</li><li>Raw data is unorganized information.</li><li>We see data everywhere in our daily lives.</li></ul>
+          <p class="notes">🎙️ Think about your height, your friend's favorite color, or the number of students in your class. All these are examples of data! It's simply any piece of information we collect.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Facts and Figures</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Facts &amp; Figures</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -72,10 +85,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">3 / 25</span>
           <h2><span class="hl">Why</span> Do We Need Data?</h2>
-          <ul><li>Data helps us make sense of the world.</li><li>It helps us make informed decisions.</li><li>Example: Knowing how many students scored above 80% helps a teacher understand class performance.</li></ul>
-          <p class="notes">🎙️ We collect data because it helps us answer questions and understand things better. Without data, it's hard to know what's happening or what changes we need to make. It's like having all the pieces of a puzzle before you can see the full picture.</p>
+          <ul><li>Data helps us make decisions.</li><li>It helps us understand trends and patterns.</li><li>We can compare different things.</li><li>It answers questions about the world.</li></ul>
+          <p class="notes">🎙️ Imagine you want to buy a new cricket bat. You might look at data like its price, material, and reviews from other players to make the best choice. Data helps us choose wisely and understand things better.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Understanding</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Making Sense</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -84,8 +97,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">4 / 25</span>
           <h2><span class="hl">Collecting</span> Data</h2>
-          <ul><li>Collecting data means gathering information.</li><li>It should be relevant to our purpose.</li><li>Example: To know favorite sports, you ask students directly.</li></ul>
-          <p class="notes">🎙️ The first step in data handling is collecting it. You need to decide what information you want and then find ways to get it. This could be by asking questions, observing, or looking up records.</p>
+          <ul><li>Collecting data means gathering information.</li><li>We can collect data through surveys, observations, or experiments.</li><li>It's the first step in data handling.</li><li>We need to decide what information to collect.</li></ul>
+          <p class="notes">🎙️ Before we can do anything with data, we need to collect it! This involves deciding what information you need and then finding a way to get it. For example, if you want to know the favorite sport of your classmates, you would ask each one of them.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🧺</div><div class="vcap">Gathering Information</div></div></div>
       </div>
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Example</span>: Collecting Favorite Fruits</h2>
-          <ul><li>Ask 10 friends about their favorite fruit.</li><li>Record each friend's answer.</li><li>This is the raw data you collect.</li></ul>
-          <p class="notes">🎙️ Let's say we want to find out the favorite fruit of our friends. We go around and ask each person. One says 'apple', another 'banana', and so on. We write down each answer, and that list is our collected data.</p>
+          <h2><span class="hl">Example</span>: Collecting Data</h2>
+          <ul><li>Let's find the favorite fruits of 7 students.</li><li>Student 1: Apple</li><li>Student 2: Banana</li><li>Student 3: Apple</li><li>Student 4: Orange</li></ul>
+          <p class="notes">🎙️ Here we have collected data from seven students about their favorite fruits. You can see we have apples, bananas, and oranges. This is raw data, just as we collected it.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Fruits for data collection</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Favorite Fruits</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -108,8 +121,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">6 / 25</span>
           <h2><span class="hl">Organizing</span> Data</h2>
-          <ul><li>Organizing data means arranging it in a systematic way.</li><li>It makes data easier to understand and analyze.</li><li>Example: Grouping all 'apples' together, all 'bananas' together.</li></ul>
-          <p class="notes">🎙️ Once we have collected the data, it's often a jumbled mess. Organizing it helps us see patterns and counts quickly. It's like putting all your books in order on a shelf instead of having them scattered everywhere.</p>
+          <ul><li>Organizing means arranging data in a proper way.</li><li>It makes raw data easier to read and understand.</li><li>We often use tables or lists.</li><li>This step helps us find patterns.</li></ul>
+          <p class="notes">🎙️ After collecting data, it's often a mess! Organizing it is like tidying up your room. We arrange it so we can quickly see what information we have and what it tells us, making it much more useful.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">🗂️</div><div class="vcap">Arranging Information</div></div></div>
       </div>
@@ -120,10 +133,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">7 / 25</span>
           <h2><span class="hl">Tally Marks</span></h2>
-          <ul><li>Tally marks are a simple way to count and record data.</li><li>Each mark represents one item.</li><li>For every five items, we draw four vertical lines and one diagonal line across them (𝄕).</li></ul>
-          <p class="notes">🎙️ Tally marks are a very old and useful method for keeping track of counts. They are especially handy when you are counting things as they happen, like votes in an election or cars passing by. The group of five makes it easy to quickly see the total.</p>
+          <ul><li>Tally marks are a simple way to count and organize data.</li><li>A vertical line ( | ) represents one item.</li><li>The fifth item is represented by a diagonal line ( ⧸ ) across the first four.</li><li>This forms a bundle of five, easy to count.</li></ul>
+          <p class="notes">🎙️ Tally marks are very useful when you are collecting data on the spot. Instead of writing numbers, you just draw a line. When you reach five, you make a bundle, which makes counting large numbers much faster and less prone to errors.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Counting with Tally</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Counting in Fives</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -132,10 +145,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">8 / 25</span>
           <h2><span class="hl">Example</span>: Using Tally Marks</h2>
-          <ul><li>Students' favorite colors:</li><li>Red: IIII (4)</li><li>Blue: 𝄕 (5)</li><li>Green: III (3)</li></ul>
-          <p class="notes">🎙️ Let's apply tally marks to our favorite colors example. When a student says 'Red', we draw one line. After four Reds, the fifth Red gets a diagonal line across the first four. This makes counting much faster than just individual marks.</p>
+          <ul><li>Favorite colors of students:</li><li>Red, Blue, Green, Red, Blue, Green, Red, Blue, Blue, Green</li><li>Let's use tally marks to count each color.</li></ul>
+          <p class="notes">🎙️ From our raw data, we can now see that 3 students like Red, 4 like Blue, and 3 like Green. The tally marks provide a clear, visual count for each category. It's much easier than just looking at the long list of colors.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖍️</span><span>🖍️</span><span>🖍️</span><span>🖍️</span><span>🖍️</span></div><div class="vcap">One group of five tallies</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Red: |||</span></div><div class="step"><span class="snum">2</span><span>Blue: ||||</span></div><div class="step"><span class="snum">3</span><span>Green: |||</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Frequency Distribution Table</h2>
-          <ul><li>A table that shows how often each item appears in a dataset.</li><li>It has columns for the item, tally marks, and frequency (total count).</li><li>Makes organized data very clear.</li></ul>
-          <p class="notes">🎙️ A frequency distribution table is a powerful tool for organizing data. It neatly summarizes how many times each specific piece of data occurs. This table is the foundation for creating visual representations of data later on.</p>
+          <h2><span class="hl">Frequency</span> Distribution Table</h2>
+          <ul><li>A table that shows how often each item appears.</li><li>It has columns for the item, tally marks, and frequency.</li><li>Frequency is the number of times an item occurs.</li><li>Organizes data clearly and systematically.</li></ul>
+          <p class="notes">🎙️ A frequency distribution table is a more formal way to organize data using tally marks. It helps us summarize large amounts of data into a compact form. This table is a fundamental tool in data handling.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📋</div><div class="vcap">Organized Counts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Structured Data</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Example</span>: Class Attendance Table</h2>
-          <ul><li>Record daily attendance for a week.</li><li>Monday: 40 students, Tuesday: 45 students.</li><li>Wednesday: 35 students, Thursday: 40 students, Friday: 30 students.</li></ul>
-          <p class="notes">🎙️ Here's an example of a frequency table for class attendance. We list the days and then the number of students present. This gives us a quick overview of attendance patterns throughout the week. (Note: Visual values are scaled down for presentation).</p>
+          <h2><span class="hl">Example</span>: Frequency Table</h2>
+          <ul><li>Marks scored by 10 students in a math test (out of 50):</li><li>30, 45, 20, 30, 40, 20, 30, 45, 40, 30</li><li>Let's group them into ranges.</li></ul>
+          <p class="notes">🎙️ Here, we've grouped the marks to see how many students scored in different ranges. Two students scored between 20-29, four between 30-39, and four between 40-50. This table gives us a quick overview of performance.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Mon</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tue</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Wed</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Thu</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Fri</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">20-29 Marks</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">30-39 Marks</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">40-50 Marks</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>What is a <span class="hl">Pictograph</span>?</h2>
-          <ul><li>A pictograph uses pictures or symbols to represent data.</li><li>Each symbol represents a certain quantity.</li><li>It's easy to understand and visually appealing.</li></ul>
-          <p class="notes">🎙️ A pictograph is a fun and simple way to show data. Instead of just numbers, we use small drawings or symbols. The key is important because it tells us what each picture stands for, helping us read the graph correctly.</p>
+          <h2><span class="hl">Presentation</span> of Data</h2>
+          <ul><li>Presenting data means showing it in a visual way.</li><li>Makes data easy to understand at a glance.</li><li>Common methods include pictographs and bar graphs.</li><li>A good presentation tells a story.</li></ul>
+          <p class="notes">🎙️ Once data is organized, we can present it in pictures or graphs. This makes it much more interesting and easier for anyone to understand, even without reading all the numbers. It's like drawing a picture from a story.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Data in Pictures</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Visualizing Information</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>How to <span class="hl">Draw</span> a Pictograph</h2>
-          <ul><li>1. Collect and organize your data.</li><li>2. Choose a suitable symbol and a key (what each symbol represents).</li><li>3. Draw the symbols according to the frequency.</li><li>4. Give your pictograph a clear title.</li></ul>
-          <p class="notes">🎙️ Drawing a pictograph involves a few simple steps. First, get your data ready. Then, select a picture that fits your data and decide how much each picture will represent. Finally, draw the pictures neatly and give your graph a good title.</p>
+          <h2><span class="hl">Pictograph</span></h2>
+          <ul><li>A pictograph uses pictures or symbols to represent data.</li><li>Each symbol represents a certain quantity.</li><li>It's a simple and fun way to display information.</li><li>Easy to compare different categories visually.</li></ul>
+          <p class="notes">🎙️ Imagine you're counting apples, and instead of writing numbers, you draw little apple pictures! That's exactly what a pictograph does. It's a very intuitive way to show quantities using relevant images.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Collect Data</span></div><div class="step"><span class="snum">2</span><span>Choose Symbol &amp; Key</span></div><div class="step"><span class="snum">3</span><span>Draw Pictures</span></div><div class="step"><span class="snum">4</span><span>Add Title</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Data with Pictures</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Example</span>: Trees Planted in a Garden</h2>
-          <ul><li>Key: One 🌳 represents 2 trees.</li><li>Mango Trees: 🌳🌳🌳 (6 trees)</li><li>Neem Trees: 🌳🌳🌳🌳 (8 trees)</li><li>Guava Trees: 🌳🌳 (4 trees)</li></ul>
-          <p class="notes">🎙️ Here's a pictograph showing trees planted. Notice the key: one tree symbol equals two actual trees. This helps us represent larger numbers without drawing too many symbols. It clearly shows which type of tree was planted most.</p>
+          <h2><span class="hl">Rules</span> for Pictographs</h2>
+          <ul><li>Give a clear title to the pictograph.</li><li>Choose an appropriate symbol for the data.</li><li>Define a 'key' or 'scale' for the symbol.</li><li>Draw the correct number of symbols for each category.</li></ul>
+          <p class="notes">🎙️ To make a good pictograph, we need to follow some rules. The most important is the key, which tells us what each picture represents. For example, one car symbol might mean 10 actual cars.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Representing trees planted</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Title</span></div><div class="step"><span class="snum">2</span><span>2. Symbol &amp; Key</span></div><div class="step"><span class="snum">3</span><span>3. Draw Pictures</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Interpreting</span> a Pictograph</h2>
-          <ul><li>Read the title and the key carefully.</li><li>Count the symbols for each category.</li><li>Multiply the count by the value of one symbol (from the key).</li><li>Answer questions based on the information.</li></ul>
-          <p class="notes">🎙️ Interpreting a pictograph means understanding the story it tells. Always start by checking the key, as it's the most important part. Once you know what each picture means, you can easily compare categories and draw conclusions.</p>
+          <h2><span class="hl">Example</span>: Pictograph</h2>
+          <ul><li>Number of cars sold by a dealer in 4 months.</li><li>January: 30 cars</li><li>February: 50 cars</li><li>March: 40 cars</li><li>April: 20 cars</li></ul>
+          <p class="notes">🎙️ Here, we're representing cars sold. If one car emoji means 10 cars, then for February, with 50 cars sold, we would draw five car emojis. This makes it very clear and easy to compare sales across months.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧐</div><div class="vcap">Understanding the message</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span><span>🚗</span></div><div class="vcap">1 🚗 = 10 cars</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Quick <span class="hl">Question</span> 1</h2>
-          <ul><li>If 🍎 represents 3 apples, and a basket has 🍎🍎🍎🍎.</li><li>How many apples are in the basket?</li><li>A) 4   B) 12   C) 7   D) 3</li></ul>
-          <p class="notes">🎙️ Let's quickly test our understanding of pictographs. Remember to look at the key and count the symbols. Take a moment to calculate your answer before we reveal it. The correct answer is B) 12.</p>
+          <h2><span class="hl">Bar Graph</span></h2>
+          <ul><li>A bar graph uses rectangular bars to represent data.</li><li>Bars can be horizontal or vertical.</li><li>All bars have uniform width.</li><li>The height or length of the bar shows the value.</li></ul>
+          <p class="notes">🎙️ Bar graphs are another powerful way to present data. Instead of pictures, we use bars. The longer the bar, the greater the quantity it represents. They are great for comparing different categories.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Data with Bars</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>What is a <span class="hl">Bar Graph</span>?</h2>
-          <ul><li>A bar graph uses bars of uniform width.</li><li>Bars are drawn horizontally or vertically.</li><li>The length of each bar represents the frequency of an item.</li></ul>
-          <p class="notes">🎙️ A bar graph is another popular way to display data. Instead of pictures, we use rectangles called bars. The height or length of these bars directly shows us the quantity or frequency of each category, making comparisons very easy.</p>
+          <h2><span class="hl">Rules</span> for Bar Graphs</h2>
+          <ul><li>Draw two axes: horizontal and vertical.</li><li>Label the axes clearly (e.g., 'Months', 'Number of Cars').</li><li>Choose an appropriate scale for the numerical axis.</li><li>Draw bars of uniform width with equal spacing.</li></ul>
+          <p class="notes">🎙️ Just like pictographs, bar graphs have rules to ensure they are clear and accurate. The scale on the numerical axis is crucial, as it determines how tall your bars will be and how easily you can read the values.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Data in Bars</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>1. Draw Axes</span></div><div class="step"><span class="snum">2</span><span>2. Label &amp; Scale</span></div><div class="step"><span class="snum">3</span><span>3. Draw Bars</span></div><div class="step"><span class="snum">4</span><span>4. Title</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,35 +252,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>How to <span class="hl">Draw</span> a Bar Graph</h2>
-          <ul><li>1. Draw two axes (horizontal and vertical).</li><li>2. Choose a suitable scale for the frequency axis.</li><li>3. Draw bars of equal width with equal spacing.</li><li>4. Label both axes and give the graph a title.</li></ul>
-          <p class="notes">🎙️ Drawing a bar graph requires careful planning. You need to set up your axes, decide on a scale that fits your data well, and then draw the bars precisely. Remember that all bars should be the same width and have consistent gaps between them.</p>
+          <h2><span class="hl">Example</span>: Bar Graph</h2>
+          <ul><li>Favorite sports of students in a class:</li><li>Cricket: 25 students</li><li>Football: 20 students</li><li>Badminton: 15 students</li><li>Hockey: 10 students</li></ul>
+          <p class="notes">🎙️ In this bar graph, we can quickly see that Cricket is the most popular sport, and Hockey is the least popular among these options. The height of each bar directly shows the number of students who prefer that sport.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Axes</span></div><div class="step"><span class="snum">2</span><span>Choose Scale</span></div><div class="step"><span class="snum">3</span><span>Draw Bars</span></div><div class="step"><span class="snum">4</span><span>Label &amp; Title</span></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cricket</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Football</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Badminton</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Hockey</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Example</span>: Favorite Sports in Class 6</h2>
-          <ul><li>Cricket: 15 students</li><li>Football: 10 students</li><li>Badminton: 12 students</li><li>Kabaddi: 8 students</li></ul>
-          <p class="notes">🎙️ Here's a bar graph showing favorite sports. The height of each bar tells us how many students prefer that sport. We can quickly see that Cricket is the most popular and Kabaddi is the least popular among these options. (Visual values are scaled).</p>
+          <h2>Quick <span class="hl">Question 1</span></h2>
+          <ul><li>Which of these is NOT an example of data?</li><li>A) Number of students in your class</li><li>B) Your favorite color</li><li>C) The taste of a mango</li><li>D) The height of your friend</li></ul>
+          <p class="notes">🎙️ Think about what data is: facts, figures, or observations that can be collected and measured. Is the taste of a mango something you can easily measure or count numerically like the other options?</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cricket</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Football</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Badminton</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Kabaddi</div></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Interpreting</span> a Bar Graph</h2>
-          <ul><li>Read the title and axis labels.</li><li>Observe the height or length of each bar.</li><li>Compare the bars to identify highest/lowest frequencies.</li><li>Answer questions based on the visual information.</li></ul>
-          <p class="notes">🎙️ To interpret a bar graph, look at the title to know what it's about, then check the labels on the horizontal and vertical axes. The height of each bar tells you its value. You can easily compare different categories just by looking at the bars.</p>
+          <h2>Quick <span class="hl">Question 2</span></h2>
+          <ul><li>How would you represent 7 using tally marks?</li><li>A) |||||||</li><li>B) ||||| ||</li><li>C) |||| ||</li><li>D) ||||| |||</li></ul>
+          <p class="notes">🎙️ Remember the rule for tally marks: every fifth mark makes a bundle. How many bundles of five and how many single marks would you need to make seven?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Understanding the Bars</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -275,9 +288,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick <span class="hl">Question</span> 2</h2>
-          <ul><li>A bar graph shows 'Books Read'.</li><li>Red bar (Fiction): 20 books.</li><li>Blue bar (Non-Fiction): 15 books.</li><li>How many more Fiction books were read than Non-Fiction?</li></ul>
-          <p class="notes">🎙️ Here's another quick question, this time about a bar graph. Read the information carefully and perform the simple calculation. This helps you practice extracting and comparing data from a visual representation. The answer is 5.</p>
+          <h2>Quick <span class="hl">Question 3</span></h2>
+          <ul><li>A pictograph shows 🍎🍎🍎 for apples sold.</li><li>If 1 🍎 = 5 apples, how many apples were sold?</li><li>A) 3 apples</li><li>B) 5 apples</li><li>C) 10 apples</li><li>D) 15 apples</li></ul>
+          <p class="notes">🎙️ Look at the key provided for the pictograph. Each apple symbol represents a certain number of actual apples. Multiply the number of symbols by the value of each symbol.</p>
         </div>
         
       </div>
@@ -287,9 +300,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick <span class="hl">Question</span> 3</h2>
-          <ul><li>What is the main difference between a pictograph and a bar graph?</li><li>A) One uses pictures, the other uses bars.</li><li>B) Pictographs are for small data, bar graphs for large data.</li><li>C) Pictographs are always vertical, bar graphs are always horizontal.</li><li>D) There is no difference.</li></ul>
-          <p class="notes">🎙️ Let's think about the fundamental difference between these two visual tools. Both are used to represent data, but how do they do it? Consider the primary visual element of each. The correct answer is A).</p>
+          <h2>Quick <span class="hl">Question 4</span></h2>
+          <ul><li>In a bar graph, if a bar for 'Books' reaches up to '20' on the vertical axis,</li><li>What does that tell you?</li><li>A) There are 20 types of books.</li><li>B) 20 books were read.</li><li>C) The bar is 20 units wide.</li><li>D) Books are 20 years old.</li></ul>
+          <p class="notes">🎙️ Recall that in a bar graph, the height or length of the bar represents the quantity or value. What would the vertical axis typically represent in a graph about books?</p>
         </div>
         
       </div>
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Real-Life</span> Applications of Data Handling</h2>
-          <ul><li>Weather reports and climate trends.</li><li>Sports statistics (scores, player performance).</li><li>Sales figures in shops and businesses.</li><li>Population counts and census data.</li></ul>
-          <p class="notes">🎙️ Data handling isn't just for math class; it's everywhere! From checking the weather forecast to understanding how many people live in your city, data helps us make sense of the world. It's a crucial skill for understanding information presented in news, ads, and reports.</p>
+          <h2><span class="hl">Interpreting</span> Data</h2>
+          <ul><li>Interpreting data means understanding what the data tells us.</li><li>We look for highest/lowest values, trends, and comparisons.</li><li>It helps us draw conclusions and make predictions.</li><li>This is the 'story' the data tells.</li></ul>
+          <p class="notes">🎙️ After collecting, organizing, and presenting data, the most important step is to interpret it. This means looking at the graphs and tables and figuring out what information they are conveying. What is the data trying to tell us?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Everywhere Around Us</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Understanding the Story</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Key Terms</span> Recap</h2>
-          <ul><li>Data: Raw facts and figures.</li><li>Tally Marks: Counting with groups of five.</li><li>Frequency: How often an item appears.</li><li>Pictograph: Data using pictures.</li><li>Bar Graph: Data using bars.</li></ul>
-          <p class="notes">🎙️ Let's quickly review the important words we learned today. Understanding these terms is essential for discussing and working with data. Make sure you remember what each of these terms means and how they relate to data handling.</p>
+          <h2><span class="hl">Real-Life</span> Use of Data</h2>
+          <ul><li>Weather forecasts use data to predict rain or sunshine.</li><li>Sports teams use data to analyze player performance.</li><li>Schools use data to track student progress.</li><li>Governments use data for planning cities and services.</li></ul>
+          <p class="notes">🎙️ Data handling isn't just for math class; it's used everywhere! From deciding what clothes to wear based on the weather forecast to understanding how your favorite sports team is performing, data helps us every day.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔑</div><div class="vcap">Important Words</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Data All Around Us</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Summary</span>: What We Learned</h2>
-          <ul><li>Data is raw information.</li><li>We collect, organize (tally marks, frequency table), and present data.</li><li>Pictographs use symbols, bar graphs use bars.</li><li>Both help us understand and compare data easily.</li></ul>
-          <p class="notes">🎙️ Today, we covered the basics of data handling, from gathering raw information to presenting it in clear, visual ways. We learned that organizing data is key to making it useful, and both pictographs and bar graphs are powerful tools for communication.</p>
+          <h2><span class="hl">Recap</span>: What We Learned</h2>
+          <ul><li>Data is information we collect.</li><li>We organize data using tally marks and frequency tables.</li><li>We present data visually using pictographs and bar graphs.</li><li>Interpreting data helps us understand and make decisions.</li></ul>
+          <p class="notes">🎙️ So, we started by learning what data is, then how to collect it. We then moved on to organizing it with tally marks and frequency tables. Finally, we learned to present it using pictographs and bar graphs, and most importantly, how to understand it. You've learned very important skills today!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Key Takeaways</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Challenge</span> Question!</h2>
-          <ul><li>Think of something you'd like to collect data on.</li><li>How would you collect it?</li><li>Which type of graph (pictograph or bar graph) would best represent it and why?</li></ul>
-          <p class="notes">🎙️ Now for a little challenge! Think about a real-world scenario where you could apply what you've learned today. Consider what kind of data you would gather and which visual representation would be most effective. This helps you connect classroom learning to practical situations.</p>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep practicing data handling skills.</li><li>Look for data around you every day.</li><li>Next, we'll explore more advanced graphs!</li><li>Any questions?</li></ul>
+          <p class="notes">🎙️ Thank you for being such attentive students! Data handling is a skill you'll use throughout your life. Keep observing, collecting, and understanding the information around you. If you have any questions, feel free to ask!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 6 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

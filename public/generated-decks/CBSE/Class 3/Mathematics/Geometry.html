@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Geometry: Shapes and Lines Around Us! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Geometry: Shapes All Around Us! — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to the World of <span class="hl">Shapes</span>!</h2>
-          <ul><li>Let's learn about shapes and lines all around us!</li></ul>
-          <p class="notes">🎙️ Hello, little explorers! Today, we are going on an exciting adventure into the world of Geometry. It's all about understanding the shapes and lines we see every day, from your toy car to your yummy biscuit!</p>
+          <h2>Welcome to <span class="hl">Geometry</span>!</h2>
+          <ul><li>Hello, little explorers!</li><li>Today we will learn about shapes.</li><li>Shapes are everywhere around us!</li></ul>
+          <p class="notes">🎙️ Namaste children! Today we are starting a very fun chapter called Geometry. Geometry is all about the shapes we see and play with every single day. Let's start our journey to explore these wonderful shapes!</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Geometry</span>?</h2>
-          <ul><li>Geometry helps us understand shapes and sizes.</li><li>It's about the space around us!</li></ul>
-          <p class="notes">🎙️ Geometry is a big word, but it just means we are learning about how things look and fit together. Look around you, everything has a shape and size, right? Geometry helps us understand all of that.</p>
+          <ul><li>Geometry is the study of shapes.</li><li>It helps us understand the world.</li><li>Look around you, what shapes do you see?</li></ul>
+          <p class="notes">🎙️ Geometry is a special part of maths that teaches us about different shapes and sizes. From your toys to your house, everything has a shape. It's like a secret language of shapes!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🌎" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🌍" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Meet the Tiny <span class="hl">Point</span></h2>
-          <ul><li>A point is a tiny dot.</li><li>It shows an exact spot or position.</li></ul>
-          <p class="notes">🎙️ Imagine you dip your pen in ink and just touch the paper once. What do you get? A tiny dot! That's what we call a point in geometry. It tells us 'here' is a spot.</p>
+          <h2>Meet the '<span class="hl">Point</span>'!</h2>
+          <ul><li>A point is a tiny dot.</li><li>It shows an exact place.</li><li>It has no size, just a position.</li></ul>
+          <p class="notes">🎙️ Imagine poking your pencil on a paper, that tiny mark is a point. It's like a starting spot or a specific location. It's the smallest thing in geometry!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">A Spot</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">●</div><div class="vcap">A tiny dot</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Where Do We See <span class="hl">Points</span>?</h2>
-          <ul><li>The tip of a pencil.</li><li>A tiny star in the sky.</li><li>The dot in an 'i'.</li></ul>
-          <p class="notes">🎙️ Look at the tip of your pencil – that's like a point! Or imagine a tiny star twinkling far away. Even the little dot on the letter 'i' is a point. They are everywhere!</p>
+          <h2><span class="hl">Straight Lines</span></h2>
+          <ul><li>A straight line goes in one direction.</li><li>It never bends or curves.</li><li>Like the edge of your ruler.</li></ul>
+          <p class="notes">🎙️ Think about walking straight from one end of the room to the other, that's a straight line. We use rulers to draw straight lines. Can you find anything straight in your classroom?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div><div class="vcap">Twinkling Stars</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">A straight path</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Let's Draw a <span class="hl">Line</span>!</h2>
-          <ul><li>A line is a straight path.</li><li>It goes on and on in both directions.</li></ul>
-          <p class="notes">🎙️ Now, if you keep drawing with your pencil, moving it straight, you make a line! A line has no beginning and no end; it just keeps going forever, like a very long road.</p>
+          <h2><span class="hl">Curved Lines</span></h2>
+          <ul><li>A curved line is not straight.</li><li>It bends and turns.</li><li>Like a wavy road or a rainbow.</li></ul>
+          <p class="notes">🎙️ Now, imagine a snake moving or a river flowing, they make curved lines. Curved lines are fun because they can go in any direction and make beautiful patterns. Can you draw a curved line with your finger in the air?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Goes Both Ways</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">A wavy path</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">Lines</span> All Around Us</h2>
-          <ul><li>The edge of your ruler.</li><li>A straight road.</li><li>The side of a table.</li></ul>
-          <p class="notes">🎙️ Think about the edge of your ruler – it's a straight line! Or a very long, straight road you see from a car. Even the straight side of your table is a line. They help things stay neat and ordered.</p>
+          <h2><span class="hl">Line Segment</span></h2>
+          <ul><li>A line segment is a part of a straight line.</li><li>It has a start point and an end point.</li><li>You can measure its length.</li></ul>
+          <p class="notes">🎙️ If you take a long straight line and cut a piece from it, that piece is a line segment. It has a definite beginning and a definite end. Think of the edge of your desk, it's a line segment.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛣️</span><span>🛣️</span><span>🛣️</span></div><div class="vcap">Straight Roads</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">A cut piece of line</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>What is a <span class="hl">Line Segment</span>?</h2>
-          <ul><li>It's a part of a line.</li><li>It has a starting point and an ending point.</li></ul>
-          <p class="notes">🎙️ A line segment is like taking a piece out of that very long line. It has a clear start and a clear end. You can measure its length easily, unlike a line that goes on forever.</p>
+          <h2>What is a <span class="hl">Ray</span>?</h2>
+          <ul><li>A ray starts at one point.</li><li>It goes on forever in one direction.</li><li>Like a ray of sunshine from the sun.</li></ul>
+          <p class="notes">🎙️ Imagine the sun sending out light, it starts at the sun and goes on and on. That's a ray! It has a starting point but no end point. The light from a torch is also like a ray.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measurable Part</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="☀️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2><span class="hl">Line Segments</span> We See</h2>
-          <ul><li>The side of your book.</li><li>A pencil.</li><li>Your arm!</li></ul>
-          <p class="notes">🎙️ Your pencil has a start and an end, right? That's a line segment! The side of your book or even your arm can be thought of as a line segment. They are everywhere in things we can hold and measure.</p>
+          <h2><span class="hl">Plane Shapes</span> (2D Shapes)</h2>
+          <ul><li>These are flat shapes.</li><li>You can draw them on paper.</li><li>They only have length and width.</li></ul>
+          <p class="notes">🎙️ Now let's talk about plane shapes, also called 2D shapes. These are like pictures, they are flat and don't have any thickness. We see many of these shapes in our books and on walls.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span><span>📚</span></div><div class="vcap">Books with Edges</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Flat pictures</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Meet the Bright <span class="hl">Ray</span></h2>
-          <ul><li>A ray starts at one point.</li><li>It goes on and on in only one direction.</li></ul>
-          <p class="notes">🎙️ Imagine a line that starts at a point, like a sun, and then shoots out forever in one direction. That's a ray! It has a starting point but no end, only one way to go.</p>
+          <h2>Round and Round: The <span class="hl">Circle</span>!</h2>
+          <ul><li>A circle is perfectly round.</li><li>It has no straight sides or corners.</li><li>Like a yummy roti or a car wheel.</li></ul>
+          <p class="notes">🎙️ The circle is one of the most common shapes. Think of a bangle, a coin, or the clock on the wall. They are all circles! It's fun to draw a circle freehand or with a compass.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="➡️" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">A perfect circle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Where Do We See <span class="hl">Rays</span>?</h2>
-          <ul><li>Sun rays!</li><li>Light from a torch.</li><li>A laser beam.</li></ul>
-          <p class="notes">🎙️ The best example of a ray is the sun's rays! They start from the sun and travel towards us. Or think about the light coming out of a torch – it starts at the torch and goes forward.</p>
+          <h2>Four Equal Sides: The <span class="hl">Square</span>!</h2>
+          <ul><li>A square has four straight sides.</li><li>All four sides are exactly the same length.</li><li>It also has four corners.</li></ul>
+          <p class="notes">🎙️ Next is the square! Imagine a chessboard, a slice of bread, or a carrom board. They are squares. All their sides are equal, which makes them look very balanced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☀️</span><span>☀️</span><span>☀️</span></div><div class="vcap">Sun's Rays</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟥</div><div class="vcap">A red square</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Time for a <span class="hl">Quick Check</span>!</h2>
-          <ul><li>Which one has a start and an end?</li></ul>
-          <p class="notes">🎙️ Let's see if you remember! Out of a line, a ray, and a line segment, which one has both a clear beginning and a clear end? Think about what we just learned!</p>
+          <h2>Long and Short: The <span class="hl">Rectangle</span>!</h2>
+          <ul><li>A rectangle also has four straight sides.</li><li>It has two long sides and two short sides.</li><li>Like your classroom door or a book.</li></ul>
+          <p class="notes">🎙️ The rectangle is a bit like a stretched square. Your mobile phone, a blackboard, or your school bag are often rectangles. Its opposite sides are equal in length.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟦</div><div class="vcap">A blue rectangle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Let's Meet <span class="hl">Flat Shapes</span>!</h2>
-          <ul><li>These shapes are flat, like a drawing.</li><li>They have length and width.</li></ul>
-          <p class="notes">🎙️ Now let's talk about shapes that are flat, like a picture you draw on paper. We call them 2D shapes. You can't hold them in your hand like a real object, but you can see their outline.</p>
+          <h2>Three Sides: The <span class="hl">Triangle</span>!</h2>
+          <ul><li>A triangle has three straight sides.</li><li>It also has three corners.</li><li>Like a yummy samosa or a mountain peak.</li></ul>
+          <p class="notes">🎙️ The triangle is a strong shape! Think of a slice of pizza, a traffic sign, or the roof of a house. They are all triangles. It's a very stable shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📄</div><div class="vcap">Flat Paper</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">A pointed triangle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Hello, <span class="hl">Square</span>!</h2>
-          <ul><li>It has 4 straight sides.</li><li>All 4 sides are the same length.</li><li>It has 4 corners.</li></ul>
-          <p class="notes">🎙️ Our first flat shape is the square! Imagine a window pane or a chess board. All its four sides are exactly the same size, and it has four pointy corners. It's a very balanced shape!</p>
+          <h2>Counting <span class="hl">Sides and Corners</span>!</h2>
+          <ul><li>Sides are the straight lines of a shape.</li><li>Corners (vertices) are where two sides meet.</li><li>Let's count for square, rectangle, triangle!</li></ul>
+          <p class="notes">🎙️ Every flat shape has sides and corners. For a square, there are 4 sides and 4 corners. For a rectangle, there are also 4 sides and 4 corners. And for a triangle, there are 3 sides and 3 corners. Good job counting!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟦</div><div class="vcap">A Blue Square</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Hello, <span class="hl">Rectangle</span>!</h2>
-          <ul><li>It has 4 straight sides.</li><li>Opposite sides are the same length.</li><li>It has 4 corners.</li></ul>
-          <p class="notes">🎙️ Next is the rectangle! Like a square, it has four sides and four corners. But here, only the opposite sides are equal. Think of your classroom door or a mobile phone – they are usually rectangles.</p>
+          <h2><span class="hl">Solid Shapes</span> (3D Shapes)</h2>
+          <ul><li>These shapes are not flat.</li><li>You can hold them in your hand.</li><li>They have length, width, and height!</li></ul>
+          <p class="notes">🎙️ Now let's move to solid shapes, also called 3D shapes. These are not flat like drawings; they are real objects you can touch and feel. They take up space, like your toys or a fruit.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟥</div><div class="vcap">A Red Rectangle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Shapes you can hold</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Hello, <span class="hl">Triangle</span>!</h2>
-          <ul><li>It has 3 straight sides.</li><li>It has 3 corners.</li></ul>
-          <p class="notes">🎙️ Now for the triangle! 'Tri' means three, so this shape has three sides and three corners. Think of a yummy samosa or a slice of pizza – many things are shaped like triangles!</p>
+          <h2>The <span class="hl">Cube</span>!</h2>
+          <ul><li>A cube is like a dice.</li><li>All its faces are squares.</li><li>It has 6 flat faces.</li></ul>
+          <p class="notes">🎙️ A cube is a very special 3D shape. Think of an ice cube or a Rubik's cube. All its sides, called faces, are perfect squares. It's a very balanced and strong shape.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">A Red Triangle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">An ice cube</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Hello, <span class="hl">Circle</span>!</h2>
-          <ul><li>It has no straight sides.</li><li>It has no corners.</li><li>It is round and round!</li></ul>
-          <p class="notes">🎙️ And finally, the circle! This is a very special shape because it has no straight sides and no corners at all. It's perfectly round! Like a wheel, a plate, or a yummy roti.</p>
+          <h2>The <span class="hl">Cuboid</span>!</h2>
+          <ul><li>A cuboid is like a shoebox.</li><li>Its faces are rectangles.</li><li>It also has 6 flat faces.</li></ul>
+          <p class="notes">🎙️ The cuboid is very similar to a cube, but its faces are rectangles, not necessarily squares. Think of a brick, a book, or a matchbox. These are all examples of cuboids.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟣</div><div class="vcap">A Purple Circle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">A gift box</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Quick Check on Shapes!</h2>
-          <ul><li>Which shape has no corners?</li></ul>
-          <p class="notes">🎙️ Let's test your shape knowledge! Out of these three shapes, which one is perfectly round and does not have any corners? Think carefully about their sides and corners!</p>
+          <h2>The <span class="hl">Cylinder</span>!</h2>
+          <ul><li>A cylinder is like a can of juice.</li><li>It has two flat circular faces.</li><li>And one curved face.</li></ul>
+          <p class="notes">🎙️ A cylinder is a shape that can roll! Imagine a water bottle, a battery, or a gas cylinder. It has a circular top and bottom, and a curved surface all around.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Square</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Triangle</div></div><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Circle</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥫</div><div class="vcap">A food can</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Meet <span class="hl">Solid Shapes</span>!</h2>
-          <ul><li>These shapes are not flat.</li><li>You can hold them in your hand.</li><li>They have length, width, and height.</li></ul>
-          <p class="notes">🎙️ Now, let's move from flat drawings to shapes you can actually hold! We call these solid shapes or 3D shapes. They take up space, like your toy block or a ball.</p>
+          <h2>The <span class="hl">Sphere</span>!</h2>
+          <ul><li>A sphere is perfectly round.</li><li>It has only one curved face.</li><li>Like a football or an orange.</li></ul>
+          <p class="notes">🎙️ The sphere is the roundest of all 3D shapes. Think of a globe, a marble, or a plum. It's completely curved and can roll in any direction. It has no flat faces, no edges, and no corners.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">A Box</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚽</div><div class="vcap">A round ball</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Hello, <span class="hl">Cube</span>!</h2>
-          <ul><li>It has 6 flat faces.</li><li>All faces are squares.</li><li>It has 8 corners and 12 edges.</li></ul>
-          <p class="notes">🎙️ Our first solid shape is the cube! Think of a dice you play with, or a Rubik's cube. All its sides are squares, and it has many faces, corners, and edges. It's a very strong shape!</p>
+          <h2>The <span class="hl">Cone</span>!</h2>
+          <ul><li>A cone has one flat circular face.</li><li>It has one curved face.</li><li>It comes to a sharp point at the top.</li></ul>
+          <p class="notes">🎙️ Finally, let's look at the cone! Imagine an ice cream cone or a birthday cap. It has a flat circular base and then tapers up to a single point. It's a fun shape!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">A Dice</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍦</div><div class="vcap">An ice cream cone</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What Did We Learn Today?</h2>
-          <ul><li>We learned about points, lines, rays, and line segments.</li><li>We met flat shapes: square, rectangle, triangle, circle.</li><li>We also saw a solid shape: the cube!</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much today! We started with tiny points and then made lines. Then we explored flat shapes like squares and circles, and even a solid shape like a cube. Geometry is all around us!</p>
+          <h2>Quick <span class="hl">Quiz</span>: Name the Shape!</h2>
+          <ul><li>What shape is a pizza slice?</li><li>What shape is your school bus?</li><li>What shape is a cricket ball?</li></ul>
+          <p class="notes">🎙️ Time for a quick quiz! Think about the shapes we learned today. A pizza slice is a triangle! Your school bus is a cuboid! And a cricket ball is a sphere! You did great today, learning all about shapes!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="🔢" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

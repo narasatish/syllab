@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Kinetic Theory of Gases: Exploring the Microscopic World — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Kinetic Theory of Gases — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Kinetic Theory</span> of Gases: An Introduction</h2>
-          <ul><li>Welcome to the microscopic world of gases!</li><li>Understand gas behavior from a molecular perspective.</li><li>Connecting tiny particles to everyday phenomena.</li></ul>
-          <p class="notes">🎙️ Welcome, Class 11 students! Today we embark on a fascinating journey into the 'Kinetic Theory of Gases', a cornerstone of modern physics. We'll uncover how the microscopic behavior of gas particles explains their macroscopic properties.</p>
+          <h2><span class="hl">Kinetic</span> Theory of Gases: An Introduction</h2>
+          <ul><li>Introduction to the microscopic world of gases</li><li>Explaining macroscopic properties from molecular behavior</li><li>Essential for Class 11 Physics (CBSE)</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! Today, we embark on an exciting journey into the 'Kinetic Theory of Gases'. This chapter helps us understand how the tiny, invisible particles of a gas dictate its observable properties like pressure and temperature.</p>
         </div>
         
       </div>
@@ -59,21 +72,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>Ever Wonder Why Gases Exert <span class="hl">Pressure?</span></h2>
-          <ul><li>How do gas molecules behave?</li><li>What determines their temperature?</li><li>Connecting microscopic motion to macroscopic properties.</li></ul>
-          <p class="notes">🎙️ Have you ever thought about why a balloon inflates, or why the air in a tyre keeps it firm? It's all about the invisible dance of gas molecules. Today, we'll explore the fundamental theory that explains these everyday phenomena.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Gas Mysteries</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">3 / 25</span>
-          <h2>Introduction to Kinetic Theory: A <span class="hl">Microscopic View</span> of Gases</h2>
-          <ul><li>Explains gas properties based on molecular motion.</li><li>Treats gases as collections of tiny particles.</li><li>Bridges the gap between microscopic and macroscopic.</li></ul>
-          <p class="notes">🎙️ The Kinetic Theory of Gases, or KTG, provides a powerful model to understand gas behavior. Instead of just observing bulk properties, KTG delves into the world of individual molecules and their interactions.</p>
+          <h2>What is <span class="hl">Kinetic</span> Theory of Gases (KTG)?</h2>
+          <ul><li>Explains gas behavior based on molecular motion</li><li>Bridges microscopic and macroscopic properties</li><li>A powerful theoretical model for ideal gases</li></ul>
+          <p class="notes">🎙️ Kinetic Theory, or KTG, is a fundamental model that connects the world of individual gas molecules to the bulk properties we measure, such as pressure, temperature, and volume. It's a cornerstone for understanding thermodynamics.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Gas_molecules_motion.svg?width=500" data-fb="🔬" alt="Kinetic theory explains gas properties through molecular motion. Pressure results from mol"/><div class="vcap">Kinetic theory explains gas properties through molecular motion. Pressure results from mol</div></div></div>
       </div>
@@ -82,12 +83,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">4 / 25</span>
-          <h2>Assumptions of KTG (Part 1): <span class="hl">Ideal Gas Model</span></h2>
-          <ul><li>Gas consists of a large number of identical molecules.</li><li>Molecules are point particles (negligible volume).</li><li>Molecules are in continuous, random motion.</li></ul>
-          <p class="notes">🎙️ To simplify our study, KTG starts with the concept of an 'ideal gas'. This model makes certain assumptions about the gas molecules, like treating them as tiny, structureless points moving chaotically.</p>
+          <span class="num">3 / 25</span>
+          <h2>KTG <span class="hl">Assumptions</span>: Part 1 - Molecular Nature</h2>
+          <ul><li>Gases consist of a large number of identical, point-like molecules</li><li>Molecules are in continuous, random, and rapid motion</li><li>Their motion follows Newton's laws of motion</li></ul>
+          <p class="notes">🎙️ The theory rests on several key assumptions. Firstly, we imagine a gas as a vast collection of identical molecules. These molecules are constantly zipping around in all directions, colliding with each other and the container walls, all governed by classical mechanics.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💨</span><span>💨</span><span>💨</span><span>💨</span><span>💨</span><span>💨</span><span>💨</span></div><div class="vcap">Random Motion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💨</span><span>💨</span><span>💨</span><span>💨</span><span>💨</span><span>💨</span><span>💨</span><span>💨</span></div><div class="vcap">Random Motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>KTG Assumptions: Part 2 - Volume &amp; Forces</h2>
+          <ul><li>Volume of molecules is negligible compared to container volume</li><li>No intermolecular forces of attraction or repulsion between molecules</li><li>Except during actual collisions, molecules are isolated</li></ul>
+          <p class="notes">🎙️ Next, a crucial assumption is that the actual volume occupied by the molecules themselves is tiny compared to the total volume of the container. This implies large empty spaces. Also, molecules don't interact with each other except when they directly collide.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Tiny Molecules</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,9 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Assumptions of KTG (Part 2): <span class="hl">Collisions</span> and Forces</h2>
-          <ul><li>Collisions between molecules and container walls are perfectly elastic.</li><li>No attractive or repulsive forces between molecules.</li><li>Forces only act during collisions.</li></ul>
-          <p class="notes">🎙️ A key assumption is that all collisions are elastic, meaning kinetic energy is conserved. Also, we assume molecules don't 'feel' each other's presence except when they directly collide, simplifying the force analysis.</p>
+          <h2>KTG Assumptions: Part 3 - Collisions</h2>
+          <ul><li>Collisions between molecules and with walls are perfectly elastic</li><li>Time duration of a collision is negligible compared to time between collisions</li><li>Molecules travel in straight lines between collisions</li></ul>
+          <p class="notes">🎙️ Finally, all collisions, whether between molecules or with the container walls, are perfectly elastic, meaning kinetic energy is conserved. The time taken for a collision is extremely short, and between these brief encounters, molecules move in straight paths.</p>
         </div>
         <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Elastic Collisions</div></div></div>
       </div>
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Assumptions of KTG (Part 3): <span class="hl">Time and Volume</span></h2>
-          <ul><li>Duration of a collision is negligible.</li><li>Volume occupied by molecules is negligible compared to container volume.</li><li>Molecules obey Newton's laws of motion.</li></ul>
-          <p class="notes">🎙️ These assumptions allow us to treat gas molecules as independent entities for most of the time. The negligible collision duration means we can focus on the state before and after. The negligible molecular volume is crucial for the 'ideal' approximation.</p>
+          <h2><span class="hl">Pressure</span> Exerted by a Gas</h2>
+          <ul><li>Molecules constantly collide with the container walls</li><li>Each collision imparts a small impulse, exerting a force</li><li>The total average force per unit area on the walls defines pressure</li></ul>
+          <p class="notes">🎙️ Now, how does this molecular motion lead to pressure? Imagine countless molecules hitting the walls of their container. Each impact imparts a tiny force. The sum of these forces, averaged over the wall's surface area, is what we perceive as gas pressure.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Molecule Volume</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Container Volume</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Force &amp; Pressure</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Pressure</span> Exerted by a Gas: The Origin of Force</h2>
-          <ul><li>Molecules collide with container walls.</li><li>Each collision imparts momentum to the wall.</li><li>Rate of change of momentum causes a force.</li></ul>
-          <p class="notes">🎙️ Now, let's understand how these molecular motions translate into a macroscopic property like pressure. Imagine countless tiny particles constantly hitting the walls of their container. Each impact pushes on the wall.</p>
+          <h2><span class="hl">Derivation</span> of Pressure: Conceptual Steps</h2>
+          <ul><li>Consider a single molecule in a cubical container</li><li>Calculate the change in momentum during a wall collision</li><li>Determine the force exerted by one molecule on the wall</li><li>Sum over all molecules, considering average motion, to find total pressure</li></ul>
+          <p class="notes">🎙️ To derive the pressure formula, we start by considering a single molecule bouncing off a wall, calculating its change in momentum. From this, we find the force it exerts. Then, we extend this to all molecules, considering their average speeds, to arrive at the total pressure.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pressure_force_area.svg?width=500" data-fb="➡️" alt="Force is push or pull; pressure is force spread over area. Greater area under same force ="/><div class="vcap">Force is push or pull; pressure is force spread over area. Greater area under same force =</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Momentum Change</span></div><div class="step"><span class="snum">2</span><span>Force per Molecule</span></div><div class="step"><span class="snum">3</span><span>Total Force</span></div><div class="step"><span class="snum">4</span><span>Pressure = F/A</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Derivation</span> of Pressure: P = (1/3)ρ&lt;v²&gt;</h2>
-          <ul><li>P = (1/3) (N/V) m &lt;v²&gt;.</li><li>N = number of molecules, m = mass of one molecule.</li><li>ρ = density of the gas (N*m/V).</li><li>&lt;v²&gt; = mean square speed of molecules.</li></ul>
-          <p class="notes">🎙️ This fundamental equation connects pressure (P) to the microscopic properties: the number of molecules (N), their mass (m), the volume (V), and crucially, their mean square speed (&lt;v²&gt;). Remember, it's the *average* of the square of speeds, not the square of the average speed.</p>
+          <h2>KTG <span class="hl">Formula</span> for Pressure</h2>
+          <ul><li>P = (1/3) * (N/V) * m * (v_rms)^2</li><li>N = total number of molecules in volume V</li><li>m = mass of one gas molecule</li><li>v_rms = root mean square speed of molecules</li></ul>
+          <p class="notes">🎙️ The derived formula for pressure is P = (1/3) * (N/V) * m * (v_rms)^2. Here, N/V is the number density, 'm' is the mass of a single molecule, and 'v_rms' is the root mean square speed, which we'll define next.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Pressure Formula</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Pressure Equation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,23 +156,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Real-Life Application: <span class="hl">Tyre Pressure</span> &amp; Balloons</h2>
-          <ul><li>More air (molecules) means more collisions.</li><li>Higher temperature means faster molecules, more forceful collisions.</li><li>Both increase pressure inside.</li></ul>
-          <p class="notes">🎙️ Think about a car tyre. Pumping more air in increases N, leading to higher pressure. On a hot day, the air inside heats up, increasing &lt;v²&gt;, which also raises the pressure. This is why tyres can burst if overinflated in hot weather.</p>
+          <h2>Root Mean Square (RMS) Speed</h2>
+          <ul><li>Not all molecules in a gas have the same speed at any instant</li><li>v_rms = sqrt( (v1^2 + v2^2 + ... + vN^2) / N )</li><li>Represents a characteristic speed of gas molecules, related to kinetic energy</li></ul>
+          <p class="notes">🎙️ Since molecules move randomly, they have a range of speeds. The RMS speed is a statistical measure that gives us a representative speed. It's calculated by squaring individual speeds, averaging them, and then taking the square root. This value is crucial as it directly relates to the gas's kinetic energy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Inflated Tyres</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏎️</div><div class="vcap">Molecular Speed</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Temperature and <span class="hl">Kinetic Energy</span>: Average KE</h2>
-          <ul><li>Temperature is a measure of the average kinetic energy of gas molecules.</li><li>For an ideal gas, &lt;KE_avg&gt; = (3/2) k_B T.</li><li>k_B is Boltzmann constant, T is absolute temperature.</li></ul>
-          <p class="notes">🎙️ This is a profound connection! KTG tells us that temperature isn't just a measure of 'hotness', but directly proportional to the average translational kinetic energy of the gas molecules. Higher temperature means molecules are, on average, moving faster.</p>
+          <h2>Worked <span class="hl">Example</span> 1: Calculating RMS Speed</h2>
+          <ul><li>Calculate the RMS speed of oxygen molecules at 27°C. (Molar mass of O₂ = 32 g/mol, R = 8.314 J/mol·K)</li><li>Solution: T = 27 + 273 = 300 K, M = 0.032 kg/mol</li><li>v_rms = sqrt(3RT/M) = sqrt(3 * 8.314 * 300 / 0.032) ≈ 483 m/s</li></ul>
+          <p class="notes">🎙️ Let's apply the RMS speed formula. Remember, temperature must be in Kelvin and molar mass in kg/mol. For oxygen at 27°C, which is 300 Kelvin, the RMS speed comes out to be around 483 meters per second. That's quite fast!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Molecular Energy</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Relation between <span class="hl">P and KE</span>: Another Perspective</h2>
-          <ul><li>From P = (1/3) (N/V) m &lt;v²&gt;</li><li>And &lt;KE_avg&gt; = (1/2) m &lt;v²&gt;</li><li>We get P = (2/3) (N/V) &lt;KE_avg&gt;.</li></ul>
-          <p class="notes">🎙️ By substituting the expression for average kinetic energy into our pressure formula, we derive another important relationship. This shows that pressure is directly proportional to the total average translational kinetic energy per unit volume of the gas.</p>
+          <h2><span class="hl">Temperature</span> and Kinetic Energy</h2>
+          <ul><li>Temperature is a direct measure of the average translational kinetic energy of gas molecules</li><li>Higher temperature implies faster molecular motion and higher average KE</li><li>Average Kinetic Energy (KE_avg) is directly proportional to absolute temperature (T)</li></ul>
+          <p class="notes">🎙️ One of the most profound insights from KTG is the direct relationship between temperature and the average kinetic energy of gas molecules. Temperature isn't just a measure of hotness; it's a direct indicator of how vigorously the molecules are moving. Higher temperature means higher average kinetic energy.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Pressure-Energy Link</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Low Temp</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">High Temp</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Ideal Gas Equation</span> from KTG: PV = nRT</h2>
-          <ul><li>From P = (2/3) (N/V) &lt;KE_avg&gt; and &lt;KE_avg&gt; = (3/2) k_B T</li><li>Substitute and rearrange to get PV = N k_B T.</li><li>Since N = nN_A and R = N_A k_B, we get PV = nRT.</li></ul>
-          <p class="notes">🎙️ This is a beautiful moment where the microscopic world of KTG perfectly predicts the macroscopic Ideal Gas Law, PV=nRT. It validates our assumptions and shows the power of statistical mechanics in explaining thermodynamics.</p>
+          <h2>Average <span class="hl">Kinetic Energy</span> of a Gas Molecule</h2>
+          <ul><li>For a single molecule: KE_avg = (3/2) kT</li><li>k = Boltzmann constant (k = R/N_A ≈ 1.38 × 10⁻²³ J/K)</li><li>For one mole of gas: KE_avg_per_mole = (3/2) RT</li></ul>
+          <p class="notes">🎙️ Specifically, the average translational kinetic energy of a single molecule is given by (3/2)kT, where 'k' is the Boltzmann constant. For one mole of gas, this translates to (3/2)RT, highlighting the fundamental link between microscopic energy and macroscopic temperature.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Macroscopic Law</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy per Molecule</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2><span class="hl">Degrees of Freedom</span>: Ways to Store Energy</h2>
-          <ul><li>Number of independent ways a molecule can possess energy.</li><li>Translational (x, y, z): 3 degrees of freedom.</li><li>Rotational: depends on molecule shape (2 for linear, 3 for non-linear).</li><li>Vibrational: typically ignored at room temperature.</li></ul>
-          <p class="notes">🎙️ Molecules aren't just points; they can rotate and vibrate too! 'Degrees of freedom' quantify all the independent ways a molecule can move and thus store energy. This concept is crucial for understanding specific heats.</p>
+          <h2>Degrees of <span class="hl">Freedom</span> (DOF)</h2>
+          <ul><li>The number of independent ways a molecule can store energy</li><li>Includes Translational (linear motion along x, y, z axes)</li><li>Includes Rotational (rotation about axes) and Vibrational (stretching/bending)</li></ul>
+          <p class="notes">🎙️ Degrees of Freedom refer to the number of independent coordinates required to completely specify the position and orientation of a molecule. These represent the different ways a molecule can move and store energy – through translation, rotation, and vibration.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤸</div><div class="vcap">Molecular Motion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤸</div><div class="vcap">Movement Options</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Law of <span class="hl">Equipartition</span> of Energy: Distributing Energy</h2>
-          <ul><li>For a system in thermal equilibrium, total energy is equally distributed.</li><li>Each degree of freedom has an average energy of (1/2) k_B T.</li><li>Total average energy = (f/2) k_B T, where f is degrees of freedom.</li></ul>
-          <p class="notes">🎙️ This law is incredibly powerful. It states that at a given temperature, every available degree of freedom gets an equal share of energy. This allows us to calculate the total internal energy of a gas based on its molecular structure.</p>
+          <h2>Degrees of Freedom: <span class="hl">Monatomic</span> Gas</h2>
+          <ul><li>Examples: Helium (He), Neon (Ne), Argon (Ar)</li><li>Can only translate in x, y, z directions (point mass)</li><li>f = 3 (3 translational degrees of freedom)</li></ul>
+          <p class="notes">🎙️ For a monatomic gas like Helium or Neon, the molecule is essentially a single point mass. It can only move linearly in three dimensions – along the x, y, and z axes. Therefore, it has 3 translational degrees of freedom and no rotational or vibrational ones.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Energy Distribution</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟠</span></div><div class="vcap">Monatomic Molecule</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Molar Specific Heat (<span class="hl">Monoatomic Gas</span>): He, Ne, Ar</h2>
-          <ul><li>f = 3 (only translational).</li><li>Internal Energy U = (3/2) nRT.</li><li>C_V = (3/2) R, C_P = (5/2) R.</li><li>Ratio γ = C_P/C_V = 5/3 = 1.67.</li></ul>
-          <p class="notes">🎙️ Monoatomic gases like Helium are the simplest. They only have translational degrees of freedom. Using the equipartition theorem, we can easily derive their molar specific heats at constant volume (C_V) and constant pressure (C_P).</p>
+          <h2>Degrees of Freedom: <span class="hl">Diatomic</span> Gas</h2>
+          <ul><li>Examples: Oxygen (O₂), Nitrogen (N₂), Hydrogen (H₂)</li><li>3 translational + 2 rotational (about two perpendicular axes)</li><li>f = 5 (at moderate temperatures, neglecting vibration)</li></ul>
+          <p class="notes">🎙️ A diatomic gas, like oxygen or nitrogen, consists of two atoms. It still has 3 translational degrees of freedom. Additionally, it can rotate about two axes perpendicular to the line joining the atoms, giving 2 rotational degrees of freedom. So, at moderate temperatures, it has a total of 5 degrees of freedom.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Translational</div></div><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Rotational</div></div><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Vibrational</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚪⚫</span></div><div class="vcap">Diatomic Molecule</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Molar Specific Heat (<span class="hl">Diatomic Gas</span>): O₂, N₂</h2>
-          <ul><li>f = 5 (3 translational + 2 rotational, at moderate T).</li><li>Internal Energy U = (5/2) nRT.</li><li>C_V = (5/2) R, C_P = (7/2) R.</li><li>Ratio γ = C_P/C_V = 7/5 = 1.4.</li></ul>
-          <p class="notes">🎙️ Diatomic molecules are like two masses connected by a spring. They can translate and rotate about two axes perpendicular to their bond. At room temperature, vibrational modes are typically 'frozen out' and don't contribute significantly.</p>
+          <h2>Law of <span class="hl">Equipartition</span> of Energy</h2>
+          <ul><li>In thermal equilibrium, energy is equally distributed among all active degrees of freedom</li><li>Each degree of freedom contributes (1/2) kT to the average energy per molecule</li><li>Total internal energy U = (f/2) kT per molecule (or (f/2) RT per mole)</li></ul>
+          <p class="notes">🎙️ This fundamental law states that, in thermal equilibrium, the total energy of a system is equally distributed among all its active degrees of freedom. Each degree of freedom contributes (1/2)kT of energy per molecule. This allows us to calculate the total internal energy of a gas based on its degrees of freedom.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Translational</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Rotational</div></div><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Vibrational</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Energy Distribution</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Molar Specific Heat (<span class="hl">Polyatomic Gas</span>): CO₂, CH₄</h2>
-          <ul><li>Linear polyatomic (e.g., CO₂): f = 3 translational + 2 rotational.</li><li>Non-linear polyatomic (e.g., CH₄): f = 3 translational + 3 rotational.</li><li>Vibrational modes contribute at higher temperatures.</li><li>C_V, C_P values are generally higher due to more degrees of freedom.</li></ul>
-          <p class="notes">🎙️ Polyatomic gases have more complex structures, leading to more rotational degrees of freedom. Vibrational modes can also become active at higher temperatures, further increasing the specific heat capacity. This is why their values are generally higher than mono- or diatomic gases.</p>
+          <h2>Worked <span class="hl">Example</span> 2: Energy of Diatomic Gas</h2>
+          <ul><li>Calculate the total internal energy of 1 mole of an ideal diatomic gas at 300 K.</li><li>Solution: For diatomic gas, f = 5 (at 300K, neglecting vibration)</li><li>U = N_A * (f/2) kT = (f/2) RT = (5/2) * 8.314 J/mol·K * 300 K ≈ 6235.5 J</li></ul>
+          <p class="notes">🎙️ Let's apply the equipartition theorem. For one mole of a diatomic gas at 300K, with 5 degrees of freedom, the total internal energy is calculated as (5/2)RT. Plugging in the values, we find it to be approximately 6235.5 Joules.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Complex Molecules</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Total_internal_reflection.svg?width=500" data-fb="⚛️" alt="Total internal reflection occurs when light traveling in a denser medium hits a less dense"/><div class="vcap">Total internal reflection occurs when light traveling in a denser medium hits a less dense</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Worked Example 1: <span class="hl">RMS Speed</span> Calculation</h2>
-          <ul><li>Calculate the RMS speed of oxygen molecules at 27°C.</li><li>Given: M_O₂ = 32 g/mol, R = 8.314 J/mol·K.</li><li>T = 27 + 273 = 300 K.</li><li>v_rms = √(3RT/M) ≈ 483 m/s.</li></ul>
-          <p class="notes">🎙️ Let's apply what we've learned. The root mean square (RMS) speed is a direct consequence of the average kinetic energy. Remember to convert temperature to Kelvin and molar mass to kg/mol before plugging into the formula.</p>
+          <h2><span class="hl">Specific Heats</span> of Gases (Cₚ, Cᵥ)</h2>
+          <ul><li>Cᵥ = Molar specific heat at constant volume (heat required to raise 1 mole by 1K at constant V)</li><li>Cₚ = Molar specific heat at constant pressure (heat required to raise 1 mole by 1K at constant P)</li><li>These values relate heat added to the resulting temperature change</li></ul>
+          <p class="notes">🎙️ Specific heats tell us how much heat energy is required to raise the temperature of a substance. For gases, we have two important specific heats: Cv, when volume is kept constant, and Cp, when pressure is kept constant. They differ because work is done during expansion at constant pressure.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Problem Solving</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat Capacity</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked Example 2: <span class="hl">Specific Heat Ratio</span></h2>
-          <ul><li>A gas has γ = 1.4. What type of gas is it likely to be?</li><li>γ = C_P/C_V = (f+2)/f.</li><li>1.4 = (f+2)/f =&gt; 0.4f = 2 =&gt; f = 5.</li><li>A gas with 5 degrees of freedom is typically a diatomic gas.</li></ul>
-          <p class="notes">🎙️ The ratio of specific heats, gamma (γ), is a very useful parameter for identifying the nature of a gas. By knowing γ, we can infer the number of active degrees of freedom and thus whether it's monoatomic, diatomic, or polyatomic.</p>
+          <h2>Relation between Cₚ and Cᵥ (<span class="hl">Mayer's</span> Formula)</h2>
+          <ul><li>Cₚ - Cᵥ = R</li><li>R = Universal Gas Constant (8.314 J/mol·K)</li><li>This relation is valid for ideal gases (monatomic, diatomic, polyatomic)</li></ul>
+          <p class="notes">🎙️ A crucial relationship between these two specific heats is given by Mayer's formula: Cp - Cv = R, where R is the universal gas constant. This equation beautifully connects the two specific heats and highlights the extra energy required for expansion work at constant pressure.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Identifying Gases</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Mayer's Equation</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2><span class="hl">Common Mistakes</span>: Pitfalls to Avoid</h2>
-          <ul><li>Confusing average speed with RMS speed.</li><li>Forgetting to convert temperature to Kelvin.</li><li>Incorrectly applying degrees of freedom for different gases.</li><li>Assuming vibrational modes are always active.</li></ul>
-          <p class="notes">🎙️ KTG concepts can be tricky, especially with derivations and calculations. Always double-check your units, particularly temperature. Remember that vibrational modes only become significant at high temperatures.</p>
+          <h2><span class="hl">Ratio</span> of Specific Heats (γ)</h2>
+          <ul><li>γ = Cₚ / Cᵥ</li><li>Also known as the adiabatic index or Poisson's ratio</li><li>Its value depends on the degrees of freedom (γ = 1 + 2/f)</li></ul>
+          <p class="notes">🎙️ The ratio of specific heats, denoted by gamma (γ), is another important parameter. It's also called the adiabatic index. This ratio is directly related to the degrees of freedom of the gas molecules, with the formula γ = 1 + 2/f, making it a powerful tool for characterizing gases.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Be Careful!</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cₚ</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Cᵥ</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -287,23 +300,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick Check: KTG <span class="hl">Assumptions</span></h2>
-          <ul><li>Which of these is NOT an assumption of KTG for an ideal gas?</li><li>a) Molecules have negligible volume.</li><li>b) Collisions are perfectly inelastic.</li><li>c) No intermolecular forces.</li><li>d) Molecules are in random motion.</li></ul>
-          <p class="notes">🎙️ Time for a quick check of your understanding! Recall the fundamental pillars upon which the Kinetic Theory is built. Think carefully about each statement.</p>
+          <h2>Quick Check 1: KTG <span class="hl">Assumptions</span></h2>
+          <ul><li>Which assumption of KTG implies that gas molecules do not exert forces on each other except during collisions?</li><li>A) Molecules are in random motion</li><li>B) Volume of molecules is negligible</li><li>C) Collisions are perfectly elastic</li><li>D) No intermolecular forces</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think back to our discussion on the fundamental assumptions of KTG. Which one directly addresses the interaction between gas molecules when they are not colliding?</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick Check: <span class="hl">Degrees of Freedom</span></h2>
-          <ul><li>How many degrees of freedom does a monoatomic gas possess?</li><li>a) 1</li><li>b) 2</li><li>c) 3</li><li>d) 5</li></ul>
-          <p class="notes">🎙️ Remember our discussion on how different types of molecules can store energy. For the simplest gas molecules, what are their available modes of motion?</p>
+          <h2>Quick Check 2: <span class="hl">RMS Speed</span> &amp; Temperature</h2>
+          <ul><li>If the absolute temperature of an ideal gas is doubled, what happens to its RMS speed?</li><li>A) Doubles</li><li>B) Halves</li><li>C) Increases by a factor of sqrt(2)</li><li>D) Decreases by a factor of sqrt(2)</li></ul>
+          <p class="notes">🎙️ Another quick question to test your understanding of the relationship between temperature and RMS speed. Remember the formula and how temperature affects it.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Ideal_gas_law.svg?width=500" data-fb="⚛️" alt="The ideal gas law (PV = nRT) relates pressure, volume, temperature, and moles of gas. Deri"/><div class="vcap">The ideal gas law (PV = nRT) relates pressure, volume, temperature, and moles of gas. Deri</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,9 +324,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick Check: <span class="hl">Temperature &amp; KE</span></h2>
-          <ul><li>If the absolute temperature of an ideal gas is doubled, its average translational kinetic energy will:</li><li>a) Halve</li><li>b) Remain the same</li><li>c) Double</li><li>d) Quadruple</li></ul>
-          <p class="notes">🎙️ This question tests your understanding of the direct relationship between temperature and the average kinetic energy of gas molecules. Think about the formula we discussed.</p>
+          <h2>Quick Check 3: <span class="hl">Degrees</span> of Freedom</h2>
+          <ul><li>How many degrees of freedom does a rigid diatomic molecule have at room temperature?</li><li>A) 3</li><li>B) 4</li><li>C) 5</li><li>D) 6</li></ul>
+          <p class="notes">🎙️ Consider a rigid diatomic molecule, meaning its vibrational modes are not active at room temperature. How many ways can it store energy?</p>
         </div>
         
       </div>
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Recap: <span class="hl">Key Takeaways</span> from Kinetic Theory</h2>
-          <ul><li>KTG explains gas behavior from a molecular perspective.</li><li>Pressure arises from molecular collisions with walls.</li><li>Temperature is proportional to average translational KE.</li><li>Degrees of freedom determine energy distribution and specific heats.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! The Kinetic Theory of Gases is a powerful framework that links the microscopic world of molecules to the macroscopic properties we observe. Understanding its assumptions and derivations is crucial for your exams.</p>
+          <h2>Common <span class="hl">Mistakes</span> in KTG</h2>
+          <ul><li>Forgetting to convert temperature to Kelvin in calculations</li><li>Confusing average speed with RMS speed or most probable speed</li><li>Incorrectly applying degrees of freedom for different types of gases or temperatures</li><li>Neglecting units or using inconsistent units in formulas</li></ul>
+          <p class="notes">🎙️ Be careful with units, especially converting temperature to Kelvin. Don't confuse different types of speeds. Also, ensure you correctly identify the degrees of freedom for monatomic, diatomic, or polyatomic gases based on the temperature conditions. These are common pitfalls in exams.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Summary</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Watch Out!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Looking Ahead: <span class="hl">Beyond Ideal</span> Gases</h2>
-          <ul><li>Ideal gas is a simplification.</li><li>Real gases deviate at high pressure and low temperature.</li><li>Van der Waals equation accounts for molecular volume and intermolecular forces.</li><li>KTG forms the foundation for statistical mechanics.</li></ul>
-          <p class="notes">🎙️ While KTG is incredibly useful, remember it's based on an 'ideal' model. In reality, gases are more complex. However, KTG provides the essential foundation for understanding more advanced concepts like real gases and statistical thermodynamics.</p>
+          <h2><span class="hl">Recap</span>: Key Takeaways from KTG</h2>
+          <ul><li>KTG links microscopic molecular motion to macroscopic gas properties</li><li>P = (1/3) * (N/V) * m * (v_rms)^2 (Pressure formula)</li><li>Average KE ∝ T (KE = (3/2)kT for translational KE)</li><li>Degrees of Freedom (f) determine internal energy (U = (f/2)RT)</li><li>Mayer's Formula (Cₚ - Cᵥ = R) and Ratio of Specific Heats (γ = 1 + 2/f)</li></ul>
+          <p class="notes">🎙️ To summarize, KTG is a powerful model connecting molecular motion to observable gas properties. Remember the pressure formula, the direct link between temperature and average kinetic energy, the concept of degrees of freedom, and Mayer's formula along with the adiabatic index. Master these for your exams!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Future Studies</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Physics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

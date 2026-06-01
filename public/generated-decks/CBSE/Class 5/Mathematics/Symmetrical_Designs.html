@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Symmetrical Designs — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome to <span class="hl">Symmetrical</span> Designs!</h2>
-          <ul><li>Let's explore shapes that are balanced and beautiful!</li><li>It's like looking in a mirror!</li></ul>
-          <p class="notes">🎙️ Hello everyone! Today, we're going on an exciting journey to discover something called 'Symmetry'. It’s all around us, and it makes things look very pretty and balanced. Get ready to spot some amazing designs!</p>
+          <h2>Welcome to <span class="hl">Symmetrical Designs</span>!</h2>
+          <ul><li>Let's explore beautiful balance.</li><li>Find patterns all around us.</li></ul>
+          <p class="notes">🎙️ Namaste, little mathematicians! Today, we are going on a fun adventure to discover something called 'Symmetrical Designs'. It's all about finding balance and beauty in things around us.</p>
         </div>
         
       </div>
@@ -60,10 +73,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Symmetry</span>?</h2>
-          <ul><li>It means one side is exactly like the other side.</li><li>If you fold it, both halves match perfectly!</li></ul>
-          <p class="notes">🎙️ Imagine cutting a shape in half. If both halves are exactly the same, like two identical twins, then the shape is symmetrical. It's like having a perfect match!</p>
+          <ul><li>It means one side looks exactly like the other side.</li><li>Like a perfect match!</li></ul>
+          <p class="notes">🎙️ Imagine you have a picture, and you can fold it in half, and both halves match perfectly. That's symmetry! It's like having a twin image on both sides.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Balanced Sides</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Look at a <span class="hl">Butterfly</span>!</h2>
-          <ul><li>A butterfly's wings are the same on both sides.</li><li>This is a beautiful example of symmetry in nature!</li></ul>
-          <p class="notes">🎙️ Have you ever seen a butterfly? Notice how its two wings are almost identical. If you imagine a line down its body, one wing is a mirror image of the other. Isn't that amazing?</p>
+          <h2>The Magical <span class="hl">Line of Symmetry</span></h2>
+          <ul><li>This is an imaginary line.</li><li>It divides a shape into two identical halves.</li></ul>
+          <p class="notes">🎙️ To find symmetry, we imagine a special line. This line, called the 'Line of Symmetry', cuts a shape exactly in half, so one side is a mirror image of the other.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦋</div><div class="vcap">Symmetrical Butterfly</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Your Face is <span class="hl">Symmetrical</span>!</h2>
-          <ul><li>If you imagine a line down the middle of your face, both sides look similar.</li><li>One eye is like the other, one ear like the other!</li></ul>
-          <p class="notes">🎙️ Now, look at your friend, or even yourself in a mirror! If you draw an imaginary line right down the middle of your face, from your forehead to your chin, you'll see that your left side looks very much like your right side. Your body has symmetry too!</p>
+          <h2>Let's Do Some <span class="hl">Folding</span> Fun!</h2>
+          <ul><li>Take a piece of paper.</li><li>Fold it exactly in half.</li><li>The fold line is the line of symmetry!</li></ul>
+          <p class="notes">🎙️ Let's try it! Take any piece of paper. Fold it carefully so that both edges meet perfectly. The crease you made is a line of symmetry for your paper!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑</div><div class="vcap">Symmetrical Face</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Take paper</span></div><div class="step"><span class="snum">2</span><span>Fold in half</span></div><div class="step"><span class="snum">3</span><span>See the line</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>The Magic <span class="hl">Line</span> of Symmetry</h2>
-          <ul><li>This is an imaginary line that divides a shape into two identical halves.</li><li>It's like the fold line on a piece of paper.</li></ul>
-          <p class="notes">🎙️ Every symmetrical shape has a special line called the 'Line of Symmetry'. This line is like a magic mirror that shows you where to split the shape so both parts are exactly the same. We can draw it with a ruler!</p>
+          <h2><span class="hl">Mirror</span> Magic and Symmetry</h2>
+          <ul><li>Hold a mirror on the line of symmetry.</li><li>You will see the whole object!</li></ul>
+          <p class="notes">🎙️ Another cool way to understand symmetry is with a mirror. If you place a mirror along the line of symmetry of an object, the reflection will complete the other half, showing you the whole symmetrical object!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="📏" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="🪞" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Let's <span class="hl">Fold</span> Paper!</h2>
-          <ul><li>Take a piece of paper and cut out a shape.</li><li>If you fold it and both halves match perfectly, it's symmetrical!</li></ul>
-          <p class="notes">🎙️ Here's a fun way to test for symmetry! Cut out a shape, then try to fold it in half. If the two sides perfectly overlap and match, then your fold line is a line of symmetry! If they don't match, it's not symmetrical along that line.</p>
+          <h2>Beautiful <span class="hl">Butterflies</span> are Symmetrical!</h2>
+          <ul><li>Look at a butterfly's wings.</li><li>They are exactly the same on both sides.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a butterfly? Their beautiful wings are a perfect example of symmetry in nature. If you draw a line down the middle of its body, both wings are identical!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📄</div><div class="vcap">Folding Paper</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/House_sparrow04.jpg?width=460" data-fb="🔢" alt="Birds have feathers and can fly."/><div class="vcap">Birds have feathers and can fly.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Symmetry in a <span class="hl">Square</span></h2>
-          <ul><li>A square has many lines of symmetry.</li><li>You can fold it in different ways and still get matching halves.</li></ul>
-          <p class="notes">🎙️ Let's look at a square. You can fold it in half vertically, horizontally, and even diagonally, and each time the halves will match perfectly! A square is a very symmetrical shape, having four lines of symmetry.</p>
+          <h2><span class="hl">Leaves</span> also Show Symmetry</h2>
+          <ul><li>Many leaves have a central vein.</li><li>This vein acts as a line of symmetry.</li></ul>
+          <p class="notes">🎙️ Even simple leaves can be symmetrical! The main vein running through the middle of many leaves often serves as their line of symmetry, making both halves look alike.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">Square Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍃</span></div><div class="vcap">A symmetrical leaf</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Symmetry in a <span class="hl">Rectangle</span></h2>
-          <ul><li>A rectangle also has lines of symmetry.</li><li>Can you guess how many?</li></ul>
-          <p class="notes">🎙️ Now, think about a rectangle. Can you fold it in half horizontally? Yes! How about vertically? Yes! But can you fold it diagonally like a square and make the sides match? No, not perfectly. So, a rectangle has two lines of symmetry.</p>
+          <h2>Our <span class="hl">Chair</span> Can Be Symmetrical!</h2>
+          <ul><li>Most chairs are made symmetrically.</li><li>This makes them balanced and strong.</li></ul>
+          <p class="notes">🎙️ Look at the chair you are sitting on! Many chairs are designed to be symmetrical. This not only makes them look good but also helps them be stable and strong, so they don't tip over easily.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">▭</div><div class="vcap">Rectangle Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪑</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2>Symmetry in a <span class="hl">Circle</span></h2>
-          <ul><li>A circle has endless lines of symmetry!</li><li>Any line that passes through its center is a line of symmetry.</li></ul>
-          <p class="notes">🎙️ What about a circle? This is super interesting! You can draw a line through the center of a circle in any direction, and it will always divide the circle into two identical halves. This means a circle has infinite, or endless, lines of symmetry!</p>
+          <h2>A <span class="hl">Door</span> Has Symmetry Too!</h2>
+          <ul><li>Imagine a line down the middle of a door.</li><li>Both sides would be the same.</li></ul>
+          <p class="notes">🎙️ Think about a simple door. If you draw an imaginary line right down its middle, you'll see that the left side and the right side are usually identical. That's symmetry in our homes!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Circle Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚪</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Shapes with <span class="hl">One Line</span></h2>
-          <ul><li>Some shapes, like a heart, have only one line of symmetry.</li><li>You can only fold it one way to get matching halves.</li></ul>
-          <p class="notes">🎙️ Not all symmetrical shapes have many lines. A heart shape, for example, is symmetrical, but it only has one line of symmetry – a vertical line down its middle. Try folding a paper heart to see!</p>
+          <h2>Symmetrical <span class="hl">Alphabets</span>!</h2>
+          <ul><li>Some letters have lines of symmetry.</li><li>Like A, H, I, M, O, T, U, V, W, X, Y.</li></ul>
+          <p class="notes">🎙️ Did you know that some letters in our alphabet are symmetrical? For example, the letter 'A' can be folded down the middle, and both halves match. Can you think of others?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Heart Shape</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🅰️</span><span>🅰️</span><span>🅰️</span><span>🅰️</span><span>🅰️</span></div><div class="vcap">Examples of symmetrical letters</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>What if there's <span class="hl">NO Symmetry</span>?</h2>
-          <ul><li>Some shapes cannot be folded to make two matching halves.</li><li>These shapes are called 'asymmetrical'.</li></ul>
-          <p class="notes">🎙️ Just like some things are symmetrical, others are not. If you try to fold a shape in any way and the two halves never match up perfectly, then that shape is called 'asymmetrical'. It means 'without symmetry'.</p>
+          <h2>Symmetrical <span class="hl">Numbers</span>!</h2>
+          <ul><li>Some numbers also have lines of symmetry.</li><li>Like 0, 3, 8.</li></ul>
+          <p class="notes">🎙️ Just like alphabets, some numbers also show symmetry. The number '8' is a great example; you can draw both a horizontal and a vertical line of symmetry through it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">No Match</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>An <span class="hl">Asymmetrical</span> Example</h2>
-          <ul><li>Look at a tree branch.</li><li>Each side is usually different, so it's asymmetrical.</li></ul>
-          <p class="notes">🎙️ Think about a tree branch. Do you think it's symmetrical? Usually not! Each branch grows in its own unique way, making it difficult to find a line where both sides would be exactly the same. So, a tree branch is a good example of something asymmetrical.</p>
+          <h2>How Many Lines in a <span class="hl">Square</span>?</h2>
+          <ul><li>A square has 4 lines of symmetry.</li><li>Fold it in different ways to find them!</li></ul>
+          <p class="notes">🎙️ Let's look at a square. Can you imagine folding it? You can fold it vertically, horizontally, and even diagonally across its corners. A square has four lines of symmetry!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🟨" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2><span class="hl">Spot</span> the Symmetry!</h2>
-          <ul><li>Which of these letters has a line of symmetry?</li><li>A, F, S</li></ul>
-          <p class="notes">🎙️ Alright, time for a quick challenge! Look at these three letters: A, F, and S. Can you imagine drawing a line through any of them so that both sides are exactly the same? Which letter do you think it is?</p>
+          <h2>How Many Lines in a <span class="hl">Circle</span>?</h2>
+          <ul><li>A circle has endless lines of symmetry.</li><li>Any line passing through its center is a line of symmetry.</li></ul>
+          <p class="notes">🎙️ Now, what about a circle? This is tricky! You can fold a circle along any line that passes through its center, and it will always match. So, a circle has infinite lines of symmetry!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟠</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Yes, Letter <span class="hl">A</span>!</h2>
-          <ul><li>You can draw a vertical line down the middle of 'A'.</li><li>Both sides would look perfectly matched!</li></ul>
-          <p class="notes">🎙️ That's right! The letter 'A' has a line of symmetry right down its middle. If you folded it along that line, the two halves would fit together perfectly. The letters 'F' and 'S' do not have any lines of symmetry.</p>
+          <h2>How Many Lines in a <span class="hl">Triangle</span>?</h2>
+          <ul><li>An equilateral triangle has 3 lines of symmetry.</li><li>(All sides are equal).</li></ul>
+          <p class="notes">🎙️ Not all triangles are symmetrical, but a special one called an 'equilateral triangle' (where all sides are equal) has three lines of symmetry, one from each corner to the middle of the opposite side.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🅰️</div><div class="vcap">Symmetrical A</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2><span class="hl">Draw</span> the Line!</h2>
-          <ul><li>Imagine drawing a line of symmetry for this star.</li><li>How many lines can you find?</li></ul>
-          <p class="notes">🎙️ Now, look at this star. If it's a regular five-pointed star, where would you draw the lines of symmetry? Think about folding it. How many different ways could you fold it to get matching halves?</p>
+          <h2>Quick Check! Is This <span class="hl">Symmetrical</span>?</h2>
+          <ul><li>Look at this shape carefully.</li><li>Can you fold it into two matching halves?</li></ul>
+          <p class="notes">🎙️ Alright, time for a quick check! Look at this heart shape. If you draw a line down its middle, do both sides look exactly the same? Yes, a heart is symmetrical!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Solar_sys8.jpg?width=520" data-fb="⭐" alt="Eight planets orbit the Sun."/><div class="vcap">Eight planets orbit the Sun.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">Five Lines</span> of Symmetry!</h2>
-          <ul><li>A regular five-pointed star has 5 lines of symmetry.</li><li>One line goes through each point and the opposite dip.</li></ul>
-          <p class="notes">🎙️ A regular five-pointed star is very symmetrical! It has five lines of symmetry. Each line goes from one of the star's points, straight through the center, to the dip directly opposite. Isn't that clever?</p>
+          <h2>Quick Check! <span class="hl">How Many Lines</span>?</h2>
+          <ul><li>Look at the letter 'H'.</li><li>How many lines of symmetry does it have?</li></ul>
+          <p class="notes">🎙️ Next question! Think about the letter 'H'. Can you fold it in half vertically? Yes. Can you fold it in half horizontally? Yes. So, how many lines of symmetry does 'H' have?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">5️⃣</div><div class="vcap">Five Lines</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>H</span></div><div class="vcap">Letter H</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Count</span> the Lines!</h2>
-          <ul><li>How many lines of symmetry does a regular hexagon have?</li><li>Hint: A hexagon has 6 equal sides.</li></ul>
-          <p class="notes">🎙️ Let's try one more! A regular hexagon has six equal sides. How many lines of symmetry do you think it has? Think about all the ways you could fold it to make perfect halves. Take a moment to imagine it!</p>
+          <h2>Quick Check! <span class="hl">Which</span> is Symmetrical?</h2>
+          <ul><li>A: P</li><li>B: F</li><li>C: T</li></ul>
+          <p class="notes">🎙️ Last quick check! Which of these letters, P, F, or T, can be folded perfectly in half to show symmetry? Think carefully about each one!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="📐" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">Six Lines</span> of Symmetry!</h2>
-          <ul><li>A regular hexagon has 6 lines of symmetry.</li><li>Three through opposite corners, and three through opposite midpoints.</li></ul>
-          <p class="notes">🎙️ A regular hexagon has six lines of symmetry! Three lines pass through opposite corners, and another three lines pass through the midpoints of opposite sides. That's a lot of symmetry for one shape!</p>
+          <h2>Let's <span class="hl">Draw</span> a Symmetrical Design!</h2>
+          <ul><li>Draw half a shape on paper.</li><li>Fold the paper and trace the other half.</li><li>Colour your beautiful symmetrical design!</li></ul>
+          <p class="notes">🎙️ Now it's your turn to be an artist! Take a piece of paper, draw half of any simple shape on one side, then fold it and try to draw the exact other half. You'll create your own symmetrical design!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">6️⃣</div><div class="vcap">Six Lines</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pizza-3007395.jpg?width=520" data-fb="✏️" alt="A pizza cut into slices shows fractions — each slice is a part of the whole!"/><div class="vcap">A pizza cut into slices shows fractions — each slice is a part of the whole!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Let's <span class="hl">Create</span>!</h2>
-          <ul><li>You can make beautiful symmetrical patterns with paper cutting.</li><li>Fold paper and cut shapes, then open it up to see your design!</li></ul>
-          <p class="notes">🎙️ Symmetry isn't just about finding it; you can create it too! Remember how we folded paper? You can fold a piece of paper, cut out some shapes along the fold, and when you open it, you'll have a wonderful symmetrical design! Try it at home!</p>
+          <h2>Why is Symmetry <span class="hl">Important</span>?</h2>
+          <ul><li>It makes things look balanced and beautiful.</li><li>Helps engineers build strong structures.</li><li>We see it in art, nature, and buildings.</li></ul>
+          <p class="notes">🎙️ Symmetry is not just pretty; it's very useful! It helps things look good, like a beautiful painting, and it helps engineers build strong bridges and buildings that stand tall and balanced.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Paper Cutting</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>What We <span class="hl">Learned</span> Today!</h2>
-          <ul><li>Symmetry means matching halves.</li><li>The Line of Symmetry divides a shape into two identical parts.</li><li>We see symmetry everywhere, from butterflies to letters!</li></ul>
-          <p class="notes">🎙️ Today, we explored the fascinating world of symmetrical designs! We learned what symmetry means, how to find the line of symmetry, and saw many examples in real life and in shapes. Keep an eye out for symmetrical things around you! Goodbye for now!</p>
+          <h2><span class="hl">Recap</span>: What We Learned Today!</h2>
+          <ul><li>Symmetry means two matching halves.</li><li>A line of symmetry divides a shape perfectly.</li><li>We see symmetry everywhere!</li></ul>
+          <p class="notes">🎙️ So, what did we learn today? We learned that symmetry is when things have two halves that match perfectly, like a mirror image. And we can find this amazing balance all around us, in nature and in things we make!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">Sparkling Knowledge</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

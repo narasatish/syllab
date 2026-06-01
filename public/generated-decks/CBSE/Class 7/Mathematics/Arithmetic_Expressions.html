@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Arithmetic Expressions — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Arithmetic</span> Expressions!</h2>
-          <ul><li>Explore the world of mathematical expressions.</li><li>Learn how numbers, variables, and operations combine.</li><li>Understand how to build and solve expressions.</li></ul>
-          <p class="notes">🎙️ Hello Class 7! Today, we're diving into a very important topic in Mathematics: Arithmetic Expressions. This chapter will help you understand how mathematical statements are formed and how to solve them, which is a fundamental skill for all future math.</p>
+          <h2>Welcome to <span class="hl">Arithmetic Expressions</span>!</h2>
+          <ul><li>A journey into the world of numbers and operations.</li><li>Understand how to build and solve mathematical puzzles.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into 'Arithmetic Expressions'. This chapter is fundamental to all mathematics, helping us solve real-world problems using numbers and operations.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are <span class="hl">Expressions</span>?</h2>
-          <ul><li>A combination of numbers, variables, and operation symbols.</li><li>Does NOT contain an equals sign (=).</li><li>It represents a value or a quantity.</li></ul>
-          <p class="notes">🎙️ Think of an expression as a mathematical phrase or sentence that isn't complete yet. It combines different elements using operations like addition, subtraction, multiplication, and division. Crucially, it doesn't have an equals sign, so we're not solving for anything, just representing a value.</p>
+          <h2>What are Arithmetic <span class="hl">Expressions</span>?</h2>
+          <ul><li>A combination of numbers and arithmetic operations.</li><li>No equality sign (=) unlike equations.</li><li>Examples: 5 + 3, 12 - 4 * 2.</li></ul>
+          <p class="notes">🎙️ An arithmetic expression is like a mathematical phrase. It uses numbers and operations like addition, subtraction, multiplication, and division, but it doesn't have an equals sign. It represents a single value.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💬</div><div class="vcap">Math's Sentences</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">Numbers + Operations</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Numbers and <span class="hl">Operations</span></h2>
-          <ul><li>Numbers are the basic building blocks (e.g., 5, 12, 0.5).</li><li>Operations combine numbers: +, -, ×, ÷.</li><li>Example: 7 + 3 is an expression.</li></ul>
-          <p class="notes">🎙️ Before we get into complex expressions, let's quickly review our basic numbers and operations. These are the tools we use to build expressions. We're familiar with addition, subtraction, multiplication, and division, and they are essential for forming any expression.</p>
+          <h2>Components of Expressions: <span class="hl">Numbers</span></h2>
+          <ul><li>These are fixed values, also called constants.</li><li>They can be positive, negative, fractions, or decimals.</li><li>Examples: 7, -3, 1/2, 4.5.</li></ul>
+          <p class="notes">🎙️ The building blocks of any expression are numbers. These numbers are constants, meaning their value never changes. They are the quantities we work with in our calculations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Basic Math Tools</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Fixed Values</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Variables</span>: The Changing Values</h2>
-          <ul><li>Symbols (usually letters) that represent unknown values.</li><li>Their value can change.</li><li>Commonly used: x, y, a, b.</li></ul>
-          <p class="notes">🎙️ Imagine a box where you can put different numbers. That's what a variable is! It's a letter like 'x' or 'y' that stands for a number whose value can change or is not yet known. Variables are what make expressions flexible and powerful.</p>
+          <h2>Components of Expressions: <span class="hl">Operators</span></h2>
+          <ul><li>Symbols that tell us what operation to perform.</li><li>Four basic arithmetic operators: Addition (+), Subtraction (-), Multiplication (*), Division (/).</li><li>They connect the numbers in an expression.</li></ul>
+          <p class="notes">🎙️ Operators are the action verbs of our expressions. They tell us exactly what to do with the numbers. Mastering these four basic operations is key to understanding expressions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔠</div><div class="vcap">Mystery Letters</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️➗</div><div class="vcap">Action Symbols</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Constants</span>: The Fixed Values</h2>
-          <ul><li>Numbers in an expression whose value is fixed.</li><li>They do NOT change.</li><li>Example: In 'x + 5', '5' is a constant.</li></ul>
-          <p class="notes">🎙️ In contrast to variables, constants are numbers that always stay the same. If you see a '7' in an expression, it always means seven. Constants provide the stable, known parts of our mathematical statements.</p>
+          <h2>Understanding <span class="hl">Terms</span> in an Expression</h2>
+          <ul><li>Parts of an expression separated by '+' or '-' signs.</li><li>Each term can be a number or a product/quotient of numbers.</li><li>Example: In 5 + 3 * 2, '5' and '3 * 2' are terms.</li></ul>
+          <p class="notes">🎙️ Think of terms as the individual pieces of a puzzle that make up the whole expression. They are distinct parts that we combine or separate using addition and subtraction.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔒</div><div class="vcap">Unchanging Numbers</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧩</span><span>🧩</span><span>🧩</span></div><div class="vcap">Building Blocks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Arithmetic <span class="hl">vs.</span> Algebraic Expressions</h2>
-          <ul><li>Arithmetic: Only numbers and operations (e.g., 5 + 3).</li><li>Algebraic: Includes variables, numbers, and operations (e.g., x + 5).</li></ul>
-          <p class="notes">🎙️ This is a key distinction. Arithmetic expressions are what you've mostly worked with so far, just numbers. Algebraic expressions introduce variables, making them more versatile for representing real-world situations where values might be unknown or changing.</p>
+          <h2>Real-life Example: <span class="hl">Shopping Bill</span></h2>
+          <ul><li>You buy 2 notebooks for ₹30 each and 1 pen for ₹10.</li><li>How would you write the total cost as an expression?</li><li>Expression: 2 * 30 + 10.</li></ul>
+          <p class="notes">🎙️ Arithmetic expressions are everywhere! Imagine you're at the shop. You can easily represent your total spending using an expression, combining the cost of multiple items.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Arithmetic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Algebraic</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">Daily Math</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Forming</span> Expressions: From Words to Math</h2>
-          <ul><li>Identify numbers and unknown quantities (variables).</li><li>Look for keywords indicating operations.</li><li>Example: '5 more than a number' -&gt; x + 5.</li></ul>
-          <p class="notes">🎙️ One of the most useful skills is translating everyday language into mathematical expressions. Keywords like 'sum,' 'difference,' 'product,' and 'quotient' tell us which operation to use. Unknown quantities are typically represented by variables.</p>
+          <h2><span class="hl">Forming Expressions</span>: Practice Time!</h2>
+          <ul><li>Scenario: 'Subtract 5 from the product of 8 and 3'.</li><li>Step 1: Identify numbers (8, 3, 5).</li><li>Step 2: Identify operations (product, subtract).</li><li>Step 3: Combine: (8 * 3) - 5.</li></ul>
+          <p class="notes">🎙️ Let's try to form an expression from a word problem. Break it down into smaller, manageable steps. First, pick out the numbers, then the actions, and finally, put them together in the correct order.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Translate Language</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Numbers</span></div><div class="step"><span class="snum">2</span><span>Identify Operations</span></div><div class="step"><span class="snum">3</span><span>Combine</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Real-life Example: <span class="hl">Shopping</span> Bill</h2>
-          <ul><li>You buy 2 notebooks for ₹x each.</li><li>You buy 3 pens for ₹y each.</li><li>Total cost: 2x + 3y.</li></ul>
-          <p class="notes">🎙️ Let's say you go to the stationery shop. The price of a notebook might vary, and so might the price of a pen. We use variables to represent these unknown prices. The expression '2x + 3y' then represents the total money you spend, depending on the prices.</p>
+          <h2><span class="hl">Evaluating</span> Arithmetic Expressions</h2>
+          <ul><li>Finding the single numerical value of an expression.</li><li>This means performing all the operations.</li><li>Example: Evaluating 5 + 3 * 2 gives a single number.</li></ul>
+          <p class="notes">🎙️ Evaluating an expression means calculating its final answer. It's like solving the puzzle to find out what number the entire phrase represents. This is where we apply our calculation skills.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛍️</span><span>🛍️</span><span>🛍️</span></div><div class="vcap">My Shopping Cart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Find the Value</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Terms</span> of an Expression</h2>
-          <ul><li>Parts of an expression separated by '+' or '-' signs.</li><li>Each term can be a number, a variable, or a product of both.</li><li>Example: In '3x + 5y - 2', the terms are 3x, 5y, and -2.</li></ul>
-          <p class="notes">🎙️ Think of terms as the individual 'pieces' or 'chunks' that make up an expression. They are clearly separated by addition or subtraction signs. Understanding terms is crucial for simplifying expressions later on.</p>
+          <h2>Example: <span class="hl">Evaluating</span> 15 - 4 + 7</h2>
+          <ul><li>Expression: 15 - 4 + 7</li><li>Step 1: 15 - 4 = 11</li><li>Step 2: 11 + 7 = 18</li><li>Value of the expression is 18.</li></ul>
+          <p class="notes">🎙️ When we have only addition and subtraction, or only multiplication and division, we usually work from left to right. Here, we first subtract, then add, to get our final value.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span></div><div class="vcap">Expression Pieces</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>15 - 4 = 11</span></div><div class="step"><span class="snum">2</span><span>11 + 7 = 18</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Like Terms</span>: Friends Together</h2>
-          <ul><li>Terms that have the exact same variable part.</li><li>They can be combined (added or subtracted).</li><li>Example: 3x and 7x are like terms.</li></ul>
-          <p class="notes">🎙️ Like terms are similar to items you can group together. If you have 3 apples and 7 apples, you have 10 apples. Similarly, if terms have the same variable part, you can add or subtract their numerical coefficients.</p>
+          <h2>The Importance of Order: <span class="hl">BODMAS</span></h2>
+          <ul><li>Ensures everyone gets the same answer for an expression.</li><li>BODMAS stands for Brackets, Of, Division, Multiplication, Addition, Subtraction.</li><li>It's a set of rules for the sequence of operations.</li></ul>
+          <p class="notes">🎙️ Imagine if everyone solved expressions in a different order – we'd get chaos! BODMAS is our universal rulebook, ensuring consistency and correctness in our calculations. It's a fundamental rule in mathematics.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">3x</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">7x</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Rulebook</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Unlike Terms</span>: Different Paths</h2>
-          <ul><li>Terms that have different variable parts.</li><li>They CANNOT be combined.</li><li>Example: 3x and 7y are unlike terms.</li></ul>
-          <p class="notes">🎙️ Unlike terms are like trying to add apples and oranges – it doesn't make sense to combine them into a single type. You cannot add 3x and 7y to get 10xy or 10x or 10y; they must remain separate.</p>
+          <h2>BODMAS: Step 1 - <span class="hl">Brackets</span> ( ) { } [ ]</h2>
+          <ul><li>Operations inside brackets must be performed first.</li><li>Types: Parentheses ( ), Curly Brackets { }, Square Brackets [ ].</li><li>Solve innermost brackets first, then work outwards.</li></ul>
+          <p class="notes">🎙️ Brackets act like a shield, grouping operations that need to be done before anything else outside them. Always look for brackets first and simplify whatever is inside them.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3x</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">7y</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">괄호</div><div class="vcap">Priority First</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Coefficients</span>: The Multipliers</h2>
-          <ul><li>The numerical factor of a term with a variable.</li><li>It tells you how many of that variable you have.</li><li>Example: In '5x', '5' is the coefficient.</li></ul>
-          <p class="notes">🎙️ The coefficient is the number that sits right in front of a variable. It indicates multiplication. If you see '4y', it means 4 multiplied by y, and '4' is the coefficient. If there's no number, the coefficient is 1 (e.g., 'x' means '1x').</p>
+          <h2>BODMAS: Step 2 - <span class="hl">Of / Orders</span></h2>
+          <ul><li>'Of' usually refers to multiplication, especially with fractions (e.g., 'half of 10').</li><li>'Orders' refers to powers or roots (e.g., 2^3).</li><li>Perform these operations after brackets are solved.</li></ul>
+          <p class="notes">🎙️ After brackets, we look for 'Of' or 'Orders'. In Class 7, 'Of' is often seen with fractions. 'Orders' involves exponents like squares or cubes, which you'll learn more about soon. For now, treat 'Of' as multiplication.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Number in Front</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Next in Line</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Example: <span class="hl">Identifying</span> Parts of an Expression</h2>
-          <ul><li>Expression: 4x + 7y - 9</li><li>Terms: 4x, 7y, -9</li><li>Variables: x, y</li><li>Constants: -9</li><li>Coefficients: 4 (for x), 7 (for y)</li></ul>
-          <p class="notes">🎙️ Let's put our knowledge to the test with an example. In the expression 4x + 7y - 9, we can clearly see the different parts we've just discussed. This ability to break down an expression is fundamental to understanding and manipulating it.</p>
+          <h2>BODMAS: Step 3 - Division (÷) &amp; Multiplication (×)</h2>
+          <ul><li>Perform division and multiplication from left to right.</li><li>They have equal priority; solve whichever comes first.</li><li>Example: 10 ÷ 2 * 3. First 10 ÷ 2 = 5, then 5 * 3 = 15.</li></ul>
+          <p class="notes">🎙️ Once brackets and 'Of' are dealt with, we move to division and multiplication. Remember, they are equally important! Just scan from left to right and do the operation you encounter first.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Dissecting Math</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Division</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Multiplication</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Order of Operations: <span class="hl">BODMAS</span>/PEMDAS</h2>
-          <ul><li>A rule to ensure consistent results when evaluating expressions.</li><li>It dictates the sequence of performing operations.</li><li>Bracket, Orders, Division, Multiplication, Addition, Subtraction.</li></ul>
-          <p class="notes">🎙️ When an expression has multiple operations, we need a standard order to solve it, otherwise, everyone might get a different answer! BODMAS, or PEMDAS in some regions, provides this universal sequence, ensuring we all arrive at the correct result.</p>
+          <h2>BODMAS: Step 4 - Addition (+) &amp; Subtraction (-)</h2>
+          <ul><li>Perform addition and subtraction from left to right.</li><li>They also have equal priority; solve whichever comes first.</li><li>Example: 7 + 3 - 2. First 7 + 3 = 10, then 10 - 2 = 8.</li></ul>
+          <p class="notes">🎙️ Finally, we tackle addition and subtraction. Just like division and multiplication, they are solved from left to right. This is the last step to simplify your expression to a single value.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Brackets</span></div><div class="step"><span class="snum">2</span><span>Orders (Powers/Roots)</span></div><div class="step"><span class="snum">3</span><span>Division &amp; Multiplication (L to R)</span></div><div class="step"><span class="snum">4</span><span>Addition &amp; Subtraction (L to R)</span></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Addition</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Subtraction</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>BODMAS <span class="hl">Explained</span></h2>
-          <ul><li>B: Brackets (Parentheses) - Solve inside first.</li><li>O: Orders (Exponents) - Powers and roots.</li><li>DM: Division and Multiplication - From left to right.</li><li>AS: Addition and Subtraction - From left to right.</li></ul>
-          <p class="notes">🎙️ It's important to remember that Division and Multiplication have equal priority, as do Addition and Subtraction. When you encounter them together, you work from left to right. This ensures every step is performed correctly.</p>
+          <h2>Worked Example: Evaluate 18 ÷ 3 + 5 × 2</h2>
+          <ul><li>Original: 18 ÷ 3 + 5 × 2</li><li>Step 1 (D/M): 18 ÷ 3 = 6</li><li>Step 2 (D/M): 5 × 2 = 10</li><li>Step 3 (A/S): 6 + 10 = 16</li></ul>
+          <p class="notes">🎙️ Let's apply BODMAS. First, we perform the division and multiplication parts. Then, with the simplified numbers, we do the addition to get our final answer.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">Step-by-Step Rule</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>18 ÷ 3 = 6</span></div><div class="step"><span class="snum">2</span><span>5 × 2 = 10</span></div><div class="step"><span class="snum">3</span><span>6 + 10 = 16</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Worked Example: <span class="hl">Evaluating</span> with BODMAS</h2>
-          <ul><li>Evaluate: 10 + 4 × (6 - 2)</li><li>Step 1 (Brackets): 10 + 4 × 4</li><li>Step 2 (Multiplication): 10 + 16</li><li>Step 3 (Addition): 26</li></ul>
-          <p class="notes">🎙️ Let's apply BODMAS to a numerical expression. Notice how we tackle the operation inside the brackets first, then multiplication, and finally addition. Following these steps systematically prevents errors and leads us to the correct answer.</p>
+          <h2>Worked Example: Evaluate 4 + (10 - 2) × 3</h2>
+          <ul><li>Original: 4 + (10 - 2) × 3</li><li>Step 1 (Brackets): 10 - 2 = 8</li><li>Step 2 (Multiplication): 8 × 3 = 24</li><li>Step 3 (Addition): 4 + 24 = 28</li></ul>
+          <p class="notes">🎙️ Here, brackets come into play. We must first solve the operation inside the brackets. After that, we follow the rest of BODMAS: multiplication before addition.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>10 + 4 × (6 - 2)</span></div><div class="step"><span class="snum">2</span><span>10 + 4 × 4</span></div><div class="step"><span class="snum">3</span><span>10 + 16</span></div><div class="step"><span class="snum">4</span><span>26</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>10 - 2 = 8</span></div><div class="step"><span class="snum">2</span><span>8 × 3 = 24</span></div><div class="step"><span class="snum">3</span><span>4 + 24 = 28</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,69 +252,93 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Worked Example: Evaluating with <span class="hl">Variables</span></h2>
-          <ul><li>Evaluate 2x + 5 for x = 3.</li><li>Step 1 (Substitute): 2(3) + 5</li><li>Step 2 (Multiply): 6 + 5</li><li>Step 3 (Add): 11</li></ul>
-          <p class="notes">🎙️ When we have an algebraic expression and are given a value for the variable, we substitute that value into the expression. Then, we use BODMAS to evaluate the resulting arithmetic expression. This shows how variables allow expressions to represent different values.</p>
+          <h2><span class="hl">Common Mistakes</span> in Evaluating Expressions</h2>
+          <ul><li>Ignoring the order of operations (BODMAS).</li><li>Solving operations from left to right always, without priority.</li><li>Making calculation errors with basic arithmetic.</li></ul>
+          <p class="notes">🎙️ It's easy to make mistakes if we rush. The biggest pitfall is not following BODMAS properly. Always take your time, apply the rules step-by-step, and double-check your basic calculations.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>2x + 5 (x=3)</span></div><div class="step"><span class="snum">2</span><span>2(3) + 5</span></div><div class="step"><span class="snum">3</span><span>6 + 5</span></div><div class="step"><span class="snum">4</span><span>11</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Be Careful!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Simplifying</span> Expressions: Combining Like Terms</h2>
-          <ul><li>Make an expression easier to understand and use.</li><li>Combine (add or subtract) all like terms.</li><li>Example: 3x + 5 + 2x -&gt; 5x + 5.</li></ul>
-          <p class="notes">🎙️ Simplifying an expression means writing it in its most compact and understandable form. The main way to do this is by combining any like terms. Remember, you can only combine terms that have the exact same variable part.</p>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>Evaluate: 10 + 5 * 2</li></ul>
+          <p class="notes">🎙️ Alright, let's test your understanding. Remember the order of operations! Think carefully about which operation you should perform first to get the correct answer.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Like Terms</span></div><div class="step"><span class="snum">2</span><span>Group Them</span></div><div class="step"><span class="snum">3</span><span>Combine Coefficients</span></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Simplifying Algebraic Expression</h2>
-          <ul><li>Simplify: 7y + 3x - 2y + 5</li><li>Step 1 (Identify like terms): (7y - 2y) and (3x)</li><li>Step 2 (Combine 'y' terms): 5y + 3x + 5</li><li>Final simplified expression: 3x + 5y + 5</li></ul>
-          <p class="notes">🎙️ Here, we first identified the terms with 'y' as their variable part and grouped them. Then, we performed the subtraction of their coefficients. The '3x' and '5' are unlike terms, so they remain separate in the final simplified expression.</p>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Evaluate: (12 - 4) / 2</li></ul>
+          <p class="notes">🎙️ Another one! This expression has brackets. What does BODMAS tell us to do when we see brackets? Solve that part first, then proceed with the rest of the operations.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>7y + 3x - 2y + 5</span></div><div class="step"><span class="snum">2</span><span>(7y - 2y) + 3x + 5</span></div><div class="step"><span class="snum">3</span><span>5y + 3x + 5</span></div><div class="step"><span class="snum">4</span><span>3x + 5y + 5</span></div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check 1: Identify the <span class="hl">Constant</span></h2>
-          <ul><li>What is the constant term in the expression: 5x + 8y - 12 + 3x?</li></ul>
-          <p class="notes">🎙️ Take a moment to look at this expression. Remember what we discussed about constants. Can you spot the term that is just a number, without any variable attached to it?</p>
+          <h2>Real-life Application: Calculating <span class="hl">Travel Time</span></h2>
+          <ul><li>You travel 60 km at 20 km/h, then stop for 1 hour.</li><li>Expression for total time (in hours): 60 / 20 + 1.</li><li>This evaluates to 3 + 1 = 4 hours.</li></ul>
+          <p class="notes">🎙️ Expressions help us calculate things like travel time. Dividing distance by speed gives us travel time, and then we can add any stops or breaks to find the total duration of our journey.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Time Calculation</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Form</span> the Expression</h2>
-          <ul><li>Write an expression for: 'The product of 6 and a number 'z', decreased by 10'.</li></ul>
-          <p class="notes">🎙️ This question asks you to translate a word phrase into a mathematical expression. Think about what 'product' means and what 'decreased by' implies in terms of operations.</p>
+          <h2><span class="hl">Translating Words</span> into Arithmetic Expressions</h2>
+          <ul><li>Look for keywords: 'sum' (+), 'difference' (-), 'product' (*), 'quotient' (/)</li><li>'More than', 'increased by' mean addition.</li><li>'Less than', 'decreased by' mean subtraction.</li></ul>
+          <p class="notes">🎙️ Mathematics often involves converting real-world scenarios or sentences into expressions. Identifying these keywords is like finding clues that tell you which arithmetic operation to use.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Keywords</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Quick Check 3: <span class="hl">Simplify</span> This</h2>
-          <ul><li>Simplify the expression: 4a + 7b - a + 2b.</li></ul>
-          <p class="notes">🎙️ Remember the rules for combining like terms. Group the terms with 'a' together and the terms with 'b' together, then perform the operations on their coefficients.</p>
+          <h2><span class="hl">Practice</span>: Word Problem to Expression</h2>
+          <ul><li>Problem: 'Add 7 to the quotient of 20 and 4'.</li><li>Step 1: Identify 'quotient of 20 and 4' (20 / 4).</li><li>Step 2: Identify 'Add 7 to' ( + 7).</li><li>Expression: (20 / 4) + 7.</li></ul>
+          <p class="notes">🎙️ Let's try another word problem. Break it down. What operation does 'quotient' imply? What about 'add'? Once you've identified the parts, assemble them correctly to form the expression.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Quotient</span></div><div class="step"><span class="snum">2</span><span>Identify Addition</span></div><div class="step"><span class="snum">3</span><span>Form Expression</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>What's Next? <span class="hl">Beyond</span> Arithmetic Expressions</h2>
+          <ul><li>Arithmetic expressions only use numbers and operators.</li><li>When we introduce letters (variables), they become Algebraic Expressions.</li><li>This is your next step in understanding advanced maths!</li></ul>
+          <p class="notes">🎙️ Today, we focused on expressions with only numbers. But soon, you'll encounter expressions that include letters, called variables. These are algebraic expressions and open up a whole new world of problem-solving.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Next Level</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: What We've Learned</h2>
+          <ul><li>Arithmetic expressions combine numbers and operators.</li><li>Evaluating means finding the single numerical value.</li><li>BODMAS ensures consistent order of operations.</li><li>Brackets -&gt; Of/Orders -&gt; Division/Multiplication -&gt; Addition/Subtraction.</li></ul>
+          <p class="notes">🎙️ Let's quickly review the main points from today's lesson. Remember the definition of an expression, what it means to evaluate it, and most importantly, the BODMAS rule to always get the correct answer.</p>
         </div>
         
       </div>
@@ -310,40 +347,17 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">23 / 25</span>
-          <h2>Quick Check 4: <span class="hl">Evaluate</span> This</h2>
-          <ul><li>Evaluate 3p - 7 when p = 5.</li></ul>
-          <p class="notes">🎙️ For this question, substitute the given value of 'p' into the expression. Then, use the order of operations to find the final numerical value of the expression.</p>
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Challenge</span> Question!</h2>
+          <ul><li>Evaluate: 25 - [10 + (8 - 3) * 2] / 5</li></ul>
+          <p class="notes">🎙️ Here's a challenge to test your mastery of BODMAS with multiple brackets. Take your time, apply each step carefully, and see if you can arrive at the correct solution. All the best!</p>
         </div>
         
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: What We Learned</h2>
-          <ul><li>Expressions combine numbers, variables, and operations.</li><li>Terms are separated by '+' or '-'.</li><li>Like terms have the same variable part and can be combined.</li><li>BODMAS guides the order of operations for evaluation.</li></ul>
-          <p class="notes">🎙️ We've covered a lot today! You now know the fundamental components of arithmetic expressions, how to build them, identify their parts, and most importantly, how to simplify and evaluate them using the correct order of operations. These are essential skills.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Key Takeaways</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">25 / 25</span>
-          <h2>Thank You &amp; <span class="hl">Practice</span>!</h2>
-          <ul><li>Keep practicing forming and simplifying expressions.</li><li>Mastering these concepts will build a strong math foundation.</li><li>Ask questions if you have any doubts!</li></ul>
-          <p class="notes">🎙️ Thank you for your attention today. The key to mastering arithmetic expressions, like any math topic, is consistent practice. Don't hesitate to review the concepts and work through more problems. Keep up the great work!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Keep Learning!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

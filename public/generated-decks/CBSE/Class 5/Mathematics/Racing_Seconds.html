@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Racing Seconds! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Racing Seconds — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2><span class="hl">Racing Seconds!</span></h2>
-          <ul><li>Get ready to count fast!</li></ul>
-          <p class="notes">🎙️ Hello, champions! Today, we're going on an exciting adventure. We're going to learn about something that is always racing, always moving forward. Can you guess what it is?</p>
+          <h2><span class="hl">Racing Seconds</span> - Let's Learn About Time!</h2>
+          <ul><li>Time flies fast!</li><li>Let's catch the seconds!</li></ul>
+          <p class="notes">🎙️ Hello, children! Today we are going on an exciting journey to understand something very important called 'Time'. Have you ever noticed how fast some things happen? Let's find out more about these 'racing seconds'!</p>
         </div>
         
       </div>
@@ -61,7 +74,7 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
           <span class="num">2 / 20</span>
           <h2>What is <span class="hl">Time</span>?</h2>
           <ul><li>Time tells us when things happen.</li><li>It helps us plan our day.</li></ul>
-          <p class="notes">🎙️ Time is like a silent friend that tells us when to wake up, when to play, and when to sleep. We see it on clocks and watches every day.</p>
+          <p class="notes">🎙️ Time helps us know when to wake up, when to go to school, and when to play. It's like a special helper that keeps everything in order.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="⏰" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Units</span> of Time</h2>
-          <ul><li>We measure time in different ways.</li><li>Like seconds, minutes, and hours.</li></ul>
-          <p class="notes">🎙️ Just like we measure length in metres and centimetres, we measure time using special words. The smallest ones we'll talk about today are seconds, minutes, and hours.</p>
+          <h2>Different Ways to <span class="hl">Measure Time</span></h2>
+          <ul><li>We use seconds for very short times.</li><li>Minutes for a bit longer.</li><li>Hours for even longer!</li></ul>
+          <p class="notes">🎙️ Just like we use centimetres for small lengths and metres for big ones, we have different units for time. Seconds, minutes, and hours are our main units.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Seconds</span></div><div class="step"><span class="snum">2</span><span>Minutes</span></div><div class="step"><span class="snum">3</span><span>Hours</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Sand timer shows time passing</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>The Smallest Unit: <span class="hl">Seconds</span>!</h2>
-          <ul><li>Seconds are super quick!</li><li>Look at the fast-moving hand on a clock.</li></ul>
-          <p class="notes">🎙️ Seconds are the smallest units of time we usually talk about. If you look closely at a clock, there's a very thin hand that moves very, very fast. That's the seconds hand!</p>
+          <h2>Meet the "<span class="hl">Second</span>"!</h2>
+          <ul><li>A second is very quick!</li><li>Like a blink of an eye.</li><li>Count 'one thousand one' - that's about one second!</li></ul>
+          <p class="notes">🎙️ Imagine a tiny race car, zooming past in a flash! That's how fast a second feels. It's the smallest unit we usually talk about.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">A stopwatch for seconds</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃‍♂️</div><div class="vcap">A quick dash!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,9 +108,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2><span class="hl">60 Seconds</span> Make 1 Minute!</h2>
-          <ul><li>If you count 1, 2, 3... up to 60, one minute has passed!</li></ul>
-          <p class="notes">🎙️ It takes exactly 60 seconds for the seconds hand to go all the way around the clock face. When it completes one full circle, one minute is over.</p>
+          <h2>Let's <span class="hl">Count Seconds</span>!</h2>
+          <ul><li>Try counting from 1 to 60.</li><li>Each count is about one second.</li><li>When you reach 60, one minute has passed!</li></ul>
+          <p class="notes">🎙️ You can try this at home! Close your eyes and count slowly, 'one thousand one, one thousand two...' until 'one thousand sixty'. You've just counted one whole minute!</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Let's <span class="hl">Count Seconds</span>!</h2>
-          <ul><li>Close your eyes for 10 seconds.</li><li>Ready? Go! 1... 2... 3...</li></ul>
-          <p class="notes">🎙️ Let's try it! I'll tell you when to start and when to stop. Try to feel how long 10 seconds really is. This helps us understand time better.</p>
+          <h2>Seconds Make <span class="hl">Minutes</span></h2>
+          <ul><li>60 seconds make 1 minute.</li><li>It's like 60 small steps to make one big jump!</li></ul>
+          <p class="notes">🎙️ Think of it like building blocks. You need 60 tiny 'second' blocks to build one 'minute' block. So, one minute is much longer than one second.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⏳</span><span>⏳</span><span>⏳</span><span>⏳</span><span>⏳</span><span>⏳</span><span>⏳</span><span>⏳</span><span>⏳</span><span>⏳</span></div><div class="vcap">10 seconds pass...</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Seconds</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Minute</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2><span class="hl">60 Minutes</span> Make 1 Hour!</h2>
-          <ul><li>Just like seconds make a minute,</li><li>minutes make an hour!</li></ul>
-          <p class="notes">🎙️ Now, let's think bigger. When the minute hand on the clock goes all the way around, 60 minutes have passed, and that means one whole hour is gone.</p>
+          <h2>Minutes Make <span class="hl">Hours</span></h2>
+          <ul><li>60 minutes make 1 hour.</li><li>An hour is even longer!</li></ul>
+          <p class="notes">🎙️ Now, imagine you have 60 'minute' blocks. If you put them all together, you get one 'hour' block! An hour is a long time, enough for a whole class at school.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🕰️</span><span>🕰️</span><span>🕰️</span><span>🕰️</span><span>🕰️</span><span>🕰️</span></div><div class="vcap">10 minutes each, 6 times!</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Minutes</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hour</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2><span class="hl">24 Hours</span> Make 1 Day!</h2>
-          <ul><li>From one morning to the next,</li><li>that's one full day!</li></ul>
-          <p class="notes">🎙️ Our whole day and night cycle, from when the sun rises to when it sets and rises again, is 24 hours long. This is how we get a full day.</p>
+          <h2>Our Time Teller: <span class="hl">The Clock</span></h2>
+          <ul><li>A clock shows us hours, minutes, and seconds.</li><li>It has different hands.</li></ul>
+          <p class="notes">🎙️ Look at a clock. It has numbers and usually three hands. Each hand tells us something special about time.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Day and Night Cycle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕰️</div><div class="vcap">A wall clock</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Why</span> Do We Need This?</h2>
-          <ul><li>To know how long a game is.</li><li>To catch our bus on time!</li></ul>
-          <p class="notes">🎙️ Knowing about seconds, minutes, and hours helps us in many ways. Imagine you have a race, or you need to know how much time is left for your favourite cartoon. Time helps us with all these things!</p>
+          <h2>The Speedy <span class="hl">Seconds Hand</span></h2>
+          <ul><li>The thin, fast-moving hand is the seconds hand.</li><li>It goes around the clock in 60 seconds.</li></ul>
+          <p class="notes">🎙️ Have you seen the hand that moves very quickly on a clock? That's the seconds hand! It's always racing around, showing us each passing second.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚌</div><div class="vcap">Catching the school bus</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Newtons_cradle_animation_book_2.gif?width=440" data-fb="⏱️" alt="Force changes how things move."/><div class="vcap">Force changes how things move.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2><span class="hl">Rohan's Race</span> Time!</h2>
-          <ul><li>Rohan ran for 2 minutes.</li><li>How many seconds did he run?</li></ul>
-          <p class="notes">🎙️ Let's help Rohan! If he ran for 2 minutes, we need to change those minutes into seconds. Remember our rule: 1 minute is 60 seconds. So, for 2 minutes, we multiply 2 by 60.</p>
+          <h2><span class="hl">Racing</span> Against Seconds!</h2>
+          <ul><li>In sports, even a fraction of a second can decide the winner!</li><li>Every second counts!</li></ul>
+          <p class="notes">🎙️ Imagine athletes running a race. Sometimes, two runners are so close that only a tiny difference of seconds decides who wins the gold medal! This shows how important seconds are.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start: 2 minutes</span></div><div class="step"><span class="snum">2</span><span>We know: 1 min = 60 secs</span></div><div class="step"><span class="snum">3</span><span>Calculate: 2 x 60</span></div><div class="step"><span class="snum">4</span><span>Answer: 120 seconds!</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pizza-3007395.jpg?width=520" data-fb="🏅" alt="A pizza cut into slices shows fractions — each slice is a part of the whole!"/><div class="vcap">A pizza cut into slices shows fractions — each slice is a part of the whole!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Minutes to Seconds: <span class="hl">Multiply</span>!</h2>
-          <ul><li>To change minutes into seconds,</li><li>we multiply the number of minutes by 60.</li></ul>
-          <p class="notes">🎙️ This is a very important rule! Whenever you have minutes and you want to know how many seconds are in them, just take the number of minutes and multiply it by 60. Simple!</p>
+          <h2>Let's <span class="hl">Convert</span>: Minutes to Seconds</h2>
+          <ul><li>Problem: How many seconds are in 2 minutes?</li><li>We know: 1 minute = 60 seconds.</li><li>So: 2 minutes = 2 x 60 seconds = 120 seconds.</li></ul>
+          <p class="notes">🎙️ To change minutes into seconds, we just multiply the number of minutes by 60. It's like saying, 'I have 2 groups of 60 seconds each!'</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiply by 60</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with minutes</span></div><div class="step"><span class="snum">2</span><span>Multiply by 60</span></div><div class="step"><span class="snum">3</span><span>Get seconds</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,59 +192,59 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Example: Convert <span class="hl">5 Minutes</span></h2>
-          <ul><li>How many seconds are in 5 minutes?</li></ul>
-          <p class="notes">🎙️ Let's practice this rule. If we have 5 minutes, and we want seconds, we just do 5 multiplied by 60. Can you do the math? That's 300 seconds!</p>
+          <h2>Let's <span class="hl">Convert</span>: Hours to Minutes</h2>
+          <ul><li>Problem: How many minutes are in 3 hours?</li><li>We know: 1 hour = 60 minutes.</li><li>So: 3 hours = 3 x 60 minutes = 180 minutes.</li></ul>
+          <p class="notes">🎙️ Similarly, to change hours into minutes, we multiply the number of hours by 60. It's a simple rule to remember for time conversions!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Minutes = 5</span></div><div class="step"><span class="snum">2</span><span>Rule: Minutes x 60</span></div><div class="step"><span class="snum">3</span><span>Calculation: 5 x 60</span></div><div class="step"><span class="snum">4</span><span>Result: 300 seconds</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with hours</span></div><div class="step"><span class="snum">2</span><span>Multiply by 60</span></div><div class="step"><span class="snum">3</span><span>Get minutes</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Hours to Minutes: <span class="hl">Multiply</span>!</h2>
-          <ul><li>To change hours into minutes,</li><li>we multiply the number of hours by 60.</li></ul>
-          <p class="notes">🎙️ It's the same idea! Just like 60 seconds make a minute, 60 minutes make an hour. So, if you have hours and want to know minutes, you multiply by 60 again!</p>
+          <h2>Time <span class="hl">Challenge</span> 1!</h2>
+          <ul><li>How many seconds are in 5 minutes?</li><li>Think and tell!</li></ul>
+          <p class="notes">🎙️ Alright, little time detectives, here's your first challenge! Use what we just learned to find the answer. You can do it!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiply by 60</div></div></div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 20</span>
+          <h2>Time <span class="hl">Challenge</span> 2!</h2>
+          <ul><li>How many minutes are in 4 hours?</li><li>Quickly calculate!</li></ul>
+          <p class="notes">🎙️ Here's another one! Remember the magic number 60 for conversions. What do you get when you multiply 4 by 60?</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">14 / 20</span>
-          <h2>Example: Convert <span class="hl">3 Hours</span></h2>
-          <ul><li>How many minutes are in 3 hours?</li></ul>
-          <p class="notes">🎙️ Let's try this one. If you have 3 hours, and you want to find out how many minutes that is, you simply multiply 3 by 60. What do you get? 180 minutes!</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hours = 3</span></div><div class="step"><span class="snum">2</span><span>Rule: Hours x 60</span></div><div class="step"><span class="snum">3</span><span>Calculation: 3 x 60</span></div><div class="step"><span class="snum">4</span><span>Result: 180 minutes</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Quick <span class="hl">Question</span>!</h2>
-          <ul><li>How many seconds are in 1 minute and 30 seconds?</li></ul>
-          <p class="notes">🎙️ This question combines what we learned! First, change the 1 minute into seconds, and then add the extra 30 seconds. Think carefully!</p>
+          <h2>Time in the <span class="hl">Kitchen</span>!</h2>
+          <ul><li>Mom uses minutes and seconds for cooking.</li><li>To bake a cake or boil an egg!</li></ul>
+          <p class="notes">🎙️ When your mom bakes your favourite cake, she follows a recipe that tells her exactly how many minutes to bake it for. Cooking is a great example of using time!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍳</div><div class="vcap">Cooking delicious food</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Quick <span class="hl">Question</span>!</h2>
-          <ul><li>Your favourite cartoon is 2 hours long.</li><li>How many minutes is that?</li></ul>
-          <p class="notes">🎙️ Imagine watching your favourite show! If it's 2 hours, how many minutes will you be glued to the screen? Use your multiplication rule!</p>
+          <h2>Time at <span class="hl">School</span>!</h2>
+          <ul><li>Our classes are for a certain number of minutes.</li><li>The school bell rings at fixed times!</li></ul>
+          <p class="notes">🎙️ At school, our lessons are planned by time. Each class might be 30 or 45 minutes long, and the bell tells us when a class starts and ends. Time keeps our school day organized.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏫</div><div class="vcap">Our school building</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Who is <span class="hl">Faster</span>?</h2>
-          <ul><li>Runner A: Ran 1 minute 10 seconds.</li><li>Runner B: Ran 75 seconds.</li></ul>
-          <p class="notes">🎙️ This is a fun one! To find out who is faster, we need to make sure both times are in the same unit. Convert Runner A's time to seconds and then compare.</p>
+          <h2>Who Took <span class="hl">Longer</span>?</h2>
+          <ul><li>Ria took 1 minute to finish her drawing.</li><li>Sam took 70 seconds.</li><li>Who took more time?</li></ul>
+          <p class="notes">🎙️ Let's compare! Remember, 1 minute is 60 seconds. So, Ria took 60 seconds, and Sam took 70 seconds. Sam took longer than Ria. Good job, time detectives!</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Runner A (70s)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Runner B (75s)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Ria (1 min)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sam (70 sec)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2><span class="hl">Everyday</span> Seconds</h2>
-          <ul><li>Brushing teeth for 120 seconds.</li><li>A quick hug takes 5 seconds!</li></ul>
-          <p class="notes">🎙️ Seconds are everywhere in our daily life! From how long it takes to tie your shoelaces to how quickly you can run a short distance. They add up quickly!</p>
+          <h2>Super <span class="hl">Speedy Animals</span>!</h2>
+          <ul><li>Cheetahs can run incredibly fast!</li><li>They cover long distances in just a few seconds.</li></ul>
+          <p class="notes">🎙️ Did you know that some animals are super fast? A cheetah can run from one end of a football field to the other in just a few seconds! Seconds are truly amazing for measuring speed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏃‍♀️</span><span>🏃‍♀️</span><span>🏃‍♀️</span></div><div class="vcap">Short activities</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🐆" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,27 +276,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>What Did We <span class="hl">Learn</span>?</h2>
-          <ul><li>Time has seconds, minutes, hours.</li><li>1 minute = 60 seconds.</li><li>1 hour = 60 minutes.</li><li>To convert, we multiply by 60!</li></ul>
-          <p class="notes">🎙️ Today, we raced through the world of seconds! We learned how our clocks work, how to count seconds, and how to change between different units of time. Great job, everyone!</p>
+          <h2>What Did We Learn?</h2>
+          <ul><li>Time helps us organize our day.</li><li>Units of time: seconds, minutes, hours.</li><li>60 seconds = 1 minute, 60 minutes = 1 hour.</li></ul>
+          <p class="notes">🎙️ We learned about the 'racing seconds' and how they make up minutes and hours. Time is all around us, helping us understand the world better!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Keep <span class="hl">Racing</span>!</h2>
-          <ul><li>Keep an eye on the clock!</li><li>Time flies when you're learning!</li></ul>
-          <p class="notes">🎙️ Time is always moving, just like you are always growing and learning. Keep practicing your time conversions, and you'll be a time master in no time!</p>
+          <h2>Keep <span class="hl">Exploring Time</span>!</h2>
+          <ul><li>Always be on time!</li><li>Keep practicing time conversions!</li></ul>
+          <p class="notes">🎙️ Time is a wonderful thing to understand. Keep looking at clocks, asking about time, and practicing your conversions. You are now a time expert! Thank you!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Time flies!</div></div></div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

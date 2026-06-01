@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Cell: The Unit of Life — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2><span class="hl">Cell</span>: The Unit of Life - An Introduction</h2>
-          <ul><li>Exploring the fundamental building block of all living organisms.</li><li>Understanding its structure, function, and significance.</li><li>A core concept for advanced biological studies.</li></ul>
-          <p class="notes">🎙️ Welcome to our journey into the microscopic world of the cell. This chapter, 'Cell: The Unit of Life', is foundational for all of biology. Mastering these concepts is crucial for your Class 11 exams and future studies.</p>
+          <h2><span class="hl">Cell</span>: The Unit of Life</h2>
+          <ul><li>Foundation of all living organisms.</li><li>Explore the microscopic world within us.</li><li>Understand structure, function, and types of cells.</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today we embark on a fascinating journey into the fundamental unit of life – the cell. This chapter is absolutely crucial for your understanding of all biological processes and frequently appears in exams.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is a <span class="hl">Cell</span>? The Basic Definition</h2>
-          <ul><li>The fundamental structural and functional unit of all living organisms.</li><li>Capable of independent existence and performing all essential life functions.</li><li>Vary in size, shape, and activities, but share common organizational principles.</li></ul>
-          <p class="notes">🎙️ Think of a cell as the smallest entity that can be called 'alive'. From a tiny bacterium to a massive whale, all are composed of cells. They are the true 'units' of life, carrying out all necessary processes.</p>
+          <h2>What is a <span class="hl">Cell</span>?</h2>
+          <ul><li>Basic structural and functional unit of all living organisms.</li><li>Capable of independent existence.</li><li>Performs all essential life functions.</li></ul>
+          <p class="notes">🎙️ Think of a cell as the smallest building block that can still do everything needed for life. From a tiny bacterium to a giant whale, every organism is either a single cell or made up of many cells working together.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Microscopic View</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🔬" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Historical Milestones: <span class="hl">Discovery</span> of the Cell</h2>
-          <ul><li>Robert Hooke (1665): First observed 'cells' in a cork slice, coined the term.</li><li>Anton van Leeuwenhoek (1674): First saw and described live cells (bacteria, protozoa).</li><li>Improved microscopes paved the way for detailed cellular studies.</li></ul>
-          <p class="notes">🎙️ The discovery of the cell was a landmark event, thanks to early microscopy. Robert Hooke's observation of honeycomb-like structures in cork led to the term 'cell', while Leeuwenhoek later revealed the existence of living microorganisms.</p>
+          <h2>The <span class="hl">Discovery</span> of Cell</h2>
+          <ul><li>Robert Hooke (1665): Observed 'honeycomb' structures in cork slice.</li><li>Coined the term 'cell' (Latin 'cellula' - small room).</li><li>Anton von Leeuwenhoek (1674): First saw living cells (bacteria, protozoa) in pond water.</li></ul>
+          <p class="notes">🎙️ The journey began with Robert Hooke looking at dead cork cells. It was Leeuwenhoek, with improved microscopes, who truly opened our eyes to the vibrant, living world within a single drop of water. Remember both names and their contributions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Historical Record</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Hooke's Cork Observation</span></div><div class="step"><span class="snum">2</span><span>Naming 'Cells'</span></div><div class="step"><span class="snum">3</span><span>Leeuwenhoek's Living Cells</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>The Cell <span class="hl">Theory</span>: Foundations (Schleiden &amp; Schwann)</h2>
-          <ul><li>Matthias Schleiden (1838): All plants are composed of cells.</li><li>Theodor Schwann (1839): All animals are composed of cells and their products.</li><li>First two postulates: All living organisms are made of cells and cell products.</li></ul>
-          <p class="notes">🎙️ The Cell Theory is a cornerstone of biology. Schleiden, a botanist, and Schwann, a zoologist, independently concluded that cells are the basic units of life for both plants and animals, laying the initial framework.</p>
+          <h2><span class="hl">Cell Theory</span>: Early Postulates</h2>
+          <ul><li>Matthias Schleiden (1838): German botanist, all plants are made of cells.</li><li>Theodor Schwann (1839): British zoologist, all animals are made of cells.</li><li>Schwann proposed that cells have a thin outer layer (plasma membrane) and plant cells have a cell wall.</li></ul>
+          <p class="notes">🎙️ These two scientists independently studied different kingdoms but came to similar conclusions. Their combined observations laid the groundwork for one of biology's most fundamental theories. Note Schwann's early insight into the plasma membrane.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Forming an Idea</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Foundational Ideas</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>The Cell Theory: Modern Additions (Rudolf <span class="hl">Virchow</span>)</h2>
-          <ul><li>Rudolf Virchow (1855): 'Omnis cellula e cellula' (All cells arise from pre-existing cells).</li><li>Third postulate: Cells do not arise de novo (spontaneously).</li><li>Modern Cell Theory: All organisms are made of cells, cells are the basic unit of life, and all cells come from pre-existing cells.</li></ul>
-          <p class="notes">🎙️ Virchow's crucial addition completed the modern cell theory, explaining cell reproduction. This principle debunked the idea of spontaneous generation and highlighted the continuity of life through cell division.</p>
+          <h2><span class="hl">Modern</span> Cell Theory &amp; Virchow</h2>
+          <ul><li>Rudolf Virchow (1855): 'Omnis cellula e cellula' (All cells arise from pre-existing cells).</li><li>Challenged spontaneous generation.</li><li>Completed the cell theory, making it universally accepted.</li></ul>
+          <p class="notes">🎙️ Virchow's contribution was pivotal. Before him, the origin of new cells was unclear. His statement clarified that life begets life at the cellular level, completing the comprehensive cell theory we know today.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Cell Growth</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Continuity of Life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,9 +120,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Overview of Cell Types: Prokaryotic <span class="hl">vs.</span> Eukaryotic</h2>
-          <ul><li>Cells are broadly classified into Prokaryotic and Eukaryotic.</li><li>Distinction based on the presence or absence of a true nucleus and membrane-bound organelles.</li><li>Prokaryotes are simpler, while eukaryotes are more complex and compartmentalized.</li></ul>
-          <p class="notes">🎙️ This fundamental classification is vital. Prokaryotes represent ancient, simpler life forms like bacteria, lacking internal compartments. Eukaryotes, encompassing plants, animals, fungi, and protists, have a highly organized internal structure.</p>
+          <h2>Summary: Key <span class="hl">Postulates</span></h2>
+          <ul><li>All living organisms are composed of cells and products of cells.</li><li>All cells arise from pre-existing cells.</li><li>The cell is the basic structural and functional unit of all living organisms.</li></ul>
+          <p class="notes">🎙️ These three points are the essence of the Cell Theory. Make sure you can state them clearly. They are frequently asked in exams and form the basis for understanding biology.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧬</span><span>🧬</span><span>🧬</span></div><div class="vcap">Core Principles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Prokaryotic vs. Eukaryotic</h2>
+          <ul><li>Prokaryotic: Primitive, simpler, no membrane-bound organelles.</li><li>Eukaryotic: Advanced, complex, distinct nucleus and organelles.</li><li>Fundamental division based on internal organization.</li></ul>
+          <p class="notes">🎙️ This is a crucial distinction. Prokaryotes are like basic studio apartments, while eukaryotes are like multi-room houses with specialized rooms. Understanding this difference is key to studying cell biology.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Prokaryotic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Eukaryotic</div></div></div></div>
       </div>
@@ -118,24 +143,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">7 / 25</span>
-          <h2><span class="hl">Prokaryotic</span> Cell Features: Simple Organization</h2>
-          <ul><li>Lack a well-defined nucleus; genetic material (nucleoid) is naked in the cytoplasm.</li><li>Absence of membrane-bound organelles (e.g., ER, Golgi, mitochondria).</li><li>Smaller in size (1-10 µm) and multiply rapidly.</li></ul>
-          <p class="notes">🎙️ Prokaryotic cells, like bacteria and cyanobacteria, are characterized by their simplicity. Their genetic material is not enclosed within a membrane, and they rely on the cytoplasm for most metabolic activities, making them highly efficient.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Bacterium</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">8 / 25</span>
-          <h2>Prokaryotic Cell <span class="hl">Structure</span>: A Closer Look</h2>
-          <ul><li>Cell Envelope: Outermost protective layers (Glycocalyx, Cell wall, Plasma membrane).</li><li>Cytoplasm: Fluid matrix containing genetic material (nucleoid) and ribosomes.</li><li>Ribosomes: Sites of protein synthesis, present in large numbers.</li></ul>
-          <p class="notes">🎙️ Understanding the prokaryotic cell structure is key. The cell envelope provides protection and shape. The nucleoid contains the single circular DNA, and ribosomes are essential for protein production. Some also have flagella for motility.</p>
+          <h2><span class="hl">Prokaryotic</span> Cell: A Simpler Design</h2>
+          <ul><li>No true nucleus (nucleoid region with genetic material).</li><li>No membrane-bound organelles (e.g., ER, Golgi).</li><li>Possess ribosomes, cell wall, plasma membrane, cytoplasm.</li></ul>
+          <p class="notes">🎙️ Examples include bacteria and cyanobacteria. Despite their simplicity, they are incredibly diverse and successful. Their genetic material is not enclosed in a nuclear envelope, and they lack complex internal compartmentalization.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cell Envelope</span></div><div class="step"><span class="snum">2</span><span>Cytoplasm</span></div><div class="step"><span class="snum">3</span><span>Nucleoid</span></div><div class="step"><span class="snum">4</span><span>Ribosomes</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Bacterial Cell Example</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Eukaryotic</span> Cell: Defining Traits and Complexity</h2>
-          <ul><li>Possess a true nucleus with a nuclear envelope enclosing genetic material.</li><li>Contain various membrane-bound organelles (e.g., ER, Golgi, mitochondria, chloroplasts).</li><li>Larger in size (10-100 µm) and exhibit extensive cellular compartmentalization.</li></ul>
-          <p class="notes">🎙️ Eukaryotic cells are the hallmark of complex life. Their defining feature is the presence of a membrane-bound nucleus and specialized organelles, allowing for division of labor and greater efficiency in cellular processes.</p>
+          <h2><span class="hl">Eukaryotic</span> Cell: Complex Organization</h2>
+          <ul><li>True nucleus with nuclear envelope.</li><li>Numerous membrane-bound organelles (e.g., mitochondria, ER, Golgi).</li><li>Found in plants, animals, fungi, and protists.</li></ul>
+          <p class="notes">🎙️ Eukaryotic cells are much larger and more sophisticated. The presence of a nucleus and specialized organelles allows for efficient division of labor and complex metabolic processes. This organization is a hallmark of higher life forms.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Complex DNA</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏰</div><div class="vcap">Organized Structure</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,23 +168,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Plant vs. Animal Cell: Key <span class="hl">Differences</span></h2>
-          <ul><li>Plant cells have a cell wall, chloroplasts, and a large central vacuole.</li><li>Animal cells lack a cell wall and chloroplasts, and have centrioles.</li><li>Both are eukaryotic but adapted for distinct physiological roles.</li></ul>
-          <p class="notes">🎙️ This comparison is frequently asked in exams. Remember the key structures unique to each: the rigid cell wall and photosynthetic chloroplasts in plants, versus the flexible membrane and centrioles for cell division in animals.</p>
+          <h2><span class="hl">Diversity</span> in Cell Size &amp; Shape</h2>
+          <ul><li>Size: Mycoplasma (smallest, 0.3 µm) to Ostrich egg (largest, 15 cm).</li><li>Shape: Varies with function (e.g., nerve cells long, RBC biconcave).</li><li>Examples: RBCs, WBCs, columnar epithelial cells, nerve cells.</li></ul>
+          <p class="notes">🎙️ Cells are not all uniform! Their size and shape are perfectly adapted to their specific roles within an organism. A neuron's long process allows it to transmit signals over distances, while a red blood cell's shape helps it squeeze through capillaries.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Animal_cell_structure_en.svg?width=500" data-fb="🌿" alt="An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va"/><div class="vcap">An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Mycoplasma</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Bacteria</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Human Cell</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ostrich Egg</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>The Plasma <span class="hl">Membrane</span>: Fluid Mosaic Model</h2>
-          <ul><li>Composed of a lipid bilayer with embedded and associated proteins.</li><li>Selectively permeable, regulating passage of substances in and out of the cell.</li><li>Fluid mosaic model (Singer and Nicolson, 1972) describes its dynamic nature.</li></ul>
-          <p class="notes">🎙️ The plasma membrane is not a static barrier but a dynamic, fluid structure. Its selective permeability is crucial for maintaining the cell's internal environment, allowing essential nutrients in and waste products out.</p>
+          <h2>Quick <span class="hl">Check</span>: Cell Basics</h2>
+          <ul><li>1. Who coined the term 'cell'?</li><li>2. State the three main postulates of Cell Theory.</li><li>3. Give two key differences between prokaryotic and eukaryotic cells.</li></ul>
+          <p class="notes">🎙️ Take a moment to answer these questions. This helps reinforce the foundational knowledge we've covered so far. Understanding these basics is essential before moving on to cell components.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Cell_membrane_detailed_diagram_4.svg?width=500" data-fb="💧" alt="The cell membrane is a selectively permeable barrier composed of a phospholipid bilayer wi"/><div class="vcap">The cell membrane is a selectively permeable barrier composed of a phospholipid bilayer wi</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,9 +192,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>The Plant <span class="hl">Cell Wall</span>: Support and Protection</h2>
-          <ul><li>Rigid, non-living outer layer found in plant cells, fungi, and some protists.</li><li>Provides structural support, protection, and prevents excessive water uptake.</li><li>In plants, primarily composed of cellulose; in fungi, chitin.</li></ul>
-          <p class="notes">🎙️ The cell wall is a defining feature of plant cells, giving them their characteristic fixed shape and rigidity. It acts as a protective shield against mechanical stress and osmotic lysis, vital for plant survival.</p>
+          <h2>The <span class="hl">Plasma Membrane</span>: Boundary of Life</h2>
+          <ul><li>Outer boundary of animal cells, inner to cell wall in plant cells.</li><li>Composed of lipids (bilayer) and proteins (Fluid Mosaic Model).</li><li>Selectively permeable, regulating passage of substances.</li></ul>
+          <p class="notes">🎙️ The plasma membrane is not just a static barrier; it's a dynamic, fluid structure. The Fluid Mosaic Model, proposed by Singer and Nicolson, best describes its structure. Its selective permeability is vital for maintaining cell homeostasis.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Animal_cell_structure_en.svg?width=500" data-fb="🛡️" alt="An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va"/><div class="vcap">An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>The <span class="hl">Cell Wall</span>: Structural Support</h2>
+          <ul><li>Rigid outer covering in plant cells, fungi, algae, and some prokaryotes.</li><li>Provides structural support, protection, and prevents bursting.</li><li>Plant cell wall: cellulose; Fungi: chitin; Algae: cellulose, galactans, mannans.</li></ul>
+          <p class="notes">🎙️ The cell wall is crucial for plants, giving them shape and strength against gravity and turgor pressure. Remember, it's fully permeable, unlike the selectively permeable plasma membrane. The chemical composition varies across different organisms.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_structure.svg?width=500" data-fb="🧱" alt="A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts."/><div class="vcap">A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts.</div></div></div>
       </div>
@@ -190,24 +215,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">13 / 25</span>
-          <h2>The Endomembrane <span class="hl">System</span>: Coordinated Functions</h2>
-          <ul><li>A group of organelles working together to modify, package, and transport lipids and proteins.</li><li>Includes Endoplasmic Reticulum (ER), Golgi apparatus, Lysosomes, and Vacuoles.</li><li>Functions are coordinated, though they are structurally distinct.</li></ul>
-          <p class="notes">🎙️ The endomembrane system highlights the sophisticated internal organization of eukaryotic cells. These organelles don't work in isolation; they form a functional network essential for cellular synthesis, processing, and transport pathways.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Interconnected</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>Endoplasmic <span class="hl">Reticulum</span> (ER): Network of Tubes</h2>
-          <ul><li>Network of tiny tubular structures and flattened sacs (cisternae) in the cytoplasm.</li><li>Rough ER (RER): Has ribosomes on its surface, involved in protein synthesis and secretion.</li><li>Smooth ER (SER): Lacks ribosomes, involved in lipid synthesis and detoxification.</li></ul>
-          <p class="notes">🎙️ The ER is a vast network that extends throughout the cytoplasm. The distinction between RER and SER is crucial for understanding protein processing and lipid metabolism, which are vital cellular functions.</p>
+          <h2><span class="hl">Cytoplasm</span>: The Cellular Arena</h2>
+          <ul><li>Main arena of cellular activities in both prokaryotic and eukaryotic cells.</li><li>Comprises cytosol (fluid matrix) and organelles.</li><li>Site of many metabolic pathways (e.g., glycolysis).</li></ul>
+          <p class="notes">🎙️ Everything inside the plasma membrane, excluding the nucleus in eukaryotes, is the cytoplasm. It's where most of the cell's work happens – chemical reactions, protein synthesis, and more. It's a dynamic, bustling environment.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Cellular Network</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Life's Fluid</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Golgi</span> Apparatus: Packaging and Shipping Center</h2>
-          <ul><li>Composed of flattened, disc-shaped sacs or cisternae, stacked parallel to each other.</li><li>Functions in packaging materials to be delivered to intracellular targets or secreted outside.</li><li>Modifies, sorts, and packages proteins and lipids synthesized in the ER.</li></ul>
-          <p class="notes">🎙️ The Golgi apparatus is often compared to a post office or a factory's packaging department. It receives, processes, and dispatches molecules, ensuring they reach their correct destinations, both inside and outside the cell.</p>
+          <h2>The <span class="hl">Endomembrane</span> System: Coordinated Functions</h2>
+          <ul><li>Includes Endoplasmic Reticulum (ER), Golgi apparatus, Lysosomes, and Vacuoles.</li><li>Their functions are coordinated.</li><li>Mitochondria, chloroplasts, peroxisomes are *not* part of this system.</li></ul>
+          <p class="notes">🎙️ This system is a network of membranes and organelles that work together to synthesize, modify, package, and transport lipids and proteins. It's important to remember which organelles are part of it and which are not.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Cellular Package</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>ER</span></div><div class="step"><span class="snum">2</span><span>Golgi</span></div><div class="step"><span class="snum">3</span><span>Lysosomes</span></div><div class="step"><span class="snum">4</span><span>Vacuoles</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Lysosomes and Vacuoles: Cellular <span class="hl">Housekeeping</span></h2>
-          <ul><li>Lysosomes: Membrane-bound vesicular structures containing hydrolytic enzymes. Known as 'suicidal bags'.</li><li>Vacuoles: Membrane-bound sacs, prominent in plant cells, storing water, sap, excretory products.</li><li>Both involved in waste disposal, digestion, and maintaining cellular homeostasis.</li></ul>
-          <p class="notes">🎙️ Lysosomes are the cell's recycling and waste disposal units, breaking down macromolecules. Vacuoles, especially large in plants, are crucial for turgor pressure, storage, and maintaining water balance, which is vital for plant structure.</p>
+          <h2><span class="hl">Endoplasmic Reticulum</span>: The Cellular Network</h2>
+          <ul><li>Network of tiny tubular structures and flattened sacs (cisternae).</li><li>Rough ER (RER): Ribosomes on surface, involved in protein synthesis &amp; secretion.</li><li>Smooth ER (SER): Lacks ribosomes, involved in lipid synthesis &amp; detoxification.</li></ul>
+          <p class="notes">🎙️ The ER is like the cell's internal highway system. RER is studded with ribosomes, making it a site for protein production destined for secretion or insertion into membranes. SER is crucial for making fats and breaking down toxins.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗑️</div><div class="vcap">Waste Management</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Interconnected Channels</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Mitochondria: The <span class="hl">Powerhouses</span> of the Cell</h2>
-          <ul><li>Double-membraned organelle, with the inner membrane forming folds called cristae.</li><li>Site of aerobic respiration, producing ATP (adenosine triphosphate), the cell's energy currency.</li><li>Possess their own DNA, ribosomes, and can divide independently (semi-autonomous).</li></ul>
-          <p class="notes">🎙️ Mitochondria are indispensable for eukaryotic life, generating most of the cellular energy. Their unique double-membrane structure and semi-autonomous nature are important points for exams, indicating their evolutionary origin from prokaryotes.</p>
+          <h2><span class="hl">Golgi Apparatus</span>: Packaging &amp; Secretion</h2>
+          <ul><li>Discovered by Camillo Golgi.</li><li>Consists of flattened, disc-shaped sacs or cisternae (0.5-1.0 µm diameter).</li><li>Modifies, packages, and transports proteins and lipids synthesized in the ER.</li></ul>
+          <p class="notes">🎙️ The Golgi acts like a post office. It receives materials from the ER, processes them, sorts them, and then packages them into vesicles for transport to other cellular destinations or for secretion outside the cell. Glycosylation is a key function here.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy Bolt</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Cellular Post Office</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Chloroplasts</span>: Photosynthesis Factories (Plant Cells)</h2>
-          <ul><li>Double-membraned plastids found in plant cells and algae.</li><li>Contain chlorophyll and are the sites of photosynthesis, converting light energy into chemical energy.</li><li>Internal structure includes stroma, thylakoids, and grana (stacks of thylakoids).</li></ul>
-          <p class="notes">🎙️ Chloroplasts are exclusive to photosynthetic organisms and are responsible for all life on Earth, directly or indirectly. Like mitochondria, they are semi-autonomous, possessing their own genetic material and ribosomes.</p>
+          <h2><span class="hl">Lysosomes</span> &amp; Vacuoles: Digestion &amp; Storage</h2>
+          <ul><li>Lysosomes: Single membrane-bound, contain hydrolytic enzymes (acid hydrolases).</li><li>Lysosomes: 'Suicidal bags' of the cell, break down waste and debris.</li><li>Vacuoles: Large in plant cells (central vacuole), store water, sap, excretory products.</li></ul>
+          <p class="notes">🎙️ Lysosomes are crucial for cellular cleanup and recycling. Vacuoles, especially the large central vacuole in plants, play roles in maintaining turgor pressure, storage, and waste disposal. Remember their distinct functions.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sun Energy</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Lysosome (Digestion)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Vacuole (Storage)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2><span class="hl">Ribosomes</span>: Protein Synthesis Machines</h2>
-          <ul><li>Non-membrane bound organelles composed of ribosomal RNA (rRNA) and proteins.</li><li>Sites of protein synthesis (translation) in both prokaryotic and eukaryotic cells.</li><li>Exist freely in the cytoplasm or attached to the Endoplasmic Reticulum (RER).</li></ul>
-          <p class="notes">🎙️ Ribosomes are universal cellular components, crucial for all forms of life because proteins are fundamental to cell structure and function. Their presence in both cell types underscores their ancient and essential role.</p>
+          <h2><span class="hl">Mitochondria</span>: The Powerhouse</h2>
+          <ul><li>Double membrane-bound organelle, site of aerobic respiration.</li><li>Inner membrane folded into cristae, increasing surface area.</li><li>Produces ATP (adenosine triphosphate), the energy currency of the cell.</li></ul>
+          <p class="notes">🎙️ Mitochondria are vital for energy production. The folding of the inner membrane into cristae is a classic example of structure facilitating function, as it provides more surface for the enzymes involved in ATP synthesis. They have their own DNA and ribosomes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Assembly Machine</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy Generator</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>The <span class="hl">Nucleus</span>: Control Center of the Cell</h2>
-          <ul><li>Large, membrane-bound organelle containing the cell's genetic material (DNA).</li><li>Nuclear envelope: Double membrane with nuclear pores regulating passage of molecules.</li><li>Chromatin: Network of nucleoprotein fibers (DNA + proteins). Nucleolus: Site of rRNA synthesis.</li></ul>
-          <p class="notes">🎙️ The nucleus is the eukaryotic cell's command center, housing the genome and directing all cellular activities. Understanding its components, especially chromatin and the nucleolus, is vital for genetics and cell division.</p>
+          <h2><span class="hl">Plastids</span>: Diverse Functions in Plants</h2>
+          <ul><li>Found in all plant cells and euglenoids.</li><li>Chloroplasts: Contain chlorophyll, site of photosynthesis.</li><li>Chromoplasts: Non-photosynthetic, provide color (e.g., fruits, flowers).</li><li>Leucoplasts: Colorless, store nutrients (e.g., amyloplasts for starch).</li></ul>
+          <p class="notes">🎙️ Plastids are a diverse group. Chloroplasts are the most famous, enabling plants to make their own food. Chromoplasts give vibrant colors, attracting pollinators and seed dispersers, while leucoplasts are important for storing reserves.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👑</div><div class="vcap">Cell's Control</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Photosynthesis &amp; Storage</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2>The <span class="hl">Cytoskeleton</span>: Support and Movement</h2>
-          <ul><li>An elaborate network of filamentous proteinaceous structures in the cytoplasm.</li><li>Composed of microtubules, microfilaments, and intermediate filaments.</li><li>Provides mechanical support, maintains cell shape, and aids in cell motility and intracellular transport.</li></ul>
-          <p class="notes">🎙️ The cytoskeleton is the cell's internal scaffolding, providing structure and dynamic movement. It's involved in processes like cell division, muscle contraction, and the movement of organelles within the cell.</p>
+          <h2><span class="hl">Ribosomes</span>: Protein Factories</h2>
+          <ul><li>Non-membrane bound organelles, found in both prokaryotes and eukaryotes.</li><li>Composed of ribosomal RNA (rRNA) and proteins.</li><li>Site of protein synthesis (translation).</li></ul>
+          <p class="notes">🎙️ Ribosomes are essential for all life, as proteins carry out most cellular functions. Prokaryotic ribosomes are 70S type (50S + 30S subunits), while eukaryotic ribosomes are 80S type (60S + 40S subunits). This is a common exam question.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Cellular Framework</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Building Proteins</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2>Cilia and Flagella: <span class="hl">Motility</span> Structures</h2>
-          <ul><li>Hair-like outgrowths of the cell membrane, involved in cell movement or movement of surrounding fluid.</li><li>Cilia are short and numerous; Flagella are longer and fewer.</li><li>Exhibit a '9+2' arrangement of microtubules in their core (axoneme).</li></ul>
-          <p class="notes">🎙️ Cilia and flagella are specialized structures for locomotion, seen in many eukaryotic cells. Their characteristic 9+2 microtubule arrangement is a key structural detail to remember for exams, indicating their shared evolutionary origin.</p>
+          <h2>The <span class="hl">Nucleus</span>: Control Center</h2>
+          <ul><li>Double membrane-bound organelle, contains genetic material (DNA).</li><li>Nuclear envelope has pores for transport between nucleus and cytoplasm.</li><li>Nucleolus: Site of ribosomal RNA synthesis.</li></ul>
+          <p class="notes">🎙️ The nucleus is the cell's command center, housing the DNA that dictates all cellular activities. The nuclear pores are crucial for regulating what enters and exits, maintaining genetic integrity and enabling gene expression.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Wave-like Motion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Cell's Brain</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,23 +324,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Quick <span class="hl">Check</span>: Cell Organelles</h2>
-          <ul><li>Which of the following organelles is primarily responsible for synthesizing lipids and detoxifying drugs?</li><li>A) Rough Endoplasmic Reticulum</li><li>B) Smooth Endoplasmic Reticulum</li><li>C) Golgi Apparatus</li><li>D) Lysosomes</li></ul>
-          <p class="notes">🎙️ Take a moment to recall the functions of the different parts of the endomembrane system. This type of question tests your understanding of specific organelle roles. The correct answer is B) Smooth Endoplasmic Reticulum.</p>
+          <h2>Quick Check: <span class="hl">Organelle</span> Functions</h2>
+          <ul><li>1. Which organelle is known as the 'powerhouse of the cell'?</li><li>2. Name the two types of Endoplasmic Reticulum and their main functions.</li><li>3. What is the primary function of the Golgi apparatus?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the major organelles. Knowing their functions and structures is fundamental for exam success. Pay attention to the specific roles of each component.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check: Cell <span class="hl">Theory</span></h2>
-          <ul><li>State the two main postulates of the original Cell Theory proposed by Schleiden and Schwann.</li><li>Explain the significance of Rudolf Virchow's contribution to the Cell Theory.</li></ul>
-          <p class="notes">🎙️ This question assesses your understanding of the historical development and core principles of the Cell Theory. Ensure you can articulate the contributions of each scientist clearly for your exams.</p>
+          <h2>Plant vs. Animal Cell: Key <span class="hl">Differences</span></h2>
+          <ul><li>Plant cells have cell wall, chloroplasts, and a large central vacuole.</li><li>Animal cells lack cell wall and chloroplasts, usually have smaller vacuoles.</li><li>Animal cells have centrioles, which are absent in most plant cells.</li></ul>
+          <p class="notes">🎙️ This comparison is a very common exam question. Be prepared to list and explain at least three to four distinct differences. Understanding these distinctions helps clarify the unique adaptations of plants and animals.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cell Wall (Plant)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Chloroplasts (Plant)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Centrioles (Animal)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Large Vacuole (Plant)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Chapter <span class="hl">Recap</span>: The Unit of Life</h2>
-          <ul><li>The cell is the fundamental unit of life, discovered by Hooke and Leeuwenhoek.</li><li>Cell theory (Schleiden, Schwann, Virchow) unified biological understanding.</li><li>Prokaryotic and Eukaryotic cells differ fundamentally in organization.</li><li>Each organelle (nucleus, ER, Golgi, mitochondria, chloroplasts, etc.) performs specific, vital functions.</li></ul>
-          <p class="notes">🎙️ We've covered the entire landscape of the cell, from its discovery to the intricate functions of its organelles. Remember to focus on the key differences between cell types and the specific roles of each component. This knowledge is essential for your exams and future biological studies.</p>
+          <h2><span class="hl">Recap</span>: The Unit of Life</h2>
+          <ul><li>Cells are the fundamental units of life.</li><li>Cell Theory explains cell origin and structure.</li><li>Prokaryotic and eukaryotic cells differ in organization.</li><li>Each organelle has a specific, coordinated function.</li></ul>
+          <p class="notes">🎙️ We've covered a vast amount of information today, from the discovery of cells to the intricate workings of their organelles. Remember, understanding the cell is the bedrock of all advanced biology concepts. Keep reviewing these key points!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 11 · Biology</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

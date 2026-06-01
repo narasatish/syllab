@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>The Amazing World of Plants! — Syllab.in</title>
+<meta name="robots" content="noindex,follow"/>
+<title>Plants and Their Parts — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Welcome to the World of <span class="hl">Plants</span>!</h2>
-          <ul><li>Let's learn about our green friends!</li><li>They are all around us.</li></ul>
-          <p class="notes">🎙️ Hello, children! Today, we are going to explore the wonderful world of plants. Have you seen plants around your house or in the park? Let's find out more about them!</p>
+          <ul><li>Let's explore the green friends around us!</li><li>They make our world beautiful and lively.</li></ul>
+          <p class="notes">🎙️ Hello, little explorers! Today, we are going to learn about plants. Look around, you see so many green plants, don't you?</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What are <span class="hl">Plants</span>?</h2>
-          <ul><li>Plants are living things.</li><li>They grow big and tall.</li></ul>
-          <p class="notes">🎙️ Just like us, plants are living! They need food and water to grow. They start small and become big.</p>
+          <ul><li>Plants are living things, just like us.</li><li>They grow everywhere – big and small!</li></ul>
+          <p class="notes">🎙️ Plants are amazing living beings. They need water, sunlight, and air to grow, just like you need food and water to grow big.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌱" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Where do we see <span class="hl">Plants</span>?</h2>
-          <ul><li>In our gardens and parks.</li><li>Around our homes and schools.</li></ul>
-          <p class="notes">🎙️ Look around you! You can see plants almost everywhere. In your garden, in the park, and even on the side of the road.</p>
+          <h2>Plants are <span class="hl">Everywhere</span>!</h2>
+          <ul><li>We see plants in our gardens.</li><li>They are in parks and even in small pots at home.</li></ul>
+          <p class="notes">🎙️ Take a moment to look outside your window. You will surely spot some plants! They make our surroundings fresh and green.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Plants everywhere!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Trees in a park</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Big Plants: <span class="hl">Trees</span>!</h2>
-          <ul><li>Trees are very big and strong plants.</li><li>They have thick, woody stems called trunks.</li></ul>
-          <p class="notes">🎙️ Do you know the biggest plants? They are trees! Trees are like giants with strong bodies called trunks. They live for many, many years.</p>
+          <h2>Main <span class="hl">Parts</span> of a Plant</h2>
+          <ul><li>Just like our body has different parts, plants also have parts.</li><li>Each part has a special job to do.</li></ul>
+          <p class="notes">🎙️ Imagine a plant like a small house. Each room has a different function. Similarly, each part of a plant does something important.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌲</div><div class="vcap">A tall tree</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">A plant with leaves</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Smaller Plants: <span class="hl">Shrubs</span>!</h2>
-          <ul><li>Shrubs are smaller than trees.</li><li>They are bushy with many thin, woody branches.</li></ul>
-          <p class="notes">🎙️ After trees, we have shrubs. Shrubs are not as tall as trees, but they are bushy. Think of a rose plant – that's a shrub!</p>
+          <h2><span class="hl">Roots</span>: Under the Ground</h2>
+          <ul><li>Roots grow deep under the soil.</li><li>They hold the plant firmly in the ground.</li></ul>
+          <p class="notes">🎙️ Roots are like the anchors of a ship, keeping the plant stable. You cannot see them usually, as they are hidden underground.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">A bushy shrub</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Oil_well.jpg?width=480" data-fb="⬇️" alt="Crude oil prices affect petrol costs everywhere."/><div class="vcap">Crude oil prices affect petrol costs everywhere.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,57 +120,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Very Small Plants: <span class="hl">Herbs</span>!</h2>
-          <ul><li>Herbs are very small plants.</li><li>They have soft, green stems.</li></ul>
-          <p class="notes">🎙️ And then we have the tiny plants called herbs. They are very soft and can be easily broken. Mint and coriander are examples of herbs we use in our food.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Tiny herbs</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">7 / 20</span>
-          <h2><span class="hl">Comparing</span> Our Plant Friends</h2>
-          <ul><li>Trees are tallest.</li><li>Shrubs are medium.</li><li>Herbs are smallest.</li></ul>
-          <p class="notes">🎙️ So, we have big trees, medium shrubs, and small herbs. Each one is special in its own way. Can you tell the difference now?</p>
-        </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tree</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Shrub</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Herb</div></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2><span class="hl">Parts</span> of a Plant</h2>
-          <ul><li>Just like us, plants have different parts.</li><li>Each part does a special job.</li></ul>
-          <p class="notes">🎙️ Our body has hands, legs, and a head. A plant also has different parts, and each part helps the plant live and grow. Let's learn about them.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪴</div><div class="vcap">A potted plant</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Part 1: <span class="hl">Roots</span>!</h2>
-          <ul><li>Roots grow under the ground.</li><li>They hold the plant firmly.</li></ul>
-          <p class="notes">🎙️ The roots are like the plant's feet! They are hidden under the soil. They hold the plant tightly so it doesn't fall down.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👇</div><div class="vcap">Roots under the ground</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>What <span class="hl">do</span> Roots do?</h2>
-          <ul><li>Roots soak up water from the soil.</li><li>They also take food for the plant.</li></ul>
-          <p class="notes">🎙️ Roots are very thirsty! They drink all the water from the soil, just like you drink juice. They also find food for the plant from the soil.</p>
+          <h2>Roots <span class="hl">Drink Water</span></h2>
+          <ul><li>Roots soak up water and food from the soil.</li><li>This helps the plant grow big and strong.</li></ul>
+          <p class="notes">🎙️ Think of roots as tiny straws. They drink water and nutrients from the soil, which is essential for the plant's health.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="💧" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
@@ -166,12 +131,60 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>Part 2: <span class="hl">Stem</span>!</h2>
-          <ul><li>The stem grows above the ground.</li><li>It holds the plant straight up.</li></ul>
-          <p class="notes">🎙️ The stem is like the plant's backbone! It helps the plant stand tall and straight. It's the main body of the plant that we see above the ground.</p>
+          <span class="num">7 / 20</span>
+          <h2><span class="hl">Stem</span>: The Plant's Backbone</h2>
+          <ul><li>The stem stands tall above the ground.</li><li>It carries water and food to all parts of the plant.</li></ul>
+          <p class="notes">🎙️ The stem is like the plant's spine, giving it support to stand upright. It also acts like a highway, transporting water and food.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Stem standing tall</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Growing upwards</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 20</span>
+          <h2>Stems Can Be <span class="hl">Different</span></h2>
+          <ul><li>Some stems are strong and woody, like tree trunks.</li><li>Others are soft, green, and bend easily.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a big tree trunk? It's a very strong stem! But a small plant like grass has a very soft and thin stem.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tree Trunk</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Grass Stem</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2><span class="hl">Leaves</span>: The Food Kitchen</h2>
+          <ul><li>Leaves are usually green and flat.</li><li>They make food for the whole plant using sunlight.</li></ul>
+          <p class="notes">🎙️ Leaves are very busy! They are like the kitchen of the plant, cooking food with the help of sunshine, air, and water.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Good_Food_Display_-_NCI_Visuals_Online.jpg?width=500" data-fb="🍃" alt="A balanced plate keeps us healthy."/><div class="vcap">A balanced plate keeps us healthy.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 20</span>
+          <h2>Leaves Come in Many <span class="hl">Shapes</span></h2>
+          <ul><li>Look around, you will see many types of leaves.</li><li>Each one is unique and beautiful!</li></ul>
+          <p class="notes">🎙️ Some leaves are big, some are small. Some are round, and some have pointy edges. It's fun to collect different leaves!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🌍" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2><span class="hl">Flowers</span>: The Pretty Part</h2>
+          <ul><li>Flowers are colourful and often smell nice.</li><li>They attract bees and butterflies.</li></ul>
+          <p class="notes">🎙️ Flowers add so much beauty to our world. Bees and butterflies visit them to collect nectar, helping plants make new seeds.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sunflower_sky_backdrop.jpg?width=460" data-fb="🌸" alt="Flowers are the colourful part of plants."/><div class="vcap">Flowers are the colourful part of plants.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>What <span class="hl">do</span>es the Stem do?</h2>
-          <ul><li>The stem carries water from roots to leaves.</li><li>It also takes food to all parts of the plant.</li></ul>
-          <p class="notes">🎙️ Think of the stem as a tiny road. It carries water from the roots all the way up to the leaves. It also carries the food made by leaves to all other parts of the plant.</p>
+          <h2>Flowers Become <span class="hl">Fruits</span></h2>
+          <ul><li>After some time, flowers change into fruits.</li><li>Fruits hold seeds inside them.</li></ul>
+          <p class="notes">🎙️ It's like magic! A pretty flower slowly transforms into a yummy fruit. This is how nature helps plants reproduce.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Water goes up</span></div><div class="step"><span class="snum">2</span><span>Food goes around</span></div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Part 3: <span class="hl">Leaves</span>!</h2>
-          <ul><li>Leaves are usually green.</li><li>They come in many shapes and sizes.</li></ul>
-          <p class="notes">🎙️ Look at the beautiful green leaves! Most leaves are green, but some can be other colours too. They are like the plant's hands, making food.</p>
+          <h2><span class="hl">Fruits</span>: Our Healthy Snack</h2>
+          <ul><li>We love to eat fruits like apples, mangoes, and bananas.</li><li>They are full of vitamins and are good for us.</li></ul>
+          <p class="notes">🎙️ Fruits are not just tasty; they are super healthy too! Remember to eat a variety of fruits every day to stay strong.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍃</div><div class="vcap">Green leaves</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="🌍" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,71 +216,71 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>What <span class="hl">do</span> Leaves do?</h2>
-          <ul><li>Leaves make food for the plant.</li><li>They use sunlight and air to do this.</li></ul>
-          <p class="notes">🎙️ Leaves are like tiny kitchens for the plant! They use sunlight, air, and water to cook food for the entire plant. This process is called photosynthesis.</p>
+          <h2><span class="hl">Seeds</span>: New Life Begins</h2>
+          <ul><li>Seeds are found inside fruits.</li><li>When we plant a seed, a new plant can grow from it!</li></ul>
+          <p class="notes">🎙️ Seeds are tiny but powerful! They carry the blueprint for a whole new plant. It's truly amazing how life begins from a tiny seed.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sunlight helps leaves</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌰</div><div class="vcap">A small seed</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Part 4: <span class="hl">Flowers</span>!</h2>
-          <ul><li>Flowers are the most colourful part.</li><li>They make the plant look beautiful.</li></ul>
-          <p class="notes">🎙️ Oh, look at the pretty flowers! They come in so many colours and smell so nice. They make our gardens look lovely.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What part of the plant grows under the ground?</li></ul>
+          <p class="notes">🎙️ Time for a quick question! Think about the part that holds the plant tightly in the soil.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌸</div><div class="vcap">A beautiful flower</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>What <span class="hl">do</span> Flowers do?</h2>
-          <ul><li>Flowers turn into fruits.</li><li>They also make seeds inside.</li></ul>
-          <p class="notes">🎙️ Flowers are not just pretty; they are very important! After some time, a flower can change into a fruit. And inside the fruit, we find seeds.</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which part makes food for the plant using sunlight?</li></ul>
+          <p class="notes">🎙️ Remember the plant's kitchen? Which part is responsible for cooking up all the food?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Flower turns into fruit</div></div></div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 20</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What do flowers turn into after some time?</li></ul>
+          <p class="notes">🎙️ Think about the beautiful, colourful part that later gives us yummy treats. What does it become?</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 20</span>
-          <h2>Part 5: <span class="hl">Fruits</span>!</h2>
-          <ul><li>Fruits are yummy!</li><li>They protect the seeds inside.</li></ul>
-          <p class="notes">🎙️ Who loves fruits? We eat many fruits like apples, mangoes, and bananas. Fruits are sweet and juicy, and they keep the seeds safe inside them.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Yummy fruits</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
-          <ul><li>Which part of the plant grows under the ground?</li><li>Is it the stem or the root?</li></ul>
-          <p class="notes">🎙️ Time for a quick question! Think about what we just learned. Which part of the plant stays hidden under the soil?</p>
+          <h2>Let's <span class="hl">Revise</span>! Parts of a Plant</h2>
+          <ul><li>Roots (underground)</li><li>Stem (support)</li><li>Leaves (food makers)</li><li>Flowers (pretty, turn to fruit)</li><li>Fruits (yummy, have seeds)</li><li>Seeds (new plant)</li></ul>
+          <p class="notes">🎙️ Great job, everyone! We have learned about all the important parts of a plant and their special roles. Each part is essential for the plant to live and grow.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">All parts together</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
-          <ul><li>Which part of the plant makes food?</li><li>Is it the leaf or the flower?</li></ul>
-          <p class="notes">🎙️ Another question! Remember the plant's kitchen? Which part works hard to make food using sunlight?</p>
+          <h2>Why are Plants <span class="hl">Important</span>?</h2>
+          <ul><li>Plants give us food to eat.</li><li>They give us fresh air to breathe and shelter.</li><li>We must take care of them.</li></ul>
+          <p class="notes">🎙️ Plants are our best friends! They provide us with so many things we need to survive. It's our duty to protect and nurture them.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Healthy green environment</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,15 +288,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2>Recap: All Parts Work <span class="hl">Together</span>!</h2>
-          <ul><li>Plants have roots, stem, leaves, flowers, and fruits.</li><li>Each part has an important job to do.</li></ul>
-          <p class="notes">🎙️ Great job, everyone! We learned about all the amazing parts of a plant. Remember, all these parts work together to help the plant grow big and strong. Let's take care of our green friends!</p>
+          <h2>Let's <span class="hl">Grow</span> More Plants!</h2>
+          <ul><li>Let's plant a seed today and watch it grow!</li><li>Be a plant friend and help our world stay green.</li></ul>
+          <p class="notes">🎙️ Remember, every small plant contributes to a healthier planet. Let's promise to plant more trees and take good care of the plants around us. Thank you!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤗</div><div class="vcap">All parts helping each other</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💚</div><div class="vcap">Love for nature</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 2 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

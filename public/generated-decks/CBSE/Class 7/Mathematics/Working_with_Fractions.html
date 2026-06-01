@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Working with Fractions — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 25</span>
-          <h2>Welcome to <span class="hl">Fractions</span>!</h2>
-          <ul><li>What are fractions?</li><li>Why are they important?</li><li>Let's explore the world of parts and wholes!</li></ul>
-          <p class="notes">🎙️ Hello Class 7! Today, we're diving into a very important topic in mathematics: Fractions. Fractions help us understand parts of a whole, and they are everywhere in our daily lives. Get ready to explore this fascinating concept together!</p>
+          <h2><span class="hl">Welcome</span> to 'Working with Fractions'!</h2>
+          <ul><li>Explore the world of fractions.</li><li>Understand their types and operations.</li><li>See how fractions are used every day.</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we embark on an exciting journey to understand fractions. Fractions are a fundamental part of mathematics and are used extensively in our daily lives, often without us even realizing it.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What is a <span class="hl">Fraction</span>?</h2>
-          <ul><li>A part of a whole.</li><li>Represents a division of a whole into equal parts.</li><li>Example: one piece out of four equal pieces of a cake.</li></ul>
-          <p class="notes">🎙️ A fraction is simply a way to represent a part of a whole. Imagine a cake cut into equal pieces. If you take one piece, that's a fraction of the whole cake. It tells us how many parts we have out of the total number of equal parts.</p>
+          <h2>What are <span class="hl">Fractions</span>?</h2>
+          <ul><li>A fraction represents a part of a whole.</li><li>It shows how many parts of a certain size there are.</li><li>Expressed as a ratio of two numbers.</li></ul>
+          <p class="notes">🎙️ Imagine sharing a pizza with friends. If the pizza is cut into 4 equal slices and you take one, you've taken one-fourth of the pizza. This 'one-fourth' is a fraction, representing a part of the whole pizza.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍰</span><span>🍰</span><span>🍰</span><span>🍰</span></div><div class="vcap">1 out of 4 parts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">1 out of 4 parts is coloured</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>Fractions in Real Life: Sharing a <span class="hl">Pizza</span></h2>
-          <ul><li>You order a pizza cut into 8 slices.</li><li>You eat 3 slices.</li><li>You've eaten 3/8 of the pizza!</li></ul>
-          <p class="notes">🎙️ Fractions are all around us! Think about sharing food. If you have a pizza cut into 8 equal slices and you eat 3 of them, you've eaten three-eighths of the pizza. This clearly shows how fractions describe real-world quantities.</p>
+          <h2><span class="hl">Components</span> of a Fraction</h2>
+          <ul><li>Numerator: The number on top (parts taken/considered).</li><li>Denominator: The number below (total equal parts of the whole).</li><li>The line separating them is called the fraction bar.</li></ul>
+          <p class="notes">🎙️ Every fraction has two main parts: the numerator and the denominator. The numerator tells us how many pieces we have or are looking at, while the denominator tells us how many equal pieces the whole was divided into.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">3 out of 8 slices eaten</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Numerator / Denominator</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Numerator</span> and Denominator</h2>
-          <ul><li>Numerator: The top number, tells how many parts are taken.</li><li>Denominator: The bottom number, tells the total number of equal parts.</li><li>Example: In 3/4, 3 is the numerator and 4 is the denominator.</li></ul>
-          <p class="notes">🎙️ Every fraction has two main parts: the numerator and the denominator. The numerator, on top, counts the number of parts we are interested in. The denominator, at the bottom, tells us the total number of equal parts the whole is divided into. It's crucial to remember which is which!</p>
+          <h2>Real-Life Example: <span class="hl">Sharing</span> a Chocolate Bar</h2>
+          <ul><li>A chocolate bar has 8 equal squares.</li><li>You eat 3 squares.</li><li>You ate 3/8 of the chocolate bar.</li></ul>
+          <p class="notes">🎙️ Think about a chocolate bar with 8 squares. If you eat 3 of those squares, you've consumed 3/8 of the bar. This simple example shows how fractions help us describe parts of everyday objects.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️⬇️</div><div class="vcap">Numerator / Denominator</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span><span>🍫</span></div><div class="vcap">3 out of 8 squares eaten</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -96,10 +109,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">5 / 25</span>
           <h2>Types of Fractions: <span class="hl">Proper</span> Fractions</h2>
-          <ul><li>Numerator is smaller than the denominator.</li><li>Represents a value less than one whole.</li><li>Examples: 1/2, 3/4, 5/8.</li></ul>
-          <p class="notes">🎙️ A proper fraction is when the numerator is smaller than the denominator. This means the fraction represents a quantity that is less than one whole. Think of it as having a part of something, but not the whole thing yet.</p>
+          <ul><li>Numerator is smaller than the Denominator.</li><li>Value is always less than 1.</li><li>Example: 1/2, 3/4, 5/8.</li></ul>
+          <p class="notes">🎙️ Proper fractions represent less than a whole. Imagine cutting a cake into 5 pieces and taking 2; you have 2/5 of the cake, which is less than the whole cake. The numerator is always smaller than the denominator.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">1/2</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">1 Whole (2/2)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Numerator (2)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Denominator (5)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -108,10 +121,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">6 / 25</span>
           <h2>Types of Fractions: <span class="hl">Improper</span> Fractions</h2>
-          <ul><li>Numerator is greater than or equal to the denominator.</li><li>Represents a value equal to or greater than one whole.</li><li>Examples: 5/4, 7/3, 9/9.</li></ul>
-          <p class="notes">🎙️ An improper fraction is the opposite of a proper fraction. Here, the numerator is either greater than or equal to the denominator. This indicates that the fraction represents one whole or even more than one whole. We often convert these to mixed fractions for easier understanding.</p>
+          <ul><li>Numerator is greater than or equal to the Denominator.</li><li>Value is always 1 or greater than 1.</li><li>Example: 5/4, 7/3, 9/9.</li></ul>
+          <p class="notes">🎙️ Improper fractions represent a whole or more than a whole. If you have 5 quarters of a pizza, you actually have more than one whole pizza. Here, the numerator is either equal to or larger than the denominator.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">5/4</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">1 Whole (4/4)</div></div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Numerator (5)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Denominator (4)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -120,10 +133,10 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">7 / 25</span>
           <h2>Types of Fractions: <span class="hl">Mixed</span> Fractions</h2>
-          <ul><li>A combination of a whole number and a proper fraction.</li><li>Represents a value greater than one whole.</li><li>Examples: 1 1/2, 2 3/4, 5 1/3.</li></ul>
-          <p class="notes">🎙️ A mixed fraction combines a whole number with a proper fraction. It's another way to express values greater than one whole, often derived from improper fractions. For example, if you have one whole pizza and half of another, that's 1 and 1/2 pizzas.</p>
+          <ul><li>Combination of a whole number and a proper fraction.</li><li>Represent values greater than 1.</li><li>Example: 1 ½, 2 ¾, 3 ⅕.</li></ul>
+          <p class="notes">🎙️ Mixed fractions are another way to express improper fractions. They clearly show the whole number part and the fractional part. For instance, if you have one whole apple and half an apple, you have 1 ½ apples.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Whole + Part</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span></div><div class="vcap">1 whole and 1/2 apple</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -133,21 +146,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
           <span class="num">8 / 25</span>
           <h2><span class="hl">Converting</span> Improper to Mixed Fractions</h2>
           <ul><li>Divide the numerator by the denominator.</li><li>The quotient is the whole number part.</li><li>The remainder is the new numerator.</li><li>The denominator remains the same.</li></ul>
-          <p class="notes">🎙️ To convert an improper fraction to a mixed fraction, we perform division. The number of times the denominator goes into the numerator gives us the whole number. Any leftover, the remainder, becomes the new numerator, while the original denominator stays the same.</p>
+          <p class="notes">🎙️ To convert an improper fraction like 7/3 into a mixed fraction, you perform division. The result of the division gives you the whole number and the remainder helps form the new proper fraction. For 7/3, 7 divided by 3 is 2 with a remainder of 1, so it becomes 2 1/3.</p>
         </div>
         <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Divide Numerator by Denominator</span></div><div class="step"><span class="snum">2</span><span>Quotient = Whole Number</span></div><div class="step"><span class="snum">3</span><span>Remainder = New Numerator</span></div><div class="step"><span class="snum">4</span><span>Denominator Stays Same</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Improper to Mixed</h2>
-          <ul><li>Convert 7/3 to a mixed fraction.</li><li>Divide 7 by 3: 7 ÷ 3 = 2 with a remainder of 1.</li><li>Whole number = 2, Numerator = 1, Denominator = 3.</li><li>So, 7/3 = 2 1/3.</li></ul>
-          <p class="notes">🎙️ Let's try an example. To convert 7/3, we divide 7 by 3. We get a quotient of 2 and a remainder of 1. This means our mixed fraction is 2 and 1/3. It's like having two full cakes and one-third of another cake.</p>
+          <h2><span class="hl">Converting</span> Mixed to Improper Fractions</h2>
+          <ul><li>Multiply the whole number by the denominator.</li><li>Add the numerator to the result.</li><li>This sum becomes the new numerator.</li><li>The denominator remains the same.</li></ul>
+          <p class="notes">🎙️ To convert a mixed fraction like 2 1/3 back into an improper fraction, you reverse the process. Multiply the whole number by the denominator and then add the original numerator. This gives you the new numerator, while the denominator stays the same.</p>
         </div>
-        
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Whole x Denominator</span></div><div class="step"><span class="snum">2</span><span>Add Numerator</span></div><div class="step"><span class="snum">3</span><span>Result = New Numerator</span></div><div class="step"><span class="snum">4</span><span>Denominator Stays Same</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,23 +168,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2><span class="hl">Converting</span> Mixed to Improper Fractions</h2>
-          <ul><li>Multiply the whole number by the denominator.</li><li>Add the numerator to the product.</li><li>This sum becomes the new numerator.</li><li>The denominator remains the same.</li></ul>
-          <p class="notes">🎙️ Now, let's learn how to go the other way: converting a mixed fraction back to an improper fraction. You multiply the whole number by the denominator, then add the existing numerator. This result becomes your new numerator, and the denominator remains unchanged.</p>
+          <h2><span class="hl">Equivalent</span> Fractions</h2>
+          <ul><li>Fractions that represent the same value.</li><li>They look different but are equal in magnitude.</li><li>Example: 1/2, 2/4, 3/6 are all equivalent.</li></ul>
+          <p class="notes">🎙️ Equivalent fractions are like different names for the same amount. Imagine two pizzas, one cut into 2 halves and another into 4 quarters. One half of the first pizza is the same amount as two quarters of the second pizza.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Whole Number × Denominator</span></div><div class="step"><span class="snum">2</span><span>+ Numerator</span></div><div class="step"><span class="snum">3</span><span>= New Numerator</span></div><div class="step"><span class="snum">4</span><span>Denominator Stays Same</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Equal Value</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Mixed to Improper</h2>
-          <ul><li>Convert 2 1/3 to an improper fraction.</li><li>Multiply whole number (2) by denominator (3): 2 × 3 = 6.</li><li>Add numerator (1) to the product: 6 + 1 = 7.</li><li>New numerator = 7, Denominator = 3.</li><li>So, 2 1/3 = 7/3.</li></ul>
-          <p class="notes">🎙️ Using our previous example, let's convert 2 1/3 back. Multiply 2 by 3 to get 6, then add 1 to get 7. So, the new numerator is 7, and the denominator remains 3. This gives us 7/3, confirming our earlier conversion.</p>
+          <h2><span class="hl">Finding</span> Equivalent Fractions</h2>
+          <ul><li>Multiply the numerator and denominator by the same non-zero number.</li><li>Divide the numerator and denominator by the same non-zero number.</li><li>This maintains the fraction's value.</li></ul>
+          <p class="notes">🎙️ To find equivalent fractions, you must always perform the same operation on both the numerator and the denominator. This ensures that the proportion remains unchanged, giving you a fraction that represents the same value.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Multiply or Divide</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2><span class="hl">Equivalent</span> Fractions</h2>
-          <ul><li>Fractions that represent the same value.</li><li>Look different but are equal in amount.</li><li>Obtained by multiplying or dividing numerator and denominator by the same non-zero number.</li></ul>
-          <p class="notes">🎙️ Equivalent fractions are like different names for the same amount. For example, 1/2 is the same as 2/4 or 3/6. You can find equivalent fractions by multiplying or dividing both the numerator and the denominator by the same non-zero number. This is a very useful concept.</p>
+          <h2><span class="hl">Simplest Form</span> of a Fraction</h2>
+          <ul><li>A fraction is in its simplest form when its numerator and denominator have no common factors other than 1.</li><li>Also called 'lowest terms'.</li><li>To simplify, divide N and D by their HCF.</li></ul>
+          <p class="notes">🎙️ Simplifying a fraction means writing it in its most reduced form. For example, 2/4 can be simplified to 1/2 because both 2 and 4 can be divided by 2. This makes the fraction easier to understand and work with.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Equal Value</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Reduce to Smallest</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Finding Equivalent Fractions</h2>
-          <ul><li>Find an equivalent fraction for 1/2.</li><li>Multiply numerator and denominator by 2: (1 × 2) / (2 × 2) = 2/4.</li><li>Multiply numerator and denominator by 3: (1 × 3) / (2 × 3) = 3/6.</li><li>So, 1/2, 2/4, and 3/6 are equivalent fractions.</li></ul>
-          <p class="notes">🎙️ Let's find equivalent fractions for 1/2. If we multiply both top and bottom by 2, we get 2/4. If we multiply both by 3, we get 3/6. All these fractions represent the exact same portion of a whole, even though their numbers are different.</p>
+          <h2>Comparing Fractions: <span class="hl">Like Denominators</span></h2>
+          <ul><li>If fractions have the same denominator, compare their numerators.</li><li>The fraction with the larger numerator is the greater fraction.</li><li>Example: 3/5 &lt; 4/5.</li></ul>
+          <p class="notes">🎙️ When the denominators are the same, comparing fractions is straightforward. It's like comparing how many slices you have from the same-sized pizza. More slices mean a larger fraction.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">3/5</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">4/5</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Simplest Form</span> of a Fraction</h2>
-          <ul><li>A fraction is in its simplest form when the only common factor of its numerator and denominator is 1.</li><li>Also known as 'lowest terms'.</li><li>To simplify, divide both by their Highest Common Factor (HCF).</li></ul>
-          <p class="notes">🎙️ The simplest form of a fraction means it cannot be reduced any further. The numerator and denominator share no common factors other than 1. To simplify a fraction, you find the HCF of the numerator and denominator and divide both by it.</p>
+          <h2>Comparing Fractions: <span class="hl">Unlike Denominators</span></h2>
+          <ul><li>Find the LCM (Least Common Multiple) of the denominators.</li><li>Convert both fractions to equivalent fractions with the LCM as the new denominator.</li><li>Compare the new numerators.</li></ul>
+          <p class="notes">🎙️ Comparing fractions with different denominators requires a bit more work. We need to make their denominators the same first, by finding their LCM. Once they have common denominators, we can easily compare their numerators.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Cut to Smallest</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find LCM of Denominators</span></div><div class="step"><span class="snum">2</span><span>Convert to Equivalent Fractions</span></div><div class="step"><span class="snum">3</span><span>Compare New Numerators</span></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Simplifying Fractions</h2>
-          <ul><li>Simplify the fraction 6/9.</li><li>Factors of 6: 1, 2, 3, 6.</li><li>Factors of 9: 1, 3, 9.</li><li>HCF of 6 and 9 is 3.</li><li>Divide both by 3: (6 ÷ 3) / (9 ÷ 3) = 2/3.</li><li>The simplest form of 6/9 is 2/3.</li></ul>
-          <p class="notes">🎙️ Let's simplify 6/9. The factors of 6 are 1, 2, 3, 6. The factors of 9 are 1, 3, 9. The highest common factor is 3. Dividing both 6 and 9 by 3 gives us 2/3. So, 2/3 is the simplest form of 6/9.</p>
+          <h2><span class="hl">Addition</span> of Fractions: Like Denominators</h2>
+          <ul><li>Add the numerators directly.</li><li>Keep the denominator the same.</li><li>Simplify the resulting fraction if possible.</li><li>Example: 1/4 + 2/4 = 3/4.</li></ul>
+          <p class="notes">🎙️ Adding fractions with like denominators is very simple. Just add the top numbers together and keep the bottom number the same. Think of it as combining pieces of the same size.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span></div><div class="vcap">Adding parts of a whole</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Comparing Fractions: <span class="hl">Same Denominator</span></h2>
-          <ul><li>If denominators are the same, compare the numerators.</li><li>The fraction with the larger numerator is greater.</li><li>Example: 3/5 is greater than 2/5.</li></ul>
-          <p class="notes">🎙️ Comparing fractions is easy when they have the same denominator. You just look at the numerators. The fraction with the bigger numerator is the larger fraction because it means you have more parts of the same sized whole. Imagine having 2 slices versus 3 slices from the same 5-slice pizza.</p>
+          <h2>Addition of Fractions: <span class="hl">Unlike Denominators</span></h2>
+          <ul><li>Find the LCM of the denominators.</li><li>Convert both fractions to equivalent fractions with the LCM.</li><li>Add the new numerators.</li><li>Keep the common denominator.</li></ul>
+          <p class="notes">🎙️ When denominators are different, we cannot add them directly. First, we need to find a common ground by converting them to equivalent fractions with the same denominator, using their LCM. Then, we can add them as usual.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">2/5</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3/5</div></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find LCM of Denominators</span></div><div class="step"><span class="snum">2</span><span>Convert to Equivalent Fractions</span></div><div class="step"><span class="snum">3</span><span>Add New Numerators</span></div><div class="step"><span class="snum">4</span><span>Keep Common Denominator</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,23 +252,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 25</span>
-          <h2>Comparing Fractions: <span class="hl">Different Denominators</span></h2>
-          <ul><li>Find the Least Common Multiple (LCM) of the denominators.</li><li>Convert both fractions to equivalent fractions with the LCM as the new denominator.</li><li>Compare the new numerators (as in 'same denominator' case).</li></ul>
-          <p class="notes">🎙️ When denominators are different, we can't compare them directly. We first need to make them 'alike' by finding a common denominator, usually the LCM. Once both fractions have the same denominator, we can then compare their numerators just like before.</p>
+          <h2>Worked <span class="hl">Example</span>: Addition</h2>
+          <ul><li>Add: 1/2 + 1/3</li><li>LCM of 2 and 3 is 6.</li><li>1/2 = 3/6, 1/3 = 2/6</li><li>3/6 + 2/6 = 5/6.</li></ul>
+          <p class="notes">🎙️ Let's try an example together. To add 1/2 and 1/3, we find the LCM of 2 and 3, which is 6. Then we convert 1/2 to 3/6 and 1/3 to 2/6. Now, simply add the numerators: 3 + 2 = 5, keeping the denominator 6. So, the answer is 5/6.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find LCM of Denominators</span></div><div class="step"><span class="snum">2</span><span>Convert to Equivalent Fractions</span></div><div class="step"><span class="snum">3</span><span>Compare New Numerators</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Let's Solve!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Comparing Fractions</h2>
-          <ul><li>Compare 1/2 and 2/3.</li><li>LCM of 2 and 3 is 6.</li><li>Convert 1/2: (1×3)/(2×3) = 3/6.</li><li>Convert 2/3: (2×2)/(3×2) = 4/6.</li><li>Since 4/6 &gt; 3/6, then 2/3 &gt; 1/2.</li></ul>
-          <p class="notes">🎙️ Let's compare 1/2 and 2/3. The LCM of 2 and 3 is 6. We convert 1/2 to 3/6 and 2/3 to 4/6. Now comparing 3/6 and 4/6, it's clear that 4/6 is greater. Therefore, 2/3 is greater than 1/2.</p>
+          <h2><span class="hl">Subtraction</span> of Fractions: Like Denominators</h2>
+          <ul><li>Subtract the numerators directly.</li><li>Keep the denominator the same.</li><li>Simplify the resulting fraction if possible.</li><li>Example: 3/4 - 1/4 = 2/4 = 1/2.</li></ul>
+          <p class="notes">🎙️ Subtracting fractions with like denominators is just like adding them, but you subtract the numerators instead. Imagine taking away some slices from a pizza, where all slices are the same size.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➖</span></div><div class="vcap">Taking parts away</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,21 +276,45 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Addition of Fractions: <span class="hl">Same Denominator</span></h2>
-          <ul><li>Add the numerators directly.</li><li>Keep the denominator the same.</li><li>Simplify the result if possible.</li><li>Example: 1/4 + 2/4 = 3/4.</li></ul>
-          <p class="notes">🎙️ Adding fractions with the same denominator is straightforward. You simply add the numerators together and keep the denominator as it is. It's like adding 1 apple and 2 apples to get 3 apples; the 'type' of fruit, or the denominator, stays the same.</p>
+          <h2>Subtraction of Fractions: <span class="hl">Unlike Denominators</span></h2>
+          <ul><li>Find the LCM of the denominators.</li><li>Convert both fractions to equivalent fractions with the LCM.</li><li>Subtract the new numerators.</li><li>Keep the common denominator.</li></ul>
+          <p class="notes">🎙️ Similar to addition, when denominators are different for subtraction, you must first find the LCM and convert the fractions. Once they have a common denominator, you can subtract the numerators. Always remember to simplify your final answer.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span></div><div class="vcap">Adding Parts</div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find LCM of Denominators</span></div><div class="step"><span class="snum">2</span><span>Convert to Equivalent Fractions</span></div><div class="step"><span class="snum">3</span><span>Subtract New Numerators</span></div><div class="step"><span class="snum">4</span><span>Keep Common Denominator</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Subtraction</h2>
+          <ul><li>Subtract: 3/4 - 1/2</li><li>LCM of 4 and 2 is 4.</li><li>3/4 remains 3/4, 1/2 = 2/4</li><li>3/4 - 2/4 = 1/4.</li></ul>
+          <p class="notes">🎙️ Let's solve another example. To subtract 1/2 from 3/4, the LCM of 4 and 2 is 4. So, 1/2 becomes 2/4. Now we have 3/4 minus 2/4, which gives us 1/4. Always ensure your answer is in its simplest form.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think and Solve</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">20 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Adding Same Denominator</h2>
-          <ul><li>Add 3/8 and 2/8.</li><li>Add the numerators: 3 + 2 = 5.</li><li>Keep the denominator: 8.</li><li>Result: 5/8. (Already in simplest form).</li></ul>
-          <p class="notes">🎙️ Consider adding 3/8 and 2/8. Since the denominators are the same, we just add the numerators: 3 plus 2 equals 5. The denominator stays 8. So the sum is 5/8. This fraction is already in its simplest form.</p>
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1</h2>
+          <ul><li>Identify the type: 7/5 (Improper/Proper/Mixed)?</li><li>Simplify: 6/9</li><li>Compare: 2/3 ___ 3/4 (use &lt;, &gt;, or =)</li></ul>
+          <p class="notes">🎙️ Time for a quick check to see if you've grasped the concepts so far. Try to identify the fraction type, simplify the given fraction, and compare the two fractions. Don't worry if you need a moment to think!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 2</h2>
+          <ul><li>Solve: 1/5 + 2/5</li><li>Solve: 5/6 - 1/3</li><li>Convert 2 1/4 to an improper fraction.</li></ul>
+          <p class="notes">🎙️ Here are a few more problems to test your understanding of operations and conversions. Remember the steps for adding and subtracting fractions with both like and unlike denominators. Take your time to solve them.</p>
         </div>
         
       </div>
@@ -286,36 +323,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2>Addition of Fractions: <span class="hl">Different Denominators</span></h2>
-          <ul><li>Find the LCM of the denominators.</li><li>Convert both fractions to equivalent fractions with the LCM as the new denominator.</li><li>Add the new numerators, keeping the common denominator.</li><li>Simplify the result.</li></ul>
-          <p class="notes">🎙️ When adding fractions with different denominators, we can't just add them directly. First, find the LCM of the denominators. Then, convert both fractions into equivalent fractions using this LCM. Once they have the same denominator, you can add their numerators and simplify.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find LCM of Denominators</span></div><div class="step"><span class="snum">2</span><span>Convert to Equivalent Fractions</span></div><div class="step"><span class="snum">3</span><span>Add New Numerators</span></div><div class="step"><span class="snum">4</span><span>Simplify if Needed</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Worked <span class="hl">Example</span>: Adding Different Denominators</h2>
-          <ul><li>Add 1/3 and 1/4.</li><li>LCM of 3 and 4 is 12.</li><li>Convert 1/3: (1×4)/(3×4) = 4/12.</li><li>Convert 1/4: (1×3)/(4×3) = 3/12.</li><li>Add: 4/12 + 3/12 = 7/12. (Already in simplest form).</li></ul>
-          <p class="notes">🎙️ Let's add 1/3 and 1/4. The LCM of 3 and 4 is 12. So, 1/3 becomes 4/12, and 1/4 becomes 3/12. Now, add the numerators: 4 + 3 equals 7. The denominator remains 12. So, the sum is 7/12, which is already in its simplest form.</p>
-        </div>
-        
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">23 / 25</span>
-          <h2><span class="hl">Quick Check</span>! Can you answer these?</h2>
-          <ul><li>1. What type of fraction is 5/2?</li><li>2. Simplify 10/15.</li><li>3. Which is greater: 3/4 or 5/8?</li></ul>
-          <p class="notes">🎙️ Alright, let's see how much you've understood! Take a moment to think about these three questions. Remember the concepts we've discussed about types of fractions, simplifying, and comparing them. Don't worry, we'll go over the answers shortly.</p>
+          <h2>Real-Life Application: <span class="hl">Recipe</span> Scaling</h2>
+          <ul><li>A recipe calls for 3/4 cup of flour.</li><li>You want to make half the recipe.</li><li>You need (3/4) x (1/2) = 3/8 cup of flour.</li></ul>
+          <p class="notes">🎙️ Fractions are incredibly useful in cooking! If a recipe requires a certain amount of an ingredient and you want to scale the recipe up or down, fractions help you calculate the new quantities precisely. This ensures your dish tastes just right.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍲</div><div class="vcap">Cooking with Fractions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -323,9 +336,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2>Quick Check! <span class="hl">Answers</span></h2>
-          <ul><li>1. Improper fraction (numerator &gt; denominator).</li><li>2. 10/15 simplified is 2/3 (divide by HCF 5).</li><li>3. 3/4 (which is 6/8) is greater than 5/8.</li></ul>
-          <p class="notes">🎙️ Let's check your answers! 5/2 is an improper fraction. Simplifying 10/15 gives us 2/3. And when comparing 3/4 and 5/8, 3/4 is greater because it's equivalent to 6/8. How did you do? I hope you got them all correct!</p>
+          <h2><span class="hl">Recap</span>: What We Learned Today</h2>
+          <ul><li>Fractions represent parts of a whole.</li><li>Types: Proper, Improper, Mixed.</li><li>Converting between Improper and Mixed fractions.</li><li>Comparing and performing addition/subtraction on fractions.</li></ul>
+          <p class="notes">🎙️ Today, we covered the basics of fractions, from understanding their components to performing operations. We learned about proper, improper, and mixed fractions, and how to convert between them. We also practiced comparing, adding, and subtracting fractions, which are essential skills.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Recap</span>: What We've Learned</h2>
-          <ul><li>Fractions represent parts of a whole.</li><li>Numerator (parts taken), Denominator (total parts).</li><li>Proper, Improper, and Mixed Fractions.</li><li>Converting fractions, finding equivalents, and simplifying.</li><li>Comparing and Adding fractions (same/different denominators).</li></ul>
-          <p class="notes">🎙️ Today, we covered a lot about fractions! We learned their definition, their parts, different types, and how to convert between them. We also practiced finding equivalent fractions, simplifying them, and how to compare and add them. Keep practicing, and you'll master fractions in no time!</p>
+          <h2>Thank You &amp; Keep <span class="hl">Practicing</span>!</h2>
+          <ul><li>Fractions are everywhere – observe them!</li><li>Practice makes perfect.</li><li>Don't hesitate to ask questions.</li></ul>
+          <p class="notes">🎙️ Thank you for your active participation today! Fractions might seem tricky at first, but with consistent practice, you'll master them. Keep an eye out for fractions in your daily life and remember to keep practicing the concepts we learned. See you in the next class!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

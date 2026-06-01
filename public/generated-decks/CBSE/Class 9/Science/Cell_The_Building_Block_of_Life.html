@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Cell: The Building Block of Life — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2><span class="hl">Cell</span>: The Building Block of Life</h2>
-          <ul><li>Welcome to our chapter on the fundamental unit of life.</li><li>Today, we will explore what cells are and how they function.</li></ul>
-          <p class="notes">🎙️ Hello students! Today, we embark on an exciting journey to understand the basic unit that makes up all living things. Just like bricks build a house, cells build life.</p>
+          <ul><li>Chapter 5: The Fundamental Unit of Life</li><li>Class 9 Science - CBSE</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting journey into the very foundation of all living things. We'll explore the 'Cell', the tiny unit that builds everything around us, from the smallest bacteria to the largest elephant.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are Living Things <span class="hl">Made Of?</span></h2>
-          <ul><li>Think about a wall – it's made of many bricks.</li><li>Similarly, all living organisms are made of tiny units.</li></ul>
-          <p class="notes">🎙️ Imagine a wall built from countless bricks. In the same way, every living being, whether it's a tiny ant or a giant elephant, is composed of fundamental building blocks. These tiny units are what we call cells.</p>
+          <h2>What is a <span class="hl">Cell</span>?</h2>
+          <ul><li>Basic structural and functional unit of all living organisms.</li><li>Like bricks building a wall, cells build an organism.</li></ul>
+          <p class="notes">🎙️ Think of a cell as the smallest independent unit that can perform all life functions. Just like bricks are used to build a house, cells are the fundamental units that construct all living organisms, giving them structure and allowing them to function.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Bricks building a wall</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🧱" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2>The <span class="hl">Discovery</span> of the Cell</h2>
-          <ul><li>Robert Hooke observed cork slices in 1665.</li><li>He saw tiny, empty compartments.</li><li>He named these compartments 'cells'.</li></ul>
-          <p class="notes">🎙️ The story of the cell began in 1665 when an English scientist, Robert Hooke, looked at a thin slice of cork under his self-designed microscope. He noticed small, box-like structures, which reminded him of the small rooms or 'cells' in a monastery, and thus coined the term.</p>
+          <h2><span class="hl">Discovery</span> of the Cell</h2>
+          <ul><li>Robert Hooke in 1665.</li><li>Observed thin slices of cork under a primitive microscope.</li><li>Saw honeycomb-like compartments, called them 'cells'.</li></ul>
+          <p class="notes">🎙️ The story of the cell began with Robert Hooke in 1665. Using his self-designed microscope, he examined a thin slice of cork. What he saw reminded him of the small rooms, or 'cells', in a monastery, and thus, the term 'cell' was coined.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Microscope</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Robert Hooke's Microscope</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2>Seeing <span class="hl">Living Cells</span></h2>
-          <ul><li>Antonie van Leeuwenhoek in 1674.</li><li>First to observe free-living cells.</li><li>Saw 'animalcules' in pond water.</li></ul>
-          <p class="notes">🎙️ About nine years later, another scientist, Antonie van Leeuwenhoek, made another groundbreaking discovery. Using an improved microscope, he was the first to observe actual living cells, which he found in pond water and called 'animalcules'.</p>
+          <h2>The <span class="hl">Microscope</span>: Our Window to the Microscopic World</h2>
+          <ul><li>Enabled scientists to see tiny structures.</li><li>Led to understanding of cellular organization.</li><li>Technological advancements continue to reveal more.</li></ul>
+          <p class="notes">🎙️ The invention and continuous improvement of the microscope were crucial. Without it, the world of cells would have remained invisible to us. It truly opened a window, allowing scientists to delve into the intricate details of life at a microscopic level.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Pond Water</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Magnifying the Unseen</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2>Foundations of <span class="hl">Cell Theory</span>: Part 1</h2>
-          <ul><li>Matthias Schleiden (1838): All plants are made of cells.</li><li>Theodor Schwann (1839): All animals are made of cells.</li></ul>
-          <p class="notes">🎙️ The observations of Hooke and Leeuwenhoek laid the groundwork for the Cell Theory. In the 1830s, two scientists, Schleiden and Schwann, independently concluded that all plants and all animals are composed of cells, respectively. This was a huge step in understanding life.</p>
+          <h2><span class="hl">Cell Theory</span>: The Foundation</h2>
+          <ul><li>Proposed by Schleiden (plants) and Schwann (animals) in 1838-39.</li><li>All plants and animals are composed of cells.</li><li>The cell is the basic unit of life.</li></ul>
+          <p class="notes">🎙️ The Cell Theory is one of the most fundamental principles in biology. Matthias Schleiden, a botanist, and Theodor Schwann, a zoologist, independently concluded that all living things are made of cells, establishing the cell as the basic unit of life.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Schleiden (Plants)</span></div><div class="step"><span class="snum">2</span><span>Schwann (Animals)</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Key Principles</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Foundations of Cell Theory: <span class="hl">Part 2</span></h2>
-          <ul><li>Rudolf Virchow (1855) added a crucial point.</li><li>All cells arise from pre-existing cells.</li><li>This completed the modern Cell Theory.</li></ul>
-          <p class="notes">🎙️ The final piece of the Cell Theory puzzle was added by Rudolf Virchow. He proposed that new cells are not spontaneously generated but always come from existing cells through division. This principle, 'Omnis cellula e cellula', is fundamental to biology.</p>
+          <h2>Cell Theory: A Key <span class="hl">Addition</span></h2>
+          <ul><li>Rudolf Virchow (1855) added a crucial point.</li><li>Omnis cellula e cellula: All cells arise from pre-existing cells.</li><li>This explained cell reproduction and growth.</li></ul>
+          <p class="notes">🎙️ Rudolf Virchow later expanded the cell theory, stating that new cells are formed only from existing cells. This vital addition completed the theory, explaining how organisms grow and how life continues from one generation of cells to the next.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Cell Division</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">New Cells from Old</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,21 +132,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2>Defining the <span class="hl">Cell</span></h2>
-          <ul><li>The cell is the basic structural unit of life.</li><li>It is also the basic functional unit of life.</li><li>All living organisms are made up of cells.</li></ul>
-          <p class="notes">🎙️ So, what exactly is a cell? It's the smallest unit of life that can carry out all life processes. It provides structure to the body and takes in nutrients, converts them into energy, and performs specialized functions. It's truly the fundamental unit.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building Block</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 25</span>
-          <h2><span class="hl">Unicellular</span> vs. Multicellular Organisms</h2>
-          <ul><li>Organisms can be classified by the number of cells.</li><li>Unicellular: Made of a single cell.</li><li>Multicellular: Made of many cells.</li></ul>
-          <p class="notes">🎙️ Living organisms exhibit incredible diversity, and one way to categorize them is by the number of cells they possess. Some organisms are simple, composed of just one cell, while others are complex, made up of billions of cells working together.</p>
+          <h2>Organisms: <span class="hl">One Cell or Many</span>?</h2>
+          <ul><li>Unicellular: Organisms made of a single cell.</li><li>Multicellular: Organisms made of two or more cells.</li></ul>
+          <p class="notes">🎙️ Living organisms can be broadly categorized based on the number of cells they possess. Some organisms are complete in themselves with just one cell, while others are complex structures built from countless cells working together.</p>
         </div>
         <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Unicellular</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Multicellular</div></div></div></div>
       </div>
@@ -142,12 +143,24 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">9 / 25</span>
-          <h2>Meet <span class="hl">Unicellular</span> Wonders</h2>
-          <ul><li>Single cell performs all life functions.</li><li>Examples: Amoeba, Paramecium, Bacteria.</li></ul>
-          <p class="notes">🎙️ In unicellular organisms, that single cell is responsible for everything – feeding, moving, reproducing, and responding to the environment. Think of an Amoeba changing shape to engulf food, or bacteria existing all around us, each a complete living entity.</p>
+          <span class="num">8 / 25</span>
+          <h2>Examples of <span class="hl">Unicellular</span> Organisms</h2>
+          <ul><li>Amoeba: Changes shape, moves and feeds.</li><li>Paramecium: Slipper-shaped, uses cilia for movement.</li><li>Bacteria: Simplest life forms, found everywhere.</li></ul>
+          <p class="notes">🎙️ Amoeba, Paramecium, and most bacteria are excellent examples of unicellular organisms. Each single cell performs all necessary life functions like digestion, respiration, and reproduction independently. They are complete organisms in themselves.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">Single-celled organisms</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">Single-celled Wonders</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Examples of <span class="hl">Multicellular</span> Organisms</h2>
+          <ul><li>Plants: Trees, flowers, grasses.</li><li>Animals: Humans, dogs, birds, fish.</li><li>Fungi: Mushrooms, molds.</li></ul>
+          <p class="notes">🎙️ Humans, animals, and plants are all multicellular organisms. In these organisms, different groups of cells specialize to perform different functions, leading to a division of labor. For example, nerve cells transmit signals, and muscle cells help in movement.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑</span><span>🧑</span><span>🧑</span><span>🧑</span></div><div class="vcap">Many cells, Many functions</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Complex <span class="hl">Multicellular</span> Life</h2>
-          <ul><li>Many cells work together, often specialized.</li><li>Different cells perform different functions.</li><li>Examples: Humans, plants, animals.</li></ul>
-          <p class="notes">🎙️ Multicellular organisms, like us, are incredibly complex. They have different types of cells, each specialized for a particular task, forming tissues, organs, and organ systems. For example, nerve cells transmit signals, and muscle cells help us move.</p>
+          <h2><span class="hl">Diversity</span> in Cell Shape and Size</h2>
+          <ul><li>Cells vary greatly in shape and size.</li><li>Some are round, spherical, elongated, or spindle-shaped.</li><li>Sizes range from micrometers (bacteria) to centimeters (ostrich egg).</li></ul>
+          <p class="notes">🎙️ Cells are not all alike! Their shapes and sizes are incredibly diverse. This diversity is not random; it's directly related to the specific functions each cell performs within the organism. For instance, nerve cells are long to transmit signals over distances.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍</span></div><div class="vcap">Many cells making an organism</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Variety is the Spice of Life</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,23 +180,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2><span class="hl">Diversity</span> in Cell Shape and Size</h2>
-          <ul><li>Cells come in various shapes and sizes.</li><li>Shape and size are related to specific functions.</li><li>Examples: Nerve cells are long, blood cells are round.</li></ul>
-          <p class="notes">🎙️ Don't imagine all cells as simple boxes! Cells are incredibly diverse. A nerve cell might be long and branched to transmit signals, while a red blood cell is disc-shaped to fit through tiny capillaries. Their form perfectly suits their function.</p>
+          <h2><span class="hl">Function</span> Dictates Form</h2>
+          <ul><li>The shape of a cell is often related to its specific function.</li><li>Nerve cells are long to transmit messages.</li><li>Red blood cells are biconcave to carry oxygen efficiently.</li></ul>
+          <p class="notes">🎙️ This is a crucial concept: a cell's shape is perfectly adapted for its job. A long, branched nerve cell can reach far and connect with many other cells, while the flattened, disc-like red blood cell maximizes surface area for gas exchange.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Variety of cells</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Design for Purpose</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Quick Check! <span class="hl">Question 1</span></h2>
-          <ul><li>Who was the first scientist to observe and name 'cells'?</li></ul>
-          <p class="notes">🎙️ Let's pause for a quick check of your understanding. Can you recall the name of the scientist who first observed and named the tiny compartments he saw in cork, calling them 'cells'?</p>
+          <h2>Basic <span class="hl">Components</span> of a Cell</h2>
+          <ul><li>Most cells have three main parts:</li><li>1. Cell Membrane (or Plasma Membrane)</li><li>2. Cytoplasm</li><li>3. Nucleus</li></ul>
+          <p class="notes">🎙️ Despite their diversity, most cells share a fundamental organization. We can identify three primary components that are essential for a cell's survival and function. We will now explore each of these parts in detail.</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">The Cell's Core Parts</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Inside a Cell: Key <span class="hl">Components</span></h2>
-          <ul><li>Cells have distinct parts, each with a role.</li><li>Main parts: Plasma membrane, Cytoplasm, Nucleus.</li><li>Many tiny structures called organelles.</li></ul>
-          <p class="notes">🎙️ Now that we know what cells are, let's zoom in and explore their internal structure. A typical cell is not just an empty sac; it's a bustling miniature city with various components, each performing a vital function for the cell's survival.</p>
+          <h2><span class="hl">Cell Membrane</span>: The Gatekeeper</h2>
+          <ul><li>Outer boundary of animal cells, inner to cell wall in plant cells.</li><li>Made of lipids and proteins.</li><li>Selectively permeable: controls what enters and leaves the cell.</li></ul>
+          <p class="notes">🎙️ The cell membrane acts like a security guard, carefully regulating the passage of substances into and out of the cell. It's a flexible, living boundary that maintains the cell's internal environment, ensuring only necessary materials pass through.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Looking inside</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Animal_cell_structure_en.svg?width=500" data-fb="🛡️" alt="An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va"/><div class="vcap">An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,21 +216,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2>The <span class="hl">Plasma Membrane</span>: The Cell's Border</h2>
-          <ul><li>Outer boundary of the cell.</li><li>Controls what enters and leaves the cell.</li><li>It is selectively permeable.</li></ul>
-          <p class="notes">🎙️ Think of the plasma membrane as the cell's security guard. It's a thin, flexible outer layer that encloses the cell and separates its contents from the outside environment. It's selectively permeable, meaning it allows only certain substances to pass through.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protective barrier</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">15 / 25</span>
-          <h2>The <span class="hl">Cell Wall</span>: Plant's Protective Layer</h2>
-          <ul><li>Present only in plant cells (and fungi, bacteria).</li><li>Located outside the plasma membrane.</li><li>Provides structural strength and protection.</li></ul>
-          <p class="notes">🎙️ Unlike animal cells, plant cells have an additional rigid outer layer called the cell wall, made primarily of cellulose. This wall provides structural support, prevents over-expansion when water enters, and protects the plant cell from external stress.</p>
+          <h2><span class="hl">Cell Wall</span>: Plant's Rigid Support</h2>
+          <ul><li>Found only in plant cells, outside the cell membrane.</li><li>Made mainly of cellulose.</li><li>Provides structural strength and protection to the plant cell.</li></ul>
+          <p class="notes">🎙️ Unlike animal cells, plant cells have an additional, rigid outer layer called the cell wall. This tough, non-living layer gives plants their characteristic stiffness and protects them from mechanical stress and excessive water loss.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_structure.svg?width=500" data-fb="🧱" alt="A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts."/><div class="vcap">A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts.</div></div></div>
       </div>
@@ -226,24 +227,36 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">16 / 25</span>
-          <h2>The <span class="hl">Nucleus</span>: The Cell's Control Center</h2>
-          <ul><li>Usually centrally located in animal cells.</li><li>Contains the cell's genetic material (DNA).</li><li>Controls all cell activities.</li></ul>
-          <p class="notes">🎙️ The nucleus is often called the brain of the cell. It houses the cell's DNA, organized into chromosomes, which contain all the instructions for building and operating the cell. It directs protein synthesis and cell division, essentially governing all cellular processes.</p>
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Nucleus</span>: The Cell's Control Centre</h2>
+          <ul><li>Usually spherical, located in the center of the cell.</li><li>Contains chromosomes, which carry genes (DNA).</li><li>Controls all cell activities and heredity.</li></ul>
+          <p class="notes">🎙️ The nucleus is often called the 'brain' of the cell because it directs all cellular activities. It houses the cell's genetic material, DNA, organized into chromosomes, which dictate the cell's characteristics and functions.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Animal_cell_structure_en.svg?width=500" data-fb="🧠" alt="An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va"/><div class="vcap">An animal cell is a eukaryotic cell bounded by a cell membrane containing a nucleus and va</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain of the Cell</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">17 / 25</span>
+          <span class="num">16 / 25</span>
           <h2><span class="hl">Cytoplasm</span>: The Cell's Inner Environment</h2>
-          <ul><li>Jelly-like substance filling the cell.</li><li>Located between the plasma membrane and nucleus.</li><li>Many chemical reactions occur here.</li></ul>
-          <p class="notes">🎙️ The cytoplasm is the viscous, transparent fluid that fills the cell and surrounds the nucleus. It's where many important metabolic reactions take place. Various tiny structures, called organelles, are suspended within this jelly-like substance.</p>
+          <ul><li>Jelly-like substance filling the cell, between cell membrane and nucleus.</li><li>Contains various specialized cell organelles.</li><li>Site of many metabolic reactions.</li></ul>
+          <p class="notes">🎙️ The cytoplasm is the bustling arena where much of the cell's work happens. It's a viscous fluid that suspends the cell organelles, providing a medium for various biochemical processes vital for the cell's survival and function.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍮</div><div class="vcap">Jelly-like substance</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Cell's Inner Sea</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! (Part 1)</h2>
+          <ul><li>1. Who discovered the cell and when?</li><li>2. State the two main points of the Cell Theory.</li><li>3. Give one example of a unicellular organism.</li></ul>
+          <p class="notes">🎙️ Let's pause and see how well we've understood the basics. Take a moment to think about these questions. The answers should be clear from our previous slides.</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,11 +264,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 25</span>
-          <h2><span class="hl">Mitochondria</span>: The Powerhouses</h2>
-          <ul><li>Known as the 'powerhouses of the cell'.</li><li>Produce energy (ATP) through cellular respiration.</li><li>Essential for all cellular activities.</li></ul>
-          <p class="notes">🎙️ Mitochondria are crucial organelles responsible for generating most of the cell's supply of adenosine triphosphate (ATP), which is used as a source of chemical energy. They are like tiny power plants, converting glucose into usable energy for the cell.</p>
+          <h2><span class="hl">Mitochondria</span>: The Powerhouse</h2>
+          <ul><li>Rod-shaped organelles.</li><li>Known as the 'powerhouses of the cell'.</li><li>Produce energy (ATP) through cellular respiration.</li></ul>
+          <p class="notes">🎙️ Mitochondria are vital for the cell's energy supply. They are responsible for converting food into usable energy in the form of ATP, which powers almost all cellular activities. Without mitochondria, cells wouldn't have the fuel to function.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy production</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">Energy Generators</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -263,11 +276,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Endoplasmic Reticulum (ER): The Cell's <span class="hl">Network</span></h2>
-          <ul><li>A network of membranes and tubules.</li><li>Rough ER: has ribosomes, for protein synthesis.</li><li>Smooth ER: for lipid synthesis and detoxification.</li></ul>
-          <p class="notes">🎙️ The Endoplasmic Reticulum is an extensive network of membranes that extends throughout the cytoplasm. It comes in two forms: rough ER, studded with ribosomes for protein synthesis, and smooth ER, involved in lipid synthesis and detoxifying harmful substances.</p>
+          <h2><span class="hl">Plastids</span>: Food Factories (in Plants)</h2>
+          <ul><li>Found only in plant cells.</li><li>Chloroplasts contain chlorophyll for photosynthesis.</li><li>Synthesize food for the plant using sunlight.</li></ul>
+          <p class="notes">🎙️ Plastids are unique to plant cells. Chloroplasts, a type of plastid, are the sites of photosynthesis, where plants convert light energy into chemical energy (food). This makes them essential for life on Earth, as they produce the oxygen we breathe and the food we eat.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Interconnected network</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="☀️" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -275,11 +288,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Golgi Apparatus: <span class="hl">Packaging</span> and Transport</h2>
-          <ul><li>Stack of flattened sacs (cisternae).</li><li>Modifies, sorts, and packages proteins and lipids.</li><li>Prepares substances for secretion or delivery.</li></ul>
-          <p class="notes">🎙️ The Golgi apparatus acts like the cell's post office. It receives proteins and lipids from the ER, modifies them, sorts them into vesicles, and then packages them for delivery to other parts of the cell or for secretion outside the cell. It's vital for cellular transport.</p>
+          <h2><span class="hl">Vacuoles</span>: Storage Sacs</h2>
+          <ul><li>Membrane-bound sacs for storage.</li><li>Store water, nutrients, waste products.</li><li>Large central vacuole in plant cells provides turgidity.</li></ul>
+          <p class="notes">🎙️ Vacuoles are like the cell's storage units, holding various substances. In plant cells, a single large central vacuole is prominent, maintaining cell pressure and supporting the plant. In animal cells, vacuoles are smaller and more numerous.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Processing and shipping</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Cell's Storage Tanks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -287,11 +300,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">21 / 25</span>
-          <h2><span class="hl">Ribosomes</span>: Protein Factories</h2>
-          <ul><li>Tiny, granular structures.</li><li>Sites of protein synthesis.</li><li>Found free in cytoplasm or on Rough ER.</li></ul>
-          <p class="notes">🎙️ Ribosomes are the actual protein factories of the cell. These tiny organelles are responsible for translating genetic information from DNA into proteins. They can be found floating freely in the cytoplasm or attached to the Endoplasmic Reticulum.</p>
+          <h2>Endoplasmic Reticulum (<span class="hl">ER</span>): The Transport Network</h2>
+          <ul><li>Network of membranes, extending from the nucleus.</li><li>Rough ER (RER) has ribosomes; smooth ER (SER) does not.</li><li>Involved in protein synthesis (RER) and lipid synthesis (SER), and transport.</li></ul>
+          <p class="notes">🎙️ The ER acts as an extensive internal transport system within the cell. The rough ER is studded with ribosomes, making it a key site for protein synthesis, while the smooth ER is involved in producing lipids and detoxifying harmful substances.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Protein production</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Internal Highway</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -299,11 +312,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">22 / 25</span>
-          <h2><span class="hl">Vacuoles</span>: Storage and Support</h2>
-          <ul><li>Membrane-bound sacs for storage.</li><li>Store water, nutrients, and waste products.</li><li>Large central vacuole in plant cells provides turgor.</li></ul>
-          <p class="notes">🎙️ Vacuoles are essentially storage containers within the cell. They can store water, food, waste products, and other materials. In plant cells, a large central vacuole maintains turgor pressure, keeping the cell firm and supporting the plant.</p>
+          <h2>Ribosomes &amp; Golgi Apparatus: <span class="hl">Protein Processing</span></h2>
+          <ul><li>Ribosomes: Sites of protein synthesis.</li><li>Golgi Apparatus: Modifies, sorts, and packages proteins and lipids.</li><li>Prepares materials for secretion or delivery to other organelles.</li></ul>
+          <p class="notes">🎙️ Ribosomes are the 'protein factories' of the cell. Once proteins are made, the Golgi apparatus takes over, refining and packaging them into vesicles. It's like a post office, ensuring that proteins and other molecules reach their correct destinations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛢️</div><div class="vcap">Storage tank</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Factory &amp; Packaging Unit</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -311,9 +324,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Time for a Challenge! <span class="hl">Question 2</span></h2>
-          <ul><li>Name two key differences between a plant cell and an animal cell.</li></ul>
-          <p class="notes">🎙️ Great job so far! Now, let's test your knowledge on the distinctions between different types of cells. Can you identify two prominent features that differentiate a plant cell from an animal cell?</p>
+          <h2>Quick <span class="hl">Check</span>! (Part 2)</h2>
+          <ul><li>1. Which organelle is known as the 'powerhouse of the cell'?</li><li>2. What is the primary function of chloroplasts?</li><li>3. Name two components found only in plant cells.</li></ul>
+          <p class="notes">🎙️ Now let's test our understanding of the cell's intricate machinery. Think about the unique roles each organelle plays. This helps us appreciate the complexity within a tiny cell.</p>
         </div>
         
       </div>
@@ -323,27 +336,28 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">24 / 25</span>
-          <h2><span class="hl">Recap</span>: Journey Through the Cell</h2>
-          <ul><li>Cells are the basic units of life.</li><li>Discovered by Hooke, elaborated by Cell Theory.</li><li>Unicellular vs. Multicellular organisms.</li><li>Key parts: membrane, cytoplasm, nucleus, organelles.</li></ul>
-          <p class="notes">🎙️ Today, we explored the fascinating world of cells, from their discovery to their intricate internal structures. Remember, every living thing, from the smallest microbe to the largest tree, is a testament to the incredible complexity and efficiency of these tiny building blocks.</p>
+          <h2><span class="hl">Recap</span>: The Wonderful World of Cells</h2>
+          <ul><li>Cells are the basic units of life, discovered by Robert Hooke.</li><li>Cell Theory explains their fundamental role.</li><li>Organisms are unicellular or multicellular.</li><li>Cells have a membrane, cytoplasm, nucleus, and organelles.</li><li>Each organelle has a specific function.</li></ul>
+          <p class="notes">🎙️ Today, we've covered a vast amount about cells. Remember, every living thing, from the smallest microbe to you and me, is made of these incredible, tiny units, each performing specialized tasks to sustain life.</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2><span class="hl">Thank You</span> &amp; Keep Exploring!</h2>
-          <ul><li>Cells are fundamental to understanding all biology.</li><li>Continue to observe and question the world around you.</li><li>Your curiosity is the key to discovery!</li></ul>
-          <p class="notes">🎙️ Thank you for your active participation today! The study of cells is just the beginning of understanding life sciences. Keep observing, keep asking questions, and never stop being curious about the amazing world of biology. See you next time!</p>
+          <h2>Thank You! Any <span class="hl">Questions</span>?</h2>
+          <ul><li>Continue exploring the microscopic world!</li><li>Your curiosity is your best teacher.</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on cells. I hope you enjoyed learning about these fundamental building blocks. Please feel free to ask any questions you might have, or explore further on your own!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👋</div><div class="vcap">Goodbye for now!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

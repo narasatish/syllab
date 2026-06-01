@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Animals Around Us — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2><span class="hl">Animals</span> Around Us!</h2>
-          <ul><li>Hello, little explorers!</li><li>Let's learn about our animal friends.</li></ul>
-          <p class="notes">🎙️ Namaste, children! Today, we will go on an exciting adventure to meet many animals. Some live with us, some on farms, and some far away in big forests. Are you ready?</p>
+          <h2>Welcome to "<span class="hl">Animals</span> Around Us"!</h2>
+          <ul><li>Let's learn about our animal friends!</li></ul>
+          <p class="notes">🎙️ Hello children! Today, we will start a very exciting chapter about all the wonderful animals we see every day and in books. Get ready to meet many new friends!</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Many <span class="hl">Kinds</span> of Animals</h2>
-          <ul><li>Look around you!</li><li>We see many animals every day.</li><li>Big, small, furry, feathery!</li></ul>
-          <p class="notes">🎙️ Animals are everywhere! Some are very tiny, like ants, and some are huge, like elephants. They all have different shapes, sizes, and colours.</p>
+          <h2>What are <span class="hl">Animals</span>?</h2>
+          <ul><li>Animals are living things.</li><li>They move, eat, and grow.</li></ul>
+          <p class="notes">🎙️ Just like us, animals are living! They need food to grow big and strong. They can also move from one place to another.</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🌍" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Lion_waiting_in_Namibia.jpg?width=480" data-fb="🐾" alt="Animals live all around us."/><div class="vcap">Animals live all around us.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Our <span class="hl">Pet</span> Friends</h2>
-          <ul><li>Some animals live with us.</li><li>They are called pets.</li><li>We love and care for them.</li></ul>
-          <p class="notes">🎙️ Do you have a pet at home? Pets are like family. We give them food, water, and lots of love. They make us happy!</p>
+          <h2>Where do Animals <span class="hl">Live</span>?</h2>
+          <ul><li>Animals live in many places.</li><li>Some live with us, some in jungles.</li></ul>
+          <p class="notes">🎙️ Animals have different homes. Some animals like to live very close to people, while others prefer to live far away in big forests.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Many Homes</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Meet the <span class="hl">Dog</span>!</h2>
-          <ul><li>A dog is a loyal pet.</li><li>It barks: 'Woof! Woof!'</li><li>Dogs love to play and guard our homes.</li></ul>
-          <p class="notes">🎙️ Dogs are very smart animals. They are often called 'man's best friend' because they are so loving and protective. Many children love playing with dogs.</p>
+          <h2>Animals Around Our Home: <span class="hl">Pets</span></h2>
+          <ul><li>Some animals live with us.</li><li>They are called pets.</li><li>Like dogs and cats.</li></ul>
+          <p class="notes">🎙️ We love our pets! They live in our homes and we take care of them. Dogs and cats are very common pets.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐕</span><span>🐕</span><span>🐕</span></div><div class="vcap">Loyal dogs</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐶</span><span>🐶</span><span>🐶</span></div><div class="vcap">Our Pet Friends</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Meet the <span class="hl">Cat</span>!</h2>
-          <ul><li>A cat is a playful pet.</li><li>It purrs and says: 'Meow!'</li><li>Cats like to sleep and chase mice.</li></ul>
-          <p class="notes">🎙️ Cats are very graceful and quiet animals. They love to cuddle and can be very independent. They are known for their soft fur and gentle purrs.</p>
+          <h2>Animals Around Our Home: <span class="hl">Farm Animals</span></h2>
+          <ul><li>Some animals live on farms.</li><li>They help us in many ways.</li><li>Like cows, goats, and chickens.</li></ul>
+          <p class="notes">🎙️ Farm animals give us milk, eggs, and even wool! They are very useful to us and live on farms near villages.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐈</span><span>🐈</span><span>🐈</span></div><div class="vcap">Playful cats</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐮</span><span>🐮</span><span>🐮</span></div><div class="vcap">Farm Helpers</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2><span class="hl">Farm</span> Animals</h2>
-          <ul><li>Some animals live on farms.</li><li>They help us in many ways.</li><li>We get food and other things from them.</li></ul>
-          <p class="notes">🎙️ Farm animals are very useful to us. They live in big open fields or barns. Farmers take good care of them because they provide us with many things we need.</p>
+          <h2>Animals in the Jungle: <span class="hl">Wild Animals</span></h2>
+          <ul><li>Some animals live in jungles.</li><li>They find their own food and home.</li><li>Like lions, tigers, and bears.</li></ul>
+          <p class="notes">🎙️ Wild animals live in forests and jungles. They are not pets and can be dangerous. We can see them in zoos!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚜</div><div class="vcap">Farm</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦁</span><span>🦁</span><span>🦁</span></div><div class="vcap">Jungle Friends</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Meet the <span class="hl">Cow</span>!</h2>
-          <ul><li>A cow lives on a farm.</li><li>It says: 'Moo! Moo!'</li><li>Cows give us healthy milk.</li></ul>
-          <p class="notes">🎙️ Cows are gentle giants. They eat grass and spend their days grazing. The milk they give us is used to make butter, cheese, and many other yummy things!</p>
+          <h2><span class="hl">Big</span> Animals</h2>
+          <ul><li>Some animals are very big.</li><li>They are huge and strong.</li></ul>
+          <p class="notes">🎙️ Look at the elephant! It is one of the biggest animals on land. A bear is also big, but smaller than an elephant.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐄</span><span>🐄</span></div><div class="vcap">Milk-giving cows</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Elephant</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Bear</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2>Meet the <span class="hl">Hen</span>!</h2>
-          <ul><li>A hen lives on a farm.</li><li>It says: 'Cluck! Cluck!'</li><li>Hens give us eggs to eat.</li></ul>
-          <p class="notes">🎙️ Hens are small birds that live in coops on farms. They scratch the ground looking for food. The eggs they lay are a very good source of protein for us.</p>
+          <h2><span class="hl">Small</span> Animals</h2>
+          <ul><li>Some animals are very small.</li><li>They can be tiny!</li></ul>
+          <p class="notes">🎙️ And then we have tiny animals! A mouse is small, but an ant is even tinier. Can you spot ants around your house?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐔</span><span>🐔</span><span>🐔</span><span>🐔</span></div><div class="vcap">Egg-laying hens</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mouse</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Ant</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Wild</span> Animals</h2>
-          <ul><li>Some animals live in jungles or forests.</li><li>They are called wild animals.</li><li>They find their own food and shelter.</li></ul>
-          <p class="notes">🎙️ Wild animals live freely in nature, far away from humans. They are very strong and have to hunt for their food or find plants to eat. We should not disturb them in their homes.</p>
+          <h2>Animals That <span class="hl">Fly</span></h2>
+          <ul><li>Some animals have wings.</li><li>They can fly high in the sky.</li><li>Birds and butterflies fly.</li></ul>
+          <p class="notes">🎙️ Isn't it amazing to see birds flying? They use their wings to soar high above us. Butterflies also have beautiful wings to fly.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Forest</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐦</div><div class="vcap">Up in the Sky</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Meet the <span class="hl">Lion</span>!</h2>
-          <ul><li>A lion lives in the jungle.</li><li>It roars loudly: 'Roar!'</li><li>Lions are called the 'King of the Jungle'.</li></ul>
-          <p class="notes">🎙️ Lions are powerful hunters with big manes. They live in groups called prides. It's amazing to see them in a zoo or on TV, but always remember they are wild!</p>
+          <h2>Animals That <span class="hl">Walk and Run</span></h2>
+          <ul><li>Most animals walk or run.</li><li>They use their legs to move.</li><li>Dogs, cats, and horses walk or run.</li></ul>
+          <p class="notes">🎙️ Many animals walk on their legs. Some, like horses, can run very fast! We also walk and run, don't we?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦁</span></div><div class="vcap">King Lion</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐎</div><div class="vcap">On the Ground</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Meet the <span class="hl">Elephant</span>!</h2>
-          <ul><li>An elephant lives in the jungle.</li><li>It has a long trunk.</li><li>Elephants are the biggest land animals.</li></ul>
-          <p class="notes">🎙️ Elephants are gentle giants with huge ears and a very useful trunk. They use their trunk to drink water, pick up food, and even spray themselves with water. They are very intelligent.</p>
+          <h2>Animals That <span class="hl">Swim</span></h2>
+          <ul><li>Some animals live in water.</li><li>They use fins or flippers to swim.</li><li>Fish and turtles swim.</li></ul>
+          <p class="notes">🎙️ The ocean and rivers are full of animals that swim! Fish use their fins to move gracefully in the water.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐘</span></div><div class="vcap">Big Elephant</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐠</div><div class="vcap">In the Water</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Animal <span class="hl">Homes</span></h2>
-          <ul><li>Animals live in different places.</li><li>Dogs in kennels, birds in nests.</li><li>Lions in dens, fish in water.</li></ul>
-          <p class="notes">🎙️ Just like us, animals need a home to be safe and warm. Each animal has a special place where it lives. A bird builds a nest, and a rabbit digs a burrow.</p>
+          <h2>What Do Animals <span class="hl">Eat</span>?</h2>
+          <ul><li>Animals eat different kinds of food.</li><li>Just like we have different favourite foods!</li></ul>
+          <p class="notes">🎙️ Do all animals eat the same food? No! Just like you might like different foods than your friend, animals also have special diets.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Different homes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍽️</div><div class="vcap">Yummy Food</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Animal <span class="hl">Food</span></h2>
-          <ul><li>Animals eat different things.</li><li>Some eat plants, some eat other animals.</li><li>Some eat both!</li></ul>
-          <p class="notes">🎙️ Animals have different diets. Cows eat grass, lions eat meat, and bears eat both plants and meat. It's important for them to eat the right food to stay healthy and strong.</p>
+          <h2>Animals That Eat <span class="hl">Plants</span></h2>
+          <ul><li>Some animals only eat plants.</li><li>They love leaves, grass, and fruits.</li><li>Like cows, goats, and deer.</li></ul>
+          <p class="notes">🎙️ Cows munch on grass all day! These animals are called plant-eaters. They get all their energy from plants.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥕</div><div class="vcap">What they eat</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌍" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Animal <span class="hl">Sounds</span></h2>
-          <ul><li>Animals make unique sounds.</li><li>Dogs bark, cats meow.</li><li>Cows moo, lions roar.</li></ul>
-          <p class="notes">🎙️ Every animal has its own special sound. These sounds help them talk to each other, warn of danger, or call their babies. Can you make some animal sounds?</p>
+          <h2>Animals That Eat <span class="hl">Other Animals</span></h2>
+          <ul><li>Some animals eat other animals.</li><li>They hunt for their food.</li><li>Like lions, tigers, and wolves.</li></ul>
+          <p class="notes">🎙️ Lions are strong hunters. They eat other animals to get their food. These animals are called meat-eaters.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👂</div><div class="vcap">Listen!</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍖</span><span>🍖</span><span>🍖</span></div><div class="vcap">Meat Eaters</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Is it a <span class="hl">Pet or Wild</span> Animal?</h2>
-          <ul><li>Look at the picture.</li><li>Is this animal a pet or a wild animal?</li></ul>
-          <p class="notes">🎙️ Think about where this animal usually lives. Does it live with humans in a home, or does it live far away in the jungle? What do you think?</p>
+          <h2>Animals That Eat <span class="hl">Both</span> Plants and Animals</h2>
+          <ul><li>Some animals eat both plants and animals.</li><li>They eat fruits, vegetables, and meat.</li><li>Like bears and humans!</li></ul>
+          <p class="notes">🎙️ Bears love berries, but they also eat fish! These clever animals eat both plants and other animals. We humans also eat both plants and animals!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐶</span></div><div class="vcap">A friendly dog</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍽️</span><span>🍽️</span><span>🍽️</span></div><div class="vcap">Eats Everything</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,23 +240,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Who Gives Us <span class="hl">Milk</span>?</h2>
-          <ul><li>Which animal gives us yummy milk?</li><li>Is it a lion or a cow?</li></ul>
-          <p class="notes">🎙️ Remember our farm animals? Which one helps us get milk for our tea and coffee, and to make sweets? Think carefully!</p>
+          <h2>Why are Animals <span class="hl">Important</span>?</h2>
+          <ul><li>Animals are a part of our world.</li><li>They help keep nature healthy.</li><li>We must protect them.</li></ul>
+          <p class="notes">🎙️ Animals are very special and important for our planet. They help nature in many ways, like spreading seeds or keeping other animal populations in check. We must always be kind to them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span></div><div class="vcap">Yummy milk</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Care for Animals</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Who Says <span class="hl">'Moo'</span>?</h2>
-          <ul><li>Which animal makes the sound 'Moo! Moo!'?</li><li>Is it a cat or a cow?</li></ul>
-          <p class="notes">🎙️ Listen carefully to the sound 'Moo'. Which animal do you hear making that sound on the farm? Can you make the 'Moo' sound too?</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>Which of these is a pet?</li><li>A) Lion</li><li>B) Dog</li><li>C) Tiger</li></ul>
+          <p class="notes">🎙️ Time for a quick test! Look at the options and tell me, which animal can live in our homes and be our friend?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">What sound?</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -251,9 +264,21 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Animals Around Us: <span class="hl">Recap</span></h2>
-          <ul><li>We learned about pets, farm animals, and wild animals.</li><li>They live in different places.</li><li>They eat different foods and make different sounds.</li></ul>
-          <p class="notes">🎙️ Today, we met many animal friends! We saw how some live with us, some on farms, and some in the big wild jungle. Each one is special in its own way.</p>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>Which animal lives in the jungle?</li><li>A) Cow</li><li>B) Hen</li><li>C) Elephant</li></ul>
+          <p class="notes">🎙️ Next question! Think about the animals we talked about. Which one would you find in a big, wild jungle?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 20</span>
+          <h2>Quick <span class="hl">Question</span>!</h2>
+          <ul><li>What do cows mainly eat?</li><li>A) Meat</li><li>B) Grass</li><li>C) Fish</li></ul>
+          <p class="notes">🎙️ One more question! Remember our farm animals. What is the favorite food of a cow?</p>
         </div>
         
       </div>
@@ -262,28 +287,17 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>Why Animals Are <span class="hl">Important</span></h2>
-          <ul><li>Animals are a part of our world.</li><li>They help us and make our world beautiful.</li><li>We must always be kind to animals.</li></ul>
-          <p class="notes">🎙️ Animals are very important for our planet. They help keep nature balanced, and many give us food or help us with work. It's our duty to protect them and treat them with kindness.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Be kind</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Thank You</span>, Little Animal Lovers!</h2>
-          <ul><li>Draw your favourite animal.</li><li>Tell your family about what you learned.</li><li>Keep exploring the world around you!</li></ul>
-          <p class="notes">🎙️ That was a wonderful journey into the world of animals! I hope you had fun learning. Now, go home and draw your favourite animal, or tell your parents about the animals you learned about today. See you next time!</p>
+          <h2>Time to <span class="hl">Recap</span>!</h2>
+          <ul><li>Animals are living things.</li><li>They live in different places.</li><li>They eat different foods.</li><li>We must care for all animals!</li></ul>
+          <p class="notes">🎙️ We learned so much about animals today! We saw where they live, what they eat, and how they move. Remember, all animals are special and we should always be kind to them.</p>
         </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🌍" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 1 · The World Around Us</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

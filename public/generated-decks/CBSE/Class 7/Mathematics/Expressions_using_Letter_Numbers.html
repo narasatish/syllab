@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Expressions using Letter-Numbers — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 25</span>
           <h2>Welcome to "<span class="hl">Expressions</span> using Letter-Numbers"!</h2>
-          <ul><li>Unlocking the power of algebra.</li><li>Understanding how letters and numbers work together.</li><li>Mathematics made simpler and more fun!</li></ul>
-          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of algebraic expressions. Get ready to discover how letters can represent numbers and simplify complex problems.</p>
+          <ul><li>Let's unlock the power of algebra!</li><li>Understand how letters represent numbers.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of algebra. We'll learn how to use letters to make mathematics more powerful and flexible.</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 25</span>
-          <h2>What are Algebraic <span class="hl">Expressions</span>?</h2>
-          <ul><li>Combinations of variables, constants, and operations.</li><li>No equality sign (=).</li><li>They represent a value.</li></ul>
-          <p class="notes">🎙️ An algebraic expression is like a mathematical phrase. It uses numbers, letters, and operations like addition or subtraction, but it doesn't state that something is equal to something else.</p>
+          <h2>What are <span class="hl">Algebraic Expressions</span>?</h2>
+          <ul><li>Combinations of variables, constants, and mathematical operations.</li><li>They do NOT have an equality sign (=).</li></ul>
+          <p class="notes">🎙️ An algebraic expression is like a mathematical phrase. It combines numbers, letters (variables), and operations like addition or multiplication, but it doesn't state that something is equal to something else.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combining Math Elements</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Idea!</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 25</span>
-          <h2><span class="hl">Variables</span>: Our Changing Friends (a, b, x, y)</h2>
-          <ul><li>Letters that represent unknown values.</li><li>Their value can change.</li><li>Examples: x, y, a, b, m, p.</li></ul>
-          <p class="notes">🎙️ Think of variables as placeholders for numbers. Their value isn't fixed; it can vary depending on the situation. We use letters like 'x' or 'y' to denote them.</p>
+          <h2><span class="hl">Numbers vs. Variables</span></h2>
+          <ul><li>Numbers have fixed values.</li><li>Variables can take different values.</li></ul>
+          <p class="notes">🎙️ Think of numbers as known quantities, always staying the same. Variables, represented by letters, are like placeholders for values that can change or are unknown.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Unknown Value</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Numbers (Constants)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Variables (Letters)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 25</span>
-          <h2><span class="hl">Constants</span>: The Unchanging Numbers</h2>
-          <ul><li>Numbers with fixed values.</li><li>Their value never changes.</li><li>Examples: 5, -7, 100, 3/4.</li></ul>
-          <p class="notes">🎙️ Unlike variables, constants are just regular numbers. Their value is always the same, no matter what. They provide the fixed part of our expressions.</p>
+          <h2>Understanding <span class="hl">Constants</span></h2>
+          <ul><li>A symbol with a fixed numerical value.</li><li>Its value does not change.</li><li>Examples: 5, -10, 3/4.</li></ul>
+          <p class="notes">🎙️ Constants are the simple numbers you've always worked with. They have a definite value that never changes, no matter what else happens in the problem.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Fixed Number</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Fixed Value</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 25</span>
-          <h2><span class="hl">Real-life</span>: Cost of Pens &amp; Notebooks</h2>
-          <ul><li>Cost of one pen = ₹10 (Constant)</li><li>Cost of one notebook = ₹25 (Constant)</li><li>Number of pens purchased = 'p' (Variable)</li><li>Number of notebooks purchased = 'n' (Variable)</li></ul>
-          <p class="notes">🎙️ Imagine you're buying school supplies. The price of a single pen or notebook is fixed, a constant. But the number of pens or notebooks you buy can change, making them variables.</p>
+          <h2>Introducing <span class="hl">Variables</span></h2>
+          <ul><li>A symbol (usually a letter) that represents a quantity that can change.</li><li>Its value is not fixed.</li><li>Examples: x, y, a, b, p.</li></ul>
+          <p class="notes">🎙️ Variables are the exciting new part! They are letters that stand for numbers whose values might change or are currently unknown. They make expressions flexible.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛒</span><span>🛒</span><span>🛒</span><span>🛒</span></div><div class="vcap">Shopping Cart</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Changing Value</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 25</span>
-          <h2>Building Expressions: Using <span class="hl">Operations</span></h2>
-          <ul><li>Addition (+)</li><li>Subtraction (-)</li><li>Multiplication (×)</li><li>Division (÷)</li></ul>
-          <p class="notes">🎙️ We combine variables and constants using the four basic mathematical operations. For example, 'x + 5' means 'x' added to 5, and '3y' means 3 multiplied by 'y'.</p>
+          <h2>How to <span class="hl">Form Expressions</span></h2>
+          <ul><li>Combine variables and constants.</li><li>Use mathematical operations (+, -, ×, ÷).</li></ul>
+          <p class="notes">🎙️ To build an expression, you simply take variables and constants and connect them using the basic mathematical operations we all know. It's like building a sentence with words and punctuation.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with Variables &amp; Constants</span></div><div class="step"><span class="snum">2</span><span>Apply Operations</span></div><div class="step"><span class="snum">3</span><span>Form an Expression</span></div></div></div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with a variable (x)</span></div><div class="step"><span class="snum">2</span><span>Add a constant (+5)</span></div><div class="step"><span class="snum">3</span><span>Result: x + 5</span></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,11 +132,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 25</span>
-          <h2><span class="hl">Terms</span>: The Building Blocks</h2>
-          <ul><li>Parts of an expression separated by + or -.</li><li>Each term can be a variable, a constant, or a product.</li><li>Example: In 3x + 5y - 7, the terms are 3x, 5y, and -7.</li></ul>
-          <p class="notes">🎙️ Think of terms as the individual pieces that make up an expression. They are separated by the addition or subtraction signs. Identifying terms is crucial for understanding expressions.</p>
+          <h2>Real-Life Example: <span class="hl">Age</span></h2>
+          <ul><li>If your current age is 'y' years.</li><li>What will be your age after 5 years?</li></ul>
+          <p class="notes">🎙️ Imagine your friend's age is unknown, so we call it 'y'. If you want to find their age five years from now, you simply add 5 to 'y'. So, the expression is y + 5.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Expression Parts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍</span></div><div class="vcap">My Age</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -131,11 +144,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">8 / 25</span>
-          <h2><span class="hl">Coefficients</span>: The Multiplier of a Variable</h2>
-          <ul><li>The numerical factor of a term.</li><li>It tells us how many times the variable is multiplied.</li><li>Example: In 5x, 5 is the coefficient of x.</li></ul>
-          <p class="notes">🎙️ When a number is placed directly before a variable, it's called the coefficient. It literally 'co-operates' with the variable, multiplying its value. If there's no number, the coefficient is 1.</p>
+          <h2>Expressions with <span class="hl">Addition &amp; Subtraction</span></h2>
+          <ul><li>'Sum of x and 7' becomes x + 7.</li><li>'5 less than y' becomes y - 5.</li><li>'p increased by 10' becomes p + 10.</li></ul>
+          <p class="notes">🎙️ When you see words like 'sum', 'more than', 'increased by', think addition. For 'difference', 'less than', 'decreased by', think subtraction. These words translate directly into mathematical operations.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">×</div><div class="vcap">Multiplication Factor</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Combine or Remove</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 25</span>
-          <h2><span class="hl">Like Terms</span> vs. Unlike Terms</h2>
-          <ul><li>Like terms have the same variables with the same powers.</li><li>Unlike terms have different variables or different powers.</li><li>Example: 2x and 5x are like terms; 2x and 5y are unlike terms.</li></ul>
-          <p class="notes">🎙️ This is a very important concept! Like terms are similar because they have the exact same variable part. Unlike terms are different and cannot be directly combined through addition or subtraction.</p>
+          <h2>Real-Life Example: <span class="hl">Money</span></h2>
+          <ul><li>You have '₹m' in your wallet.</li><li>You spend ₹50.</li><li>How much money is left?</li></ul>
+          <p class="notes">🎙️ If you start with an amount of money, 'm', and then spend 50 rupees, the money remaining is found by subtracting 50 from 'm'. The expression is m - 50.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Like Terms (2x, 5x)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Unlike Terms (2x, 5y)</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">My Wallet</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 25</span>
-          <h2>Why Do Like Terms Matter?</h2>
-          <ul><li>Only like terms can be added or subtracted.</li><li>Simplifies expressions.</li><li>Makes calculations easier and more organized.</li></ul>
-          <p class="notes">🎙️ Just like you can add 2 apples and 3 apples to get 5 apples, you can add 2x and 3x to get 5x. But you cannot add 2 apples and 3 bananas directly. This rule is fundamental in algebra.</p>
+          <h2>Expressions with <span class="hl">Multiplication &amp; Division</span></h2>
+          <ul><li>'Product of 3 and x' becomes 3x.</li><li>'y divided by 4' becomes y/4.</li><li>'Twice p' becomes 2p.</li></ul>
+          <p class="notes">🎙️ For multiplication, words like 'product', 'times', 'twice', 'thrice' are clues. For division, look for 'divided by', 'quotient', 'half'. Remember, 3x means 3 multiplied by x.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Combine Correctly</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Groups or Share</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 25</span>
-          <h2>Adding &amp; Subtracting Like Terms: The <span class="hl">Rule</span></h2>
-          <ul><li>Add/subtract their coefficients.</li><li>Keep the variable part the same.</li><li>Example: 3x + 4x = (3+4)x = 7x.</li></ul>
-          <p class="notes">🎙️ The process is straightforward: focus on the numbers in front of the variables. Perform the addition or subtraction on these coefficients, and the variable part simply tags along.</p>
+          <h2>Real-Life Example: <span class="hl">Distance</span></h2>
+          <ul><li>A car travels at 'v' km/hr.</li><li>How much distance does it cover in 2 hours?</li></ul>
+          <p class="notes">🎙️ If a car travels at a certain speed, 'v', for 2 hours, the total distance covered is the speed multiplied by the time. So, the expression is 2v.</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Like Terms</span></div><div class="step"><span class="snum">2</span><span>Add/Subtract Coefficients</span></div><div class="step"><span class="snum">3</span><span>Keep Variable Part Same</span></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span></div><div class="vcap">Car Speed</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 25</span>
-          <h2>Worked Example: <span class="hl">Adding</span> Like Terms</h2>
-          <ul><li>Simplify: 5a + 3b + 2a + 4b</li><li>Group like terms: (5a + 2a) + (3b + 4b)</li><li>Add coefficients: (5+2)a + (3+4)b</li><li>Result: 7a + 7b</li></ul>
-          <p class="notes">🎙️ Let's work through an example. First, find terms that have the same variable part. Then, combine them by adding their coefficients. Notice how 'a' terms combine with 'a' terms, and 'b' terms with 'b' terms.</p>
+          <h2>Understanding <span class="hl">Terms</span> of an Expression</h2>
+          <ul><li>Parts of an expression separated by '+' or '-' signs.</li><li>Each term is a product of factors.</li><li>Example: In 3x + 5, '3x' and '5' are terms.</li></ul>
+          <p class="notes">🎙️ Think of terms as the individual building blocks of an expression. They are the pieces that are added or subtracted together. Each term itself can be a combination of numbers and variables multiplied together.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Adding Apples</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Building Blocks</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">13 / 25</span>
-          <h2>Worked Example: <span class="hl">Subtracting</span> Like Terms</h2>
-          <ul><li>Simplify: 8x - 3y + 2x - y</li><li>Group like terms: (8x + 2x) + (-3y - y)</li><li>Subtract coefficients: (8+2)x + (-3-1)y</li><li>Result: 10x - 4y</li></ul>
-          <p class="notes">🎙️ Subtraction works similarly. Remember that if a variable has no coefficient, it's understood to be 1. Pay close attention to the signs before each term when combining them.</p>
+          <h2>Worked Example: <span class="hl">Identifying Terms</span></h2>
+          <ul><li>Expression: 4a - 7b + 2</li><li>Terms are: 4a, -7b, 2</li></ul>
+          <p class="notes">🎙️ In this expression, we see three distinct parts separated by plus or minus signs. So, 4a is one term, -7b is another term (remember to include the sign!), and 2 is the third term.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➖</span><span>➖</span><span>➖</span><span>➖</span></div><div class="vcap">Subtracting Items</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,23 +216,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 25</span>
-          <h2><span class="hl">Multiplying</span> Expressions: Simple Cases</h2>
-          <ul><li>Multiply constants with constants.</li><li>Multiply variables with variables (add powers).</li><li>Example: 3x * 2y = (3*2) * (x*y) = 6xy.</li></ul>
-          <p class="notes">🎙️ When multiplying, we can multiply numbers together and variables together. If the variables are the same, we add their powers, but for now, we'll focus on simpler cases where variables are different or just one variable exists.</p>
+          <h2><span class="hl">Like and Unlike</span> Terms</h2>
+          <ul><li>Like terms have the same variables with the same powers.</li><li>Unlike terms have different variables or different powers.</li><li>Example: 2x and 5x are like terms; 2x and 5y are unlike terms.</li></ul>
+          <p class="notes">🎙️ This is crucial for simplifying expressions! Like terms are like identical twins – they have the exact same variable parts. Unlike terms are different, like apples and oranges, and cannot be directly combined.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Product</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Like Terms (3x, 7x)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Unlike Terms (3x, 7y)</div></div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">15 / 25</span>
-          <h2><span class="hl">Dividing</span> Expressions: Simple Cases</h2>
-          <ul><li>Divide constants by constants.</li><li>Divide variables by variables (subtract powers).</li><li>Example: 6x / 2 = (6/2) * x = 3x.</li></ul>
-          <p class="notes">🎙️ Division also follows a similar pattern. Divide the numerical parts and the variable parts separately. This helps simplify complex expressions into a more manageable form.</p>
+          <h2>Worked Example: <span class="hl">Grouping</span> Like Terms</h2>
+          <ul><li>Expression: 3a + 4b - a + 2b</li><li>Like terms: (3a, -a) and (4b, 2b)</li><li>Simplified: 2a + 6b</li></ul>
+          <p class="notes">🎙️ To simplify, we group the terms that are 'alike'. Here, 3a and -a are like terms, and 4b and 2b are like terms. We combine them separately to get the simplified expression.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Quotient</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,35 +240,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 25</span>
-          <h2>Real-life: <span class="hl">Perimeter</span> of a Rectangle</h2>
-          <ul><li>Length = 'l' units</li><li>Breadth = 'b' units</li><li>Perimeter = l + b + l + b</li><li>Expression: 2l + 2b</li></ul>
-          <p class="notes">🎙️ Algebraic expressions are perfect for formulas! The perimeter of a rectangle, which is the total distance around its edges, can be expressed using variables 'l' for length and 'b' for breadth.</p>
+          <h2>Understanding <span class="hl">Coefficients</span></h2>
+          <ul><li>The numerical factor of a term.</li><li>It is the number multiplied by the variable part.</li><li>Example: In 5x, '5' is the coefficient.</li></ul>
+          <p class="notes">🎙️ The coefficient is simply the number that stands in front of a variable in a term. It tells you how many times that variable is being counted. If there's no number, the coefficient is usually 1 (like in 'x', the coefficient is 1).</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Length</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">17 / 25</span>
-          <h2>Real-life: <span class="hl">Total Cost</span> of Fruits</h2>
-          <ul><li>Cost of 1 apple = ₹15</li><li>Cost of 1 banana = ₹5</li><li>Number of apples = 'a'</li><li>Number of bananas = 'b'</li><li>Total Cost = 15a + 5b</li></ul>
-          <p class="notes">🎙️ Let's say you buy 'a' number of apples and 'b' number of bananas. We can write an expression for the total cost using variables, making it easy to calculate for any number of fruits.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Apples for Sale</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Multiplier</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
-          <span class="num">18 / 25</span>
-          <h2>Quick Check 1: <span class="hl">Variables</span> &amp; Constants</h2>
-          <ul><li>Identify the variables and constants in: 7p + 12q - 9</li><li>Variables: ?</li><li>Constants: ?</li></ul>
-          <p class="notes">🎙️ Take a moment to look at this expression. Can you pick out which parts are the letters representing unknown values and which are the fixed numbers?</p>
+          <span class="num">17 / 25</span>
+          <h2>Worked Example: Identifying <span class="hl">Coefficients</span></h2>
+          <ul><li>Expression: 7p - q + 3r</li><li>Coefficient of p is 7.</li><li>Coefficient of q is -1.</li><li>Coefficient of r is 3.</li></ul>
+          <p class="notes">🎙️ Be careful with the signs! For -q, the coefficient is -1, as it's equivalent to -1 * q. For terms like 'p', the coefficient is 1, even if not explicitly written.</p>
         </div>
         
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Expressions <span class="hl">vs. Equations</span></h2>
+          <ul><li>Expressions: No equality sign (=). Example: 3x + 5</li><li>Equations: Have an equality sign (=). Example: 3x + 5 = 11</li></ul>
+          <p class="notes">🎙️ This is a key difference. Expressions are just phrases, while equations are complete sentences that state two expressions are equal to each other. We will learn more about equations later.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Expression</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Equation</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -263,9 +276,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">19 / 25</span>
-          <h2>Quick Check 2: <span class="hl">Terms</span> &amp; Coefficients</h2>
-          <ul><li>For the expression 4x - 8y + 15:</li><li>List the terms.</li><li>State the coefficient of x.</li><li>State the coefficient of y.</li></ul>
-          <p class="notes">🎙️ Now, let's break down another expression. Remember, terms are separated by plus or minus signs, and coefficients are the numerical part multiplying a variable.</p>
+          <h2>Quick Check! <span class="hl">Identify</span> Variables and Constants</h2>
+          <ul><li>In 2x + 9, what are the variables and constants?</li></ul>
+          <p class="notes">🎙️ Take a moment to think about the definitions we just learned. Which parts represent fixed values, and which parts represent values that can change?</p>
         </div>
         
       </div>
@@ -275,9 +288,33 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">20 / 25</span>
-          <h2>Quick Check 3: <span class="hl">Simplify</span> Like Terms</h2>
-          <ul><li>Simplify the expression: 6m + 2n - 3m + 5n</li><li>What is the final simplified expression?</li></ul>
-          <p class="notes">🎙️ Put your knowledge of combining like terms to the test. Group the terms with 'm' together and the terms with 'n' together, then perform the operations.</p>
+          <h2>Quick Check! <span class="hl">Form</span> an Expression</h2>
+          <ul><li>Write an expression for: 'The product of y and 5, decreased by 2'.</li></ul>
+          <p class="notes">🎙️ Break down the sentence into operations and identify the variable and constants involved. Remember the order of operations if needed.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check! <span class="hl">Terms &amp; Coefficients</span></h2>
+          <ul><li>For 6m - n + 8, identify the terms and their coefficients.</li></ul>
+          <p class="notes">🎙️ Remember that terms are separated by plus or minus signs. And the coefficient is the numerical part of each term. Don't forget the sign!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! <span class="hl">Like &amp; Unlike</span> Terms</h2>
+          <ul><li>Are 4ab and 7ba like terms? What about 3x and 3y?</li></ul>
+          <p class="notes">🎙️ Recall the rule for like terms: same variables, same powers. The order of variables in multiplication doesn't matter (ab is the same as ba).</p>
         </div>
         
       </div>
@@ -286,36 +323,12 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">21 / 25</span>
-          <h2><span class="hl">Evaluating</span> Expressions: Finding the Value</h2>
-          <ul><li>Substitute numerical values for variables.</li><li>Perform the operations.</li><li>Find the final numerical value of the expression.</li></ul>
-          <p class="notes">🎙️ Evaluating an expression means finding its actual numerical value. We do this by replacing each variable with a given number and then calculating the result using the order of operations.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Substitution</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">22 / 25</span>
-          <h2>Worked Example: <span class="hl">Evaluating</span> an Expression</h2>
-          <ul><li>Evaluate 2x + 5 when x = 3.</li><li>Step 1: Substitute x = 3 into the expression.</li><li>2(3) + 5</li><li>Step 2: Perform multiplication.</li><li>6 + 5</li><li>Step 3: Perform addition.</li><li>Result: 11</li></ul>
-          <p class="notes">🎙️ Let's see this in action. If we are given an expression and a value for the variable, we simply plug in that value and calculate the answer step-by-step.</p>
-        </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Substitute Value</span></div><div class="step"><span class="snum">2</span><span>Perform Operations</span></div><div class="step"><span class="snum">3</span><span>Get Final Answer</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
           <span class="num">23 / 25</span>
-          <h2>Where Do We Use Expressions?</h2>
-          <ul><li>Formulas in Physics (e.g., Distance = Speed × Time)</li><li>Calculating costs and budgets.</li><li>Solving real-world problems in engineering and science.</li><li>Everyday problem-solving.</li></ul>
-          <p class="notes">🎙️ Algebraic expressions are not just for textbooks; they are powerful tools used across many fields. From calculating how far you've traveled to designing buildings, they help us model and solve problems.</p>
+          <h2>Why are Expressions <span class="hl">Useful</span>?</h2>
+          <ul><li>Represent real-world situations simply.</li><li>Solve problems where values are unknown or change.</li><li>Foundation for higher mathematics.</li></ul>
+          <p class="notes">🎙️ Expressions help us generalize problems. Instead of solving for one specific number, we can create a formula that works for any number, making math much more powerful and efficient.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Problem Solving</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Problem Solving</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -324,8 +337,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">24 / 25</span>
           <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
-          <ul><li>Expressions combine variables, constants, and operations.</li><li>Variables are letters; constants are fixed numbers.</li><li>Terms are parts separated by + or -.</li><li>Only like terms can be added or subtracted.</li><li>Evaluating means substituting values to find a number.</li></ul>
-          <p class="notes">🎙️ Let's quickly review what we've learned today. Remember the definitions of variables, constants, and terms, and especially the rule for combining like terms. These are the foundations of algebra.</p>
+          <ul><li>Expressions combine variables, constants, and operations.</li><li>Variables (letters) represent changing values; Constants (numbers) are fixed.</li><li>Terms are parts separated by '+' or '-'.</li><li>Like terms have identical variable parts.</li></ul>
+          <p class="notes">🎙️ We've covered the basics of expressions today. Remember these definitions and concepts, as they form the foundation for all future algebraic studies.</p>
         </div>
         
       </div>
@@ -335,15 +348,16 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">25 / 25</span>
-          <h2>Keep <span class="hl">Exploring</span>! Thank You!</h2>
-          <ul><li>Practice more problems on expressions.</li><li>Look for expressions in daily life.</li><li>Next: Equations and Identities.</li></ul>
-          <p class="notes">🎙️ Mathematics is all about practice! Keep working on simplifying and evaluating expressions. In our next class, we'll build upon this knowledge to explore equations and identities. See you next time!</p>
+          <h2><span class="hl">Thank You</span>! Keep Exploring!</h2>
+          <ul><li>Practice forming and simplifying expressions.</li><li>Look for expressions in everyday life!</li></ul>
+          <p class="notes">🎙️ It was a pleasure teaching you about expressions today. Keep practicing, and you'll become an expert in no time. See you in the next class!</p>
         </div>
         
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 7 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

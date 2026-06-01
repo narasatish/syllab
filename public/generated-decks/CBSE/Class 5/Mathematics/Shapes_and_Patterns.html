@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Shapes and Patterns — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,6 +42,18 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
@@ -48,8 +61,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">1 / 20</span>
           <h2>Welcome to <span class="hl">Shapes</span> and Patterns!</h2>
-          <ul><li>Let's learn about the world around us!</li></ul>
-          <p class="notes">🎙️ Hello, my dear students! Today, we are going on an exciting adventure to explore 'Shapes and Patterns'. Look around you, everything has a shape! And many things repeat in a beautiful pattern. Let's discover them together!</p>
+          <ul><li>Hello, little explorers!</li><li>Today, we will discover shapes and patterns.</li><li>They are everywhere around us!</li></ul>
+          <p class="notes">🎙️ Hello, little explorers! Today, we will go on a fun journey to discover the magical world of shapes and patterns. Look around you, shapes and patterns are everywhere!</p>
         </div>
         
       </div>
@@ -60,8 +73,8 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
         <div class="txt">
           <span class="num">2 / 20</span>
           <h2>What are <span class="hl">Shapes</span>?</h2>
-          <ul><li>Shapes are how things look.</li><li>They have outlines and boundaries.</li><li>Shapes help us understand objects.</li></ul>
-          <p class="notes">🎙️ Think about your favourite toy or a biscuit. It has a special form, right? That form is its shape! Shapes are all around us, from the sun to your lunchbox. They give things their identity.</p>
+          <ul><li>Shapes are the outlines of things.</li><li>They help us understand how objects look.</li><li>Let's meet some basic shapes!</li></ul>
+          <p class="notes">🎙️ Shapes are the outlines of things we see. They help us understand how objects look. We will learn about different kinds of shapes today.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Basic_shapes.svg?width=480" data-fb="🔺" alt="Shapes are all around us."/><div class="vcap">Shapes are all around us.</div></div></div>
       </div>
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2><span class="hl">Flat Shapes</span> (2D)</h2>
-          <ul><li>These shapes are flat, like a drawing.</li><li>They have length and width.</li><li>You can draw them on paper.</li></ul>
-          <p class="notes">🎙️ Imagine drawing a picture on your notebook. The shapes you draw, like a square or a circle, are flat. We call them 2D shapes because they only have two dimensions: how long they are and how wide they are.</p>
+          <h2>Meet the <span class="hl">Square</span>!</h2>
+          <ul><li>It has 4 straight sides.</li><li>All its sides are equal in length.</li><li>It also has 4 corners.</li></ul>
+          <p class="notes">🎙️ A square is a very neat shape. Imagine a carrom board or a window pane. They are often square! Can you spot any squares in your classroom?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟧</div><div class="vcap">A flat square</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">A perfect square</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Meet the <span class="hl">Square</span>!</h2>
-          <ul><li>A square has 4 straight sides.</li><li>All its sides are of the same length.</li><li>It has 4 corners.</li></ul>
-          <p class="notes">🎙️ Look at this happy red square! Can you count its sides? One, two, three, four! And guess what? All its sides are exactly the same size. Think of a carrom board or a slice of bread.</p>
+          <h2>Meet the <span class="hl">Rectangle</span>!</h2>
+          <ul><li>It also has 4 straight sides.</li><li>Its opposite sides are equal.</li><li>It has 4 corners.</li></ul>
+          <p class="notes">🎙️ Think of your school notebook or a door. They are usually rectangular. Can you spot any rectangles around you right now?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟥</div><div class="vcap">A red square</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">▭</div><div class="vcap">A long or wide rectangle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Hello, <span class="hl">Rectangle</span>!</h2>
-          <ul><li>A rectangle also has 4 straight sides.</li><li>Its opposite sides are equal in length.</li><li>It has 4 corners.</li></ul>
-          <p class="notes">🎙️ Next, we have the blue rectangle! It also has four sides and four corners, just like a square. But for a rectangle, only the sides opposite to each other are equal. Think of your classroom door or a chocolate bar.</p>
+          <h2>Meet the <span class="hl">Triangle</span>!</h2>
+          <ul><li>It has 3 straight sides.</li><li>It has 3 corners.</li><li>It looks like a mountain peak!</li></ul>
+          <p class="notes">🎙️ Triangles are fun shapes! A slice of pizza or a traffic sign often looks like a triangle. They are strong shapes too.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟦</div><div class="vcap">A blue rectangle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">△</div><div class="vcap">A three-sided triangle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>The Tricky <span class="hl">Triangle</span>!</h2>
-          <ul><li>A triangle has 3 straight sides.</li><li>It has 3 corners.</li><li>Tri means three!</li></ul>
-          <p class="notes">🎙️ Here comes the triangle! The word 'tri' means three, so a triangle has three sides and three corners. Can you spot triangles on a party hat or a slice of pizza? They are everywhere!</p>
+          <h2>Meet the <span class="hl">Circle</span>!</h2>
+          <ul><li>It has no straight sides.</li><li>It has no corners.</li><li>It is perfectly round!</li></ul>
+          <p class="notes">🎙️ The circle is a smooth, round shape. Think of a yummy cookie or a wheel on a bicycle. They are all circles!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔼</div><div class="vcap">A green triangle</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚪</div><div class="vcap">A round circle</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,23 +132,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Round and Round, the <span class="hl">Circle</span>!</h2>
-          <ul><li>A circle has no straight sides.</li><li>It has no corners.</li><li>It is perfectly round.</li></ul>
-          <p class="notes">🎙️ The circle is special! It has no straight sides and no corners. It's perfectly round, like a bangle or a wheel. Can you draw a perfect circle with your finger in the air?</p>
+          <h2>Shapes All <span class="hl">Around Us</span>!</h2>
+          <ul><li>Look at a clock, it's a circle!</li><li>Your book is a rectangle.</li><li>A sandwich cut diagonally is a triangle.</li></ul>
+          <p class="notes">🎙️ Shapes are not just in our books, they are everywhere! Your house has many shapes, from the roof to the windows. Let's find some more!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟠</div><div class="vcap">An orange circle</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="🔢" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">8 / 20</span>
-          <h2><span class="hl">Find</span> 2D Shapes Around You!</h2>
-          <ul><li>Can you see a square window?</li><li>Is your book a rectangle?</li><li>What shape is a coin?</li></ul>
-          <p class="notes">🎙️ Let's play a game! Look around your house or classroom. Can you point to something that looks like a square? How about a rectangle? What about a circle? Shapes are hidden in plain sight!</p>
+          <h2>Can you find the shapes?</h2>
+          <ul><li>What shape is a pizza slice?</li><li>What shape is a window?</li><li>What shape is a coin?</li></ul>
+          <p class="notes">🎙️ Let's play a quick game! Look at these objects and tell me what basic shape they look like. Think carefully about their sides and corners.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Shapes in a house</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -143,11 +156,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">9 / 20</span>
-          <h2><span class="hl">Solid Shapes</span> (3D)</h2>
-          <ul><li>These shapes are not flat, they are 'fat'!</li><li>They have length, width, and height.</li><li>You can hold them in your hand.</li></ul>
-          <p class="notes">🎙️ Now, let's talk about shapes you can hold! These are called solid or 3D shapes. They are not flat like drawings; they take up space. Think of a ball or a brick. You can feel their thickness or height.</p>
+          <h2>What are <span class="hl">Patterns</span>?</h2>
+          <ul><li>A pattern is something that repeats.</li><li>It follows a rule or order.</li><li>Like a dance step that repeats!</li></ul>
+          <p class="notes">🎙️ Now let's talk about patterns! Imagine a line of colourful beads or a song with a repeating chorus. That's what a pattern is, things happening again and again in a special way.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">A solid box</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Patterns repeat</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -155,11 +168,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">10 / 20</span>
-          <h2>Meet the <span class="hl">Cube</span>!</h2>
-          <ul><li>A cube is like a 3D square.</li><li>It has 6 flat faces.</li><li>All its faces are squares.</li></ul>
-          <p class="notes">🎙️ The cube is a very common 3D shape! Imagine a dice or an ice cube. All its sides, called faces, are perfect squares. It has six faces, just like a gift box.</p>
+          <h2>Simple <span class="hl">Repeating</span> Patterns</h2>
+          <ul><li>This pattern goes: Apple, Banana, Apple, Banana...</li><li>The 'AB' part repeats.</li><li>What comes next? An apple!</li></ul>
+          <p class="notes">🎙️ See how the apple and banana take turns? This is an ABAB pattern. One thing, then another, then the first thing again. It's easy to guess what comes next!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">A cool cube</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Culinary_fruits_front_view.jpg?width=500" data-fb="🔢" alt="Fruits are tasty and healthy."/><div class="vcap">Fruits are tasty and healthy.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -167,11 +180,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">11 / 20</span>
-          <h2>Hello, <span class="hl">Cuboid</span>!</h2>
-          <ul><li>A cuboid is like a 3D rectangle.</li><li>It also has 6 flat faces.</li><li>Its faces are rectangles (or squares).</li></ul>
-          <p class="notes">🎙️ The cuboid is a cousin of the cube! Think of a brick or a shoebox. Its faces are usually rectangles, but some can be squares too. It also has six faces, just like a cube.</p>
+          <h2>A Little More <span class="hl">Complex</span> Pattern</h2>
+          <ul><li>This pattern goes: Blue, Blue, Red, Red...</li><li>The 'AABB' part repeats.</li><li>What comes after two reds? Two blues!</li></ul>
+          <p class="notes">🎙️ Here, two blue balls are followed by two red balls. Then it repeats! This is an AABBAABB pattern. Can you make a sound pattern like this?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">A strong cuboid</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔵🔴</span><span>🔵🔴</span><span>🔵🔴</span><span>🔵🔴</span><span>🔵🔴</span><span>🔵🔴</span><span>🔵🔴</span><span>🔵🔴</span></div><div class="vcap">An AABBAABB pattern</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,11 +192,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>The Rolling <span class="hl">Cylinder</span>!</h2>
-          <ul><li>A cylinder has two flat circular faces.</li><li>It has one curved surface.</li><li>It can roll easily!</li></ul>
-          <p class="notes">🎙️ Look at the cylinder! It has a round top and a round bottom, like a tin can or a water bottle. The middle part is curved, which is why it can roll so easily! Try rolling a can of juice.</p>
+          <h2><span class="hl">Growing</span> Patterns</h2>
+          <ul><li>These patterns add more each time.</li><li>Like 1, then 2, then 3 flowers.</li><li>The number of items grows bigger.</li></ul>
+          <p class="notes">🎙️ Sometimes patterns don't just repeat, they grow! Imagine building a tower with one block, then two, then three. Each step adds something new.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥫</div><div class="vcap">A tin can</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Apple.jpg?width=480" data-fb="🔢" alt="Count and add using real objects like apples 🍎"/><div class="vcap">Count and add using real objects like apples 🍎</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -191,11 +204,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>The Bouncing <span class="hl">Sphere</span>!</h2>
-          <ul><li>A sphere is perfectly round.</li><li>It has no flat faces or corners.</li><li>It can roll in any direction!</li></ul>
-          <p class="notes">🎙️ The sphere is the roundest of all! Think of a football or a globe. It has no flat parts at all, which means it can roll in any direction you push it. It's a truly amazing shape!</p>
+          <h2>Patterns with <span class="hl">Numbers</span></h2>
+          <ul><li>Counting by 2s: 2, 4, 6, 8...</li><li>Counting by 5s: 5, 10, 15, 20...</li><li>This is a number pattern!</li></ul>
+          <p class="notes">🎙️ Numbers can also form patterns! When you skip count, you are creating a number pattern. It's like jumping on numbers in a special order.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚽</div><div class="vcap">A round ball</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Numbers in order</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2><span class="hl">Find</span> 3D Shapes Around You!</h2>
-          <ul><li>Is your water bottle a cylinder?</li><li>What shape is your ball?</li><li>Can you find a cuboid book?</li></ul>
-          <p class="notes">🎙️ Time for another game! Look around you. Can you find a cylinder, like a water bottle? What about a sphere, like a ball? And can you spot a cuboid, like a box of crayons? The world is full of 3D shapes!</p>
+          <h2>Patterns with <span class="hl">Shapes</span></h2>
+          <ul><li>Triangle, Circle, Triangle, Circle...</li><li>The 'shape-pair' repeats.</li><li>What shape comes next?</li></ul>
+          <p class="notes">🎙️ Just like colours or numbers, shapes can also make patterns! See how the triangle and circle take turns? You can make many fun patterns with shapes.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎁</span><span>🎁</span><span>🎁</span></div><div class="vcap">Shapes in gifts</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔺⚪</span><span>🔺⚪</span><span>🔺⚪</span><span>🔺⚪</span></div><div class="vcap">A repeating shape pattern</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,35 +228,35 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>What are <span class="hl">Patterns</span>?</h2>
-          <ul><li>Patterns are things that repeat.</li><li>They follow a rule.</li><li>They can be with shapes, colours, or numbers.</li></ul>
-          <p class="notes">🎙️ Now, let's talk about patterns! Imagine a beautiful design on your mother's saree or a row of flowers in a garden. Patterns are like a secret code where things repeat in an organised way. They make things look beautiful and interesting.</p>
+          <h2>Patterns <span class="hl">Everywhere</span> You Look!</h2>
+          <ul><li>Stripes on a zebra are a pattern.</li><li>Designs on your clothes can be patterns.</li><li>Leaves on a branch often form a pattern.</li></ul>
+          <p class="notes">🎙️ Patterns are not just in our books, they are all around us! Look at a butterfly's wings or the tiles on your floor. Can you spot any patterns?</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">A sparkling pattern</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦋</div><div class="vcap">Nature's patterns</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2><span class="hl">Repeating</span> Patterns</h2>
-          <ul><li>Something repeats again and again.</li><li>Example: Red, Blue, Red, Blue...</li><li>Example: Square, Circle, Square, Circle...</li></ul>
-          <p class="notes">🎙️ A repeating pattern is like a song that plays the same chorus over and over. Once you know the rule, you can guess what comes next! For example, if you see a pattern of 'star, moon, star, moon,' what would come next?</p>
+          <h2>Can you complete the pattern?</h2>
+          <ul><li>🔵 🔴 🔵 🔴 ?</li><li>⭐ ⭐ 🌙 ⭐ ⭐ ?</li><li>10, 20, 30, ?</li></ul>
+          <p class="notes">🎙️ Let's test your pattern detective skills! Look at these patterns carefully and tell me what comes next. You're doing great!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔁</div><div class="vcap">A repeating arrow</div></div></div>
+        
       </div>
     </div></section>
-<section class="slide"><div class="card ">
+<section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
+      <div class="content ">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2><span class="hl">Growing</span> Patterns</h2>
-          <ul><li>Something changes or grows each time.</li><li>Example: 1, 2, 3, 4...</li><li>Example: One apple, two apples, three apples...</li></ul>
-          <p class="notes">🎙️ Growing patterns are a bit different! They don't just repeat; they change or grow according to a rule. Like counting numbers: 1, 2, 3, 4... Each number is one more than the previous one. Can you think of other growing patterns?</p>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which shape has 3 sides?</li><li>Which shape is perfectly round?</li><li>Which shape has 4 equal sides?</li></ul>
+          <p class="notes">🎙️ Time for a quick quiz! Think about the shapes we learned today and answer these questions. You know all the answers!</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Wall_clock.jpg?width=440" data-fb="📈" alt="A clock helps us read hours and minutes."/><div class="vcap">A clock helps us read hours and minutes.</div></div></div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card solo">
@@ -251,39 +264,40 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content ">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Quick <span class="hl">Check</span>!</h2>
-          <ul><li>How many sides does a triangle have?</li><li>Is a ball a 2D or 3D shape?</li><li>What comes next: A, B, A, B, __?</li></ul>
-          <p class="notes">🎙️ Alright, my clever students, let's see how much you've learned! Think carefully about these questions. Don't worry if you don't get them all right, it's a chance to learn more!</p>
+          <h2>Another Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What comes next: ⬆️ ⬇️ ⬆️ ⬇️ ?</li><li>What comes next: A B C A B C ?</li><li>What comes next: 5, 10, 15, ?</li></ul>
+          <p class="notes">🎙️ Let's do one more quick check on patterns. Remember to look for the repeating part or the growing rule. You're becoming a pattern expert!</p>
         </div>
         
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">19 / 20</span>
-          <h2>Let's <span class="hl">Think</span> More!</h2>
-          <ul><li>Name a real-life object that is a cube.</li><li>What is special about a circle?</li><li>Can you make a simple repeating pattern?</li></ul>
-          <p class="notes">🎙️ Great job so far! Here are a few more questions to get your brains buzzing. Look around you for inspiration. Shapes and patterns are everywhere, once you start looking for them!</p>
+          <h2>What did we learn today?</h2>
+          <ul><li>We learned about basic shapes!</li><li>We saw shapes all around us!</li><li>We learned about different kinds of patterns!</li><li>We found patterns in numbers and shapes.</li></ul>
+          <p class="notes">🎙️ Wow, we covered so much today! We met our shape friends and discovered how patterns make things beautiful and predictable. You all did a fantastic job!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Lesson complete!</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">20 / 20</span>
-          <h2><span class="hl">Recap</span>: Shapes and Patterns</h2>
-          <ul><li>We learned about 2D (flat) and 3D (solid) shapes.</li><li>We met Square, Rectangle, Triangle, Circle.</li><li>We met Cube, Cuboid, Cylinder, Sphere.</li><li>We explored Repeating and Growing Patterns.</li></ul>
-          <p class="notes">🎙️ Wow, what an amazing journey we had today! We explored the fascinating world of shapes, both flat and solid, and discovered the magic of patterns. Keep looking for shapes and patterns around you every day!</p>
+          <h2>Keep <span class="hl">Exploring</span> Shapes and Patterns!</h2>
+          <ul><li>Look for shapes and patterns daily.</li><li>Try to create your own patterns.</li><li>Mathematics is fun!</li></ul>
+          <p class="notes">🎙️ Thank you for joining this exciting lesson! Remember, the world is full of shapes and patterns waiting for you to discover them. Keep your eyes open and have fun!</p>
         </div>
-        
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👋</div><div class="vcap">Goodbye for now!</div></div></div>
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 5 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}

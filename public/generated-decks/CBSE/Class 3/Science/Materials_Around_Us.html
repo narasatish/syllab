@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
 <title>Materials Around Us — Syllab.in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,15 +42,27 @@ li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;bord
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
 button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
 .brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
 </style></head><body>
 <section class="slide"><div class="card solo">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content ">
         <div class="txt">
           <span class="num">1 / 20</span>
-          <h2>Welcome! What Are Things Made Of?</h2>
-          <ul><li>Look around your room!</li><li>Everything you see is made of something.</li><li>That 'something' is called a material.</li></ul>
-          <p class="notes">🎙️ Hello, little explorers! Today, we are going on a fun journey to discover what all the things around us are made of. Just look at your pencil, your book, your bag – what do you think they are made from?</p>
+          <h2><span class="hl">Materials</span> Around Us</h2>
+          <ul><li>Look around you, little explorer!</li><li>What do you see?</li><li>Everything is made of something!</li></ul>
+          <p class="notes">🎙️ Good morning, my dear students! Today, we are going on an exciting journey to discover the world around us. Just look at your desk, your bag, or even your pencil box. What do you notice?</p>
         </div>
         
       </div>
@@ -59,11 +72,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">2 / 20</span>
-          <h2>Everything is Made of <span class="hl">Something</span>!</h2>
-          <ul><li>Your toy car, your water bottle, your clothes.</li><li>They all have different materials.</li><li>Let's learn about some common materials.</li></ul>
-          <p class="notes">🎙️ Imagine a big box full of different toys. Each toy is made from a different building block, right? Those building blocks are like materials. We will explore these materials one by one.</p>
+          <h2><span class="hl">Everything</span> is Made of Something</h2>
+          <ul><li>Your chair is made of wood.</li><li>Your book is made of paper.</li><li>Your water bottle is made of plastic.</li></ul>
+          <p class="notes">🎙️ It's true! From the smallest button to the biggest building, everything is made of some kind of material. Think about your favourite toy, what is it made of?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="📦" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Things around us</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -71,11 +84,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">3 / 20</span>
-          <h2>Meet Our First Material: <span class="hl">Wood</span>!</h2>
-          <ul><li>Wood comes from big, strong trees.</li><li>It is a natural material.</li><li>Wood can be cut and shaped easily.</li></ul>
-          <p class="notes">🎙️ Our first material is wood! Have you seen big trees in a park or forest? Wood is taken from these trees. It’s a gift from nature and is very useful.</p>
+          <h2>Look Around Your <span class="hl">Room</span>!</h2>
+          <ul><li>See your teddy bear? It's soft fabric.</li><li>Look at your toy car! It's hard plastic.</li><li>Your window is clear glass.</li></ul>
+          <p class="notes">🎙️ Let's play a game! Close your eyes and then open them. Point to three things in your room. Now, can you guess what they are made of? It's fun, isn't it?</p>
         </div>
-        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🌳" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span><span>🧸</span><span>🧸</span></div><div class="vcap">My things</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -83,11 +96,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">4 / 20</span>
-          <h2>Things Made of <span class="hl">Wood</span></h2>
-          <ul><li>Your study table and chair are often made of wood.</li><li>Doors and windows of your house.</li><li>Some toys and pencils are also made of wood.</li></ul>
-          <p class="notes">🎙️ Think about your classroom or your home. Your desk, the door, maybe even some beautiful photo frames are made of wood. Wood is strong and we use it to make many things we use every day.</p>
+          <h2>What are '<span class="hl">Materials</span>'?</h2>
+          <ul><li>Materials are what things are made of.</li><li>Like ingredients for a cake!</li><li>They can be wood, plastic, metal, and more.</li></ul>
+          <p class="notes">🎙️ Just like a chef uses flour and sugar to make a cake, we use different materials to make different objects. These 'ingredients' are called materials. They are the basic stuff everything is built from.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪑</span><span>🪑</span><span>🪑</span></div><div class="vcap">Chairs made of wood</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Building blocks</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -95,11 +108,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">5 / 20</span>
-          <h2>Our Second Material: <span class="hl">Plastic</span>!</h2>
-          <ul><li>Plastic is a man-made material.</li><li>It can be colourful and light.</li><li>Plastic can be shaped into many things.</li></ul>
-          <p class="notes">🎙️ Next up is plastic! Plastic is not found in nature like wood; humans make it. It comes in so many bright colours and is very light. This makes it perfect for many different items.</p>
+          <h2><span class="hl">Different</span> Kinds of Materials</h2>
+          <ul><li>There are many types of materials.</li><li>Each one looks and feels unique.</li><li>Let's explore some common ones!</li></ul>
+          <p class="notes">🎙️ Imagine a rainbow with many colours! Similarly, there are many different kinds of materials all around us. Each material has its own special look and feel. Let's learn about a few of them.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Plastic can be recycled</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Many types</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -107,11 +120,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">6 / 20</span>
-          <h2>Things Made of <span class="hl">Plastic</span></h2>
-          <ul><li>Your water bottles and lunchboxes.</li><li>Many of your favourite toys.</li><li>Buckets, mugs, and toothbrushes.</li></ul>
-          <p class="notes">🎙️ Look at your pencil box or your water bottle. They are often made of plastic. Plastic is also used to make colourful toys that you love to play with, and even the buckets we use for water!</p>
+          <h2>Material 1: <span class="hl">Wood</span></h2>
+          <ul><li>Wood comes from trees.</li><li>It is strong and hard.</li><li>We make furniture, doors, and pencils from wood.</li></ul>
+          <p class="notes">🎙️ Have you ever seen a big tree? Wood is what we get from trees. It's a very useful material because it's strong and can hold heavy things. That's why we use it to make tables and chairs.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧸</span><span>🧸</span><span>🧸</span><span>🧸</span></div><div class="vcap">Toys made of plastic</div></div></div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tomato_plant.jpg?width=460" data-fb="🔬" alt="Plants make their own food from sunlight."/><div class="vcap">Plants make their own food from sunlight.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -119,45 +132,9 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">7 / 20</span>
-          <h2>Our Third Material: <span class="hl">Metal</span>!</h2>
-          <ul><li>Metal is usually shiny and strong.</li><li>It can be bent and shaped when hot.</li><li>We find metal deep inside the Earth.</li></ul>
-          <p class="notes">🎙️ Now let's talk about metal! Have you ever seen something very shiny and strong, like a spoon or a key? That's metal! It's very tough and can be made into many useful things.</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Metal is strong</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">8 / 20</span>
-          <h2>Things Made of <span class="hl">Metal</span></h2>
-          <ul><li>Spoons, forks, and pots in your kitchen.</li><li>Keys to open doors.</li><li>Cars, buses, and bicycles have metal parts.</li></ul>
-          <p class="notes">🎙️ Think about all the metal things around you. The utensils your mother uses for cooking, the keys that unlock your house, and even parts of your bicycle are made of metal. It's super strong!</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔑</span><span>🔑</span><span>🔑</span></div><div class="vcap">Keys made of metal</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">9 / 20</span>
-          <h2>Our Fourth Material: <span class="hl">Glass</span>!</h2>
-          <ul><li>Glass is transparent, you can see through it.</li><li>It is smooth and can be fragile (breaks easily).</li><li>Glass is made from sand.</li></ul>
-          <p class="notes">🎙️ Next is glass! Glass is a very special material because you can see right through it. It's smooth and shiny, but we have to be careful as it can break easily if it falls. Did you know it's made from sand?</p>
-        </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Glass is transparent</div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card ">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content split">
-        <div class="txt">
-          <span class="num">10 / 20</span>
-          <h2>Things Made of <span class="hl">Glass</span></h2>
-          <ul><li>Windows in your house let light in.</li><li>Drinking glasses and some bottles.</li><li>Mirrors and spectacles are also made of glass.</li></ul>
-          <p class="notes">🎙️ Look at the windows in your room; they are made of glass so sunlight can come in. We also drink water from glass tumblers. Be careful when handling glass items!</p>
+          <h2>Material 2: <span class="hl">Plastic</span></h2>
+          <ul><li>Plastic is light and can be colourful.</li><li>It is used for bottles, toys, and lunchboxes.</li><li>Some plastics can be bent easily.</li></ul>
+          <p class="notes">🎙️ Plastic is another very common material. Look at your water bottle or your favourite toy car. They are probably made of plastic! It's light, comes in many colours, and doesn't break easily.</p>
         </div>
         <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=480" data-fb="🔬" alt="Light bounces back from a mirror — angle in equals angle out."/><div class="vcap">Light bounces back from a mirror — angle in equals angle out.</div></div></div>
       </div>
@@ -166,12 +143,48 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">11 / 20</span>
-          <h2>Our Fifth Material: <span class="hl">Fabric</span>!</h2>
-          <ul><li>Fabric is soft and flexible.</li><li>It is made from threads.</li><li>We call it 'cloth' too.</li></ul>
-          <p class="notes">🎙️ Finally, let's talk about fabric! Fabric is what your clothes are made of. It feels soft and can bend easily. Fabric is made by weaving many thin threads together.</p>
+          <span class="num">8 / 20</span>
+          <h2>Material 3: <span class="hl">Metal</span></h2>
+          <ul><li>Metal is shiny and very strong.</li><li>It is used for spoons, pots, and cars.</li><li>Some metals can get hot quickly.</li></ul>
+          <p class="notes">🎙️ Do you use a spoon to eat? That's metal! Metals are usually shiny and very strong. They are good for making things that need to be tough, like cooking pots, or even parts of bicycles and cars.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👕</div><div class="vcap">Fabric for clothes</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥄</span><span>🥄</span><span>🥄</span><span>🥄</span></div><div class="vcap">Strong &amp; Shiny</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 20</span>
+          <h2>Material 4: <span class="hl">Fabric</span>/Cloth</h2>
+          <ul><li>Fabric is soft and can be colourful.</li><li>It is used for clothes, curtains, and towels.</li><li>Fabric keeps us warm or cool.</li></ul>
+          <p class="notes">🎙️ What are you wearing right now? Your clothes are made of fabric or cloth! Fabric is soft and comes in so many patterns and colours. It's perfect for making clothes that keep us comfortable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👕</span><span>👕</span><span>👕</span><span>👕</span></div><div class="vcap">Soft &amp; Comfy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 20</span>
+          <h2>Material 5: <span class="hl">Glass</span></h2>
+          <ul><li>Glass is smooth and clear.</li><li>We can see through it!</li><li>It is used for windows, mirrors, and drinking glasses.</li></ul>
+          <p class="notes">🎙️ Look out the window! You can see outside because windows are made of glass. Glass is special because it's clear, which means light can pass through it. It's also smooth and can break if dropped.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪞</span><span>🪞</span><span>🪞</span><span>🪞</span></div><div class="vcap">Clear &amp; See-through</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 20</span>
+          <h2>Quick <span class="hl">Check</span>! What is it made of?</h2>
+          <ul><li>What material is your school bag made from?</li><li>What about your pencil?</li><li>And your water glass?</li></ul>
+          <p class="notes">🎙️ Let's see if you've been paying attention! Take a moment to think about these common objects. What materials do you think they are made from? Discuss with your friend next to you!</p>
+        </div>
+        
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -179,23 +192,23 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">12 / 20</span>
-          <h2>Things Made of <span class="hl">Fabric</span></h2>
-          <ul><li>All your clothes like shirts, pants, and dresses.</li><li>Curtains on your windows.</li><li>Towels and bedsheets.</li></ul>
-          <p class="notes">🎙️ Every morning, you choose clothes to wear – those are made of fabric! Your soft bedsheets, the curtains that block sunlight, and the towels you use after a bath are all made from different kinds of fabric.</p>
+          <h2>Why are Materials <span class="hl">Different</span>?</h2>
+          <ul><li>Each material has special qualities.</li><li>These qualities help us choose what to use.</li><li>Let's learn about these special qualities!</li></ul>
+          <p class="notes">🎙️ Have you ever wondered why a chair is made of wood and not glass? Or why your clothes are fabric and not metal? It's because materials have different qualities, which we call properties. Let's find out more!</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👗</span><span>👗</span><span>👗</span></div><div class="vcap">Dresses made of fabric</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Thinking time</div></div></div>
       </div>
     </div></section>
-<section class="slide"><div class="card solo">
+<section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
+      <div class="content split">
         <div class="txt">
           <span class="num">13 / 20</span>
-          <h2>Can You <span class="hl">Guess</span> The Material?</h2>
-          <ul><li>Let's play a fun game!</li><li>I will show you an item.</li><li>You tell me what material it is made of!</li></ul>
-          <p class="notes">🎙️ Are you ready for a quick challenge? I'm going to show you some pictures, and your job is to tell me which material we just learned about is used to make them. Think carefully!</p>
+          <h2>Property 1: <span class="hl">Hard</span> or Soft?</h2>
+          <ul><li>Some things are hard, like a rock.</li><li>Some things are soft, like a pillow.</li><li>Hard things keep their shape, soft things can change.</li></ul>
+          <p class="notes">🎙️ Think about a big rock. It's very hard, right? You can't squeeze it. Now think about your soft pillow. You can easily squish it! This is a property called 'hardness' or 'softness'.</p>
         </div>
-        
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rock (Hard)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Pillow (Soft)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -203,11 +216,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">14 / 20</span>
-          <h2>Question 1: What is this made of? (<span class="hl">Chair</span>)</h2>
-          <ul><li>Look at this chair.</li><li>Is it made of wood, plastic, or metal?</li></ul>
-          <p class="notes">🎙️ This chair looks strong and sturdy. If it has a smooth, solid feel and a natural grain, it's likely made of wood. Some chairs can also be made of plastic or metal, but this one looks like wood!</p>
+          <h2>Property 2: <span class="hl">Smooth</span> or Rough?</h2>
+          <ul><li>Some surfaces are smooth, like glass.</li><li>Some surfaces are rough, like sandpaper.</li><li>Smooth things feel slippery, rough things feel bumpy.</li></ul>
+          <p class="notes">🎙️ Run your hand over a smooth table. Now, imagine touching a rough brick. How do they feel different? This is the property of being smooth or rough. Smooth surfaces feel gentle, while rough ones feel textured.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪑</div><div class="vcap">A wooden chair</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Glass (Smooth)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Sandpaper (Rough)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -215,11 +228,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">15 / 20</span>
-          <h2>Question 2: What is this made of? (<span class="hl">Window</span>)</h2>
-          <ul><li>Look at this window pane.</li><li>Is it made of glass, fabric, or wood?</li></ul>
-          <p class="notes">🎙️ You can see through the window, right? That's the biggest clue! If you can see outside clearly, it means the main part of the window is made of glass. Good job if you guessed glass!</p>
+          <h2>Property 3: <span class="hl">Transparent</span> or Opaque?</h2>
+          <ul><li>Transparent means you can see through it, like a window.</li><li>Opaque means you cannot see through it, like a wall.</li><li>Light passes through transparent things.</li></ul>
+          <p class="notes">🎙️ Can you see your friend through the window? Yes, because glass is transparent. Can you see through the wall? No, because the wall is opaque. This property tells us if light can pass through a material.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">A window pane</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Window (Transparent)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Wall (Opaque)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -227,11 +240,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">16 / 20</span>
-          <h2>Question 3: What is this made of? (<span class="hl">Spoon</span>)</h2>
-          <ul><li>Think about your spoon at home.</li><li>Is it made of plastic, metal, or wood?</li></ul>
-          <p class="notes">🎙️ Most spoons we eat with are shiny and strong, so they don't break easily when we scoop food. This tells us they are usually made of metal. Sometimes, we also have plastic spoons, but the common ones are metal.</p>
+          <h2>Property 4: <span class="hl">Bendy</span> or Stiff?</h2>
+          <ul><li>Bendy things can be folded or stretched, like a rubber band.</li><li>Stiff things are rigid and don't bend easily, like a wooden stick.</li><li>We choose materials based on if we need them to bend.</li></ul>
+          <p class="notes">🎙️ Try to bend a rubber band. It's so easy! Now try to bend a wooden ruler. It's much harder, right? This is the property of being bendy (flexible) or stiff (rigid). We use bendy materials for things like hair ties and stiff materials for things like tables.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥄</div><div class="vcap">A metal spoon</div></div></div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rubber Band (Bendy)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Wooden Stick (Stiff)</div></div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -239,11 +252,11 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">17 / 20</span>
-          <h2>Why Are Materials <span class="hl">Different</span>?</h2>
-          <ul><li>Materials have different qualities.</li><li>Some are hard, some are soft.</li><li>Some are smooth, some are rough.</li></ul>
-          <p class="notes">🎙️ Why do we use different materials for different things? Because each material has special qualities! Wood is hard, but fabric is soft. This helps us choose the right material for the right job.</p>
+          <h2><span class="hl">Choosing</span> the Right Material</h2>
+          <ul><li>We pick materials based on their properties.</li><li>A glass window lets in light (transparent).</li><li>A wooden chair is strong and hard (stiff, hard).</li></ul>
+          <p class="notes">🎙️ Now you know why we use different materials for different things! We choose the best material for a job based on what we need it to do. For example, we need windows to be transparent so light can come in, and chairs to be hard so they can support us.</p>
         </div>
-        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hard</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Soft</div></div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛠️</div><div class="vcap">Smart choices</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
@@ -251,39 +264,40 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
       <div class="content split">
         <div class="txt">
           <span class="num">18 / 20</span>
-          <h2>Choosing the <span class="hl">Right Material</span></h2>
-          <ul><li>We use wood for tables because it's strong.</li><li>We use plastic for water bottles because it's light and doesn't break easily.</li><li>We use fabric for clothes because it's soft and comfortable.</li></ul>
-          <p class="notes">🎙️ Imagine if your clothes were made of metal – that would be very uncomfortable! And if your window was made of wood, no light would come in. So, we always pick the best material for what we want to make.</p>
+          <h2>Quick Check! Property <span class="hl">Match</span>!</h2>
+          <ul><li>Which material is good for a raincoat? (Hint: water proof)</li><li>Which material is good for a soft blanket? (Hint: soft)</li><li>Which material is good for a strong door? (Hint: hard, stiff)</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Think about the properties we just learned. For each item, which material property is most important? Share your answers with a friend!</p>
         </div>
-        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Look at the object</span></div><div class="step"><span class="snum">2</span><span>Think about its use</span></div><div class="step"><span class="snum">3</span><span>Choose the best material</span></div></div></div>
-      </div>
-    </div></section>
-<section class="slide"><div class="card solo">
-      <span class="blob b1"></span><span class="blob b2"></span>
-      <div class="content ">
-        <div class="txt">
-          <span class="num">19 / 20</span>
-          <h2>Let's <span class="hl">Remember</span> What We Learned!</h2>
-          <ul><li>Everything around us is made of materials.</li><li>We learned about wood, plastic, metal, glass, and fabric.</li><li>Each material has special qualities.</li></ul>
-          <p class="notes">🎙️ Wow, we learned so much today! We discovered that our world is full of amazing materials. From the sturdy wood to the soft fabric, each material plays an important role in making things around us.</p>
-        </div>
-        
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Water_cycle.png?width=520" data-fb="🔬" alt="Water moves in a never-ending cycle."/><div class="vcap">Water moves in a never-ending cycle.</div></div></div>
       </div>
     </div></section>
 <section class="slide"><div class="card ">
       <span class="blob b1"></span><span class="blob b2"></span>
       <div class="content split">
         <div class="txt">
-          <span class="num">20 / 20</span>
-          <h2><span class="hl">Look</span> Around You!</h2>
-          <ul><li>Now you are a material expert!</li><li>Keep looking at things and guessing their materials.</li><li>It's fun to discover!</li></ul>
-          <p class="notes">🎙️ From now on, whenever you see something, try to guess what material it's made of! You'll be surprised how many different materials you can identify. Keep exploring and learning, little scientists!</p>
+          <span class="num">19 / 20</span>
+          <h2>Let's <span class="hl">Protect</span> Our Materials!</h2>
+          <ul><li>Materials come from nature or are made by us.</li><li>We should not waste them.</li><li>We can Recycle, Reuse, and Reduce!</li></ul>
+          <p class="notes">🎙️ Many materials come from our Earth, like wood from trees or metals from the ground. It's important not to waste them. We can help by recycling old plastic bottles, reusing bags, and reducing how much we use.</p>
         </div>
-        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Observe the world around you</div></div></div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Care for Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 20</span>
+          <h2><span class="hl">Recap</span> and a Fun Fact!</h2>
+          <ul><li>Everything around us is made of materials.</li><li>Materials have different properties (hard, soft, smooth, rough, transparent, opaque, bendy, stiff).</li><li>We choose materials based on their properties.</li><li>Fun Fact: Did you know paper can be recycled up to 7 times?</li></ul>
+          <p class="notes">🎙️ We learned so much today! Remember, the world is full of amazing materials, each with its own special qualities. By understanding them, we can use them wisely. And isn't that fun fact about paper amazing? Let's always try to be smart about our materials!</p>
+        </div>
+        
       </div>
     </div></section>
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · CBSE Class 3 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
 <button onclick="go(1)">Next ›</button></div>
 <script>let i=0;const s=[...document.querySelectorAll('.slide')];
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
