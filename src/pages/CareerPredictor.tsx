@@ -485,10 +485,10 @@ function CollegeExplorer() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl bg-gradient-to-br from-teal-600 to-emerald-600 p-4 text-white">
-        <p className="text-sm font-black">🏛️ Top engineering colleges across India — fees, NIRF rank, cutoffs & admission process.</p>
-        <p className="mt-0.5 text-[11px] text-white/70">Indicative 2024 figures · always confirm on the official site.</p>
-      </div>
+      <a href="/colleges" className="block rounded-2xl bg-gradient-to-br from-teal-600 to-emerald-600 p-4 text-white hover:scale-[1.01] transition">
+        <p className="text-sm font-black">🏛️ Browse all colleges by state — full fees, NIRF + multi-source rankings, hostel, placements &amp; admission process →</p>
+        <p className="mt-0.5 text-[11px] text-white/80">Detailed college pages · indicative 2024 figures.</p>
+      </a>
 
       <div className="relative">
         <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />

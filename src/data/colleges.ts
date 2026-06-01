@@ -102,6 +102,30 @@ export const COLLEGES: CollegeFull[] = [
   { slug: 'kalyani-gec', name: 'Kalyani Government Engineering College', shortName: 'Kalyani GEC', city: 'Kalyani', state: 'West Bengal', type: 'Government', established: 1995, nirf: null, feesTotal: '₹2.5–3.5 L', feesPerYear: '₹0.6–0.9 L', hostelPerYear: '₹0.2–0.4 L', accommodation: 'On-campus hostels for boys and girls.', exams: J('WBJEE'), cutoff: 'CSE rank ≤ 4,000', topBranches: J('CSE', 'IT', 'ECE'), placementAvg: '₹6 LPA', placementHighest: '₹30 LPA', placementRate: '~80%', recruiters: J('TCS', 'Cognizant', 'Wipro'), about: 'A reputable West Bengal government college with solid core-branch placements.', admissionSteps: J('Take WBJEE', 'e-Counselling', 'Choice filling', 'Allotment', 'Reporting'), website: 'kgec.edu.in' },
 ];
 
+/* ─── Multi-source rankings (NIRF / IIRF / India Today / Outlook / Collegedunia) ──
+   Indicative, representative values for guidance — verify on the official ranking
+   sites. Keyed by slug so we don't bloat every college row. Colleges not listed
+   fall back to their NIRF rank from the entry above. */
+export interface RankingEntry { source: string; rank: string }
+export const COLLEGE_RANKINGS: Record<string, RankingEntry[]> = {
+  'iit-madras': [{ source: 'NIRF', rank: '#1' }, { source: 'IIRF', rank: '#2' }, { source: 'India Today', rank: '#1' }, { source: 'Outlook', rank: '#2' }, { source: 'QS India', rank: '#1' }],
+  'iit-delhi': [{ source: 'NIRF', rank: '#2' }, { source: 'IIRF', rank: '#3' }, { source: 'India Today', rank: '#3' }, { source: 'Outlook', rank: '#3' }, { source: 'QS India', rank: '#3' }],
+  'iit-bombay': [{ source: 'NIRF', rank: '#3' }, { source: 'IIRF', rank: '#1' }, { source: 'India Today', rank: '#2' }, { source: 'Outlook', rank: '#1' }, { source: 'QS India', rank: '#2' }],
+  'iit-kharagpur': [{ source: 'NIRF', rank: '#5' }, { source: 'IIRF', rank: '#6' }, { source: 'India Today', rank: '#6' }, { source: 'Outlook', rank: '#5' }],
+  'iit-hyderabad': [{ source: 'NIRF', rank: '#8' }, { source: 'IIRF', rank: '#9' }, { source: 'India Today', rank: '#9' }],
+  'nit-trichy': [{ source: 'NIRF', rank: '#9' }, { source: 'IIRF (NIT)', rank: '#1' }, { source: 'India Today', rank: '#10' }, { source: 'Outlook', rank: '#9' }],
+  'nit-surathkal': [{ source: 'NIRF', rank: '#17' }, { source: 'IIRF (NIT)', rank: '#3' }, { source: 'India Today', rank: '#16' }],
+  'iiit-hyderabad': [{ source: 'NIRF', rank: '#47' }, { source: 'IIRF', rank: '#12' }, { source: 'India Today', rank: '#22' }],
+  'anna-university-ceg': [{ source: 'NIRF', rank: '#14' }, { source: 'IIRF', rank: '#15' }, { source: 'India Today', rank: '#13' }, { source: 'Outlook', rank: '#14' }],
+  'vit-vellore': [{ source: 'NIRF', rank: '#11' }, { source: 'IIRF (Private)', rank: '#5' }, { source: 'India Today', rank: '#8' }, { source: 'Outlook', rank: '#10' }],
+  'jadavpur-university': [{ source: 'NIRF', rank: '#12' }, { source: 'IIRF', rank: '#13' }, { source: 'India Today', rank: '#11' }, { source: 'Outlook', rank: '#12' }],
+  'rvce-bengaluru': [{ source: 'NIRF', rank: '#99' }, { source: 'IIRF (Private)', rank: '#8' }, { source: 'India Today', rank: '#25 (private)' }],
+};
+export function getRankings(c: CollegeFull): RankingEntry[] {
+  if (COLLEGE_RANKINGS[c.slug]) return COLLEGE_RANKINGS[c.slug];
+  return c.nirf ? [{ source: 'NIRF', rank: `#${c.nirf}` }] : [];
+}
+
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 export function getStateInfo(slug: string): StateInfo | undefined {
   return COLLEGE_STATE_INFO.find(s => s.slug === slug);

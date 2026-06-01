@@ -9,7 +9,7 @@
  *
  * Bump CACHE_VERSION on every deploy to force clients to pick up the new build.
  */
-const CACHE_VERSION = 'syllab-v39-2026-06-01-colleges-seo-canonical';
+const CACHE_VERSION = 'syllab-v40-2026-06-01-merge-rankings-boards-blogs';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

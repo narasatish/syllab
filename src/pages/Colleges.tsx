@@ -16,7 +16,7 @@ import {
 import SEO from '../components/SEO';
 import {
   COLLEGE_STATE_INFO, COLLEGES, getStateInfo, getCollegesByState,
-  getCollegeBySlug, stateSlugForCollege, type CollegeFull,
+  getCollegeBySlug, stateSlugForCollege, getRankings, type CollegeFull,
 } from '../data/colleges';
 
 const SITE = 'https://syllab.in';
@@ -253,6 +253,20 @@ function CollegeDetail({ college: c, go }: { college: CollegeFull; go: (to: stri
         <a href={`https://${c.website}`} target="_blank" rel="noopener noreferrer"
           className="mt-2 inline-flex items-center gap-1 text-xs font-black text-primary hover:underline"><Globe size={12} />{c.website}</a>
       </Section>
+
+      {getRankings(c).length > 0 && (
+        <Section title="Rankings (top sources)">
+          <div className="flex flex-wrap gap-2">
+            {getRankings(c).map(r => (
+              <div key={r.source} className="rounded-xl bg-amber-50 border border-amber-100 px-3 py-1.5 text-center">
+                <p className="text-sm font-black text-amber-700">{r.rank}</p>
+                <p className="text-[10px] font-bold text-amber-600/70 uppercase tracking-wide">{r.source}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-[11px] text-slate-400">Indicative — confirm on each ranking body's official list.</p>
+        </Section>
+      )}
 
       <Section title="Top branches">
         <div className="flex flex-wrap gap-1.5">

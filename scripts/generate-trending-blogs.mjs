@@ -272,6 +272,129 @@ Free > Paid if used correctly. Most expensive apps teach nothing new. A ₹0 app
 
 Best strategy: Use 2-3 of these apps (Pick: Syllab.in + Khan Academy + TestBook), not 10 apps.`,
   },
+
+  /* ── State board syllabus posts (huge regional search volume) ───────────── */
+  {
+    id: 'up-board-class-10-syllabus-2026',
+    title: 'UP Board Class 10 Syllabus 2026: Free NCERT Notes, PPTs & Practice',
+    category: 'UP Board',
+    description: 'Complete UP Board (UPMSP) Class 10 syllabus 2026 for Maths & Science. UP Board follows NCERT — get free notes, slide lessons, and chapter-wise MCQ practice on Syllab.in.',
+    readTime: '6 min read',
+    content: `UP Board (UPMSP) is India's largest school board by student count. The good news for Class 10 students: **UP Board follows the NCERT textbooks** for Maths and Science — so the chapters are the same as CBSE.
+
+## What this means for you
+
+You can use the exact same free NCERT resources CBSE students use. On Syllab.in, just set your board to **UP Board** in your profile and you instantly get the full Class 1–12 NCERT notes, slide (PPT) lessons, voice narration and chapter-wise practice — at zero cost.
+
+## UP Board Class 10 Maths chapters (NCERT)
+
+Real Numbers, Polynomials, Pair of Linear Equations, Quadratic Equations, Arithmetic Progressions, Triangles, Coordinate Geometry, Introduction to Trigonometry, Applications of Trigonometry, Circles, Areas Related to Circles, Surface Areas & Volumes, Statistics, Probability.
+
+## UP Board Class 10 Science chapters (NCERT)
+
+Chemical Reactions, Acids Bases & Salts, Metals & Non-metals, Carbon Compounds, Life Processes, Control & Coordination, Reproduction, Heredity, Light, Human Eye, Electricity, Magnetic Effects, Our Environment.
+
+## How to score 90+ in UP Board 2026
+
+1. Finish NCERT line by line — UP Board questions stay close to the textbook.
+2. Practice chapter-wise MCQs (free on Syllab.in) to lock concepts.
+3. Solve previous-year UP Board papers under timed conditions.
+4. Revise diagrams for Science — they carry direct marks.
+
+Everything you need is free — no coaching fees required.`,
+  },
+  {
+    id: 'bihar-board-bseb-class-10-2026',
+    title: 'Bihar Board (BSEB) Class 10 2026: Free Syllabus, Notes & Mock Practice',
+    category: 'Bihar Board',
+    description: 'Bihar Board (BSEB) Class 10 follows NCERT for Maths & Science. Get the 2026 syllabus, free notes, PPT lessons and chapter-wise MCQ practice free on Syllab.in.',
+    readTime: '5 min read',
+    content: `Bihar Board (BSEB) Class 10 students can prepare 100% free. BSEB's Maths and Science follow the **NCERT curriculum**, so the same high-quality NCERT resources apply.
+
+## Free BSEB Class 10 prep on Syllab.in
+
+Set your board to **Bihar** in your profile → get NCERT-aligned notes, slide lessons, voice narration and chapter-wise MCQ practice for every chapter, free.
+
+## Smart 3-step plan
+
+1. **Cover NCERT fully** — BSEB papers reward textbook mastery.
+2. **Practice MCQs + short answers** chapter by chapter.
+3. **Time yourself** on past BSEB papers.
+
+Coaching in many Bihar towns is expensive or unavailable — a free phone-friendly platform closes that gap.`,
+  },
+
+  /* ── Exam update posts (high-intent, time-sensitive search) ─────────────── */
+  {
+    id: 'jee-main-2026-dates-pattern-free-mocks',
+    title: 'JEE Main 2026: Exam Dates, Pattern & Free Mock Tests',
+    category: 'JEE',
+    description: 'JEE Main 2026 exam dates (Session 1 & 2), paper pattern, marking scheme, and free full-length mock tests + a rank predictor on Syllab.in.',
+    readTime: '6 min read',
+    content: `JEE Main 2026 is conducted by NTA in two sessions. Here's everything you need plus free practice.
+
+## JEE Main 2026 — indicative dates
+
+- **Session 1:** late January 2026
+- **Session 2:** early April 2026
+- Best of both sessions' NTA scores is considered.
+
+## Pattern
+
+3 subjects (Physics, Chemistry, Maths), 75 questions (25 each, 20 MCQ + 5 numerical), 300 marks, 3 hours. +4 correct, −1 wrong (MCQ).
+
+## Free prep on Syllab.in
+
+- Full-length **JEE Main mock tests** with section analysis.
+- A free **JEE rank predictor** (percentile → rank) and **college predictor**.
+- Browse **top engineering colleges** by state with cutoffs and fees.
+
+Confirm exact dates on jeemain.nta.ac.in.`,
+  },
+  {
+    id: 'neet-2026-date-syllabus-free-practice',
+    title: 'NEET 2026: Exam Date, Syllabus & Free Biology Practice',
+    category: 'NEET',
+    description: 'NEET UG 2026 exam date, subject-wise syllabus, marking scheme, and free chapter-wise Biology/Physics/Chemistry practice + NEET college predictor on Syllab.in.',
+    readTime: '6 min read',
+    content: `NEET UG 2026 (NTA) is the single gateway to MBBS/BDS in India. Here's the plan plus free practice.
+
+## NEET 2026 — indicative date
+
+Early May 2026 (pen-and-paper). Confirm on neet.nta.nic.in.
+
+## Pattern
+
+Physics, Chemistry, Biology (Botany + Zoology), 180 questions, 720 marks. +4 correct, −1 wrong.
+
+## Why Biology decides your rank
+
+Biology is 360/720. It rewards deep conceptual clarity, not rote learning. On Syllab.in the **AI tutor explains why each wrong answer is wrong** — built exactly for NEET Biology.
+
+## Free NEET prep on Syllab.in
+
+Chapter-wise MCQ practice, full NEET mocks, a **marks → rank predictor** and an **MBBS college predictor**. All free.`,
+  },
+  {
+    id: 'eamcet-2026-ap-ts-dates-free-mocks',
+    title: 'EAMCET 2026 (AP & TS EAPCET): Dates, Pattern & Free Mock Tests',
+    category: 'EAMCET',
+    description: 'AP EAPCET & TS EAPCET (EAMCET) 2026 dates, exam pattern, and free mock tests plus an EAMCET rank predictor and engineering college predictor on Syllab.in.',
+    readTime: '5 min read',
+    content: `EAMCET (now EAPCET) is the engineering & agriculture entrance for Andhra Pradesh and Telangana.
+
+## Indicative 2026 windows
+
+- **AP EAPCET & TS EAPCET:** April–May 2026.
+
+## Pattern
+
+160 questions (Maths/Bio 80, Physics 40, Chemistry 40), 160 marks, no negative marking — so attempt everything.
+
+## Free prep on Syllab.in
+
+EAMCET mock tests, a **rank predictor** (marks → rank) and a **college predictor** for AP/TS engineering colleges with cutoffs and fees. All free.`,
+  },
 ];
 
 /**
@@ -282,20 +405,16 @@ function generateBlogs() {
   const now = new Date();
   const dayOfYear = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86400000);
 
-  // Pick 3 random templates based on day (ensures rotation)
-  const selectedIndices = [];
-  for (let i = 0; i < 3; i++) {
-    const idx = (dayOfYear + i * 7) % BLOG_TEMPLATES.length;
-    selectedIndices.push(idx);
-  }
-
-  const blogs = selectedIndices.map((idx) => {
-    const template = BLOG_TEMPLATES[idx];
+  // Publish ALL evergreen templates (state syllabus, exam updates, study guides)
+  // so every post is indexable. Dates are spread across recent days so the feed
+  // looks freshly updated rather than all-on-one-day.
+  const blogs = BLOG_TEMPLATES.map((template, i) => {
+    const postDate = new Date(now.getTime() - ((i * 3 + (dayOfYear % 3)) % 60) * 86400000);
     return {
       id: template.id,
       title: template.title,
       description: template.description,
-      date: now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      date: postDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
       readTime: template.readTime,
       category: template.category,
       content: template.content,

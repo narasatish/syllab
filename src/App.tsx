@@ -1133,8 +1133,7 @@ export default function App() {
     { id: 'english_lab',       label: 'English',          icon: BookOpen },
     { id: 'daily',             label: 'Daily Challenge',  icon: CalendarDays },
     { id: 'general_knowledge', label: 'GK Quiz',          icon: BookOpen },
-    { id: 'career',            label: 'Career & Predictor', icon: Target },
-    { id: 'colleges',          label: 'Colleges',         icon: Building2 },
+    { id: 'career',            label: 'Career & Colleges', icon: Building2 },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
