@@ -158,6 +158,32 @@ const NCERT_ALIGNED = new Set<AppBoard>(BOARD_OPTIONS.filter(b => b.ncertAligned
 export function effectiveContentBoard(board: AppBoard): 'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra' {
   return NCERT_ALIGNED.has(board) ? 'CBSE' : (board as 'AP' | 'TS' | 'Karnataka' | 'Maharashtra');
 }
+
+// Which (class::subject) pairs each distinct-syllabus board explicitly defines.
+const STATE_COVERED: Record<string, Set<string>> = (() => {
+  const m: Record<string, Set<string>> = {};
+  for (const ch of STATE_BOARD_SYLLABUS) {
+    if (!ch.board) continue;
+    (m[ch.board] ||= new Set()).add(`${ch.classLevel}::${ch.subject}`);
+  }
+  return m;
+})();
+
+/** Does this chapter belong in the syllabus for the selected board?
+ *  - NCERT-aligned boards (CBSE/UP/Bihar/Rajasthan/MP): show CBSE chapters.
+ *  - Distinct boards (AP/TS/Karnataka/Maharashtra): show the state's own chapters
+ *    where it defines them, and fall back to CBSE/NCERT for every other
+ *    class+subject (so no class/subject is ever empty). */
+export function chapterMatchesBoard(
+  ch: { board?: string; classLevel: string | number; subject: string }, board: AppBoard,
+): boolean {
+  const chBoard = ch.board || 'CBSE';
+  if (NCERT_ALIGNED.has(board)) return chBoard === 'CBSE';
+  if (chBoard === board) return true;               // the state's own chapter
+  if (chBoard !== 'CBSE') return false;             // another state's chapter — hide
+  const covered = STATE_COVERED[board];             // CBSE fallback only where state has no own content
+  return !covered || !covered.has(`${ch.classLevel}::${ch.subject}`);
+}
 export function boardLabel(board: AppBoard): string {
   return BOARD_OPTIONS.find(b => b.id === board)?.label ?? board;
 }

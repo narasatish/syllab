@@ -16,7 +16,7 @@ import DeckViewer from '../components/DeckViewer';
 import HtmlDeckViewer from '../components/HtmlDeckViewer';
 import { getDeckUrl } from '../data/chapterDecks';
 import { getGeneratedDeckUrl } from '../data/generatedDecks';
-import { BOARD_OPTIONS, type AppBoard, effectiveContentBoard, getPreferredBoard, setPreferredBoard, boardLabel } from '../data/stateBoards';
+import { BOARD_OPTIONS, type AppBoard, effectiveContentBoard, chapterMatchesBoard, getPreferredBoard, setPreferredBoard, boardLabel } from '../data/stateBoards';
 import ClassFilterBanner from '../components/filters/ClassFilterBanner';
 import {
   ClassFilterMode, getSelectedClasses, filterClassContent,
@@ -613,12 +613,12 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     }
   }, [searchParams, userClass]);
 
-  // NCERT-aligned boards (UP/Bihar/Rajasthan/MP) reuse CBSE content; AP/TS/etc.
-  // use their own. effectiveContentBoard() maps the selection to the content set.
-  const effBoard = effectiveContentBoard(selectedBoard);
+  // NCERT-aligned boards (UP/Bihar/Rajasthan/MP) reuse CBSE content; distinct
+  // boards (AP/TS/Karnataka/Maharashtra) show their own chapters where defined
+  // and fall back to CBSE/NCERT for every other class+subject (never empty).
   const inBoard = React.useCallback(
-    (c: Chapter) => (c.board || 'CBSE') === effBoard,
-    [effBoard],
+    (c: Chapter) => chapterMatchesBoard(c, selectedBoard),
+    [selectedBoard],
   );
 
   const subjects: (Subject | 'All')[] = React.useMemo(() => {
@@ -676,7 +676,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const filteredChapters = React.useMemo(() => {
     // First: search + subject + manual class-tab filter
     const baseFiltered = syllabus.filter(chapter => {
-      const matchesBoard = (chapter.board || 'CBSE') === effBoard;
+      const matchesBoard = chapterMatchesBoard(chapter, selectedBoard);
       const matchesSearch = chapter.title.toLowerCase().includes(search.toLowerCase()) ||
                            (chapter.topics || []).some(t => t.toLowerCase().includes(search.toLowerCase()));
       const matchesSubject = selectedSubject === 'All' || chapter.subject === selectedSubject;
@@ -1082,7 +1082,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
           {effectiveContentBoard(selectedBoard) === 'CBSE' ? (
             <>📋 <strong>{boardLabel(selectedBoard)}</strong> follows the NCERT syllabus — so you get the <strong>full Class 1–12 notes, PPTs, voice lessons &amp; practice</strong>, identical to CBSE.</>
           ) : (
-            <>📋 Showing <strong>{boardLabel(selectedBoard)}</strong> board chapters (Maths &amp; Science, verified from the official syllabus). More subjects are added as we verify them. Lessons, voice &amp; practice work the same as CBSE.</>
+            <>📋 Showing <strong>{boardLabel(selectedBoard)}</strong> state chapters for Maths &amp; Science (Class 9–10, verified from the official syllabus), and full NCERT content for all other classes &amp; subjects. Lessons, PPTs, voice &amp; practice work the same as CBSE.</>
           )}
         </div>
       )}

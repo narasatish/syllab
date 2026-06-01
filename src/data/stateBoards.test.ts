@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { STATE_BOARD_SYLLABUS } from './stateBoards';
+import { STATE_BOARD_SYLLABUS, chapterMatchesBoard } from './stateBoards';
 
 describe('state board syllabus', () => {
   it('has chapters for all four boards', () => {
@@ -34,5 +34,34 @@ describe('state board syllabus', () => {
       expect(c.title).not.toMatch(/^\d+[.)]/);
       expect(c.title).not.toContain('**');
     }
+  });
+});
+
+describe('board content reuse / fallback (no empty class/subject)', () => {
+  const cbse = (classLevel: string, subject: string) => ({ classLevel, subject }); // board undefined = CBSE
+
+  it('CBSE shows only CBSE chapters', () => {
+    expect(chapterMatchesBoard(cbse('11', 'Physics'), 'CBSE')).toBe(true);
+    expect(chapterMatchesBoard({ board: 'TS', classLevel: '10', subject: 'Science' }, 'CBSE')).toBe(false);
+  });
+
+  it('NCERT-aligned boards (UP) reuse all CBSE chapters', () => {
+    expect(chapterMatchesBoard(cbse('1', 'Mathematics'), 'UP')).toBe(true);
+    expect(chapterMatchesBoard(cbse('12', 'Biology'), 'UP')).toBe(true);
+    expect(chapterMatchesBoard({ board: 'AP', classLevel: '10', subject: 'Science' }, 'UP')).toBe(false);
+  });
+
+  it('Telangana falls back to CBSE for classes/subjects it does not define', () => {
+    // TS does NOT define Class 11 — must show NCERT (fixes the empty-page bug)
+    expect(chapterMatchesBoard(cbse('11', 'Physics'), 'TS')).toBe(true);
+    expect(chapterMatchesBoard(cbse('1', 'Mathematics'), 'TS')).toBe(true);
+    expect(chapterMatchesBoard(cbse('8', 'Science'), 'TS')).toBe(true);
+  });
+
+  it('Telangana shows its OWN chapters (not CBSE) where it defines them', () => {
+    const tsOwn = STATE_BOARD_SYLLABUS.find(c => c.board === 'TS' && c.classLevel === '10' && c.subject === 'Science')!;
+    expect(chapterMatchesBoard(tsOwn, 'TS')).toBe(true);
+    // the CBSE Class 10 Science chapter is hidden for TS (TS defines its own)
+    expect(chapterMatchesBoard(cbse('10', 'Science'), 'TS')).toBe(false);
   });
 });
