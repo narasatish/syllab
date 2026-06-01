@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>The Human Eye and the Colourful World — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>The <span class="hl">Human Eye</span> and the Colourful World</h2>
+          <ul><li>Welcome to Class 10 Science!</li><li>Chapter 11: Karnataka Board</li><li>Explore how we see and the wonders of light</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we embark on a fascinating journey into the world of vision. We'll understand how our incredible eyes work and how light creates the vibrant world around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Our Amazing <span class="hl">Human Eye</span></h2>
+          <ul><li>A natural optical instrument</li><li>Helps us perceive the beautiful world</li><li>Similar to a camera in its function</li></ul>
+          <p class="notes">🎙️ The human eye is truly a marvel of nature. It's like a sophisticated camera, constantly capturing images and sending them to our brain so we can experience sight.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="👁️" alt="The human eye is a complex optical instrument that captures light and converts it into ele"/><div class="vcap">The human eye is a complex optical instrument that captures light and converts it into ele</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Key <span class="hl">Parts</span> of the Eye</h2>
+          <ul><li>Cornea: Front window</li><li>Iris &amp; Pupil: Light control</li><li>Eye Lens: Focusing light</li><li>Retina: Image screen</li><li>Optic Nerve: Brain connection</li></ul>
+          <p class="notes">🎙️ Our eye is made up of several intricate parts, each playing a vital role. We will now look at each of these parts individually to understand their specific functions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Eye Components</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The <span class="hl">Cornea</span>: Eye's Front Window</h2>
+          <ul><li>Transparent, bulging outer layer</li><li>First surface to refract light</li><li>Protects the eye from dust and germs</li></ul>
+          <p class="notes">🎙️ The cornea is like the transparent glass window at the very front of your eye. It's the first part that light hits and it does most of the bending of light.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪞</div><div class="vcap">Light Entry</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Iris and Pupil: <span class="hl">Light Control</span></h2>
+          <ul><li>Iris: Coloured part, controls pupil size</li><li>Pupil: Hole in the centre of iris</li><li>Regulates amount of light entering the eye</li></ul>
+          <p class="notes">🎙️ The iris is what gives your eyes their colour, and it's responsible for adjusting the size of the pupil. The pupil, the black dot in the center, opens wide in dim light and shrinks in bright light, just like a camera aperture.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">Bright Light (Small Pupil)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Dim Light (Large Pupil)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>The <span class="hl">Eye Lens</span>: Focusing Light</h2>
+          <ul><li>Transparent, flexible convex lens</li><li>Fine-tunes focus onto the retina</li><li>Changes shape with help of ciliary muscles</li></ul>
+          <p class="notes">🎙️ Behind the pupil is the eye lens. This amazing lens can change its shape and therefore its focal length, allowing us to focus on objects at different distances, from very near to very far.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔎</div><div class="vcap">Focusing Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>The <span class="hl">Retina</span>: The Eye's Screen</h2>
+          <ul><li>Light-sensitive screen at the back of the eye</li><li>Contains photoreceptor cells (rods &amp; cones)</li><li>Converts light into electrical signals</li></ul>
+          <p class="notes">🎙️ The retina is like the screen inside a projector or camera. It's where the image is actually formed. It has special cells that are sensitive to light and colour, which then convert this light into electrical messages.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📺</div><div class="vcap">Image Receptor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Optic Nerve: The <span class="hl">Messenger</span></h2>
+          <ul><li>Bundle of nerve fibres</li><li>Carries electrical signals from retina</li><li>Transmits signals to the brain for interpretation</li></ul>
+          <p class="notes">🎙️ Once the retina forms the image and converts it into electrical signals, the optic nerve acts as the messenger. It's the superhighway that carries all this visual information directly to your brain, which then interprets it as what you see.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain Connection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">How We See</span>: A Step-by-Step Process</h2>
+          <ul><li>Light enters through cornea &amp; pupil</li><li>Lens focuses light on retina</li><li>Retina forms inverted, real image</li><li>Optic nerve sends signals to brain</li><li>Brain interprets signals as upright image</li></ul>
+          <p class="notes">🎙️ So, to summarize, light first enters the eye, gets focused by the lens onto the retina, which then sends signals to the brain. The brain is the ultimate interpreter, turning those signals into the clear, colourful world we perceive.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Transformer3d_col3.svg?width=500" data-fb="🔬" alt="A transformer changes AC voltage from one level to another using electromagnetic induction"/><div class="vcap">A transformer changes AC voltage from one level to another using electromagnetic induction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Power of <span class="hl">Accommodation</span></h2>
+          <ul><li>Eye lens's ability to change focal length</li><li>Achieved by ciliary muscles</li><li>Helps focus objects at various distances</li></ul>
+          <p class="notes">🎙️ This is an amazing feature of our eye. The ciliary muscles can change the curvature of the eye lens, altering its focal length. This allows us to quickly shift our focus from a nearby book to a distant mountain.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Adjusting Focus</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Near Point and Far Point</h2>
+          <ul><li>Near Point: Closest distance for clear vision (approx. 25 cm)</li><li>Far Point: Farthest distance for clear vision (infinity for normal eye)</li><li>Define the range of clear vision</li></ul>
+          <p class="notes">🎙️ For a healthy young adult, the closest they can hold something and still see it clearly is about 25 cm, this is the near point. The far point, for a normal eye, is literally infinity, meaning we can see distant stars clearly.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Near Point (25 cm)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Far Point (Infinity)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Common <span class="hl">Defects</span> of Vision</h2>
+          <ul><li>Myopia (Nearsightedness)</li><li>Hypermetropia (Farsightedness)</li><li>Presbyopia (Age-related farsightedness)</li><li>These defects can be corrected</li></ul>
+          <p class="notes">🎙️ Sometimes, the eye's ability to focus light perfectly can be impaired. These are called defects of vision, and fortunately, most of them can be corrected using corrective lenses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👓</div><div class="vcap">Vision Correction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Myopia</span>: Nearsightedness &amp; Correction</h2>
+          <ul><li>Can see near objects clearly, distant objects blurred</li><li>Image forms in front of the retina</li><li>Corrected using a concave (diverging) lens</li></ul>
+          <p class="notes">🎙️ In myopia, the eye lens converges light too strongly, or the eyeball is too long, causing the image to form before the retina. A concave lens helps to diverge the light slightly before it enters the eye, allowing it to focus correctly on the retina.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👀</div><div class="vcap">Blurred Far</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Hypermetropia</span>: Farsightedness &amp; Correction</h2>
+          <ul><li>Can see distant objects clearly, near objects blurred</li><li>Image forms behind the retina</li><li>Corrected using a convex (converging) lens</li></ul>
+          <p class="notes">🎙️ Hypermetropia occurs when the eye lens is too weak, or the eyeball is too short, causing the image to form behind the retina. A convex lens helps to converge the light more strongly, ensuring it focuses precisely on the retina.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👓</div><div class="vcap">Blurred Near</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Presbyopia</span>: Age-Related Vision Loss</h2>
+          <ul><li>Loss of accommodation power with age</li><li>Ciliary muscles weaken, lens becomes less flexible</li><li>Difficulty seeing near objects clearly</li><li>Corrected with bifocal or convex lenses</li></ul>
+          <p class="notes">🎙️ Presbyopia is a natural part of aging, where the eye's ability to focus on close objects diminishes. This is why many older adults need reading glasses, which are typically convex lenses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👴</div><div class="vcap">Aging Eyes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Eye Facts!</h2>
+          <ul><li>Which part controls the amount of light entering the eye?</li><li>What is the approximate near point for a normal eye?</li><li>What type of lens is used to correct hypermetropia?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about these questions, and we'll discuss the answers in a moment. This helps reinforce what we've just learned about the human eye.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Refraction Through a Glass <span class="hl">Prism</span></h2>
+          <ul><li>Light bends when passing through a prism</li><li>Bends towards the base when entering and exiting</li><li>Different colours bend at different angles</li></ul>
+          <p class="notes">🎙️ Now, let's move from the eye to the fascinating world of light itself. When light passes through a prism, it doesn't just bend, it bends in a very specific way, leading to beautiful phenomena.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Snells_law2.svg?width=500" data-fb="🔺" alt="Refraction is bending of light when passing between materials of different density. Occurs"/><div class="vcap">Refraction is bending of light when passing between materials of different density. Occurs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Dispersion</span>: Splitting White Light</h2>
+          <ul><li>White light splits into its constituent colours (VIBGYOR)</li><li>Different colours travel at different speeds in glass</li><li>Violet bends the most, Red bends the least</li></ul>
+          <p class="notes">🎙️ This phenomenon, called dispersion, is why a prism can separate white light into a rainbow of colours: Violet, Indigo, Blue, Green, Yellow, Orange, and Red. Each colour has a slightly different wavelength, causing them to bend at different angles.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Light_dispersion_conceptual_waves.gif?width=500" data-fb="🔬" alt="Dispersion is the separation of white light into its component colours by refraction. Diff"/><div class="vcap">Dispersion is the separation of white light into its component colours by refraction. Diff</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Rainbow</span>: Nature's Spectrum</h2>
+          <ul><li>Formed by sunlight interacting with water droplets</li><li>Involves dispersion, refraction, and total internal reflection</li><li>Always seen opposite to the sun</li></ul>
+          <p class="notes">🎙️ The majestic rainbow is a perfect example of dispersion in nature. Tiny water droplets in the air act like prisms, splitting sunlight into its colours through a combination of refraction and reflection.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sunlight enters droplet</span></div><div class="step"><span class="snum">2</span><span>Refraction &amp; Dispersion</span></div><div class="step"><span class="snum">3</span><span>Total Internal Reflection</span></div><div class="step"><span class="snum">4</span><span>Refraction again (out)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Atmospheric</span> Refraction</h2>
+          <ul><li>Bending of light due to Earth's atmosphere</li><li>Caused by varying air density and temperature</li><li>Leads to several optical phenomena</li></ul>
+          <p class="notes">🎙️ The Earth's atmosphere isn't uniform; its density and temperature change with height. This causes light passing through it to bend, a phenomenon known as atmospheric refraction, which gives rise to many interesting sights.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Earth's Atmosphere</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Why Do Stars <span class="hl">Twinkle</span>?</h2>
+          <ul><li>Due to atmospheric refraction</li><li>Light from stars passes through turbulent air layers</li><li>Appears to flicker or twinkle to our eyes</li></ul>
+          <p class="notes">🎙️ Stars appear to twinkle because their light travels through many layers of the Earth's atmosphere, which are constantly moving and changing density. This causes the light to bend irregularly, making the star appear to flicker.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Shimmering Stars</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Scattering</span> of Light</h2>
+          <ul><li>Light deviates from its straight path</li><li>Caused by interaction with tiny particles</li><li>Amount of scattering depends on wavelength and particle size</li></ul>
+          <p class="notes">🎙️ Scattering is when light hits tiny particles in its path and gets deflected in various directions. This phenomenon is responsible for some of the most beautiful colours we see in our environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Light Spreading</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Tyndall Effect</span>: Visible Light Path</h2>
+          <ul><li>Scattering of light by colloidal particles</li><li>Makes the path of a light beam visible</li><li>Example: Sunlight through a dusty room or forest canopy</li></ul>
+          <p class="notes">🎙️ The Tyndall effect is a specific type of scattering where the path of light becomes visible due to scattering by larger particles, like dust in the air or tiny droplets in mist. Think of a flashlight beam in fog.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Tyndall_effect.jpg?width=500" data-fb="🌫️" alt="The Tyndall effect is the scattering of light by colloidal particles, visible as a beam pa"/><div class="vcap">The Tyndall effect is the scattering of light by colloidal particles, visible as a beam pa</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Why the Sky is Blue and Sun is Red</h2>
+          <ul><li>Blue light scatters more than red light</li><li>Short wavelengths (blue) scatter effectively by air molecules</li><li>Sun appears reddish at sunrise/sunset due to more scattering of blue light</li></ul>
+          <p class="notes">🎙️ This is a direct consequence of scattering. Blue light, having a shorter wavelength, scatters much more efficiently by the tiny molecules in our atmosphere, making the sky appear blue. At sunrise or sunset, sunlight travels through more atmosphere, scattering away most of the blue light, leaving the reds and oranges.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌅</div><div class="vcap">Sky Colours</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Human eye: structure, function, accommodation</li><li>Vision defects: Myopia, Hypermetropia, Presbyopia and corrections</li><li>Light: refraction, dispersion, spectrum</li><li>Atmospheric phenomena: twinkling, rainbow</li><li>Scattering: Tyndall effect, sky colours</li></ul>
+          <p class="notes">🎙️ We've covered a lot in this chapter, from the intricate workings of our own eyes to the spectacular phenomena of light in the world around us. Remember these key concepts as they form the foundation of understanding light and vision.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Karnataka Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

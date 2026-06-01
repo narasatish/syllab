@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Geometric Constructions - Class 9 Mathematics — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Constructions</span>!</h2>
+          <ul><li>Explore the world of geometric shapes.</li><li>Learn to draw accurately using specific tools.</li><li>Understand the 'why' behind each step.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today we're starting a fascinating chapter: Geometric Constructions. We'll learn how to draw perfect shapes and figures using just a ruler and compass. Get ready to put your geometry skills to the test!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Geometric</span> Constructions?</h2>
+          <ul><li>Drawing shapes using only a ruler (straightedge) and compass.</li><li>No protractor or other measuring tools allowed.</li><li>Focus on precision and logical steps.</li></ul>
+          <p class="notes">🎙️ Geometric constructions are all about drawing figures accurately using only two basic tools: a straightedge, which is like a ruler but without markings, and a compass. This method emphasizes understanding the properties of shapes rather than just measuring.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Precision Drawing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Our Essential <span class="hl">Tools</span></h2>
+          <ul><li>The Ruler (Straightedge): For drawing straight lines.</li><li>The Compass: For drawing arcs and circles.</li><li>The Pencil: For making clear marks.</li></ul>
+          <p class="notes">🎙️ Our toolkit is simple but powerful! The ruler helps us draw perfectly straight lines, while the compass is essential for drawing circles and arcs of specific radii. And of course, a sharp pencil ensures our lines and points are clear and precise.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Ruler</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Compass</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Pencil</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Construction 1: <span class="hl">Perpendicular Bisector</span></h2>
+          <ul><li>Divides a line segment into two equal parts.</li><li>Forms a 90-degree angle with the segment.</li><li>Every point on the bisector is equidistant from the segment's endpoints.</li></ul>
+          <p class="notes">🎙️ Our first construction is the perpendicular bisector. Imagine you have a line segment, and you want to cut it exactly in half, forming a perfect right angle. That's what a perpendicular bisector does. It's a fundamental construction in geometry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Dividing a Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Steps</span>: Constructing a Perpendicular Bisector</h2>
+          <ul><li>Draw line segment AB.</li><li>With A as center, draw arcs above and below AB (radius &gt; half AB).</li><li>With B as center, draw arcs intersecting the previous ones.</li><li>Join the intersection points to get the bisector.</li></ul>
+          <p class="notes">🎙️ Let's walk through the steps. First, draw your line segment. Then, open your compass more than half the length of the segment and draw arcs from each endpoint. Where these arcs cross, you'll find two points. Connecting them gives you the perpendicular bisector.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Line Segment</span></div><div class="step"><span class="snum">2</span><span>Arcs from Endpoints</span></div><div class="step"><span class="snum">3</span><span>Intersect Arcs</span></div><div class="step"><span class="snum">4</span><span>Join Points</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Real-Life Use: Dividing <span class="hl">Land</span></h2>
+          <ul><li>Fairly dividing a plot of land.</li><li>Locating the center of a rectangular field.</li><li>Ensuring equal distance from two points.</li></ul>
+          <p class="notes">🎙️ Think about dividing a rectangular plot of land equally between two family members. A perpendicular bisector helps find the exact middle line, ensuring a fair division. It's also used in architecture and city planning to mark central points or boundaries.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Property Division</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Construction 2: <span class="hl">Bisecting</span> an Angle</h2>
+          <ul><li>Divides an angle into two equal angles.</li><li>The bisector passes through the vertex.</li><li>Every point on the bisector is equidistant from the angle's arms.</li></ul>
+          <p class="notes">🎙️ Next, we'll learn to bisect an angle. This means drawing a ray that splits any given angle into two perfectly equal smaller angles. This is incredibly useful when you need precise angles for various designs or structures.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Splitting an Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Steps</span>: Bisecting an Angle</h2>
+          <ul><li>Draw an angle with vertex O.</li><li>With O as center, draw an arc intersecting both arms at A and B.</li><li>With A as center, draw an arc inside the angle.</li><li>With B as center, draw an arc intersecting the previous one at C.</li><li>Join O to C to get the angle bisector.</li></ul>
+          <p class="notes">🎙️ To bisect an angle, first draw an arc from the vertex that crosses both arms of the angle. Then, from where this arc meets each arm, draw two more arcs inside the angle. The point where these two new arcs intersect, when connected to the vertex, forms your angle bisector.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Angle</span></div><div class="step"><span class="snum">2</span><span>Arc from Vertex</span></div><div class="step"><span class="snum">3</span><span>Arcs from Intersections</span></div><div class="step"><span class="snum">4</span><span>Join Vertex to Arc</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Real-Life Use: Setting Up a <span class="hl">Camera</span></h2>
+          <ul><li>Positioning a camera to cover an equal viewing area.</li><li>Designing light beams in a theatre.</li><li>Creating symmetrical patterns in art.</li></ul>
+          <p class="notes">🎙️ Imagine a photographer setting up a camera to capture a wide scene. By bisecting the total viewing angle, they can ensure that two specific points on either side are equally covered. This concept is also applied in lighting design and even in sports for aiming.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📸</div><div class="vcap">Perfect Shot</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Constructing Specific Angles: <span class="hl">60°</span></h2>
+          <ul><li>Based on the properties of an equilateral triangle.</li><li>A fundamental angle for many other constructions.</li><li>Requires only a compass and straightedge.</li></ul>
+          <p class="notes">🎙️ Now let's construct specific angles. The 60-degree angle is one of the most basic and important. It's derived from the fact that all angles in an equilateral triangle are 60 degrees. Mastering this will open doors to constructing many other angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Base Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Steps</span>: Constructing a 60° Angle</h2>
+          <ul><li>Draw a ray OA.</li><li>With O as center, draw an arc intersecting OA at P.</li><li>With P as center and same radius, draw an arc intersecting the first arc at Q.</li><li>Join O to Q. Angle QOA is 60°.</li></ul>
+          <p class="notes">🎙️ Start with a ray. Draw an arc from the starting point of the ray. Then, keeping the compass open to the same radius, place the compass point where the arc crosses the ray and draw another arc that intersects the first one. Connect this intersection to the ray's origin, and you have a 60-degree angle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Ray</span></div><div class="step"><span class="snum">2</span><span>Arc from Origin</span></div><div class="step"><span class="snum">3</span><span>Arc from Intersection</span></div><div class="step"><span class="snum">4</span><span>Join Origin to Arc</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Constructing Specific Angles: <span class="hl">30°</span></h2>
+          <ul><li>Construct a 60° angle first.</li><li>Then bisect the 60° angle.</li><li>Half of 60° is 30°.</li></ul>
+          <p class="notes">🎙️ Once you can construct a 60-degree angle, making a 30-degree angle is straightforward. You simply construct a 60-degree angle and then use the angle bisector method we just learned to divide it exactly in half. This demonstrates how constructions build upon each other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Half of 60</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Constructing Specific Angles: <span class="hl">90°</span></h2>
+          <ul><li>Also known as a right angle.</li><li>Can be constructed by bisecting a straight angle (180°).</li><li>Essential for perpendicular lines and right triangles.</li></ul>
+          <p class="notes">🎙️ The 90-degree angle, or right angle, is crucial in many areas, from building construction to designing furniture. There are a few ways to construct it, but a common method involves creating a perpendicular to a line at a point on it, which is essentially bisecting a straight line's angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">Right Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Steps</span>: Constructing a 90° Angle</h2>
+          <ul><li>Draw a ray OA.</li><li>With O as center, draw an arc intersecting OA at P.</li><li>With P as center, draw an arc cutting the first arc at Q (60°).</li><li>With Q as center, draw an arc cutting the first arc at R (120°).</li><li>With Q and R as centers, draw two arcs intersecting at S.</li><li>Join O to S. Angle SOA is 90°.</li></ul>
+          <p class="notes">🎙️ To construct a 90-degree angle, start with a ray. Draw a large arc from the origin. Then, from where the arc crosses the ray, mark off 60 degrees and then 120 degrees on the arc. Finally, bisect the angle between the 60 and 120-degree marks to get your perfect 90-degree angle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Ray &amp; Arc</span></div><div class="step"><span class="snum">2</span><span>Mark 60° &amp; 120°</span></div><div class="step"><span class="snum">3</span><span>Intersect Arcs from 60/120</span></div><div class="step"><span class="snum">4</span><span>Join Vertex</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Constructing Specific Angles: <span class="hl">45°</span></h2>
+          <ul><li>Construct a 90° angle first.</li><li>Then bisect the 90° angle.</li><li>Half of 90° is 45°.</li></ul>
+          <p class="notes">🎙️ Just like with the 30-degree angle, constructing a 45-degree angle relies on a previous construction. First, construct a 90-degree angle. Then, use the angle bisector method to divide that 90-degree angle exactly in half, resulting in a 45-degree angle. See how these skills are connected?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↙️</div><div class="vcap">Half of 90</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Constructing Specific Angles: <span class="hl">120°</span></h2>
+          <ul><li>Combine two 60° angles.</li><li>Simply extend the 60° construction one more step.</li><li>Useful for hexagons and other symmetrical designs.</li></ul>
+          <p class="notes">🎙️ Constructing a 120-degree angle is also quite simple once you know how to make a 60-degree angle. Essentially, you repeat the 60-degree construction twice along the same initial arc. This angle is often found in designs involving regular polygons like hexagons.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">Two 60s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Constructing Triangles: <span class="hl">SSS</span> Criterion</h2>
+          <ul><li>SSS stands for Side-Side-Side.</li><li>All three side lengths are given.</li><li>Unique triangle can be constructed.</li></ul>
+          <p class="notes">🎙️ Now we move to constructing entire triangles! The SSS criterion means we are given the lengths of all three sides. With these three measurements, we can construct one unique triangle. This is a very common type of triangle construction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">△</div><div class="vcap">Triangle from Sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Steps</span>: Constructing SSS Triangle</h2>
+          <ul><li>Draw base BC of given length.</li><li>With B as center, draw an arc with radius equal to side AB.</li><li>With C as center, draw an arc with radius equal to side AC.</li><li>The arcs intersect at A. Join A to B and A to C.</li></ul>
+          <p class="notes">🎙️ To construct an SSS triangle, first draw the longest side as your base. Then, using your compass, draw an arc from one endpoint of the base with the length of the second side. Repeat from the other endpoint of the base with the length of the third side. Where these arcs intersect is your third vertex.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw Base</span></div><div class="step"><span class="snum">2</span><span>Arc from 1st Vertex</span></div><div class="step"><span class="snum">3</span><span>Arc from 2nd Vertex</span></div><div class="step"><span class="snum">4</span><span>Join Vertices</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Constructing Triangles: <span class="hl">SAS</span> Criterion</h2>
+          <ul><li>SAS stands for Side-Angle-Side.</li><li>Two side lengths and the included angle are given.</li><li>The angle must be between the two given sides.</li></ul>
+          <p class="notes">🎙️ The SAS criterion is when we know two sides and the angle *between* them. This is crucial: the angle must be the 'included' angle. Knowing this combination also allows us to construct a unique triangle. It's often used in design where angles and lengths are critical.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle Between Sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Constructing Triangles: <span class="hl">ASA</span> Criterion</h2>
+          <ul><li>ASA stands for Angle-Side-Angle.</li><li>Two angles and the included side are given.</li><li>The side must be between the two given angles.</li></ul>
+          <p class="notes">🎙️ With ASA, we are given two angles and the side that connects their vertices. Again, the 'included' side is key. This criterion is particularly useful in surveying and mapping, where angles can be measured easily from specific points.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Side Between Angles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Constructing Triangles: <span class="hl">RHS</span> Criterion</h2>
+          <ul><li>RHS stands for Right-angle-Hypotenuse-Side.</li><li>Specific to right-angled triangles.</li><li>Given the right angle, the hypotenuse, and one other side.</li></ul>
+          <p class="notes">🎙️ Finally, for right-angled triangles, we have the RHS criterion. This means if you know the right angle, the length of the hypotenuse, and the length of one of the other two sides, you can uniquely construct that right-angled triangle. This is fundamental in construction and engineering.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">Right Triangle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! Question 1</h2>
+          <ul><li>Which tool is NOT typically allowed in geometric constructions?</li><li>A) Ruler</li><li>B) Compass</li><li>C) Protractor</li><li>D) Pencil</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think back to our very first slides. Which of these tools, while useful in general geometry, is not part of the strict rules for geometric constructions using only ruler and compass?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚫</span></div><div class="vcap">Forbidden Tool</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check! Question 2</h2>
+          <ul><li>Bisecting a line segment means:</li><li>A) Making it longer</li><li>B) Dividing it into two equal parts</li><li>C) Drawing a parallel line</li><li>D) Erasing a part of it</li></ul>
+          <p class="notes">🎙️ Next question! We learned about bisecting both line segments and angles. What does the term 'bisecting' fundamentally mean when applied to a line segment?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✂️</span><span>✂️</span></div><div class="vcap">Dividing Equally</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check! Question 3</h2>
+          <ul><li>Which of these angles CANNOT be constructed directly using only ruler and compass?</li><li>A) 60°</li><li>B) 90°</li><li>C) 45°</li><li>D) 70°</li></ul>
+          <p class="notes">🎙️ Last quick check! We covered how to construct several specific angles. Based on what we discussed, which of these angles would require more advanced techniques or a protractor, rather than a direct construction with just a ruler and compass?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❓</span></div><div class="vcap">Which One?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: What We Learned Today</h2>
+          <ul><li>Geometric constructions use only ruler and compass.</li><li>Learned to bisect lines and angles.</li><li>Constructed specific angles: 60°, 30°, 90°, 45°, 120°.</li><li>Explored triangle constructions using SSS, SAS, ASA, RHS.</li></ul>
+          <p class="notes">🎙️ Today, we've covered a lot of ground in geometric constructions! We started with the basic tools, then moved on to bisecting lines and angles. We also mastered constructing essential angles and learned how to build triangles using different criteria. Keep practicing to become a construction expert!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Karnataka Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

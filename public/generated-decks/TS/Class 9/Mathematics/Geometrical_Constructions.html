@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Geometrical Constructions — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Geometrical Constructions</span>!</h2>
+          <ul><li>Welcome to our journey into the world of shapes and precision!</li><li>We will learn how to draw accurate figures using simple tools.</li><li>Get ready to explore the fundamentals of geometry!</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we're starting an exciting chapter on Geometrical Constructions. This topic is all about drawing perfect shapes using just a few basic tools.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Geometrical Constructions</span>?</h2>
+          <ul><li>Drawing geometric figures accurately.</li><li>Using only a compass and a straightedge (ruler without markings).</li><li>Understanding the principles behind shapes.</li></ul>
+          <p class="notes">🎙️ Geometrical constructions mean drawing shapes like lines, angles, and polygons with great accuracy. We primarily use a compass for drawing arcs and circles, and a straightedge for drawing straight lines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Precision Tools</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Essential Tools</span> for Construction</h2>
+          <ul><li>Ruler/Straightedge: For drawing straight lines.</li><li>Compass: For drawing arcs and circles, and measuring distances.</li><li>Protractor: For measuring and drawing angles (though not always allowed in pure constructions).</li></ul>
+          <p class="notes">🎙️ The ruler helps us draw straight lines. The compass is crucial for creating circles and arcs, which are fundamental to many constructions. While a protractor measures angles, in 'pure' constructions, we aim to construct angles without it.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Ruler</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Compass</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Protractor</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Why Learn</span> Geometrical Constructions?</h2>
+          <ul><li>Develops precision and accuracy skills.</li><li>Foundation for advanced geometry and engineering.</li><li>Used in architecture, design, and art.</li></ul>
+          <p class="notes">🎙️ Learning constructions isn't just about drawing; it teaches you to be precise and think logically. These skills are vital in fields like architecture, where exact measurements are critical for building safe and beautiful structures.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building Foundations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Construction 1: <span class="hl">Bisecting</span> a Line Segment</h2>
+          <ul><li>Dividing a line segment into two equal parts.</li><li>The point that divides it is called the midpoint.</li><li>Each part will have the same length.</li></ul>
+          <p class="notes">🎙️ Our first construction is bisecting a line segment. This means finding the exact middle point of a line and dividing it into two pieces of equal length.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Equal Halves</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Steps</span>: Bisecting a Line Segment</h2>
+          <ul><li>Draw line segment AB.</li><li>With A as center, draw arcs above and below AB (radius &gt; half AB).</li><li>With B as center, draw arcs intersecting previous arcs at C and D.</li><li>Join C and D. CD bisects AB at M.</li></ul>
+          <p class="notes">🎙️ Let's walk through the steps. First, draw your line. Then, using your compass, draw arcs from both ends of the line, making sure the radius is more than half the line's length. Where these arcs cross, draw a line. That line will bisect your original segment.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw line AB</span></div><div class="step"><span class="snum">2</span><span>Arcs from A</span></div><div class="step"><span class="snum">3</span><span>Arcs from B</span></div><div class="step"><span class="snum">4</span><span>Join intersection points</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Worked Example 1: Bisecting an <span class="hl">8 cm Line Segment</span></h2>
+          <ul><li>Draw line segment AB = 8 cm.</li><li>Open compass more than 4 cm.</li><li>Draw intersecting arcs from A and B.</li><li>Join intersection points to find midpoint M.</li></ul>
+          <p class="notes">🎙️ Imagine you have an 8 cm line. You'd set your compass to a radius greater than 4 cm. Then, from each end of the 8 cm line, you'd draw arcs. Connecting the points where these arcs intersect gives you the perpendicular bisector, and its intersection with the line is the midpoint.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw AB = 8 cm</span></div><div class="step"><span class="snum">2</span><span>Set compass &gt; 4 cm</span></div><div class="step"><span class="snum">3</span><span>Draw arcs from A &amp; B</span></div><div class="step"><span class="snum">4</span><span>Connect arc intersections</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Construction 2: <span class="hl">Bisecting an Angle</span></h2>
+          <ul><li>Dividing an angle into two equal angles.</li><li>The bisector is a ray that passes through the vertex.</li><li>Each new angle will have half the measure of the original.</li></ul>
+          <p class="notes">🎙️ Next, we'll learn to bisect an angle. This means drawing a ray from the angle's vertex that splits the angle into two smaller angles of exactly equal measure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Dividing an Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Steps</span>: Bisecting an Angle</h2>
+          <ul><li>Draw angle ABC.</li><li>With B as center, draw an arc intersecting BA and BC at E and D.</li><li>With E and D as centers, draw arcs intersecting at F.</li><li>Join B and F. BF is the angle bisector.</li></ul>
+          <p class="notes">🎙️ To bisect an angle, first, draw an arc from the vertex that cuts both arms of the angle. Then, from these two intersection points, draw two more arcs that cross each other. Drawing a line from the vertex through this new intersection point gives you the angle bisector.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw angle ABC</span></div><div class="step"><span class="snum">2</span><span>Arc from B</span></div><div class="step"><span class="snum">3</span><span>Arcs from E &amp; D</span></div><div class="step"><span class="snum">4</span><span>Join B to F</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Worked Example 2: Bisecting a <span class="hl">60-degree Angle</span></h2>
+          <ul><li>Draw angle ABC = 60 degrees.</li><li>Draw an arc from B, intersecting AB at E, BC at D.</li><li>From E and D, draw arcs intersecting at F.</li><li>Join B to F. Angle ABF = Angle FBC = 30 degrees.</li></ul>
+          <p class="notes">🎙️ If you have a 60-degree angle, after bisecting it, you will get two 30-degree angles. This is a very common construction and a good way to create angles like 30 degrees or 15 degrees.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw 60° angle</span></div><div class="step"><span class="snum">2</span><span>Arc from vertex</span></div><div class="step"><span class="snum">3</span><span>Arcs from intersections</span></div><div class="step"><span class="snum">4</span><span>Draw bisector</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Quick <span class="hl">Question 1</span></h2>
+          <ul><li>Which tool is primarily used for drawing arcs and circles in geometrical constructions?</li></ul>
+          <p class="notes">🎙️ Think back to our discussion about the basic tools. Which one is indispensable for drawing curved lines and circles?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Construction 3: <span class="hl">Perpendicular Bisector</span></h2>
+          <ul><li>A line that bisects a segment and is perpendicular to it.</li><li>Forms a 90-degree angle with the segment.</li><li>Every point on the perpendicular bisector is equidistant from the segment's endpoints.</li></ul>
+          <p class="notes">🎙️ This construction combines two ideas: bisecting a line segment and making a line perpendicular to it. The perpendicular bisector not only cuts the segment in half but also crosses it at a perfect 90-degree angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⟂</div><div class="vcap">90° and Midpoint</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Steps</span>: Constructing a Perpendicular Bisector</h2>
+          <ul><li>Draw line segment AB.</li><li>With A as center, draw arcs above and below AB (radius &gt; half AB).</li><li>With B as center, draw arcs intersecting previous arcs at C and D.</li><li>Join C and D. CD is the perpendicular bisector of AB.</li></ul>
+          <p class="notes">🎙️ The steps for drawing a perpendicular bisector are identical to bisecting a line segment. The line you draw connecting the intersecting arcs is, in fact, the perpendicular bisector.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw line AB</span></div><div class="step"><span class="snum">2</span><span>Arcs from A</span></div><div class="step"><span class="snum">3</span><span>Arcs from B</span></div><div class="step"><span class="snum">4</span><span>Join intersection points</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Worked Example</span> 3: Constructing a Perpendicular Bisector</h2>
+          <ul><li>Draw a line segment PQ of length 7 cm.</li><li>Using P as center, draw arcs above and below PQ (radius &gt; 3.5 cm).</li><li>Using Q as center, draw arcs intersecting the first ones.</li><li>Connect the two intersection points. This line is the perpendicular bisector.</li></ul>
+          <p class="notes">🎙️ Let's say you have a 7 cm line. You'd open your compass to more than 3.5 cm. Then, from each end, draw arcs above and below the line. Connecting where these arcs cross gives you the perpendicular bisector.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw PQ = 7 cm</span></div><div class="step"><span class="snum">2</span><span>Arcs from P (radius &gt; 3.5)</span></div><div class="step"><span class="snum">3</span><span>Arcs from Q (intersecting)</span></div><div class="step"><span class="snum">4</span><span>Draw perpendicular bisector</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Construction 4: Perpendicular to a Line (<span class="hl">Point on Line</span>)</h2>
+          <ul><li>Drawing a line perpendicular to a given line.</li><li>The perpendicular line passes through a specific point *on* the given line.</li><li>Forms a 90-degree angle at that point.</li></ul>
+          <p class="notes">🎙️ Now, we'll learn to draw a perpendicular line from a point that lies *on* the original line. This creates a right angle at that exact point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⟂</div><div class="vcap">At a Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Steps</span>: Perpendicular from a Point on a Line</h2>
+          <ul><li>Draw line L and mark point P on it.</li><li>With P as center, draw an arc intersecting L at A and B.</li><li>With A and B as centers, draw arcs intersecting at C (radius &gt; AP).</li><li>Join P and C. PC is perpendicular to L.</li></ul>
+          <p class="notes">🎙️ First, draw a line and mark a point on it. From that point, draw an arc that cuts the line at two places. Then, from these two new points, draw arcs above the line that intersect. Connect the original point to this new intersection, and you have your perpendicular line.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw line L, point P</span></div><div class="step"><span class="snum">2</span><span>Arc from P (cuts L)</span></div><div class="step"><span class="snum">3</span><span>Arcs from A &amp; B (intersect)</span></div><div class="step"><span class="snum">4</span><span>Join P to intersection</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Worked Example</span> 4: Perpendicular from a Point on Line</h2>
+          <ul><li>Draw a line segment XY and mark point Z on it.</li><li>With Z as center, draw an arc intersecting XY at A and B.</li><li>With A and B as centers, draw arcs above XY intersecting at C.</li><li>Join Z and C. ZC is perpendicular to XY.</li></ul>
+          <p class="notes">🎙️ Imagine you have a straight road and you want to build a path directly perpendicular from a specific spot on that road. This construction helps you achieve that precise 90-degree angle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw line XY, point Z</span></div><div class="step"><span class="snum">2</span><span>Arc from Z (cuts XY)</span></div><div class="step"><span class="snum">3</span><span>Arcs from A &amp; B (intersect)</span></div><div class="step"><span class="snum">4</span><span>Draw ZC perpendicular</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Construction 5: Perpendicular to a Line (<span class="hl">Point outside Line</span>)</h2>
+          <ul><li>Drawing a line perpendicular to a given line.</li><li>The perpendicular line passes through a specific point *outside* the given line.</li><li>This is useful for finding the shortest distance from a point to a line.</li></ul>
+          <p class="notes">🎙️ This construction is similar, but the point from which we draw the perpendicular is *not* on the line. This is very useful for finding the shortest distance from a point to a line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⟂</div><div class="vcap">From Outside</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Steps</span>: Perpendicular from a Point Outside a Line</h2>
+          <ul><li>Draw line L and mark point P outside it.</li><li>With P as center, draw an arc intersecting L at A and B.</li><li>With A and B as centers, draw arcs intersecting below P at Q (radius &gt; half AB).</li><li>Join P and Q. PQ is perpendicular to L.</li></ul>
+          <p class="notes">🎙️ For this, you start by drawing an arc from the outside point that cuts the line at two places. Then, from these two intersection points, draw arcs on the *opposite* side of the line from your original point. Connect the original point to this new intersection.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw line L, point P outside</span></div><div class="step"><span class="snum">2</span><span>Arc from P (cuts L)</span></div><div class="step"><span class="snum">3</span><span>Arcs from A &amp; B (intersect)</span></div><div class="step"><span class="snum">4</span><span>Join P to intersection</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Worked Example</span> 5: Perpendicular from a Point Outside a Line</h2>
+          <ul><li>Draw line segment MN and mark point R above it.</li><li>With R as center, draw an arc intersecting MN at A and B.</li><li>With A and B as centers, draw arcs below MN intersecting at S.</li><li>Join R and S. RS is perpendicular to MN.</li></ul>
+          <p class="notes">🎙️ Imagine you have a point in a field and a straight road nearby. This construction helps you draw the shortest path from that point directly to the road, which will always be a perpendicular line.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw line MN, point R above</span></div><div class="step"><span class="snum">2</span><span>Arc from R (cuts MN)</span></div><div class="step"><span class="snum">3</span><span>Arcs from A &amp; B (intersect)</span></div><div class="step"><span class="snum">4</span><span>Draw RS perpendicular</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Question 2</span></h2>
+          <ul><li>What is the main difference between an angle bisector and a perpendicular bisector of a line segment?</li></ul>
+          <p class="notes">🎙️ Think about what each construction does to the original geometric figure. What are they dividing, and how are they dividing it?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Real-life Application: <span class="hl">Architecture &amp; Design</span></h2>
+          <ul><li>Architects use perpendicular lines for walls and floors.</li><li>Engineers use bisection to divide spaces evenly.</li><li>Designers use constructions for symmetrical patterns and layouts.</li></ul>
+          <p class="notes">🎙️ Geometrical constructions are not just for textbooks! Architects rely on them for stable structures, ensuring walls are perpendicular. Interior designers use bisection to create balanced and symmetrical room layouts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Building &amp; Design</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Question 3</span></h2>
+          <ul><li>Which two tools are considered absolutely essential for all *pure* geometrical constructions?</li></ul>
+          <p class="notes">🎙️ Remember, in pure constructions, we limit ourselves to the most fundamental tools. Which two are always allowed and needed?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Question 4</span></h2>
+          <ul><li>If you bisect an angle of 120 degrees, what will be the measure of each of the two new angles?</li></ul>
+          <p class="notes">🎙️ This is a direct test of your understanding of angle bisection. What does 'bisect' truly mean in terms of measurement?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Constructions Learned Today</h2>
+          <ul><li>Bisecting a Line Segment: Finding the midpoint.</li><li>Bisecting an Angle: Dividing an angle into two equal parts.</li><li>Perpendicular Bisector: A line that is both perpendicular and bisects a segment.</li><li>Perpendicular to a Line: From a point on the line and from a point outside the line.</li></ul>
+          <p class="notes">🎙️ We covered a lot today! We learned how to precisely divide lines and angles, and how to draw perpendicular lines in different situations. These are fundamental skills in geometry.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

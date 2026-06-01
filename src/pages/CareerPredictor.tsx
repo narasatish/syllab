@@ -7,7 +7,7 @@
 import React, { useState, useMemo } from 'react';
 import {
   TrendingUp, GraduationCap, Stethoscope, Compass, AlertCircle,
-  Briefcase, Sparkles, CalendarDays, Award, Search,
+  Briefcase, Sparkles, CalendarDays, Award, Search, Building2, MapPin,
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import {
@@ -18,9 +18,10 @@ import {
   CAREER_LIBRARY, CAREER_FIELDS,
   INTEREST_QUIZ, type StreamKey,
   EXAM_CALENDAR, SCHOLARSHIPS,
+  COLLEGE_DIRECTORY, COLLEGE_STATES,
 } from '../data/predictorData';
 
-type Tab = 'jee' | 'neet' | 'careers' | 'quiz' | 'stream' | 'exams';
+type Tab = 'jee' | 'neet' | 'colleges' | 'careers' | 'quiz' | 'stream' | 'exams';
 
 export default function CareerPredictor() {
   const [tab, setTab] = useState<Tab>('jee');
@@ -28,9 +29,9 @@ export default function CareerPredictor() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
       <SEO
-        title="Free Career Predictor: JEE/NEET Rank & College Predictor, Career Quiz & Exam Dates | Syllab.in"
-        description="Free career predictor for Indian students — JEE Main rank & college predictor, NEET marks-to-rank & MBBS college predictor (all categories), career explorer with salaries, interest quiz to find your stream, 2026 exam calendar and scholarships. Indicative estimates based on 2024 data."
-        keywords="career predictor free India, JEE rank predictor free, JEE Main percentile to rank, JEE college predictor, NEET rank predictor, NEET college predictor free, MBBS college predictor, EAMCET rank predictor, KCET college predictor, MHT-CET predictor, career quiz after 10th, which stream after 10th, career options after 12th India, career salary India, 2026 exam dates JEE NEET, scholarships for students India"
+        title="Free Career Predictor: JEE/NEET Rank & College Predictor + Top Engineering Colleges 2026 | Syllab.in"
+        description="Free career predictor for Indian students — JEE Main & state (EAMCET/KCET/MHT-CET/WBJEE) rank & college predictor with category + women quota, NEET MBBS college predictor, a directory of top engineering colleges (NIRF rank, fees, cutoffs, admission process), career explorer with salaries, interest quiz, 2026 exam calendar and scholarships. Indicative estimates based on 2024 data."
+        keywords="career predictor free India, JEE rank predictor free, JEE Main percentile to rank, JEE college predictor, NEET rank predictor, NEET college predictor free, MBBS college predictor, EAMCET rank predictor, KCET college predictor, MHT-CET predictor, top engineering colleges India 2026, best engineering colleges Tamil Nadu Karnataka Maharashtra Telangana, college fees NIRF ranking, engineering admission process, women quota engineering, SC ST OBC category rank, career quiz after 10th, which stream after 10th, career salary India, 2026 exam dates JEE NEET, scholarships for students India"
         url="https://syllab.in/career-predictor"
         jsonLd={[
           {
@@ -80,6 +81,7 @@ export default function CareerPredictor() {
         {([
           { id: 'jee', label: 'Engineering', icon: <GraduationCap size={15} /> },
           { id: 'neet', label: 'NEET / Medical', icon: <Stethoscope size={15} /> },
+          { id: 'colleges', label: 'Top Colleges', icon: <Building2 size={15} /> },
           { id: 'careers', label: 'Explore Careers', icon: <Briefcase size={15} /> },
           { id: 'quiz', label: 'Find My Path', icon: <Sparkles size={15} /> },
           { id: 'stream', label: 'Which Stream?', icon: <Compass size={15} /> },
@@ -96,6 +98,7 @@ export default function CareerPredictor() {
 
       {tab === 'jee' && <EngineeringPredictor />}
       {tab === 'neet' && <NeetPredictor />}
+      {tab === 'colleges' && <CollegeExplorer />}
       {tab === 'careers' && <CareerExplorer />}
       {tab === 'quiz' && <InterestQuiz onGoStream={() => setTab('stream')} />}
       {tab === 'stream' && <StreamGuide />}
@@ -109,13 +112,14 @@ function EngineeringPredictor() {
   const [examId, setExamId] = useState(ENG_EXAMS[0].id);
   const [value, setValue] = useState('');
   const [category, setCategory] = useState<Category>('general');
+  const [women, setWomen] = useState(false);
   const [result, setResult] = useState<ReturnType<typeof predictEngineering>>(null);
   const exam = ENG_EXAMS.find(e => e.id === examId)!;
 
   const run = () => {
     const v = parseFloat(value);
     if (isNaN(v) || v < 0) { setResult(null); return; }
-    setResult(predictEngineering(examId, v, category));
+    setResult(predictEngineering(examId, v, category, women));
   };
 
   return (
@@ -137,7 +141,7 @@ function EngineeringPredictor() {
         <p className="mt-1.5 text-[11px] text-slate-400">{exam.region} · indicative cutoffs</p>
       </div>
 
-      {/* Category */}
+      {/* Category + Women quota */}
       <div>
         <label className="block text-[11px] font-black uppercase tracking-widest text-slate-500 mb-2">Category</label>
         <div className="flex flex-wrap gap-1.5">
@@ -150,6 +154,14 @@ function EngineeringPredictor() {
               {c.label}
             </button>
           ))}
+          <button
+            onClick={() => { setWomen(w => !w); setResult(null); }}
+            aria-pressed={women}
+            className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
+              women ? 'bg-pink-600 text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:text-pink-600'
+            }`}>
+            ♀ Women quota
+          </button>
         </div>
       </div>
 
@@ -167,9 +179,27 @@ function EngineeringPredictor() {
         <>
           {result.estimatedRank !== null && (
             <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-5 text-white text-center shadow-lg">
-              <p className="text-[11px] font-black uppercase tracking-widest text-white/60">Estimated Rank</p>
-              <p className="text-4xl font-black mt-1 flex items-center justify-center gap-2"><TrendingUp size={28} /> ~{result.estimatedRank.toLocaleString()}</p>
-              <p className="mt-1 text-[11px] text-white/70">{CATEGORIES.find(c => c.id === category)?.label} category · {exam.name}</p>
+              {result.categoryRank !== null ? (
+                <div className="grid grid-cols-2 divide-x divide-white/20">
+                  <div className="px-2">
+                    <p className="text-[11px] font-black uppercase tracking-widest text-white/60">Overall Rank</p>
+                    <p className="text-3xl font-black mt-1">~{result.estimatedRank.toLocaleString()}</p>
+                  </div>
+                  <div className="px-2">
+                    <p className="text-[11px] font-black uppercase tracking-widest text-white/60">Your Category Rank</p>
+                    <p className="text-3xl font-black mt-1 flex items-center justify-center gap-1.5"><TrendingUp size={22} /> ~{result.categoryRank.toLocaleString()}</p>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <p className="text-[11px] font-black uppercase tracking-widest text-white/60">Estimated Rank</p>
+                  <p className="text-4xl font-black mt-1 flex items-center justify-center gap-2"><TrendingUp size={28} /> ~{result.estimatedRank.toLocaleString()}</p>
+                </>
+              )}
+              <p className="mt-2 text-[11px] text-white/70">
+                {CATEGORIES.find(c => c.id === category)?.label}{women ? ' · Women quota' : ''} · {exam.name}
+                {result.categoryRank !== null && ' · admission uses your category rank'}
+              </p>
             </div>
           )}
           <CollegeList title={`Colleges you could target — ${exam.name}`} empty="Aim a bit higher to open up colleges in our list — and check official counselling for the full list.">
@@ -428,6 +458,85 @@ function ExamsAndScholarships() {
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+/* ─── Top Colleges directory (CollegeDunia-style) ───────────────────────────*/
+function CollegeExplorer() {
+  const [state, setState] = useState<typeof COLLEGE_STATES[number]>('All');
+  const [q, setQ] = useState('');
+
+  const list = useMemo(() => {
+    const query = q.trim().toLowerCase();
+    return COLLEGE_DIRECTORY.filter(c =>
+      (state === 'All' || c.state === state) &&
+      (!query || c.name.toLowerCase().includes(query) || c.city.toLowerCase().includes(query) ||
+        c.topBranches.some(b => b.toLowerCase().includes(query)))
+    ).sort((a, b) => (a.nirf ?? 999) - (b.nirf ?? 999));
+  }, [state, q]);
+
+  const typeColor: Record<string, string> = {
+    IIT: 'bg-rose-100 text-rose-700',
+    'NIT/IIIT': 'bg-amber-100 text-amber-700',
+    Government: 'bg-emerald-100 text-emerald-700',
+    'Private/Deemed': 'bg-indigo-100 text-indigo-700',
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="rounded-2xl bg-gradient-to-br from-teal-600 to-emerald-600 p-4 text-white">
+        <p className="text-sm font-black">🏛️ Top engineering colleges across India — fees, NIRF rank, cutoffs & admission process.</p>
+        <p className="mt-0.5 text-[11px] text-white/70">Indicative 2024 figures · always confirm on the official site.</p>
+      </div>
+
+      <div className="relative">
+        <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+        <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search college, city or branch…"
+          className="w-full rounded-xl border border-slate-200 pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" />
+      </div>
+      <div className="flex flex-wrap gap-1.5">
+        {COLLEGE_STATES.map(s => (
+          <button key={s} onClick={() => setState(s)}
+            className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all ${
+              state === s ? 'bg-primary text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:text-primary'
+            }`}>{s}</button>
+        ))}
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-2">
+        {list.map(c => (
+          <div key={c.name + c.city} className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <h3 className="text-sm font-black text-slate-900 leading-tight">{c.name}</h3>
+                <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-400"><MapPin size={11} />{c.city} · {c.state}</p>
+              </div>
+              <div className="flex flex-col items-end gap-1 shrink-0">
+                <span className={`rounded-full px-2 py-0.5 text-[9px] font-black ${typeColor[c.type]}`}>{c.type}</span>
+                {c.nirf && <span className="text-[10px] font-black text-slate-500">NIRF #{c.nirf}</span>}
+              </div>
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+              <div className="rounded-lg bg-emerald-50 px-2.5 py-1.5">
+                <p className="text-[9px] font-bold text-emerald-600/70 uppercase tracking-wide">Fees / year</p>
+                <p className="font-black text-emerald-700">{c.feesPerYear}</p>
+              </div>
+              <div className="rounded-lg bg-blue-50 px-2.5 py-1.5">
+                <p className="text-[9px] font-bold text-blue-600/70 uppercase tracking-wide">Indicative cutoff</p>
+                <p className="font-black text-blue-700">{c.cutoff}</p>
+              </div>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-1">
+              {c.topBranches.map(b => <span key={b} className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-500">{b}</span>)}
+            </div>
+            <p className="mt-2 text-[11px] text-slate-500"><span className="font-black text-slate-600">Admission:</span> {c.process}</p>
+            <span className="mt-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">{c.exam}</span>
+          </div>
+        ))}
+      </div>
+      {!list.length && <p className="text-center text-sm text-slate-500 py-8">No colleges match your search.</p>}
+      <p className="text-center text-[11px] text-slate-400">Showing {list.length} colleges · more states &amp; colleges added regularly.</p>
     </div>
   );
 }

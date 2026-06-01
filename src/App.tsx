@@ -7,6 +7,7 @@ import React, { Suspense, useCallback, useEffect, useRef, useState } from 'react
 import {
   BookOpen,
   Bot,
+  Building2,
   CalendarDays,
   ChartNoAxesCombined,
   ChevronDown,
@@ -89,6 +90,7 @@ const AiForStudentsPage = React.lazy(() => import('./pages/AiForStudentsPage'));
 const WebDevPage = React.lazy(() => import('./pages/WebDevPage'));
 const GeneralKnowledgePage = React.lazy(() => import('./pages/GeneralKnowledge'));
 const CareerPredictorPage = React.lazy(() => import('./pages/CareerPredictor'));
+const CollegesPage = React.lazy(() => import('./pages/Colleges'));
 
 type AuthMethod = 'google' | 'email';
 type AuthMode = 'signin' | 'signup' | 'reset';
@@ -168,6 +170,7 @@ const TAB_TO_PATH: Record<string, string> = {
   web_development: '/web-development',
   general_knowledge: '/gk-quiz',       // was /general-knowledge
   career: '/career-predictor',
+  colleges: '/colleges',
 };
 
 // Legacy URL aliases so users with old bookmarks still land on the right page
@@ -187,6 +190,14 @@ const PATH_TO_TAB: Record<string, string> = Object.fromEntries(
 // Merge legacy entries so old URLs resolve client-side too
 for (const [legacyPath, tab] of Object.entries(LEGACY_PATH_TO_TAB)) {
   if (!PATH_TO_TAB[legacyPath]) PATH_TO_TAB[legacyPath] = tab;
+}
+
+// Resolve a pathname → tab. Exact match first, then prefix match for sections
+// that have deep sub-routes (e.g. /colleges/karnataka/rvce-bengaluru → colleges).
+function resolveTab(pathname: string): string {
+  if (PATH_TO_TAB[pathname]) return PATH_TO_TAB[pathname];
+  if (pathname === '/colleges' || pathname.startsWith('/colleges/')) return 'colleges';
+  return 'home';
 }
 
 const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; url: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[] }> = {
@@ -496,6 +507,12 @@ const PAGE_SEO: Record<string, { title: string; description: string; keywords: s
     description: 'Free career predictor for Indian students — JEE Main & state (EAMCET/KCET/MHT-CET/WBJEE) rank & college predictor, NEET marks-to-rank & MBBS college predictor (all categories), career explorer with salaries, an interest quiz to find your stream, the 2026 exam calendar and scholarships.',
     keywords: 'career predictor free India, JEE rank predictor free, JEE Main percentile to rank, JEE college predictor free, NEET rank predictor free, NEET college predictor, MBBS college predictor India, EAMCET rank predictor, KCET college predictor, MHT-CET predictor, WBJEE predictor, career quiz after 10th, which stream after 10th, career options after 12th India, career salary India, 2026 exam dates JEE NEET CUET, scholarships for students India, JoSAA cutoff predictor',
     url: 'https://syllab.in/career-predictor',
+  },
+  colleges: {
+    title: 'Top Engineering Colleges in India 2026 — Fees, NIRF Rank, Cutoffs & Admission | Syllab.in',
+    description: 'Browse top engineering colleges across India by state — IITs, NITs and the best government & private colleges in Tamil Nadu, Karnataka, Maharashtra, Telangana, Andhra Pradesh, Delhi-NCR & West Bengal. Compare fees, NIRF rank, cutoffs, placements and the full admission process. Free.',
+    keywords: 'top engineering colleges India 2026, best engineering colleges by state, engineering college fees, NIRF ranking engineering, college cutoff 2026, engineering admission process, IIT NIT cutoff, college predictor India, engineering colleges Tamil Nadu Karnataka Maharashtra Telangana Andhra Delhi West Bengal',
+    url: 'https://syllab.in/colleges',
   },
 };
 
@@ -896,7 +913,7 @@ function LoginModal({
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState(() => PATH_TO_TAB[window.location.pathname] || 'home');
+  const [activeTab, setActiveTab] = useState(() => resolveTab(window.location.pathname));
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
   const [stats, setStats] = useState<UserStats>(DEFAULT_USER_STATS);
   const [progress, setProgress] = useState<UserProgress>(DEFAULT_USER_PROGRESS);
@@ -1031,8 +1048,7 @@ export default function App() {
 
   useEffect(() => {
     const handlePop = () => {
-      const tab = PATH_TO_TAB[window.location.pathname] || 'home';
-      setActiveTab(tab);
+      setActiveTab(resolveTab(window.location.pathname));
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
@@ -1118,6 +1134,7 @@ export default function App() {
     { id: 'daily',             label: 'Daily Challenge',  icon: CalendarDays },
     { id: 'general_knowledge', label: 'GK Quiz',          icon: BookOpen },
     { id: 'career',            label: 'Career & Predictor', icon: Target },
+    { id: 'colleges',          label: 'Colleges',         icon: Building2 },
     // Updates page is now the canonical "Blog" — old /blog page still exists
     // but hidden from nav (kept at /blog for any indexed inbound links).
     { id: 'updates',           label: 'Blog',             icon: Sparkles },
@@ -1443,6 +1460,7 @@ export default function App() {
                   {activeTab === 'web_development' ? <WebDevPage /> : null}
                   {activeTab === 'general_knowledge' ? <GeneralKnowledgePage setTab={navigate} /> : null}
                   {activeTab === 'career' ? <CareerPredictorPage /> : null}
+                  {activeTab === 'colleges' ? <CollegesPage /> : null}
                   {activeTab === 'privacy' ? (
                     <section className="rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 max-w-3xl mx-auto">
                       <h1 className="text-4xl font-black text-slate-900 mb-6">Privacy Policy</h1>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Exploring Areas: Shapes All Around Us! — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Areas</span>: Let's Measure Space!</h2>
+          <ul><li>What is 'Area' in Mathematics?</li><li>Why is it important to understand?</li><li>Discover how to calculate area for different shapes.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're starting an exciting chapter on 'Areas'. We'll learn what area means, why it's useful in daily life, and how to measure the space inside various shapes. Get ready to explore!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Understanding <span class="hl">Area</span>: Space Inside a Shape</h2>
+          <ul><li>Area is the amount of surface a 2D shape covers.</li><li>It's measured in square units (e.g., square centimeters).</li><li>Think of it as counting how many unit squares fit inside.</li></ul>
+          <p class="notes">🎙️ Area tells us how much flat space a shape takes up. Imagine you're painting a wall; the area tells you how much paint you need. It's always about the inside, not the boundary.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Surface</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Units</span> of Area: Standard Ways to Measure</h2>
+          <ul><li>Common units: square centimeters (cm²), square meters (m²).</li><li>Larger areas: square kilometers (km²) for land.</li><li>Smaller areas: square millimeters (mm²) for tiny objects.</li></ul>
+          <p class="notes">🎙️ Just like we use meters for length, we use square units for area. A square centimeter is the area of a square with 1 cm sides. Always remember to write the unit with a 'square' or '²'!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Square Units</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Area of a <span class="hl">Rectangle</span>: Length × Width</h2>
+          <ul><li>A rectangle has four straight sides and four right angles.</li><li>Formula: Area = Length × Width (or Breadth).</li><li>Length (l) is the longer side, Width (w) is the shorter side.</li></ul>
+          <p class="notes">🎙️ The rectangle is one of the simplest shapes. To find its area, you just multiply its length by its width. This formula is fundamental and used in many real-world calculations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏹️</div><div class="vcap">Rectangle Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Real-Life Example: Rectangular <span class="hl">Room</span> Floor</h2>
+          <ul><li>Imagine tiling the floor of your rectangular room.</li><li>You need to know the area to buy enough tiles.</li><li>Measure the length and width of the room.</li></ul>
+          <p class="notes">🎙️ Think about your classroom or living room floor. It's usually rectangular. If you wanted to put a new carpet or tiles, you'd calculate the area to know how much material to buy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span></div><div class="vcap">Room Floor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Finding Room Area</h2>
+          <ul><li>A room is 5 meters long and 4 meters wide.</li><li>Area = Length × Width</li><li>Area = 5 m × 4 m = 20 m²</li></ul>
+          <p class="notes">🎙️ Let's calculate the area for a typical room. First, we identify the given dimensions. Then, we apply the formula for the area of a rectangle. Don't forget the square units in your final answer!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Length (5m)</span></div><div class="step"><span class="snum">2</span><span>Identify Width (4m)</span></div><div class="step"><span class="snum">3</span><span>Multiply: 5 × 4</span></div><div class="step"><span class="snum">4</span><span>Result: 20 m²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Area of a <span class="hl">Square</span>: Side × Side</h2>
+          <ul><li>A square is a special rectangle where all four sides are equal.</li><li>Formula: Area = Side × Side (or Side²).</li><li>If one side is 's', then Area = s × s.</li></ul>
+          <p class="notes">🎙️ Since all sides of a square are equal, finding its area is even simpler. You just multiply the length of one side by itself. This is why we often see it written as 'side squared'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬜</div><div class="vcap">Square Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Real-Life Example: Square <span class="hl">Tile</span></h2>
+          <ul><li>Many floor tiles are square-shaped.</li><li>Knowing the area of one tile helps calculate total tiles needed.</li><li>Measure the side length of a single tile.</li></ul>
+          <p class="notes">🎙️ Look at the tiles in your bathroom or kitchen. Many are perfect squares. If you know the area of one tile, you can figure out how many tiles you need to cover a larger area, like a wall.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span></div><div class="vcap">Square Tile</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example: Area of a <span class="hl">Chessboard</span> Square</h2>
+          <ul><li>A single square on a chessboard has a side length of 3 cm.</li><li>Area = Side × Side</li><li>Area = 3 cm × 3 cm = 9 cm²</li></ul>
+          <p class="notes">🎙️ Let's calculate the area of one of the small squares on a chessboard. Since it's a square, we just multiply the side length by itself. This gives us the area in square centimeters.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Side (3cm)</span></div><div class="step"><span class="snum">2</span><span>Multiply: 3 × 3</span></div><div class="step"><span class="snum">3</span><span>Result: 9 cm²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Area of a <span class="hl">Triangle</span>: Half × Base × Height</h2>
+          <ul><li>A triangle is a polygon with three edges and three vertices.</li><li>Formula: Area = ½ × Base × Height.</li><li>The 'height' must be perpendicular to the 'base'.</li></ul>
+          <p class="notes">🎙️ Triangles are everywhere! To find their area, we need the base and the perpendicular height. Imagine a rectangle cut diagonally in half – that's why we use 'half' in the formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Triangle Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Real-Life Example: Triangular <span class="hl">Sail</span></h2>
+          <ul><li>Sails on boats are often triangular to catch the wind.</li><li>The area of the sail affects how much wind it can capture.</li><li>The base is the bottom edge, height is from base to top point.</li></ul>
+          <p class="notes">🎙️ Think about a sailboat. The triangular sail is designed to harness wind power. Engineers calculate the area of these sails to optimize the boat's speed and performance. It's a great practical application.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⛵</span></div><div class="vcap">Boat Sail</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked Example: Calculating <span class="hl">Sail</span> Area</h2>
+          <ul><li>A triangular sail has a base of 4 meters and a height of 6 meters.</li><li>Area = ½ × Base × Height</li><li>Area = ½ × 4 m × 6 m = 12 m²</li></ul>
+          <p class="notes">🎙️ Let's calculate the area of our example sail. We substitute the base and height into the formula. Remember to multiply by one-half at the end to get the correct area.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Base (4m)</span></div><div class="step"><span class="snum">2</span><span>Identify Height (6m)</span></div><div class="step"><span class="snum">3</span><span>Calculate: ½ × 4 × 6</span></div><div class="step"><span class="snum">4</span><span>Result: 12 m²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Area of a <span class="hl">Parallelogram</span>: Base × Height</h2>
+          <ul><li>A parallelogram has two pairs of parallel sides.</li><li>Formula: Area = Base × Height.</li><li>The 'height' is the perpendicular distance between the parallel bases.</li></ul>
+          <p class="notes">🎙️ A parallelogram looks like a 'slanted' rectangle. If you cut a triangle from one end and move it to the other, it forms a rectangle! That's why its area formula is similar to a rectangle's: base times height.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">▱</div><div class="vcap">Parallelogram Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Real-Life Example: Parallelogram-shaped <span class="hl">Land</span></h2>
+          <ul><li>Some plots of land or fields might be shaped like parallelograms.</li><li>Farmers need to know the area to plan crops or irrigation.</li><li>Measure one base and the perpendicular distance to the opposite side.</li></ul>
+          <p class="notes">🎙️ In surveying and land management, you might encounter land parcels shaped like parallelograms. Calculating their area is crucial for property valuation, agricultural planning, and construction projects.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗺️</span></div><div class="vcap">Land Plot</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Worked Example: Area of a <span class="hl">Plot</span></h2>
+          <ul><li>A parallelogram-shaped plot has a base of 10 meters and a height of 7 meters.</li><li>Area = Base × Height</li><li>Area = 10 m × 7 m = 70 m²</li></ul>
+          <p class="notes">🎙️ Let's find the area of this land plot. We simply multiply the given base by the height. Notice how straightforward it is once you know the formula and the correct measurements.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Base (10m)</span></div><div class="step"><span class="snum">2</span><span>Identify Height (7m)</span></div><div class="step"><span class="snum">3</span><span>Multiply: 10 × 7</span></div><div class="step"><span class="snum">4</span><span>Result: 70 m²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
+          <ul><li>What is the area of a square with a side of 6 cm?</li><li>A) 12 cm²</li><li>B) 24 cm²</li><li>C) 36 cm²</li><li>D) 36 cm</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Remember the formula for the area of a square. Take a moment to calculate and choose the correct option. Pay attention to the units!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
+          <ul><li>A rectangular garden is 8 m long and 5 m wide. What is its area?</li><li>A) 13 m²</li><li>B) 40 m²</li><li>C) 26 m²</li><li>D) 40 m</li></ul>
+          <p class="notes">🎙️ Here's another question to test your understanding of rectangles. Apply the formula we just learned. Think carefully about the operation and the units.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Area of a <span class="hl">Rhombus</span>: ½ × d1 × d2</h2>
+          <ul><li>A rhombus is a quadrilateral with all four sides equal in length.</li><li>Its diagonals bisect each other at right angles.</li><li>Formula: Area = ½ × (diagonal 1 × diagonal 2).</li></ul>
+          <p class="notes">🎙️ A rhombus is like a 'squashed' square. Instead of base and height, we use its diagonals. The diagonals cut the rhombus into four right-angled triangles, which helps derive this formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Rhombus Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: Area of a <span class="hl">Kite</span></h2>
+          <ul><li>A kite has diagonals of 10 cm and 8 cm.</li><li>Area = ½ × d1 × d2</li><li>Area = ½ × 10 cm × 8 cm = 40 cm²</li></ul>
+          <p class="notes">🎙️ Kites are often shaped like rhombuses. Let's calculate the area of a kite using its diagonal lengths. Remember, the order of the diagonals doesn't matter since multiplication is commutative.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify d1 (10cm)</span></div><div class="step"><span class="snum">2</span><span>Identify d2 (8cm)</span></div><div class="step"><span class="snum">3</span><span>Calculate: ½ × 10 × 8</span></div><div class="step"><span class="snum">4</span><span>Result: 40 cm²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Area of a <span class="hl">Trapezium</span>: ½ × (a+b) × h</h2>
+          <ul><li>A trapezium (or trapezoid) has at least one pair of parallel sides.</li><li>Formula: Area = ½ × (sum of parallel sides) × height.</li><li>The parallel sides are 'a' and 'b', 'h' is the perpendicular height.</li></ul>
+          <p class="notes">🎙️ A trapezium has a unique shape with one pair of parallel sides. The formula takes the average of the lengths of these parallel sides and multiplies it by the height. This is a very useful formula in engineering and architecture.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏢</div><div class="vcap">Trapezium Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Real-Life Example: Trapezoidal <span class="hl">Field</span></h2>
+          <ul><li>Many agricultural fields have irregular shapes, some being trapezoidal.</li><li>Knowing the area is vital for calculating yield or fertilizer needs.</li><li>Measure the two parallel sides and the perpendicular distance between them.</li></ul>
+          <p class="notes">🎙️ Imagine a farmer with a field that isn't a perfect rectangle. If it's a trapezium, they'd use this formula to calculate the area. This helps them manage resources efficiently, like seeds and water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span></div><div class="vcap">Farm Field</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Worked Example: Calculating <span class="hl">Field</span> Area</h2>
+          <ul><li>A trapezoidal field has parallel sides of 12 m and 8 m, and a height of 5 m.</li><li>Area = ½ × (a + b) × h</li><li>Area = ½ × (12 + 8) × 5 = ½ × 20 × 5 = 50 m²</li></ul>
+          <p class="notes">🎙️ Let's calculate the area of this field. First, add the lengths of the parallel sides, then multiply by the height, and finally, divide by two. This gives us the total area in square meters.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify parallel sides (12m, 8m)</span></div><div class="step"><span class="snum">2</span><span>Identify height (5m)</span></div><div class="step"><span class="snum">3</span><span>Calculate: ½ × (12+8) × 5</span></div><div class="step"><span class="snum">4</span><span>Result: 50 m²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
+          <ul><li>A triangle has a base of 7 cm and a height of 4 cm. What is its area?</li><li>A) 14 cm²</li><li>B) 28 cm²</li><li>C) 11 cm²</li><li>D) 74 cm²</li></ul>
+          <p class="notes">🎙️ Another quick check! This time, it's about triangles. Remember the 'half' in the formula. Calculate carefully and select the correct answer from the options.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 4</h2>
+          <ul><li>What is the area of a parallelogram with a base of 9 m and a height of 6 m?</li><li>A) 15 m²</li><li>B) 54 m</li><li>C) 54 m²</li><li>D) 27 m²</li></ul>
+          <p class="notes">🎙️ Last quick check for today! Remember the parallelogram formula – it's simpler than the triangle's. Work out the answer and choose the correct option, paying attention to the units.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Practice: Mastering Areas!</h2>
+          <ul><li>Area is the space covered by a 2D shape.</li><li>Formulas for Rectangle, Square, Triangle, Parallelogram, Rhombus, Trapezium.</li><li>Practice is key to mastering these concepts and formulas!</li></ul>
+          <p class="notes">🎙️ Today, we've covered the areas of many important shapes. Remember the specific formulas and when to use them. Keep practicing with different examples, and you'll become an expert in no time! Great job everyone!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Areas of Parallelograms and Triangles - Class 9 Mathematics — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter Introduction: <span class="hl">Areas</span> of Parallelograms and Triangles</h2>
+          <ul><li>Exploring the space covered by these important geometric shapes.</li><li>Understanding key properties and theorems.</li><li>Applying formulas to real-life situations.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of geometry, specifically focusing on the areas of parallelograms and triangles. We'll learn how to calculate the space they occupy and discover some fascinating relationships between them.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Revisiting Area of a <span class="hl">Rectangle</span></h2>
+          <ul><li>Area is the amount of space a 2D shape covers.</li><li>Formula: Length × Breadth (or Width).</li><li>Units are always squared (e.g., cm², m²).</li></ul>
+          <p class="notes">🎙️ Before we dive into new shapes, let's quickly recall what we already know. Remember, the area of a rectangle is found by multiplying its length by its breadth. This gives us the total surface enclosed by the shape.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Area of a <span class="hl">Square</span></h2>
+          <ul><li>A square is a special type of rectangle with all sides equal.</li><li>Formula: Side × Side (or Side²).</li><li>Simple and fundamental shape.</li></ul>
+          <p class="notes">🎙️ Since a square has all its sides equal, its length and breadth are the same. So, the area of a square is simply the side length multiplied by itself. Very straightforward, isn't it?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Perfectly square</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Basic Area of a <span class="hl">Triangle</span></h2>
+          <ul><li>Formula: ½ × Base × Height.</li><li>Height must be the perpendicular distance from the vertex to the base.</li><li>Essential for many geometric calculations.</li></ul>
+          <p class="notes">🎙️ And finally, the triangle! We know that the area of a triangle is half the product of its base and its corresponding height. Always remember that the height must be perpendicular to the base you choose.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Triangle area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Meet the <span class="hl">Parallelogram</span>!</h2>
+          <ul><li>A quadrilateral with two pairs of parallel sides.</li><li>Opposite sides are equal in length.</li><li>Opposite angles are equal.</li></ul>
+          <p class="notes">🎙️ Now, let's introduce our main character for today: the parallelogram. It's a four-sided figure where the opposite sides are not only equal in length but also parallel to each other. Think of a 'slanted' rectangle!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Parallel sides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Unveiling the Area of a <span class="hl">Parallelogram</span></h2>
+          <ul><li>We can transform a parallelogram into a rectangle.</li><li>Cut a triangular part and move it to the other side.</li><li>Formula: Base × Height.</li></ul>
+          <p class="notes">🎙️ The clever trick to finding a parallelogram's area is to imagine cutting off a right-angled triangle from one end and attaching it to the other. Voila! You get a rectangle! This shows us the area is simply base times height, just like a rectangle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parallelogram</span></div><div class="step"><span class="snum">2</span><span>Cut &amp; Move</span></div><div class="step"><span class="snum">3</span><span>Form Rectangle</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Parallelograms <span class="hl">Around Us</span></h2>
+          <ul><li>Floor tiles often have parallelogram designs.</li><li>Some bridge structures use parallelogram shapes.</li><li>The way a slanted building casts a shadow.</li></ul>
+          <p class="notes">🎙️ Parallelograms are not just found in textbooks; they are all around us! Look at the patterns on floor tiles, or the structural elements of certain bridges. Even a simple leaning ladder forms a parallelogram with the ground and wall.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Tile pattern</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Worked Example 1: Parallelogram Area</h2>
+          <ul><li>Given: Base = 12 cm, Height = 7 cm.</li><li>Area = Base × Height.</li><li>Area = 12 cm × 7 cm = 84 cm².</li></ul>
+          <p class="notes">🎙️ Let's put our formula into practice. If we have a parallelogram with a base of 12 centimeters and a height of 7 centimeters, we simply multiply these two values to get an area of 84 square centimeters. Easy, isn't it?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Area calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Parallelograms on <span class="hl">Common Ground</span></h2>
+          <ul><li>Two parallelograms sharing the same base.</li><li>Their opposite vertices lie on a line parallel to the base.</li><li>A special arrangement with important implications.</li></ul>
+          <p class="notes">🎙️ Now, let's consider a special scenario. Imagine two different parallelograms, but both of them stand on the very same base. And not just that, their top sides are also aligned along a single line parallel to the base. What do you think happens to their areas?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">Between parallels</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Theorem 1: <span class="hl">Equal Areas</span>!</h2>
+          <ul><li>Parallelograms on the same base and between the same parallels are equal in area.</li><li>This is a fundamental theorem in geometry.</li><li>The 'slant' does not affect the area if base and height are constant.</li></ul>
+          <p class="notes">🎙️ This is a powerful result! It means that even if the parallelograms look different because they are 'slanted' differently, as long as they share the same base and are between the same parallel lines (meaning they have the same height), their areas will be identical.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Parallelogram A</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Parallelogram B</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Real-life Example: <span class="hl">Sharing Land</span></h2>
+          <ul><li>Two plots of land next to a river (base).</li><li>Both plots extend to a parallel road.</li><li>Even if one is 'tilted', they have the same area.</li></ul>
+          <p class="notes">🎙️ Imagine two farmers owning land plots next to a river. If both plots start from the same length along the river and extend up to a parallel road, their areas will be equal, regardless of how 'slanted' their side boundaries are. This theorem applies directly here!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚜</div><div class="vcap">Farm plots</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Triangles on <span class="hl">Common Ground</span></h2>
+          <ul><li>Similar concept for triangles.</li><li>Two triangles sharing the same base.</li><li>Their third vertices lie on a line parallel to the base.</li></ul>
+          <p class="notes">🎙️ The same principle also applies to triangles! If two triangles share a common base, and their third vertices are located on a line that is parallel to that base, then they also have a special relationship concerning their areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Parallel boundaries</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Theorem 2: <span class="hl">Equal Triangle</span> Areas!</h2>
+          <ul><li>Triangles on the same base and between the same parallels are equal in area.</li><li>Directly follows from the parallelogram theorem.</li><li>Another crucial geometric insight.</li></ul>
+          <p class="notes">🎙️ Yes, you guessed it! Just like parallelograms, if two triangles share the same base and are situated between the same parallel lines, their areas will also be equal. This is because they will have the same base and the same perpendicular height.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Triangle X</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Triangle Y</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Parallelogram and Triangle <span class="hl">Connection</span></h2>
+          <ul><li>If a triangle and a parallelogram share the same base.</li><li>And are between the same parallel lines.</li><li>The area of the triangle is half the area of the parallelogram.</li></ul>
+          <p class="notes">🎙️ Here's an even more interesting connection! If you have a parallelogram and a triangle, and they both stand on the same base and are between the same parallel lines, the area of that triangle will always be exactly half the area of the parallelogram. This is a very useful relationship!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Parallelogram</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Triangle</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Real-life Example: <span class="hl">Roof Design</span></h2>
+          <ul><li>Consider a triangular roof gable on a rectangular house base.</li><li>The area of the triangular part can be related to the base area.</li><li>Useful for calculating materials needed.</li></ul>
+          <p class="notes">🎙️ Think about designing a house. If the base of a roof is a rectangle, and the triangular part of the roof shares that base and extends up to a certain height, we can use this relationship to quickly estimate the area of the roof section. This helps in calculating materials like tiles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">House roof</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example 2: Triangles/Parallelograms Relation</h2>
+          <ul><li>Given: Parallelogram ABCD has Area = 60 cm².</li><li>Triangle EFG shares the same base and is between the same parallels.</li><li>Area of Triangle EFG = ½ × Area of Parallelogram = 30 cm².</li></ul>
+          <p class="notes">🎙️ Let's apply this relationship. If a parallelogram has an area of 60 square centimeters, and a triangle is constructed on the same base and between the same parallel lines, then the area of that triangle would simply be half of 60, which is 30 square centimeters. Simple, right?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Dividing by two</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Median's <span class="hl">Magical Property</span></h2>
+          <ul><li>A median connects a vertex to the midpoint of the opposite side.</li><li>It divides the triangle into two triangles of equal area.</li><li>A powerful property for area division.</li></ul>
+          <p class="notes">🎙️ Now, let's look at another special property within triangles. A median is a line segment drawn from a vertex to the midpoint of the opposite side. This median has a 'magical' effect: it perfectly divides the original triangle into two smaller triangles that have exactly the same area!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Equal balance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example 3: <span class="hl">Median</span> Area Calculation</h2>
+          <ul><li>Given: Triangle PQR has an area of 70 cm².</li><li>PS is a median to side QR.</li><li>Area of ΔPQS = Area of ΔPRS = ½ × 70 cm² = 35 cm².</li></ul>
+          <p class="notes">🎙️ Let's see this in action. If a triangle PQR has a total area of 70 square centimeters, and PS is a median, then the two triangles formed, PQS and PRS, will each have an area of half of 70, which is 35 square centimeters. This property is very useful for dividing areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Cutting in half</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>A parallelogram has a base of 15 cm and a height of 8 cm.</li><li>What is its area?</li><li>Think and calculate!</li></ul>
+          <p class="notes">🎙️ Alright, students, time for a quick check to see how well you've grasped the concepts. Here's your first question: If a parallelogram has a base of 15 cm and a height of 8 cm, what would its area be?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Two triangles are on the same base and between the same parallels.</li><li>If one triangle has an area of 45 sq cm, what is the area of the other triangle?</li><li>Recall the theorem!</li></ul>
+          <p class="notes">🎙️ Moving on to our second quick check! Consider two triangles that share the same base and lie between the same parallel lines. If one of them has an area of 45 square centimeters, what can you say about the area of the other triangle?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>A triangle has a total area of 80 sq cm.</li><li>If a median is drawn, what is the area of each of the two smaller triangles formed?</li><li>Remember the median's property!</li></ul>
+          <p class="notes">🎙️ Here's your third and final quick check! If a triangle has a total area of 80 square centimeters, and a median is drawn from one of its vertices, what will be the area of each of the two smaller triangles that are created?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Key <span class="hl">Formulas</span> at a Glance</h2>
+          <ul><li>Area of Parallelogram = Base × Height.</li><li>Area of Triangle = ½ × Base × Height.</li><li>Relation: Area(Triangle) = ½ Area(Parallelogram) (same base/parallels).</li></ul>
+          <p class="notes">🎙️ Let's quickly consolidate the main formulas and relationships we've learned today. These are your essential tools for solving problems related to areas of parallelograms and triangles. Make sure you remember them well!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parallelogram</span></div><div class="step"><span class="snum">2</span><span>Triangle</span></div><div class="step"><span class="snum">3</span><span>Relation</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Where Do We <span class="hl">Use This</span>?</h2>
+          <ul><li>Architecture &amp; Construction: Calculating material for roofs, walls.</li><li>Land Surveying: Measuring irregular land plots.</li><li>Art &amp; Design: Creating balanced compositions and patterns.</li></ul>
+          <p class="notes">🎙️ Understanding areas isn't just for exams; it has practical applications everywhere! From planning the amount of paint needed for a wall to designing complex structures or even measuring fields, these concepts are fundamental in many real-world professions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building design</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Today's <span class="hl">Takeaways</span></h2>
+          <ul><li>Area is the space covered by a 2D shape.</li><li>Parallelograms and triangles on the same base and between the same parallels have equal areas.</li><li>A median divides a triangle into two equal-area triangles.</li></ul>
+          <p class="notes">🎙️ To summarize our lesson, remember the core formulas for area, and especially the powerful theorems about shapes sharing a common base and being between the same parallel lines. These insights will help you solve complex problems efficiently.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Exploring</span>!</h2>
+          <ul><li>Practice solving various problems from your textbook.</li><li>Look for parallelograms and triangles in your surroundings.</li><li>Don't hesitate to ask your teacher for clarification.</li></ul>
+          <p class="notes">🎙️ Thank you for your attention and participation today! Mathematics is all about practice, so keep working on problems. The more you explore, the better you'll understand. Keep that curiosity alive!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Karnataka Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

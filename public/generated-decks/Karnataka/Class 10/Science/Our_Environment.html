@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Our Environment: Understanding Our Surroundings — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Our <span class="hl">Environment</span>: Understanding Our Surroundings</h2>
+          <ul><li>What is around us?</li><li>How do living and non-living things interact?</li><li>Let's explore our planet!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting journey to understand the world around us. We'll learn about what makes up our environment and how everything is connected.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>The <span class="hl">Environment</span>: Our Surroundings</h2>
+          <ul><li>Everything that surrounds us.</li><li>Includes living (biotic) and non-living (abiotic) components.</li><li>These components interact constantly.</li></ul>
+          <p class="notes">🎙️ The environment is literally everything that exists around us, from the air we breathe to the plants and animals we see. It's a complex system of interactions between all its parts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our World</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Biotic</span> Components: The Living World</h2>
+          <ul><li>All living organisms.</li><li>Examples: plants, animals, bacteria, fungi.</li><li>They interact with each other and their surroundings.</li></ul>
+          <p class="notes">🎙️ Biotic components are all the living things in our environment. Think of the trees in a forest, the birds flying, or even the tiny microbes in the soil – they all play vital roles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Living Organisms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Abiotic</span> Components: The Non-Living World</h2>
+          <ul><li>Non-living physical and chemical factors.</li><li>Examples: sunlight, water, air, soil, temperature.</li><li>Essential for the survival of biotic components.</li></ul>
+          <p class="notes">🎙️ Abiotic components are the non-living parts like water, air, and sunlight. These factors determine where and how living organisms can survive and thrive. For instance, plants need sunlight and water to grow.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Combustion_reaction.svg?width=500" data-fb="💧" alt="Physical changes alter properties without changing identity; chemical changes create new s"/><div class="vcap">Physical changes alter properties without changing identity; chemical changes create new s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Ecosystem</span>: Interconnected Life</h2>
+          <ul><li>A community of living organisms (biotic).</li><li>Interacting with their non-living environment (abiotic).</li><li>A self-sustaining unit.</li></ul>
+          <p class="notes">🎙️ An ecosystem is where biotic and abiotic components come together and interact. Imagine a pond where fish, plants, and insects live, all depending on the water, sunlight, and oxygen.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Interaction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Natural</span> Ecosystems: Nature's Creations</h2>
+          <ul><li>Exist without human intervention.</li><li>Examples: forests, deserts, oceans, grasslands.</li><li>Maintain their balance naturally.</li></ul>
+          <p class="notes">🎙️ Natural ecosystems are formed by nature itself. A vast rainforest, a deep ocean, or a sprawling desert are all examples where life has adapted to its unique natural conditions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Forest Ecosystem</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Artificial</span> Ecosystems: Human-Made</h2>
+          <ul><li>Created and maintained by humans.</li><li>Examples: crop fields, gardens, aquariums, zoos.</li><li>Require human input for their survival.</li></ul>
+          <p class="notes">🎙️ Artificial ecosystems are those we create. Your home garden, a rice field, or even an aquarium are examples. Humans manage these systems to meet specific needs, like growing food or keeping pets.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐠</span><span>🐠</span><span>🐠</span></div><div class="vcap">Aquarium</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Producers</span>: The Food Makers</h2>
+          <ul><li>Organisms that produce their own food.</li><li>Mainly green plants and some bacteria.</li><li>Convert sunlight into energy (photosynthesis).</li></ul>
+          <p class="notes">🎙️ Producers are the foundation of any ecosystem. They are like the chefs who prepare food using sunlight, water, and carbon dioxide. All other living things ultimately depend on them for energy.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="☀️" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Consumers</span>: The Food Eaters</h2>
+          <ul><li>Organisms that consume other organisms for food.</li><li>Cannot produce their own food.</li><li>Include herbivores, carnivores, omnivores, parasites.</li></ul>
+          <p class="notes">🎙️ Consumers get their energy by eating other living things. A deer eating grass is a herbivore, a lion eating the deer is a carnivore, and we humans are omnivores, eating both plants and animals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍔</span><span>🍔</span><span>🍔</span><span>🍔</span></div><div class="vcap">Eating Food</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Decomposers</span>: Nature's Clean-Up Crew</h2>
+          <ul><li>Break down dead organic matter.</li><li>Examples: bacteria and fungi.</li><li>Return nutrients to the soil for producers.</li></ul>
+          <p class="notes">🎙️ Decomposers are crucial for recycling nutrients. When plants and animals die, bacteria and fungi break them down, returning essential elements to the soil, which then helps new plants grow.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Recycling Nutrients</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Food Chain</span>: Following Energy Flow</h2>
+          <ul><li>Shows how energy is transferred from one organism to another.</li><li>Starts with producers and moves to consumers.</li><li>A linear sequence of who eats whom.</li></ul>
+          <p class="notes">🎙️ A food chain illustrates a simple pathway of energy. It's like a single line showing how energy moves from one living thing to the next when one eats another. For example, grass is eaten by a deer, and the deer is eaten by a tiger.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Grass</span></div><div class="step"><span class="snum">2</span><span>Deer</span></div><div class="step"><span class="snum">3</span><span>Tiger</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Forest</span> Food Chain Example</h2>
+          <ul><li>Trees (Producer) -&gt; Deer (Primary Consumer) -&gt; Tiger (Secondary Consumer).</li><li>Energy flows from trees to deer, then to tiger.</li><li>Each arrow points in the direction of energy flow.</li></ul>
+          <p class="notes">🎙️ In a forest, trees capture sunlight. A deer eats the tree's leaves, gaining energy. Then, a tiger hunts and eats the deer, transferring that energy further up the chain. This is a basic forest food chain.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Energy Flow</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Pond</span> Food Chain Example</h2>
+          <ul><li>Algae (Producer) -&gt; Small Fish (Primary Consumer) -&gt; Big Fish (Secondary Consumer) -&gt; Bird (Tertiary Consumer).</li><li>Shows energy transfer in aquatic environments.</li><li>Many such chains exist in a pond.</li></ul>
+          <p class="notes">🎙️ Ponds also have their own food chains. Tiny algae produce food, which small fish eat. Bigger fish then eat the small fish, and finally, a bird might eat the big fish. This demonstrates energy flow in water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐟</div><div class="vcap">Aquatic Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Food Web</span>: Complex Energy Network</h2>
+          <ul><li>Consists of many interconnected food chains.</li><li>Shows multiple feeding relationships in an ecosystem.</li><li>More realistic representation than a single food chain.</li></ul>
+          <p class="notes">🎙️ Unlike a simple food chain, a food web shows how various organisms eat different things, and are themselves eaten by multiple predators. It's a much more complex and accurate picture of energy flow in an ecosystem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Interconnected</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Trophic Levels</span>: Steps of Energy Transfer</h2>
+          <ul><li>Each step in a food chain where energy is transferred.</li><li>Producers form the first trophic level.</li><li>Consumers occupy higher trophic levels.</li></ul>
+          <p class="notes">🎙️ Trophic levels describe the position an organism occupies in a food chain. Plants are at the bottom, and as you move up, you find herbivores, then carnivores, each level getting energy from the one below it.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Producers</span></div><div class="step"><span class="snum">2</span><span>Primary Consumers</span></div><div class="step"><span class="snum">3</span><span>Secondary Consumers</span></div><div class="step"><span class="snum">4</span><span>Tertiary Consumers</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Energy Flow: The <span class="hl">10% Law</span></h2>
+          <ul><li>Only about 10% of energy is transferred to the next trophic level.</li><li>The rest is lost as heat or used for metabolic processes.</li><li>Limits the number of trophic levels in an ecosystem.</li></ul>
+          <p class="notes">🎙️ This law explains why there are fewer top predators than producers. A large amount of energy is lost at each step, meaning less and less energy is available as you go higher up the food chain.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Pyramid_of_energy.svg?width=500" data-fb="🔬" alt="Energy flows through ecosystems from sun to producers to consumers to decomposers, with ~1"/><div class="vcap">Energy flows through ecosystems from sun to producers to consumers to decomposers, with ~1</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Ozone Layer</span> Depletion: Our Shield Under Threat</h2>
+          <ul><li>Ozone layer protects Earth from harmful UV radiation.</li><li>Depleted by chemicals like CFCs (Chlorofluorocarbons).</li><li>Leads to skin cancer, cataracts, and crop damage.</li></ul>
+          <p class="notes">🎙️ The ozone layer is like Earth's natural sunscreen, shielding us from dangerous UV rays. However, human-made chemicals have been damaging this layer, posing serious health and environmental risks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Waste Management</span>: A Growing Challenge</h2>
+          <ul><li>Accumulation of unwanted materials.</li><li>Causes pollution of land, water, and air.</li><li>Requires proper disposal and treatment methods.</li></ul>
+          <p class="notes">🎙️ Our modern lifestyle generates a lot of waste. If not managed properly, this waste pollutes our surroundings, harms wildlife, and can even affect human health. It's a significant environmental concern.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span></div><div class="vcap">Too Much Waste</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Biodegradable</span> Waste: Nature's Recyclables</h2>
+          <ul><li>Waste that can be broken down by microorganisms.</li><li>Examples: food scraps, paper, plant remains, animal waste.</li><li>Can be composted to create useful manure.</li></ul>
+          <p class="notes">🎙️ Biodegradable waste is natural waste that can decompose over time with the help of bacteria and fungi. Think of fruit peels or leftover food – they eventually break down and return to the soil.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Decomposing Food</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Non-Biodegradable</span> Waste: Persistent Pollutants</h2>
+          <ul><li>Waste that cannot be broken down naturally.</li><li>Examples: plastics, glass, metals, chemicals.</li><li>Accumulates in the environment for very long periods.</li></ul>
+          <p class="notes">🎙️ Non-biodegradable waste, like plastic bottles or glass, doesn't break down easily. It remains in the environment for hundreds or thousands of years, causing long-term pollution and harm.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍾</span><span>🍾</span><span>🍾</span><span>🍾</span><span>🍾</span></div><div class="vcap">Plastic Bottles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Waste Management: The <span class="hl">3 R's</span></h2>
+          <ul><li>Reduce: Use less, avoid unnecessary items.</li><li>Reuse: Use items again instead of discarding them.</li><li>Recycle: Convert waste materials into new products.</li></ul>
+          <p class="notes">🎙️ The '3 R's' are a powerful strategy for waste management. By reducing what we consume, reusing items, and recycling materials, we can significantly lessen our impact on the environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Reduce, Reuse, Recycle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
+          <ul><li>Which of these is NOT an abiotic component of an ecosystem?</li><li>A) Sunlight</li><li>B) Water</li><li>C) Plants</li><li>D) Air</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. Take a moment to think about the difference between living and non-living components we discussed earlier. Which option doesn't fit with the others?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
+          <ul><li>What percentage of energy is typically transferred from one trophic level to the next?</li><li>A) 1%</li><li>B) 10%</li><li>C) 50%</li><li>D) 90%</li></ul>
+          <p class="notes">🎙️ Remember the rule about energy transfer in food chains. It's a very specific percentage. This concept helps explain why ecosystems have limited trophic levels.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
+          <ul><li>Which of the following is an example of non-biodegradable waste?</li><li>A) Vegetable peels</li><li>B) Paper</li><li>C) Plastic bottle</li><li>D) Leaves</li></ul>
+          <p class="notes">🎙️ Think about what breaks down naturally and what doesn't. This distinction is crucial for understanding how different types of waste impact our environment.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Understanding Our Environment</h2>
+          <ul><li>Environment includes biotic and abiotic components.</li><li>Ecosystems are interacting communities.</li><li>Energy flows through food chains and webs.</li><li>Ozone depletion and waste are major threats.</li><li>We must practice 3 R's for a sustainable future.</li></ul>
+          <p class="notes">🎙️ Today, we covered many important aspects of our environment. We learned about the intricate connections in ecosystems, how energy moves, and the challenges we face with pollution. Remember, protecting our environment is everyone's responsibility.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Karnataka Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

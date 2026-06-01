@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Heredity and Evolution — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Heredity and Evolution: Unlocking Life's <span class="hl">Secrets</span>!</h2>
+          <ul><li>Explore how traits pass from parents to offspring.</li><li>Understand the amazing journey of life's changes over time.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey to understand two fundamental concepts in biology: Heredity and Evolution. Get ready to discover what makes each of us unique and how life on Earth has transformed over millions of years.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Heredity</span>: Passing on Traits</h2>
+          <ul><li>The process of transferring characteristics from parents to offspring.</li><li>Why you might resemble your parents or grandparents.</li><li>It's all about genetic information!</li></ul>
+          <p class="notes">🎙️ Heredity is simply the mechanism by which features like eye color, hair type, or even certain talents are passed down through generations. Think of it as a biological blueprint that gets copied and shared. This ensures continuity of species.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">DNA: Blueprint of Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Variation</span>: The Spice of Life</h2>
+          <ul><li>Differences among individuals of the same species.</li><li>No two individuals are exactly alike (except identical twins).</li><li>Crucial for evolution and adaptation.</li></ul>
+          <p class="notes">🎙️ While heredity passes traits, variation ensures that not everyone is an exact copy. These differences, big or small, are called variations. They are vital because they provide the raw material for natural selection to act upon, leading to adaptation and evolution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Diversity in Nature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Family Traits</span>: A Real-Life Example</h2>
+          <ul><li>Observe your family members.</li><li>Notice similarities in eye color, hair texture, or height.</li><li>These are inherited traits passed down.</li></ul>
+          <p class="notes">🎙️ Take a moment to look at your own family. Do you have your mother's eyes or your father's smile? These visible resemblances are direct examples of heredity in action. It's fascinating how specific traits reappear across generations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span></div><div class="vcap">My Family!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Genetics</span>: The Study of Heredity</h2>
+          <ul><li>The branch of biology focused on heredity and variation.</li><li>Explains how traits are inherited.</li><li>Uses terms like genes, alleles, and chromosomes.</li></ul>
+          <p class="notes">🎙️ Genetics is the scientific field that delves deep into how heredity works. It's like being a detective, uncovering the rules and mechanisms behind the passing of traits. This field helps us understand everything from diseases to species development.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Unveiling Genetic Secrets</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Gregor <span class="hl">Mendel</span>: The Pioneer</h2>
+          <ul><li>An Austrian monk who conducted experiments on pea plants.</li><li>His work laid the foundation for modern genetics.</li><li>Known as the 'Father of Genetics'.</li></ul>
+          <p class="notes">🎙️ Centuries ago, Gregor Mendel, working in his monastery garden, meticulously studied pea plants. His groundbreaking experiments, though initially overlooked, revealed the fundamental principles of inheritance. His insights were truly revolutionary.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🔬</div><div class="vcap">Mendel's Legacy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Why <span class="hl">Pea Plants</span>? Mendel's Smart Choice</h2>
+          <ul><li>Easy to grow and maintain.</li><li>Showed several contrasting traits (e.g., tall/dwarf, round/wrinkled).</li><li>Self-pollinating, but could be cross-pollinated manually.</li></ul>
+          <p class="notes">🎙️ Mendel's choice of pea plants was brilliant. They grow quickly, produce many offspring, and have clearly distinguishable characteristics. This made it much easier for him to track how traits were passed down through generations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Pea Plant Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Understanding Genetic <span class="hl">Vocabulary</span></h2>
+          <ul><li>**Gene:** A unit of heredity, a segment of DNA.</li><li>**Allele:** Different forms of a gene (e.g., tall or dwarf).</li><li>**Dominant Allele:** Expressed even if only one copy is present.</li><li>**Recessive Allele:** Expressed only if two copies are present.</li></ul>
+          <p class="notes">🎙️ To understand Mendel's work, we need to learn some key terms. Genes are like instructions, and alleles are the different versions of those instructions. Dominant alleles are strong, while recessive ones are hidden unless two copies are together.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Genetic Dictionary</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Monohybrid Cross</span>: One Trait at a Time</h2>
+          <ul><li>Involves studying the inheritance of a single contrasting trait.</li><li>Mendel crossed pure tall and pure dwarf pea plants.</li><li>Observed the first (F1) and second (F2) generations.</li></ul>
+          <p class="notes">🎙️ A monohybrid cross is a simple way to track one trait. Mendel started with 'pure' parents, meaning they only carried one type of allele for that trait. He then observed what happened in their children (F1) and grandchildren (F2).</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Punnett_square.svg?width=500" data-fb="🔬" alt="Monohybrid and dihybrid crosses demonstrate Mendel's laws through Punnett squares showing "/><div class="vcap">Monohybrid and dihybrid crosses demonstrate Mendel's laws through Punnett squares showing </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Monohybrid Cross: <span class="hl">Tall vs. Dwarf</span></h2>
+          <ul><li>P: Pure Tall (TT) x Pure Dwarf (tt)</li><li>F1: All Tall (Tt) - Dominant trait expressed.</li><li>F2: 3 Tall (TT, Tt, Tt) : 1 Dwarf (tt) ratio.</li></ul>
+          <p class="notes">🎙️ When Mendel crossed a pure tall plant with a pure dwarf plant, all the F1 offspring were tall. But in the F2 generation, he observed a 3:1 ratio of tall to dwarf plants. This showed that the dwarf trait wasn't lost, just hidden.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tall Plants (F2)</div></div><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Dwarf Plants (F2)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Law of <span class="hl">Segregation</span>: Alleles Separate</h2>
+          <ul><li>During gamete formation, the two alleles for a trait separate.</li><li>Each gamete receives only one allele.</li><li>Ensures genetic variation in offspring.</li></ul>
+          <p class="notes">🎙️ This law states that when an organism produces sex cells (gametes), the two alleles for each trait split up. So, each gamete carries only one allele for a particular characteristic. This is crucial for creating new combinations in the next generation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Allele Separation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Dihybrid Cross</span>: Two Traits Together</h2>
+          <ul><li>Studies the inheritance of two different traits simultaneously.</li><li>Example: Seed shape (Round/Wrinkled) and Seed color (Yellow/Green).</li><li>More complex, but reveals how traits combine.</li></ul>
+          <p class="notes">🎙️ A dihybrid cross takes things a step further by looking at two traits at once. Mendel observed how seed shape and seed color were inherited together. This experiment helped him understand if traits influenced each other's inheritance.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parental (P) Generation</span></div><div class="step"><span class="snum">2</span><span>First Filial (F1) Generation</span></div><div class="step"><span class="snum">3</span><span>Second Filial (F2) Generation</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Law of <span class="hl">Independent Assortment</span></h2>
+          <ul><li>Alleles for different traits assort independently of each other.</li><li>The inheritance of one trait does not influence another.</li><li>Leads to new combinations of traits in offspring.</li></ul>
+          <p class="notes">🎙️ This law means that the way one pair of alleles separates doesn't affect how another pair separates. For example, the inheritance of seed color doesn't depend on the inheritance of seed shape. This random mixing creates a lot of genetic diversity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div><div class="vcap">Random Combination</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span>: Test Your Mendel Knowledge!</h2>
+          <ul><li>Who is known as the 'Father of Genetics'?</li><li>What is the difference between a dominant and a recessive allele?</li><li>Name one reason Mendel chose pea plants for his experiments.</li></ul>
+          <p class="notes">🎙️ Time for a quick check to see if you've grasped the concepts of heredity and Mendel's laws. Think about these questions, and we'll discuss the answers briefly before moving on to evolution.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Sex Determination</span>: XX or XY?</h2>
+          <ul><li>Humans have 23 pairs of chromosomes.</li><li>22 pairs are autosomes, 1 pair are sex chromosomes.</li><li>Females have XX, Males have XY.</li></ul>
+          <p class="notes">🎙️ One fascinating aspect of heredity is how sex is determined. In humans, it's all thanks to a special pair of chromosomes called sex chromosomes. Females carry two X chromosomes, while males carry one X and one Y chromosome.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Sex_chromosomes.svg?width=500" data-fb="🚻" alt="Sex determination varies across species using chromosomal systems (XX/XY in mammals, ZW/ZZ"/><div class="vcap">Sex determination varies across species using chromosomal systems (XX/XY in mammals, ZW/ZZ</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Evolution</span>: Change Over Time</h2>
+          <ul><li>The gradual change in the characteristics of a species over many generations.</li><li>Life forms adapt to their environment.</li><li>Not a sudden event, but a slow, continuous process.</li></ul>
+          <p class="notes">🎙️ Now, let's shift our focus to evolution. Evolution is the incredible process by which populations of organisms change over vast periods. It's how life has diversified from simple single-celled organisms to the complex biodiversity we see today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Time &amp; Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Evidence of Evolution: <span class="hl">Fossils</span> - Windows to the Past</h2>
+          <ul><li>Preserved remains or traces of ancient organisms.</li><li>Show how species have changed over geological time.</li><li>Help us trace evolutionary lineages.</li></ul>
+          <p class="notes">🎙️ How do we know evolution happened? Fossils are like historical records embedded in rocks. They provide direct evidence of past life forms and show us the gradual transitions and changes that species underwent over millions of years.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦴</div><div class="vcap">Ancient Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Evidence of Evolution: <span class="hl">Homologous Organs</span></h2>
+          <ul><li>Organs with similar basic structure but different functions.</li><li>Suggest a common ancestry.</li><li>Example: Forelimbs of humans, bats, whales, and cats.</li></ul>
+          <p class="notes">🎙️ Another powerful piece of evidence comes from comparing the anatomy of different species. Homologous organs, like the bones in our arm and a bat's wing, have the same underlying structure, indicating they evolved from a common ancestor.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Human Arm</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bat Wing</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Whale Flipper</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Natural Selection</span>: Survival of the Fittest</h2>
+          <ul><li>Mechanism proposed by Charles Darwin.</li><li>Organisms best adapted to their environment survive and reproduce.</li><li>Pass on their advantageous traits to offspring.</li></ul>
+          <p class="notes">🎙️ Natural selection is the driving force behind evolution. It's a simple yet profound idea: in any population, individuals with traits that help them survive and reproduce in their specific environment are more likely to pass those traits on. Over time, these advantageous traits become more common.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" src="https://en.wikipedia.org/wiki/Special:FilePath/Origin_of_Species_03.jpg?width=500" data-fb="🦅" alt="Evolution is the change in populations over time. Natural selection, variation, and adapta"/><div class="vcap">Evolution is the change in populations over time. Natural selection, variation, and adapta</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Real Example: <span class="hl">Peppered Moths</span> and Industrial Revolution</h2>
+          <ul><li>Before industrialization: light-colored moths were camouflaged.</li><li>After industrialization: dark-colored moths became camouflaged on sooty trees.</li><li>A classic example of natural selection in action.</li></ul>
+          <p class="notes">🎙️ The peppered moth story is a perfect example. Before pollution, light moths blended in. When factories made trees dark, dark moths had an advantage. This rapid change in moth population illustrates how natural selection can quickly alter a species.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦋</span><span>🦋</span><span>🦋</span><span>🦋</span></div><div class="vcap">Moths Adapting</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Speciation</span>: How New Species Form</h2>
+          <ul><li>The process by which new species arise from existing ones.</li><li>Often involves geographical isolation and genetic divergence.</li><li>Leads to the vast diversity of life on Earth.</li></ul>
+          <p class="notes">🎙️ Speciation is the ultimate outcome of evolution – the birth of entirely new species. This often happens when populations are separated, face different environmental pressures, and over time, accumulate enough genetic differences that they can no longer interbreed.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Genetic Variation</span></div><div class="step"><span class="snum">2</span><span>Geographical Isolation</span></div><div class="step"><span class="snum">3</span><span>Natural Selection</span></div><div class="step"><span class="snum">4</span><span>Reproductive Isolation</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Human Evolution</span>: Our Ancestral Journey</h2>
+          <ul><li>Tracing the evolutionary history of humans.</li><li>Shared common ancestors with other primates.</li><li>Key milestones include bipedalism, brain development, and tool use.</li></ul>
+          <p class="notes">🎙️ Our own species, Homo sapiens, is also a product of evolution. We share a common ancestor with other great apes. Over millions of years, traits like walking upright, developing larger brains, and creating tools have shaped our evolutionary path.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♂️</div><div class="vcap">From Apes to Humans</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check: <span class="hl">Evolution</span> in Focus!</h2>
+          <ul><li>What is the main idea behind natural selection?</li><li>Name two pieces of evidence for evolution.</li><li>What is speciation?</li></ul>
+          <p class="notes">🎙️ Another quick check to consolidate your understanding of evolution. These concepts are fundamental to biology, so make sure you can explain them clearly. We're almost at the end of our chapter journey!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Heredity and Evolution</h2>
+          <ul><li>Heredity: Traits passed from parents to offspring.</li><li>Mendel's Laws: Segregation and Independent Assortment.</li><li>Evolution: Gradual change in species over time.</li><li>Natural Selection: Key mechanism of evolution.</li></ul>
+          <p class="notes">🎙️ To summarize, we've explored how traits are inherited through heredity, guided by Mendel's pioneering work. We then ventured into evolution, understanding how species change over vast periods, driven by forces like natural selection, leading to incredible diversity.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Any <span class="hl">Questions</span>?</h2>
+          <ul><li>Hope you enjoyed learning about Heredity and Evolution!</li><li>Feel free to ask any doubts you may have.</li><li>Keep exploring the wonders of Science!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on Heredity and Evolution. This is a vast and fascinating topic, and I encourage you to continue reading and learning more. If you have any questions, please don't hesitate to ask!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

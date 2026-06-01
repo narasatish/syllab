@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Mathematics: Constructions - Class 10 — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter: <span class="hl">Constructions</span> - Class 10 Mathematics</h2>
+          <ul><li>Welcome to the world of geometric constructions!</li><li>We will learn how to draw precise shapes and figures.</li><li>This chapter builds on your basic geometry skills.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter on 'Constructions' for Class 10. This topic is all about drawing geometric figures accurately using only a compass and a ruler. It's like being a detective, following clues to create perfect shapes!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Geometric Constructions</span>?</h2>
+          <ul><li>Drawing geometric figures precisely.</li><li>Using only a compass and an ungraduated ruler (straightedge).</li><li>Essential for design, engineering, and architecture.</li></ul>
+          <p class="notes">🎙️ Geometric constructions are about creating exact figures without relying on measurements from a protractor or a marked ruler. We learn to construct angles, lines, and shapes based on mathematical principles. This skill is fundamental in many real-world applications, from building bridges to designing intricate patterns.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Precision Drawing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Tools</span> of Construction</h2>
+          <ul><li>Ruler (Straightedge): For drawing straight lines.</li><li>Compass: For drawing arcs and circles, and marking equal lengths.</li><li>Accuracy is key for perfect constructions.</li></ul>
+          <p class="notes">🎙️ Our primary tools for this chapter are the ruler, which helps us draw straight lines, and the compass, which is indispensable for drawing circles and transferring lengths. Remember, the ruler is used only for drawing lines, not for measuring specific lengths directly during the construction steps.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Ruler and Compass</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Concept: <span class="hl">Dividing a Line Segment</span> in a Given Ratio</h2>
+          <ul><li>To divide a line segment into two parts in a specific ratio.</li><li>For example, dividing a line AB in the ratio m:n.</li><li>This is a fundamental construction in Class 10.</li></ul>
+          <p class="notes">🎙️ One of the first important constructions we'll tackle is dividing a line segment into a given ratio. This means if you have a line segment of a certain length, you want to find a point on it that splits the segment into two smaller segments whose lengths are in a particular proportion. Let's explore how to do this accurately.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Ratio Division</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Steps</span>: Dividing a Line Segment (Method 1)</h2>
+          <ul><li>Draw line segment AB.</li><li>Draw a ray AX making an acute angle with AB.</li><li>Mark m+n points on AX at equal distances.</li><li>Join B to the (m+n)th point.</li><li>Draw a parallel line to divide AB.</li></ul>
+          <p class="notes">🎙️ This method uses the concept of parallel lines and basic proportionality theorem. First, we draw our line segment and an auxiliary ray. Then, we mark points on the ray, corresponding to the sum of the ratio parts. The trick is to draw a line parallel to the one connecting the last point to B, passing through the 'm'th point.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw AB &amp; Ray AX</span></div><div class="step"><span class="snum">2</span><span>Mark m+n points</span></div><div class="step"><span class="snum">3</span><span>Join last point to B</span></div><div class="step"><span class="snum">4</span><span>Draw parallel line</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Example</span>: Divide 7.6 cm Line in Ratio 5:8</h2>
+          <ul><li>Draw AB = 7.6 cm.</li><li>Draw ray AX, mark 13 points (A1 to A13).</li><li>Join B to A13.</li><li>Draw A5C || A13B, where C is on AB.</li></ul>
+          <p class="notes">🎙️ Let's apply the first method to a concrete example. We need to divide a 7.6 cm line into a 5:8 ratio. This means we'll mark 5+8=13 points on our ray. The point C that divides AB will be found by drawing a line parallel to A13B from A5. This ensures AC:CB = 5:8.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Steps: Dividing a Line Segment (<span class="hl">Method 2</span>)</h2>
+          <ul><li>Draw line segment AB.</li><li>Draw rays AX and BY parallel and opposite.</li><li>Mark m points on AX, n points on BY (equal distances).</li><li>Join Am to Bn. This line intersects AB at C.</li></ul>
+          <p class="notes">🎙️ This second method is equally effective and involves drawing two parallel rays from points A and B, but in opposite directions. We then mark 'm' points on one ray and 'n' points on the other. Connecting the 'm'th point on AX to the 'n'th point on BY will give us the point C on AB that divides it in the desired ratio.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw AB &amp; parallel rays</span></div><div class="step"><span class="snum">2</span><span>Mark m points on AX</span></div><div class="step"><span class="snum">3</span><span>Mark n points on BY</span></div><div class="step"><span class="snum">4</span><span>Join Am to Bn</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Example</span>: Divide 6 cm Line in Ratio 3:2 (Method 2)</h2>
+          <ul><li>Draw AB = 6 cm.</li><li>Draw ray AX and parallel ray BY (opposite sides).</li><li>Mark A1, A2, A3 on AX; B1, B2 on BY.</li><li>Join A3 to B2. This line cuts AB at C.</li></ul>
+          <p class="notes">🎙️ For this example, we'll divide a 6 cm line segment in the ratio 3:2 using Method 2. This means we'll mark 3 points on ray AX and 2 points on ray BY. The intersection of the line joining A3 and B2 with AB will be our desired point C, ensuring AC:CB = 3:2.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Quick Check</span> 1: Ratio Division</h2>
+          <ul><li>If you divide a line segment in ratio 1:1, what does the point of division represent?</li><li>What theorem is implicitly used in Method 1?</li><li>Why is it important for the points on the ray to be equally spaced?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about what happens when the ratio is 1:1. Also, recall the theorem that relates parallel lines and proportionality, which is key to Method 1. The equal spacing of points is crucial for maintaining the correct ratio.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Think!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Concept: Constructing <span class="hl">Similar Triangles</span></h2>
+          <ul><li>Triangles with same shape but possibly different sizes.</li><li>Corresponding angles are equal.</li><li>Corresponding sides are in the same ratio (scale factor).</li></ul>
+          <p class="notes">🎙️ Now, let's move on to constructing similar triangles. Remember, similar triangles look alike but can be scaled up or down versions of each other. This means their angles are identical, but their side lengths are proportional. We'll learn how to construct a new triangle that is similar to a given one, based on a specific scale factor.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">△</div><div class="vcap">Same Shape, Different Size</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Understanding <span class="hl">Scale Factor</span></h2>
+          <ul><li>The ratio of corresponding sides of similar triangles.</li><li>If scale factor &gt; 1, the new triangle is larger.</li><li>If scale factor &lt; 1, the new triangle is smaller.</li></ul>
+          <p class="notes">🎙️ The scale factor tells us how much larger or smaller the new triangle will be compared to the original. A scale factor greater than 1 means enlargement, while less than 1 means reduction. For example, a scale factor of 2 means each side of the new triangle will be twice as long as the original.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Scale Factor 0.5</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Scale Factor 1</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Scale Factor 2</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Steps</span>: Similar Triangle (Scale Factor &lt; 1)</h2>
+          <ul><li>Draw the given triangle ABC.</li><li>Draw a ray BX making an acute angle with BC.</li><li>Mark 'm' points on BX (m = denominator of scale factor).</li><li>Join Bm to C. Draw a parallel line from B(numerator) to intersect BC at C'.</li><li>Draw a parallel line from C' to intersect AB at A'.</li></ul>
+          <p class="notes">🎙️ When constructing a smaller similar triangle (scale factor less than 1), we'll use a method similar to dividing a line segment. We start by drawing the original triangle. Then, we construct a new base segment on one side, scaled down by the given factor. Finally, we complete the triangle by drawing a parallel line to the third side.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw original triangle</span></div><div class="step"><span class="snum">2</span><span>Draw ray &amp; mark points</span></div><div class="step"><span class="snum">3</span><span>Construct base segment</span></div><div class="step"><span class="snum">4</span><span>Construct final side</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Example</span>: Similar Triangle (Scale Factor 2/3)</h2>
+          <ul><li>Construct a triangle ABC with sides 4, 5, 6 cm.</li><li>Construct another triangle whose sides are 2/3 of corresponding sides of ΔABC.</li><li>The new triangle ΔA'BC' will be smaller.</li></ul>
+          <p class="notes">🎙️ Let's work through an example where the scale factor is 2/3. First, construct the initial triangle ABC with the given side lengths. Then, follow the steps to create a smaller triangle A'BC'. The key is to correctly use the ratio 2/3 to divide the base and then draw parallel lines to form the new triangle.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Steps</span>: Similar Triangle (Scale Factor &gt; 1)</h2>
+          <ul><li>Draw the given triangle ABC.</li><li>Draw a ray BX making an acute angle with BC.</li><li>Mark 'm' points on BX (m = numerator of scale factor).</li><li>Join B(denominator) to C. Draw a parallel line from B(numerator) to intersect extended BC at C'.</li><li>Draw a parallel line from C' to intersect extended AB at A'.</li></ul>
+          <p class="notes">🎙️ For a larger similar triangle (scale factor greater than 1), the process is quite similar, but we'll be extending the sides of the original triangle. The denominator of the scale factor will be used to connect to point C, and the numerator will guide the parallel line construction on the extended ray. This will result in a larger triangle A'BC' that encloses the original triangle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw original triangle</span></div><div class="step"><span class="snum">2</span><span>Draw ray &amp; mark points</span></div><div class="step"><span class="snum">3</span><span>Extend base segment</span></div><div class="step"><span class="snum">4</span><span>Extend final side</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Example</span>: Similar Triangle (Scale Factor 5/3)</h2>
+          <ul><li>Construct a triangle ABC with sides 3, 4, 5 cm.</li><li>Construct another triangle whose sides are 5/3 of corresponding sides of ΔABC.</li><li>The new triangle ΔA'BC' will be larger.</li></ul>
+          <p class="notes">🎙️ Here, we'll construct a triangle with a scale factor of 5/3, which means it will be larger than the original. After drawing the initial triangle, extend the base BC and ray BX. The construction involves joining B3 to C and then drawing a parallel line from B5 to the extended BC, and similarly for the other side. This will give us the larger similar triangle.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Real-life Use: <span class="hl">Scaling Designs</span></h2>
+          <ul><li>Architects use similar triangles to scale blueprints.</li><li>Engineers scale models of bridges or planes.</li><li>Map makers use scale factors to represent large areas.</li></ul>
+          <p class="notes">🎙️ Similar triangles are not just for textbooks; they are fundamental in many professions. Architects use them to draw blueprints that are scaled-down versions of actual buildings. Engineers create models of structures to test designs, and these models are similar to the real structures. Even map-making relies heavily on the concept of scale factors, representing vast landscapes on a small piece of paper.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Blueprint Scaling</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Quick Check</span> 2: Similar Triangles</h2>
+          <ul><li>If two triangles are congruent, are they also similar?</li><li>If the scale factor is 1, what can you say about the two triangles?</li><li>What is the minimum information needed to construct a triangle similar to a given one?</li></ul>
+          <p class="notes">🎙️ Think about the relationship between congruence and similarity. Are all congruent triangles similar? What if the scale factor is exactly 1? Also, consider what essential information you need to successfully construct a similar triangle. This will help solidify your understanding of the concepts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Congruent or Similar?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Concept: Constructing <span class="hl">Tangents</span> to a Circle</h2>
+          <ul><li>A tangent is a line that touches a circle at exactly one point.</li><li>The point of contact is called the point of tangency.</li><li>Important in geometry and real-world applications.</li></ul>
+          <p class="notes">🎙️ Our final major construction involves tangents to a circle. A tangent is a very special line that 'kisses' the circle at precisely one point without entering its interior. Understanding how to construct tangents is crucial and has many practical applications, such as in designing gears or understanding motion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Touching at One Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Tangent Property: Radius <span class="hl">Perpendicular</span> to Tangent</h2>
+          <ul><li>The radius drawn to the point of tangency is always perpendicular to the tangent.</li><li>This property is key for constructing tangents.</li><li>Forms a 90-degree angle at the point of contact.</li></ul>
+          <p class="notes">🎙️ The most fundamental property of a tangent is its relationship with the circle's radius. At the exact point where the tangent touches the circle, the radius drawn to that point will always form a perfect 90-degree angle with the tangent line. This perpendicularity is the secret sauce for constructing tangents accurately.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚪</div><div class="vcap">Right Angle Relation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Steps</span>: Tangent at a Point on the Circle</h2>
+          <ul><li>Draw a circle with center O and desired radius.</li><li>Mark a point P on the circle.</li><li>Draw the radius OP.</li><li>Construct a line perpendicular to OP passing through P.</li></ul>
+          <p class="notes">🎙️ To draw a tangent at a specific point on the circle, we first draw the circle and mark the point P. Then, we draw the radius connecting the center O to P. The next step is to construct a line that is perpendicular to this radius OP, right at point P. This perpendicular line will be our tangent.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw circle &amp; point P</span></div><div class="step"><span class="snum">2</span><span>Draw radius OP</span></div><div class="step"><span class="snum">3</span><span>Construct perpendicular</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Example</span>: Tangent at P on 4cm Circle</h2>
+          <ul><li>Draw a circle with radius 4 cm.</li><li>Take any point P on the circle.</li><li>Draw radius OP.</li><li>Construct a perpendicular to OP at P.</li></ul>
+          <p class="notes">🎙️ Let's apply these steps to construct a tangent. Draw a circle of 4 cm radius. Choose any point P on its circumference. Draw the radius OP. Now, using your compass and ruler, construct a line perpendicular to OP that passes through P. This line is the tangent to the circle at point P.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Steps</span>: Tangents from an External Point to a Circle</h2>
+          <ul><li>Draw a circle with center O and radius r.</li><li>Mark an external point P.</li><li>Join OP and bisect it to find its midpoint M.</li><li>With M as center and MO as radius, draw a new circle.</li><li>The new circle intersects the original circle at T1 and T2. Join PT1 and PT2.</li></ul>
+          <p class="notes">🎙️ To draw tangents from a point outside the circle, we use a clever trick involving another circle. First, draw the original circle and the external point P. Join O to P and find the midpoint M of OP. Using M as the center, draw a circle that passes through O and P. The points where this new circle intersects the original circle are our points of tangency. Joining P to these points gives the two tangents.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw circle &amp; point P</span></div><div class="step"><span class="snum">2</span><span>Bisect OP</span></div><div class="step"><span class="snum">3</span><span>Draw new circle</span></div><div class="step"><span class="snum">4</span><span>Join P to intersections</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Example</span>: Tangents from 7cm Away to 3cm Radius Circle</h2>
+          <ul><li>Draw a circle of radius 3 cm.</li><li>Mark a point P, 7 cm away from the center O.</li><li>Find the midpoint of OP (let's say M).</li><li>Draw a circle with center M and radius MO.</li><li>Join P to the intersection points on the 3 cm circle.</li></ul>
+          <p class="notes">🎙️ In this example, we have a circle of 3 cm radius and an external point P located 7 cm from the center. Follow the steps: find the midpoint of OP, then draw a 'helper' circle. This helper circle will show you exactly where the tangents touch the original circle. Connect P to these points, and you have your two tangents.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Real-life Use: <span class="hl">Gears and Wheels</span></h2>
+          <ul><li>Tangents are used in designing gears to ensure smooth contact.</li><li>Wheel and road contact is a tangential relationship.</li><li>Understanding tangents helps in mechanics and engineering.</li></ul>
+          <p class="notes">🎙️ Tangents are incredibly important in mechanical engineering. Think about gears in a machine: their teeth are designed to touch tangentially for efficient power transfer. The point where a car wheel meets the road is also a point of tangency. These constructions help engineers visualize and design systems where smooth and precise contact is essential.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Smooth Contact</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Constructions of Class 10</h2>
+          <ul><li>Dividing a line segment in a given ratio.</li><li>Constructing similar triangles with a given scale factor.</li><li>Constructing tangents to a circle from a point on/outside it.</li><li>Always use a ruler and compass accurately!</li></ul>
+          <p class="notes">🎙️ We've covered three major construction topics for Class 10: dividing a line segment, constructing similar triangles, and drawing tangents to a circle. Remember the importance of accuracy and following the steps meticulously. These constructions form the foundation for many advanced geometric concepts and real-world applications. Keep practicing!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Karnataka Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

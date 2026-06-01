@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Areas Related to Circles — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to Areas Related to <span class="hl">Circles</span>!</h2>
+          <ul><li>A fascinating journey into the world of circular shapes.</li><li>Understand how to measure space and boundaries of circles.</li><li>Explore real-life applications of these concepts.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting chapter: Areas Related to Circles. This topic is not just about formulas; it's about understanding the space around us. We'll learn to calculate areas and perimeters of various circular parts and see how they apply in our daily lives.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Our <span class="hl">Journey</span> Today: What We Will Learn</h2>
+          <ul><li>Revisit basic circle concepts.</li><li>Calculate area and circumference of a circle.</li><li>Understand and find areas of sectors and segments.</li><li>Solve problems involving combinations of plane figures.</li></ul>
+          <p class="notes">🎙️ Our learning path today is structured to build your understanding step-by-step. We'll start with the fundamentals, then move to more complex calculations involving parts of a circle, and finally, look at how these shapes combine. Get ready for an engaging session!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Circle Basics</span></div><div class="step"><span class="snum">2</span><span>Area &amp; Circumference</span></div><div class="step"><span class="snum">3</span><span>Sectors &amp; Segments</span></div><div class="step"><span class="snum">4</span><span>Combined Shapes</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Quick Recall: What is a <span class="hl">Circle</span>?</h2>
+          <ul><li>A circle is a set of all points in a plane that are equidistant from a fixed point.</li><li>The fixed point is called the 'center'.</li><li>The constant distance is called the 'radius'.</li></ul>
+          <p class="notes">🎙️ Before we dive into areas, let's quickly refresh our memory on what a circle truly is. Remember, every point on the boundary of a circle is the same distance from its center. This fundamental definition is key to understanding all related concepts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">A perfect circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Key Terms</span> of a Circle: Radius, Diameter, Circumference</h2>
+          <ul><li>Radius (r): Distance from center to any point on the circle.</li><li>Diameter (d): Distance across the circle through the center (d = 2r).</li><li>Circumference (C): The distance around the circle (C = 2πr or πd).</li></ul>
+          <p class="notes">🎙️ These three terms – radius, diameter, and circumference – are the building blocks for all our calculations. Make sure you clearly understand the relationship between them, especially how the diameter is twice the radius. The circumference is essentially the perimeter of the circle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring a circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The Space Within: <span class="hl">Area</span> of a Circle</h2>
+          <ul><li>Area is the amount of surface enclosed by the boundary of a circle.</li><li>It tells us how much space the circle occupies.</li><li>Measured in square units (e.g., cm², m²).</li></ul>
+          <p class="notes">🎙️ Imagine a circular field or a circular table. The area of the circle tells us the total amount of land in the field or the surface of the table. It's about the two-dimensional space that the circle covers, which is different from its boundary length, the circumference.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥧</div><div class="vcap">Space of a pie</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Formula</span> for Area of a Circle</h2>
+          <ul><li>The area (A) of a circle with radius 'r' is given by A = πr².</li><li>Here, π (pi) is a mathematical constant, approximately 22/7 or 3.14.</li><li>Real-life example: How much dough is needed for a circular pizza?</li></ul>
+          <p class="notes">🎙️ The formula A = πr² is fundamental. Remember, 'r' is the radius, and π is a constant value. Think about a pizza: the area tells you how much pizza there is to eat! If you increase the radius, the area increases much faster because it's squared.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span><span>🍕</span></div><div class="vcap">Pizza slices showing area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Let's <span class="hl">Calculate</span>: Area of a Circular Park</h2>
+          <ul><li>Problem: Find the area of a circular park with a radius of 21 meters.</li><li>Step 1: Identify the given radius, r = 21 m.</li><li>Step 2: Use the formula A = πr².</li><li>Step 3: Substitute values: A = (22/7) × (21)² = 22/7 × 21 × 21.</li></ul>
+          <p class="notes">🎙️ Let's work through an example together. If a park has a radius of 21 meters, applying the formula is straightforward. We use the approximate value of π as 22/7 for easier calculation. Notice how the units become square meters for area.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Given r = 21m</span></div><div class="step"><span class="snum">2</span><span>Formula A = πr²</span></div><div class="step"><span class="snum">3</span><span>A = 22/7 × 21²</span></div><div class="step"><span class="snum">4</span><span>A = 1386 m²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Around the Edge: <span class="hl">Circumference</span> of a Circle</h2>
+          <ul><li>Circumference is the total distance around the boundary of a circle.</li><li>It's like the perimeter of other shapes.</li><li>Formula: C = 2πr or C = πd, where 'r' is radius and 'd' is diameter.</li></ul>
+          <p class="notes">🎙️ While area tells us the space inside, circumference tells us the length of the boundary. Imagine walking around a circular track; the distance you cover in one round is its circumference. Remember the two forms of the formula, using either radius or diameter.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➰</div><div class="vcap">A winding path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Perimeter</span> of a Circular Track</h2>
+          <ul><li>Problem: A circular track has a diameter of 70 meters. Find its circumference.</li><li>Step 1: Identify the given diameter, d = 70 m.</li><li>Step 2: Use the formula C = πd.</li><li>Step 3: Substitute values: C = (22/7) × 70.</li></ul>
+          <p class="notes">🎙️ Here's an example using the diameter. If a track is 70 meters across, its circumference is easily found using the πd formula. This is useful for knowing how much fencing is needed around a circular garden or the length of a running track.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Given d = 70m</span></div><div class="step"><span class="snum">2</span><span>Formula C = πd</span></div><div class="step"><span class="snum">3</span><span>C = 22/7 × 70</span></div><div class="step"><span class="snum">4</span><span>C = 220 m</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Slicing the Circle: What is a <span class="hl">Sector</span>?</h2>
+          <ul><li>A sector is a portion of a circle enclosed by two radii and an arc.</li><li>Think of it as a 'slice' of pizza or a piece of a pie.</li><li>It has a specific central angle (θ).</li></ul>
+          <p class="notes">🎙️ Now we move to parts of a circle. A sector is like a wedge cut from the center. It's defined by two straight lines (radii) extending from the center to the edge, and the curved part of the circle between them, called an arc. The angle at the center is crucial.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">A slice of pizza</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Area</span> of a Sector of a Circle</h2>
+          <ul><li>The area of a sector depends on the central angle and the radius.</li><li>Formula: Area of Sector = (θ/360°) × πr².</li><li>Real-life example: The area of a fan's sweep or a clock's minute hand movement.</li></ul>
+          <p class="notes">🎙️ The area of a sector is a fraction of the total area of the circle. The fraction is determined by the central angle (θ) divided by 360 degrees, which represents the full circle. This formula is vital for calculating space in situations like a rotating sprinkler's coverage.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍰</span><span>🍰</span><span>🍰</span><span>🍰</span></div><div class="vcap">Parts of a pie</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Calculating</span> Area of a Sector</h2>
+          <ul><li>Problem: Find the area of a sector with radius 7 cm and central angle 90°.</li><li>Step 1: Given r = 7 cm, θ = 90°.</li><li>Step 2: Use the formula Area = (θ/360°) × πr².</li><li>Step 3: Substitute values: Area = (90/360) × (22/7) × (7)².</li></ul>
+          <p class="notes">🎙️ Let's apply the sector area formula. A 90-degree angle means it's a quarter of the circle, so we expect the area to be a quarter of the full circle's area. Always remember to simplify the fraction (θ/360°) first for easier calculation.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Given r=7cm, θ=90°</span></div><div class="step"><span class="snum">2</span><span>Formula (θ/360)πr²</span></div><div class="step"><span class="snum">3</span><span>(90/360) × 22/7 × 7²</span></div><div class="step"><span class="snum">4</span><span>Area = 38.5 cm²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Another Slice: What is a <span class="hl">Segment</span>?</h2>
+          <ul><li>A segment is a region of a circle bounded by a chord and an arc.</li><li>It's like the crust of a pizza slice cut straight across.</li><li>It can be a 'minor segment' (smaller) or 'major segment' (larger).</li></ul>
+          <p class="notes">🎙️ Now, let's look at segments. Unlike a sector, which is defined by radii, a segment is cut off by a straight line called a chord. Think of the shape of a crescent moon; that's a segment. We usually focus on finding the area of the minor segment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌙</div><div class="vcap">A crescent moon shape</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Area</span> of a Segment of a Circle</h2>
+          <ul><li>Area of Segment = Area of Sector - Area of Triangle.</li><li>The triangle is formed by the two radii and the chord.</li><li>Formula: Area = (θ/360°)πr² - ½r²sinθ (for a minor segment).</li></ul>
+          <p class="notes">🎙️ To find the area of a segment, we use a clever trick: we find the area of the sector that contains the segment, and then subtract the area of the triangle formed by the two radii and the chord. This leaves us with just the segment's area. Remember your trigonometry for the triangle area!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔺</span></div><div class="vcap">Segment and triangle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Finding</span> Area of a Segment</h2>
+          <ul><li>Problem: Find the area of the minor segment of a circle with radius 10 cm and central angle 90°.</li><li>Step 1: Calculate Area of Sector = (90/360) × π(10)² = 78.5 cm² (using π=3.14).</li><li>Step 2: Calculate Area of Triangle = ½ × base × height = ½ × 10 × 10 = 50 cm² (for 90°).</li><li>Step 3: Area of Segment = Area of Sector - Area of Triangle.</li></ul>
+          <p class="notes">🎙️ Let's walk through finding a segment's area. For a 90-degree angle, the triangle is a right-angled isosceles triangle, making its area calculation simple. Subtracting the triangle's area from the sector's area gives us the segment's area. Pay attention to using the correct value for π.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sector Area = 78.5 cm²</span></div><div class="step"><span class="snum">2</span><span>Triangle Area = 50 cm²</span></div><div class="step"><span class="snum">3</span><span>Segment Area = 28.5 cm²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Putting Shapes <span class="hl">Together</span>: Areas of Combined Figures</h2>
+          <ul><li>Many real-life objects are combinations of different geometric shapes.</li><li>We can find their areas by breaking them down into simpler components.</li><li>This often involves adding or subtracting areas of circles, squares, triangles, etc.</li></ul>
+          <p class="notes">🎙️ In the real world, shapes are rarely isolated. We often see designs or structures that are made by combining circles with squares, triangles, or other shapes. To find the total area, we learn to decompose these complex figures into simpler ones, then add or subtract their individual areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Puzzle pieces fitting together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Combining</span> Shapes: A Tablecloth Design</h2>
+          <ul><li>Example: A square tablecloth with circular designs.</li><li>To find the area of the cloth without designs, we subtract the area of the circles from the area of the square.</li><li>This concept helps in calculating material needed for such designs.</li></ul>
+          <p class="notes">🎙️ Consider a tablecloth with circular patterns. If we want to find the area of the fabric that is plain, we'd calculate the total area of the square tablecloth and then subtract the areas of all the circular designs. This is a practical application of combining areas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">A decorative pattern</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example: Area of <span class="hl">Shaded Region</span></h2>
+          <ul><li>Problem: Find the area of the shaded region in a square of side 14 cm, where a circle is inscribed.</li><li>Step 1: Area of Square = side² = 14² = 196 cm².</li><li>Step 2: The diameter of the inscribed circle is equal to the side of the square, so d = 14 cm, r = 7 cm.</li><li>Step 3: Area of Circle = πr² = (22/7) × 7² = 154 cm².</li></ul>
+          <p class="notes">🎙️ This common type of problem asks for the area of the region outside an inscribed shape. Here, the shaded area is the square's area minus the circle's area. It's crucial to correctly identify the relationship between the dimensions of the square and the circle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Square Area = 196 cm²</span></div><div class="step"><span class="snum">2</span><span>Circle Area = 154 cm²</span></div><div class="step"><span class="snum">3</span><span>Shaded Area = 42 cm²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Time for a <span class="hl">Quick Check</span>! Question 1</h2>
+          <ul><li>What is the area of a circle with a radius of 7 cm?</li><li>A) 44 cm²</li><li>B) 154 cm²</li><li>C) 22 cm²</li><li>D) 49 cm²</li></ul>
+          <p class="notes">🎙️ Alright, let's test your understanding with a quick question. Remember the formula for the area of a circle. Take a moment to calculate and choose the correct option. This helps solidify the concepts we've just covered.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Another <span class="hl">Challenge</span>! Question 2</h2>
+          <ul><li>Find the circumference of a circle if its diameter is 14 cm.</li><li>A) 44 cm</li><li>B) 22 cm</li><li>C) 154 cm</li><li>D) 77 cm</li></ul>
+          <p class="notes">🎙️ Here's another question, this time focusing on circumference. Pay attention to whether the problem gives you the radius or the diameter. Choose the correct formula and calculate carefully. This is a direct application of the circumference formula.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Test Your <span class="hl">Understanding</span>! Question 3</h2>
+          <ul><li>The area of a sector of a circle with radius 7 cm and central angle 60° is:</li><li>A) 77/3 cm²</li><li>B) 22 cm²</li><li>C) 44 cm²</li><li>D) 154/3 cm²</li></ul>
+          <p class="notes">🎙️ Now, let's tackle a question on the area of a sector. Remember the formula that involves the central angle. Substitute the given values and perform the calculations. This tests your ability to apply the sector formula correctly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>One <span class="hl">Last Question</span>! Question 4</h2>
+          <ul><li>If the area of a circle is 616 cm², what is its radius?</li><li>A) 7 cm</li><li>B) 14 cm</li><li>C) 21 cm</li><li>D) 28 cm</li></ul>
+          <p class="notes">🎙️ This question requires you to work backward from the area to find the radius. Use the area formula and solve for 'r'. This demonstrates a deeper understanding of the relationship between area and radius. Take your time to calculate.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Where Do We See This? <span class="hl">Real-Life</span> Applications</h2>
+          <ul><li>Agriculture: Calculating area for circular fields or irrigation systems.</li><li>Engineering: Designing gears, pipes, and circular components.</li><li>Architecture: Planning circular rooms, domes, or fountains.</li><li>Everyday Objects: Clocks, wheels, coins, plates.</li></ul>
+          <p class="notes">🎙️ The concepts of areas related to circles are everywhere around us! From the design of a Ferris wheel to the amount of paint needed for a circular wall, these calculations are crucial. Understanding them helps us appreciate the mathematics embedded in our daily lives and various professions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our world filled with circles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>What We <span class="hl">Learned</span> Today: Key Takeaways</h2>
+          <ul><li>Area of Circle: A = πr²</li><li>Circumference of Circle: C = 2πr or πd</li><li>Area of Sector: (θ/360°) × πr²</li><li>Area of Segment: Area of Sector - Area of Triangle</li></ul>
+          <p class="notes">🎙️ Let's quickly recap the most important formulas we've learned today. These are the core tools you'll use to solve problems related to circles. Make sure you commit these to memory and understand when to apply each one. Practice is key to mastering these concepts.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Circle Area</span></div><div class="step"><span class="snum">2</span><span>Circumference</span></div><div class="step"><span class="snum">3</span><span>Sector Area</span></div><div class="step"><span class="snum">4</span><span>Segment Area</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Exploring</span>! Thank You!</h2>
+          <ul><li>Continue practicing problems from your textbook.</li><li>Look for circular shapes in your surroundings and try to estimate their areas.</li><li>Don't hesitate to ask questions if you have any doubts.</li></ul>
+          <p class="notes">🎙️ Thank you for your active participation today! Mathematics is all about practice and observation. Keep an eye out for circles in your environment and challenge yourself with more problems. This will strengthen your understanding and help you excel in this chapter. See you in the next class!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Karnataka Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

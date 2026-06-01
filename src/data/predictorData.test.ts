@@ -5,6 +5,7 @@ import {
   ENG_EXAMS, predictEngineering,
   CATEGORIES, CAREER_LIBRARY, CAREER_FIELDS,
   INTEREST_QUIZ, STREAM_GUIDES, EXAM_CALENDAR, SCHOLARSHIPS,
+  COLLEGE_DIRECTORY, COLLEGE_STATES,
 } from './predictorData';
 
 describe('JEE predictor', () => {
@@ -96,6 +97,44 @@ describe('multi-exam engineering predictor', () => {
     const gen = predictEngineering('mht-cet', 98, 'general')!.colleges.length;
     const st = predictEngineering('mht-cet', 98, 'st')!.colleges.length;
     expect(st).toBeGreaterThanOrEqual(gen);
+  });
+
+  it('category rank differs from overall rank for reserved categories (the GSC bug)', () => {
+    const gen = predictEngineering('ap-eapcet', 40, 'general')!;
+    const st = predictEngineering('ap-eapcet', 40, 'st')!;
+    // General: no separate category rank; overall same for both
+    expect(gen.categoryRank).toBeNull();
+    expect(st.estimatedRank).toBe(gen.estimatedRank);
+    // ST gets a meaningfully BETTER (lower) category rank than the overall rank
+    expect(st.categoryRank).not.toBeNull();
+    expect(st.categoryRank!).toBeLessThan(st.estimatedRank!);
+  });
+
+  it('women quota improves the effective category rank', () => {
+    const oc = predictEngineering('ap-eapcet', 80, 'general')!;
+    const ocWomen = predictEngineering('ap-eapcet', 80, 'general', true)!;
+    expect(oc.categoryRank).toBeNull();
+    expect(ocWomen.categoryRank).not.toBeNull();
+    expect(ocWomen.categoryRank!).toBeLessThan(ocWomen.estimatedRank!);
+  });
+});
+
+describe('college directory', () => {
+  it('has top colleges across the key states, each well-formed', () => {
+    expect(COLLEGE_DIRECTORY.length).toBeGreaterThanOrEqual(30);
+    for (const c of COLLEGE_DIRECTORY) {
+      expect(c.name).toBeTruthy();
+      expect(c.city).toBeTruthy();
+      expect(c.feesPerYear).toMatch(/₹/);
+      expect(c.topBranches.length).toBeGreaterThan(0);
+      expect(COLLEGE_STATES).toContain(c.state);
+    }
+  });
+  it('covers the 7 target states + national institutes', () => {
+    const states = new Set(COLLEGE_DIRECTORY.map(c => c.state));
+    for (const s of ['National (IIT/NIT)', 'Tamil Nadu', 'Karnataka', 'Maharashtra', 'Telangana', 'Andhra Pradesh', 'Delhi-NCR', 'West Bengal']) {
+      expect(states.has(s)).toBe(true);
+    }
   });
 });
 

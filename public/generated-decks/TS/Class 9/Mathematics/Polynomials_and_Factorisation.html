@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Polynomials and Factorisation — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Polynomials</span> and Factorisation!</h2>
+          <ul><li>Unlock the secrets of algebraic expressions.</li><li>Learn to break down complex expressions into simpler parts.</li><li>Essential concepts for higher mathematics.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Polynomials and Factorisation. This chapter is fundamental to understanding higher mathematics and problem-solving.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Polynomials</span>?</h2>
+          <ul><li>A special type of algebraic expression.</li><li>Variables have only whole number exponents (0, 1, 2, 3...).</li><li>No negative or fractional exponents for variables.</li></ul>
+          <p class="notes">🎙️ A polynomial is a special type of algebraic expression where the exponents of the variables are always whole numbers. Think of it as a well-behaved algebraic expression compared to others.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Growth of expressions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Key <span class="hl">Components</span> of a Polynomial</h2>
+          <ul><li>Terms: Parts separated by + or - signs.</li><li>Coefficients: The numerical part of a term.</li><li>Variables: The letters representing unknown values (e.g., x, y).</li><li>Exponents: The powers of the variables (must be whole numbers).</li></ul>
+          <p class="notes">🎙️ Every polynomial is built from terms, which are separated by plus or minus signs. Each term has a coefficient (a number), a variable (a letter), and an exponent (its power).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Building Blocks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Real-Life</span> Polynomials: Area Calculation</h2>
+          <ul><li>Imagine a rectangular field with length (x+5) meters and width (x) meters.</li><li>Area = Length × Width = (x+5) × x.</li><li>Area = x² + 5x (a polynomial!).</li></ul>
+          <p class="notes">🎙️ When calculating the area of a garden or field where dimensions involve variables, the resulting expression for the area often turns out to be a polynomial, like x² + 5x in this example.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📐</span></div><div class="vcap">Measuring Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Degree</span> of a Polynomial</h2>
+          <ul><li>The highest exponent of the variable in a polynomial.</li><li>It determines the 'rank' or 'order' of the polynomial.</li><li>Example: In 3x⁴ + 2x² - 7, the degree is 4.</li></ul>
+          <p class="notes">🎙️ The degree tells us the highest power of the variable present in any term of the polynomial. For example, in x² + 2x, the highest power is 2, so its degree is 2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Highest Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Types by Number of <span class="hl">Terms</span></h2>
+          <ul><li>Monomial: A polynomial with only one term (e.g., 5x²).</li><li>Binomial: A polynomial with two terms (e.g., 2x + 3).</li><li>Trinomial: A polynomial with three terms (e.g., x² - 4x + 7).</li></ul>
+          <p class="notes">🎙️ We classify polynomials based on how many terms they have. A single term is a monomial, two terms make a binomial, and three terms form a trinomial. This helps us describe them quickly.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Monomial</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Binomial</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Trinomial</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Real-Life Polynomials: <span class="hl">Shopping</span> Bill</h2>
+          <ul><li>Cost of 'x' apples at ₹10 each: 10x (Monomial).</li><li>Cost of 'x' apples and 'y' bananas at ₹5 each: 10x + 5y (Binomial).</li><li>Polynomials help represent total costs easily.</li></ul>
+          <p class="notes">🎙️ When you buy items, the total cost can be represented as a polynomial. If one apple costs ₹10, buying 'x' apples is a monomial '10x'. Add bananas, and it becomes a binomial expression.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span><span>💰</span><span>💰</span></div><div class="vcap">Calculating Costs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Types by <span class="hl">Degree</span></h2>
+          <ul><li>Linear Polynomial: Degree 1 (e.g., 3x + 5).</li><li>Quadratic Polynomial: Degree 2 (e.g., x² - 2x + 1).</li><li>Cubic Polynomial: Degree 3 (e.g., 2x³ + x² - 4).</li></ul>
+          <p class="notes">🎙️ Polynomials are also classified by their degree. A degree 1 polynomial is linear, degree 2 is quadratic, and degree 3 is cubic. Each type has unique characteristics and graph shapes.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Linear</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Quadratic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Cubic</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Real-Life Polynomials: <span class="hl">Trajectory</span> of a Ball</h2>
+          <ul><li>The path of a ball thrown in the air is a curve.</li><li>This curve can be described by a quadratic polynomial.</li><li>Height 'h' at time 't' often follows h = at² + bt + c.</li></ul>
+          <p class="notes">🎙️ When you throw a ball, its path in the air isn't a straight line. It follows a parabolic curve, which can be perfectly described by a quadratic polynomial, helping us predict its motion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Ball's Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Zero</span> of a Polynomial</h2>
+          <ul><li>A value 'k' for the variable 'x' such that P(k) = 0.</li><li>It's the point where the polynomial's graph crosses the x-axis.</li><li>Also known as a 'root' of the polynomial equation.</li></ul>
+          <p class="notes">🎙️ The zero of a polynomial is a very important concept. It's the specific value of the variable that makes the entire polynomial equal to zero. Think of it as finding the 'root' of the equation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Finding the Target</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Worked Example: Finding the <span class="hl">Zero</span></h2>
+          <ul><li>Find the zero of the linear polynomial P(x) = 3x - 9.</li></ul>
+          <p class="notes">🎙️ To find the zero, we simply set the polynomial equal to zero and solve for the variable. For P(x) = 3x - 9, setting it to zero gives 3x = 9, so x = 3 is the zero.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Set P(x) = 0</span></div><div class="step"><span class="snum">2</span><span>3x - 9 = 0</span></div><div class="step"><span class="snum">3</span><span>3x = 9</span></div><div class="step"><span class="snum">4</span><span>Solve for x: x = 3</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! (1/3)</h2>
+          <ul><li>Is 4x² - 3x + 1/√x a polynomial?</li><li>Why or why not?</li></ul>
+          <p class="notes">🎙️ Think carefully about the definition of a polynomial. Remember the rule about exponents. What kind of numbers must the exponents be for an expression to be a polynomial?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! (2/3)</h2>
+          <ul><li>What is the degree of the polynomial 5y - 8y³ + 2y⁵ - 1?</li></ul>
+          <p class="notes">🎙️ Remember, the degree is not just any exponent, but the highest one among all the terms. Look at all the terms and identify the maximum power of the variable.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Introduction to <span class="hl">Factorisation</span></h2>
+          <ul><li>The process of breaking down a polynomial into simpler factors.</li><li>It's the reverse process of multiplying polynomials.</li><li>Helps in simplifying expressions and solving equations.</li></ul>
+          <p class="notes">🎙️ Just as we can break down a number like 12 into its prime factors 2, 2, and 3, we can do the same for polynomials. Factorisation helps us simplify expressions and solve equations by finding their building blocks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Putting Pieces Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Factors</span> and Multiples (Recap)</h2>
+          <ul><li>For numbers: 6 = 2 × 3. Here, 2 and 3 are factors of 6.</li><li>For polynomials: If P(x) = G(x) × H(x), then G(x) and H(x) are factors of P(x).</li><li>Example: x² - 4 = (x-2)(x+2). (x-2) and (x+2) are factors.</li></ul>
+          <p class="notes">🎙️ Recall from numbers that factors multiply to give the original number. Similarly, polynomial factors are expressions that multiply to give the original polynomial. This concept is crucial for factorisation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Number Factors (e.g., 6 = 2x3)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Remainder</span> Theorem</h2>
+          <ul><li>If a polynomial P(x) is divided by a linear polynomial (x-a), then the remainder is P(a).</li><li>A shortcut to find the remainder without actual division.</li><li>Example: If P(x) = x² + 2x + 1, remainder when divided by (x-1) is P(1) = 1²+2(1)+1 = 4.</li></ul>
+          <p class="notes">🎙️ The Remainder Theorem gives us a shortcut. Instead of performing long division, we can simply substitute the value 'a' into the polynomial P(x) to find the remainder when divided by (x-a). It's quite handy!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">÷</div><div class="vcap">Division Shortcut</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example: <span class="hl">Remainder</span> Theorem</h2>
+          <ul><li>Find the remainder when x³ + 2x² - 5x + 7 is divided by x - 1.</li></ul>
+          <p class="notes">🎙️ Here, our divisor is (x-1), so 'a' is 1. Substituting 1 into the polynomial P(x) gives us 1 + 2 - 5 + 7, which equals 5. So, the remainder is 5.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Divisor is (x-1), so a = 1</span></div><div class="step"><span class="snum">2</span><span>Substitute x = 1 into P(x)</span></div><div class="step"><span class="snum">3</span><span>P(1) = (1)³ + 2(1)² - 5(1) + 7</span></div><div class="step"><span class="snum">4</span><span>P(1) = 1 + 2 - 5 + 7 = 5</span></div><div class="step"><span class="snum">5</span><span>The remainder is 5</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Factor</span> Theorem</h2>
+          <ul><li>If P(a) = 0, then (x-a) is a factor of the polynomial P(x).</li><li>Conversely, if (x-a) is a factor of P(x), then P(a) = 0.</li><li>A special case of the Remainder Theorem (remainder is zero).</li></ul>
+          <p class="notes">🎙️ The Factor Theorem is a direct consequence of the Remainder Theorem. If the remainder P(a) is zero, it means (x-a) divides P(x) perfectly, making it a factor. This helps us find factors easily.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Factor Check</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: <span class="hl">Factor</span> Theorem</h2>
+          <ul><li>Is (x-3) a factor of P(x) = x² - 5x + 6?</li></ul>
+          <p class="notes">🎙️ Here, 'a' is 3. Substituting 3 into P(x) = x² - 5x + 6 gives 9 - 15 + 6, which equals 0. Since P(3) = 0, by the Factor Theorem, (x-3) is indeed a factor.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Divisor is (x-3), so a = 3</span></div><div class="step"><span class="snum">2</span><span>Substitute x = 3 into P(x)</span></div><div class="step"><span class="snum">3</span><span>P(3) = (3)² - 5(3) + 6</span></div><div class="step"><span class="snum">4</span><span>P(3) = 9 - 15 + 6 = 0</span></div><div class="step"><span class="snum">5</span><span>Since P(3)=0, (x-3) is a factor</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Factorisation by <span class="hl">Splitting</span> the Middle Term</h2>
+          <ul><li>A common method for factorising quadratic polynomials (ax² + bx + c).</li><li>Find two numbers whose product is 'ac' and sum is 'b'.</li><li>Rewrite the middle term 'bx' using these two numbers, then factor by grouping.</li></ul>
+          <p class="notes">🎙️ This is a powerful technique for quadratic polynomials. We essentially 'split' the middle term 'bx' into two terms using two numbers that satisfy specific product and sum conditions, then factor by grouping common terms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Dividing for Factors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Splitting Middle Term</h2>
+          <ul><li>Factorise the quadratic polynomial x² + 7x + 10.</li></ul>
+          <p class="notes">🎙️ For x² + 7x + 10, we need two numbers that multiply to 10 and add to 7. These are 2 and 5. We rewrite 7x as 2x+5x, then group terms and factor out common factors to get (x+2)(x+5).</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Product 'ac' = 1 × 10 = 10</span></div><div class="step"><span class="snum">2</span><span>Sum 'b' = 7</span></div><div class="step"><span class="snum">3</span><span>Numbers are 2 and 5 (2×5=10, 2+5=7)</span></div><div class="step"><span class="snum">4</span><span>Rewrite: x² + 2x + 5x + 10</span></div><div class="step"><span class="snum">5</span><span>Factor by grouping: x(x+2) + 5(x+2)</span></div><div class="step"><span class="snum">6</span><span>Result: (x+2)(x+5)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Algebraic <span class="hl">Identities</span> for Factorisation</h2>
+          <ul><li>a² + 2ab + b² = (a + b)²</li><li>a² - 2ab + b² = (a - b)²</li><li>a² - b² = (a - b)(a + b)</li><li>These are shortcuts to factorise specific polynomial forms.</li></ul>
+          <p class="notes">🎙️ Algebraic identities are like ready-made formulas that help us factorise certain types of polynomials quickly. Recognising these patterns can save a lot of time and simplify complex expressions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Smart Shortcuts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Using Identities</h2>
+          <ul><li>Factorise 9x² - 25y².</li></ul>
+          <p class="notes">🎙️ This polynomial is in the form of a difference of two squares. We can write 9x² as (3x)² and 25y² as (5y)². Applying the identity a² - b² = (a-b)(a+b) directly gives us the factors.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Recognise as a difference of squares</span></div><div class="step"><span class="snum">2</span><span>Write as (3x)² - (5y)²</span></div><div class="step"><span class="snum">3</span><span>Apply a² - b² = (a - b)(a + b)</span></div><div class="step"><span class="snum">4</span><span>Result: (3x - 5y)(3x + 5y)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! (3/3)</h2>
+          <ul><li>Factorise x² - 16 using an algebraic identity.</li></ul>
+          <p class="notes">🎙️ Which identity involves the difference of two squares? Think about how 16 can be written as a perfect square, and then apply the appropriate formula.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span></h2>
+          <ul><li>Understood Polynomials, their Degree, and Types.</li><li>Learned about the Zero of a Polynomial.</li><li>Mastered Remainder and Factor Theorems.</li><li>Explored Factorisation by Splitting the Middle Term and using Algebraic Identities.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From understanding what polynomials are and their types, to powerful tools like the Remainder and Factor Theorems, and various factorisation techniques. Keep practicing to master these concepts!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

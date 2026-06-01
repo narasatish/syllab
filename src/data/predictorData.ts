@@ -261,26 +261,35 @@ function interp(table: { input: number; rank: number }[], input: number): number
 }
 
 export interface EngPrediction {
-  estimatedRank: number | null;
+  estimatedRank: number | null;       // overall / open rank (same for everyone with these marks)
+  categoryRank: number | null;        // estimated rank WITHIN your category (null for General + no quota)
   colleges: { college: string; branch: string; cutoff: number }[];
 }
 
-export function predictEngineering(examId: string, input: number, category: Category = 'general'): EngPrediction | null {
+export function predictEngineering(
+  examId: string, input: number, category: Category = 'general', women = false,
+): EngPrediction | null {
   const exam = ENG_EXAMS.find(e => e.id === examId);
   if (!exam) return null;
   const val = Math.max(0, Math.min(exam.inputMax, input));
-  const factor = CATEGORY_RANK_FACTOR[category];
+  // Women get supernumerary / slightly relaxed seats in most state & central colleges.
+  const factor = CATEGORY_RANK_FACTOR[category] * (women ? WOMEN_QUOTA_FACTOR : 1);
+  const hasQuota = category !== 'general' || women;
 
   if (exam.metric === 'rank') {
     const rank = exam.inputToRank ? interp(exam.inputToRank, val) : val;
-    // Reserved categories enjoy more lenient (higher) closing ranks → relax cutoff.
-    const colleges = exam.colleges.filter(c => rank <= c.cutoff * factor).sort((a, b) => a.cutoff - b.cutoff);
-    return { estimatedRank: rank, colleges };
+    // Your CATEGORY rank is better (lower) than your overall rank because fewer
+    // candidates compete within a reserved/quota pool. Admission to category seats
+    // is decided on this category rank vs the (open) closing rank.
+    const categoryRank = hasQuota ? Math.max(1, Math.round(rank / factor)) : null;
+    const effRank = categoryRank ?? rank;
+    const colleges = exam.colleges.filter(c => effRank <= c.cutoff).sort((a, b) => a.cutoff - b.cutoff);
+    return { estimatedRank: rank, categoryRank, colleges };
   }
-  // percentile / score → higher is better, compare directly (mild relaxation for reserved)
-  const relax = category === 'general' ? 0 : Math.min(8, (factor - 1) * 2);
+  // percentile / score → higher is better, compare directly (mild relaxation for quota)
+  const relax = hasQuota ? Math.min(10, (factor - 1) * 2) : 0;
   const colleges = exam.colleges.filter(c => val >= c.cutoff - relax).sort((a, b) => b.cutoff - a.cutoff);
-  return { estimatedRank: null, colleges };
+  return { estimatedRank: null, categoryRank: null, colleges };
 }
 
 export const DATA_SOURCES = {
@@ -303,6 +312,8 @@ export const CATEGORIES: { id: Category; label: string }[] = [
 export const CATEGORY_RANK_FACTOR: Record<Category, number> = {
   general: 1, ews: 1.25, obc: 1.7, sc: 4, st: 6,
 };
+// Women's supernumerary / reserved seats → modestly better effective rank.
+export const WOMEN_QUOTA_FACTOR = 1.3;
 
 /* ─── Career Library — explore real Indian careers ──────────────────────────*/
 export interface CareerInfo {
@@ -411,4 +422,80 @@ export const SCHOLARSHIPS: Scholarship[] = [
   { name: 'Reliance Foundation UG', emoji: '💡', who: 'Merit-cum-means UG students', benefit: 'Up to ₹2L total', site: 'scholarships.reliancefoundation.org' },
   { name: 'Sitaram Jindal Scholarship', emoji: '🏅', who: 'School & college, means-based', benefit: '₹500–₹3,200/month', site: 'sitaramjindalfoundation.org' },
   { name: 'Kishore Vaigyanik (state merit)', emoji: '⭐', who: 'State toppers & merit lists', benefit: 'Varies by state', site: 'state education dept' },
+];
+
+/* ─── College Directory (CollegeDunia-style) ────────────────────────────────
+   Top engineering colleges across India's biggest engineering states + national
+   institutes. All figures (NIRF rank, fees, cutoffs) are INDICATIVE for guidance —
+   verify on the official site / counselling portal before any decision.        */
+export interface CollegeEntry {
+  name: string;
+  city: string;
+  state: string;            // grouping key (also doubles as the filter chip)
+  type: 'IIT' | 'NIT/IIIT' | 'Government' | 'Private/Deemed';
+  nirf: number | null;      // indicative NIRF Engineering rank (2024)
+  feesPerYear: string;      // indicative tuition / year
+  topBranches: string[];
+  exam: string;             // admission exam
+  cutoff: string;           // indicative closing (General) for a top branch
+  process: string;          // one-line admission route
+}
+export const COLLEGE_STATES = [
+  'All', 'National (IIT/NIT)', 'Tamil Nadu', 'Karnataka', 'Maharashtra',
+  'Telangana', 'Andhra Pradesh', 'Delhi-NCR', 'West Bengal',
+] as const;
+
+export const COLLEGE_DIRECTORY: CollegeEntry[] = [
+  // ── National: IITs / NITs / IIITs ──
+  { name: 'IIT Bombay', city: 'Mumbai', state: 'National (IIT/NIT)', type: 'IIT', nirf: 3, feesPerYear: '₹2.2–2.5 L', topBranches: ['CSE', 'Electrical', 'Mechanical', 'Aerospace'], exam: 'JEE Advanced', cutoff: 'CSE AIR ≤ 68', process: 'JEE Main → JEE Advanced → JoSAA counselling' },
+  { name: 'IIT Delhi', city: 'New Delhi', state: 'National (IIT/NIT)', type: 'IIT', nirf: 2, feesPerYear: '₹2.2–2.5 L', topBranches: ['CSE', 'Maths & Computing', 'EE', 'Mechanical'], exam: 'JEE Advanced', cutoff: 'CSE AIR ≤ 116', process: 'JEE Main → JEE Advanced → JoSAA counselling' },
+  { name: 'IIT Madras', city: 'Chennai', state: 'National (IIT/NIT)', type: 'IIT', nirf: 1, feesPerYear: '₹2.2–2.5 L', topBranches: ['CSE', 'Electrical', 'Mechanical', 'Data Science'], exam: 'JEE Advanced', cutoff: 'CSE AIR ≤ 159', process: 'JEE Main → JEE Advanced → JoSAA counselling' },
+  { name: 'NIT Trichy', city: 'Tiruchirappalli', state: 'National (IIT/NIT)', type: 'NIT/IIIT', nirf: 9, feesPerYear: '₹1.4–1.6 L', topBranches: ['CSE', 'ECE', 'Mechanical'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 4,178', process: 'JEE Main → JoSAA (Home/Other state quota)' },
+  { name: 'NIT Surathkal', city: 'Mangalore', state: 'National (IIT/NIT)', type: 'NIT/IIIT', nirf: 17, feesPerYear: '₹1.4–1.6 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 2,726', process: 'JEE Main → JoSAA counselling' },
+  { name: 'IIIT Hyderabad', city: 'Hyderabad', state: 'National (IIT/NIT)', type: 'NIT/IIIT', nirf: 47, feesPerYear: '₹3.5–4 L', topBranches: ['CSE', 'ECE', 'Computational Natural Sci'], exam: 'JEE Main / UGEE', cutoff: 'CSE AIR ≤ 3,550', process: 'JEE Main or IIITH UGEE → counselling' },
+
+  // ── Tamil Nadu ──
+  { name: 'Anna University (CEG Campus)', city: 'Chennai', state: 'Tamil Nadu', type: 'Government', nirf: 14, feesPerYear: '₹0.5–0.6 L', topBranches: ['CSE', 'ECE', 'Mechanical'], exam: 'TNEA (Class 12 marks)', cutoff: 'CSE cutoff ~199.5 / 200', process: 'TNEA single-window (Class 12 cutoff marks)' },
+  { name: 'PSG College of Technology', city: 'Coimbatore', state: 'Tamil Nadu', type: 'Private/Deemed', nirf: 63, feesPerYear: '₹0.6–1.1 L', topBranches: ['CSE', 'ECE', 'Mechanical'], exam: 'TNEA', cutoff: 'CSE cutoff ~198+', process: 'TNEA counselling (Govt-aided seats)' },
+  { name: 'Thiagarajar College of Engineering', city: 'Madurai', state: 'Tamil Nadu', type: 'Government', nirf: 84, feesPerYear: '₹0.5–0.9 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'TNEA', cutoff: 'CSE cutoff ~196+', process: 'TNEA single-window counselling' },
+  { name: 'VIT Vellore', city: 'Vellore', state: 'Tamil Nadu', type: 'Private/Deemed', nirf: 11, feesPerYear: '₹2–4 L', topBranches: ['CSE', 'AI & ML', 'ECE'], exam: 'VITEEE', cutoff: 'CSE VITEEE rank ≤ 7,500', process: 'VITEEE → rank-based counselling' },
+  { name: 'SSN College of Engineering', city: 'Chennai', state: 'Tamil Nadu', type: 'Private/Deemed', nirf: 60, feesPerYear: '₹0.5–1.5 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'TNEA / management', cutoff: 'CSE cutoff ~197+', process: 'TNEA counselling + management quota' },
+
+  // ── Karnataka ──
+  { name: 'RV College of Engineering (RVCE)', city: 'Bengaluru', state: 'Karnataka', type: 'Private/Deemed', nirf: 99, feesPerYear: '₹0.7–2.5 L', topBranches: ['CSE', 'ISE', 'ECE'], exam: 'KCET / COMEDK', cutoff: 'CSE KCET rank ≤ 500', process: 'KCET (state) or COMEDK (private) counselling' },
+  { name: 'BMS College of Engineering', city: 'Bengaluru', state: 'Karnataka', type: 'Private/Deemed', nirf: null, feesPerYear: '₹0.7–2.2 L', topBranches: ['CSE', 'ECE', 'AI/ML'], exam: 'KCET / COMEDK', cutoff: 'CSE KCET rank ≤ 1,200', process: 'KCET or COMEDK counselling' },
+  { name: 'MS Ramaiah Inst. of Technology', city: 'Bengaluru', state: 'Karnataka', type: 'Private/Deemed', nirf: null, feesPerYear: '₹0.8–2.4 L', topBranches: ['CSE', 'ISE', 'ECE'], exam: 'KCET / COMEDK', cutoff: 'CSE KCET rank ≤ 1,500', process: 'KCET or COMEDK counselling' },
+  { name: 'PES University', city: 'Bengaluru', state: 'Karnataka', type: 'Private/Deemed', nirf: 101, feesPerYear: '₹3–4 L', topBranches: ['CSE', 'ECE', 'AI/ML'], exam: 'KCET / PESSAT', cutoff: 'CSE KCET rank ≤ 1,674', process: 'KCET or PESSAT (own test) counselling' },
+  { name: 'NITK Surathkal', city: 'Mangalore', state: 'Karnataka', type: 'NIT/IIIT', nirf: 17, feesPerYear: '₹1.4–1.6 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 2,726', process: 'JEE Main → JoSAA' },
+
+  // ── Maharashtra ──
+  { name: 'COEP Technological University', city: 'Pune', state: 'Maharashtra', type: 'Government', nirf: null, feesPerYear: '₹0.8–1 L', topBranches: ['CSE', 'IT', 'Mechanical'], exam: 'MHT-CET', cutoff: 'CSE %ile ≥ 99.98', process: 'MHT-CET CAP rounds (state counselling)' },
+  { name: 'VJTI Mumbai', city: 'Mumbai', state: 'Maharashtra', type: 'Government', nirf: null, feesPerYear: '₹0.8–1 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'MHT-CET', cutoff: 'IT %ile ≥ 99.76', process: 'MHT-CET CAP counselling' },
+  { name: 'PICT Pune', city: 'Pune', state: 'Maharashtra', type: 'Private/Deemed', nirf: null, feesPerYear: '₹1.2–1.6 L', topBranches: ['Computer', 'IT', 'ECE'], exam: 'MHT-CET', cutoff: 'Computer %ile ≥ 99.61', process: 'MHT-CET CAP counselling' },
+  { name: 'ICT Mumbai', city: 'Mumbai', state: 'Maharashtra', type: 'Government', nirf: null, feesPerYear: '₹0.9–1.2 L', topBranches: ['Chemical', 'Pharma', 'Polymer'], exam: 'MHT-CET / JEE', cutoff: 'Chemical %ile ≥ 99.5', process: 'MHT-CET CAP counselling' },
+  { name: 'VNIT Nagpur', city: 'Nagpur', state: 'Maharashtra', type: 'NIT/IIIT', nirf: 49, feesPerYear: '₹1.4–1.6 L', topBranches: ['CSE', 'ECE', 'Mechanical'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 8,000', process: 'JEE Main → JoSAA' },
+
+  // ── Telangana ──
+  { name: 'JNTUH (UCEST)', city: 'Hyderabad', state: 'Telangana', type: 'Government', nirf: null, feesPerYear: '₹0.4–0.9 L', topBranches: ['CSE', 'ECE', 'IT'], exam: 'TS EAPCET', cutoff: 'CSE rank ≤ 1,399', process: 'TS EAPCET web counselling' },
+  { name: 'CBIT Hyderabad', city: 'Hyderabad', state: 'Telangana', type: 'Private/Deemed', nirf: null, feesPerYear: '₹1.2–1.5 L', topBranches: ['CSE', 'IT', 'AI/ML'], exam: 'TS EAPCET', cutoff: 'CSE rank ≤ 2,667', process: 'TS EAPCET counselling + management quota' },
+  { name: 'Vasavi College of Engineering', city: 'Hyderabad', state: 'Telangana', type: 'Private/Deemed', nirf: null, feesPerYear: '₹1.2–1.4 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'TS EAPCET', cutoff: 'CSE rank ≤ 3,900', process: 'TS EAPCET counselling' },
+  { name: 'IIT Hyderabad', city: 'Hyderabad', state: 'Telangana', type: 'IIT', nirf: 8, feesPerYear: '₹2.2–2.5 L', topBranches: ['CSE', 'AI', 'EE'], exam: 'JEE Advanced', cutoff: 'CSE AIR ≤ 700', process: 'JEE Main → JEE Advanced → JoSAA' },
+
+  // ── Andhra Pradesh ──
+  { name: 'Andhra University College of Engg', city: 'Visakhapatnam', state: 'Andhra Pradesh', type: 'Government', nirf: null, feesPerYear: '₹0.35–0.8 L', topBranches: ['CSE', 'ECE', 'Mechanical'], exam: 'AP EAPCET', cutoff: 'CSE rank ≤ 1,627', process: 'AP EAPCET web counselling' },
+  { name: 'JNTU Kakinada', city: 'Kakinada', state: 'Andhra Pradesh', type: 'Government', nirf: null, feesPerYear: '₹0.35–0.8 L', topBranches: ['CSE', 'ECE', 'IT'], exam: 'AP EAPCET', cutoff: 'CSE rank ≤ 1,000', process: 'AP EAPCET counselling' },
+  { name: 'SVU College of Engineering', city: 'Tirupati', state: 'Andhra Pradesh', type: 'Government', nirf: null, feesPerYear: '₹0.35–0.8 L', topBranches: ['CSE', 'ECE', 'Civil'], exam: 'AP EAPCET', cutoff: 'CSE rank ≤ 3,273', process: 'AP EAPCET counselling' },
+  { name: 'IIT Tirupati', city: 'Tirupati', state: 'Andhra Pradesh', type: 'IIT', nirf: null, feesPerYear: '₹2.2–2.5 L', topBranches: ['CSE', 'EE', 'Mechanical'], exam: 'JEE Advanced', cutoff: 'CSE AIR ≤ 4,000', process: 'JEE Main → JEE Advanced → JoSAA' },
+
+  // ── Delhi-NCR ──
+  { name: 'NSUT (Netaji Subhas)', city: 'New Delhi', state: 'Delhi-NCR', type: 'Government', nirf: null, feesPerYear: '₹1.6–2 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 5,000', process: 'JEE Main → JAC Delhi counselling' },
+  { name: 'DTU (Delhi Tech University)', city: 'New Delhi', state: 'Delhi-NCR', type: 'Government', nirf: null, feesPerYear: '₹1.9–2.1 L', topBranches: ['CSE', 'Software Engg', 'ECE'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 6,500', process: 'JEE Main → JAC Delhi counselling' },
+  { name: 'IIIT Delhi', city: 'New Delhi', state: 'Delhi-NCR', type: 'NIT/IIIT', nirf: null, feesPerYear: '₹3–4 L', topBranches: ['CSE', 'ECE', 'CS+Maths'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 8,000', process: 'JEE Main → JoSAA / JAC Delhi' },
+  { name: 'IGDTUW (Women)', city: 'New Delhi', state: 'Delhi-NCR', type: 'Government', nirf: null, feesPerYear: '₹1.5–2 L', topBranches: ['CSE', 'AI/ML', 'ECE'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 18,000 (women)', process: 'JEE Main → JAC Delhi (women-only)' },
+
+  // ── West Bengal ──
+  { name: 'Jadavpur University', city: 'Kolkata', state: 'West Bengal', type: 'Government', nirf: 12, feesPerYear: '₹0.05–0.1 L', topBranches: ['CSE', 'ECE', 'IT'], exam: 'WBJEE', cutoff: 'CSE rank ≤ 309 (home)', process: 'WBJEE counselling (state)' },
+  { name: 'IIEST Shibpur', city: 'Howrah', state: 'West Bengal', type: 'Government', nirf: null, feesPerYear: '₹1.2–1.5 L', topBranches: ['CSE', 'ECE', 'Mechanical'], exam: 'JEE Main', cutoff: 'CSE AIR ≤ 12,000', process: 'JEE Main → JoSAA' },
+  { name: 'Kalyani Govt Engineering College', city: 'Kalyani', state: 'West Bengal', type: 'Government', nirf: null, feesPerYear: '₹0.6–0.9 L', topBranches: ['CSE', 'IT', 'ECE'], exam: 'WBJEE', cutoff: 'CSE rank ≤ 4,000', process: 'WBJEE counselling' },
+  { name: 'IIT Kharagpur', city: 'Kharagpur', state: 'West Bengal', type: 'IIT', nirf: 5, feesPerYear: '₹2.2–2.5 L', topBranches: ['CSE', 'EE', 'Mechanical'], exam: 'JEE Advanced', cutoff: 'CSE AIR ≤ 415', process: 'JEE Main → JEE Advanced → JoSAA' },
 ];

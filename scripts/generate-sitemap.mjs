@@ -14,6 +14,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getCollegesManifest } from './collegesData.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -101,6 +102,16 @@ function buildUrls({ languages, topicsByLang }) {
   // Skills Lab language landings (these are prerendered with unique meta).
   for (const lang of languages) {
     urls.push({ loc: `/coding/${lang}`, priority: 0.7, changefreq: 'weekly' });
+  }
+
+  // College directory: index + per-state + per-college (all prerendered).
+  const { states: collegeStates, colleges } = getCollegesManifest(ROOT);
+  urls.push({ loc: '/colleges', priority: 0.8, changefreq: 'weekly' });
+  for (const s of collegeStates) {
+    urls.push({ loc: `/colleges/${s.slug}`, priority: 0.7, changefreq: 'weekly' });
+  }
+  for (const c of colleges) {
+    urls.push({ loc: `/colleges/${c.stateSlug}/${c.slug}`, priority: 0.6, changefreq: 'monthly' });
   }
 
   // NOTE (SEO): We intentionally DO NOT list the ~700 deep `/coding/<lang>/<topicId>`

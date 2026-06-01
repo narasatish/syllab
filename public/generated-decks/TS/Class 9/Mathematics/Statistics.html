@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Statistics: Understanding Data Around Us — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Statistics</span>!</h2>
+          <ul><li>Discover how numbers tell stories.</li><li>Learn to collect, organize, and understand data.</li><li>See how statistics helps us make better decisions.</li></ul>
+          <p class="notes">🎙️ Hello everyone! Today, we're starting a fascinating journey into the world of Statistics. It's a subject that helps us make sense of the vast amount of information we encounter every day. Get ready to explore how numbers can reveal amazing insights!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Statistics</span>?</h2>
+          <ul><li>It's the science of collecting, organizing, analyzing, and interpreting data.</li><li>Helps us understand patterns and make predictions.</li><li>Used in almost every field, from science to sports.</li></ul>
+          <p class="notes">🎙️ Statistics is essentially about working with data. Think of it as a toolkit that allows us to gather information, put it in order, look for trends, and then explain what we've found. It's a powerful tool for understanding the world around us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Data Analysis</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Why</span> Do We Need Statistics?</h2>
+          <ul><li>To understand trends, like population growth.</li><li>To make informed decisions, like budgeting.</li><li>To compare things, like performance of teams.</li><li>To predict future outcomes, like weather.</li></ul>
+          <p class="notes">🎙️ We need statistics because it helps us answer important questions. For example, how many students prefer online classes? What's the average rainfall this year? By using statistics, we can turn raw numbers into meaningful insights that help us plan and understand.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📈</span><span>📈</span><span>📈</span></div><div class="vcap">Showing Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Data</span>: The Building Blocks of Statistics</h2>
+          <ul><li>Data refers to facts or pieces of information.</li><li>It can be numbers, words, measurements, or observations.</li><li>Collected for a specific purpose or study.</li></ul>
+          <p class="notes">🎙️ At the heart of statistics is data. Data is simply any piece of information we collect. It could be the number of books in your bag, the colors of cars passing by, or the heights of your classmates. Without data, there's nothing for statistics to work with.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Raw Numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Types of Data: <span class="hl">Primary Data</span></h2>
+          <ul><li>Data collected by the investigator themselves.</li><li>First-hand information, directly from the source.</li><li>Often collected through surveys, interviews, or experiments.</li></ul>
+          <p class="notes">🎙️ Primary data is like going out and finding the information yourself. If you want to know the favorite sport of your classmates, you would ask them directly. This ensures the data is exactly what you need for your specific study.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Direct Collection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Example: Collecting <span class="hl">Primary Data</span></h2>
+          <ul><li>You want to know the favorite ice cream flavor of your friends.</li><li>You ask each friend directly and record their answers.</li><li>This data is collected for the first time by you.</li></ul>
+          <p class="notes">🎙️ Imagine you're planning a party and want to know what flavor of ice cream to buy. You go around and ask five of your friends directly. The answers you get – chocolate, vanilla, strawberry – are all primary data because you collected them yourself for your specific purpose.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍦</span><span>🍦</span><span>🍦</span><span>🍦</span><span>🍦</span></div><div class="vcap">Asking Friends</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Types of Data: <span class="hl">Secondary Data</span></h2>
+          <ul><li>Data collected by someone else, for another purpose.</li><li>Information already exists and is available.</li><li>Sources include books, reports, newspapers, or websites.</li></ul>
+          <p class="notes">🎙️ Secondary data is information that someone else has already gathered and made available. Think of it as reading a book or an article to find facts, rather than doing the original research yourself. It's often quicker to obtain, but might not perfectly fit your exact needs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Existing Information</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Example: Using <span class="hl">Secondary Data</span></h2>
+          <ul><li>You need to know the population of India in 2020.</li><li>You look up the information from government census reports or official websites.</li><li>This data was collected by the government, not you.</li></ul>
+          <p class="notes">🎙️ If you need to find out the total number of people living in India, you wouldn't go out and count them all yourself! Instead, you'd refer to official census data published by the government. That published data is secondary data for your purpose.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📰</span><span>📰</span><span>📰</span></div><div class="vcap">Reading Reports</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Activity</span>: Primary or Secondary?</h2>
+          <ul><li>Is finding out tomorrow's weather from a news channel primary or secondary data?</li><li>Is counting the number of red cars in your school parking lot primary or secondary data?</li><li>Is checking your height on a growth chart primary or secondary data?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about whether you are collecting the information yourself for the first time, or if you are using information that already exists. This distinction is crucial in statistics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Raw Data</span>: Unorganized Information</h2>
+          <ul><li>Data collected in its original, unorganized form.</li><li>It's just a list of observations, without any structure.</li><li>Difficult to draw conclusions from raw data directly.</li></ul>
+          <p class="notes">🎙️ When you first collect data, it's often a jumbled mess – just a list of numbers or facts. This is called raw data. Imagine a box full of mixed-up toys; it's hard to find anything specific until you sort them out. Raw data is similar.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Unsorted Box</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Organizing Data</span>: Making Sense of Numbers</h2>
+          <ul><li>Arranging data in a systematic way.</li><li>Helps in easy understanding and analysis.</li><li>Common methods include arranging in ascending/descending order or using tables.</li></ul>
+          <p class="notes">🎙️ Just like you organize your books or clothes, we need to organize data. When data is organized, it becomes much easier to spot patterns, compare values, and extract meaningful information. This is the next important step after collection.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧹</div><div class="vcap">Tidying Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Frequency</span>: How Often Does It Occur?</h2>
+          <ul><li>Frequency is the number of times a particular observation occurs.</li><li>It tells us how common or rare a data point is.</li><li>Essential for creating frequency distribution tables.</li></ul>
+          <p class="notes">🎙️ Frequency is a very simple but important concept. If you count how many students got an 'A' grade in a test, that count is the frequency of 'A' grades. It's simply how many times something happens within your dataset.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Repetition Count</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Frequency Distribution <span class="hl">Table</span></h2>
+          <ul><li>A table that shows the frequency of each data value.</li><li>Makes raw data much easier to read and interpret.</li><li>Usually has columns for observations, tally marks, and frequency.</li></ul>
+          <p class="notes">🎙️ A frequency distribution table is a powerful way to organize data. Instead of just a long list of numbers, you can see at a glance how many times each specific value appears. Tally marks are a helpful intermediate step for counting.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Data Value</span></div><div class="step"><span class="snum">2</span><span>Tally Marks</span></div><div class="step"><span class="snum">3</span><span>Frequency</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Example</span>: Simple Frequency Distribution</h2>
+          <ul><li>Marks of 10 students: 5, 7, 8, 5, 6, 7, 8, 9, 5, 7</li><li>Mark 5 appears 3 times, so its frequency is 3.</li><li>Mark 6 appears 1 time, its frequency is 1.</li><li>Mark 7 appears 3 times, its frequency is 3.</li></ul>
+          <p class="notes">🎙️ Let's take these marks as an example. Instead of just listing them, we can see that '5' is quite common, appearing three times. This table makes it clear which marks are most frequent and which are less common among these 10 students.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span><span>💯</span></div><div class="vcap">Student Scores</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Grouped</span> Frequency Distribution</h2>
+          <ul><li>Used when the range of data is very large.</li><li>Data is divided into groups called 'class intervals'.</li><li>Each class interval has a frequency.</li></ul>
+          <p class="notes">🎙️ What if you have data for 100 students, and their marks range from 1 to 100? Creating a frequency table for each individual mark would be too long. In such cases, we group the data into intervals, like marks from 0-10, 10-20, and so on.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Data Grouping</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Class Interval</span>: Defining Groups</h2>
+          <ul><li>A range of values into which data is grouped.</li><li>Example: 0-10, 10-20, 20-30.</li><li>The size of the interval is called the 'class size' or 'width'.</li></ul>
+          <p class="notes">🎙️ A class interval specifies the boundaries for each group. For example, if we have marks from 0 to 100, we might choose class intervals of 10, like 0-10, 10-20, and so on. The 'class size' would then be 10.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Range</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Lower and Upper <span class="hl">Limits</span></h2>
+          <ul><li>Each class interval has a lower limit and an upper limit.</li><li>Lower Limit: The smallest value in the class interval.</li><li>Upper Limit: The largest value in the class interval.</li></ul>
+          <p class="notes">🎙️ For an interval like 20-30, 20 is the lower limit and 30 is the upper limit. It's important to remember how data points falling exactly on the limit are handled, usually, the upper limit is exclusive (e.g., 20-30 means 20 up to, but not including, 30).</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Lower Limit</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Upper Limit</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Class Mark</span> (Mid-point)</h2>
+          <ul><li>The midpoint of a class interval.</li><li>Calculated as (Lower Limit + Upper Limit) / 2.</li><li>Used to represent the entire class interval in some calculations.</li></ul>
+          <p class="notes">🎙️ The class mark gives us a single value that represents the 'center' of a class interval. If your interval is 10-20, the class mark would be (10+20)/2 = 15. This is useful when we need a single number to represent a range.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Finding the Middle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Example: <span class="hl">Grouped</span> Frequency Table</h2>
+          <ul><li>Heights of 20 students (in cm): 145, 150, 153, 160, 148, 155, ...</li><li>Class intervals: 140-145, 145-150, 150-155, etc.</li><li>We count how many students fall into each height range.</li></ul>
+          <p class="notes">🎙️ Imagine measuring the heights of everyone in your class. You'd get many different numbers. Instead of listing each height, we can group them. For example, how many students are between 140 cm and 145 cm? This makes the data much more manageable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍</span><span>🧍</span><span>🧍</span><span>🧍</span><span>🧍</span><span>🧍</span></div><div class="vcap">Students' Heights</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Quick Check</span> 1: Class Limits</h2>
+          <ul><li>For the class interval 20-30:</li><li>What is the lower limit?</li><li>What is the upper limit?</li></ul>
+          <p class="notes">🎙️ Let's see if you've understood the concept of class limits. Take a moment to think about the smallest and largest values that define this particular interval. This is a fundamental concept for grouped data.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Quick Check</span> 2: Class Mark</h2>
+          <ul><li>For the class interval 10-20:</li><li>What is the class mark (mid-point)?</li></ul>
+          <p class="notes">🎙️ Now, try to calculate the class mark for the interval 10-20. Remember the simple formula we discussed earlier. This value gives us a representative point for the entire range.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Graphical</span> Representation of Data</h2>
+          <ul><li>Visual ways to display data.</li><li>Makes data easier to understand at a glance.</li><li>Common types: Bar Graphs, Histograms, Frequency Polygons.</li></ul>
+          <p class="notes">🎙️ Numbers and tables are great, but sometimes a picture tells a thousand words. Graphical representations transform our organized data into visuals that are much quicker and easier to interpret, helping us spot trends and comparisons instantly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Visual Story</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Bar Graphs</span>: Comparing Categories</h2>
+          <ul><li>Uses rectangular bars of equal width.</li><li>Height of each bar is proportional to its frequency.</li><li>Bars are usually separated by uniform gaps.</li></ul>
+          <p class="notes">🎙️ Bar graphs are excellent for comparing different categories. For example, if you want to show the number of students who prefer different subjects, a bar graph would clearly display which subject is most popular by having the tallest bar.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Category A</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Category B</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Category C</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Example: <span class="hl">Bar Graph</span> of Favorite Fruits</h2>
+          <ul><li>Apples: 5 students</li><li>Bananas: 7 students</li><li>Oranges: 3 students</li><li>Grapes: 6 students</li></ul>
+          <p class="notes">🎙️ Imagine we asked your class about their favorite fruits. A bar graph would have a bar for apples, a bar for bananas, and so on. The height of the 'banana' bar would be the tallest, showing it's the most popular, while 'orange' would be the shortest.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Fruit Choices</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: What We Learned Today</h2>
+          <ul><li>Statistics: collecting, organizing, analyzing data.</li><li>Data types: Primary (first-hand) &amp; Secondary (existing).</li><li>Organizing data: Raw data, Frequency, Frequency Distribution Tables.</li><li>Grouped data: Class Intervals, Limits, Class Mark.</li><li>Visualizing data: Bar Graphs.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From understanding what statistics is, to different types of data, and how to organize it using frequency tables and class intervals. We also touched upon how to make data visually appealing with bar graphs. Keep practicing these concepts!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

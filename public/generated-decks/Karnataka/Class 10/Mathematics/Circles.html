@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Circles: Exploring Tangents and Their Properties — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Slide 1: Welcome to the World of <span class="hl">Circles</span>!</h2>
+          <ul><li>A fascinating shape all around us.</li><li>From wheels to watches, circles are everywhere.</li><li>Today, we'll dive deeper into their special properties.</li><li>Specifically, we'll explore 'Tangents' in Class 10.</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! Today we're starting a new and very interesting chapter: Circles. You've seen circles since kindergarten, but in Class 10, we'll uncover some advanced concepts. Let's begin our journey!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Slide 2: What is a <span class="hl">Circle</span>? (A Quick Review)</h2>
+          <ul><li>A circle is a set of all points in a plane.</li><li>These points are equidistant from a fixed central point.</li><li>Think of drawing with a compass!</li><li>It's a fundamental shape in geometry.</li></ul>
+          <p class="notes">🎙️ Before we jump into new ideas, let's quickly recall what a circle is. It's essentially a path traced by a point moving at a constant distance from another fixed point. This fixed point is the heart of the circle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Points forming a circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Slide 3: Parts of a Circle - <span class="hl">Center</span> &amp; Radius</h2>
+          <ul><li>The 'Center' (O) is the fixed point inside the circle.</li><li>The 'Radius' (r) is the distance from the center to any point on the circle.</li><li>All radii of the same circle are equal in length.</li><li>It's like the spoke of a bicycle wheel.</li></ul>
+          <p class="notes">🎙️ The two most important parts of a circle are its center and radius. The center is literally the middle point, and the radius defines the 'size' of the circle. Remember, every point on the circle is exactly one radius away from the center.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Center and Radius</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Slide 4: Parts of a Circle - <span class="hl">Diameter</span> &amp; Chord</h2>
+          <ul><li>A 'Diameter' (d) is a chord passing through the center.</li><li>It's the longest chord in a circle (d = 2r).</li><li>A 'Chord' is any line segment connecting two points on the circle.</li><li>Think of a guitar string as a chord.</li></ul>
+          <p class="notes">🎙️ Building on radius, we have diameter. A diameter is just two radii joined end-to-end, passing through the center. A chord is a more general term for any line segment connecting two points on the circle, and the diameter is a special type of chord.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Diameter and Chord</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Slide 5: Parts of a Circle - <span class="hl">Arc</span> &amp; Sector</h2>
+          <ul><li>An 'Arc' is a continuous piece of a circle.</li><li>Imagine a slice of pizza – its crust is an arc.</li><li>A 'Sector' is the region enclosed by two radii and an arc.</li><li>It's like the entire slice of pizza!</li></ul>
+          <p class="notes">🎙️ Circles aren't just about lines; they also have curved parts. An arc is a segment of the circle's boundary. When you combine an arc with two radii, you get a sector, which is an area within the circle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">Arc and Sector</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Slide 6: Circles in <span class="hl">Real Life</span>!</h2>
+          <ul><li>Wheels on vehicles for smooth movement.</li><li>Clocks and watches to tell time.</li><li>Coins and buttons for everyday use.</li><li>Pipes and rings in construction and jewelry.</li></ul>
+          <p class="notes">🎙️ Take a moment to look around you. Circles are everywhere! From the tires on our cars to the coins in our pockets, their perfect symmetry and properties make them incredibly useful in design and engineering. This shows how relevant our learning is.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Circles are everywhere!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Slide 7: Lines and a Circle – <span class="hl">Three Possibilities</span></h2>
+          <ul><li>A line can interact with a circle in three ways.</li><li>It can not touch the circle at all.</li><li>It can cut through the circle at two points (Secant).</li><li>It can touch the circle at exactly one point (Tangent).</li></ul>
+          <p class="notes">🎙️ Now, let's consider how a straight line can relate to a circle. There are three distinct ways a line can position itself relative to a circle. We will explore each of these in detail.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>No Contact</span></div><div class="step"><span class="snum">2</span><span>Two Points</span></div><div class="step"><span class="snum">3</span><span>One Point</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Slide 8: Case 1: <span class="hl">Non-Intersecting</span> Line</h2>
+          <ul><li>The line does not touch the circle at all.</li><li>There are no common points between the line and the circle.</li><li>The shortest distance from the center to the line is greater than the radius.</li><li>Imagine a wall far away from a round pond.</li></ul>
+          <p class="notes">🎙️ The first case is straightforward: the line and the circle have no points in common. They simply exist in the same plane without ever meeting. The distance from the center of the circle to this line is always more than the radius.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Line far from circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Slide 9: Case 2: <span class="hl">Secant</span> to a Circle</h2>
+          <ul><li>A 'Secant' is a line that intersects the circle at two distinct points.</li><li>It cuts through the interior of the circle.</li><li>A chord is a segment of a secant.</li><li>Think of a knife slicing through a round cake.</li></ul>
+          <p class="notes">🎙️ Next, we have a secant. This line passes right through the circle, creating two points of intersection. The segment of the secant that lies inside the circle is what we call a chord. So, a secant is an extended chord.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Line cutting through</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Slide 10: Case 3: <span class="hl">Tangent</span> to a Circle – Our Main Focus!</h2>
+          <ul><li>A 'Tangent' is a line that intersects the circle at exactly one point.</li><li>This single point is called the 'Point of Contact'.</li><li>The tangent just 'touches' the circle without cutting through.</li><li>Imagine a car tire touching the road at one point.</li></ul>
+          <p class="notes">🎙️ And finally, the star of our chapter: the tangent! This line is special because it meets the circle at only one unique point, known as the point of contact. It grazes the circumference without entering the circle's interior. This is a crucial concept for Class 10.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👆</div><div class="vcap">Touching at one point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Slide 11: Property 1: Tangent is <span class="hl">Perpendicular</span> to Radius</h2>
+          <ul><li>Theorem: The tangent at any point of a circle is perpendicular to the radius through the point of contact.</li><li>This means the angle between the tangent and the radius is always 90 degrees.</li><li>This is a fundamental property of tangents.</li><li>Represented by the symbol '⊥'.</li></ul>
+          <p class="notes">🎙️ This is our first major theorem about tangents. It states a very important relationship: wherever a tangent touches a circle, the radius drawn to that exact point of contact will always form a perfect right angle with the tangent line. This property is used extensively in solving problems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Right Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Slide 12: <span class="hl">Visualizing</span> Tangent Property 1</h2>
+          <ul><li>Draw a circle with center O.</li><li>Draw a tangent AB at point P on the circle.</li><li>Draw radius OP.</li><li>Angle OPB (or OPA) will be 90 degrees.</li></ul>
+          <p class="notes">🎙️ Let's visualize this. Imagine our circle with center O. If we draw a line that just touches the circle at point P, and then draw a line from O to P (which is the radius), these two lines will always meet at a right angle. This forms a perfect 'L' shape at the point of contact.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Circle &amp; Center O</span></div><div class="step"><span class="snum">2</span><span>Tangent AB at P</span></div><div class="step"><span class="snum">3</span><span>Radius OP</span></div><div class="step"><span class="snum">4</span><span>∠OPB = 90°</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Slide 13: Number of Tangents from a Point - Case A: <span class="hl">Inside</span> the Circle</h2>
+          <ul><li>If a point 'P' lies inside the circle.</li><li>No tangent can be drawn to the circle from such a point.</li><li>Any line passing through P will be a secant.</li><li>It will always cut the circle at two points.</li></ul>
+          <p class="notes">🎙️ Now, let's explore how many tangents we can draw from different positions. If you pick a point *inside* the circle, try to draw a line that only touches the circle at one point. You'll find it's impossible. Any line from an internal point will always pass through the circle twice, making it a secant, not a tangent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❌</span></div><div class="vcap">Zero tangents</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Slide 14: Number of Tangents from a Point - Case B: <span class="hl">On the Circle</span></h2>
+          <ul><li>If a point 'P' lies on the circle itself.</li><li>Exactly 'one' tangent can be drawn through this point.</li><li>This tangent is unique for that specific point of contact.</li><li>It's like a single track touching the edge of a record.</li></ul>
+          <p class="notes">🎙️ What if the point is *on* the circle? In this case, you can draw exactly one tangent. This tangent will pass through that point and touch the circle only there. Any other line through that point would either be a secant or not a line at all.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☝️</span></div><div class="vcap">One tangent</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Slide 15: Number of Tangents from a Point - Case C: <span class="hl">Outside</span> the Circle</h2>
+          <ul><li>If a point 'P' lies outside the circle.</li><li>Exactly 'two' tangents can be drawn from this external point.</li><li>These two tangents will have different points of contact.</li><li>Imagine two hands reaching out to touch a ball.</li></ul>
+          <p class="notes">🎙️ And finally, if the point is *outside* the circle, you can draw exactly two tangents to the circle. These two lines will originate from the external point and touch the circle at two distinct points of contact. This is a very important case for problem-solving.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✌️</span><span>✌️</span></div><div class="vcap">Two tangents</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Slide 16: Property 2: Lengths of Tangents from External Point are <span class="hl">Equal</span></h2>
+          <ul><li>Theorem: The lengths of tangents drawn from an external point to a circle are equal.</li><li>If P is an external point, and PA and PB are tangents.</li><li>Then, the length of PA will be equal to the length of PB (PA = PB).</li><li>This property is often used in geometric proofs.</li></ul>
+          <p class="notes">🎙️ Here's our second major theorem about tangents. When you draw two tangents from the same external point to a circle, the segments from the external point to their respective points of contact will always have the same length. This is a powerful tool in geometry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Equal lengths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Slide 17: <span class="hl">Visualizing</span> Tangent Property 2</h2>
+          <ul><li>Draw a circle with center O.</li><li>Take an external point P.</li><li>Draw tangents PA and PB to the circle.</li><li>Measure PA and PB – they will be equal!</li></ul>
+          <p class="notes">🎙️ Let's visualize this. Imagine a point P outside our circle. From P, we draw two lines that just touch the circle at points A and B. If you were to measure the distance from P to A, and from P to B, you would find they are exactly the same. This can be proven using congruence of triangles.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Circle &amp; Center O</span></div><div class="step"><span class="snum">2</span><span>External Point P</span></div><div class="step"><span class="snum">3</span><span>Tangents PA &amp; PB</span></div><div class="step"><span class="snum">4</span><span>PA = PB (Lengths)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Slide 18: Worked <span class="hl">Example 1</span>: Applying Perpendicularity</h2>
+          <ul><li>Problem: A tangent PQ at a point P of a circle of radius 5 cm meets a line through the center O at a point Q so that OQ = 12 cm. Find the length of PQ.</li><li>Solution: OP is radius (5 cm), PQ is tangent, so ∠OPQ = 90°.</li><li>Using Pythagoras theorem in ΔOPQ: OQ² = OP² + PQ².</li><li>12² = 5² + PQ² =&gt; 144 = 25 + PQ² =&gt; PQ² = 119 =&gt; PQ = √119 cm.</li></ul>
+          <p class="notes">🎙️ Let's put our first property into practice. This problem involves a tangent, a radius, and an external line, forming a right-angled triangle. By applying the Pythagorean theorem, which you're already familiar with, we can easily find the unknown length of the tangent. Remember, the right angle is always at the point of contact.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Problem Solving</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Slide 19: Worked <span class="hl">Example 2</span>: Applying Equal Tangent Lengths</h2>
+          <ul><li>Problem: From a point Q, the length of the tangent to a circle is 24 cm and the distance of Q from the center is 25 cm. Find the radius of the circle.</li><li>Solution: Let the point of contact be P. PQ = 24 cm, OQ = 25 cm.</li><li>∠OPQ = 90° (Radius ⊥ Tangent).</li><li>Using Pythagoras theorem in ΔOPQ: OQ² = OP² + PQ².</li><li>25² = OP² + 24² =&gt; 625 = OP² + 576 =&gt; OP² = 49 =&gt; OP = 7 cm (Radius).</li></ul>
+          <p class="notes">🎙️ Here's another example, this time to find the radius. Notice how both tangent properties often lead us back to the powerful Pythagorean theorem. Always draw a diagram to visualize the problem; it makes it much clearer where the right angle is and which sides are involved.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Applying Theorems</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Slide 20: Quick Question 1: <span class="hl">Identify</span> the Line!</h2>
+          <ul><li>A line intersects a circle at two points. What is it called?</li><li>A) Tangent</li><li>B) Secant</li><li>C) Radius</li><li>D) Chord</li></ul>
+          <p class="notes">🎙️ Time for some quick checks to see if you've grasped the concepts. Read the question carefully and choose the best answer. This question tests your understanding of the different types of lines interacting with a circle.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Slide 21: Quick Question 2: <span class="hl">Angle</span> Property!</h2>
+          <ul><li>What is the angle between a tangent and the radius at the point of contact?</li><li>A) 45 degrees</li><li>B) 60 degrees</li><li>C) 90 degrees</li><li>D) 180 degrees</li></ul>
+          <p class="notes">🎙️ This question directly tests your knowledge of the first major theorem we discussed. It's a fundamental property that you must remember. Think about the special relationship between the tangent and the radius.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Slide 22: Quick Question 3: Tangent <span class="hl">Lengths</span>!</h2>
+          <ul><li>From an external point P, two tangents PA and PB are drawn to a circle. If PA = 8 cm, what is the length of PB?</li><li>A) 4 cm</li><li>B) 8 cm</li><li>C) 16 cm</li><li>D) Cannot be determined</li></ul>
+          <p class="notes">🎙️ This question checks your understanding of the second key theorem about tangents. If you recall the property of tangents drawn from an external point, this should be a very quick and easy answer for you.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Slide 23: <span class="hl">Applications</span> of Tangents in Real Life</h2>
+          <ul><li>Gears and pulleys: Tangents define how belts transfer motion.</li><li>Design of roads and railway curves: Ensures smooth turns.</li><li>Optics: Light rays can be tangent to lenses/mirrors.</li><li>Engineering: Designing structures with circular components.</li></ul>
+          <p class="notes">🎙️ The concepts of tangents aren't just for textbooks. They have wide-ranging practical applications. Think about how a bicycle chain works, or how a belt drives an engine part. These all rely on the principles of tangents. Understanding these helps engineers design better machines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Gears and belts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Slide 24: <span class="hl">Recap</span>: Key Takeaways on Circles &amp; Tangents</h2>
+          <ul><li>A tangent touches a circle at exactly one point (point of contact).</li><li>The radius is perpendicular to the tangent at the point of contact (∠90°).</li><li>Zero tangents from inside, one from on, two from outside a circle.</li><li>Lengths of tangents from an external point to a circle are equal.</li></ul>
+          <p class="notes">🎙️ Let's quickly summarize what we've learned today. The concept of a tangent and its two main properties are essential. Remember the number of tangents from different points and how these properties help us solve geometric problems, often with Pythagoras.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Slide 25: <span class="hl">Thank You</span>! Any Questions?</h2>
+          <ul><li>Keep practicing problems related to tangents.</li><li>Draw diagrams for every problem to visualize.</li><li>Review the theorems and their proofs.</li><li>Next, we will explore more complex problems and constructions.</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on Circles and Tangents. I encourage you to practice the worked examples and try more problems from your textbook. The more you practice, the clearer these concepts will become. Feel free to ask any questions you have now.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Karnataka Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Elements of Geometry — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to Elements of <span class="hl">Geometry</span>!</h2>
+          <ul><li>Discover the foundational concepts of shapes and space.</li><li>Understand the building blocks of the world around us.</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we embark on an exciting journey into the world of Geometry. We will explore the basic elements that form the foundation of this fascinating branch of mathematics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Geometry</span>?</h2>
+          <ul><li>Study of shapes, sizes, positions, and properties of figures.</li><li>Comes from Greek words 'geo' (earth) and 'metron' (measurement).</li></ul>
+          <p class="notes">🎙️ Geometry is a very old subject, used by ancient civilizations to build magnificent structures and understand the stars. It helps us describe and understand the physical world around us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Measuring the Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Basic <span class="hl">Building Blocks</span> of Geometry</h2>
+          <ul><li>Geometry starts with fundamental, undefined terms.</li><li>These are Point, Line, and Plane.</li><li>All other geometric figures are built from these.</li></ul>
+          <p class="notes">🎙️ Just like how letters are the building blocks of words, Point, Line, and Plane are the basic elements of geometry. We will define and explore each of these in detail.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Foundations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The <span class="hl">Point</span>: A Location</h2>
+          <ul><li>A point represents an exact location in space.</li><li>It has no dimension (no length, width, or height).</li><li>Represented by a dot and named with a capital letter.</li></ul>
+          <p class="notes">🎙️ Think of a point as a tiny dot on a map marking a specific place. It tells you 'where' something is, but not how big it is. For example, the tip of a sharpened pencil is a good representation of a point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">•</div><div class="vcap">Exact Spot</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The <span class="hl">Line</span>: Infinite Extent</h2>
+          <ul><li>A line is a straight path that extends infinitely in both directions.</li><li>It has one dimension: length, but no width or thickness.</li><li>Represented by arrows on both ends and named with two points or a lowercase letter.</li></ul>
+          <p class="notes">🎙️ Imagine a perfectly straight road that never ends, going on and on in both directions. That's what a line is in geometry. We can't draw an actual infinite line, so we use arrows to show it continues.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Extends Forever</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Line Segment</span>: A Part of a Line</h2>
+          <ul><li>A line segment is a part of a line with two distinct endpoints.</li><li>It has a definite length and does not extend infinitely.</li><li>Named by its two endpoints, e.g., segment AB.</li></ul>
+          <p class="notes">🎙️ Unlike a line, a line segment has a clear beginning and end. Think of the edge of your ruler or the side of a table. These are excellent real-life examples of line segments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Fixed Length</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>The <span class="hl">Ray</span>: One Endpoint</h2>
+          <ul><li>A ray is a part of a line with one endpoint and extends infinitely in one direction.</li><li>It has a starting point but no ending point.</li><li>Named by its endpoint first, then another point on the ray, e.g., ray AB.</li></ul>
+          <p class="notes">🎙️ A ray is like a beam of light coming from a flashlight. It starts at the flashlight and travels outwards indefinitely in one direction. The sun's rays are another great example.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">One Way</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>The <span class="hl">Plane</span>: A Flat Surface</h2>
+          <ul><li>A plane is a flat, two-dimensional surface that extends infinitely in all directions.</li><li>It has length and width, but no thickness.</li><li>Represented by a shape like a parallelogram and named with a single capital letter or three non-collinear points.</li></ul>
+          <p class="notes">🎙️ Think of the surface of a perfectly smooth table or a wall, but imagine it stretching out forever. That's a plane. It's where we draw our shapes and figures.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Flat Surface</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Collinear</span> Points: On the Same Line</h2>
+          <ul><li>Three or more points are collinear if they lie on the same straight line.</li><li>If points are not on the same line, they are non-collinear.</li><li>Two points are always collinear.</li></ul>
+          <p class="notes">🎙️ Imagine three friends standing perfectly in a straight line for a photograph. Those friends represent collinear points. If one friend steps out of line, they become non-collinear.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>•</span><span>•</span><span>•</span></div><div class="vcap">Points on a Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Intersecting</span> Lines: Crossing Paths</h2>
+          <ul><li>Two distinct lines are intersecting if they share exactly one common point.</li><li>This common point is called the point of intersection.</li><li>They lie in the same plane.</li></ul>
+          <p class="notes">🎙️ Think of two roads crossing each other; the spot where they meet is the intersection. Similarly, in geometry, two lines can cross at a single point. This point is unique to both lines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Crossing Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Parallel</span> Lines: Never Meeting</h2>
+          <ul><li>Two lines are parallel if they lie in the same plane and never intersect.</li><li>They maintain a constant distance from each other.</li><li>Represented by arrows on the lines to indicate parallelism.</li></ul>
+          <p class="notes">🎙️ Imagine the opposite edges of a ruler or the tracks of a railway line. These are perfect examples of parallel lines. They run alongside each other but never cross, no matter how far they extend.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏸️</div><div class="vcap">Always Apart</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Test Your Knowledge</h2>
+          <ul><li>1. A line segment has how many endpoints?</li><li>2. Can two lines intersect at two points?</li><li>3. What is a flat surface extending infinitely in all directions called?</li></ul>
+          <p class="notes">🎙️ Let's quickly review what we've learned so far. Take a moment to think about the answers to these questions. This helps us ensure we're all on the same page.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Angles</span>: Where Rays Meet</h2>
+          <ul><li>An angle is formed when two rays share a common endpoint.</li><li>The common endpoint is called the vertex.</li><li>The two rays are called the arms or sides of the angle.</li></ul>
+          <p class="notes">🎙️ Look around you, and you'll see angles everywhere! From the corners of a room to the hands of a clock, angles are fundamental to shapes and structures. They describe the 'turn' between two lines.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⟁</div><div class="vcap">Corner Shape</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Understanding the <span class="hl">Parts</span> of an Angle</h2>
+          <ul><li>Vertex: The common endpoint where the two rays meet.</li><li>Arms (or Sides): The two rays that form the angle.</li><li>Angles are typically named using three letters, with the vertex in the middle.</li></ul>
+          <p class="notes">🎙️ It's important to identify the vertex and arms to correctly understand and name an angle. For example, in angle ABC, B is the vertex, and BA and BC are the arms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle Components</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Measuring</span> Angles: The Degree Unit</h2>
+          <ul><li>Angles are measured in units called degrees (°).</li><li>A full circle measures 360 degrees.</li><li>We use a protractor to measure angles accurately.</li></ul>
+          <p class="notes">🎙️ Just as we measure length in centimeters or meters, we measure angles in degrees. A protractor is a special tool designed to help us find the exact degree of an angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Protractor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Acute</span> Angle: Less Than 90°</h2>
+          <ul><li>An acute angle measures less than 90 degrees.</li><li>It is a 'sharp' or 'small' angle.</li><li>Example: The tip of a pizza slice.</li></ul>
+          <p class="notes">🎙️ Think of the sharp corner of a triangle or the opening between the blades of a pair of scissors when they are just slightly open. These are examples of acute angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Small Turn</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Right</span> Angle: Exactly 90°</h2>
+          <ul><li>A right angle measures exactly 90 degrees.</li><li>It forms a perfect 'L' shape.</li><li>Example: The corner of a square or a book.</li></ul>
+          <p class="notes">🎙️ Right angles are very common in construction and everyday objects because they provide stability and squareness. The corner where a wall meets the floor is a perfect right angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Perfect Corner</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Obtuse</span> Angle: Greater Than 90°</h2>
+          <ul><li>An obtuse angle measures greater than 90 degrees but less than 180 degrees.</li><li>It is a 'wide' or 'blunt' angle.</li><li>Example: The angle formed by an open laptop screen.</li></ul>
+          <p class="notes">🎙️ Imagine opening a door wide, but not completely flat against the wall. The angle formed is an obtuse angle. It's wider than a right angle but not a straight line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Wide Turn</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Straight</span> Angle: Exactly 180°</h2>
+          <ul><li>A straight angle measures exactly 180 degrees.</li><li>It forms a straight line.</li><li>Example: A flat horizon or a perfectly straight road.</li></ul>
+          <p class="notes">🎙️ When two rays point in opposite directions from a common vertex, they form a straight line, and the angle between them is 180 degrees. It's essentially half a full circle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Flat Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Reflex</span> Angle: Greater Than 180°</h2>
+          <ul><li>A reflex angle measures greater than 180 degrees but less than 360 degrees.</li><li>It's the 'outside' angle of a shape.</li><li>Example: The angle a clock's hands make past the 6 o'clock mark.</li></ul>
+          <p class="notes">🎙️ Imagine turning almost a full circle, but not quite. That's a reflex angle. It's the larger angle formed by two rays, typically measured by going 'the long way around'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Big Turn</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Angle <span class="hl">Challenge</span>! What Type is It?</h2>
+          <ul><li>1. An angle measuring 45° is what type?</li><li>2. What is the measure of a straight angle?</li><li>3. Is an angle of 120° acute or obtuse?</li></ul>
+          <p class="notes">🎙️ Time for another quick check on our understanding of angle types. See if you can correctly identify each angle based on its measurement. This helps reinforce the definitions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Geometry All Around Us!</h2>
+          <ul><li>Buildings use lines, planes, and angles for stability and design.</li><li>Maps and navigation rely on points and coordinates.</li><li>Art and design incorporate geometric shapes for aesthetics.</li></ul>
+          <p class="notes">🎙️ Geometry isn't just in textbooks; it's everywhere! From the architecture of buildings to the design of your phone, geometric principles are applied daily to create and understand our world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏙️</span><span>🏙️</span><span>🏙️</span><span>🏙️</span><span>🏙️</span></div><div class="vcap">Cityscape Geometry</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Spotting Geometric Elements</h2>
+          <ul><li>Identify points, line segments, and angles in the given figure.</li><li>Points: A, B, C, D</li><li>Line Segments: AB, BC, CD, DA</li><li>Angles: Angle DAB, Angle ABC, Angle BCD, Angle CDA</li></ul>
+          <p class="notes">🎙️ Let's look at a simple square or rectangle. We can clearly see the vertices as points, the sides as line segments, and the corners as right angles. This shows how basic elements combine to form shapes.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Points</span></div><div class="step"><span class="snum">2</span><span>Identify Segments</span></div><div class="step"><span class="snum">3</span><span>Identify Angles</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways from Elements of Geometry</h2>
+          <ul><li>Point, Line, and Plane are the fundamental building blocks.</li><li>Lines can be segments, rays, intersecting, or parallel.</li><li>Angles are formed by two rays meeting at a vertex and are classified by their measure.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today, from the smallest point to the vastness of a plane, and the different types of angles. These concepts are crucial for understanding more complex geometry.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Keep <span class="hl">Exploring</span> Geometry!</h2>
+          <ul><li>Practice identifying geometric elements in your surroundings.</li><li>Geometry is not just math; it's how we describe the world.</li><li>Any questions?</li></ul>
+          <p class="notes">🎙️ I hope you enjoyed this introduction to the elements of geometry. Keep an eye out for these shapes and structures in your daily life, and you'll see how fascinating geometry truly is.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

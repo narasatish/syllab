@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Proofs in Mathematics — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to "<span class="hl">Proofs</span> in Mathematics"</h2>
+          <ul><li>Explore the fascinating world of mathematical proofs.</li><li>Understand why proofs are essential in mathematics.</li><li>Learn different methods to construct valid proofs.</li></ul>
+          <p class="notes">🎙️ Hello students! Today we embark on an exciting journey into 'Proofs in Mathematics'. This chapter will teach us how to establish the truth of mathematical statements with certainty and logic.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a Mathematical <span class="hl">Proof</span>?</h2>
+          <ul><li>A logical argument that establishes the truth of a statement.</li><li>Uses known facts, definitions, axioms, and previously proven theorems.</li><li>A step-by-step demonstration of certainty.</li></ul>
+          <p class="notes">🎙️ A mathematical proof is like a detective's investigation. We gather evidence, follow logical steps, and ultimately prove a statement to be undeniably true. It's about convincing others, and yourself, that something is correct.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Searching for Truth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Why are Proofs <span class="hl">Important</span>?</h2>
+          <ul><li>Ensures correctness and eliminates doubt.</li><li>Builds a solid foundation for new mathematical ideas.</li><li>Develops critical thinking and logical reasoning skills.</li></ul>
+          <p class="notes">🎙️ Proofs are the backbone of mathematics. Without them, we would just be guessing or assuming. They give us confidence in our mathematical results and help us build complex theories on strong, verified foundations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Certainty and Correctness</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Types</span> of Statements in Mathematics</h2>
+          <ul><li>Mathematics uses different kinds of statements.</li><li>Some are accepted without proof, others require proof.</li><li>Understanding these types is crucial for proofs.</li></ul>
+          <p class="notes">🎙️ Before we dive into proving, let's understand the different kinds of statements we encounter. Not everything needs to be proven; some things are fundamental truths we accept.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Axioms</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Postulates</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Theorems</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Conjectures</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Axioms and Postulates: <span class="hl">Self-Evident</span> Truths</h2>
+          <ul><li>Statements accepted as true without proof.</li><li>Axioms are general mathematical truths (e.g., things equal to the same thing are equal to each other).</li><li>Postulates are specific to geometry (e.g., a straight line can be drawn between any two points).</li></ul>
+          <p class="notes">🎙️ Axioms and postulates are like the basic rules of a game; we agree they are true so we can start playing. They are the foundational statements upon which all other mathematical truths are built.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Obvious Truths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Theorems: <span class="hl">Proven</span> Truths</h2>
+          <ul><li>Statements that can be proven using definitions, axioms, postulates, and other theorems.</li><li>They are significant results in mathematics.</li><li>Examples: Pythagoras Theorem, Thales Theorem.</li></ul>
+          <p class="notes">🎙️ Theorems are the exciting discoveries in mathematics. They are not just believed to be true; their truth has been rigorously demonstrated through a logical proof. Think of them as the 'trophies' of mathematical discovery.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏆</div><div class="vcap">Achieved by Proof</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Conjectures: Educated <span class="hl">Guesses</span></h2>
+          <ul><li>Statements that are believed to be true, but have not yet been proven.</li><li>Often arise from observing patterns or examples.</li><li>A conjecture becomes a theorem once it is proven.</li></ul>
+          <p class="notes">🎙️ Conjectures are fascinating. They are ideas that mathematicians think are true, often based on a lot of evidence, but they haven't found a complete proof yet. The journey from a conjecture to a theorem can take years, even centuries!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Hypothesis</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>The <span class="hl">Building Blocks</span> of a Proof</h2>
+          <ul><li>A proof usually follows a structured format.</li><li>Helps organize your thoughts and arguments.</li><li>Ensures clarity and completeness.</li></ul>
+          <p class="notes">🎙️ When you write a proof, it's not just a random collection of statements. There's a standard structure that helps you present your argument clearly. We start with what we know, state what we want to show, sometimes add extra steps, and then present the logical argument.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Given</span></div><div class="step"><span class="snum">2</span><span>To Prove</span></div><div class="step"><span class="snum">3</span><span>Construction (Optional)</span></div><div class="step"><span class="snum">4</span><span>Proof</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Direct</span> Proof: Step-by-Step Logic</h2>
+          <ul><li>Starts with the given information or known truths.</li><li>Applies definitions, axioms, and theorems directly.</li><li>Logically progresses step-by-step to the conclusion.</li></ul>
+          <p class="notes">🎙️ Direct proof is the most common and straightforward method. You simply start with what you're given and, through a series of logical deductions, arrive at the statement you want to prove. It's like walking directly from point A to point B.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Straightforward Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Example: Sum of Two <span class="hl">Even Numbers</span></h2>
+          <ul><li>Given: Let 'a' and 'b' be any two even integers.</li><li>To Prove: a + b is an even integer.</li><li>Proof: Since a and b are even, a = 2k and b = 2m for some integers k, m.</li><li>Therefore, a + b = 2k + 2m = 2(k + m). Since (k+m) is an integer, 2(k+m) is even. Hence, a+b is even.</li></ul>
+          <p class="notes">🎙️ Let's try a direct proof. We know what an even number is (a multiple of 2). We use this definition to represent our even numbers and then show that their sum also fits the definition of an even number. Simple, right?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span></div><div class="vcap">Addition of Even Numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Indirect Proof: Proving by <span class="hl">Contradiction</span></h2>
+          <ul><li>Assume the opposite of what you want to prove is true.</li><li>Show that this assumption leads to a contradiction (a statement that is logically impossible).</li><li>Since the assumption leads to a contradiction, the original statement must be true.</li></ul>
+          <p class="notes">🎙️ Indirect proof, or proof by contradiction, is a clever technique. Instead of directly showing something is true, you assume it's false and then demonstrate that this assumption creates a logical impossibility. If assuming it's false leads to nonsense, then it must be true!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↩️</div><div class="vcap">Reversing an Assumption</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Example: If <span class="hl">n² is even</span>, then n is even</h2>
+          <ul><li>Given: n² is an even integer.</li><li>To Prove: n is an even integer.</li><li>Assume for contradiction: n is an odd integer.</li><li>If n is odd, then n = 2k + 1 for some integer k. Then n² = (2k+1)² = 4k² + 4k + 1 = 2(2k²+2k) + 1. This means n² is odd.</li><li>This contradicts our given statement that n² is even. Therefore, our assumption that n is odd must be false, meaning n is even.</li></ul>
+          <p class="notes">🎙️ Here, we want to prove 'if n² is even, then n is even'. We start by assuming the opposite: that n is odd. By showing that this leads to n² being odd, which contradicts our initial 'given' information, we prove that n must indeed be even.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Contradiction Revealed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Proof by <span class="hl">Counterexample</span>: Finding an Exception</h2>
+          <ul><li>Used to disprove a universal statement (e.g., 'All X are Y').</li><li>Find just one specific case where the statement is false.</li><li>One counterexample is enough to prove a universal statement false.</li></ul>
+          <p class="notes">🎙️ Sometimes, proving something false is easier than proving it true. If someone makes a claim like 'All swans are white', you just need to find one black swan to prove them wrong. That one exception is called a counterexample.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Disproving</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Example: "All <span class="hl">Prime Numbers</span> are Odd"</h2>
+          <ul><li>Statement: All prime numbers are odd.</li><li>To Disprove: Find a prime number that is not odd.</li><li>Counterexample: The number 2 is a prime number.</li><li>However, 2 is an even number, not odd. Therefore, the statement 'All prime numbers are odd' is false.</li></ul>
+          <p class="notes">🎙️ This is a classic example. Many students might think all prime numbers are odd because most of them are (3, 5, 7, 11...). But the number 2 is a prime number, and it's even. This single counterexample disproves the entire statement.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>2️⃣</span></div><div class="vcap">The Number Two</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Proofs Beyond Mathematics</h2>
+          <ul><li>The concept of proof applies to many fields.</li><li>Law: Lawyers present evidence to prove guilt or innocence.</li><li>Science: Experiments are designed to prove or disprove hypotheses.</li><li>Engineering: Designs are proven safe and functional before implementation.</li></ul>
+          <p class="notes">🎙️ The logical thinking and structured arguments we learn in mathematical proofs are valuable skills in everyday life. Whether it's proving a point in an argument or designing a safe bridge, the ability to build a sound case is crucial.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Foundations of Truth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Quick Check! <span class="hl">Axiom or Theorem</span>?</h2>
+          <ul><li>Is the statement 'Through any two distinct points, there is exactly one line' an Axiom or a Theorem?</li></ul>
+          <p class="notes">🎙️ Think back to our definitions. Is this a statement that needs to be proven, or is it a fundamental truth we accept without proof, especially in geometry?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick Check! Which <span class="hl">Proof Method</span>?</h2>
+          <ul><li>Which proof method involves assuming the opposite of what you want to prove and then showing this leads to a contradiction?</li></ul>
+          <p class="notes">🎙️ Remember the method where we take a 'U-turn' in our argument? What was that called?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Quick Check! Missing <span class="hl">Component</span>?</h2>
+          <ul><li>In a standard proof structure, what important component often comes after 'Given' and 'To Prove', but before the main 'Proof' steps, especially in geometry?</li></ul>
+          <p class="notes">🎙️ Sometimes, to make a proof easier, we add something to the diagram or problem. What do we call that step?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Geometric Proof: Sum of Angles in a Triangle</h2>
+          <ul><li>Theorem: The sum of the angles in any triangle is 180 degrees.</li><li>Proof involves drawing a line parallel to one side through the opposite vertex.</li><li>Uses properties of parallel lines and transversal to show angles add up to 180°.</li></ul>
+          <p class="notes">🎙️ This is a classic geometric proof you might have seen or will see. By adding an auxiliary line, we can use our knowledge of parallel lines to logically demonstrate that the three angles inside any triangle always sum to 180 degrees.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Geometry Proof</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Another Geometric Proof: <span class="hl">Pythagoras</span> Theorem</h2>
+          <ul><li>Theorem: In a right-angled triangle, the square of the hypotenuse (c) is equal to the sum of the squares of the other two sides (a and b).</li><li>Formula: a² + b² = c².</li><li>Many different proofs exist, often using area dissection or similarity.</li></ul>
+          <p class="notes">🎙️ The Pythagoras Theorem is one of the most famous theorems, with a rich history of proofs. While we won't go through a full proof now, understanding that this fundamental relationship has been rigorously proven is key.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Right Triangle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Algebraic Proof: Expanding <span class="hl">(a+b)²</span></h2>
+          <ul><li>Theorem: For any real numbers a and b, (a+b)² = a² + 2ab + b².</li><li>Proof: (a+b)² = (a+b) * (a+b).</li><li>Using distributive property: a(a+b) + b(a+b) = a² + ab + ba + b² = a² + 2ab + b².</li></ul>
+          <p class="notes">🎙️ Algebraic proofs use the rules of algebra to show that an equation or identity is true. Here, we simply expand the expression using the distributive property, which is a fundamental rule of algebra, to arrive at the desired result.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Algebraic Expansion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Algebraic Proof: Sum of First 'n' <span class="hl">Odd Numbers</span></h2>
+          <ul><li>Conjecture: The sum of the first 'n' odd numbers is n².</li><li>Example: 1 = 1²; 1+3 = 4 = 2²; 1+3+5 = 9 = 3².</li><li>Proof involves using arithmetic progression formulas or visual patterns.</li></ul>
+          <p class="notes">🎙️ This is a beautiful pattern! We can see it holds for small numbers. To prove it for any 'n', we can use summation formulas from arithmetic progressions or even a geometric proof by arranging squares.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Number Sequence</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Beware of Common Proof <span class="hl">Errors</span>!</h2>
+          <ul><li>Circular Reasoning: Assuming what you are trying to prove.</li><li>Assuming the Conclusion: Using the conclusion as a step in your proof.</li><li>Incorrect Logic: Making jumps or using invalid deductions.</li></ul>
+          <p class="notes">🎙️ Just like in any argument, it's easy to make mistakes in proofs. We must be very careful not to assume our conclusion or use faulty logic. A proof is only as strong as its weakest link.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">Avoid Mistakes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Logical Thinking</span>: The Core of Proofs</h2>
+          <ul><li>Proofs are a powerful tool for developing logical reasoning.</li><li>They train you to think critically and systematically.</li><li>This skill is valuable in all aspects of life, not just mathematics.</li></ul>
+          <p class="notes">🎙️ Ultimately, learning proofs is about sharpening your mind. It teaches you to break down complex problems, identify assumptions, and build sound arguments step-by-step. This mental exercise is incredibly beneficial.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Proving Our Understanding</h2>
+          <ul><li>A proof is a logical argument for a statement's truth.</li><li>Axioms/Postulates are accepted; Theorems are proven; Conjectures await proof.</li><li>Key methods: Direct Proof, Indirect Proof (Contradiction), Counterexample.</li><li>Proofs build confidence, ensure correctness, and enhance logical thinking.</li></ul>
+          <p class="notes">🎙️ So, we've learned that proofs are fundamental to mathematics, providing certainty and building a strong foundation. We've explored different types of statements and various methods to prove them. Keep practicing, and your logical skills will surely grow!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

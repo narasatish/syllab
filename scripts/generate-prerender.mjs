@@ -16,6 +16,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getCollegesManifest } from './collegesData.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -25,6 +26,34 @@ const SITE = 'https://syllab.in';
 // ─── Per-route SEO data (must stay in sync with App.tsx PAGE_SEO) ──────────
 // Keys are the URL paths (without leading slash where used as dir names).
 const ROUTES = [
+  {
+    // Homepage — without this, dist/index.html ships with no <link rel="canonical">,
+    // which is exactly what GSC reported ("User-declared canonical: None").
+    // route.path "/" → split/filter(Boolean) is [] → writes dist/index.html. ✓
+    path: '/',
+    title: 'Syllab.in — Free AI Learning for CBSE, NCERT, JEE & NEET | Class 1–12',
+    description: 'India\'s free AI learning platform for Class 1–12. NCERT chapters, MCQ practice, JEE/NEET/EAMCET mock tests, coding, daily GK, AI tutor, career & college predictor — free for every Indian student.',
+    keywords: 'free learning app India, AI tutor free India, NCERT solutions free, CBSE notes free Class 1-12, JEE preparation free 2026, NEET preparation free, EAMCET mock test, career predictor free, free education India',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org', '@type': 'SoftwareApplication',
+        name: 'Syllab.in', operatingSystem: 'Web', applicationCategory: 'EducationApplication',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }, isAccessibleForFree: true,
+        description: 'Free AI-powered learning platform for Class 1–12 CBSE Indian students',
+        aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '12000', bestRating: '5' },
+      },
+      {
+        '@context': 'https://schema.org', '@type': 'EducationalOrganization',
+        name: 'Syllab.in', url: SITE,
+        description: 'Free AI education platform for Indian students Class 1-12',
+        sameAs: ['https://twitter.com/syllabdotin'],
+      },
+      {
+        '@context': 'https://schema.org', '@type': 'WebSite', name: 'Syllab.in', url: SITE,
+        potentialAction: { '@type': 'SearchAction', target: `${SITE}/syllabus?q={search_term_string}`, 'query-input': 'required name=search_term_string' },
+      },
+    ],
+  },
   {
     path: '/syllabus',
     title: 'Class 1–12 NCERT Syllabus Explorer | CBSE Chapters & Notes | Syllab.in',
@@ -361,6 +390,45 @@ for (let c = 1; c <= 12; c++) {
         name: `Class ${c} ${sub}`,
         courseMode: 'online',
       })),
+    },
+  });
+}
+
+// ─── College pages (/colleges, /colleges/:state, /colleges/:state/:slug) ─────
+const { states: COLLEGE_STATES_M, colleges: COLLEGES_M } = getCollegesManifest(ROOT);
+
+ROUTES.push({
+  path: '/colleges',
+  title: 'Top Engineering Colleges in India 2026 — Fees, NIRF Rank, Cutoffs & Admission | Syllab.in',
+  description: 'Browse top engineering colleges across India by state — IITs, NITs and the best government & private colleges in Tamil Nadu, Karnataka, Maharashtra, Telangana, Andhra Pradesh, Delhi-NCR & West Bengal. Compare fees, NIRF rank, cutoffs, placements and the full admission process. Free.',
+  keywords: 'top engineering colleges India 2026, best engineering colleges by state, engineering college fees, NIRF ranking engineering, college cutoff 2026, engineering admission process, IIT NIT cutoff, college predictor India',
+  jsonLd: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Top Engineering Colleges in India', url: `${SITE}/colleges` },
+});
+
+for (const s of COLLEGE_STATES_M) {
+  const inState = COLLEGES_M.filter(c => c.stateSlug === s.slug);
+  ROUTES.push({
+    path: `/colleges/${s.slug}`,
+    title: `Top ${inState.length} Engineering Colleges in ${s.name} 2026 — Fees, Cutoff & Ranking | Syllab.in`,
+    description: `Best engineering colleges in ${s.name} 2026 — NIRF rank, B.Tech fees, cutoffs, placements and admission process. ${s.blurb}`,
+    keywords: `top engineering colleges ${s.name}, best engineering colleges ${s.name} 2026, ${s.name} engineering college fees, engineering admission ${s.name}, college cutoff ${s.name}`,
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'ItemList', name: `Top Engineering Colleges in ${s.name}`,
+      itemListElement: inState.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, url: `${SITE}/colleges/${s.slug}/${c.slug}` })),
+    },
+  });
+}
+
+for (const c of COLLEGES_M) {
+  ROUTES.push({
+    path: `/colleges/${c.stateSlug}/${c.slug}`,
+    title: `${c.shortName} — Fees, Cutoff, Placements & Admission 2026 | Syllab.in`,
+    description: `${c.name}, ${c.city}: B.Tech fees ${c.feesPerYear}/yr, ${c.cutoff}, average package ${c.placementAvg}. Full admission process, hostel & placements — free guide on Syllab.in.`,
+    keywords: `${c.name} fees, ${c.shortName} cutoff 2026, ${c.shortName} placements, ${c.name} admission process, ${c.name} hostel, ${c.city} engineering college`,
+    jsonLd: {
+      '@context': 'https://schema.org', '@type': 'CollegeOrUniversity', name: c.name,
+      url: `${SITE}/colleges/${c.stateSlug}/${c.slug}`,
+      address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
     },
   });
 }
