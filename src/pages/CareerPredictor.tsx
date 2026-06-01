@@ -18,8 +18,8 @@ import {
   CAREER_LIBRARY, CAREER_FIELDS,
   INTEREST_QUIZ, type StreamKey,
   EXAM_CALENDAR, SCHOLARSHIPS,
-  COLLEGE_DIRECTORY, COLLEGE_STATES,
 } from '../data/predictorData';
+import { COLLEGES as ALL_COLLEGES, COLLEGE_STATE_INFO, stateSlugForCollege, getStateRank } from '../data/colleges';
 
 type Tab = 'jee' | 'neet' | 'colleges' | 'careers' | 'quiz' | 'stream' | 'exams';
 
@@ -464,16 +464,17 @@ function ExamsAndScholarships() {
 
 /* ─── Top Colleges directory (CollegeDunia-style) ───────────────────────────*/
 function CollegeExplorer() {
-  const [state, setState] = useState<typeof COLLEGE_STATES[number]>('All');
+  const [state, setState] = useState<string>('All');
   const [q, setQ] = useState('');
+  const states = ['All', ...COLLEGE_STATE_INFO.map(s => s.name)];
 
   const list = useMemo(() => {
     const query = q.trim().toLowerCase();
-    return COLLEGE_DIRECTORY.filter(c =>
+    return ALL_COLLEGES.filter(c =>
       (state === 'All' || c.state === state) &&
       (!query || c.name.toLowerCase().includes(query) || c.city.toLowerCase().includes(query) ||
         c.topBranches.some(b => b.toLowerCase().includes(query)))
-    ).sort((a, b) => (a.nirf ?? 999) - (b.nirf ?? 999));
+    ).sort((a, b) => (a.nirf ?? 9999) - (b.nirf ?? 9999));
   }, [state, q]);
 
   const typeColor: Record<string, string> = {
@@ -486,8 +487,8 @@ function CollegeExplorer() {
   return (
     <div className="space-y-4">
       <a href="/colleges" className="block rounded-2xl bg-gradient-to-br from-teal-600 to-emerald-600 p-4 text-white hover:scale-[1.01] transition">
-        <p className="text-sm font-black">🏛️ Browse all colleges by state — full fees, NIRF + multi-source rankings, hostel, placements &amp; admission process →</p>
-        <p className="mt-0.5 text-[11px] text-white/80">Detailed college pages · indicative 2024 figures.</p>
+        <p className="text-sm font-black">🏛️ {ALL_COLLEGES.length} top colleges across India — click any to open its full page (fees, NIRF + multi-source rankings, hostel, placements, admission) →</p>
+        <p className="mt-0.5 text-[11px] text-white/80">15+ colleges per state · indicative 2024 figures.</p>
       </a>
 
       <div className="relative">
@@ -496,7 +497,7 @@ function CollegeExplorer() {
           className="w-full rounded-xl border border-slate-200 pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20" />
       </div>
       <div className="flex flex-wrap gap-1.5">
-        {COLLEGE_STATES.map(s => (
+        {states.map(s => (
           <button key={s} onClick={() => setState(s)}
             className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all ${
               state === s ? 'bg-primary text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:text-primary'
@@ -506,10 +507,14 @@ function CollegeExplorer() {
 
       <div className="grid gap-3 sm:grid-cols-2">
         {list.map(c => (
-          <div key={c.name + c.city} className="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+          <a key={c.slug} href={`/colleges/${stateSlugForCollege(c)}/${c.slug}`}
+            className="block rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
-                <h3 className="text-sm font-black text-slate-900 leading-tight">{c.name}</h3>
+                <div className="flex items-center gap-1.5">
+                  <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
+                  <h3 className="text-sm font-black text-slate-900 leading-tight truncate">{c.shortName || c.name}</h3>
+                </div>
                 <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-400"><MapPin size={11} />{c.city} · {c.state}</p>
               </div>
               <div className="flex flex-col items-end gap-1 shrink-0">
@@ -523,20 +528,19 @@ function CollegeExplorer() {
                 <p className="font-black text-emerald-700">{c.feesPerYear}</p>
               </div>
               <div className="rounded-lg bg-blue-50 px-2.5 py-1.5">
-                <p className="text-[9px] font-bold text-blue-600/70 uppercase tracking-wide">Indicative cutoff</p>
-                <p className="font-black text-blue-700">{c.cutoff}</p>
+                <p className="text-[9px] font-bold text-blue-600/70 uppercase tracking-wide">Avg package</p>
+                <p className="font-black text-blue-700">{c.placementAvg}</p>
               </div>
             </div>
             <div className="mt-2 flex flex-wrap gap-1">
               {c.topBranches.map(b => <span key={b} className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-500">{b}</span>)}
             </div>
-            <p className="mt-2 text-[11px] text-slate-500"><span className="font-black text-slate-600">Admission:</span> {c.process}</p>
-            <span className="mt-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">{c.exam}</span>
-          </div>
+            <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-black text-primary">View full details →</span>
+          </a>
         ))}
       </div>
       {!list.length && <p className="text-center text-sm text-slate-500 py-8">No colleges match your search.</p>}
-      <p className="text-center text-[11px] text-slate-400">Showing {list.length} colleges · more states &amp; colleges added regularly.</p>
+      <p className="text-center text-[11px] text-slate-400">Showing {list.length} colleges · click any for its full page.</p>
     </div>
   );
 }
