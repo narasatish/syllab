@@ -468,6 +468,377 @@ State seats via **KCET**; private seats via **COMEDK** or institute tests (PESSA
 
 Set your board in your profile and you instantly get notes, slide (PPT) lessons, voice narration and chapter-wise practice — NCERT-aligned boards share the full CBSE content, and AP/TS/Karnataka/Maharashtra get their own. All free.`,
   },
+
+  /* ── More EVERGREEN posts (permanent ~70%) ─────────────────────────────── */
+  {
+    id: 'jee-advanced-2026-strategy',
+    title: 'How to Crack JEE Advanced 2026: IIT Preparation Strategy',
+    category: 'JEE',
+    description: 'A clear JEE Advanced 2026 strategy — high-weightage topics, problem-solving practice, mock tests and time management to get into the IITs. Free mocks & rank predictor on Syllab.in.',
+    readTime: '7 min read',
+    content: `JEE Advanced rewards deep problem-solving, not rote learning. Here's how toppers approach it.
+
+## What's different from JEE Main
+Advanced questions are multi-concept and trickier. You must be comfortable applying 2–3 ideas in one problem.
+
+## High-yield focus
+- **Physics:** Mechanics, Electrodynamics, Modern Physics.
+- **Chemistry:** Physical (mole concept, equilibrium, thermodynamics), Organic mechanisms.
+- **Maths:** Calculus, Coordinate Geometry, Algebra.
+
+## The plan
+1. Master NCERT + a standard reference per subject.
+2. Solve previous 10 years' JEE Advanced papers.
+3. Take full timed mocks weekly; review every mistake.
+
+Free JEE mock tests, a percentile→rank predictor, and the 119-college directory (cutoffs + fees) are on Syllab.in.`,
+  },
+  {
+    id: 'neet-biology-important-chapters-weightage',
+    title: 'NEET Biology: Most Important Chapters & Weightage (Free Practice)',
+    category: 'NEET',
+    description: 'NEET Biology is 360/720 marks — here are the highest-weightage chapters (Genetics, Human Physiology, Ecology, Cell Biology) and how to practise them free on Syllab.in.',
+    readTime: '6 min read',
+    content: `Biology decides your NEET rank — 360 of 720 marks. Spend your time where the marks are.
+
+## Highest-weightage areas
+- **Human Physiology** and **Genetics & Evolution** — consistently the biggest scorers.
+- **Ecology & Environment** — high marks for relatively low effort.
+- **Cell Biology, Plant Physiology, Biomolecules.**
+
+## How to study Biology for NEET
+1. NCERT line-by-line (NEET Biology is ~85% NCERT).
+2. Chapter-wise MCQs with explanations for *why* an answer is right.
+3. Revise diagrams and tables — they're directly tested.
+
+On Syllab.in the AI tutor explains every wrong answer with the concept behind it — built for NEET Biology. Free.`,
+  },
+  {
+    id: 'best-study-timetable-board-exams',
+    title: 'The Best Study Timetable for Class 10 & 12 Board Exams',
+    category: 'Class 10',
+    description: 'A realistic daily study timetable for Class 10 & 12 board-exam students — subject rotation, revision blocks, breaks and sleep — that actually works. Free practice on Syllab.in.',
+    readTime: '6 min read',
+    content: `The best timetable is the one you can actually follow. Here's a realistic template.
+
+## Daily structure (school days)
+- **Early morning (5:30–7):** hardest subject (fresh mind) — Maths/Science.
+- **After school (4–6):** revision + chapter-wise practice.
+- **Evening (7–9):** second subject + short answers.
+- **Before bed:** 15-min recall of what you learned.
+
+## Weekly rules
+- Rotate subjects so none is neglected.
+- One full mock/sample paper per week (timed).
+- 7–8 hours of sleep — non-negotiable for memory.
+
+Track weak chapters with free chapter-wise MCQ practice on Syllab.in and fix them before exams.`,
+  },
+  {
+    id: 'self-study-jee-neet-without-coaching',
+    title: 'How to Self-Study for JEE/NEET Without Expensive Coaching',
+    category: 'Resources',
+    description: 'You can crack JEE/NEET with self-study — here is the exact free roadmap: NCERT, chapter practice, mock tests, doubt-solving with AI, and discipline. All free on Syllab.in.',
+    readTime: '7 min read',
+    content: `Coaching costs lakhs — but many toppers self-study. Here's how to do it right (and free).
+
+## The roadmap
+1. **Finish NCERT** for every subject first.
+2. **Chapter-wise practice** with explanations to lock concepts.
+3. **Doubt-solving:** use a free AI tutor that explains the concept, not just the answer.
+4. **Full mock tests** weekly with section analysis.
+5. **Track and fix weak topics** — this is where self-study beats coaching.
+
+## What you save
+₹2,000–8,000/month per subject. Put that discipline into a free platform and you match coaching outcomes.
+
+Syllab.in gives all of this free — NCERT lessons, chapter practice, AI tutor, mocks, predictors.`,
+  },
+  {
+    id: 'career-options-after-12th-india',
+    title: 'Top Career Options After 12th (Science, Commerce, Arts) in India',
+    category: 'Guidance',
+    description: 'The best career options after Class 12 in India — Science (engineering, medicine, research), Commerce (CA, finance, business), Arts (law, civil services, design) — with exams and salaries.',
+    readTime: '7 min read',
+    content: `Confused after 12th? Here's a clear map of careers by stream, with the exams that get you there.
+
+## Science
+- **PCM:** Engineering (JEE/state CETs), Architecture (NATA), Pilot, Defence (NDA), Data Science.
+- **PCB:** MBBS/BDS (NEET), Pharmacy, Biotech, Nursing.
+
+## Commerce
+- Chartered Accountant (CA), Company Secretary, BBA/MBA, Economics, Investment Banking.
+
+## Arts/Humanities
+- Law (CLAT), Civil Services (UPSC later), Journalism, Psychology, Design (NID/UCEED).
+
+Explore each career's salary, education path and entrance exams — plus a free interest quiz and rank/college predictor — on Syllab.in's Career & Colleges section.`,
+  },
+  {
+    id: 'which-coding-language-students-learn-first',
+    title: 'Which Coding Language Should Students Learn First? (2026 Guide)',
+    category: 'Technology',
+    description: 'Python, JavaScript or C++? A simple guide for Indian school students on which programming language to learn first and why — with free coding lessons & challenges on Syllab.in.',
+    readTime: '5 min read',
+    content: `Starting to code? Don't overthink the first language. Here's the simple answer.
+
+## Start with Python
+- Easiest syntax, reads like English — best for beginners.
+- Powers AI, data science, automation — the highest-growth fields.
+
+## Then branch out
+- **JavaScript / HTML / CSS** if you like building websites.
+- **C++/Java** if you're targeting competitive programming or campus placements.
+
+## How to actually learn
+Don't just watch — **write code daily**. Start with tiny programs, then small projects.
+
+Syllab.in's free Coding lab has Python, JavaScript, HTML/CSS, Java and SQL with an in-browser editor, 200+ challenges and an AI tutor that explains your errors.`,
+  },
+
+  /* ════════════════════════════════════════════════════════════════════════
+     TIMELY / FLEXIBLE posts (the ~30%). `timely: true` + `months` = the months
+     they auto-appear (then drop out automatically). Framed as "expected/how to
+     check" so they're accurate before official dates/results are confirmed.
+     ════════════════════════════════════════════════════════════════════════ */
+  {
+    id: 'neet-2026-result-cutoff-college', timely: true, months: [6, 7, 8],
+    title: 'NEET 2026 Result: How to Check, Expected Cutoff & Free College Predictor',
+    category: 'NEET',
+    description: 'NEET UG 2026 result is expected in June. How to check your scorecard, the expected qualifying cutoff, marks-vs-rank, and a free NEET college predictor to find MBBS colleges you can get.',
+    readTime: '5 min read',
+    content: `NEET UG 2026 results are expected in June on neet.nta.nic.in. Here's what to do the moment yours is out.
+
+## How to check your NEET 2026 result
+1. Go to **neet.nta.nic.in**.
+2. Click "NEET UG 2026 Result/Scorecard".
+3. Log in with your application number + date of birth.
+4. Download the scorecard (your marks, percentile, All India Rank, category rank).
+
+## What your score means
+- **Qualifying:** ~50th percentile (General ≈ 160+ in recent years; verify the 2026 cutoff).
+- Use your marks to estimate your **All India Rank**, then which **MBBS/BDS colleges** are realistic.
+
+## Free, instant on Syllab.in
+Pop your marks into the free **NEET marks → rank predictor** and **MBBS college predictor** — see government & private colleges you can target by rank and category. No sign-up.
+
+Next step while you wait for counselling: keep revising weak chapters with free chapter-wise practice.`,
+  },
+  {
+    id: 'jee-main-2026-result-percentile-rank', timely: true, months: [2, 3, 4, 5],
+    title: 'JEE Main 2026 Result Out: Percentile to Rank & Free College Predictor',
+    category: 'JEE',
+    description: 'JEE Main 2026 result & final NTA scores — how to check, convert percentile to All India Rank, JEE Advanced cut-off, and a free JEE college predictor for NITs/IIITs/GFTIs.',
+    readTime: '5 min read',
+    content: `JEE Main 2026 results (session-wise NTA percentile) are declared on jeemain.nta.ac.in. Here's the playbook.
+
+## Check + understand
+- Log in with application number + password/DOB → download your NTA score.
+- **Best of Session 1 & 2** percentile is your final score.
+
+## Percentile → Rank (the part everyone Googles)
+A 99.0 percentile ≈ AIR ~9,000; 98 ≈ ~25,000; 95 ≈ ~75,000 (indicative). Use the free **JEE rank predictor** for your exact number.
+
+## What's next
+- **Top 2.5 lakh** rankers qualify for **JEE Advanced** (for IITs).
+- Everyone uses JEE Main rank for **JoSAA/CSAB** (NITs, IIITs, GFTIs).
+
+On Syllab.in: free **percentile→rank predictor** + **college predictor** (category & women quota) + a directory of 119 engineering colleges with cutoffs & fees.`,
+  },
+  {
+    id: 'eapcet-2026-result-ap-ts', timely: true, months: [5, 6, 7],
+    title: 'AP & TS EAPCET 2026 Result: Rank Card, Cutoff & College Predictor',
+    category: 'EAMCET',
+    description: 'AP EAPCET & TS EAPCET (EAMCET) 2026 results — how to check your rank card, expected cutoffs, and a free engineering college predictor for AP/Telangana colleges.',
+    readTime: '4 min read',
+    content: `AP EAPCET and TS EAPCET (EAMCET) 2026 rank cards are released on the official CETS portals (cets.apsche / eapcet.tgche). Here's what to do.
+
+## Check your rank card
+Log in with your hall-ticket number + registration/DOB → download the rank card (marks + rank).
+
+## Then predict your college
+Your EAPCET rank decides your college in web counselling. On Syllab.in, use the free **EAPCET rank → college predictor** to see which **AP/Telangana engineering colleges** (JNTUH, Andhra University, CBIT, Vasavi, GRIET, and more) you can get for your rank — with fees and branches.
+
+Tip: there's **no negative marking** in EAPCET, so verify your responses against the answer key window if open.`,
+  },
+  {
+    id: 'cbse-result-2026-class-10-12', timely: true, months: [5, 6],
+    title: 'CBSE Class 10 & 12 Result 2026: How to Check + What to Do Next',
+    category: 'CBSE',
+    description: 'CBSE Class 10 & 12 board results 2026 — how to check on cbseresults.nic.in / DigiLocker, compartment & re-evaluation, and stream/career next steps.',
+    readTime: '4 min read',
+    content: `CBSE Class 10 and 12 board results 2026 are declared on **cbseresults.nic.in**, **cbse.gov.in** and **DigiLocker**.
+
+## How to check
+1. cbseresults.nic.in → pick Class 10 or 12.
+2. Enter roll number, school number, admit-card ID.
+3. Download/print the marksheet (the official one comes later from school).
+
+## After the result
+- **Not happy with a subject?** Apply for **re-evaluation/verification** within the CBSE window.
+- **Class 10 → choose a stream:** take the free **"Which stream?" quiz** on Syllab.in.
+- **Class 12 → college & exams:** use the free **career & college predictor**.
+
+Whatever the score, your next exam (JEE/NEET/CUET/boards) is what matters now — start free practice today.`,
+  },
+  {
+    id: 'cbse-ncert-syllabus-changes-2026', timely: true, months: [3, 4, 5, 6, 7],
+    title: 'CBSE / NCERT Syllabus Changes 2026–27: What\'s New & How to Adapt',
+    category: 'CBSE',
+    description: 'Latest CBSE & NCERT syllabus changes for 2026–27 — rationalised chapters, competency-based questions, and how to update your prep. Free updated notes & practice on Syllab.in.',
+    readTime: '5 min read',
+    content: `CBSE keeps updating the curriculum (rationalised NCERT chapters, more competency-based questions). Here's how to stay current for 2026–27.
+
+## What's trending in the changes
+- **Rationalised NCERT** — some chapters trimmed/merged; always study the **latest NCERT edition**.
+- **More competency-based / case-study questions** (especially Class 10 & 12) — rote memorisation isn't enough.
+- Internal assessment weightage and sample-paper patterns updated yearly.
+
+## How to adapt (free)
+- Use **chapter-wise practice** that mirrors the new pattern (MCQ + case-based).
+- Revise with **AI lessons** aligned to the current NCERT chapters.
+
+On Syllab.in everything tracks the latest NCERT — set your class & board and the syllabus, PPTs and practice update accordingly.`,
+  },
+  {
+    id: 'latest-ai-tools-students-2026-update', timely: true, months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    title: 'Latest AI Tools for Students (2026 Update): What\'s New & How to Use Them',
+    category: 'Technology',
+    description: 'The newest AI tools and updates for Indian students in 2026 — AI tutors, doubt solvers, note generators — and how to use them free without losing the basics. Updated regularly.',
+    readTime: '5 min read',
+    content: `AI for studying is evolving fast. Here's the current, no-hype guide for Indian students (updated through 2026).
+
+## What's actually useful now
+- **AI tutors / doubt solvers** that *explain why* an answer is wrong (not just give it) — the real learning lever.
+- **Note & flashcard generators** from any chapter.
+- **Scan-and-solve** for homework — but use it to *learn the method*, not to copy.
+
+## How to use AI without hurting your marks
+1. Try the problem yourself first.
+2. Ask the AI to explain the *concept*, then redo it unaided.
+3. Never submit AI text as your own — boards penalise it and you learn nothing.
+
+Syllab.in's free **AI Tutor** is built exactly for this — concept-first explanations, notes, and practice, aligned to your class & board. No subscription.`,
+  },
+
+  /* ── More TIMELY posts (result/counselling/news) to fill the 30% bucket ── */
+  {
+    id: 'bitsat-2026-result-cutoff', timely: true, months: [6, 7],
+    title: 'BITSAT 2026 Result & Cutoff: BITS Pilani/Goa/Hyderabad Branch Chances',
+    category: 'JEE',
+    description: 'BITSAT 2026 result and expected cutoffs for BITS Pilani, Goa and Hyderabad — how to check your score, branch-wise cutoffs (CSE/ECE), and what score you need.',
+    readTime: '4 min read',
+    content: `BITSAT 2026 scores are out on bitsadmission.com. Here's how to read yours.
+
+## Check + what it means
+Log in to the BITS admissions portal → view your BITSAT score (out of 390). Branch allotment is purely score-based across BITS Pilani, Goa and Hyderabad.
+
+## Indicative branch cutoffs (verify for 2026)
+- **CSE Pilani:** ~331+ · **ECE Pilani:** ~318+
+- **CSE Goa/Hyderabad:** ~298–304+
+Use the free **BITSAT score → branch** check on Syllab.in's college predictor, and compare BITS with NITs/IIITs in the 119-college directory.`,
+  },
+  {
+    id: 'kcet-2026-result-rank', timely: true, months: [6, 7],
+    title: 'KCET 2026 Result & Rank: Karnataka Engineering College Predictor',
+    category: 'EAMCET',
+    description: 'KCET 2026 result and rank — how to check, expected cutoffs for RVCE/BMSCE/MSRIT/PES, and a free Karnataka engineering college predictor by rank.',
+    readTime: '4 min read',
+    content: `KCET 2026 ranks are published on kea.kar.nic.in. Your rank (KCET + Class 12 PCM weighted) decides your college in KEA counselling.
+
+## After your rank
+- Top CSE seats: RVCE (~rank 500), BMSCE (~1,200), MSRIT (~1,500), PES (~1,674) — indicative.
+- Private seats also via **COMEDK**.
+Use the free **college predictor** on Syllab.in to see Karnataka colleges for your rank, with fees and branches.`,
+  },
+  {
+    id: 'mht-cet-2026-result-percentile', timely: true, months: [6, 7],
+    title: 'MHT-CET 2026 Result & Percentile: Maharashtra College Predictor',
+    category: 'EAMCET',
+    description: 'MHT-CET 2026 result and percentile — how to check, expected cutoffs for COEP/VJTI/PICT/SPIT, and a free Maharashtra engineering college predictor.',
+    readTime: '4 min read',
+    content: `MHT-CET 2026 percentiles are out on cetcell.mahacet.org. Admission is through CAP rounds by percentile.
+
+## Indicative top cutoffs (verify 2026)
+- **COEP CSE:** ~99.9+ percentile · **VJTI IT:** ~99.7+ · **PICT/SPIT:** ~99.5+
+Use the free **college predictor** on Syllab.in for Maharashtra colleges by percentile, plus fees and branches.`,
+  },
+  {
+    id: 'wbjee-2026-result-rank', timely: true, months: [5, 6, 7],
+    title: 'WBJEE 2026 Result & Rank: West Bengal College Predictor',
+    category: 'EAMCET',
+    description: 'WBJEE 2026 result and rank — how to check, expected cutoffs for Jadavpur University, IIEST Shibpur and Kalyani GEC, and a free West Bengal college predictor.',
+    readTime: '4 min read',
+    content: `WBJEE 2026 ranks are published on wbjeeb.nic.in. Your rank drives e-counselling seat allotment.
+
+## After your rank
+- **Jadavpur University CSE** (home state) ~rank 309 — and one of India's lowest-fee top colleges.
+- Also IIEST Shibpur (via JEE Main), Kalyani GEC, Heritage, IEM.
+Check West Bengal colleges for your rank on the free Syllab.in college predictor.`,
+  },
+  {
+    id: 'cuet-ug-2026-result', timely: true, months: [7, 8],
+    title: 'CUET UG 2026 Result: How to Check + Central University Admission',
+    category: 'CBSE',
+    description: 'CUET UG 2026 result — how to check your scorecard, normalised marks, and what comes next for DU, BHU, JNU and other central university admissions.',
+    readTime: '4 min read',
+    content: `CUET UG 2026 results are declared on cuet.samarth.ac.in / nta.ac.in.
+
+## Check + next steps
+Log in with your application number → download the scorecard (normalised marks per subject). Admission then happens on each university's portal (DU via CSAS, BHU, etc.) using your CUET score.
+
+Tip: keep your subject combination and university preferences ready before counselling opens. Explore courses and career options on Syllab.in's free career & college tools.`,
+  },
+  {
+    id: 'josaa-2026-counselling-seat-allotment', timely: true, months: [6, 7, 8],
+    title: 'JoSAA 2026 Counselling: Choice Filling, Rounds & Seat Allotment Guide',
+    category: 'JEE',
+    description: 'JoSAA 2026 counselling — registration, choice filling strategy, rounds, seat allotment, and document verification for IITs, NITs, IIITs and GFTIs.',
+    readTime: '5 min read',
+    content: `JoSAA 2026 counselling allots seats across IITs, NITs, IIITs and GFTIs by your JEE rank. Here's the playbook.
+
+## Steps
+1. Register on josaa.nic.in with JEE credentials.
+2. **Fill choices** in order of true preference (lock only when sure).
+3. Wait for round-wise **seat allotment** → accept (freeze/float/slide) → pay seat-acceptance fee → document verification.
+
+## Choice-filling tips
+- List dream → realistic → safe options, in that order.
+- Use the free **college predictor** + 119-college directory on Syllab.in to build your choice list with cutoffs and fees.`,
+  },
+  {
+    id: 'neet-2026-counselling-mcc-state', timely: true, months: [7, 8, 9],
+    title: 'NEET 2026 Counselling (MCC & State): AIQ, Rounds & MBBS Seat Allotment',
+    category: 'NEET',
+    description: 'NEET UG 2026 counselling — MCC All India Quota and state quota, registration, choice filling, rounds and MBBS/BDS seat allotment explained.',
+    readTime: '5 min read',
+    content: `NEET UG 2026 counselling runs through **MCC** (15% All India Quota + deemed/central) and **state** counselling (85% state quota).
+
+## Steps
+1. Register on mcc.nic.in (AIQ) and your state portal.
+2. Choice fill colleges/courses → seat allotment by rank & category → reporting.
+
+## Plan smart
+Use the free **NEET marks → rank** and **MBBS college predictor** on Syllab.in to target government and private colleges realistically for your rank and category.`,
+  },
+  {
+    id: 'nsp-scholarship-2026-27-last-date', timely: true, months: [9, 10, 11, 12],
+    title: 'NSP Scholarship 2026–27: Last Date, Eligibility & How to Apply',
+    category: 'Resources',
+    description: 'National Scholarship Portal (NSP) 2026–27 — last date, eligibility (pre/post-matric, minority, merit), documents, and step-by-step application for Indian students.',
+    readTime: '4 min read',
+    content: `NSP (scholarships.gov.in) opens its 2026–27 window in the second half of the year. Don't miss the deadline.
+
+## Who's eligible
+Pre-matric & post-matric (income-based), minority, and merit scholarships for school and college students.
+
+## How to apply
+1. Register on scholarships.gov.in → get your NSP ID.
+2. Fill the form, upload documents (income, caste if applicable, marksheet, bank).
+3. Submit before the **last date** and track status.
+
+See more scholarships (INSPIRE, PM YASASVI, Reliance, Sitaram Jindal) on Syllab.in's free career & scholarships section.`,
+  },
 ];
 
 /**
@@ -478,10 +849,18 @@ function generateBlogs() {
   const now = new Date();
   const dayOfYear = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86400000);
 
-  // Publish ALL evergreen templates (state syllabus, exam updates, study guides)
-  // so every post is indexable. Dates are spread across recent days so the feed
-  // looks freshly updated rather than all-on-one-day.
-  const blogs = BLOG_TEMPLATES.map((template, i) => {
+  const month = now.getMonth() + 1; // 1-12
+
+  // 70/30 strategy: evergreen posts (no `timely` flag) are ALWAYS published.
+  // Timely posts publish only during their relevant `months` (result/admission
+  // season), then drop out automatically next month. Because blogs render inside
+  // /blog & /updates (not separate URLs), rotating them out creates no 404s.
+  const active = BLOG_TEMPLATES.filter(t => !t.timely || (t.months || []).includes(month));
+  const evergreenCount = active.filter(t => !t.timely).length;
+  const timelyCount = active.length - evergreenCount;
+  console.log(`Blog mix this month: ${evergreenCount} evergreen + ${timelyCount} timely = ${active.length} posts.`);
+
+  const blogs = active.map((template, i) => {
     const postDate = new Date(now.getTime() - ((i * 3 + (dayOfYear % 3)) % 60) * 86400000);
     return {
       id: template.id,
