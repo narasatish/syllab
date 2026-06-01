@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>परमाणु की संरचना — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">परमाणु</span> की संरचना</h2>
+          <ul><li>कक्षा 9 विज्ञान</li><li>UP बोर्ड</li><li>अध्याय 4</li></ul>
+          <p class="notes">🎙️ नमस्ते बच्चों! आज हम विज्ञान के एक बहुत ही महत्वपूर्ण अध्याय 'परमाणु की संरचना' के बारे में सीखेंगे। यह हमें बताएगा कि हमारे आस-पास की हर चीज़ किस से बनी है।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">परमाणु</span> क्या है?</h2>
+          <ul><li>पदार्थ की सबसे छोटी इकाई</li><li>इन्हें और तोड़ा नहीं जा सकता (पहले माना जाता था)</li><li>हर चीज़ परमाणु से बनी है</li></ul>
+          <p class="notes">🎙️ कल्पना कीजिए कि आप एक ईंट की दीवार बनाते हैं। ईंटें सबसे छोटी इकाइयाँ हैं। इसी तरह, परमाणु सभी पदार्थों की सबसे छोटी इकाइयाँ हैं। पहले हम मानते थे कि इन्हें और छोटा नहीं किया जा सकता।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">परमाणु</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">डाल्टन</span> का परमाणु सिद्धांत</h2>
+          <ul><li>परमाणु अविभाज्य कण हैं</li><li>एक ही तत्व के परमाणु समान होते हैं</li><li>विभिन्न तत्वों के परमाणु भिन्न होते हैं</li></ul>
+          <p class="notes">🎙️ आज से बहुत पहले, जॉन डाल्टन नाम के एक वैज्ञानिक ने परमाणु के बारे में कुछ विचार दिए। उन्होंने कहा कि परमाणु अविभाज्य होते हैं और उन्हें नष्ट या बनाया नहीं जा सकता।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">डाल्टन का सिद्धांत</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">इलेक्ट्रॉन</span> की खोज: कैथोड किरण प्रयोग</h2>
+          <ul><li>जे.जे. थॉमसन ने किया</li><li>कैथोड किरणें ऋणात्मक कणों से बनी होती हैं</li><li>इन कणों को 'इलेक्ट्रॉन' कहा गया</li></ul>
+          <p class="notes">🎙️ लेकिन फिर 19वीं सदी के अंत में, जे.जे. थॉमसन ने एक अद्भुत प्रयोग किया जिसे कैथोड किरण प्रयोग कहते हैं। उन्होंने पाया कि परमाणु के अंदर छोटे, ऋणात्मक आवेश वाले कण होते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">कैथोड किरणें</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">इलेक्ट्रॉन</span> के गुण</h2>
+          <ul><li>ऋणात्मक आवेशित कण</li><li>परमाणु के बाहर पाए जाते हैं</li><li>द्रव्यमान बहुत कम होता है</li></ul>
+          <p class="notes">🎙️ इलेक्ट्रॉन बहुत छोटे होते हैं और इन पर एक इकाई ऋणात्मक आवेश होता है। इनका द्रव्यमान प्रोटॉन और न्यूट्रॉन की तुलना में बहुत कम होता है, लगभग नगण्य।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➖</span><span>➖</span><span>➖</span><span>➖</span><span>➖</span></div><div class="vcap">ऋणात्मक आवेश</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">थॉमसन</span> का परमाणु मॉडल (प्लम पुडिंग)</h2>
+          <ul><li>परमाणु एक धनात्मक गोला है</li><li>इलेक्ट्रॉन इसमें धंसे होते हैं</li><li>कुल धनात्मक और ऋणात्मक आवेश बराबर होते हैं</li></ul>
+          <p class="notes">🎙️ इलेक्ट्रॉन की खोज के बाद, थॉमसन ने परमाणु की संरचना समझाने के लिए अपना मॉडल दिया। उन्होंने इसे 'प्लम पुडिंग' मॉडल कहा, जहाँ परमाणु तरबूज जैसा होता है और इलेक्ट्रॉन बीज की तरह धंसे होते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍮</div><div class="vcap">प्लम पुडिंग</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>थॉमसन मॉडल की <span class="hl">सीमाएँ</span></h2>
+          <ul><li>रदरफोर्ड के प्रयोग को नहीं समझा पाया</li><li>परमाणु की स्थिरता नहीं बता पाया</li></ul>
+          <p class="notes">🎙️ हालांकि थॉमसन का मॉडल पहला महत्वपूर्ण प्रयास था, लेकिन यह कुछ वैज्ञानिक प्रयोगों के परिणामों को समझाने में विफल रहा। खासकर, यह रदरफोर्ड के अल्फा-कण प्रकीर्णन प्रयोग को नहीं समझा सका।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❌</div><div class="vcap">मॉडल की विफलता</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">रदरफोर्ड</span> का अल्फा-कण प्रकीर्णन प्रयोग</h2>
+          <ul><li>तेज गति वाले अल्फा कण</li><li>बहुत पतली सोने की पन्नी</li><li>प्रकीर्णन का अवलोकन</li></ul>
+          <p class="notes">🎙️ अर्नेस्ट रदरफोर्ड ने अपने छात्रों के साथ एक बहुत ही महत्वपूर्ण प्रयोग किया। उन्होंने एक रेडियोधर्मी स्रोत से निकलने वाले अल्फा कणों को एक बहुत पतली सोने की पन्नी पर बमबारी की।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">प्रयोग सेटअप</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>रदरफोर्ड के <span class="hl">प्रेक्षण</span></h2>
+          <ul><li>अधिकतर अल्फा कण सीधे निकल गए</li><li>कुछ कण छोटे कोणों से विक्षेपित हुए</li><li>बहुत कम कण वापस लौट आए</li></ul>
+          <p class="notes">🎙️ इस प्रयोग में तीन मुख्य बातें देखी गईं: अधिकतर अल्फा कण बिना किसी विचलन के सीधे निकल गए। कुछ कण छोटे कोणों से मुड़ गए, और बहुत थोड़े कण (लगभग 12,000 में से 1) 180 डिग्री पर वापस लौट आए।</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">सीधे गए</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">विक्षेपित</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">वापस लौटे</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>रदरफोर्ड के <span class="hl">निष्कर्ष</span></h2>
+          <ul><li>परमाणु का अधिकांश भाग खाली है</li><li>धनात्मक आवेश बहुत छोटे केंद्र में है</li><li>केंद्र को 'नाभिक' कहा गया</li></ul>
+          <p class="notes">🎙️ इन प्रेक्षणों के आधार पर, रदरफोर्ड ने निष्कर्ष निकाला कि परमाणु का अधिकांश भाग खाली है। परमाणु का सारा धनात्मक आवेश और द्रव्यमान एक बहुत छोटे क्षेत्र में केंद्रित होता है, जिसे उन्होंने 'नाभिक' कहा।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">महत्वपूर्ण खोज</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>रदरफोर्ड का परमाणु मॉडल (<span class="hl">नाभिकीय</span> मॉडल)</h2>
+          <ul><li>परमाणु के केंद्र में नाभिक</li><li>नाभिक धनावेशित होता है</li><li>इलेक्ट्रॉन नाभिक के चारों ओर घूमते हैं</li></ul>
+          <p class="notes">🎙️ रदरफोर्ड ने अपने मॉडल में बताया कि नाभिक परमाणु के केंद्र में होता है और इलेक्ट्रॉन इसके चारों ओर वृत्ताकार कक्षाओं में घूमते हैं। यह मॉडल हमारे सौरमंडल जैसा था, जहाँ ग्रह सूर्य के चारों ओर घूमते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪐</div><div class="vcap">सौरमंडल मॉडल</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>रदरफोर्ड मॉडल की <span class="hl">सीमाएँ</span></h2>
+          <ul><li>परमाणु की स्थिरता नहीं बता पाया</li><li>घूमते इलेक्ट्रॉन ऊर्जा खो देंगे</li><li>अंततः नाभिक में गिर जाएंगे</li></ul>
+          <p class="notes">🎙️ रदरफोर्ड का मॉडल परमाणु की संरचना को काफी हद तक सही बताता था, लेकिन इसमें एक बड़ी कमी थी। यह परमाणु की स्थिरता की व्याख्या नहीं कर सका। अगर इलेक्ट्रॉन लगातार घूमते रहेंगे, तो वे ऊर्जा खो देंगे और अंततः नाभिक में गिर जाएंगे, जिससे परमाणु अस्थिर हो जाएगा।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">मॉडल की कमी</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">न्यूट्रॉन</span> की खोज</h2>
+          <ul><li>जेम्स चैडविक ने खोजा</li><li>नाभिक में प्रोटॉन के साथ</li><li>कोई आवेश नहीं (उदासीन)</li></ul>
+          <p class="notes">🎙️ बाद में, जेम्स चैडविक ने नाभिक के अंदर एक और कण की खोज की, जिसे न्यूट्रॉन कहा गया। न्यूट्रॉन पर कोई विद्युत आवेश नहीं होता है, यानी यह उदासीन होता है, और यह प्रोटॉन के साथ नाभिक में रहता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚪</div><div class="vcap">उदासीन कण</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">बोह्र</span> का परमाणु मॉडल</h2>
+          <ul><li>इलेक्ट्रॉन निश्चित कक्षाओं में घूमते हैं</li><li>प्रत्येक कक्षा की निश्चित ऊर्जा होती है</li><li>इन्हें 'ऊर्जा स्तर' कहते हैं</li></ul>
+          <p class="notes">🎙️ नील बोह्र ने रदरफोर्ड की कमियों को दूर करने के लिए अपना मॉडल प्रस्तुत किया। उन्होंने कहा कि इलेक्ट्रॉन नाभिक के चारों ओर केवल कुछ निश्चित, विशेष कक्षाओं में ही घूम सकते हैं, और इन कक्षाओं को ऊर्जा स्तर या कोश कहते हैं।</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>नाभिक</span></div><div class="step"><span class="snum">2</span><span>पहली कक्षा</span></div><div class="step"><span class="snum">3</span><span>दूसरी कक्षा</span></div><div class="step"><span class="snum">4</span><span>तीसरी कक्षा</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>ऊर्जा स्तर या <span class="hl">कोश</span></h2>
+          <ul><li>K, L, M, N... से दर्शाते हैं</li><li>केंद्र से दूर जाने पर ऊर्जा बढ़ती है</li><li>प्रत्येक कोश में निश्चित इलेक्ट्रॉन संख्या</li></ul>
+          <p class="notes">🎙️ इन ऊर्जा स्तरों को K, L, M, N आदि अक्षरों से या 1, 2, 3, 4 आदि संख्याओं से दर्शाया जाता है। नाभिक के सबसे करीब K-कोश होता है, फिर L, M, N और इसी तरह। दूर वाले कोश की ऊर्जा अधिक होती है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">परमाणु कोश</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">परमाणु संख्या</span> (Z)</h2>
+          <ul><li>प्रोटॉन की संख्या के बराबर</li><li>किसी तत्व की पहचान</li><li>उदासीन परमाणु में इलेक्ट्रॉन की संख्या भी</li></ul>
+          <p class="notes">🎙️ परमाणु संख्या को 'Z' से दर्शाते हैं और यह नाभिक में मौजूद प्रोटॉन की कुल संख्या के बराबर होती है। यह किसी भी तत्व की पहचान होती है। एक उदासीन परमाणु में, प्रोटॉन की संख्या इलेक्ट्रॉन की संख्या के भी बराबर होती है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">पहचान संख्या</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">द्रव्यमान संख्या</span> (A)</h2>
+          <ul><li>प्रोटॉन और न्यूट्रॉन की कुल संख्या</li><li>नाभिक का द्रव्यमान</li><li>A = Z + न्यूट्रॉन</li></ul>
+          <p class="notes">🎙️ द्रव्यमान संख्या को 'A' से दर्शाते हैं और यह नाभिक में मौजूद प्रोटॉन और न्यूट्रॉन की कुल संख्या का योग होता है। यह परमाणु का लगभग पूरा द्रव्यमान निर्धारित करता है, क्योंकि इलेक्ट्रॉन का द्रव्यमान नगण्य होता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">परमाणु का भार</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">उदाहरण</span>: कणों की गणना</h2>
+          <ul><li>सोडियम (Na) का Z=11, A=23</li><li>प्रोटॉन = 11</li><li>इलेक्ट्रॉन = 11</li><li>न्यूट्रॉन = A - Z = 23 - 11 = 12</li></ul>
+          <p class="notes">🎙️ चलो एक उदाहरण देखते हैं। सोडियम (Na) की परमाणु संख्या 11 और द्रव्यमान संख्या 23 है। इसका मतलब है कि इसमें 11 प्रोटॉन और 11 इलेक्ट्रॉन हैं। न्यूट्रॉन की संख्या द्रव्यमान संख्या में से परमाणु संख्या घटाकर निकाली जाती है, जो कि 12 है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">गणना</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">समस्थानिक</span> (Isotopes)</h2>
+          <ul><li>एक ही तत्व के परमाणु</li><li>परमाणु संख्या समान</li><li>द्रव्यमान संख्या भिन्न</li></ul>
+          <p class="notes">🎙️ समस्थानिक एक ही तत्व के परमाणु होते हैं जिनकी परमाणु संख्या तो समान होती है, लेकिन द्रव्यमान संख्या भिन्न होती है। ऐसा इसलिए होता है क्योंकि उनमें न्यूट्रॉन की संख्या अलग-अलग होती है। उदाहरण के लिए, हाइड्रोजन के तीन समस्थानिक होते हैं: प्रोटियम, ड्यूटेरियम और ट्राइटियम।</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">प्रोटियम</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">ड्यूटेरियम</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">ट्राइटियम</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">समभारिक</span> (Isobars)</h2>
+          <ul><li>भिन्न तत्वों के परमाणु</li><li>द्रव्यमान संख्या समान</li><li>परमाणु संख्या भिन्न</li></ul>
+          <p class="notes">🎙️ समभारिक भिन्न-भिन्न तत्वों के परमाणु होते हैं जिनकी द्रव्यमान संख्या तो समान होती है, लेकिन परमाणु संख्या भिन्न होती है। उदाहरण के लिए, आर्गन (Ar), पोटेशियम (K) और कैल्शियम (Ca) में से कुछ समभारिक होते हैं जिनकी द्रव्यमान संख्या 40 होती है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">समान द्रव्यमान</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">संयोजकता</span> (Valency)</h2>
+          <ul><li>तत्व की संयोजन शक्ति</li><li>बाहरी कोश के इलेक्ट्रॉन से निर्धारित</li><li>स्थिरता प्राप्त करने की प्रवृत्ति</li></ul>
+          <p class="notes">🎙️ संयोजकता किसी तत्व की संयोजन शक्ति होती है, यानी वह कितने अन्य परमाणुओं के साथ बंध बना सकता है। यह बाहरी कोश में मौजूद इलेक्ट्रॉनों की संख्या से निर्धारित होती है। परमाणु हमेशा स्थिरता प्राप्त करने की कोशिश करते हैं, जिसके लिए वे इलेक्ट्रॉन देते, लेते या साझा करते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">संयोजन</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>इलेक्ट्रॉनिक <span class="hl">विन्यास</span></h2>
+          <ul><li>इलेक्ट्रॉनों का कोशों में वितरण</li><li>2n² नियम का पालन</li><li>अष्टक नियम (बाहरी कोश में 8 इलेक्ट्रॉन)</li></ul>
+          <p class="notes">🎙️ इलेक्ट्रॉनिक विन्यास यह बताता है कि परमाणु के विभिन्न कोशों में इलेक्ट्रॉन कैसे वितरित होते हैं। प्रत्येक कोश में इलेक्ट्रॉनों की अधिकतम संख्या 2n² सूत्र से निर्धारित होती है (जहाँ n कोश संख्या है)। परमाणु बाहरी कोश में 8 इलेक्ट्रॉन (अष्टक) पूरा करके स्थिर होना चाहते हैं।</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>K कोश (2)</span></div><div class="step"><span class="snum">2</span><span>L कोश (8)</span></div><div class="step"><span class="snum">3</span><span>M कोश (18)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>जल्दी से बताएं! (<span class="hl">प्रश्न</span> 1)</h2>
+          <ul><li>एक परमाणु में 6 प्रोटॉन और 6 न्यूट्रॉन हैं।</li><li>इसकी परमाणु संख्या और द्रव्यमान संख्या क्या है?</li></ul>
+          <p class="notes">🎙️ चलो देखते हैं कि आपने कितना समझा। यदि एक परमाणु में 6 प्रोटॉन और 6 न्यूट्रॉन हैं, तो उसकी परमाणु संख्या और द्रव्यमान संख्या क्या होगी? सोचिए और अपना उत्तर दें।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>जल्दी से बताएं! (<span class="hl">प्रश्न</span> 2)</h2>
+          <ul><li>बोह्र मॉडल के अनुसार, इलेक्ट्रॉन कहाँ घूमते हैं?</li><li>रदरफोर्ड मॉडल की मुख्य कमी क्या थी?</li></ul>
+          <p class="notes">🎙️ एक और सवाल! बोह्र मॉडल के अनुसार इलेक्ट्रॉन नाभिक के चारों ओर कहाँ घूमते हैं? और रदरफोर्ड के मॉडल की मुख्य कमी क्या थी, जिसके कारण उसे स्वीकार नहीं किया गया?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>आज हमने क्या <span class="hl">सीखा</span>?</h2>
+          <ul><li>परमाणु के घटक (इलेक्ट्रॉन, प्रोटॉन, न्यूट्रॉन)</li><li>विभिन्न परमाणु मॉडल (थॉमसन, रदरफोर्ड, बोह्र)</li><li>परमाणु संख्या, द्रव्यमान संख्या, समस्थानिक, समभारिक</li></ul>
+          <p class="notes">🎙️ आज हमने परमाणु की संरचना के बारे में बहुत कुछ सीखा। हमने देखा कि परमाणु कैसे बना होता है, विभिन्न वैज्ञानिकों ने इसके बारे में क्या-क्या मॉडल दिए, और परमाणु संख्या, द्रव्यमान संख्या, समस्थानिक और समभारिक क्या होते हैं। आशा है आपको यह अध्याय समझ आया होगा।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

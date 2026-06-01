@@ -1,0 +1,380 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Introduction to Euclid's Geometry — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 26</span>
+          <h2>Welcome to <span class="hl">Euclid's Geometry</span>!</h2>
+          <ul><li>Discover the foundations of geometry</li><li>Understand basic geometric concepts</li><li>Learn about Euclid's contributions</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey into the world of Euclid's Geometry. This chapter will introduce you to the very basics of shapes, lines, and spaces.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 26</span>
+          <h2><span class="hl">Why Study</span> Geometry?</h2>
+          <ul><li>Helps us understand the world around us</li><li>Used in architecture, engineering, and art</li><li>Develops logical thinking and problem-solving skills</li></ul>
+          <p class="notes">🎙️ Geometry isn't just about theorems and proofs; it's about understanding the space we live in. From the design of your school building to the patterns in nature, geometry is all around us. Studying it helps us think more clearly and logically.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Geometry Everywhere</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 26</span>
+          <h2>Ancient Geometry: <span class="hl">Before Euclid</span></h2>
+          <ul><li>Geometry existed in ancient Egypt and Babylonia</li><li>Used for surveying land and building pyramids</li><li>Knowledge was practical, not systematically proven</li></ul>
+          <p class="notes">🎙️ Long before Euclid, civilizations like the Egyptians and Babylonians used geometric principles. They applied it practically for tasks like measuring fields after Nile floods or constructing massive pyramids, but they didn't have a formal system of proofs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Early Records</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 26</span>
+          <h2>Who Was <span class="hl">Euclid</span>?</h2>
+          <ul><li>Greek mathematician, lived around 300 BCE</li><li>Often called the 'Father of Geometry'</li><li>Taught at Alexandria, Egypt</li></ul>
+          <p class="notes">🎙️ Euclid was a brilliant Greek mathematician who lived over 2300 years ago. He compiled and organized all the known geometric knowledge of his time into a systematic form, which is why he is known as the 'Father of Geometry'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🏫</div><div class="vcap">The Father of Geometry</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 26</span>
+          <h2>Euclid's <span class="hl">Elements</span>: The Masterpiece</h2>
+          <ul><li>A collection of 13 books</li><li>Systematized geometry and number theory</li><li>Used definitions, axioms, postulates, and theorems</li></ul>
+          <p class="notes">🎙️ Euclid's most famous work is 'The Elements'. It's a monumental collection of 13 books that laid the foundation for mathematics for over two millennia. In it, he started with basic assumptions and built up complex geometric ideas through logical proofs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">The Elements</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 26</span>
+          <h2>Undefined Terms: <span class="hl">Point</span></h2>
+          <ul><li>A point is that which has no part.</li><li>It has position but no dimension (length, breadth, or height).</li><li>Represented by a dot.</li></ul>
+          <p class="notes">🎙️ Euclid began with some terms he considered undefined, meaning they are so fundamental they cannot be described using simpler terms. A point is one such term; it simply marks a precise location without any size.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚫</div><div class="vcap">A Tiny Dot</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 26</span>
+          <h2>Real-life <span class="hl">Example</span>: Point</h2>
+          <ul><li>The tip of a sharp pencil</li><li>A tiny star in the night sky</li><li>The dot of a 'bindi' on a forehead</li></ul>
+          <p class="notes">🎙️ Think about the tip of a pencil. It's a physical representation of a point, indicating a specific location. Similarly, a distant star appears as a point of light because its size is negligible from Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Pinpoint Location</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 26</span>
+          <h2>Undefined Terms: <span class="hl">Line</span></h2>
+          <ul><li>A line is breadthless length.</li><li>It has length but no breadth or thickness.</li><li>Extends infinitely in both directions.</li></ul>
+          <p class="notes">🎙️ Next, we have a line. Euclid described it as 'breadthless length,' meaning it only has one dimension – length. Imagine a perfectly straight path that goes on forever in both directions without any width.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Infinite Length</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 26</span>
+          <h2>Real-life <span class="hl">Example</span>: Line</h2>
+          <ul><li>A perfectly straight, thin string</li><li>The edge of a ruler</li><li>A railway track extending into the distance</li></ul>
+          <p class="notes">🎙️ A good real-life example is a railway track. While it has some width, we can imagine the path it takes as an approximation of a line, extending far into the distance. The edge of a ruler also shows us a segment of a line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Straight Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 26</span>
+          <h2>Undefined Terms: <span class="hl">Plane</span></h2>
+          <ul><li>A surface is that which has length and breadth only.</li><li>A plane surface is one which lies evenly with the straight lines on itself.</li><li>It is a flat, two-dimensional surface extending infinitely.</li></ul>
+          <p class="notes">🎙️ A plane is a flat, two-dimensional surface. Think of it as a perfectly smooth, flat sheet that extends endlessly in all directions. It has length and breadth, but no thickness.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Flat Surface</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 26</span>
+          <h2>Real-life <span class="hl">Example</span>: Plane</h2>
+          <ul><li>The surface of a smooth table</li><li>A wall in your classroom</li><li>The surface of a still lake</li></ul>
+          <p class="notes">🎙️ The surface of your classroom blackboard or a smooth table top are good examples of parts of a plane. They are flat and have length and breadth, even though they don't extend infinitely in real life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Flat Wall</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 26</span>
+          <h2>Axioms vs. Postulates: What's the <span class="hl">Difference</span>?</h2>
+          <ul><li>Axioms (Common Notions): Self-evident truths, used throughout mathematics.</li><li>Postulates: Specific assumptions for geometry.</li><li>Both are fundamental truths accepted without proof.</li></ul>
+          <p class="notes">🎙️ Euclid used two types of unproven assumptions: axioms and postulates. Axioms are general truths that apply to all branches of mathematics, while postulates are specific assumptions that apply only to geometry. Both are accepted as true without needing a proof.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Axioms</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Postulates</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 26</span>
+          <h2>Euclid's <span class="hl">Axioms</span> (Common Notions) - Part 1</h2>
+          <ul><li>1. Things which are equal to the same thing are equal to one another.</li><li>2. If equals are added to equals, the wholes are equal.</li><li>3. If equals are subtracted from equals, the remainders are equal.</li></ul>
+          <p class="notes">🎙️ Let's look at some of Euclid's axioms. The first one means if A=C and B=C, then A=B. The second states if A=B and C=D, then A+C=B+D. The third implies if A=B and C=D, then A-C=B-D.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">Common Truths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 26</span>
+          <h2>Euclid's <span class="hl">Axioms</span> (Common Notions) - Part 2</h2>
+          <ul><li>4. Things which coincide with one another are equal to one another.</li><li>5. The whole is greater than the part.</li><li>6. Things which are double of the same things are equal to one another.</li><li>7. Things which are halves of the same things are equal to one another.</li></ul>
+          <p class="notes">🎙️ Axiom 4 means if two objects perfectly overlap, they are identical. Axiom 5 is intuitive: a whole pizza is always bigger than a single slice. Axioms 6 and 7 relate to doubling and halving quantities, ensuring equality if starting from the same base.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span><span>💡</span><span>💡</span><span>💡</span></div><div class="vcap">More Common Truths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 26</span>
+          <h2>Worked Example: <span class="hl">Applying Axioms</span></h2>
+          <ul><li>Given: AC = BD</li><li>Prove: AB = CD</li><li>Step 1: AC = AB + BC (Segment Addition Postulate)</li><li>Step 2: BD = BC + CD (Segment Addition Postulate)</li></ul>
+          <p class="notes">🎙️ Let's apply an axiom. We are given that segment AC equals segment BD. We know that AC is made of AB + BC, and BD is made of BC + CD. Since AC = BD, we can say AB + BC = BC + CD. Now, what axiom can we use?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Solving with Axioms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 26</span>
+          <h2>Worked Example (Cont.): Applying <span class="hl">Axiom 3</span></h2>
+          <ul><li>From previous: AB + BC = BC + CD</li><li>Apply Axiom 3: If equals are subtracted from equals, the remainders are equal.</li><li>Subtract BC from both sides:</li><li>AB + BC - BC = BC + CD - BC  =&gt; AB = CD. Hence Proved.</li></ul>
+          <p class="notes">🎙️ Yes, we use Axiom 3! If we subtract the common part BC from both sides of the equation, the remaining parts must also be equal. This beautifully shows how a simple axiom helps us prove geometric statements.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start with given</span></div><div class="step"><span class="snum">2</span><span>Substitute segments</span></div><div class="step"><span class="snum">3</span><span>Apply Axiom 3</span></div><div class="step"><span class="snum">4</span><span>Result</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 26</span>
+          <h2>Euclid's <span class="hl">Postulates</span>: The Five Pillars of Geometry</h2>
+          <ul><li>Specific assumptions for geometry.</li><li>Accepted without proof, form the basis of Euclidean geometry.</li><li>There are five key postulates.</li></ul>
+          <p class="notes">🎙️ Now let's delve into Euclid's Postulates. These are like the foundational rules specifically for geometry. They are statements that Euclid asked us to accept as true, and upon them, he built the entire structure of his geometric system.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Geometric Foundations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 26</span>
+          <h2>Postulate 1: <span class="hl">Straight Line</span></h2>
+          <ul><li>A straight line may be drawn from any one point to any other point.</li><li>This means through any two distinct points, there is exactly one unique straight line.</li></ul>
+          <p class="notes">🎙️ Postulate 1 is very intuitive. If you have two points, you can always connect them with one, and only one, straight line. Think about drawing a line between two dots on a paper.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Connecting Points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 26</span>
+          <h2>Postulate 2: <span class="hl">Terminated Line</span></h2>
+          <ul><li>A terminated line can be produced indefinitely.</li><li>A 'terminated line' is what we call a line segment today.</li><li>This means a line segment can be extended infinitely in both directions.</li></ul>
+          <p class="notes">🎙️ Euclid's 'terminated line' is our modern line segment. This postulate simply states that you can extend any line segment as far as you want in either direction to form a complete line. It implies lines are boundless.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Extend a Segment</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 26</span>
+          <h2>Postulate 3: <span class="hl">Circle</span></h2>
+          <ul><li>A circle can be drawn with any centre and any radius.</li><li>This means you can draw a circle of any size, anywhere you want.</li><li>Defines the existence and properties of circles.</li></ul>
+          <p class="notes">🎙️ Postulate 3 guarantees that we can always construct a circle. All you need is a central point and a desired distance (radius) from that point, and you can draw a perfect circle. This is fundamental for many geometric constructions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Drawing Circles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 26</span>
+          <h2>Postulate 4: <span class="hl">Right Angles</span></h2>
+          <ul><li>All right angles are equal to one another.</li><li>A right angle measures exactly 90 degrees.</li><li>This ensures consistency in measuring angles.</li></ul>
+          <p class="notes">🎙️ This postulate states that no matter where or how you draw a right angle, it will always be the same measure as any other right angle. This provides a universal standard for perpendicularity and squareness in geometry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Equal 90° Angles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 26</span>
+          <h2>Postulate 5: <span class="hl">Parallel Lines</span></h2>
+          <ul><li>If a straight line falling on two straight lines makes the interior angles on the same side less than two right angles, the two straight lines, if produced indefinitely, meet on that side on which the angles are less than two right angles.</li><li>This is the most famous and complex postulate.</li><li>It is equivalent to the statement: 'Through a point not on a given line, there is exactly one line parallel to the given line.'</li></ul>
+          <p class="notes">🎙️ Euclid's Fifth Postulate is perhaps the most famous and controversial. It essentially describes what happens when lines are not parallel. It's a bit wordy, but in simpler terms, it's equivalent to saying that parallel lines never meet, and there's only one such parallel line through any given point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛤️</div><div class="vcap">Meeting Lines</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 26</span>
+          <h2><span class="hl">Quick Check</span> 1: Point, Line, Plane</h2>
+          <ul><li>Which geometric term has length but no breadth?</li><li>What is the term for a flat surface with length and breadth?</li><li>What is the term for a position without any dimension?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Take a moment to think about the answers to these questions based on what we've just learned about Euclid's undefined terms. Remember their key characteristics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 26</span>
+          <h2><span class="hl">Quick Check</span> 2: Axioms vs. Postulates</h2>
+          <ul><li>Are 'Things which are equal to the same thing are equal to one another' an axiom or a postulate?</li><li>Which type of assumption is specific to geometry?</li><li>Which type applies to all branches of mathematics?</li></ul>
+          <p class="notes">🎙️ Now, let's differentiate between axioms and postulates. Can you recall which category each statement or description falls into? This distinction is important for understanding Euclid's logical structure.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 26</span>
+          <h2><span class="hl">Quick Check</span> 3: Euclid's Postulates</h2>
+          <ul><li>Which postulate allows us to draw a circle anywhere?</li><li>Which postulate states that all 90-degree angles are equal?</li><li>Which postulate deals with two lines meeting if their interior angles are less than 180 degrees?</li></ul>
+          <p class="notes">🎙️ Finally, let's review the five postulates. Can you identify which postulate corresponds to each description? The Fifth Postulate, in particular, is a challenging but crucial one to remember.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 26</span>
+          <h2><span class="hl">Recap</span> &amp; What's Next?</h2>
+          <ul><li>Euclid systematized geometry in 'The Elements'.</li><li>Learned about undefined terms: Point, Line, Plane.</li><li>Understood Axioms (Common Notions) and Postulates.</li><li>Next: Theorems and proofs based on these foundations.</li></ul>
+          <p class="notes">🎙️ Great job today, everyone! We've covered the fundamental building blocks of Euclid's Geometry: the undefined terms, axioms, and postulates. These form the bedrock upon which all geometric theorems are built. In our next class, we will start using these foundations to prove interesting geometric results.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

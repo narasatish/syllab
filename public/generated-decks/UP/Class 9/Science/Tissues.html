@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Tissues: The Building Blocks of Life — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Tissues</span>: The Building Blocks of Life</h2>
+          <ul><li>Explore how cells organize to form complex structures.</li><li>Understand the different types of tissues in plants and animals.</li><li>Learn the specific functions of each tissue type.</li></ul>
+          <p class="notes">🎙️ Welcome students to a fascinating chapter where we'll explore how simple cells come together to form complex structures and functions in living organisms. We'll uncover the secrets of how life is organized.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>From Cells to Organisms: What are <span class="hl">Tissues</span>?</h2>
+          <ul><li>All living things are made of cells.</li><li>Cells group together to perform specific tasks.</li><li>A tissue is a group of similar cells working together.</li></ul>
+          <p class="notes">🎙️ Just like bricks build a house, cells build living organisms. But not all cells are the same; they specialize and form groups called tissues to do different jobs efficiently.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Building Blocks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Levels of <span class="hl">Organization</span> in Living Beings</h2>
+          <ul><li>Cells are the basic unit of life.</li><li>Tissues are groups of similar cells.</li><li>Organs are made of different tissues.</li><li>Organs form organ systems.</li></ul>
+          <p class="notes">🎙️ This shows how life gets more complex. From a single cell, we move to tissues, then organs like your heart or stomach, and finally to whole systems that make up an entire organism.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cells</span></div><div class="step"><span class="snum">2</span><span>Tissues</span></div><div class="step"><span class="snum">3</span><span>Organs</span></div><div class="step"><span class="snum">4</span><span>Organ Systems</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The Power of <span class="hl">Teamwork</span>: Why Tissues are Important</h2>
+          <ul><li>Division of labour: Each tissue has a specific role.</li><li>Increased efficiency: Tasks are performed better.</li><li>Better organization: Helps in complex body functions.</li></ul>
+          <p class="notes">🎙️ Imagine if one person had to do all the work in a big project! Tissues divide the work, making the organism much more efficient and allowing for highly specialized functions to occur.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Specific Roles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Plants vs. Animals: <span class="hl">Different Needs</span>, Different Tissues</h2>
+          <ul><li>Plants are stationary, animals are mobile.</li><li>Plants need structural support, animals need movement.</li><li>Growth patterns differ greatly between them.</li></ul>
+          <p class="notes">🎙️ Plants and animals have very different lifestyles and requirements. Plants need tissues for support and continuous growth, while animals need tissues for movement, sensation, and rapid responses.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Plant Tissues</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Animal Tissues</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Plant Tissues</span>: Growing and Supporting Life</h2>
+          <ul><li>Meristematic Tissues: Responsible for growth.</li><li>Permanent Tissues: For protection, support, and transport.</li><li>These two types differ in their ability to divide.</li></ul>
+          <p class="notes">🎙️ We'll start by exploring plant tissues. They are broadly divided into two main categories based on their ability to divide and their specialized functions within the plant body.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_type_sclerenchyma_fibers.png?width=500" data-fb="🌱" alt="Plant tissues are specialized groups of cells that perform specific functions. They are di"/><div class="vcap">Plant tissues are specialized groups of cells that perform specific functions. They are di</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Meristematic</span> Tissues: The Growing Parts of a Plant</h2>
+          <ul><li>Composed of actively dividing cells.</li><li>Responsible for the overall growth of the plant.</li><li>Found in specific growth regions like tips and nodes.</li></ul>
+          <p class="notes">🎙️ These are like the 'growth engines' of the plant. Their cells are constantly dividing, allowing the plant to increase in length and girth throughout its life.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_anatomy_root_en.png?width=500" data-fb="⬆️" alt="A plant has distinct parts, each with specialized functions: roots absorb water, stems tra"/><div class="vcap">A plant has distinct parts, each with specialized functions: roots absorb water, stems tra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Where Plants Grow: <span class="hl">Types</span> of Meristematic Tissues</h2>
+          <ul><li>Apical Meristem: Increases length of roots and shoots.</li><li>Lateral Meristem: Increases girth or width of the plant.</li><li>Intercalary Meristem: Increases length at the base of leaves/internodes.</li></ul>
+          <p class="notes">🎙️ Each type of meristematic tissue is found in a specific location within the plant and contributes to a different aspect of its growth, ensuring balanced development.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Apical</span></div><div class="step"><span class="snum">2</span><span>Lateral</span></div><div class="step"><span class="snum">3</span><span>Intercalary</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Apical</span> Meristem: Growing Taller!</h2>
+          <ul><li>Located at the tips of roots and shoots.</li><li>Cells divide to increase the plant's length.</li><li>Helps in primary growth, making the plant taller.</li></ul>
+          <p class="notes">🎙️ Think of the apical meristem as the plant's 'height booster.' It's responsible for making the plant grow taller and its roots grow deeper into the soil.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Length Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Lateral</span> Meristem: Growing Wider!</h2>
+          <ul><li>Found along the sides of stems and roots.</li><li>Increases the girth or thickness of the plant.</li><li>Examples include cork cambium and vascular cambium.</li></ul>
+          <p class="notes">🎙️ This meristem makes the plant 'fatter.' It's what makes tree trunks get thicker over the years, contributing to the plant's secondary growth and strength.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Tree Trunk</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Intercalary</span> Meristem: Growth Between Nodes</h2>
+          <ul><li>Located at the base of leaves or internodes.</li><li>Helps in the growth of stems and leaves.</li><li>Common in grasses and other monocot plants.</li></ul>
+          <p class="notes">🎙️ Ever wondered how grass grows back so quickly after being cut? The intercalary meristem at the base of its leaves is responsible for this rapid regrowth and elongation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Grass Blades</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Test Your Knowledge on Plant Growth!</h2>
+          <ul><li>Which meristem is responsible for increasing the height of a plant?</li><li>Where would you typically find the lateral meristem?</li><li>What is the main function of meristematic tissues in plants?</li></ul>
+          <p class="notes">🎙️ Take a moment to recall what we've learned about meristematic tissues. These questions will help you check your understanding before we move on to permanent tissues.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_hormones.svg?width=500" data-fb="🔬" alt="Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel"/><div class="vcap">Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Permanent</span> Tissues: Stable &amp; Specialized</h2>
+          <ul><li>Cells have lost the ability to divide.</li><li>They have taken a permanent shape and function.</li><li>Formed from meristematic tissues after differentiation.</li></ul>
+          <p class="notes">🎙️ Once meristematic cells stop dividing, they mature and specialize, becoming permanent tissues. They form the bulk of the plant body and perform specific, long-term functions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protection &amp; Support</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Simple</span> Permanent Tissues: One Type of Cell</h2>
+          <ul><li>Made up of only one type of cell.</li><li>All cells are structurally and functionally similar.</li><li>Three main types: Parenchyma, Collenchyma, Sclerenchyma.</li></ul>
+          <p class="notes">🎙️ These tissues are 'simple' because all the cells within them are structurally and functionally similar. We'll look at each type in detail, understanding their unique contributions.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🌿" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Parenchyma</span>: The All-Rounder Tissue</h2>
+          <ul><li>Loosely packed, thin-walled living cells.</li><li>Functions: Food storage, photosynthesis, gas exchange.</li><li>Found in soft parts like fruit pulp and leaves.</li></ul>
+          <p class="notes">🎙️ Parenchyma cells are versatile and act as the general-purpose cells of the plant. They store food, aid in photosynthesis, and provide basic support in softer plant regions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥔</span><span>🥔</span><span>🥔</span><span>🥔</span><span>🥔</span></div><div class="vcap">Food Storage</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Collenchyma</span>: Flexible Support</h2>
+          <ul><li>Elongated living cells with thickened corners.</li><li>Provides flexibility and mechanical support to plant parts.</li><li>Allows bending without breaking, like in leaf stalks.</li></ul>
+          <p class="notes">🎙️ Collenchyma gives plants their flexibility. It's why you can bend a leaf stalk without it snapping, allowing the plant to withstand wind and other external forces.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Flexible Strength</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Sclerenchyma</span>: Hard &amp; Strong Support</h2>
+          <ul><li>Dead cells with thick, lignified cell walls.</li><li>Provides strength, rigidity, and protection to the plant.</li><li>Found in seed coats, nuts, and coconut husk.</li></ul>
+          <p class="notes">🎙️ Sclerenchyma is the plant's 'armor.' These cells are incredibly tough and provide maximum strength and protection, making parts like coconut husks incredibly hard and durable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥥</div><div class="vcap">Hard Protection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Complex</span> Permanent Tissues: The Transport System</h2>
+          <ul><li>Made up of more than one type of cell.</li><li>All cells work together to perform a common function.</li><li>Xylem and Phloem are the two main types.</li></ul>
+          <p class="notes">🎙️ Unlike simple tissues, complex tissues have different types of cells, but they all collaborate to perform vital functions, mainly related to transport within the plant body.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Xylem</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Phloem</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Xylem</span>: Water's Highway</h2>
+          <ul><li>Transports water and minerals from roots to leaves.</li><li>Composed of tracheids, vessels, xylem parenchyma, xylem fibres.</li><li>Flow is typically unidirectional (upwards).</li></ul>
+          <p class="notes">🎙️ Xylem is like the plant's plumbing system, specifically designed to carry water and dissolved minerals from the soil all the way up to the highest leaves, against gravity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Flow</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Phloem</span>: Food's Delivery Service</h2>
+          <ul><li>Transports food (sugars) from leaves to other parts of the plant.</li><li>Composed of sieve tubes, companion cells, phloem parenchyma, phloem fibres.</li><li>Flow can be bidirectional (up and down).</li></ul>
+          <p class="notes">🎙️ Phloem is responsible for distributing the food produced during photosynthesis in the leaves to all other parts of the plant, including roots, storage organs, and growing fruits.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Nutrient Distribution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Plant Permanent Tissues</h2>
+          <ul><li>Which simple permanent tissue provides flexibility to plant parts?</li><li>Name the two types of complex permanent tissues.</li><li>What is the primary function of sclerenchyma tissue?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of permanent tissues. Remember the different types, their structures, and their specific roles in the plant's growth and survival.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Animal Tissues</span>: Movement, Sensation &amp; Protection</h2>
+          <ul><li>Four main types: Epithelial, Connective, Muscular, Nervous.</li><li>Highly specialized for active lifestyles and rapid responses.</li><li>Essential for all complex body functions and interactions.</li></ul>
+          <p class="notes">🎙️ Now we shift our focus to animal tissues, which are adapted for mobility, quick responses, and maintaining a complex internal environment. They are crucial for survival.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Illu_epithelium_types-en.svg?width=500" data-fb="🐾" alt="Animal tissues are groups of cells with similar structure and function. The four main type"/><div class="vcap">Animal tissues are groups of cells with similar structure and function. The four main type</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Epithelial</span> Tissue: The Body's Covering &amp; Lining</h2>
+          <ul><li>Forms the outer covering of the body (e.g., skin).</li><li>Lines internal organs and cavities.</li><li>Functions: Protection, absorption, secretion, sensation.</li></ul>
+          <p class="notes">🎙️ Epithelial tissue acts as a vital barrier, protecting the body from injury, infection, and dehydration. It also plays roles in absorbing nutrients and secreting various substances.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protective Layer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Connective</span> Tissue: Binding, Supporting &amp; Transporting</h2>
+          <ul><li>Connects various body parts and provides support.</li><li>Most abundant and widely distributed tissue type.</li><li>Examples: Blood, bone, cartilage, ligaments, tendons.</li></ul>
+          <p class="notes">🎙️ Connective tissue is incredibly diverse, ranging from the fluid blood that transports substances to the hard bone that provides skeletal support. It literally 'connects' everything in the body.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Linking Parts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Tissues - The Foundation of Life</h2>
+          <ul><li>Tissues are groups of specialized cells with common functions.</li><li>Plant tissues include Meristematic (growth) and Permanent (support, transport).</li><li>Animal tissues include Epithelial, Connective, Muscular, and Nervous.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that tissues are crucial for the efficient functioning and organization of all living organisms, allowing them to perform complex tasks and sustain life.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

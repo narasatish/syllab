@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Linear Equations in Two Variables — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Linear Equations in <span class="hl">Two Variables</span></h2>
+          <ul><li>Welcome to Class 9 Maths!</li><li>Chapter 4</li><li>Rajasthan Board Syllabus</li></ul>
+          <p class="notes">🎙️ Namaste students! Today we embark on an exciting journey into Chapter 4: Linear Equations in Two Variables. This chapter builds on what you've learned before and introduces new ways to solve problems.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is an <span class="hl">Equation</span>?</h2>
+          <ul><li>A mathematical statement</li><li>Shows two expressions are equal</li><li>Uses an '=' sign</li></ul>
+          <p class="notes">🎙️ An equation is like a balanced scale. Whatever is on one side must be equal to what's on the other. The equal sign is the key feature that tells us we have an equation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">=</div><div class="vcap">Equality Sign</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Variables</span> and Constants</h2>
+          <ul><li>Variables: unknown values (x, y, z)</li><li>Constants: fixed numerical values (2, 5, -7)</li></ul>
+          <p class="notes">🎙️ Think of variables as empty boxes waiting for a number, while constants are like numbers already written down. Understanding these is crucial for equations.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Variable (x)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Constant (5)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Recap: Linear Equation in <span class="hl">One Variable</span></h2>
+          <ul><li>Only one variable (e.g., x)</li><li>Highest power of variable is 1</li><li>Example: 2x + 5 = 9</li></ul>
+          <p class="notes">🎙️ You've already mastered linear equations with one variable. Remember, 'linear' means the variable's highest power is one, so no x-squared terms!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">1️⃣</div><div class="vcap">One Unknown</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Why <span class="hl">Two Variables</span>?</h2>
+          <ul><li>Sometimes one unknown isn't enough</li><li>Real-world problems often have multiple unknowns</li><li>Example: Cost of apples AND bananas</li></ul>
+          <p class="notes">🎙️ Imagine you go to the market. You buy apples and bananas. If you only know the total cost, how can you find the cost of each? We need two variables to represent the cost of apples and the cost of bananas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Apples and Bananas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Definition</span>: Linear Equation in Two Variables</h2>
+          <ul><li>An equation with two variables</li><li>Highest power of each variable is 1</li><li>No product of variables (like xy)</li></ul>
+          <p class="notes">🎙️ A linear equation in two variables describes a direct relationship between two changing quantities. The 'linear' part means when you graph it, you'll get a straight line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Two-Way Relationship</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">General Form</span>: ax + by + c = 0</h2>
+          <ul><li>a, b, c are real numbers</li><li>a and b are NOT both zero</li><li>x and y are the variables</li></ul>
+          <p class="notes">🎙️ This is the standard way we write these equations. 'a' and 'b' are coefficients of x and y, and 'c' is the constant term. It's important that 'a' and 'b' aren't both zero, otherwise, it wouldn't be a two-variable equation!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Standard Format</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Notebooks &amp; Pens</span></h2>
+          <ul><li>Cost of one notebook is ₹x</li><li>Cost of one pen is ₹y</li><li>Total cost of 2 notebooks and 3 pens is ₹100</li></ul>
+          <p class="notes">🎙️ Let's say you bought some school supplies. If we let 'x' be the cost of a notebook and 'y' be the cost of a pen, how would we write an equation for the total cost?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📚</span><span>📚</span></div><div class="vcap">Notebooks &amp; Pens</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example: <span class="hl">Forming</span> the Equation</h2>
+          <ul><li>Cost of 2 notebooks = 2x</li><li>Cost of 3 pens = 3y</li><li>Total cost = 2x + 3y</li></ul>
+          <p class="notes">🎙️ So, if the total cost is ₹100, our equation becomes 2x + 3y = 100. This is a perfect example of a linear equation in two variables from daily life.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify variables</span></div><div class="step"><span class="snum">2</span><span>Write expressions</span></div><div class="step"><span class="snum">3</span><span>Form equation</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Solutions</span> of an Equation</h2>
+          <ul><li>A pair of values (x, y)</li><li>Makes the equation true</li><li>Satisfies the equation</li></ul>
+          <p class="notes">🎙️ A solution isn't just one number; it's a pair of numbers, one for 'x' and one for 'y', that when substituted into the equation, makes both sides equal. It's like finding the right key for a lock.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Correct Pair</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>How Many Solutions Can There Be?</h2>
+          <ul><li>Unlike one variable equations,</li><li>Two variable equations have MANY solutions</li><li>Infinitely many solutions!</li></ul>
+          <p class="notes">🎙️ This is a key difference! For 2x+3=7, x=2 is the only solution. But for 2x+3y=100, there are many combinations of x and y that work. Can you think of one?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Infinite Possibilities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Finding Solutions: <span class="hl">Trial &amp; Error</span></h2>
+          <ul><li>Choose a value for x</li><li>Solve for y</li><li>Or choose a value for y</li><li>Solve for x</li></ul>
+          <p class="notes">🎙️ One simple way to find solutions is to pick a value for one variable and then calculate the value for the other. Let's try an example together.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Guess &amp; Check</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example: <span class="hl">Finding Solutions</span> for 2x + y = 6</h2>
+          <ul><li>If x=0, then 2(0) + y = 6 =&gt; y = 6. Solution: (0, 6)</li><li>If y=0, then 2x + 0 = 6 =&gt; x = 3. Solution: (3, 0)</li><li>If x=1, then 2(1) + y = 6 =&gt; y = 4. Solution: (1, 4)</li></ul>
+          <p class="notes">🎙️ Notice how each pair (x, y) makes the equation true. We can continue this process to find as many solutions as we need.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Assume x=0</span></div><div class="step"><span class="snum">2</span><span>Find y</span></div><div class="step"><span class="snum">3</span><span>Assume y=0</span></div><div class="step"><span class="snum">4</span><span>Find x</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Distance &amp; Time</span></h2>
+          <ul><li>A car travels at a constant speed of 60 km/hr</li><li>Let distance be 'd' km and time be 't' hours</li><li>Equation: d = 60t</li></ul>
+          <p class="notes">🎙️ Here, 'd' and 't' are our two variables. If the car travels for 2 hours, d = 60 * 2 = 120 km. So (2, 120) is a solution. This equation is also a linear equation in two variables.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Journey</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Graph</span> of a Linear Equation</h2>
+          <ul><li>Every solution (x, y) is a point on the graph</li><li>All points on the graph are solutions</li><li>The graph is always a straight line</li></ul>
+          <p class="notes">🎙️ Plotting these solutions on a coordinate plane reveals something amazing: they all line up! This is why they are called 'linear' equations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Visualizing Solutions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Steps</span> to Plot a Graph</h2>
+          <ul><li>1. Find at least two solutions (x, y)</li><li>2. Plot these points on a Cartesian plane</li><li>3. Draw a straight line passing through them</li></ul>
+          <p class="notes">🎙️ While two points are enough to draw a line, finding a third point can help you check for accuracy. If all three points don't lie on the same line, you've made a calculation error.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find points</span></div><div class="step"><span class="snum">2</span><span>Plot points</span></div><div class="step"><span class="snum">3</span><span>Draw line</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example: <span class="hl">Plotting</span> 2x + y = 6</h2>
+          <ul><li>From before: (0, 6), (3, 0), (1, 4)</li><li>Let's use (0,6) and (3,0) for simplicity.</li></ul>
+          <p class="notes">🎙️ We already found these solutions in a previous slide. Now, let's imagine plotting them on a graph paper. (0,6) means 0 units right/left, 6 units up. (3,0) means 3 units right, 0 units up/down.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Point 1: (0, 6)</span></div><div class="step"><span class="snum">2</span><span>Point 2: (3, 0)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example: <span class="hl">Drawing the Line</span></h2>
+          <ul><li>Mark (0, 6) on the y-axis</li><li>Mark (3, 0) on the x-axis</li><li>Use a ruler to draw a line connecting these points</li></ul>
+          <p class="notes">🎙️ Remember to extend the line in both directions, and put arrows on the ends to show it continues infinitely. This line represents ALL the solutions to the equation 2x + y = 6.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Connect the Dots</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>The Graph: A <span class="hl">Visual Solution Set</span></h2>
+          <ul><li>Every point on the line satisfies the equation</li><li>Every solution to the equation lies on the line</li><li>It's an infinite collection of solutions</li></ul>
+          <p class="notes">🎙️ The line itself is the complete set of all possible (x,y) pairs that make the equation true. This visual representation helps us understand the relationship between the variables much better.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Any Point Works</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Special Cases: <span class="hl">Parallel to Axes</span></h2>
+          <ul><li>Equation x = a: A vertical line parallel to the y-axis</li><li>Equation y = b: A horizontal line parallel to the x-axis</li></ul>
+          <p class="notes">🎙️ These are special types of linear equations. For x=a, no matter what y is, x is always 'a'. Similarly for y=b. They are still linear equations in two variables, just with one coefficient being zero (e.g., x=3 is 1x + 0y - 3 = 0).</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">x = 3 (Vertical)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">y = 2 (Horizontal)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Fixed Costs</span></h2>
+          <ul><li>Taxi fare: ₹50 fixed + ₹10 per km</li><li>Let total fare be y, distance be x</li><li>Equation: y = 10x + 50</li></ul>
+          <p class="notes">🎙️ This is a very common scenario. The ₹50 is a constant, and the ₹10 per km is a variable cost. This forms a linear equation in two variables, y and x.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💰</span></div><div class="vcap">Money Matters</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Question 1</span></h2>
+          <ul><li>Is 3x + 5 = 7 a linear equation in two variables?</li></ul>
+          <p class="notes">🎙️ Think about the definition we covered. How many variables does this equation have? What is the highest power of the variable?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Question 2</span></h2>
+          <ul><li>Which of these is a solution for x + y = 7?</li><li>(a) (1, 5)</li><li>(b) (2, 5)</li><li>(c) (3, 3)</li></ul>
+          <p class="notes">🎙️ Substitute the x and y values from each option into the equation. Does it make the equation true?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Question 3</span></h2>
+          <ul><li>Write 5x = -2y + 8 in the general form ax + by + c = 0.</li></ul>
+          <p class="notes">🎙️ Remember the general form. You need to move all terms to one side of the equation, keeping the order ax + by + c.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Linear Equations in Two Variables</h2>
+          <ul><li>An equation with two variables (x, y)</li><li>General form: ax + by + c = 0</li><li>Has infinitely many solutions</li><li>Its graph is a straight line</li></ul>
+          <p class="notes">🎙️ Today, we explored the world of linear equations with two variables. We learned how to form them, find their solutions, and visualize them as straight lines on a graph. Keep practicing, and you'll master this concept!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

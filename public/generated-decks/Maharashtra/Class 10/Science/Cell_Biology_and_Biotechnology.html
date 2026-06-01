@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Cell Biology and Biotechnology — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Cell Biology</span> and Biotechnology!</h2>
+          <ul><li>Exploring the tiny world within us</li><li>Understanding how life is built</li><li>Discovering how science helps us innovate</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the microscopic world of cells and the fascinating field of biotechnology. Get ready to explore the very building blocks of life and how we can use this knowledge to create amazing things!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>The Fundamental Unit of Life: <span class="hl">Cell</span></h2>
+          <ul><li>Smallest structural and functional unit</li><li>All living organisms are made of cells</li><li>Carries out all life processes</li></ul>
+          <p class="notes">🎙️ Imagine a house. It's built from many bricks, right? Similarly, every living thing, from a tiny bacterium to a giant elephant, is built from tiny units called cells. The cell is the smallest part that can still perform all the functions of life.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🔬" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Two Major</span> Cell Types</h2>
+          <ul><li>Prokaryotic: Simple, no true nucleus</li><li>Eukaryotic: Complex, with a true nucleus and organelles</li></ul>
+          <p class="notes">🎙️ Scientists broadly classify cells into two main types based on their internal structure. Think of it like a basic hut versus a multi-room house. Prokaryotic cells are simpler, while eukaryotic cells are more complex and organized.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Prokaryotic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Eukaryotic</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Prokaryotic Cells: <span class="hl">Simple &amp; Ancient</span></h2>
+          <ul><li>No membrane-bound nucleus</li><li>Genetic material floats freely</li><li>Lack most organelles</li><li>Example: Bacteria</li></ul>
+          <p class="notes">🎙️ Prokaryotic cells are the oldest and simplest forms of life. They don't have a distinct nucleus to house their DNA; it's just floating in the cytoplasm. Bacteria are the most common examples, found almost everywhere around us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Tiny Bacteria</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Eukaryotic Cells: <span class="hl">Complex &amp; Organized</span></h2>
+          <ul><li>True nucleus enclosed by a membrane</li><li>Contains many specialized organelles</li><li>Found in plants, animals, fungi, protists</li></ul>
+          <p class="notes">🎙️ Eukaryotic cells are like miniature factories, with different compartments, or organelles, performing specific tasks. This organization allows them to be much larger and more complex. You and I are made of eukaryotic cells!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Animal Cell</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Specialized Parts: Cell <span class="hl">Organelles</span></h2>
+          <ul><li>Mini-organs within the cell</li><li>Each performs a specific function</li><li>Work together to keep the cell alive</li></ul>
+          <p class="notes">🎙️ Just as our body has organs like the heart and lungs, eukaryotic cells have tiny structures called organelles. Each organelle has a unique job, making sure the cell functions smoothly and efficiently. Let's look at a few important ones.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span><span>🧩</span></div><div class="vcap">Cell's Puzzle Pieces</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>The Nucleus: Cell's <span class="hl">Control Center</span></h2>
+          <ul><li>Contains genetic material (DNA)</li><li>Controls cell growth and reproduction</li><li>Directs all cell activities</li></ul>
+          <p class="notes">🎙️ The nucleus is often called the brain of the cell because it houses the DNA, which contains all the instructions for building and operating the cell. It's like the principal's office, managing everything that happens.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Cell's Brain</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Mitochondria: The <span class="hl">Powerhouses</span></h2>
+          <ul><li>Generate energy (ATP) for the cell</li><li>Site of cellular respiration</li><li>More active cells have more mitochondria</li></ul>
+          <p class="notes">🎙️ Mitochondria are crucial for providing energy. They break down food molecules to produce ATP, which is the cell's energy currency. Think of them as tiny power plants that keep the cell running.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Energy Factories</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Chloroplasts: <span class="hl">Photosynthesis</span> Factories (Plant Cells)</h2>
+          <ul><li>Found only in plant cells and algae</li><li>Contain chlorophyll for photosynthesis</li><li>Convert light energy into chemical energy</li></ul>
+          <p class="notes">🎙️ Chloroplasts are special organelles found in plants that allow them to make their own food using sunlight. This process, called photosynthesis, is fundamental for life on Earth, providing oxygen and food for almost all living things.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sunlight to Food</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Cell Division</span>: Growth, Repair, Reproduction</h2>
+          <ul><li>Essential for growth of multicellular organisms</li><li>Replaces old or damaged cells</li><li>Forms new organisms (in some cases)</li></ul>
+          <p class="notes">🎙️ Cells don't live forever; they need to divide to create new cells. This process is vital for various reasons: for us to grow from a baby to an adult, to heal a cut, or for single-celled organisms to reproduce.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Mitosis_en.svg?width=500" data-fb="➗" alt="Cell division creates new cells from existing ones. Mitosis produces identical somatic cel"/><div class="vcap">Cell division creates new cells from existing ones. Mitosis produces identical somatic cel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Mitosis</span>: For Growth and Repair</h2>
+          <ul><li>Produces two identical daughter cells</li><li>Occurs in somatic (body) cells</li><li>Maintains chromosome number</li></ul>
+          <p class="notes">🎙️ Mitosis is how our body cells divide. It's like making an exact photocopy of a document. The parent cell divides into two new cells, each with the same number of chromosomes, ensuring our tissues and organs grow and repair correctly.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Prophase</span></div><div class="step"><span class="snum">2</span><span>Metaphase</span></div><div class="step"><span class="snum">3</span><span>Anaphase</span></div><div class="step"><span class="snum">4</span><span>Telophase</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Meiosis</span>: For Sexual Reproduction</h2>
+          <ul><li>Produces four non-identical daughter cells</li><li>Occurs in germ cells (to form gametes)</li><li>Halves the chromosome number</li></ul>
+          <p class="notes">🎙️ Meiosis is a special type of cell division that happens only to create reproductive cells like sperm and egg. It's unique because it reduces the number of chromosomes by half, ensuring that when two gametes fuse, the offspring has the correct total number of chromosomes.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Adolescent_hormones.svg?width=500" data-fb="🔬" alt="Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation "/><div class="vcap">Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Quick Check!</span> Your Cell Knowledge</h2>
+          <ul><li>Which cell type lacks a true nucleus?</li><li>What is the function of mitochondria?</li><li>Name one reason why cells divide.</li></ul>
+          <p class="notes">🎙️ Alright, let's quickly test your understanding. Think about the key differences between cell types, what each organelle does, and why cell division is so important. Jot down your answers mentally or on paper.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Biotechnology</span>: Science Meets Innovation</h2>
+          <ul><li>Using living organisms or their products</li><li>To develop new technologies or products</li><li>Ancient practice, modern revolution</li></ul>
+          <p class="notes">🎙️ Now, let's shift gears to biotechnology. This field combines biology with technology to create useful products. From making bread and cheese for centuries to developing life-saving medicines today, biotechnology is all about harnessing nature's power for human benefit.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Life's Code</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Genetic Engineering</span>: Reshaping DNA</h2>
+          <ul><li>Altering an organism's genetic material (DNA)</li><li>Adding, removing, or modifying genes</li><li>Creates organisms with desired traits</li></ul>
+          <p class="notes">🎙️ Genetic engineering is a core technique in modern biotechnology. It's like editing the instruction manual of an organism. Scientists can precisely change specific genes to give organisms new abilities or correct genetic defects.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">DNA Editing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Recombinant DNA</span>: Combining Genes</h2>
+          <ul><li>Cutting DNA from one organism</li><li>Inserting it into another organism's DNA</li><li>Creating new DNA combinations</li></ul>
+          <p class="notes">🎙️ Recombinant DNA technology is a powerful tool. Imagine taking a useful gene from one species and inserting it into another. This allows us to create organisms with combined desirable traits, like bacteria that produce human insulin.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Recombinant_DNA.svg?width=500" data-fb="🔬" alt="Recombinant DNA technology isolates genes, inserts them into vectors, and clones them to p"/><div class="vcap">Recombinant DNA technology isolates genes, inserts them into vectors, and clones them to p</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Biotechnology in <span class="hl">Agriculture</span>: Enhancing Crops</h2>
+          <ul><li>Developing pest-resistant crops</li><li>Creating drought-tolerant varieties</li><li>Improving nutritional value of food</li></ul>
+          <p class="notes">🎙️ Biotechnology has revolutionized agriculture. By modifying crops, we can make them more resilient to pests and diseases, grow in challenging conditions, and even contain more vitamins, helping to feed a growing global population.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Stronger Harvests</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Real Example: <span class="hl">Bt Cotton</span></h2>
+          <ul><li>Genetically modified cotton plant</li><li>Contains a gene from bacterium Bacillus thuringiensis (Bt)</li><li>Produces a protein toxic to bollworms</li></ul>
+          <p class="notes">🎙️ A classic example in India is Bt cotton. This cotton variety has a gene from a bacterium that makes it naturally resistant to cotton bollworms, a major pest. This reduces the need for chemical pesticides, benefiting farmers and the environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐛</div><div class="vcap">Pest-Free Cotton</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Biotechnology in <span class="hl">Medicine</span>: Healing &amp; Preventing</h2>
+          <ul><li>Producing medicines like insulin and vaccines</li><li>Developing diagnostic tools for diseases</li><li>Gene therapy for treating genetic disorders</li></ul>
+          <p class="notes">🎙️ Biotechnology has transformed healthcare. It allows us to produce complex proteins like hormones and antibodies, develop more effective vaccines, and even offers hope for curing genetic diseases by correcting faulty genes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💊</div><div class="vcap">Medical Breakthroughs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Real Example: Human <span class="hl">Insulin Production</span></h2>
+          <ul><li>Earlier, insulin was extracted from animals</li><li>Now, human insulin gene inserted into bacteria</li><li>Bacteria produce large quantities of human insulin</li></ul>
+          <p class="notes">🎙️ Before biotechnology, insulin for diabetics was sourced from animals, which could cause allergic reactions. Now, thanks to genetic engineering, bacteria are engineered to produce human insulin, making it safer, purer, and more widely available.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💉</div><div class="vcap">Life-Saving Insulin</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Biotechnology in <span class="hl">Industry</span>: Eco-Friendly Processes</h2>
+          <ul><li>Producing biofuels from biomass</li><li>Using enzymes in detergents and textiles</li><li>Bioremediation to clean up pollution</li></ul>
+          <p class="notes">🎙️ Beyond agriculture and medicine, biotechnology offers sustainable solutions for various industries. It helps create cleaner energy sources, makes industrial processes more efficient using natural enzymes, and even helps clean up environmental pollution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Green Industry</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Ethical</span> Considerations: Balancing Progress</h2>
+          <ul><li>Safety of genetically modified organisms (GMOs)</li><li>Potential environmental impacts</li><li>Moral implications of altering life</li></ul>
+          <p class="notes">🎙️ While biotechnology offers immense benefits, it also raises important ethical questions. We must carefully consider the potential risks, like unintended consequences of GMOs, and discuss the moral boundaries of manipulating life forms. It's a field that requires careful thought and regulation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think Before Acting</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check!</span> Your Biotech Knowledge</h2>
+          <ul><li>What is genetic engineering?</li><li>Name one application of biotech in agriculture.</li><li>What is an ethical concern regarding GMOs?</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Reflect on what we've learned about how biotechnology works, its various applications in different sectors, and the important ethical discussions surrounding it. This helps solidify your understanding.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Cells are the basic units of life</li><li>Mitosis and Meiosis are cell division types</li><li>Biotechnology uses life for innovation</li><li>Applications in health, food, environment</li></ul>
+          <p class="notes">🎙️ To summarize, we started with the amazing world of cells, understanding their structure and how they multiply. Then we explored biotechnology, a field that uses our knowledge of biology to create incredible solutions in medicine, agriculture, and industry, while also considering its ethical aspects.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You!</span> Exploring Life's Wonders</h2>
+          <ul><li>Keep exploring the microscopic world!</li><li>Biotechnology is a rapidly evolving field</li><li>Your curiosity can lead to new discoveries!</li></ul>
+          <p class="notes">🎙️ Thank you for joining me on this journey through Cell Biology and Biotechnology. This field is constantly advancing, and who knows, one day, one of you might make the next big discovery that changes the world!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

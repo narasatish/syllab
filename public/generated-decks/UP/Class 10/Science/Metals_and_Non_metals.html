@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Metals and Non-metals — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Metals</span> and Non-metals</h2>
+          <ul><li>Chapter 3: Metals and Non-metals</li><li>Subject: Science</li><li>Class: 10, UP Board</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to explore the fascinating world of 'Metals and Non-metals'. This chapter is crucial for understanding the materials around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Why</span> Study Metals and Non-metals?</h2>
+          <ul><li>Understand materials around us</li><li>Learn their properties and uses</li><li>Foundation for advanced chemistry</li></ul>
+          <p class="notes">🎙️ Everything you see, from the pen you write with to the phone you use, is made of either metals, non-metals, or their compounds. Knowing their properties helps us choose the right material for the right job.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>What are <span class="hl">Metals</span>?</h2>
+          <ul><li>Elements that readily form positive ions</li><li>Typically shiny, hard, and good conductors</li><li>Found on the left side of the periodic table</li></ul>
+          <p class="notes">🎙️ Metals are a very important group of elements. Think of common items like gold, silver, iron, and copper. They share many common physical properties which we will discuss.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Building Blocks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Metals are <span class="hl">Lustrous</span></h2>
+          <ul><li>Possess a shiny surface</li><li>Reflect light well</li><li>Example: Gold, Silver, Copper</li></ul>
+          <p class="notes">🎙️ The shiny appearance of metals is called metallic luster. This property makes them useful for making jewellery and decorative items, as they look attractive.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Shiny Surface</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Metals are <span class="hl">Hard</span></h2>
+          <ul><li>Generally solid and strong</li><li>Resist scratching and bending</li><li>Example: Iron, Steel (alloy)</li></ul>
+          <p class="notes">🎙️ Most metals are hard and strong, which is why they are used in construction and for making tools. However, there are exceptions like sodium and potassium, which are soft enough to be cut with a knife.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strong Material</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Metals are <span class="hl">Malleable</span></h2>
+          <ul><li>Can be hammered into thin sheets</li><li>Without breaking</li><li>Example: Aluminium foil, Iron sheets</li></ul>
+          <p class="notes">🎙️ Malleability is the property that allows metals to be flattened. This is why you can make thin aluminium foils for wrapping food or iron sheets for roofing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥞</div><div class="vcap">Thin Sheets</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Metals are <span class="hl">Ductile</span></h2>
+          <ul><li>Can be drawn into thin wires</li><li>Without breaking</li><li>Example: Copper wires, Gold jewellery wire</li></ul>
+          <p class="notes">🎙️ Ductility is another fascinating property of metals. It allows us to make long, thin wires from metals like copper for electrical circuits and gold for intricate jewellery designs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧵</div><div class="vcap">Thin Wires</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Metals are Good Conductors of <span class="hl">Heat</span></h2>
+          <ul><li>Allow heat to pass through easily</li><li>Feel hot quickly when heated</li><li>Example: Cooking utensils made of copper/aluminium</li></ul>
+          <p class="notes">🎙️ Because metals conduct heat well, they are ideal for making cooking pots and pans. The heat from the stove quickly transfers to the food through the metal utensil.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat Transfer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Metals are Good Conductors of <span class="hl">Electricity</span></h2>
+          <ul><li>Allow electric current to flow through easily</li><li>Have free electrons</li><li>Example: Copper wires in electrical circuits</li></ul>
+          <p class="notes">🎙️ This is a very important property. The free electrons in metals allow electricity to pass through them, which is why copper and aluminium are used extensively in electrical wiring.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="⚡" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Metals are <span class="hl">Sonorous</span></h2>
+          <ul><li>Produce a ringing sound</li><li>When struck with a hard object</li><li>Example: School bell, Temple bells</li></ul>
+          <p class="notes">🎙️ Have you ever noticed the sound a metal bell makes? This ringing sound is due to the sonorous property of metals. Non-metals do not produce such a sound.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔔</div><div class="vcap">Ringing Sound</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Metals have <span class="hl">High</span> Melting and Boiling Points</h2>
+          <ul><li>Require a lot of energy to melt or boil</li><li>Strong metallic bonds</li><li>Example: Iron melts at 1538°C</li></ul>
+          <p class="notes">🎙️ Most metals have very high melting and boiling points, meaning they remain solid at room temperature. This makes them suitable for applications requiring high temperatures, like industrial furnaces.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">High Temperature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Quick <span class="hl">Check</span>: Metals</h2>
+          <ul><li>Which property allows metals to be made into wires?</li><li>Give one example of a lustrous metal.</li><li>Why are cooking utensils made of metals?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding of metals. Think about the properties we just discussed and try to answer these questions in your mind.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>What are <span class="hl">Non-metals</span>?</h2>
+          <ul><li>Elements that readily form negative ions</li><li>Typically dull, brittle, and poor conductors</li><li>Found on the right side of the periodic table</li></ul>
+          <p class="notes">🎙️ Now let's shift our focus to non-metals. These elements have properties quite opposite to metals. They exist as solids, liquids, or gases at room temperature.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Diverse Forms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Non-metals are <span class="hl">Non-lustrous</span></h2>
+          <ul><li>Generally have a dull appearance</li><li>Do not reflect light well</li><li>Example: Sulphur, Carbon (coal)</li></ul>
+          <p class="notes">🎙️ Unlike metals, non-metals usually lack that characteristic shine. They appear dull and powdery or gaseous. There are a few interesting exceptions, which we will see later.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌫️</div><div class="vcap">Dull Surface</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Non-metals are <span class="hl">Soft</span></h2>
+          <ul><li>Generally soft or brittle solids</li><li>Break easily when struck</li><li>Example: Sulphur, Phosphorus</li></ul>
+          <p class="notes">🎙️ Most solid non-metals are soft and brittle, meaning they will break into pieces if you try to hammer them. They don't have the strength of metals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💔</div><div class="vcap">Easily Broken</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Non-metals are <span class="hl">Non-malleable</span> and Non-ductile</h2>
+          <ul><li>Cannot be hammered into sheets</li><li>Cannot be drawn into wires</li><li>They are brittle and break instead</li></ul>
+          <p class="notes">🎙️ If you try to hammer a piece of coal, it will simply break into powder. This shows that non-metals are neither malleable nor ductile, unlike metals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔨</div><div class="vcap">Brittle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Non-metals are <span class="hl">Poor Conductors</span> of Heat and Electricity</h2>
+          <ul><li>Do not allow heat to pass through easily</li><li>Do not allow electric current to flow</li><li>Example: Wood, Plastic (insulators)</li></ul>
+          <p class="notes">🎙️ Non-metals generally act as insulators, meaning they resist the flow of heat and electricity. This is why electrical wires are covered with plastic, which is a non-metal.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫⚡</div><div class="vcap">No Flow</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Non-metals are <span class="hl">Non-sonorous</span></h2>
+          <ul><li>Do not produce a ringing sound</li><li>When struck with a hard object</li><li>Example: Sulphur powder, Carbon chunk</li></ul>
+          <p class="notes">🎙️ If you hit a piece of chalk or a lump of coal, it will just make a dull thud, or break. This confirms that non-metals do not possess the sonorous property.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔇</div><div class="vcap">Silent</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Non-metals have <span class="hl">Low</span> Melting and Boiling Points</h2>
+          <ul><li>Require less energy to melt or boil</li><li>Often gases or liquids at room temperature</li><li>Example: Oxygen, Nitrogen (gases)</li></ul>
+          <p class="notes">🎙️ Many non-metals exist as gases (like oxygen, nitrogen) or liquids (like bromine) at room temperature. The solids (like sulphur, phosphorus) have relatively low melting points.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Low Temperature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Interesting <span class="hl">Exceptions</span> in Metals</h2>
+          <ul><li>Mercury: Liquid metal at room temperature (used in thermometers)</li><li>Sodium &amp; Potassium: Soft metals, can be cut with a knife</li><li>Gallium &amp; Caesium: Very low melting points, melt in your palm</li></ul>
+          <p class="notes">🎙️ While we discussed general properties, nature always has its exceptions! Mercury is the only metal that is liquid at room temperature. Sodium and potassium are surprisingly soft for metals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Liquid Metal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Interesting <span class="hl">Exceptions</span> in Non-metals</h2>
+          <ul><li>Diamond: Hardest known natural substance (form of Carbon)</li><li>Graphite: Good conductor of electricity (form of Carbon)</li><li>Iodine: Lustrous non-metal (shiny crystals)</li></ul>
+          <p class="notes">🎙️ Non-metals also have their unique exceptions. Diamond, a form of carbon, is extremely hard. Graphite, another form of carbon, is an excellent electrical conductor, unlike most non-metals. Iodine even has a metallic luster!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Hard &amp; Shiny</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>: Non-metals and Exceptions</h2>
+          <ul><li>Name a non-metal that conducts electricity.</li><li>What is the hardest natural substance?</li><li>Is sulphur malleable or brittle?</li></ul>
+          <p class="notes">🎙️ Time for another quick check! See if you can recall the properties of non-metals and their special exceptions. These are often asked in exams.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Everyday <span class="hl">Uses</span> of Metals</h2>
+          <ul><li>Construction: Iron, Steel for buildings, bridges</li><li>Electrical: Copper, Aluminium for wires</li><li>Utensils &amp; Jewellery: Aluminium, Stainless Steel, Gold, Silver</li></ul>
+          <p class="notes">🎙️ Metals are indispensable in our daily lives. From the sturdy buildings we live in to the cars we drive and the jewellery we wear, metals are everywhere. Their unique properties make them highly valuable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛠️</span><span>🛠️</span><span>🛠️</span><span>🛠️</span></div><div class="vcap">Tools and Structures</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Everyday <span class="hl">Uses</span> of Non-metals</h2>
+          <ul><li>Life Support: Oxygen for breathing</li><li>Fertilizers: Nitrogen, Phosphorus for plant growth</li><li>Fuel: Carbon (coal), Hydrogen (fuels)</li></ul>
+          <p class="notes">🎙️ Non-metals are equally vital, though often less visible. Oxygen is essential for respiration, nitrogen and phosphorus are crucial for agriculture, and carbon is a primary component of fuels.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💨</span><span>💨</span><span>💨</span><span>💨</span></div><div class="vcap">Air and Growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Metals and Non-metals</h2>
+          <ul><li>Metals: Lustrous, hard, malleable, ductile, sonorous, good conductors, high MP/BP.</li><li>Non-metals: Dull, soft/brittle, non-malleable, non-ductile, non-sonorous, poor conductors, low MP/BP.</li><li>Remember important exceptions like Mercury, Diamond, Graphite, Iodine.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the key differences in physical properties between metals and non-metals. Also, don't forget the interesting exceptions that challenge our general rules. Keep exploring!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

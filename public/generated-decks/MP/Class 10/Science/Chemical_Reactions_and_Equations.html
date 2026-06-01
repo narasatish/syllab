@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Chemical Reactions and Equations — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Chemical Reactions</span> and Equations</h2>
+          <ul><li>Unlocking the secrets of matter.</li><li>Observe changes all around us.</li><li>Learn how substances transform.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today we embark on an exciting journey into the world of chemistry. We'll explore how substances interact and change, forming new ones. Get ready to discover the magic behind everyday transformations!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Chemical Reaction</span>?</h2>
+          <ul><li>Process where new substances are formed.</li><li>Reactants transform into Products.</li><li>Atoms rearrange, but are not lost.</li></ul>
+          <p class="notes">🎙️ A chemical reaction is essentially a process where one or more substances, called reactants, change into different substances, called products. Think of it like Lego bricks: you can take apart one structure and build a completely new one with the same bricks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Atom Rearrangement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>How to <span class="hl">Identify</span> a Chemical Reaction?</h2>
+          <ul><li>Change in state (solid, liquid, gas).</li><li>Change in color or temperature.</li><li>Evolution of a gas (bubbles).</li><li>Formation of a precipitate (solid).</li></ul>
+          <p class="notes">🎙️ We can observe several signs that indicate a chemical reaction has taken place. These include changes like a solid forming in a liquid, a new gas bubbling out, a noticeable color change, or even a change in temperature, making the container feel hotter or colder.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Gas Evolved</span></div><div class="step"><span class="snum">2</span><span>Color Change</span></div><div class="step"><span class="snum">3</span><span>Temp Change</span></div><div class="step"><span class="snum">4</span><span>Precipitate</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Example: Burning <span class="hl">Magnesium Ribbon</span></h2>
+          <ul><li>Magnesium (Mg) reacts with Oxygen (O₂).</li><li>Forms Magnesium Oxide (MgO).</li><li>Produces bright white light and heat.</li><li>Powdery white ash is the product.</li></ul>
+          <p class="notes">🎙️ One classic example is burning a magnesium ribbon. When magnesium metal reacts with oxygen from the air, it produces a dazzling white flame and forms a white powder called magnesium oxide. This shows a change in state, color, and temperature.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Bright Flame</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Representing Chemical Reactions</h2>
+          <ul><li>Shorthand for chemical reactions.</li><li>Uses chemical formulas and symbols.</li><li>Reactants on the left, products on the right.</li><li>An arrow separates reactants and products.</li></ul>
+          <p class="notes">🎙️ Writing out every chemical name can be long and complicated. So, chemists developed chemical equations, which are a concise way to represent reactions using symbols and formulas. It's like a mathematical equation for chemistry.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Chemical_reaction.svg?width=500" data-fb="✍️" alt="Chemical reactions can be classified by the types of chemical changes involved. Five main "/><div class="vcap">Chemical reactions can be classified by the types of chemical changes involved. Five main </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>From Words to <span class="hl">Symbols</span></h2>
+          <ul><li>Word Equation: Hydrogen + Oxygen → Water</li><li>Symbolic Equation: H₂ + O₂ → H₂O</li><li>Include physical states (s, l, g, aq).</li><li>Add reaction conditions (heat, catalyst).</li></ul>
+          <p class="notes">🎙️ First, we write the word equation. Then, we convert the names of reactants and products into their chemical formulas. We also add symbols for their physical states and any special conditions like heating or using a catalyst.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Reactants</span></div><div class="step"><span class="snum">2</span><span>Identify Products</span></div><div class="step"><span class="snum">3</span><span>Write Formulas</span></div><div class="step"><span class="snum">4</span><span>Add Conditions</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>The Law of <span class="hl">Conservation of Mass</span></h2>
+          <ul><li>Mass cannot be created nor destroyed.</li><li>Total mass of reactants = Total mass of products.</li><li>Number of atoms of each element must be equal.</li><li>Unbalanced equations are skeletal equations.</li></ul>
+          <p class="notes">🎙️ Balancing chemical equations is crucial because of the Law of Conservation of Mass. This law states that atoms are merely rearranged during a chemical reaction; they are neither created nor destroyed. Therefore, the number of atoms of each element must be the same on both sides of the equation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balanced Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Hit and Trial</span> Method</h2>
+          <ul><li>Start with the most complex formula.</li><li>Balance atoms one by one.</li><li>Often start with metals, then non-metals, then O, then H.</li><li>Adjust coefficients (numbers in front of formulas).</li></ul>
+          <p class="notes">🎙️ The hit and trial method involves systematically adjusting the coefficients in front of chemical formulas until the number of atoms for each element is equal on both sides. It's like a puzzle where you try different numbers until everything fits perfectly.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List Atoms</span></div><div class="step"><span class="snum">2</span><span>Balance Elements</span></div><div class="step"><span class="snum">3</span><span>Check All Atoms</span></div><div class="step"><span class="snum">4</span><span>Final Equation</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example: Balancing H₂ + O₂ → H₂O</h2>
+          <ul><li>H₂ + O₂ → H₂O (Unbalanced)</li><li>Oxygen: 2 on left, 1 on right. Put '2' before H₂O.</li><li>H₂ + O₂ → 2H₂O</li><li>Hydrogen: 2 on left, 4 on right. Put '2' before H₂.</li><li>2H₂ + O₂ → 2H₂O (Balanced)</li></ul>
+          <p class="notes">🎙️ Let's balance the formation of water. We see 2 oxygen atoms on the left and 1 on the right. So, we place a '2' in front of H₂O. Now we have 4 hydrogen atoms on the right, but only 2 on the left. Placing a '2' in front of H₂ balances the hydrogen. Now, all atoms are equal on both sides!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Balanced Equation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Classifying</span> Chemical Changes</h2>
+          <ul><li>Reactions categorized based on what happens.</li><li>Helps understand and predict behavior.</li><li>Key types: Combination, Decomposition, Displacement, Double Displacement, Redox.</li></ul>
+          <p class="notes">🎙️ Just like we classify animals or plants, we also categorize chemical reactions. This helps us understand the fundamental patterns of how substances react and allows us to predict the outcomes of similar reactions. We'll explore five main types.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗂️</div><div class="vcap">Reaction Categories</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>When Two Become One</h2>
+          <ul><li>Two or more reactants combine to form a single product.</li><li>A + B → AB</li><li>Example: Burning of coal (C + O₂ → CO₂).</li><li>Always exothermic (releases heat).</li></ul>
+          <p class="notes">🎙️ In a combination reaction, two or more simpler substances join together to form a single, more complex substance. Think of it as two friends meeting and becoming one team. These reactions often release energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧩</span><span>🧩</span></div><div class="vcap">Joining Pieces</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Hydrogen and Oxygen <span class="hl">Combine</span></h2>
+          <ul><li>Hydrogen gas (H₂) reacts with Oxygen gas (O₂).</li><li>Forms liquid Water (H₂O).</li><li>2H₂(g) + O₂(g) → 2H₂O(l)</li><li>A common and vital combination reaction.</li></ul>
+          <p class="notes">🎙️ A perfect example is the formation of water from hydrogen and oxygen gases. Two molecules of hydrogen combine with one molecule of oxygen to produce two molecules of water. This is a fundamental reaction that sustains life.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Formation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Breaking Down Complex Substances</h2>
+          <ul><li>A single reactant breaks down into two or more simpler products.</li><li>AB → A + B</li><li>Requires energy (heat, light, electricity).</li><li>Opposite of combination reactions.</li></ul>
+          <p class="notes">🎙️ Decomposition reactions are the opposite of combination reactions. Here, a single compound breaks down into two or more simpler substances. This process usually requires an input of energy, which can be in the form of heat, light, or electricity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💔</span></div><div class="vcap">Breaking Apart</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Limestone to Quicklime</h2>
+          <ul><li>Calcium Carbonate (limestone) is heated.</li><li>Breaks down into Calcium Oxide (quicklime) and Carbon Dioxide.</li><li>CaCO₃(s) + Heat → CaO(s) + CO₂(g)</li><li>Used in cement manufacturing.</li></ul>
+          <p class="notes">🎙️ When limestone, which is calcium carbonate, is heated strongly, it decomposes into calcium oxide, also known as quicklime, and carbon dioxide gas. This reaction is very important in industries like cement production.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Heat Breaks Down</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>The "More Reactive" Takes Over</h2>
+          <ul><li>A more reactive element displaces a less reactive element.</li><li>From its compound solution.</li><li>A + BC → AC + B</li><li>Example: Zinc displaces Copper from CuSO₄.</li></ul>
+          <p class="notes">🎙️ In a displacement reaction, a more reactive element kicks out a less reactive element from its compound. Imagine a stronger person taking the seat of a weaker person. The reactivity series helps us predict which element will displace another.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Element Swap</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Iron Displaces</span> Copper</h2>
+          <ul><li>Iron (Fe) is more reactive than Copper (Cu).</li><li>Iron displaces Copper from Copper Sulphate (CuSO₄).</li><li>Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)</li><li>Blue solution fades, reddish-brown copper forms.</li></ul>
+          <p class="notes">🎙️ When an iron nail is placed in a blue copper sulphate solution, the iron displaces the copper. The iron nail gets coated with reddish-brown copper, and the blue color of the solution fades as iron sulphate is formed. This clearly shows one element replacing another.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">New Bond Forms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Swapping Partners</h2>
+          <ul><li>Two different compounds exchange their ions.</li><li>Forms two new compounds.</li><li>AB + CD → AD + CB</li><li>Often results in precipitate or water formation.</li></ul>
+          <p class="notes">🎙️ In a double displacement reaction, there's a mutual exchange of ions between two compounds. It's like two couples swapping partners. These reactions often lead to the formation of an insoluble solid called a precipitate, or sometimes water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Partners Exchange</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Barium Sulphate <span class="hl">Precipitate</span></h2>
+          <ul><li>Barium Chloride (BaCl₂) reacts with Sodium Sulphate (Na₂SO₄).</li><li>Forms white precipitate of Barium Sulphate (BaSO₄).</li><li>Also forms Sodium Chloride (NaCl).</li><li>BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq)</li></ul>
+          <p class="notes">🎙️ When solutions of barium chloride and sodium sulphate are mixed, a white, insoluble solid, barium sulphate, is formed. This solid settles down at the bottom and is called a precipitate. This is a classic example of a double displacement reaction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌧️</div><div class="vcap">Solid Forms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>The Dance of Electrons</h2>
+          <ul><li>Oxidation: Gain of oxygen OR Loss of hydrogen OR Loss of electrons.</li><li>Reduction: Loss of oxygen OR Gain of hydrogen OR Gain of electrons.</li><li>Both occur simultaneously (Redox).</li></ul>
+          <p class="notes">🎙️ Oxidation and reduction are fundamental concepts. Oxidation can be thought of as gaining oxygen or losing hydrogen or electrons. Conversely, reduction is losing oxygen or gaining hydrogen or electrons. These two processes always happen together, hence 'Redox' reactions.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Oxidation</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Reduction</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Redox in Our <span class="hl">Daily Lives</span></h2>
+          <ul><li>Rusting of iron: Iron gets oxidized by oxygen and water.</li><li>Respiration: Glucose is oxidized to release energy.</li><li>Browning of fruits: Fruits oxidize when exposed to air.</li><li>Combustion: Fuels oxidize to produce heat and light.</li></ul>
+          <p class="notes">🎙️ Redox reactions are everywhere! The rusting of iron is an oxidation process. The energy you get from food comes from the oxidation of glucose during respiration. Even the browning of a cut apple is due to oxidation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Rusting Iron</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Identify</span> the Reaction Type</h2>
+          <ul><li>CaO(s) + H₂O(l) → Ca(OH)₂(aq)</li><li>Is it Combination, Decomposition, or Displacement?</li></ul>
+          <p class="notes">🎙️ Alright class, let's test your understanding. Look at this reaction: Calcium oxide reacting with water to form calcium hydroxide. Which type of reaction is this?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Balance</span> This Equation!</h2>
+          <ul><li>Fe(s) + H₂O(g) → Fe₃O₄(s) + H₂(g)</li><li>Use the hit and trial method.</li></ul>
+          <p class="notes">🎙️ Now, for a balancing challenge! Try to balance this equation: Iron reacting with steam to produce iron oxide and hydrogen gas. Remember the steps for the hit and trial method.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>What is <span class="hl">Oxidation</span>?</h2>
+          <ul><li>Define oxidation in terms of oxygen, hydrogen, and electrons.</li><li>Give one example.</li></ul>
+          <p class="notes">🎙️ One last quick question: Can you define oxidation in three ways – in terms of oxygen, hydrogen, and electrons? And provide a simple real-life example.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>What We've Learned Today</h2>
+          <ul><li>Chemical reactions form new substances.</li><li>Equations represent reactions and must be balanced.</li><li>Types: Combination, Decomposition, Displacement, Double Displacement.</li><li>Redox reactions involve oxidation and reduction.</li></ul>
+          <p class="notes">🎙️ Today, we covered a lot of ground! We learned what chemical reactions are, how to write and balance their equations, and explored the five main types of reactions, including the important concepts of oxidation and reduction. You've done great!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep Exploring <span class="hl">Chemistry!</span></h2>
+          <ul><li>Practice balancing equations.</li><li>Observe reactions in daily life.</li><li>Feel free to ask questions.</li></ul>
+          <p class="notes">🎙️ Thank you for your active participation! Chemistry is all around us, and understanding these reactions helps us make sense of the world. Keep practicing and keep observing! See you in the next class!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

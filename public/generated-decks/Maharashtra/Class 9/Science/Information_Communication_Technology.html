@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Information Communication Technology — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Information Communication Technology</span>!</h2>
+          <ul><li>Understanding the digital world</li><li>Exploring how we connect and share</li><li>A key chapter for your future!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Information Communication Technology, or ICT. This chapter is all about understanding how information is created, shared, and used in our modern world, and how technology makes it all possible.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Information</span>?</h2>
+          <ul><li>Processed data with meaning</li><li>Organized and structured facts</li><li>Helps in understanding and decision-making</li></ul>
+          <p class="notes">🎙️ Information is essentially data that has been processed, organized, and structured to make it meaningful. It's not just raw facts, but facts presented in a way that helps us understand something or make a decision. For example, a student's marks in different subjects become 'information' when compiled into a report card.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Meaningful Data</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>What is <span class="hl">Communication</span>?</h2>
+          <ul><li>Exchange of information</li><li>Sharing ideas and messages</li><li>Requires a sender, message, and receiver</li></ul>
+          <p class="notes">🎙️ Communication is the process of exchanging information, ideas, and feelings between two or more individuals or entities. It involves a sender encoding a message, transmitting it, and a receiver decoding it. Think about talking to your friend, sending a letter, or even watching this lesson – all are forms of communication.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗣️</div><div class="vcap">Sharing Thoughts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>What is <span class="hl">Technology</span>?</h2>
+          <ul><li>Application of scientific knowledge</li><li>Tools and systems for practical purposes</li><li>Simplifies tasks and solves problems</li></ul>
+          <p class="notes">🎙️ Technology refers to the application of scientific knowledge for practical purposes, especially in industry. It involves creating tools, machines, and systems to solve problems, simplify tasks, and improve efficiency. From a simple pulley to a complex smartphone, technology helps us do things better and faster.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Tools &amp; Methods</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Information Communication Technology (<span class="hl">ICT</span>)</h2>
+          <ul><li>Combination of Information, Communication, and Technology</li><li>Tools and resources for information management</li><li>Facilitates creation, storage, exchange, and use of information</li></ul>
+          <p class="notes">🎙️ So, when we combine these three concepts – Information, Communication, and Technology – we get ICT. ICT encompasses all the tools and resources used to manage information effectively. It's about using technology to communicate and handle information, whether it's creating, storing, exchanging, or using it.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Information</span></div><div class="step"><span class="snum">2</span><span>Communication</span></div><div class="step"><span class="snum">3</span><span>Technology</span></div><div class="step"><span class="snum">4</span><span>ICT</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Components of ICT: <span class="hl">Hardware</span></h2>
+          <ul><li>Physical parts of a computer system</li><li>Tangible devices you can touch</li><li>Essential for input, processing, output, and storage</li></ul>
+          <p class="notes">🎙️ ICT systems are made of several components. First, let's talk about hardware. Hardware refers to all the physical, tangible parts of a computer system that you can see and touch. These are the electronic and mechanical parts that make the system work, like the monitor, keyboard, and mouse.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💻</div><div class="vcap">Physical Devices</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Common <span class="hl">Hardware Devices</span></h2>
+          <ul><li>Computer (Desktop/Laptop)</li><li>Smartphone, Tablet</li><li>Printer, Scanner</li><li>Mouse, Keyboard</li></ul>
+          <p class="notes">🎙️ Some common examples of hardware devices include your desktop computer or laptop, the smartphone you use, tablets, printers, and scanners. Even the mouse and keyboard you use to interact with a computer are hardware. These devices work together to help us process and use information.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖱️</span><span>🖱️</span><span>🖱️</span><span>🖱️</span><span>🖱️</span></div><div class="vcap">Input/Output Devices</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Components of ICT: <span class="hl">Software</span></h2>
+          <ul><li>Set of instructions or programs</li><li>Intangible; cannot be physically touched</li><li>Tells hardware what to do</li></ul>
+          <p class="notes">🎙️ Next, we have software. Software is the intangible part of an ICT system, consisting of sets of instructions or programs that tell the hardware what to do. You can't physically touch software, but it's what makes the hardware useful. Think of it as the brain or the operating system that guides the machine.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💾</div><div class="vcap">Programs &amp; Data</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Common <span class="hl">Software Applications</span></h2>
+          <ul><li>Operating Systems (Windows, Android)</li><li>Word Processors (MS Word)</li><li>Web Browsers (Chrome, Firefox)</li><li>Games and Apps</li></ul>
+          <p class="notes">🎙️ Examples of software include operating systems like Windows or Android, which manage your device. Word processors like MS Word, web browsers like Chrome, and all the games and applications on your phone are also software. They are programs designed for specific tasks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📱</span><span>📱</span><span>📱</span><span>📱</span><span>📱</span><span>📱</span></div><div class="vcap">Apps &amp; Programs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Data vs. Information</span></h2>
+          <ul><li>Data: Raw, unorganized facts</li><li>Information: Processed, organized data</li><li>Information gives meaning to data</li></ul>
+          <p class="notes">🎙️ It's important to distinguish between data and information. Data are raw, unorganized facts and figures, like a list of numbers. Information, on the other hand, is data that has been processed, organized, structured, or presented in a given context to make it useful. For example, your raw exam scores are data; your report card with grades and averages is information.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Data (Raw)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Information (Processed)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>How Information is <span class="hl">Transmitted</span></h2>
+          <ul><li>Sending data from one point to another</li><li>Can be wired (cables) or wireless (waves)</li><li>Uses various communication channels</li></ul>
+          <p class="notes">🎙️ The transmission of information is how data travels from one place to another. This can happen through wired connections, like optical fiber cables, or wirelessly, using radio waves, Wi-Fi, or Bluetooth. These communication channels ensure that messages and data reach their intended recipients quickly and efficiently.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📡</div><div class="vcap">Sending Signals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>ICT in Action: <span class="hl">Online Shopping</span></h2>
+          <ul><li>Browsing products on a website (information access)</li><li>Placing an order, payment (communication)</li><li>Tracking delivery (information exchange)</li></ul>
+          <p class="notes">🎙️ Let's look at a real-life example: online shopping. When you browse products on an e-commerce website, you're accessing information. When you place an order and make a payment, you're communicating with the seller. And when you track your delivery, you're exchanging information. All of this relies heavily on ICT.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛒</div><div class="vcap">E-commerce</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>ICT's Role in <span class="hl">Daily Life</span></h2>
+          <ul><li>Connecting with friends and family</li><li>Accessing news and entertainment</li><li>Managing finances and banking</li></ul>
+          <p class="notes">🎙️ ICT has become indispensable in our daily lives. From connecting with friends and family through social media or messaging apps, to accessing news and entertainment online, ICT is everywhere. Even managing your bank account or paying bills often involves using ICT tools.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Everyday Use</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>ICT in <span class="hl">Education</span></h2>
+          <ul><li>Online learning platforms</li><li>Digital textbooks and resources</li><li>Interactive smartboards in classrooms</li></ul>
+          <p class="notes">🎙️ In education, ICT has revolutionized learning. Online platforms allow students to attend classes remotely, and digital textbooks provide vast resources. Smartboards in classrooms make learning interactive and engaging, enhancing the teaching and learning experience significantly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Digital Learning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>ICT in <span class="hl">Healthcare</span></h2>
+          <ul><li>Digital patient records</li><li>Telemedicine (remote consultations)</li><li>Medical imaging and diagnostics</li></ul>
+          <p class="notes">🎙️ ICT plays a crucial role in healthcare. Digital patient records make it easier for doctors to access medical history. Telemedicine allows patients to consult doctors remotely, especially in rural areas. Advanced medical imaging and diagnostic tools also rely on ICT to save lives and improve treatment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏥</div><div class="vcap">Modern Medicine</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>ICT in <span class="hl">Business</span></h2>
+          <ul><li>E-commerce and online marketing</li><li>Inventory management systems</li><li>Communication with customers and suppliers</li></ul>
+          <p class="notes">🎙️ Businesses heavily rely on ICT for efficiency and growth. E-commerce platforms enable global sales, while online marketing reaches wider audiences. Inventory management systems track products, and efficient communication tools help businesses interact with customers and suppliers worldwide.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Boosting Efficiency</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Advantages</span> of ICT</h2>
+          <ul><li>Increased speed and efficiency</li><li>Wider reach and accessibility</li><li>Cost reduction in many areas</li></ul>
+          <p class="notes">🎙️ The advantages of ICT are numerous. It brings increased speed and efficiency to tasks, allowing us to do more in less time. It provides wider reach and accessibility to information and services globally, and often leads to significant cost reductions in various sectors.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✅</span><span>✅</span><span>✅</span><span>✅</span></div><div class="vcap">Key Benefits</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Disadvantages</span> of ICT</h2>
+          <ul><li>Digital divide (unequal access)</li><li>Cybersecurity risks and privacy concerns</li><li>Potential for job displacement</li></ul>
+          <p class="notes">🎙️ However, ICT also comes with its disadvantages. The 'digital divide' refers to the gap between those who have access to ICT and those who don't. There are also significant cybersecurity risks and privacy concerns, along with the potential for automation to displace human jobs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚠️</span><span>⚠️</span><span>⚠️</span></div><div class="vcap">Challenges</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick Check: What is <span class="hl">Information</span>?</h2>
+          <ul><li>Is raw data considered information?</li><li>Explain why or why not in one sentence.</li></ul>
+          <p class="notes">🎙️ Let's do a quick check to see if you've understood. Is raw data considered information? Think about the definitions we discussed earlier. Raw data needs processing to become information.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Check: <span class="hl">Hardware or Software</span>?</h2>
+          <ul><li>Is a web browser hardware or software?</li><li>Is a printer hardware or software?</li></ul>
+          <p class="notes">🎙️ Now, let's test your understanding of hardware and software. Is a web browser hardware or software? And what about a printer? Remember the key difference: tangible vs. intangible.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check: <span class="hl">ICT Application</span></h2>
+          <ul><li>Name one way ICT is used in healthcare.</li><li>How does it benefit patients or doctors?</li></ul>
+          <p class="notes">🎙️ Finally, can you recall one way ICT is used in healthcare? And how does that application specifically benefit either patients or doctors? Think about the examples we discussed.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Emerging Trends</span> in ICT</h2>
+          <ul><li>Artificial Intelligence (AI)</li><li>Internet of Things (IoT)</li><li>Cloud Computing, Big Data</li></ul>
+          <p class="notes">🎙️ The world of ICT is constantly evolving. Some exciting emerging trends include Artificial Intelligence (AI), which enables machines to learn and solve problems, and the Internet of Things (IoT), connecting everyday objects to the internet. Cloud computing and big data also play a huge role in future developments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Future Tech</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Overall <span class="hl">Impact</span> of ICT on Society</h2>
+          <ul><li>Transforms economies and industries</li><li>Changes social interactions and culture</li><li>Continues to shape our future</li></ul>
+          <p class="notes">🎙️ Overall, ICT has a profound impact on society. It transforms economies, creates new industries, and changes how we interact with each other and our culture. While there are challenges, its positive influence on progress and development is undeniable, and it continues to shape our future.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Positive Impact</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Negative Impact</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Recap: <span class="hl">Key Takeaways</span></h2>
+          <ul><li>ICT combines Information, Communication, Technology.</li><li>Hardware are physical parts, software are programs.</li><li>ICT has transformed education, healthcare, business, and daily life.</li><li>It offers advantages but also presents challenges.</li></ul>
+          <p class="notes">🎙️ To quickly recap, we learned that ICT is the powerful combination of information, communication, and technology. We distinguished between hardware and software, and explored how ICT has transformed various sectors like education, healthcare, and business, as well as our daily lives. Remember both its advantages and disadvantages.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep exploring the world of ICT!</li><li>Stay curious and keep learning.</li><li>Any Questions?</li></ul>
+          <p class="notes">🎙️ Thank you for your active participation today! I hope this lesson has given you a solid foundation in Information Communication Technology. Keep exploring and asking questions, as ICT is a field that offers endless possibilities.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

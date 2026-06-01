@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Work and Energy — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to Work and Energy!</h2>
+          <ul><li>What does 'work' mean to you?</li><li>Have you ever felt 'energetic' or 'tired'?</li><li>Today, we'll explore these terms scientifically!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're starting a very interesting chapter: Work and Energy. These words are common in our daily lives, but in science, they have very specific meanings. Let's dive in and understand them better!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Work</span>? Everyday vs. Scientific</h2>
+          <ul><li>Everyday: Any mental or physical effort.</li><li>Example: Studying for an exam, pushing a wall.</li><li>Scientific: Specific conditions must be met.</li></ul>
+          <p class="notes">🎙️ In our daily language, 'work' can mean anything from studying to doing chores. However, in physics, the definition is much stricter. Simply putting in effort doesn't always count as 'work' scientifically.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Effort vs. Result</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Scientific</span> Definition of Work</h2>
+          <ul><li>Work is done when a force causes displacement.</li><li>The object must move.</li><li>The movement must be in the direction of the applied force.</li></ul>
+          <p class="notes">🎙️ For work to be done in science, two key things must happen: you need to apply a force, and that force must make the object move. If you push a wall and it doesn't move, no work is done, even if you're tired!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Force &amp; Displacement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Conditions</span> for Work to be Done</h2>
+          <ul><li>A force must act on an object.</li><li>The object must be displaced.</li><li>The force and displacement must be in the same direction (or have a component in that direction).</li></ul>
+          <p class="notes">🎙️ Think of it like a checklist. Does a force act? Yes. Does the object move? Yes. Is the movement in the direction of the force? Yes. If all three are checked, then work is done!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Checklist for Work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Formula</span> for Work Done</h2>
+          <ul><li>Work (W) = Force (F) × Displacement (d)</li><li>W = F × d</li><li>This applies when force is in the direction of displacement.</li></ul>
+          <p class="notes">🎙️ The formula for work is quite simple: multiply the force applied by the distance the object moves. Remember, the force and displacement must be aligned for this basic formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">Force times Displacement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Units of Work: <span class="hl">Joule</span></h2>
+          <ul><li>The S.I. unit of work is Joule (J).</li><li>1 Joule is the work done when a force of 1 Newton moves an object by 1 meter.</li><li>1 J = 1 N × 1 m.</li></ul>
+          <p class="notes">🎙️ Just like we measure length in meters or mass in kilograms, work is measured in Joules. One Joule is a very specific amount of work, making it easy to compare different tasks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Types</span> of Work: Positive, Negative, Zero</h2>
+          <ul><li>Positive Work: Force and displacement in same direction.</li><li>Negative Work: Force acts opposite to displacement.</li><li>Zero Work: Force is perpendicular to displacement, or no displacement.</li></ul>
+          <p class="notes">🎙️ Work isn't always 'good' work! It can be positive, negative, or even zero, depending on the direction of the force relative to the object's movement. Let's see examples for each.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Direction Matters</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Example: <span class="hl">Positive Work</span></h2>
+          <ul><li>Pushing a trolley forward.</li><li>The force you apply and the trolley's movement are in the same direction.</li><li>Work done by you is positive.</li></ul>
+          <p class="notes">🎙️ When you push a shopping trolley, your force moves it in the direction you're pushing. This is a clear example of positive work, where your effort directly contributes to the object's motion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛒</span><span>🛒</span><span>🛒</span></div><div class="vcap">Pushing a trolley</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Example: <span class="hl">Negative Work</span></h2>
+          <ul><li>Friction acting on a moving car.</li><li>Friction force acts opposite to the car's motion.</li><li>Work done by friction is negative.</li></ul>
+          <p class="notes">🎙️ Imagine a car braking. The friction from the road acts against the car's movement. This 'opposing' work is called negative work. It slows things down rather than speeding them up.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚧</span><span>🚧</span><span>🚧</span></div><div class="vcap">Friction opposing motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Example: <span class="hl">Zero Work</span></h2>
+          <ul><li>Carrying a heavy load horizontally.</li><li>Force of gravity acts downwards, displacement is horizontal.</li><li>The force and displacement are perpendicular (90 degrees).</li></ul>
+          <p class="notes">🎙️ When you carry a heavy bag and walk on a flat road, you're applying an upward force to hold the bag, but your displacement is horizontal. Since the force and displacement are perpendicular, no work is done by your lifting force on the bag.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚶‍♂️📦</span></div><div class="vcap">Carrying a load</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Quick Check</span> 1: Understanding Work</h2>
+          <ul><li>Is work done if a boy pushes a wall that doesn't move?</li><li>When is work considered negative?</li><li>What is the S.I. unit of work?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about the definitions and conditions we've discussed. Take a moment to answer these questions in your mind.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>What is <span class="hl">Energy</span>?</h2>
+          <ul><li>Energy is the capacity to do work.</li><li>Without energy, no work can be done.</li><li>Everything that does work possesses energy.</li></ul>
+          <p class="notes">🎙️ If work is the 'action', then energy is the 'ability' to perform that action. You need energy to push a trolley, to lift a bag, or even to think! It's the fundamental resource for all activities.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Energy_transformation.svg?width=500" data-fb="🔋" alt="Work is done when force causes displacement. Energy is the capacity to do work. Power is t"/><div class="vcap">Work is done when force causes displacement. Energy is the capacity to do work. Power is t</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Forms</span> of Energy</h2>
+          <ul><li>Energy exists in many forms.</li><li>Examples: Kinetic, Potential, Heat, Light, Sound, Electrical, Chemical.</li><li>All these forms can be converted into one another.</li></ul>
+          <p class="notes">🎙️ Energy is like a chameleon, constantly changing its appearance. From the light of a bulb to the heat from a fire, it's all energy, just in different forms. We'll focus on two main mechanical forms today.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Variety of Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Kinetic Energy</span> (KE)</h2>
+          <ul><li>Energy possessed by an object due to its motion.</li><li>Any moving object has kinetic energy.</li><li>Example: A rolling ball, a flying bird, flowing water.</li></ul>
+          <p class="notes">🎙️ Kinetic energy is all about movement. If something is moving, it has kinetic energy. The faster or heavier an object is, the more kinetic energy it possesses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Energy of Motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Formula</span> for Kinetic Energy</h2>
+          <ul><li>Kinetic Energy (KE) = 1/2 × mass (m) × velocity (v)²</li><li>KE = 1/2 mv²</li><li>Units: Joule (J).</li></ul>
+          <p class="notes">🎙️ This formula shows that kinetic energy depends on both the mass of the object and its speed. Notice that velocity is squared, meaning speed has a much bigger impact on kinetic energy than mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Half mass velocity squared</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Example</span>: Kinetic Energy</h2>
+          <ul><li>A car moving on the road.</li><li>The car possesses kinetic energy due to its speed.</li><li>The faster it moves, the more kinetic energy it has.</li></ul>
+          <p class="notes">🎙️ A moving car is a classic example. Its kinetic energy allows it to do work, like pushing air aside or even causing damage in a collision. That's why high speeds are so dangerous.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span></div><div class="vcap">Moving Car</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Potential Energy</span> (PE)</h2>
+          <ul><li>Energy possessed by an object due to its position or state.</li><li>It's 'stored' energy, ready to be released.</li><li>Example: A stretched rubber band, water in a dam.</li></ul>
+          <p class="notes">🎙️ Unlike kinetic energy, potential energy isn't about movement, but about potential for movement. It's energy waiting to happen, stored because of where an object is or how it's shaped.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Stored Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Gravitational</span> Potential Energy (GPE)</h2>
+          <ul><li>A specific type of potential energy.</li><li>Energy stored due to an object's height above the ground.</li><li>The higher the object, the more GPE it has.</li></ul>
+          <p class="notes">🎙️ This is the most common type of potential energy we study. An object held high has the potential to fall and do work. This potential is due to gravity pulling it downwards.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Height from Ground</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Formula</span> for Gravitational Potential Energy</h2>
+          <ul><li>Potential Energy (PE) = mass (m) × acceleration due to gravity (g) × height (h)</li><li>PE = mgh</li><li>Units: Joule (J).</li></ul>
+          <p class="notes">🎙️ The formula for GPE tells us that it depends on three factors: the object's mass, the strength of gravity (which is constant on Earth), and its height above a reference point. The higher it is, the more potential energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass, Gravity, Height</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Example</span>: Gravitational Potential Energy</h2>
+          <ul><li>Water stored in a dam at a height.</li><li>This water has GPE due to its elevation.</li><li>It can be released to turn turbines and generate electricity.</li></ul>
+          <p class="notes">🎙️ Hydroelectric power plants are a perfect example. The water held high in a dam stores immense gravitational potential energy. When released, this potential energy converts into kinetic energy, then into electrical energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water in a Dam</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Quick Check</span> 2: Understanding Energy</h2>
+          <ul><li>What is the basic definition of energy?</li><li>Give two examples of Kinetic Energy.</li><li>What factors determine Gravitational Potential Energy?</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Reflect on what we've learned about energy and its forms. Can you recall the key ideas and formulas?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Law of <span class="hl">Conservation</span> of Energy</h2>
+          <ul><li>Energy can neither be created nor destroyed.</li><li>It can only be transformed from one form to another.</li><li>The total energy in an isolated system remains constant.</li></ul>
+          <p class="notes">🎙️ This is one of the most fundamental laws in physics. It means we can't 'make' or 'destroy' energy, only change its form. This principle is crucial for understanding how machines work and how energy is used around us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Energy Transformation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Example: Energy <span class="hl">Transformation</span> (Pendulum)</h2>
+          <ul><li>At its highest point, a pendulum has maximum Potential Energy (PE).</li><li>As it swings down, PE converts to Kinetic Energy (KE).</li><li>At its lowest point, it has maximum KE and minimum PE.</li></ul>
+          <p class="notes">🎙️ A swinging pendulum beautifully demonstrates energy transformation. It continuously exchanges potential and kinetic energy, showing how energy changes forms while the total amount remains the same, neglecting air resistance.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Highest Point (PE Max)</span></div><div class="step"><span class="snum">2</span><span>Lowest Point (KE Max)</span></div><div class="step"><span class="snum">3</span><span>Highest Point (PE Max)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Power</span>: The Rate of Doing Work</h2>
+          <ul><li>Power is how fast work is done or energy is transferred.</li><li>Power (P) = Work (W) / Time (t)</li><li>S.I. unit of power is Watt (W).</li></ul>
+          <p class="notes">🎙️ While work tells us 'how much' is done, power tells us 'how quickly' it's done. A powerful machine can do the same amount of work as a less powerful one, but in much less time. Think of a strong person lifting weights quickly versus slowly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Speed of Work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Work and Energy</h2>
+          <ul><li>Work: Force × Displacement (W=Fd). Unit: Joule.</li><li>Energy: Capacity to do work. Unit: Joule.</li><li>Kinetic Energy (KE): Energy of motion (1/2 mv²).</li><li>Potential Energy (PE): Stored energy (mgh).</li><li>Conservation of Energy: Energy transforms, not created/destroyed.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember, work and energy are fundamental concepts that explain motion and change in the physical world. Keep practicing the formulas and understanding the examples. Thank you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

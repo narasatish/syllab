@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Introduction to Microbiology — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Unseen Wonders</span>!</h2>
+          <ul><li>Ever wondered what lives all around us, too small to see?</li><li>From the food we eat to the air we breathe, they are everywhere!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into a world that exists all around us, yet remains invisible to our naked eyes. Get ready to discover the fascinating realm of microorganisms!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Microbiology</span>?</h2>
+          <ul><li>Study of microscopic organisms (microbes).</li><li>Includes bacteria, viruses, fungi, protozoa, and algae.</li></ul>
+          <p class="notes">🎙️ Microbiology is a branch of science dedicated to studying these tiny living things, called microbes. It explores their structure, function, their role in nature, and how they affect us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Microscope</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Microorganisms: The <span class="hl">Unseen World</span></h2>
+          <ul><li>Too small to be seen with the naked eye.</li><li>Require a microscope for observation.</li></ul>
+          <p class="notes">🎙️ Imagine a world teeming with life, so small that you need a special instrument, a microscope, to see it. These are microorganisms, living everywhere from your skin to the deepest oceans.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="🔬" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Major <span class="hl">Types</span> of Microorganisms</h2>
+          <ul><li>Bacteria: Single-celled, diverse shapes.</li><li>Viruses: Non-living, infect cells.</li><li>Fungi: Yeast, molds, mushrooms.</li><li>Protozoa: Animal-like single cells.</li></ul>
+          <p class="notes">🎙️ There are several main categories of microorganisms, each with unique characteristics. We'll explore each of these fascinating groups in more detail today.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bacteria</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Viruses</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Fungi</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Protozoa</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Bacteria</span>: Single-Celled Life</h2>
+          <ul><li>Simplest and most abundant microbes.</li><li>Single-celled prokaryotes.</li><li>Found almost everywhere.</li></ul>
+          <p class="notes">🎙️ Bacteria are truly amazing! They are single-celled organisms, meaning their entire body is just one cell. They are incredibly diverse and can be found in almost every environment on Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Bacteria</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Structure</span> of a Bacterium</h2>
+          <ul><li>Cell wall for protection.</li><li>Cell membrane controls entry/exit.</li><li>Cytoplasm contains genetic material.</li><li>Flagella for movement (some types).</li></ul>
+          <p class="notes">🎙️ Though tiny, bacteria have a well-defined structure. Key parts include a strong cell wall, a cell membrane, and cytoplasm where their genetic material is located. Some even have tails called flagella to swim!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_structure_svg.svg?width=500" data-fb="🔬" alt="Plant cells are eukaryotic with nucleus and specialized organelles. Unique features: cell "/><div class="vcap">Plant cells are eukaryotic with nucleus and specialized organelles. Unique features: cell </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Different <span class="hl">Shapes</span> of Bacteria</h2>
+          <ul><li>Cocci: Spherical (e.g., Streptococcus).</li><li>Bacilli: Rod-shaped (e.g., Lactobacillus).</li><li>Spirilla: Spiral-shaped (e.g., Spirillum).</li></ul>
+          <p class="notes">🎙️ Bacteria come in various interesting shapes! Some are round like tiny balls, called cocci. Others are rod-like, known as bacilli, and some even have a spiral shape, called spirilla.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Cocci</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bacilli</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Spirilla</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Real Example: Bacteria in <span class="hl">Curd</span></h2>
+          <ul><li>Lactobacillus bacteria turn milk into curd.</li><li>They convert lactose sugar into lactic acid.</li><li>This process is called fermentation.</li></ul>
+          <p class="notes">🎙️ Have you ever wondered how milk transforms into delicious curd? It's all thanks to beneficial bacteria like Lactobacillus! They ferment the milk, making it thick and tangy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Milk to Curd</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Viruses</span>: Tiny Non-Living Particles</h2>
+          <ul><li>Much smaller than bacteria.</li><li>Require a host cell to reproduce.</li><li>Considered on the border of living and non-living.</li></ul>
+          <p class="notes">🎙️ Viruses are fascinating and a bit mysterious. They are so small that they can only be seen with powerful electron microscopes. They can't live or reproduce on their own; they need to invade a living cell to multiply.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👾</span><span>👾</span><span>👾</span></div><div class="vcap">Invading Viruses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Structure</span> of a Virus</h2>
+          <ul><li>Genetic material (DNA or RNA).</li><li>Protein coat (capsid) surrounds it.</li><li>Some have an outer envelope.</li></ul>
+          <p class="notes">🎙️ A virus is essentially genetic material, either DNA or RNA, encased in a protective protein shell called a capsid. Some viruses have an additional outer layer called an envelope.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/DNA_double_helix_base_pairs_labeled.svg?width=500" data-fb="🔬" alt="DNA (deoxyribonucleic acid) is a double helix molecule that carries genetic instructions f"/><div class="vcap">DNA (deoxyribonucleic acid) is a double helix molecule that carries genetic instructions f</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Real Example: The <span class="hl">Flu Virus</span></h2>
+          <ul><li>Influenza virus causes the common flu.</li><li>Spreads through respiratory droplets.</li><li>Symptoms include fever, cough, body aches.</li></ul>
+          <p class="notes">🎙️ The influenza virus is a common example of a virus that affects many of us. It causes the flu, a respiratory illness, and spreads easily when an infected person coughs or sneezes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤧</div><div class="vcap">Sneezing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Fungi</span>: Decomposers of Nature</h2>
+          <ul><li>Include yeasts, molds, and mushrooms.</li><li>Heterotrophic: obtain food from others.</li><li>Many are decomposers, recycling nutrients.</li></ul>
+          <p class="notes">🎙️ Fungi are a diverse group that plays a crucial role in our ecosystem. Unlike plants, they don't make their own food; instead, they absorb nutrients from their surroundings, often breaking down dead matter.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍄</div><div class="vcap">Mushroom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Types</span> of Fungi</h2>
+          <ul><li>Yeasts: Single-celled (e.g., for baking).</li><li>Molds: Multicellular, filamentous (e.g., on food).</li><li>Mushrooms: Larger, visible fruiting bodies.</li></ul>
+          <p class="notes">🎙️ Fungi come in various forms. Yeasts are tiny single-celled fungi, while molds are made of many thread-like structures. Mushrooms are the largest and most visible type of fungi.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Yeast</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Mold</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mushroom</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Real Example: <span class="hl">Bread Mold</span></h2>
+          <ul><li>Rhizopus stolonifer is a common bread mold.</li><li>Grows on stale bread, appearing fuzzy.</li><li>Decomposes organic matter.</li></ul>
+          <p class="notes">🎙️ If you've ever left bread out for too long, you might have seen fuzzy green or black patches appear. This is bread mold, a type of fungus that breaks down the nutrients in the bread.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍞</div><div class="vcap">Moldy Bread</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Protozoa</span>: Animal-like Microbes</h2>
+          <ul><li>Single-celled eukaryotic organisms.</li><li>Often motile (can move).</li><li>Found in water and soil.</li></ul>
+          <p class="notes">🎙️ Protozoa are fascinating single-celled organisms that share characteristics with animals. Many of them can move independently and are commonly found in aquatic environments like ponds and lakes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water Microbes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Real Example: <span class="hl">Amoeba</span></h2>
+          <ul><li>Amoeba proteus is a well-known protozoan.</li><li>Moves using pseudopods ('false feet').</li><li>Engulfs food particles using phagocytosis.</li></ul>
+          <p class="notes">🎙️ The Amoeba is a classic example of a protozoan. It's famous for its ability to change shape and move using temporary extensions called pseudopods, which it also uses to capture food.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♀️</div><div class="vcap">Moving Amoeba</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Algae</span>: Plant-like Microbes</h2>
+          <ul><li>Perform photosynthesis like plants.</li><li>Produce oxygen and are food source.</li><li>Can be single-celled or multicellular.</li></ul>
+          <p class="notes">🎙️ Algae are unique among microbes because they can produce their own food using sunlight, just like plants! They are vital for producing oxygen and form the base of many aquatic food chains.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Photosynthesis</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Real Example: <span class="hl">Pond Scum</span></h2>
+          <ul><li>Green film on still water bodies.</li><li>Often composed of filamentous algae (e.g., Spirogyra).</li><li>Important for aquatic ecosystems.</li></ul>
+          <p class="notes">🎙️ If you've seen a green, slimy layer on the surface of a pond, that's often pond scum, which is largely made up of different types of algae. It's a sign of a thriving, albeit sometimes overgrown, aquatic environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Green Pond</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Microbes Are <span class="hl">Everywhere</span>!</h2>
+          <ul><li>Soil: Decomposers, nutrient cycling.</li><li>Water: Aquatic life, purification.</li><li>Air: Dust particles, spores.</li><li>Inside and on living beings: Gut flora, skin microbes.</li></ul>
+          <p class="notes">🎙️ Microbes are truly cosmopolitan! They thrive in almost every environment imaginable – from the soil beneath our feet to the water we drink, the air we breathe, and even inside our own bodies.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Soil</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Water</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Air</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Living Beings</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Microbes: Our Tiny <span class="hl">Helpers</span></h2>
+          <ul><li>Food Production: Curd, bread, cheese.</li><li>Medicine: Antibiotics, vaccines.</li><li>Environment: Decomposers, nitrogen fixation.</li><li>Digestion: Gut bacteria aid nutrient absorption.</li></ul>
+          <p class="notes">🎙️ It's not all bad news with microbes! Many are incredibly beneficial. They help us make food, produce life-saving medicines, keep our environment clean, and even assist in our digestion.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🔬" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Microbes: The <span class="hl">Trouble Makers</span></h2>
+          <ul><li>Disease-causing (pathogens): Bacteria, viruses, fungi, protozoa.</li><li>Food spoilage: Cause food to rot.</li><li>Crop diseases: Damage plants.</li></ul>
+          <p class="notes">🎙️ While many microbes are helpful, some can cause harm. These are called pathogens, and they can lead to various diseases in humans, animals, and plants. They also cause our food to spoil.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👎</span><span>👎</span><span>👎</span></div><div class="vcap">Bad Microbes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>Which microorganism is responsible for turning milk into curd?</li><li>A) Virus</li><li>B) Lactobacillus bacteria</li><li>C) Amoeba</li><li>D) Yeast</li></ul>
+          <p class="notes">🎙️ Let's test your understanding! Think back to our real-life examples. Which microbe is the star player in making curd?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Which type of microorganism requires a host cell to reproduce?</li><li>A) Fungi</li><li>B) Protozoa</li><li>C) Viruses</li><li>D) Algae</li></ul>
+          <p class="notes">🎙️ Remember our discussion about the 'borderline' living things? Which group needs to invade another cell to multiply?</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🔬" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>What are the three common shapes of bacteria?</li><li>A) Round, Square, Triangle</li><li>B) Cocci, Bacilli, Spirilla</li><li>C) Rod, Sphere, Cube</li><li>D) Oval, Line, Zigzag</li></ul>
+          <p class="notes">🎙️ We discussed the different appearances of bacteria. Can you recall the scientific terms for their common shapes?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: The World of Microbes</h2>
+          <ul><li>Microbiology is the study of tiny organisms.</li><li>Main types: bacteria, viruses, fungi, protozoa, algae.</li><li>Microbes are found everywhere.</li><li>They can be beneficial or harmful.</li></ul>
+          <p class="notes">🎙️ Today, we've journeyed into the incredible world of microorganisms. We learned about their diverse types, where they live, and their significant impact, both good and bad, on our lives and the planet. Keep exploring this unseen world!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

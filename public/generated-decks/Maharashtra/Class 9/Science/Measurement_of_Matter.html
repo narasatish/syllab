@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Measurement of Matter — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter 1: <span class="hl">Measurement</span> of Matter</h2>
+          <ul><li>Exploring how we quantify the world around us.</li><li>Understanding fundamental properties of substances.</li><li>Connecting science to everyday observations.</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! Today, we begin an exciting chapter: 'Measurement of Matter'. We'll learn how to describe and quantify the 'stuff' that makes up everything around us, from a tiny grain of sand to a massive planet. This chapter is fundamental to understanding all of science.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Why</span> Do We Measure Things?</h2>
+          <ul><li>To compare objects accurately.</li><li>To understand quantities in recipes or experiments.</li><li>To ensure safety and precision in daily life.</li></ul>
+          <p class="notes">🎙️ Think about it: why do we bother measuring? Whether you're baking a cake, building a house, or even just buying groceries, measurement is crucial. It helps us make sense of the world, compare things precisely, and ensures that our actions are accurate and safe.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>What is <span class="hl">Matter</span>?</h2>
+          <ul><li>Anything that has mass and occupies space (has volume).</li><li>It exists in various forms: solids, liquids, gases, and plasma.</li><li>Everything around us, including ourselves, is made of matter.</li></ul>
+          <p class="notes">🎙️ In science, matter is defined as anything that has mass and takes up space, which means it has volume. From the air we breathe to the chair you're sitting on, everything is composed of matter. It's the fundamental building block of the universe.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📦</span><span>📦</span><span>📦</span><span>📦</span><span>📦</span></div><div class="vcap">Matter is everywhere!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Key <span class="hl">Properties</span> of Matter</h2>
+          <ul><li>Mass: How much 'stuff' is in an object.</li><li>Volume: How much space an object occupies.</li><li>Density: How packed the 'stuff' is in a given space.</li></ul>
+          <p class="notes">🎙️ To understand matter better, we need to measure its key properties. Today, we'll focus on three fundamental properties: mass, volume, and density. These measurements help us describe and differentiate various types of matter.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Measuring Matter</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Understanding <span class="hl">Mass</span></h2>
+          <ul><li>Mass is the amount of matter an object contains.</li><li>It is a fundamental property and remains constant.</li><li>The SI unit of mass is the kilogram (kg).</li></ul>
+          <p class="notes">🎙️ Mass tells us how much 'stuff' an object is made of. It's an intrinsic property, meaning it doesn't change regardless of where the object is, even if you take it to the moon. The standard international unit for mass is the kilogram.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass: Amount of Matter</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Real-life <span class="hl">Example</span>: Measuring Mass</h2>
+          <ul><li>When you buy vegetables, the shopkeeper measures their mass.</li><li>A weighing scale or balance is used for this purpose.</li><li>The reading on the scale indicates the mass in kilograms or grams.</li></ul>
+          <p class="notes">🎙️ Think about a visit to the market. When you ask for one kilogram of potatoes, the shopkeeper uses a weighing scale to measure their mass. This everyday activity is a perfect example of measuring mass, ensuring you get the exact amount of vegetables you paid for.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥦</span><span>🥦</span><span>🥦</span></div><div class="vcap">Weighing vegetables</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>What is <span class="hl">Weight</span>?</h2>
+          <ul><li>Weight is the force exerted on an object due to gravity.</li><li>It depends on both the object's mass and the gravitational acceleration.</li><li>The SI unit of weight is the Newton (N).</li></ul>
+          <p class="notes">🎙️ While often confused with mass, weight is actually different. Weight is the force of gravity pulling down on an object. This means your weight would be different on the Moon compared to Earth, even though your mass remains the same. The unit for weight is the Newton.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Weight: Force of Gravity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Mass vs. Weight: A <span class="hl">Comparison</span></h2>
+          <ul><li>Mass is a scalar quantity; Weight is a vector quantity.</li><li>Mass is constant; Weight varies with gravity.</li><li>Mass is measured by a balance; Weight is measured by a spring balance.</li></ul>
+          <p class="notes">🎙️ It's important to understand the distinction between mass and weight. Mass is an intrinsic property of an object, always constant. Weight, however, is a force that changes depending on the gravitational pull. A simple way to remember is that mass is 'how much stuff', and weight is 'how hard gravity pulls'.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mass (kg)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Weight (N)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Understanding <span class="hl">Volume</span></h2>
+          <ul><li>Volume is the amount of three-dimensional space an object occupies.</li><li>It is a derived quantity, calculated from length measurements.</li><li>The SI unit of volume is the cubic meter (m³).</li></ul>
+          <p class="notes">🎙️ Volume tells us how much space an object takes up. Imagine a box; its volume is the space inside it. It's a derived unit because we calculate it using other basic measurements like length, width, and height. The standard unit for volume is the cubic meter.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Volume: Space Occupied</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Real-life <span class="hl">Example</span>: Measuring Volume</h2>
+          <ul><li>A water bottle has a specific volume, often measured in litres or millilitres.</li><li>These units are commonly used for liquids.</li><li>1 litre is equal to 1000 cubic centimetres (cm³).</li></ul>
+          <p class="notes">🎙️ Think about your water bottle. It holds a certain amount of water, which is its volume. We often use litres or millilitres for liquids, which are related to cubic meters. For instance, a 1-litre bottle contains 1000 cubic centimetres of liquid.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Volume of water</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Measuring Volume of <span class="hl">Regular Solids</span></h2>
+          <ul><li>For regular shapes like cubes, cuboids, and cylinders, we use formulas.</li><li>Volume of a cube = side × side × side (s³).</li><li>Volume of a cuboid = length × width × height (lwh).</li></ul>
+          <p class="notes">🎙️ For objects with defined, regular shapes, measuring volume is straightforward. We simply use geometric formulas. For example, to find the volume of a rectangular box, you multiply its length, width, and height. These formulas give us precise measurements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Formulas for Volume</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Measuring Volume of <span class="hl">Irregular Solids</span></h2>
+          <ul><li>The water displacement method is used for irregular shapes.</li><li>The object is submerged in water, causing the water level to rise.</li><li>The change in water level indicates the object's volume.</li></ul>
+          <p class="notes">🎙️ What if an object doesn't have a regular shape, like a stone? We use the water displacement method. By placing the object into a known volume of water, we can measure how much the water level rises. This rise in water level directly tells us the volume of the irregular object.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Initial Water Level</span></div><div class="step"><span class="snum">2</span><span>Submerge Object</span></div><div class="step"><span class="snum">3</span><span>Final Water Level</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 1: Mass or Weight?</h2>
+          <ul><li>Which property of an object would change if you took it to the Moon?</li><li>A) Mass</li><li>B) Weight</li><li>C) Both Mass and Weight</li><li>D) Neither Mass nor Weight</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. If you were to take an object from Earth to the Moon, which of its properties, mass or weight, would be different? Think about the definitions we just discussed. Take a moment to consider your answer.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Understanding <span class="hl">Density</span></h2>
+          <ul><li>Density is the mass per unit volume of a substance.</li><li>It tells us how 'packed' the matter is in a given space.</li><li>Formula: Density = Mass / Volume. SI unit: kg/m³.</li></ul>
+          <p class="notes">🎙️ Density is a crucial property that combines mass and volume. It describes how much mass is contained in a specific amount of space. A dense object has a lot of mass packed into a small volume, while a less dense object has less mass in the same volume. The formula is simply mass divided by volume.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Density: Mass per Volume</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Real-life Example: <span class="hl">Floating</span> and Sinking</h2>
+          <ul><li>Objects less dense than water float (e.g., wood).</li><li>Objects more dense than water sink (e.g., stone).</li><li>Density explains why a heavy log floats but a small pebble sinks.</li></ul>
+          <p class="notes">🎙️ The concept of density helps explain why some objects float and others sink in water. Wood floats because it is less dense than water, meaning it has less mass packed into the same volume. A stone sinks because it is more dense than water. This is a common observation in our daily lives.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Wood (Low Density)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Stone (High Density)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example: <span class="hl">Calculating</span> Density</h2>
+          <ul><li>Problem: A block has a mass of 500 g and a volume of 200 cm³.</li><li>Calculation: Density = Mass / Volume = 500 g / 200 cm³ = 2.5 g/cm³.</li><li>Answer: The density of the block is 2.5 grams per cubic centimetre.</li></ul>
+          <p class="notes">🎙️ Let's try a quick calculation. If we have a block with a mass of 500 grams and it occupies a volume of 200 cubic centimetres, we can easily find its density. By dividing the mass by the volume, we find the density to be 2.5 grams per cubic centimetre. This is how we apply the formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧮</div><div class="vcap">Density Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Units of Measurement: The <span class="hl">SI System</span></h2>
+          <ul><li>SI stands for 'Système International d'Unités' (International System of Units).</li><li>It provides a standard set of units for scientific measurements globally.</li><li>Ensures consistency and clear communication in science and technology.</li></ul>
+          <p class="notes">🎙️ The SI system is incredibly important. It's a universally accepted system of measurement units, ensuring that scientists and engineers worldwide can understand each other's data. Using standard units like kilograms for mass and meters for length prevents confusion and allows for accurate comparisons.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Standards</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Derived Units</span>: Building on Basics</h2>
+          <ul><li>Derived units are formed by combining base SI units.</li><li>Examples: Volume (m³ from m), Density (kg/m³ from kg and m).</li><li>Speed (m/s from m and s), Force (Newton, kg·m/s²).</li></ul>
+          <p class="notes">🎙️ While we have basic units like meter, kilogram, and second, many quantities require 'derived units'. These are units created by multiplying or dividing base units. For instance, volume is derived from length, and density combines mass and volume. They help us measure more complex physical quantities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📏</span><span>📏</span><span>📏</span></div><div class="vcap">Combining basic units</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 2: Units of Density</h2>
+          <ul><li>Which of the following is NOT a common unit for density?</li><li>A) g/cm³</li><li>B) kg/m³</li><li>C) g/L</li><li>D) cm/s</li></ul>
+          <p class="notes">🎙️ Another quick check! Based on our discussion about density and its formula, which of these options is not a unit you would typically use to express density? Remember, density is mass per unit volume. Think carefully about the components of each option.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 3: Volume Calculation</h2>
+          <ul><li>A rectangular box has a length of 10 cm, width of 5 cm, and height of 2 cm. What is its volume?</li><li>A) 17 cm³</li><li>B) 100 cm³</li><li>C) 170 cm³</li><li>D) 1000 cm³</li></ul>
+          <p class="notes">🎙️ Let's apply our knowledge of calculating volume for regular solids. Imagine a rectangular box with the given dimensions. What would be its total volume? Remember the formula for the volume of a cuboid. Calculate it and choose the correct option.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Introduction to <span class="hl">Mole Concept</span> (Basic)</h2>
+          <ul><li>The mole is a unit for measuring the 'amount of substance'.</li><li>It allows us to count very large numbers of atoms or molecules.</li><li>One mole contains approximately 6.022 × 10²³ particles (Avogadro's number).</li></ul>
+          <p class="notes">🎙️ Now, let's briefly touch upon a very important concept in chemistry: the mole. Atoms and molecules are incredibly tiny, so we can't count them individually. The mole is like a 'chemist's dozen'—it represents a specific, very large number of particles, making it easier to work with them in calculations.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Mole_concept.svg?width=500" data-fb="🔬" alt="The mole is a unit of amount of substance. One mole contains Avogadro's number of particle"/><div class="vcap">The mole is a unit of amount of substance. One mole contains Avogadro's number of particle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Understanding <span class="hl">Molar Mass</span></h2>
+          <ul><li>Molar mass is the mass of one mole of a substance.</li><li>It is expressed in grams per mole (g/mol).</li><li>For an element, it is numerically equal to its atomic mass in grams.</li></ul>
+          <p class="notes">🎙️ Molar mass is simply the mass of one mole of any substance. For example, if you know the atomic mass of an element, its molar mass will be that same number but expressed in grams per mole. This concept is crucial for converting between mass and the number of particles in chemical reactions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass of one mole</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Question</span> 4: Molar Mass</h2>
+          <ul><li>If the atomic mass of Carbon (C) is 12 u, what is its molar mass?</li><li>A) 12 kg/mol</li><li>B) 12 g/mol</li><li>C) 6.022 × 10²³ g/mol</li><li>D) 1 g/mol</li></ul>
+          <p class="notes">🎙️ Based on what we just learned about molar mass, if the atomic mass of Carbon is 12 'u' (atomic mass units), what would be its molar mass? Remember the relationship between atomic mass and molar mass. Choose the correct unit and value.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Measurement of Matter</h2>
+          <ul><li>Matter has mass and volume.</li><li>Mass is constant; Weight depends on gravity.</li><li>Volume is space occupied; Density is mass per volume.</li><li>The SI system provides standard units for consistency.</li></ul>
+          <p class="notes">🎙️ Let's quickly recap what we've covered today. We defined matter and explored its key properties: mass, volume, and density. We differentiated between mass and weight, learned how to measure volume for different shapes, and understood density's role in floating and sinking. We also briefly touched upon the importance of the SI system and the mole concept.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep exploring and measuring the world around you.</li><li>Practice calculations to strengthen your understanding.</li><li>Feel free to ask any further questions.</li></ul>
+          <p class="notes">🎙️ Thank you for your attention and participation today. The concepts of measurement are fundamental to all scientific study, and mastering them will greatly help you in your future learning. Remember to practice the calculations and observe these principles in your daily life. See you in the next class!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

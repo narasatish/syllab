@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Laws of Motion — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to Laws of Motion!</h2>
+          <ul><li>Explore how and why objects move.</li><li>Understand fundamental principles governing motion.</li><li>Learn about key concepts like speed, velocity, and acceleration.</li><li>Discover Newton's famous laws of motion.</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we begin an exciting journey into the world of 'Laws of Motion'. This chapter will help us understand why things move the way they do, from a rolling ball to a rocket launching into space.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Motion</span>?</h2>
+          <ul><li>An object is in motion if its position changes over time.</li><li>Motion is relative – it depends on the observer.</li><li>Examples: A moving car, a flying bird, a spinning top.</li></ul>
+          <p class="notes">🎙️ Motion is simply the change in position of an object with respect to its surroundings and time. Think about yourself sitting in a moving bus; you are at rest relative to the bus, but in motion relative to the trees outside.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Changing Position</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Distance</span>: How Far?</h2>
+          <ul><li>Total path length covered by an object.</li><li>It is a scalar quantity (only magnitude, no direction).</li><li>Always positive.</li><li>Unit: metre (m).</li></ul>
+          <p class="notes">🎙️ Distance tells us the total length of the path an object has travelled, regardless of its direction. If you walk 5 meters forward and then 5 meters backward, your total distance covered is 10 meters.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Total Path Length</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Displacement</span>: Where Did You End Up?</h2>
+          <ul><li>Shortest straight-line path between initial and final points.</li><li>It is a vector quantity (magnitude and direction).</li><li>Can be positive, negative, or zero.</li><li>Unit: metre (m).</li></ul>
+          <p class="notes">🎙️ Displacement focuses only on the starting and ending points, ignoring the path taken. If you walk 5 meters forward and then 5 meters backward, your displacement is zero because you ended up at your starting point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Start to End</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Distance <span class="hl">vs.</span> Displacement</h2>
+          <ul><li>Distance: Total path covered.</li><li>Displacement: Shortest path from start to end.</li><li>Distance is scalar, Displacement is vector.</li><li>Distance ≥ Displacement.</li></ul>
+          <p class="notes">🎙️ Let's compare these two key terms. Imagine walking around a circular park; your distance would be the circumference, but if you return to your starting point, your displacement is zero. Displacement gives us a direct line from start to finish.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Distance</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Displacement</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Speed</span>: How Fast?</h2>
+          <ul><li>Rate of change of distance.</li><li>Speed = Distance / Time.</li><li>Scalar quantity.</li><li>Unit: metre/second (m/s).</li></ul>
+          <p class="notes">🎙️ Speed tells us how quickly an object is covering distance. If a car travels 100 meters in 10 seconds, its speed is 10 meters per second. It doesn't care about the direction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Distance per Time</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Velocity</span>: Speed with Direction</h2>
+          <ul><li>Rate of change of displacement.</li><li>Velocity = Displacement / Time.</li><li>Vector quantity.</li><li>Unit: metre/second (m/s).</li></ul>
+          <p class="notes">🎙️ Velocity is like speed, but it also includes the direction of motion. Saying a car is moving at 60 km/h is speed, but saying it's moving at 60 km/h North is velocity. Direction makes a big difference!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Displacement per Time</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Speed <span class="hl">vs.</span> Velocity</h2>
+          <ul><li>Speed: Scalar, only magnitude.</li><li>Velocity: Vector, magnitude and direction.</li><li>Speed can never be negative.</li><li>Velocity can be positive, negative, or zero.</li></ul>
+          <p class="notes">🎙️ The main difference is direction. A car speedometer shows speed, but a GPS system shows velocity because it also indicates the direction you are heading. Understanding this distinction is crucial for advanced physics.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Speed</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Velocity</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Uniform</span> Motion</h2>
+          <ul><li>An object covers equal distances in equal intervals of time.</li><li>Moves at a constant speed in a straight line.</li><li>Its velocity remains constant.</li><li>Example: A train moving at a steady 80 km/h on a straight track.</li></ul>
+          <p class="notes">🎙️ In uniform motion, an object moves very predictably. It covers the same amount of distance every second. This means its speed and direction are not changing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Constant Speed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Non-uniform</span> Motion</h2>
+          <ul><li>An object covers unequal distances in equal intervals of time.</li><li>Its speed or direction (or both) changes.</li><li>Example: A car accelerating from a stop, a roller coaster ride.</li></ul>
+          <p class="notes">🎙️ Non-uniform motion is much more common in daily life. When you walk, run, or drive, your speed often changes, or you turn corners, making your motion non-uniform. This change in velocity leads us to our next concept.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Changing Speed/Direction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Acceleration</span>: Change in Velocity</h2>
+          <ul><li>Rate of change of velocity.</li><li>Acceleration = (Final Velocity - Initial Velocity) / Time.</li><li>Vector quantity.</li><li>Unit: metre/second² (m/s²).</li></ul>
+          <p class="notes">🎙️ Acceleration is how quickly an object's velocity changes. If a car speeds up, it's accelerating. If it slows down, it's also accelerating, but in a negative way, which we call deceleration or retardation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Velocity Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Types</span> of Acceleration</h2>
+          <ul><li>Positive Acceleration: Velocity increases (speeding up).</li><li>Negative Acceleration (Deceleration/Retardation): Velocity decreases (slowing down).</li><li>Zero Acceleration: Velocity is constant (uniform motion).</li></ul>
+          <p class="notes">🎙️ Acceleration isn't just about speeding up. When you apply brakes in a car, you are causing negative acceleration. And if you're cruising at a steady speed on a straight road, your acceleration is zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⬆️</span><span>⬆️</span><span>⬆️</span></div><div class="vcap">Increasing, Decreasing, Constant</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Newton's <span class="hl">First Law</span> of Motion: Inertia</h2>
+          <ul><li>An object at rest stays at rest, and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an unbalanced force.</li><li>Also known as the Law of Inertia.</li><li>Inertia is the tendency of an object to resist changes in its state of motion.</li></ul>
+          <p class="notes">🎙️ Sir Isaac Newton's First Law is all about inertia. It means objects are 'lazy' – they prefer to keep doing whatever they're already doing, whether that's sitting still or moving at a constant speed. A force is needed to change this state.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Newton%27s_laws_in_latin.jpg?width=500" data-fb="🛑" alt="Newton's three laws of motion describe how objects move and interact through forces. They "/><div class="vcap">Newton's three laws of motion describe how objects move and interact through forces. They </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>First Law Example: <span class="hl">Seatbelts</span></h2>
+          <ul><li>When a car suddenly brakes, your body tends to continue moving forward.</li><li>This is due to inertia.</li><li>Seatbelts apply an unbalanced force to stop your forward motion, keeping you safe.</li></ul>
+          <p class="notes">🎙️ Think about why we wear seatbelts. If a car suddenly stops, your body, due to inertia, wants to keep moving forward. The seatbelt provides the necessary force to stop you, preventing injury.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚗</span></div><div class="vcap">Car Braking</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Newton's <span class="hl">Second Law</span>: Force and Acceleration</h2>
+          <ul><li>The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.</li><li>Formula: F = ma (Force = mass × acceleration).</li><li>A greater force produces greater acceleration for the same mass.</li></ul>
+          <p class="notes">🎙️ Newton's Second Law quantifies how force, mass, and acceleration are related. If you push a small cart and a heavy cart with the same force, the small cart will accelerate more because it has less mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Force = Mass × Acceleration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Second Law Example: <span class="hl">Cricket Ball</span></h2>
+          <ul><li>A fast bowler applies a large force to the cricket ball.</li><li>This large force causes a significant acceleration, giving the ball high speed.</li><li>A heavier shot put requires more force to achieve the same acceleration.</li></ul>
+          <p class="notes">🎙️ Consider a cricket bowler. They exert a strong force on the ball to make it accelerate quickly and travel at high speed. If the ball were heavier, they would need to apply even more force to achieve the same speed.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏏</span></div><div class="vcap">Bowling a Cricket Ball</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Newton's <span class="hl">Third Law</span>: Action and Reaction</h2>
+          <ul><li>For every action, there is an equal and opposite reaction.</li><li>Forces always occur in pairs.</li><li>Action and reaction forces act on different objects.</li></ul>
+          <p class="notes">🎙️ Newton's Third Law states that forces never come alone. If you push a wall, the wall pushes back on you with an equal force. These forces are always equal in magnitude and opposite in direction, but they act on different objects.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Equal and Opposite</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Third Law Example: <span class="hl">Rocket Launch</span></h2>
+          <ul><li>Hot gases are expelled downwards from the rocket (action force).</li><li>The gases push the rocket upwards with an equal and opposite force (reaction force).</li><li>This propels the rocket into space.</li></ul>
+          <p class="notes">🎙️ A perfect example of the third law is a rocket launch. The rocket pushes hot gases downwards, and in return, the gases push the rocket upwards. This is how rockets overcome gravity and travel to space.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚀</span></div><div class="vcap">Rocket Blasting Off</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Equations of Motion (<span class="hl">1st Equation</span>)</h2>
+          <ul><li>Relates final velocity (v), initial velocity (u), acceleration (a), and time (t).</li><li>Equation: v = u + at.</li><li>Useful for finding final velocity when acceleration is constant.</li></ul>
+          <p class="notes">🎙️ Now, let's look at the mathematical tools we use to describe motion. The first equation of motion helps us find the final velocity of an object if we know its starting velocity, how much it's accelerating, and for how long.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Velocity_graph.svg?width=500" data-fb="➕" alt="Velocity-time graphs show how an object's velocity changes over time. The slope represents"/><div class="vcap">Velocity-time graphs show how an object's velocity changes over time. The slope represents</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Equations of Motion (<span class="hl">2nd Equation</span>)</h2>
+          <ul><li>Relates displacement (s), initial velocity (u), time (t), and acceleration (a).</li><li>Equation: s = ut + ½ at².</li><li>Useful for calculating the distance covered.</li></ul>
+          <p class="notes">🎙️ The second equation helps us find the displacement or distance covered by an object. If you know how fast it started, how long it moved, and its acceleration, you can calculate how far it travelled.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Position-Time Relation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Equations of Motion (<span class="hl">3rd Equation</span>)</h2>
+          <ul><li>Relates final velocity (v), initial velocity (u), acceleration (a), and displacement (s).</li><li>Equation: v² = u² + 2as.</li><li>Useful when time (t) is not known or required.</li></ul>
+          <p class="notes">🎙️ Finally, the third equation of motion is very handy when we don't have the time information. It directly connects the initial and final velocities with the acceleration and the distance covered.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Position-Velocity Relation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>Which of the following is a vector quantity?</li><li>A) Distance</li><li>B) Speed</li><li>C) Displacement</li><li>D) Time</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think back to our definitions of scalar and vector quantities. Which of these options requires both magnitude and direction to be fully described?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>What is the SI unit of acceleration?</li><li>A) m/s</li><li>B) m</li><li>C) m/s²</li><li>D) kg</li></ul>
+          <p class="notes">🎙️ Let's test your knowledge of units. Remember how acceleration is defined as the rate of change of velocity? What unit do we use to measure this change?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Motion is change in position over time.</li><li>Distance (scalar) vs. Displacement (vector).</li><li>Speed (scalar) vs. Velocity (vector).</li><li>Acceleration is the rate of change of velocity.</li></ul>
+          <p class="notes">🎙️ Let's quickly review what we've learned today. We started with the basics of motion, then differentiated between distance and displacement, and speed and velocity. We also defined acceleration as the rate of change of velocity.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Recap: <span class="hl">Newton's Laws</span> &amp; Equations</h2>
+          <ul><li>Newton's First Law: Inertia (object resists change in motion).</li><li>Newton's Second Law: F = ma (force causes acceleration).</li><li>Newton's Third Law: Action-reaction pairs.</li><li>Three Equations of Motion describe uniform acceleration.</li></ul>
+          <p class="notes">🎙️ We then delved into Newton's three fundamental laws of motion, which explain how forces affect objects. Finally, we introduced the three important equations that help us solve problems related to motion with constant acceleration.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

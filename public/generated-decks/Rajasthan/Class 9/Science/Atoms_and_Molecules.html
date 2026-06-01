@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Atoms and Molecules — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Atoms and Molecules</span></h2>
+          <ul><li>Class 9 Science</li><li>Chapter 3</li><li>Rajasthan Board</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into the microscopic world of 'Atoms and Molecules'. This chapter is fundamental to understanding all of chemistry and the world around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>The <span class="hl">Building Blocks</span> of Everything</h2>
+          <ul><li>What is everything made of?</li><li>From a tiny grain of sand to a huge mountain.</li><li>Understanding the smallest particles.</li></ul>
+          <p class="notes">🎙️ Have you ever wondered what makes up everything around us? Just like bricks build a house, tiny particles build all matter. Today, we'll discover these fundamental building blocks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Microscope</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Ancient <span class="hl">Indian Wisdom</span></h2>
+          <ul><li>Maharishi Kanad (6th Century BCE).</li><li>Proposed 'Parmanu' (atom) as indivisible.</li><li>Matter is composed of minute, eternal particles.</li></ul>
+          <p class="notes">🎙️ Long before modern science, Indian philosophers pondered the nature of matter. Maharishi Kanad, an ancient Indian sage, was one of the first to propose the idea of 'Parmanu', which we now call atoms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Scroll</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Greek Thinkers</span> on Matter</h2>
+          <ul><li>Democritus and Leucippus (5th Century BCE).</li><li>Called indivisible particles 'atomos'.</li><li>No experimental evidence at that time.</li></ul>
+          <p class="notes">🎙️ Around the same time, Greek philosophers like Democritus and Leucippus also came up with similar ideas. They used the term 'atomos', meaning 'uncuttable' or 'indivisible', for these tiny particles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Greek Temple</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>How Chemicals <span class="hl">Combine</span></h2>
+          <ul><li>Foundations for modern chemistry.</li><li>Established by Antoine Lavoisier and Joseph L. Proust.</li><li>Two important laws to understand reactions.</li></ul>
+          <p class="notes">🎙️ These ancient ideas were philosophical. Later, scientists began to conduct experiments and discovered some fundamental laws that govern how elements combine to form compounds. These laws are the backbone of chemistry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Test Tube</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Law of <span class="hl">Conservation of Mass</span></h2>
+          <ul><li>Mass can neither be created nor destroyed.</li><li>Total mass of reactants = Total mass of products.</li><li>During a chemical reaction.</li></ul>
+          <p class="notes">🎙️ This law states that in any chemical reaction, the total mass of the substances before the reaction is exactly equal to the total mass of the substances after the reaction. Nothing is lost, nothing is gained.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Example: <span class="hl">Burning Wood</span></h2>
+          <ul><li>Wood + Oxygen → Ash + Smoke + Gases.</li><li>Mass of wood + oxygen = Mass of ash + smoke + gases.</li><li>Mass is conserved, just transformed.</li></ul>
+          <p class="notes">🎙️ When you burn wood, it seems like the wood disappears, but its mass is just converted into ash, smoke, and gases. If you could collect and weigh everything, you'd find the total mass remains the same.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔥</span><span>🔥</span><span>🔥</span></div><div class="vcap">Burning Fire</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Law of <span class="hl">Constant Proportions</span></h2>
+          <ul><li>Also known as Law of Definite Proportions.</li><li>A chemical compound always contains elements.</li><li>In fixed proportions by mass, regardless of source.</li></ul>
+          <p class="notes">🎙️ This law tells us that a pure chemical compound will always have the same elements combined in the same fixed ratio by mass, no matter where it comes from or how it was prepared.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Drop</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Example: <span class="hl">Water (H₂O)</span></h2>
+          <ul><li>Water always has Hydrogen and Oxygen.</li><li>Mass ratio of Hydrogen:Oxygen is 1:8.</li><li>Whether from a tap, a well, or a lab.</li></ul>
+          <p class="notes">🎙️ Take water, for instance. Whether it's from a river, rain, or made in a lab, it will always be made of Hydrogen and Oxygen, and their mass ratio will always be 1:8. This is a powerful concept!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:18%"></div><div class="clabel">Hydrogen</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Oxygen</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Dalton's Atomic Theory</span> (Part 1)</h2>
+          <ul><li>Proposed by John Dalton in 1808.</li><li>Matter consists of indivisible atoms.</li><li>Atoms of a given element are identical in mass and properties.</li></ul>
+          <p class="notes">🎙️ John Dalton took the ancient ideas and combined them with the laws of chemical combination to propose his revolutionary atomic theory. His first two postulates are about the nature of atoms themselves.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Atom Symbol</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Dalton's Atomic Theory</span> (Part 2)</h2>
+          <ul><li>Atoms of different elements differ in mass and properties.</li><li>Atoms combine in simple whole-number ratios to form compounds.</li><li>Atoms cannot be created or destroyed in a chemical reaction.</li></ul>
+          <p class="notes">🎙️ Dalton further explained how atoms of different elements behave and how they combine. His theory helped explain the Laws of Chemical Combination we just discussed, like conservation of mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Idea/Discovery</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Limitations</span> of Dalton's Theory</h2>
+          <ul><li>Atoms are now known to be divisible (protons, neutrons, electrons).</li><li>Isotopes: Atoms of same element can have different masses.</li><li>Does not explain why atoms combine.</li></ul>
+          <p class="notes">🎙️ While groundbreaking, Dalton's theory had some limitations. With further scientific discoveries, we learned that atoms are not truly indivisible and that atoms of the same element can sometimes have different masses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Under Construction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>What Exactly is an <span class="hl">Atom</span>?</h2>
+          <ul><li>Smallest particle of an element.</li><li>May or may not exist independently.</li><li>Retains its chemical properties.</li></ul>
+          <p class="notes">🎙️ So, after all this discussion, what is an atom? It's the smallest particle of an element that still shows all the properties of that element. It's the fundamental unit of matter.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Tiny Particle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">How Small</span> are Atoms?</h2>
+          <ul><li>Extremely small, invisible to the naked eye.</li><li>Measured in nanometres (1 nm = 10⁻⁹ m).</li><li>Example: Hydrogen atom radius ~ 0.037 nm.</li></ul>
+          <p class="notes">🎙️ Atoms are incredibly tiny! You cannot see them even with powerful optical microscopes. We measure their size in nanometres, which is a billionth of a meter. Imagine how many atoms fit in a single drop of water!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="📏" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Naming Elements: <span class="hl">Dalton's Symbols</span></h2>
+          <ul><li>Early scientists used pictures for elements.</li><li>Dalton proposed unique symbols for each element.</li><li>Difficult to draw and remember for many elements.</li></ul>
+          <p class="notes">🎙️ Initially, scientists used pictorial symbols for elements. Dalton also proposed his own set of symbols, which were quite creative but became impractical as more elements were discovered.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span><span>🎨</span></div><div class="vcap">Old Symbols</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Modern Symbols: <span class="hl">IUPAC</span></h2>
+          <ul><li>International Union of Pure and Applied Chemistry.</li><li>Uses one or two letters of the element's name.</li><li>First letter always capital, second letter always small.</li></ul>
+          <p class="notes">🎙️ To standardize and simplify, the IUPAC developed a system. Most symbols are based on the English name, but some come from Latin or German names. This system is universally accepted.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔠</div><div class="vcap">Alphabet</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Atomic Mass</span>: Weighing Atoms</h2>
+          <ul><li>Mass of a single atom of an element.</li><li>Too small to measure directly in grams.</li><li>Expressed relative to a standard atom.</li></ul>
+          <p class="notes">🎙️ Since atoms are so tiny, their individual masses are extremely small. We can't easily weigh a single atom. So, we use a relative scale to express their mass, comparing them to a standard.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>The <span class="hl">Atomic Mass Unit</span> (amu)</h2>
+          <ul><li>Defined as 1/12th the mass of a Carbon-12 atom.</li><li>Also called 'unified mass unit' (u).</li><li>Makes atomic masses easier to work with.</li></ul>
+          <p class="notes">🎙️ The internationally accepted standard for measuring atomic mass is the Carbon-12 atom. One atomic mass unit is defined as exactly one-twelfth of the mass of a single carbon-12 atom. This provides a convenient scale.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance Scale</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>How Do Atoms <span class="hl">Exist</span>?</h2>
+          <ul><li>Most atoms do not exist independently.</li><li>They combine with other atoms.</li><li>Forming molecules or ions.</li></ul>
+          <p class="notes">🎙️ Most atoms are not stable on their own. They prefer to combine with other atoms to achieve stability. This combination leads to the formation of molecules or charged particles called ions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Handshake/Bond</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>What is a <span class="hl">Molecule</span>?</h2>
+          <ul><li>A group of two or more atoms.</li><li>Chemically bonded together.</li><li>Can exist independently and show properties of the substance.</li></ul>
+          <p class="notes">🎙️ When atoms join together, they form a molecule. A molecule is the smallest particle of an element or a compound that can exist freely and still retain all the properties of that substance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Linked Chain</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Molecules of Elements</span></h2>
+          <ul><li>Atoms of the same element combine.</li><li>Monoatomic (He), Diatomic (O₂), Polyatomic (O₃, P₄).</li><li>Number of atoms in a molecule is its atomicity.</li></ul>
+          <p class="notes">🎙️ Some elements exist as single atoms, like Helium. But many, like Oxygen, exist as diatomic molecules, meaning two atoms of Oxygen are bonded together. This number of atoms is called atomicity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚪</span><span>⚪</span></div><div class="vcap">Diatomic Molecule (O₂)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Molecules of Compounds</span></h2>
+          <ul><li>Atoms of different elements combine.</li><li>In a fixed ratio by mass.</li><li>Examples: Water (H₂O), Carbon Dioxide (CO₂).</li></ul>
+          <p class="notes">🎙️ When atoms of *different* elements combine in a fixed ratio, they form molecules of compounds. These compounds have properties entirely different from their constituent elements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building Structure</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Time for a <span class="hl">Quick Check</span>!</h2>
+          <ul><li>1. Who proposed the Law of Conservation of Mass?</li><li>2. What is the approximate mass ratio of H:O in water?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Think about the scientists we discussed and the examples we covered. Take a moment to recall the answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>More <span class="hl">Quick Questions</span>!</h2>
+          <ul><li>3. What does 'IUPAC' stand for?</li><li>4. Give an example of a diatomic molecule of an element.</li></ul>
+          <p class="notes">🎙️ Good job on the previous questions! Now, let's tackle these two. Remember the modern system for symbols and the types of molecules we discussed.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Key Ideas</h2>
+          <ul><li>Matter is made of tiny atoms.</li><li>Laws govern how atoms combine.</li><li>Atoms form molecules.</li><li>Symbols and atomic mass help us study them.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that atoms are the fundamental building blocks, governed by laws, and they combine to form molecules, which are the stable units we encounter every day. This knowledge is crucial for future chemistry studies.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

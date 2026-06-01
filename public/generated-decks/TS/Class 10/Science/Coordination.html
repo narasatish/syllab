@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Coordination — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to "Coordination"</h2>
+          
+          <p class="notes">🎙️ Good morning, everyone! Today, we're starting an exciting new chapter in Science: 'Coordination'. This chapter will help us understand how our bodies and even plants manage to perform so many tasks smoothly and efficiently.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Coordination</span>?</h2>
+          <ul><li>The process of different body parts working together.</li><li>Ensures smooth functioning and appropriate responses.</li><li>Essential for survival and adaptation.</li></ul>
+          <p class="notes">🎙️ Imagine playing a sport. Your eyes see the ball, your brain processes it, and your muscles move your hands and legs – all at once! This seamless teamwork is what we call coordination.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Working Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Everyday <span class="hl">Examples</span> of Coordination</h2>
+          <ul><li>Walking and balancing.</li><li>Eating food and digesting it.</li><li>Responding to a loud noise.</li><li>Plants growing towards sunlight.</li></ul>
+          <p class="notes">🎙️ From simple actions like walking without falling to complex processes like digesting your food, coordination is happening constantly within us. Even plants show amazing coordination in their growth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏃‍♂️</span><span>🏃‍♂️</span><span>🏃‍♂️</span></div><div class="vcap">Running smoothly</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Types</span> of Coordination</h2>
+          <ul><li>Nervous Coordination: Fast, electrical signals.</li><li>Hormonal Coordination: Slower, chemical signals.</li></ul>
+          <p class="notes">🎙️ In animals, especially humans, coordination is mainly achieved through two major systems: the nervous system and the endocrine (or hormonal) system. They work hand-in-hand, but have different characteristics.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Nervous</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Hormonal</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The <span class="hl">Nervous System</span> - An Overview</h2>
+          <ul><li>Controls and coordinates all body activities.</li><li>Consists of the brain, spinal cord, and nerves.</li><li>Uses electrical impulses for quick communication.</li></ul>
+          <p class="notes">🎙️ The nervous system is like the super-fast communication network of our body. It allows us to think, feel, move, and react to our surroundings almost instantly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Control Center</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Neurons</span> - The Nerve Cells</h2>
+          <ul><li>Basic structural and functional units of the nervous system.</li><li>Transmit information as electrical signals.</li><li>Composed of cell body, dendrites, and axon.</li></ul>
+          <p class="notes">🎙️ Neurons are specialized cells that are responsible for carrying messages throughout your body. Think of them as tiny wires that transmit electrical signals, allowing different parts of your body to talk to each other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Signal Carriers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>How Nerves <span class="hl">Transmit Signals</span></h2>
+          <ul><li>Dendrites receive signals.</li><li>Signal travels through the cell body and axon.</li><li>Axon terminal releases neurotransmitters at synapse.</li></ul>
+          <p class="notes">🎙️ When a neuron receives a stimulus, it generates an electrical impulse. This impulse travels along the neuron and then jumps to the next neuron across a tiny gap called a synapse, using chemical messengers.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Receive</span></div><div class="step"><span class="snum">2</span><span>Process</span></div><div class="step"><span class="snum">3</span><span>Transmit</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Central Nervous System (<span class="hl">CNS</span>)</h2>
+          <ul><li>Includes the Brain and Spinal Cord.</li><li>Brain: main control center, processes information.</li><li>Spinal Cord: connects brain to the rest of the body.</li></ul>
+          <p class="notes">🎙️ The CNS is the command center, making all the important decisions. The brain is where we think and feel, and the spinal cord acts as a major highway for messages going to and from the brain.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain &amp; Spinal Cord</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Peripheral Nervous System (<span class="hl">PNS</span>)</h2>
+          <ul><li>Nerves extending from CNS to all body parts.</li><li>Carries sensory information to CNS.</li><li>Carries motor commands from CNS to muscles/glands.</li></ul>
+          <p class="notes">🎙️ The PNS is like the network of roads connecting the central command to every corner of the body. It allows your brain to receive information from your senses and send instructions to your muscles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Body-wide Network</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Reflex Action</span> - Quick Responses</h2>
+          <ul><li>Sudden, involuntary response to a stimulus.</li><li>Does not involve conscious thought.</li><li>Protective mechanism for the body.</li></ul>
+          <p class="notes">🎙️ A reflex action is an automatic, rapid response that happens without you even thinking about it. It's your body's way of protecting itself from harm very quickly.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Stimulus</span></div><div class="step"><span class="snum">2</span><span>Sensory Neuron</span></div><div class="step"><span class="snum">3</span><span>Spinal Cord</span></div><div class="step"><span class="snum">4</span><span>Motor Neuron</span></div><div class="step"><span class="snum">5</span><span>Response</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Example</span> of Reflex Action</h2>
+          <ul><li>Touching a hot object and immediately withdrawing hand.</li><li>Knee-jerk reflex when tapped.</li><li>Blinking when something approaches the eye.</li></ul>
+          <p class="notes">🎙️ Imagine accidentally touching a hot stove. Before you even realize it's hot, your hand pulls away. This is a classic example of a reflex action, controlled by the spinal cord, not the brain directly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔥</span></div><div class="vcap">Hot! Pull Back!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Quick Check!</h2>
+          <ul><li>Which part of the nervous system is responsible for conscious thought?</li><li>What is the basic unit of the nervous system called?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Take a moment to think about these questions based on what we've just learned about the nervous system.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Hormonal System</span> - Chemical Messengers</h2>
+          <ul><li>Uses hormones as chemical signals.</li><li>Slower but long-lasting effects.</li><li>Regulates growth, metabolism, reproduction.</li></ul>
+          <p class="notes">🎙️ The hormonal system, also known as the endocrine system, uses chemical messengers called hormones. These hormones travel through the bloodstream and regulate various body functions over a longer period.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✉️</div><div class="vcap">Chemical Signals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Endocrine Glands</span></h2>
+          <ul><li>Ductless glands that secrete hormones directly into blood.</li><li>Examples: Pituitary, Thyroid, Pancreas, Adrenal.</li><li>Each gland produces specific hormones.</li></ul>
+          <p class="notes">🎙️ Unlike glands that release substances through ducts, endocrine glands release their hormones directly into your blood. These hormones then travel to target organs to exert their specific effects.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Endocrine_glands.svg?width=500" data-fb="🧪" alt="The endocrine system consists of glands that secrete hormones to regulate bodily functions"/><div class="vcap">The endocrine system consists of glands that secrete hormones to regulate bodily functions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Key <span class="hl">Hormones</span> and Their Functions</h2>
+          <ul><li>Growth Hormone: Regulates body growth.</li><li>Thyroxine: Controls metabolism.</li><li>Adrenaline: Prepares body for 'fight or flight'.</li></ul>
+          <p class="notes">🎙️ We have many important hormones. Growth hormone makes us grow, thyroxine keeps our body's energy levels in check, and adrenaline gives us a burst of energy in stressful situations.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Growth</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Thyroxine</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Adrenaline</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Insulin</span> and Diabetes</h2>
+          <ul><li>Insulin: Hormone produced by the pancreas.</li><li>Regulates blood glucose (sugar) levels.</li><li>Diabetes: Condition where body doesn't produce enough insulin or can't use it effectively.</li></ul>
+          <p class="notes">🎙️ Insulin is a vital hormone that helps your body use sugar from the food you eat for energy. When there's a problem with insulin production or its function, it can lead to a condition called diabetes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🩸</div><div class="vcap">Blood Sugar Control</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Coordination in <span class="hl">Plants</span></h2>
+          <ul><li>Plants lack a nervous system.</li><li>Coordination achieved through chemical substances (phytohormones).</li><li>Respond to stimuli like light, gravity, water.</li></ul>
+          <p class="notes">🎙️ Plants don't have brains or nerves like us, but they still show amazing coordination! They respond to their environment using special chemical messengers called plant hormones or phytohormones.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Plant Responses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Plant Hormones (<span class="hl">Phytohormones</span>)</h2>
+          <ul><li>Auxins: Promote cell elongation, root formation.</li><li>Gibberellins: Promote stem elongation, seed germination.</li><li>Cytokinins: Promote cell division, delay aging.</li></ul>
+          <p class="notes">🎙️ Just like animal hormones, plant hormones have specific roles. Auxins help plants grow taller, gibberellins help seeds sprout, and cytokinins help new cells form and keep leaves fresh.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_structure.svg?width=500" data-fb="🔬" alt="A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts."/><div class="vcap">A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Plant Movements - <span class="hl">Tropisms</span></h2>
+          <ul><li>Growth-related movements in response to a stimulus.</li><li>Directional movements (towards or away from stimulus).</li><li>Can be positive (towards) or negative (away).</li></ul>
+          <p class="notes">🎙️ Plants don't move from place to place, but they do move parts of their body by growing! These directional growth movements in response to environmental cues are called tropisms.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Transpiration_path.png?width=500" data-fb="⬆️" alt="Tropisms are directional growth movements of plants in response to external stimuli. Auxin"/><div class="vcap">Tropisms are directional growth movements of plants in response to external stimuli. Auxin</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Types</span> of Tropisms</h2>
+          <ul><li>Phototropism: Response to light (e.g., stem grows towards light).</li><li>Geotropism: Response to gravity (e.g., roots grow downwards).</li><li>Hydrotropism: Response to water (e.g., roots grow towards water).</li></ul>
+          <p class="notes">🎙️ There are different types of tropisms. Phototropism is why plants bend towards sunlight, geotropism explains why roots grow down, and hydrotropism is how roots find water in the soil.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Light (Photo)</span></div><div class="step"><span class="snum">2</span><span>Gravity (Geo)</span></div><div class="step"><span class="snum">3</span><span>Water (Hydro)</span></div><div class="step"><span class="snum">4</span><span>Chemical (Chemo)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Example</span> of Plant Coordination</h2>
+          <ul><li>Sunflower turning its head to follow the sun (phototropism).</li><li>Roots growing deeper into the soil (geotropism).</li><li>Climbing plants coiling around a support (thigmotropism).</li></ul>
+          <p class="notes">🎙️ A great example is the sunflower, which literally 'follows' the sun across the sky, demonstrating phototropism. This ensures maximum sunlight for photosynthesis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌻☀️</span></div><div class="vcap">Sunflower following sun</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check!</h2>
+          <ul><li>Name two plant hormones and their main functions.</li><li>What is the term for a plant's growth response towards light?</li></ul>
+          <p class="notes">🎙️ Now, let's see how well you've grasped the concepts of hormonal coordination and plant responses. Think about these questions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Interplay</span> of Systems</h2>
+          <ul><li>Nervous and hormonal systems often work together.</li><li>Hypothalamus connects nervous and endocrine systems.</li><li>Example: Adrenaline rush involves both nerve signals and hormones.</li></ul>
+          <p class="notes">🎙️ It's important to remember that these two systems, nervous and hormonal, don't work in isolation. They are constantly interacting and complementing each other to maintain overall body coordination and homeostasis.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connected Systems</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span> of Coordination</h2>
+          <ul><li>Coordination ensures smooth body functioning.</li><li>Nervous system: fast, electrical signals (neurons, CNS, PNS, reflexes).</li><li>Hormonal system: slower, chemical signals (hormones, glands).</li><li>Plants coordinate using phytohormones and tropisms.</li></ul>
+          <p class="notes">🎙️ Today, we covered how living organisms coordinate their activities. We explored the rapid nervous system, the slower but lasting hormonal system, and how plants adapt to their environment.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Any Questions?</h2>
+          <ul><li>Keep exploring the wonders of coordination!</li><li>Feel free to ask any doubts.</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on Coordination. I hope you found it insightful and clear. Please feel free to ask any questions you might have.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · TS Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

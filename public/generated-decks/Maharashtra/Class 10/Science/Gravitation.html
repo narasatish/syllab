@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Gravitation — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Unveiling the Force: <span class="hl">Gravitation</span></h2>
+          <ul><li>What makes objects fall?</li><li>Why do planets orbit the Sun?</li><li>Exploring a fundamental force of nature.</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we embark on an exciting journey to understand one of the fundamental forces of nature – Gravitation. Have you ever wondered why things fall down, or why the Moon stays in orbit around the Earth? This chapter will answer all these questions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Gravitation</span>?</h2>
+          <ul><li>An attractive force between any two objects.</li><li>Depends on their mass and distance.</li><li>A universal phenomenon.</li></ul>
+          <p class="notes">🎙️ Gravitation is a natural phenomenon by which all things with mass or energy are brought toward one another. It's an attractive force that acts between any two objects in the universe. We experience it every day, even if we don't always notice it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Earth's Pull</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>The Apple and Isaac <span class="hl">Newton</span></h2>
+          <ul><li>Newton observed a falling apple.</li><li>Questioned why it fell downwards.</li><li>Led to his theory of gravitation.</li></ul>
+          <p class="notes">🎙️ The famous story tells us that Sir Isaac Newton was inspired to formulate the theory of gravitation when he saw an apple fall from a tree. He wondered why the apple fell straight down towards the Earth and not sideways or upwards.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span></div><div class="vcap">A Falling Apple</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Newton's <span class="hl">Universal Law</span> of Gravitation</h2>
+          <ul><li>Every object attracts every other object.</li><li>Force is proportional to product of masses.</li><li>Force is inversely proportional to square of distance.</li></ul>
+          <p class="notes">🎙️ Newton's Universal Law of Gravitation states that every particle in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Gravity_well_plot.svg?width=500" data-fb="🤝" alt="Gravity is the force of attraction between any two objects with mass. Newton's law of univ"/><div class="vcap">Gravity is the force of attraction between any two objects with mass. Newton's law of univ</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The Gravitational Force <span class="hl">Formula</span></h2>
+          <ul><li>F = G(m₁m₂)/r²</li><li>F: Gravitational Force</li><li>m₁, m₂: Masses of objects</li><li>r: Distance between centers</li></ul>
+          <p class="notes">🎙️ This formula helps us calculate the gravitational force. Here, 'F' is the gravitational force, 'm₁' and 'm₂' are the masses of the two objects, 'r' is the distance between their centers, and 'G' is the universal gravitational constant.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">F = Gm₁m₂/r²</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Understanding the Gravitational <span class="hl">Constant (G)</span></h2>
+          <ul><li>G is a universal constant.</li><li>Value: 6.674 × 10⁻¹¹ Nm²/kg².</li><li>Makes the gravitational equation work.</li></ul>
+          <p class="notes">🎙️ The universal gravitational constant 'G' is a fixed value that makes the equation work. It ensures that the calculated force matches the observed force. Its value is very small, indicating that gravitational force is weak unless at least one of the masses is very large.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">G = 6.674 × 10⁻¹¹ Nm²/kg²</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>What <span class="hl">Affects</span> Gravitational Force?</h2>
+          <ul><li>Larger masses mean stronger force.</li><li>Greater distance means weaker force (inverse square law).</li></ul>
+          <p class="notes">🎙️ The gravitational force increases with the increase in the masses of the objects. Conversely, it decreases rapidly as the distance between the objects increases. This inverse square relationship with distance is very important.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Masses</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Distance</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Real-life Example: <span class="hl">Earth and Moon</span> Attraction</h2>
+          <ul><li>Gravity keeps the Moon in orbit.</li><li>Prevents it from flying away.</li><li>Also causes ocean tides.</li></ul>
+          <p class="notes">🎙️ A perfect example of gravitational force is the attraction between the Earth and the Moon. This force keeps the Moon in its orbit around the Earth, preventing it from flying off into space. It also causes the tides in our oceans.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌕</div><div class="vcap">Moon Orbiting Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Quick Check: <span class="hl">True or False</span>?</h2>
+          <ul><li>The value of G is the same everywhere in the universe.</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. Is the statement 'The value of G is the same everywhere in the universe' true or false? Think about what 'universal constant' means. The answer is True, it's a universal constant.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>What is <span class="hl">Free Fall</span>?</h2>
+          <ul><li>Object falling under gravity's influence only.</li><li>No air resistance or other forces.</li><li>All objects accelerate at the same rate in a vacuum.</li></ul>
+          <p class="notes">🎙️ When an object falls solely under the influence of gravity, with no other forces like air resistance acting on it, it is said to be in free fall. In a vacuum, all objects in free fall accelerate at the same rate, regardless of their mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Falling Object</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Acceleration</span> Due to Gravity (g)</h2>
+          <ul><li>Acceleration caused by Earth's gravity.</li><li>Denoted by 'g'.</li><li>Always directed towards Earth's center.</li></ul>
+          <p class="notes">🎙️ The acceleration produced in a freely falling body due to the Earth's gravitational pull is called acceleration due to gravity, denoted by 'g'. It is a vector quantity and its direction is always towards the center of the Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️⬆️</div><div class="vcap">Gravity's Pull</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>The <span class="hl">Value of 'g'</span> on Earth</h2>
+          <ul><li>Average value: approximately 9.8 m/s².</li><li>Velocity increases by 9.8 m/s every second.</li><li>Can vary slightly by location.</li></ul>
+          <p class="notes">🎙️ On the surface of the Earth, the average value of 'g' is approximately 9.8 m/s². This means that for every second an object is in free fall, its velocity increases by 9.8 meters per second. This value can vary slightly depending on location.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">g ≈ 9.8 m/s²</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Factors Affecting the Value of 'g'</h2>
+          <ul><li>Earth's shape: greater at poles, less at equator.</li><li>Height: decreases with increasing altitude.</li><li>Depth: decreases with increasing depth below surface.</li></ul>
+          <p class="notes">🎙️ The value of 'g' is not constant everywhere on Earth. It is slightly greater at the poles than at the equator due to the Earth's slightly flattened shape. It also decreases with increasing height above the Earth's surface and with increasing depth below it.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Poles</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Equator</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Mass vs. Weight</span>: What's the Difference?</h2>
+          <ul><li>Mass: amount of matter, constant everywhere (kg).</li><li>Weight: force of gravity on mass (W=mg), changes with 'g' (N).</li></ul>
+          <p class="notes">🎙️ Mass is the amount of matter in an object and remains constant everywhere. Weight, however, is the force of gravity acting on an object's mass (W = mg), and it changes depending on the value of 'g' at a particular location.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mass (kg)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Weight (N)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Gravitational Force</h2>
+          <ul><li>Calculate the force between two objects of mass 1 kg each, separated by 1 meter.</li><li>(G = 6.674 × 10⁻¹¹ Nm²/kg²)</li></ul>
+          <p class="notes">🎙️ Let's apply the formula F = G(m₁m₂)/r² to solve a problem. First, identify the given values. Then, write down the formula. Substitute the numbers carefully and finally, calculate the gravitational force.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Given</span></div><div class="step"><span class="snum">2</span><span>Write Formula</span></div><div class="step"><span class="snum">3</span><span>Substitute Values</span></div><div class="step"><span class="snum">4</span><span>Calculate Result</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example: Calculating <span class="hl">Weight</span></h2>
+          <ul><li>What is the weight of a 5 kg object on Earth?</li><li>(g = 9.8 m/s²)</li></ul>
+          <p class="notes">🎙️ Now, let's calculate weight. Remember, weight is the force of gravity on an object. We use the formula W = mg. Identify the mass, use the standard value for 'g' on Earth, and then perform the simple multiplication to find the weight in Newtons.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify Mass</span></div><div class="step"><span class="snum">2</span><span>Recall 'g'</span></div><div class="step"><span class="snum">3</span><span>Apply W = mg</span></div><div class="step"><span class="snum">4</span><span>State Answer</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick Check: <span class="hl">Factors of 'g'</span></h2>
+          <ul><li>Which of these factors does NOT affect the value of 'g'?</li><li>A) Shape of Earth</li><li>B) Height above Earth's surface</li><li>C) Mass of the object</li><li>D) Depth below Earth's surface</li></ul>
+          <p class="notes">🎙️ Consider what we discussed about the variation of 'g'. The mass of the object itself does not affect the acceleration due to gravity it experiences. All objects fall at the same rate in a vacuum, regardless of their mass.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Kepler's Laws</span>: Planetary Motion</h2>
+          <ul><li>Three laws describing planet movement.</li><li>Formulated by Johannes Kepler.</li><li>Provided foundation for Newton's work.</li></ul>
+          <p class="notes">🎙️ Before Newton, Johannes Kepler formulated three laws describing the motion of planets around the Sun. These empirical laws were crucial for Newton to develop his universal law of gravitation. They describe how planets move.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Newton%27s_laws_in_latin.jpg?width=500" data-fb="🪐" alt="Newton's three laws of motion describe how objects move and interact through forces. They "/><div class="vcap">Newton's three laws of motion describe how objects move and interact through forces. They </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Kepler's First Law: Orbits are <span class="hl">Elliptical</span></h2>
+          <ul><li>Planets orbit the Sun in ellipses.</li><li>Sun is at one focus of the ellipse.</li><li>Not perfect circles.</li></ul>
+          <p class="notes">🎙️ Kepler's First Law states that the orbit of a planet is an ellipse with the Sun at one of the two foci. This means that planetary orbits are not perfect circles, but slightly elongated ovals. This was a revolutionary idea at the time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟠</div><div class="vcap">An Elliptical Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Kepler's Second Law: <span class="hl">Equal Areas</span></h2>
+          <ul><li>A line from planet to Sun sweeps equal areas.</li><li>Happens in equal time intervals.</li><li>Planet moves faster when closer to Sun.</li></ul>
+          <p class="notes">🎙️ Kepler's Second Law states that a line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time. This implies that a planet moves faster when it is closer to the Sun and slower when it is farther away.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏳</div><div class="vcap">Sweeping Areas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Kepler's <span class="hl">Third Law</span>: Period and Radius</h2>
+          <ul><li>T² ∝ R³ (T = orbital period, R = semi-major axis).</li><li>Square of period is proportional to cube of radius.</li><li>Relates orbital time to distance from Sun.</li></ul>
+          <p class="notes">🎙️ Kepler's Third Law states that the square of the orbital period (T) of a planet is directly proportional to the cube of the semi-major axis (R) of its orbit. This law provides a mathematical relationship between a planet's orbital time and its distance from the Sun.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">T² ∝ R³</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Escape Velocity</span>: Breaking Free</h2>
+          <ul><li>Minimum speed to escape a celestial body's gravity.</li><li>Object will not fall back.</li><li>Important for space travel.</li></ul>
+          <p class="notes">🎙️ Escape velocity is the minimum speed an object needs to attain to escape the gravitational pull of a celestial body, like Earth, without further propulsion. If an object reaches this speed, it will continue to move away indefinitely, never falling back.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Free_body_diagram.svg?width=500" data-fb="🚀" alt="A free body diagram shows all forces acting on an object as arrows. It simplifies problems"/><div class="vcap">A free body diagram shows all forces acting on an object as arrows. It simplifies problems</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Applications</span> of Gravitation</h2>
+          <ul><li>Orbits of artificial satellites (communication, weather).</li><li>Causes of ocean tides.</li><li>Explains stability of solar system.</li></ul>
+          <p class="notes">🎙️ Gravitation has numerous applications. It explains the stable orbits of satellites around Earth, which are vital for communication and weather forecasting. It also accounts for the ocean tides, caused by the gravitational pull of the Moon and the Sun.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛰️</span><span>🛰️</span><span>🛰️</span></div><div class="vcap">Satellites and Tides</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check: <span class="hl">Escape Velocity</span></h2>
+          <ul><li>What is escape velocity?</li><li>A) The speed needed to orbit Earth.</li><li>B) The speed needed to leave Earth's gravity.</li><li>C) The speed of light.</li><li>D) The speed of a falling object.</li></ul>
+          <p class="notes">🎙️ Think about the definition we just discussed. Escape velocity is specifically about breaking free from a planet's gravitational pull and not just orbiting it. The correct answer is B.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Gravitation</h2>
+          <ul><li>Universal Law of Gravitation (F = Gm₁m₂/r²)</li><li>Acceleration due to gravity (g ≈ 9.8 m/s²)</li><li>Difference between Mass and Weight</li><li>Kepler's Laws of Planetary Motion</li><li>Concept of Escape Velocity</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the universal law, the concept of 'g', and how it differs from mass. We also explored Kepler's insights into planetary motion and the exciting idea of escape velocity. Keep exploring the universe!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

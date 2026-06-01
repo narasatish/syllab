@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Number Systems - Class 9 Mathematics — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Number Systems</span>!</h2>
+          <ul><li>Explore the fascinating world of numbers.</li><li>Understand different types of numbers.</li><li>Learn how they are used in daily life.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of numbers. We use numbers every day, from counting to measuring. This chapter will help us understand the different categories of numbers and their properties.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Numbers</span>?</h2>
+          <ul><li>Numbers are mathematical objects used for counting, measuring, and labeling.</li><li>They form the foundation of all mathematics.</li><li>From simple counting to complex calculations, numbers are everywhere.</li></ul>
+          <p class="notes">🎙️ Think about how often you use numbers. From telling time to checking your marks, numbers are an essential part of our lives. They are abstract concepts that help us quantify and organize information.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">The world of numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Natural</span> Numbers (N)</h2>
+          <ul><li>These are the counting numbers: 1, 2, 3, 4, ...</li><li>They are positive numbers starting from 1 and extending to infinity.</li><li>Represented by the symbol 'N'.</li></ul>
+          <p class="notes">🎙️ Natural numbers are the first numbers we learn. When you count apples, you start from one, right? These are exactly what natural numbers are – the numbers we use for counting objects. They go on forever.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span><span>🍎</span></div><div class="vcap">Counting apples</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Natural Numbers: <span class="hl">Real-life</span> Example</h2>
+          <ul><li>Counting students in a classroom.</li><li>Number of books on a shelf.</li><li>Pages in a book.</li></ul>
+          <p class="notes">🎙️ Imagine you are counting the number of students present in your class today. You would start with 1, 2, 3, and so on. Similarly, if you count the number of pens you have, you're using natural numbers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Counting people</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Whole</span> Numbers (W)</h2>
+          <ul><li>Whole numbers include all natural numbers and zero (0).</li><li>They are: 0, 1, 2, 3, 4, ...</li><li>Represented by the symbol 'W'.</li></ul>
+          <p class="notes">🎙️ What happens if you have no apples? That's where zero comes in! Whole numbers are simply natural numbers with the addition of zero. So, the smallest whole number is 0.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span><span>⚽</span></div><div class="vcap">Zero and more balls</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Whole Numbers: <span class="hl">Real-life</span> Example</h2>
+          <ul><li>Temperature reading at 0 degrees Celsius.</li><li>Number of goals scored by a team (can be 0).</li><li>Empty bank account balance (0 rupees).</li></ul>
+          <p class="notes">🎙️ Think about a cricket match. A batsman can score 0 runs. Or, imagine a cold winter day where the temperature drops to 0 degrees Celsius. These are examples where zero, and thus whole numbers, are relevant.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Temperature at zero</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Integers</span> (Z)</h2>
+          <ul><li>Integers include all whole numbers and their negative counterparts.</li><li>They are: ..., -3, -2, -1, 0, 1, 2, 3, ...</li><li>Represented by the symbol 'Z' (from 'Zahlen', German for numbers).</li></ul>
+          <p class="notes">🎙️ Now, let's go below zero! Integers include positive numbers, negative numbers, and zero. Think of a number line extending infinitely in both positive and negative directions. All the whole numbers and their negatives are integers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Numbers on a line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Integers: <span class="hl">Real-life</span> Example</h2>
+          <ul><li>Temperature below zero degrees Celsius (-5°C).</li><li>Altitude above or below sea level (+100m, -50m).</li><li>Debt or credit in a bank account.</li></ul>
+          <p class="notes">🎙️ When you hear a weather report say the temperature is minus 5 degrees, you are dealing with integers. Or, if you're talking about a submarine diving below sea level, its depth would be represented by a negative integer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏔️</div><div class="vcap">Altitude above/below sea level</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Rational</span> Numbers (Q)</h2>
+          <ul><li>Numbers that can be expressed in the form p/q, where p and q are integers and q ≠ 0.</li><li>Examples: 1/2, -3/4, 5 (which is 5/1), 0.25 (which is 1/4).</li><li>Represented by the symbol 'Q' (from 'quotient').</li></ul>
+          <p class="notes">🎙️ Rational numbers are essentially fractions. Any number that can be written as a fraction, where both the numerator and denominator are integers and the denominator is not zero, is a rational number. All integers are also rational numbers because they can be written as p/1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Division and fractions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Rational Numbers: <span class="hl">Real-life</span> Example</h2>
+          <ul><li>Sharing a pizza equally among friends (1/4 of a pizza).</li><li>Measuring ingredients in a recipe (1/2 cup of flour).</li><li>Calculating discounts (25% off means 1/4 off).</li></ul>
+          <p class="notes">🎙️ Imagine you have a pizza and want to share it equally among 4 friends. Each friend gets 1/4 of the pizza – that's a rational number. Or, when you buy something on sale, a 50% discount means you pay 1/2 the price.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">Sharing pizza</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Properties</span> of Rational Numbers</h2>
+          <ul><li>Closure: Sum, difference, product, and quotient (except by zero) of two rational numbers is rational.</li><li>Commutativity: a+b = b+a and a×b = b×a.</li><li>Associativity: (a+b)+c = a+(b+c) and (a×b)×c = a×(b×c).</li></ul>
+          <p class="notes">🎙️ Rational numbers behave nicely under basic operations. If you add two rational numbers, you always get another rational number. The order of addition or multiplication doesn't change the result, and grouping doesn't matter either. These properties make them very useful.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance and equality</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked Example: <span class="hl">Adding</span> Rational Numbers</h2>
+          <ul><li>Example: Add 1/3 and 1/2.</li><li>Find a common denominator: LCM of 3 and 2 is 6.</li><li>1/3 = 2/6, 1/2 = 3/6.</li><li>2/6 + 3/6 = 5/6.</li></ul>
+          <p class="notes">🎙️ Let's quickly review how to add rational numbers. To add 1/3 and 1/2, we first need to make their denominators the same. The least common multiple of 3 and 2 is 6. So, 1/3 becomes 2/6 and 1/2 becomes 3/6. Adding them gives us 5/6, which is also a rational number.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding fractions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick Check 1: <span class="hl">Identify</span> the Type</h2>
+          <ul><li>Is -7 an Integer, Natural, or Whole number?</li><li>Is 0 a Natural number?</li><li>Is 3/5 a Rational number?</li></ul>
+          <p class="notes">🎙️ Alright class, let's test our understanding so far. Think about these questions for a moment. Is -7 an integer? Is 0 a natural number? Is 3/5 a rational number? Keep your answers ready!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Irrational</span> Numbers</h2>
+          <ul><li>Numbers that cannot be expressed in the form p/q.</li><li>Their decimal expansion is non-terminating and non-repeating.</li><li>Examples: √2, √3, π (pi).</li></ul>
+          <p class="notes">🎙️ Now we come to numbers that are a bit more 'mysterious'. Irrational numbers cannot be written as a simple fraction. When you write them as decimals, they go on forever without any repeating pattern. Think of them as having an infinite, unique decimal tail.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♾️</div><div class="vcap">Endless, non-repeating</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Irrational Numbers: <span class="hl">Real-life</span> Example</h2>
+          <ul><li>The diagonal of a square with side 1 unit is √2.</li><li>The ratio of a circle's circumference to its diameter is π (pi).</li><li>These values cannot be expressed exactly as fractions.</li></ul>
+          <p class="notes">🎙️ You might have encountered pi (π) when calculating the area or circumference of a circle. Its value, approximately 3.14159..., never ends and never repeats. Similarly, the diagonal of a square with side 1 unit is exactly √2, another irrational number.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring with irrational numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Representing √2 on the <span class="hl">Number Line</span></h2>
+          <ul><li>Draw a number line and mark point O (0) and A (1).</li><li>At A, draw a perpendicular AB of length 1 unit.</li><li>Join OB. By Pythagoras theorem, OB = √2.</li><li>With O as center and OB as radius, draw an arc intersecting the number line at P. P represents √2.</li></ul>
+          <p class="notes">🎙️ Even though irrational numbers have endless decimals, we can still locate them precisely on a number line. For √2, we use the Pythagorean theorem. By constructing a right-angled triangle with sides of length 1 unit, the hypotenuse will be √2, which we can then transfer to the number line using a compass.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw line</span></div><div class="step"><span class="snum">2</span><span>Mark 0, 1</span></div><div class="step"><span class="snum">3</span><span>Perpendicular</span></div><div class="step"><span class="snum">4</span><span>Arc to line</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example: <span class="hl">Locating</span> √3 on Number Line</h2>
+          <ul><li>First, locate √2 on the number line (as done previously).</li><li>At the point representing √2, draw a perpendicular of length 1 unit.</li><li>Connect the origin (0) to the end of this perpendicular.</li><li>This new segment has length √3. Use a compass to mark √3 on the number line.</li></ul>
+          <p class="notes">🎙️ To locate √3, we can build upon our knowledge of locating √2. Once √2 is marked, we construct another right-angled triangle, this time with a base of √2 and a height of 1. The hypotenuse of this triangle will be √3, which can then be transferred to the number line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Geometric construction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Real</span> Numbers (R)</h2>
+          <ul><li>The collection of all rational and irrational numbers.</li><li>Every point on the number line corresponds to a unique real number.</li><li>Represented by the symbol 'R'.</li></ul>
+          <p class="notes">🎙️ Real numbers are the 'big picture' – they include every number we've discussed so far, both rational and irrational. Imagine the entire number line, with no gaps. Every single point on that line represents a real number. This is the most comprehensive set of numbers we will study in Class 9.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Rational Numbers</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Irrational Numbers</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real Numbers: <span class="hl">Real-life</span> Example</h2>
+          <ul><li>Measuring the length of a table (e.g., 1.5 meters).</li><li>Calculating the area of a field (e.g., 125.75 square meters).</li><li>Any measurement in the physical world is a real number.</li></ul>
+          <p class="notes">🎙️ From the distance between two cities to your height, almost every measurement you take in the real world can be represented by a real number. It could be a simple integer, a fraction, or even an irrational value like pi in certain calculations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Numbers in our world</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Decimal Expansions</span> of Real Numbers</h2>
+          <ul><li>Terminating: Decimal ends after a finite number of digits (e.g., 0.5, 2.75). These are rational.</li><li>Non-terminating Repeating: Decimal goes on forever but has a repeating block of digits (e.g., 0.333..., 1.2727...). These are rational.</li><li>Non-terminating Non-repeating: Decimal goes on forever with no repeating pattern (e.g., √2, π). These are irrational.</li></ul>
+          <p class="notes">🎙️ The decimal form of a number tells us a lot about its type. Rational numbers either have decimals that stop (terminate) or decimals that repeat a pattern. Irrational numbers are the ones whose decimal expansions never stop and never show a repeating pattern.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Decimal forms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Converting</span> Non-terminating Repeating Decimals to p/q form</h2>
+          <ul><li>Let x equal the given decimal.</li><li>Multiply x by 10^k, where k is the number of repeating digits.</li><li>Subtract the original equation (x) from the new equation.</li><li>Solve the resulting simple equation for x to get the p/q form.</li></ul>
+          <p class="notes">🎙️ This is a very important skill. We can take a non-terminating but repeating decimal, like 0.333..., and convert it back into its rational (p/q) form. The trick is to use multiplication by powers of 10 and then subtract the original number to eliminate the repeating part.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Set x</span></div><div class="step"><span class="snum">2</span><span>Multiply</span></div><div class="step"><span class="snum">3</span><span>Subtract</span></div><div class="step"><span class="snum">4</span><span>Solve</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Worked Example: <span class="hl">Convert</span> 0.6̅ to p/q</h2>
+          <ul><li>Let x = 0.666... (Equation 1)</li><li>Multiply by 10: 10x = 6.666... (Equation 2)</li><li>Subtract (1) from (2): 10x - x = 6.666... - 0.666...</li><li>9x = 6 =&gt; x = 6/9 = 2/3.</li></ul>
+          <p class="notes">🎙️ Let's work through an example. If we have 0.6 with a bar over it, meaning 0.666..., we set it equal to x. Since one digit is repeating, we multiply by 10. Subtracting the original equation from the new one gives us 9x = 6, which simplifies to x = 2/3. So, 0.6 bar is the same as 2/3.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div><div class="vcap">Step-by-step solution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Operations</span> on Real Numbers</h2>
+          <ul><li>Addition, subtraction, multiplication, and division can be performed on real numbers.</li><li>Rational numbers follow standard arithmetic rules.</li><li>Operations with irrational numbers often result in irrational numbers (e.g., √2 + √3 is irrational), but sometimes can result in rational numbers (e.g., √2 × √2 = 2).</li></ul>
+          <p class="notes">🎙️ Just like with integers and rational numbers, we can add, subtract, multiply, and divide real numbers. When dealing with irrational numbers, be careful! Adding two irrational numbers might give another irrational number, but sometimes multiplying them can yield a rational number, like when multiplying a square root by itself.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Arithmetic with real numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check 2: <span class="hl">True or False</span>?</h2>
+          <ul><li>Every integer is a whole number.</li><li>Every rational number is a real number.</li><li>The sum of two irrational numbers is always irrational.</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Read these statements carefully and decide if each one is true or false. Remember the definitions and relationships between the different number systems we discussed today.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Our Number System Journey</h2>
+          <ul><li>Natural Numbers (N): Counting numbers (1, 2, 3...).</li><li>Whole Numbers (W): Natural numbers + zero (0, 1, 2...).</li><li>Integers (Z): Whole numbers + negatives (...-1, 0, 1...).</li><li>Rational Numbers (Q): p/q form (1/2, -3/4, 5). Terminating/repeating decimals.</li><li>Irrational Numbers: Non-terminating, non-repeating decimals (√2, π).</li><li>Real Numbers (R): All rational and irrational numbers.</li></ul>
+          <p class="notes">🎙️ Excellent work today, students! We've covered a vast landscape of numbers. We started with the basic counting numbers, added zero to get whole numbers, then included negatives for integers. From there, we explored fractions as rational numbers, then discovered the unique irrational numbers, and finally combined them all into the set of real numbers. Keep practicing to master these concepts!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

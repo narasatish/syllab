@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Science - Class 9: Structure of the Atom — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter 4: Structure of the <span class="hl">Atom</span></h2>
+          <ul><li>Exploring the tiny building blocks of everything around us.</li><li>Understanding what makes up matter.</li><li>From ancient ideas to modern understanding.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the heart of matter. We'll uncover the secrets of the atom, the fundamental unit that makes up everything you see and touch.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is an <span class="hl">Atom</span>?</h2>
+          <ul><li>The smallest particle of an element.</li><li>Retains chemical identity of the element.</li><li>Too tiny to be seen with the naked eye.</li></ul>
+          <p class="notes">🎙️ Imagine breaking down a piece of chalk into smaller and smaller pieces. Eventually, you'd reach a point where you can't break it further while still having chalk. That smallest piece is an atom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">The Atom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Dalton's</span> Atomic Theory (1808)</h2>
+          <ul><li>Matter consists of indivisible atoms.</li><li>Atoms of a given element are identical.</li><li>Atoms combine in simple whole-number ratios.</li></ul>
+          <p class="notes">🎙️ John Dalton proposed the first scientific theory about atoms. He suggested that atoms were like tiny, hard spheres that couldn't be broken down further, and that all atoms of a specific element were exactly alike.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Scroll of Theory</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Real Example: Dalton's Theory and <span class="hl">Water</span></h2>
+          <ul><li>Water is always H₂O (2 Hydrogen atoms, 1 Oxygen atom).</li><li>This fixed ratio supports Dalton's idea.</li><li>Atoms combine in simple whole-number ratios.</li></ul>
+          <p class="notes">🎙️ Think about water. No matter where you find it, it's always made of two hydrogen atoms and one oxygen atom. This consistent composition is a perfect example of Dalton's theory of fixed ratios.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water Molecules</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Discovery of the <span class="hl">Electron</span> (J.J. Thomson)</h2>
+          <ul><li>Discovered by J.J. Thomson in 1897.</li><li>Used Cathode Ray Tube experiment.</li><li>Electrons are negatively charged particles.</li></ul>
+          <p class="notes">🎙️ Towards the end of the 19th century, scientists found that atoms weren't as indivisible as Dalton thought. J.J. Thomson discovered the electron, a tiny, negatively charged particle much smaller than the atom itself.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Spark of Discovery</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Thomson's</span> Model of the Atom ('Plum Pudding')</h2>
+          <ul><li>Positive sphere with electrons embedded.</li><li>Like 'plums in a pudding' or 'seeds in a watermelon'.</li><li>Overall atom is electrically neutral.</li></ul>
+          <p class="notes">🎙️ To explain his discovery, Thomson proposed a model where the atom was a uniform sphere of positive charge, with the negatively charged electrons scattered within it, much like plums in a pudding.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍮</div><div class="vcap">Plum Pudding</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Real Example: <span class="hl">Watermelon</span> Model</h2>
+          <ul><li>Red edible part of watermelon = positive sphere.</li><li>Black seeds embedded = negatively charged electrons.</li><li>A simple analogy for Thomson's model.</li></ul>
+          <p class="notes">🎙️ Imagine a watermelon. The large, red, fleshy part can be thought of as the positive sphere, and the small, black seeds are the electrons embedded within it. This helps visualize Thomson's idea.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍉</span></div><div class="vcap">Watermelon Analogy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Discovery of the <span class="hl">Proton</span> (E. Goldstein)</h2>
+          <ul><li>Discovered by E. Goldstein in 1886.</li><li>Used Canal Ray Experiment (anode rays).</li><li>Protons are positively charged particles.</li></ul>
+          <p class="notes">🎙️ Even before Thomson, Goldstein observed positively charged rays, which he called canal rays. These later led to the discovery of the proton, a positively charged particle within the atom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Positive Charge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Rutherford's</span> Alpha-Particle Scattering Experiment</h2>
+          <ul><li>Bombarded a thin gold foil with alpha particles.</li><li>Alpha particles are positively charged (He²⁺ ions).</li><li>Observed how particles scattered.</li></ul>
+          <p class="notes">🎙️ Ernest Rutherford conducted a famous experiment to test Thomson's model. He fired tiny, positively charged alpha particles at a very thin sheet of gold foil and observed where they went.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Alpha Source</span></div><div class="step"><span class="snum">2</span><span>Gold Foil</span></div><div class="step"><span class="snum">3</span><span>Detector Screen</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Observations</span> from Rutherford's Experiment</h2>
+          <ul><li>Most alpha particles passed straight through.</li><li>A few were deflected by small angles.</li><li>Very few (1 in 12,000) bounced back.</li></ul>
+          <p class="notes">🎙️ Rutherford expected most particles to pass straight through with only minor deflections if Thomson's model was correct. But the results were surprising! Most went through, but some bounced back, indicating something dense in the atom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔬</span><span>🔬</span><span>🔬</span></div><div class="vcap">Observing Particles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Conclusions</span> from Rutherford's Experiment</h2>
+          <ul><li>Most of the atom is empty space.</li><li>Positive charge is concentrated in a tiny nucleus.</li><li>Nucleus is very dense and small.</li></ul>
+          <p class="notes">🎙️ Based on his observations, Rutherford concluded that an atom is mostly empty space. All the positive charge and nearly all the mass are concentrated in a very small region at the center, which he called the nucleus.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Central Target</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Rutherford's</span> Model of the Atom (1911)</h2>
+          <ul><li>Central, positively charged nucleus.</li><li>Electrons revolve around the nucleus in orbits.</li><li>Nucleus is much smaller than the atom.</li></ul>
+          <p class="notes">🎙️ Rutherford's model was like a miniature solar system, with the nucleus at the center (like the sun) and electrons orbiting around it (like planets). This was a major step forward in understanding atomic structure.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Rutherford_model.svg?width=500" data-fb="🪐" alt="Rutherford's model proposes that atoms have a small, dense, positively-charged nucleus sur"/><div class="vcap">Rutherford's model proposes that atoms have a small, dense, positively-charged nucleus sur</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Drawbacks</span> of Rutherford's Model</h2>
+          <ul><li>Electron in orbit should lose energy.</li><li>Spiral into the nucleus, making atom unstable.</li><li>Could not explain the stability of the atom.</li></ul>
+          <p class="notes">🎙️ While revolutionary, Rutherford's model had a major flaw. According to classical physics, an electron orbiting the nucleus should continuously emit energy and eventually crash into the nucleus, making the atom unstable. But atoms are stable!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Warning Sign</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Bohr's</span> Model of the Atom (1913)</h2>
+          <ul><li>Electrons revolve in discrete orbits (energy shells).</li><li>Electrons do not radiate energy in these orbits.</li><li>Energy levels are fixed (K, L, M, N shells).</li></ul>
+          <p class="notes">🎙️ Niels Bohr addressed Rutherford's problem. He proposed that electrons occupy specific, fixed energy levels or shells, and they do not lose energy while revolving in these particular orbits. This explained the stability of atoms.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Helium_atom_QM.svg?width=500" data-fb="🌀" alt="Bohr's model of the atom proposed that electrons orbit the nucleus in fixed energy levels "/><div class="vcap">Bohr's model of the atom proposed that electrons orbit the nucleus in fixed energy levels </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Discovery of the <span class="hl">Neutron</span> (James Chadwick)</h2>
+          <ul><li>Discovered by James Chadwick in 1932.</li><li>Neutral particle, no electric charge.</li><li>Located in the nucleus along with protons.</li></ul>
+          <p class="notes">🎙️ Scientists noticed that the mass of the nucleus was often more than the mass of its protons. James Chadwick discovered a third subatomic particle, the neutron, which has no charge but has mass, explaining the extra mass in the nucleus.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Neutral Shield</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Subatomic Particles: A <span class="hl">Comparison</span></h2>
+          <ul><li>Proton: Positive charge, mass ≈ 1 amu, in nucleus.</li><li>Neutron: No charge, mass ≈ 1 amu, in nucleus.</li><li>Electron: Negative charge, negligible mass, orbits nucleus.</li></ul>
+          <p class="notes">🎙️ So, atoms are made of three fundamental particles: protons (positive), neutrons (neutral) in the nucleus, and electrons (negative) orbiting around it. Protons and neutrons contribute most of the atom's mass.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Proton</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Neutron</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Electron</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Atomic Number</span> (Z)</h2>
+          <ul><li>Number of protons in an atom's nucleus.</li><li>Defines the element (e.g., all Carbon atoms have 6 protons).</li><li>Also equals number of electrons in a neutral atom.</li></ul>
+          <p class="notes">🎙️ The atomic number, represented by 'Z', is like an atom's unique identification number. It tells us how many protons are in the nucleus, and this number is unique to each element.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">#️⃣</div><div class="vcap">Unique Identifier</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Mass Number</span> (A)</h2>
+          <ul><li>Total number of protons and neutrons.</li><li>Also called 'nucleons' (particles in nucleus).</li><li>Concentrated in the nucleus of the atom.</li></ul>
+          <p class="notes">🎙️ The mass number, 'A', tells us the total number of protons and neutrons in an atom's nucleus. Since electrons have negligible mass, the mass number essentially represents the entire mass of the atom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Atomic Weight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: <span class="hl">Calculating</span> P, N, E</h2>
+          <ul><li>Element Sodium (Na) has Atomic Number (Z) = 11.</li><li>Mass Number (A) = 23.</li><li>Protons = Z = 11; Electrons = Z = 11; Neutrons = A - Z = 23 - 11 = 12.</li></ul>
+          <p class="notes">🎙️ Let's apply what we learned. For Sodium, with Z=11 and A=23, we can easily find the number of each subatomic particle. Remember, in a neutral atom, protons equal electrons.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Chemical Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Isotopes</span></h2>
+          <ul><li>Atoms of the same element.</li><li>Same atomic number (Z), different mass number (A).</li><li>Different number of neutrons.</li></ul>
+          <p class="notes">🎙️ Isotopes are like siblings of the same element. They have the same number of protons, so they are the same element, but they differ in the number of neutrons, leading to different mass numbers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Atomic Twins</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Isobars</span></h2>
+          <ul><li>Atoms of different elements.</li><li>Same mass number (A), different atomic number (Z).</li><li>Example: Argon (⁴⁰₁₈Ar) and Calcium (⁴⁰₂₀Ca).</li></ul>
+          <p class="notes">🎙️ Isobars are different elements that happen to have the same mass number. This means they have a different number of protons (different Z) but the total number of protons and neutrons (A) is the same.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Equal Mass</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Valency</span></h2>
+          <ul><li>Combining capacity of an element.</li><li>Determined by the number of electrons in the outermost shell.</li><li>Atoms combine to achieve stability (octet rule).</li></ul>
+          <p class="notes">🎙️ Valency is crucial for understanding how atoms form molecules and compounds. It tells us how many bonds an atom can form, which is driven by its desire to achieve a stable electron configuration, usually eight electrons in its outermost shell.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Chemical Bonding</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>How to <span class="hl">Calculate</span> Valency</h2>
+          <ul><li>1. Find the atomic number (Z).</li><li>2. Write the electron configuration (K, L, M shells).</li><li>3. Count valence electrons (outermost shell).</li><li>4. If valence electrons &lt; 4, valency is that number. If &gt; 4, valency is 8 - valence electrons.</li></ul>
+          <p class="notes">🎙️ Let's learn the steps to calculate valency. For example, Carbon has 6 electrons (2 in K, 4 in L). Its valence electrons are 4, so its valency is 4. For Oxygen (8 electrons: 2 in K, 6 in L), its valency is 8-6=2.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Atomic Number</span></div><div class="step"><span class="snum">2</span><span>Electron Configuration</span></div><div class="step"><span class="snum">3</span><span>Valence Electrons</span></div><div class="step"><span class="snum">4</span><span>Determine Valency</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>1. What defines an element: Atomic Number or Mass Number?</li><li>2. Who proposed the 'Plum Pudding' model?</li><li>3. What are isotopes?</li><li>4. Calculate the valency of Chlorine (Z=17).</li></ul>
+          <p class="notes">🎙️ Time for a quick review! Think about these questions based on what we've learned today. Try to answer them in your mind or jot them down.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Think Time</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Structure of the Atom</h2>
+          <ul><li>Atoms are building blocks with subatomic particles.</li><li>Atomic models evolved from Dalton to Bohr.</li><li>Protons, Neutrons (nucleus), Electrons (orbits).</li><li>Atomic Number (Z), Mass Number (A), Isotopes, Isobars, Valency.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that our understanding of the atom has changed over time, leading us to the modern model. The atomic number defines an element, and valency explains its combining power.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Knowledge Gained</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

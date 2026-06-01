@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Gravitation: The Invisible Pull — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter 10: <span class="hl">Gravitation</span> - The Invisible Pull</h2>
+          <ul><li>Explore the force that keeps us grounded.</li><li>Understand why objects fall and planets orbit.</li><li>Discover the concepts of mass, weight, and buoyancy.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter: Gravitation. Have you ever wondered why things fall down and not up? Or what keeps our Earth orbiting the Sun? This chapter will answer all these questions and more, revealing the invisible force that shapes our universe.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Gravitation</span>?</h2>
+          <ul><li>It's a universal force of attraction.</li><li>Acts between any two objects with mass.</li><li>Keeps us on Earth and planets in orbit.</li></ul>
+          <p class="notes">🎙️ Gravitation is simply the force that pulls objects towards each other. It's not just an Earth thing; it's a universal phenomenon. Think about an apple falling from a tree – that's gravity at work, pulling the apple towards the Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Gravity_well_plot.svg?width=500" data-fb="🍎" alt="Gravity is the force of attraction between any two objects with mass. Newton's law of univ"/><div class="vcap">Gravity is the force of attraction between any two objects with mass. Newton's law of univ</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Sir Isaac <span class="hl">Newton</span> and the Falling Apple</h2>
+          <ul><li>Legend says a falling apple sparked his thoughts.</li><li>He wondered if the same force pulls the Moon.</li><li>Led to the Universal Law of Gravitation.</li></ul>
+          <p class="notes">🎙️ The story of Isaac Newton and the apple is iconic. It made him ponder if the same force that pulls an apple to the ground also keeps the Moon in its orbit around Earth. This simple observation led to one of the most significant discoveries in physics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍎</span></div><div class="vcap">The famous apple</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The <span class="hl">Universal Law</span> of Gravitation</h2>
+          <ul><li>Every object in the universe attracts every other object.</li><li>The force is directly proportional to the product of their masses.</li><li>The force is inversely proportional to the square of the distance between them.</li></ul>
+          <p class="notes">🎙️ Newton's Universal Law of Gravitation states that everything attracts everything else! This force depends on how much 'stuff' (mass) the objects have and how far apart they are. The bigger the masses, the stronger the pull; the farther apart, the weaker the pull.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Mutual attraction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Factors</span> Affecting Gravitational Force</h2>
+          <ul><li>Mass: More mass means stronger force.</li><li>Distance: Greater distance means weaker force.</li><li>The force decreases rapidly with distance.</li></ul>
+          <p class="notes">🎙️ Two main factors determine the strength of gravity: the masses of the objects and the distance between their centers. Imagine two elephants versus two mice – the elephants will have a much stronger gravitational pull. Also, if you double the distance, the force becomes four times weaker!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mass (more)</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Distance (more)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Mass vs. Weight: What's the <span class="hl">Difference</span>?</h2>
+          <ul><li>Mass is the amount of matter in an object.</li><li>Weight is the force of gravity acting on an object.</li><li>Mass is constant, weight changes with gravity.</li></ul>
+          <p class="notes">🎙️ This is a common point of confusion! Mass is how much 'stuff' you are made of, and it never changes. Weight, however, is the force gravity exerts on your mass. So, your mass is the same on Earth and the Moon, but your weight would be much less on the Moon because its gravity is weaker.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Measuring mass &amp; weight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Real-Life Example: Gravitation on <span class="hl">Earth</span></h2>
+          <ul><li>Gravity keeps us firmly on the ground.</li><li>It causes objects to fall downwards.</li><li>Responsible for the Earth's atmosphere.</li></ul>
+          <p class="notes">🎙️ The most obvious example of gravitation is right here on Earth. It's the force that prevents us from floating off into space and keeps everything from buildings to oceans attached to the planet. It even holds the gases of our atmosphere close to Earth, allowing us to breathe.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧍</span></div><div class="vcap">Standing on Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Free Fall</span>: Falling Under Gravity Alone</h2>
+          <ul><li>When an object falls only under Earth's gravity.</li><li>Air resistance is considered negligible.</li><li>All objects accelerate at the same rate.</li></ul>
+          <p class="notes">🎙️ Imagine dropping a feather and a stone in a vacuum – they would hit the ground at the exact same time! This is free fall, where only gravity acts on an object. On Earth, air resistance usually slows the feather, but in space, everything falls equally fast.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Downward motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Acceleration</span> Due to Gravity (g)</h2>
+          <ul><li>The acceleration experienced by a freely falling body.</li><li>Its value on Earth's surface is approximately 9.8 m/s².</li><li>It varies slightly with altitude and location.</li></ul>
+          <p class="notes">🎙️ Every object in free fall near Earth's surface speeds up by about 9.8 meters per second, every second. This constant acceleration is denoted by 'g'. So, if you drop something, after one second it's moving at 9.8 m/s, after two seconds at 19.6 m/s, and so on.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Gravity's pull on Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Calculating</span> Gravitational Force</h2>
+          <ul><li>Problem: Find the force between two 1 kg masses 1 meter apart.</li><li>Given: G = 6.67 x 10⁻¹¹ Nm²/kg².</li><li>Formula: F = G(m₁m₂)/r².</li></ul>
+          <p class="notes">🎙️ Let's apply the Universal Law of Gravitation. If we have two 1 kg objects placed 1 meter apart, we can calculate the tiny gravitational force between them using Newton's formula. Remember, G is the universal gravitational constant, a very small number.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Write down the formula.</span></div><div class="step"><span class="snum">2</span><span>Substitute the values.</span></div><div class="step"><span class="snum">3</span><span>Calculate the result.</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Quick Question 1: <span class="hl">Why</span> does an apple fall from a tree?</h2>
+          <ul><li>A) Air pressure</li><li>B) Magnetic force</li><li>C) Gravitational force</li><li>D) Wind</li></ul>
+          <p class="notes">🎙️ Think back to our discussion about Isaac Newton and the apple. What is the fundamental force responsible for pulling objects towards the Earth? Choose the best option that describes this invisible pull.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Quick Question 2: Is your mass the same on the Moon as on Earth?</h2>
+          <ul><li>A) Yes, mass is constant.</li><li>B) No, it would be less on the Moon.</li><li>C) No, it would be more on the Moon.</li><li>D) It depends on your diet.</li></ul>
+          <p class="notes">🎙️ Consider the definition of mass versus weight. Does the amount of matter in your body change just by going to a different celestial body? Or is it your gravitational interaction that changes?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Motion Under Gravity: <span class="hl">Equations</span> of Motion</h2>
+          <ul><li>We use standard equations of motion, replacing 'a' with 'g'.</li><li>v = u + gt</li><li>s = ut + ½gt²</li><li>v² = u² + 2gs</li></ul>
+          <p class="notes">🎙️ When objects move under gravity, they accelerate. We can use the familiar equations of motion you learned, but we substitute the acceleration 'a' with 'g', the acceleration due to gravity. This helps us calculate things like final velocity, distance fallen, or time taken.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎢</div><div class="vcap">Accelerating motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Dropping</span> a Ball</h2>
+          <ul><li>Problem: A ball is dropped from a height of 20m. How long does it take to reach the ground? (g = 10 m/s²).</li><li>Given: u=0, s=20m, g=10m/s².</li><li>Formula: s = ut + ½gt².</li></ul>
+          <p class="notes">🎙️ Let's solve a practical problem. If you drop a ball from a certain height, how quickly will it hit the ground? We can use one of our equations of motion, knowing the initial velocity is zero and using the value of 'g'.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify knowns and unknowns.</span></div><div class="step"><span class="snum">2</span><span>Choose the correct equation.</span></div><div class="step"><span class="snum">3</span><span>Solve for the unknown (time).</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Thrust</span> and Pressure</h2>
+          <ul><li>Thrust: The force acting perpendicular to a surface.</li><li>Pressure: Thrust acting per unit area.</li><li>P = Force / Area (P = F/A).</li></ul>
+          <p class="notes">🎙️ Thrust is just a force, but specifically, it's a force applied at a 90-degree angle to a surface. Pressure, on the other hand, considers how concentrated that force is. A sharp pin exerts high pressure because the force is applied over a very tiny area, even if the thrust is small.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Pressure_force_area.svg?width=500" data-fb="📌" alt="Force is push or pull; pressure is force spread over area. Greater area under same force ="/><div class="vcap">Force is push or pull; pressure is force spread over area. Greater area under same force =</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Pressure in <span class="hl">Fluids</span></h2>
+          <ul><li>Fluids (liquids and gases) exert pressure in all directions.</li><li>Pressure increases with depth in a liquid.</li><li>It also depends on the density of the fluid.</li></ul>
+          <p class="notes">🎙️ Unlike solids, fluids can't resist shear forces, so they exert pressure in all directions. Think about diving into a swimming pool – the deeper you go, the more pressure you feel on your ears. This is because the weight of the water above you increases with depth.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Pressure_with_depth.jpg?width=500" data-fb="🌊" alt="Pressure is force per unit area. In fluids, pressure depends on depth and is transmitted e"/><div class="vcap">Pressure is force per unit area. In fluids, pressure depends on depth and is transmitted e</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Buoyancy</span>: The Upward Push</h2>
+          <ul><li>An upward force exerted by a fluid on an immersed object.</li><li>This force makes objects appear lighter in water.</li><li>It's why some objects float and others sink.</li></ul>
+          <p class="notes">🎙️ Have you ever felt lighter when you're in a swimming pool? That's buoyancy! It's an upward force from the water that pushes against your body. This buoyant force is crucial for understanding why ships float and why a stone sinks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛶</div><div class="vcap">Floating object</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Archimedes'</span> Principle</h2>
+          <ul><li>When an object is immersed in a fluid, it experiences an upward buoyant force.</li><li>This force is equal to the weight of the fluid displaced by the object.</li><li>Explains floating and sinking based on density.</li></ul>
+          <p class="notes">🎙️ Archimedes' Principle gives us a way to calculate the buoyant force. It states that the upward force on an object submerged in a fluid is exactly equal to the weight of the fluid that the object pushes aside. This principle is fundamental to ship design and hot air balloons.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Buoyancy_diagram.svg?width=500" data-fb="🛁" alt="Archimedes Principle states that the buoyant force on an object submerged in fluid equals "/><div class="vcap">Archimedes Principle states that the buoyant force on an object submerged in fluid equals </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real-Life Example: Why <span class="hl">Ships Float</span></h2>
+          <ul><li>A ship displaces a large volume of water.</li><li>The weight of this displaced water is equal to the ship's weight.</li><li>The upward buoyant force balances the ship's weight.</li></ul>
+          <p class="notes">🎙️ Even though ships are made of heavy steel, they float because of Archimedes' Principle. Their hollow design allows them to displace a large volume of water. The weight of this displaced water provides a buoyant force strong enough to support the ship's entire weight.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚢</span></div><div class="vcap">A ship on water</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked Example 3: <span class="hl">Floating</span> or Sinking?</h2>
+          <ul><li>Problem: An object weighs 10N in air and 6N when fully submerged in water. Will it float?</li><li>Buoyant Force = Weight in air - Weight in water.</li><li>If Buoyant Force &lt; Weight in air, it sinks.</li></ul>
+          <p class="notes">🎙️ Let's use our understanding of buoyancy. If an object feels lighter in water, it means the water is pushing it up. By comparing the object's actual weight to the upward buoyant force, we can determine if it will float or sink when fully immersed.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Calculate the buoyant force.</span></div><div class="step"><span class="snum">2</span><span>Compare buoyant force to object's weight.</span></div><div class="step"><span class="snum">3</span><span>Conclude if it floats or sinks.</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Question 3: <span class="hl">Why</span> does a boat float, but a small stone sinks?</h2>
+          <ul><li>A) Boats are made of wood, stones are not.</li><li>B) Boats are lighter than stones.</li><li>C) Boats displace more water relative to their weight.</li><li>D) Stones are denser than boats.</li></ul>
+          <p class="notes">🎙️ Think about Archimedes' Principle and the concept of displaced fluid. What is the key difference in how a boat and a stone interact with the water that determines their fate?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Question 4: What is the SI unit of pressure?</h2>
+          <ul><li>A) Newton (N)</li><li>B) Joule (J)</li><li>C) Pascal (Pa)</li><li>D) Watt (W)</li></ul>
+          <p class="notes">🎙️ Recall the definition of pressure as force per unit area. What is the standard international unit used to measure this quantity?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Relative Density</span>: Comparing Densities</h2>
+          <ul><li>It's the ratio of the density of a substance to the density of water.</li><li>Relative Density = Density of substance / Density of water.</li><li>It has no units, as it's a ratio.</li></ul>
+          <p class="notes">🎙️ Relative density tells us how dense a substance is compared to water. If a substance has a relative density less than 1, it floats in water. If it's greater than 1, it sinks. This is a very useful concept for comparing different materials.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Density comparison</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Applications</span> of Gravitation</h2>
+          <ul><li>Orbits of planets around the Sun.</li><li>The motion of the Moon around the Earth.</li><li>Formation of tides in oceans.</li></ul>
+          <p class="notes">🎙️ Gravitation isn't just about apples falling! It governs the grand movements in our solar system, keeping planets in their paths and the Moon orbiting Earth. It's also responsible for the ocean tides, caused by the gravitational pull of the Moon and the Sun.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛰️</div><div class="vcap">Satellite in orbit</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Concepts of Gravitation</h2>
+          <ul><li>Universal Law of Gravitation (F=Gm₁m₂/r²).</li><li>Mass is constant, Weight is a force (W=mg).</li><li>Acceleration due to gravity (g ≈ 9.8 m/s²).</li><li>Thrust, Pressure, Buoyancy, and Archimedes' Principle.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the universal attraction of gravity, the difference between mass and weight, and how objects accelerate under gravity. We also learned about how fluids exert pressure and the upward buoyant force that makes things float. Gravitation truly shapes our world!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

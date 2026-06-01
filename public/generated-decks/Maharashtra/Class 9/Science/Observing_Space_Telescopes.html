@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Observing Space — Telescopes — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Observing Space — <span class="hl">Telescopes</span></h2>
+          <ul><li>Welcome to our journey into the cosmos!</li><li>Discover how we explore distant stars and galaxies.</li><li>Learn about the amazing instruments that help us see the universe.</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we're embarking on an exciting journey to understand how we observe the vastness of space. Our main tool for this exploration is the telescope.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Why</span> do we Observe Space?</h2>
+          <ul><li>Satisfy human curiosity</li><li>Understand our universe's origins</li><li>Discover new celestial bodies</li><li>Aid in scientific research</li></ul>
+          <p class="notes">🎙️ Humans have always looked up at the night sky with wonder. Observing space helps us answer fundamental questions about where we come from and our place in the universe. It's driven by pure curiosity and the quest for knowledge.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Curiosity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Early</span> Ways of Observing Space</h2>
+          <ul><li>Naked eye observations</li><li>Ancient astronomers charted stars</li><li>Built observatories like Jantar Mantar</li><li>Used basic instruments for measurement</li></ul>
+          <p class="notes">🎙️ For thousands of years, people observed the sky with just their eyes. Ancient civilizations, including those in India, were very skilled at mapping stars and planets, leading to the development of early calendars and navigation.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="👁️" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Limitations</span> of Naked Eye Observation</h2>
+          <ul><li>Cannot see faint objects</li><li>Limited detail on planets</li><li>Difficult to track fast-moving objects</li><li>Affected by light pollution</li></ul>
+          <p class="notes">🎙️ While the naked eye is good for bright objects, it struggles with faint stars or distant galaxies. We can't see much detail on planets like Jupiter or Saturn without help, and city lights often block out many stars.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌌</span><span>🌌</span><span>🌌</span></div><div class="vcap">Faint Objects</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>What is a <span class="hl">Telescope</span>?</h2>
+          <ul><li>An instrument to observe distant objects</li><li>Gathers and magnifies light</li><li>Makes faint objects brighter</li><li>Allows us to see more detail</li></ul>
+          <p class="notes">🎙️ This brings us to the star of our chapter: the telescope. Simply put, a telescope is a tool that helps us see things far away by collecting more light and making them appear larger and brighter than they would to our naked eye.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Magnify</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>How Telescopes Work: The <span class="hl">Basic Principle</span></h2>
+          <ul><li>Collects light from distant sources</li><li>Focuses the collected light</li><li>Forms a magnified image</li><li>Our eyes then view this image</li></ul>
+          <p class="notes">🎙️ Imagine light rays traveling from a distant star. A telescope acts like a giant light bucket, collecting these faint rays, bending them, and bringing them to a sharp focus where we can then observe them.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Collect Light</span></div><div class="step"><span class="snum">2</span><span>Focus Light</span></div><div class="step"><span class="snum">3</span><span>Form Image</span></div><div class="step"><span class="snum">4</span><span>View Image</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Main <span class="hl">Types</span> of Optical Telescopes</h2>
+          <ul><li>Refracting Telescopes (use lenses)</li><li>Reflecting Telescopes (use mirrors)</li><li>Each type has unique advantages</li><li>Both aim to gather and focus light</li></ul>
+          <p class="notes">🎙️ There are two primary types of optical telescopes that we'll discuss today: refracting telescopes, which use lenses, and reflecting telescopes, which use mirrors. Both designs achieve the same goal but in different ways.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Refracting</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Reflecting</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Refracting Telescopes: Using <span class="hl">Lenses</span></h2>
+          <ul><li>Uses two convex lenses</li><li>Objective lens gathers light</li><li>Eyepiece lens magnifies the image</li><li>Light passes through the lenses</li></ul>
+          <p class="notes">🎙️ A refracting telescope uses a large lens at the front, called the objective lens, to collect and bend light. This light then forms an image which is further magnified by a smaller lens, the eyepiece, for our viewing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Lens Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Real Example: <span class="hl">Galileo's</span> Refracting Telescope</h2>
+          <ul><li>Galileo Galilei improved it in 1609</li><li>Discovered Jupiter's moons</li><li>Observed phases of Venus</li><li>Revolutionized astronomy</li></ul>
+          <p class="notes">🎙️ The famous astronomer Galileo Galilei was one of the first to use a refracting telescope for astronomical observations. His improvements allowed him to make groundbreaking discoveries, proving that not everything revolved around Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Historic View</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Limitations</span> of Refracting Telescopes</h2>
+          <ul><li>Chromatic aberration (color distortion)</li><li>Difficult to make large, perfect lenses</li><li>Lenses can sag under their own weight</li><li>Expensive to produce large apertures</li></ul>
+          <p class="notes">🎙️ Despite their historical significance, refracting telescopes have drawbacks. One major issue is chromatic aberration, where different colors of light focus at slightly different points, causing color fringes around objects. Large lenses are also very heavy and hard to support.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌈</span><span>🌈</span><span>🌈</span></div><div class="vcap">Color Fringes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Reflecting Telescopes: Using <span class="hl">Mirrors</span></h2>
+          <ul><li>Uses a curved primary mirror</li><li>Mirror gathers and reflects light</li><li>Secondary mirror directs light to eyepiece</li><li>Avoids chromatic aberration</li></ul>
+          <p class="notes">🎙️ Reflecting telescopes, on the other hand, use mirrors instead of lenses. A large concave mirror at the back collects light and reflects it to a focal point. This design elegantly solves many of the problems faced by refractors.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪞</div><div class="vcap">Mirror Focus</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Real Example: <span class="hl">Newtonian</span> Reflector</h2>
+          <ul><li>Invented by Isaac Newton</li><li>Uses a primary concave mirror</li><li>A small flat secondary mirror</li><li>Eyepiece on the side of the tube</li></ul>
+          <p class="notes">🎙️ Sir Isaac Newton developed one of the most common reflecting telescope designs. His innovation used a small flat mirror to redirect the light to an eyepiece on the side of the telescope tube, making it more practical to use.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Newton's Idea</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Refractors vs. Reflectors: A <span class="hl">Comparison</span></h2>
+          <ul><li>Refractors: Lenses, less maintenance, smaller apertures.</li><li>Reflectors: Mirrors, larger apertures, no chromatic aberration.</li><li>Reflectors are preferred for large observatories.</li></ul>
+          <p class="notes">🎙️ To summarize, refractors are generally smaller and simpler but suffer from color issues and size limitations. Reflectors can be made much larger, offering brighter and clearer images without chromatic aberration, which is why most professional observatories use them.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Refractor Size</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Reflector Size</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick Question 1: <span class="hl">Identify</span> the Type</h2>
+          <ul><li>Which type of telescope uses lenses to gather and focus light?</li><li>Is it a Refracting Telescope or a Reflecting Telescope?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding. Think about what we just discussed. Which of the two main types of telescopes relies on lenses to perform its function?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick Question 2: <span class="hl">Advantage</span> of Reflectors</h2>
+          <ul><li>What is a key advantage of reflecting telescopes over refracting telescopes?</li><li>Think about image quality or size.</li></ul>
+          <p class="notes">🎙️ Now, consider the advantages. We talked about a specific problem that refractors have which reflectors avoid. What was that key benefit of using mirrors?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Beyond Visible Light: <span class="hl">Radio</span> Telescopes</h2>
+          <ul><li>Not all celestial objects emit visible light</li><li>Some emit radio waves, X-rays, or gamma rays</li><li>Radio telescopes detect radio waves</li><li>Reveals hidden aspects of the universe</li></ul>
+          <p class="notes">🎙️ Our eyes only see visible light, but the universe emits many other forms of electromagnetic radiation. Radio telescopes are designed to detect radio waves, which allows us to observe objects that are invisible to optical telescopes, like distant galaxies or nebulae obscured by dust.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📡</div><div class="vcap">Invisible Light</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">How</span> Radio Telescopes Work</h2>
+          <ul><li>Large dish acts as a collector</li><li>Gathers faint radio signals</li><li>Signals are amplified and processed</li><li>Creates images from radio data</li></ul>
+          <p class="notes">🎙️ Just like an optical telescope collects visible light, a radio telescope's large dish collects radio waves. These waves are then focused onto a receiver, converted into electrical signals, and processed by computers to create images of celestial objects.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Collect Radio Waves</span></div><div class="step"><span class="snum">2</span><span>Focus Signals</span></div><div class="step"><span class="snum">3</span><span>Amplify &amp; Process</span></div><div class="step"><span class="snum">4</span><span>Form Image</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Real Example: <span class="hl">GMRT</span> (India's Radio Telescope)</h2>
+          <ul><li>Giant Metrewave Radio Telescope</li><li>Located near Pune, Maharashtra</li><li>One of the world's largest radio telescopes</li><li>Studies pulsars, galaxies, and cosmology</li></ul>
+          <p class="notes">🎙️ India is home to the Giant Metrewave Radio Telescope, or GMRT, near Pune. It's a world-class facility that has made significant contributions to astrophysics, studying phenomena like pulsars and the early universe. It's a great example of India's scientific prowess.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">Indian Science</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Applications</span> of Telescopes</h2>
+          <ul><li>Discovering new planets and stars</li><li>Studying galaxy formation</li><li>Understanding black holes</li><li>Monitoring space weather</li><li>Supporting space missions</li></ul>
+          <p class="notes">🎙️ Telescopes are not just for looking at pretty pictures. They are crucial scientific instruments used for a vast range of research, from finding exoplanets to understanding the life cycle of stars and the evolution of galaxies.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span><span>🌟</span></div><div class="vcap">Universe Unveiled</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Observatories</span>: Homes for Telescopes</h2>
+          <ul><li>Dedicated sites for astronomical observation</li><li>Often located on high mountains</li><li>Away from city lights and air pollution</li><li>Provide stable environments for instruments</li></ul>
+          <p class="notes">🎙️ Large telescopes are typically housed in special facilities called observatories. These are often built in remote, high-altitude locations to minimize light pollution and atmospheric turbulence, ensuring the clearest possible views of the cosmos.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛰️</div><div class="vcap">Clear Skies</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Challenges</span> in Observing Space from Earth</h2>
+          <ul><li>Atmospheric interference (blurring)</li><li>Light pollution from cities</li><li>Weather conditions (clouds, rain)</li><li>Limited observation windows</li></ul>
+          <p class="notes">🎙️ Even with the best ground-based telescopes, Earth's atmosphere presents a major challenge. It blurs images, absorbs certain wavelengths of light, and is affected by weather and human-made light pollution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌫️</div><div class="vcap">Atmosphere</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Space</span> Telescopes: Above the Atmosphere</h2>
+          <ul><li>Placed in orbit around Earth</li><li>Avoid atmospheric distortion</li><li>Can observe all wavelengths of light</li><li>Provide incredibly clear images</li></ul>
+          <p class="notes">🎙️ To overcome atmospheric challenges, scientists launched space telescopes. These telescopes orbit Earth, providing an unobstructed view of the universe, free from atmospheric blurring and absorption, allowing for much clearer and more detailed observations across the electromagnetic spectrum.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛰️</div><div class="vcap">Orbiting View</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Question 3: <span class="hl">Why</span> Space Telescopes?</h2>
+          <ul><li>What is the primary reason for placing telescopes in space?</li><li>How does it improve observations?</li></ul>
+          <p class="notes">🎙️ Based on what we just discussed, think about the biggest advantage of a space telescope compared to one on Earth. Why go to all that trouble and expense to put a telescope in orbit?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Our Journey with Telescopes</h2>
+          <ul><li>Telescopes gather light to see distant objects</li><li>Refractors use lenses, Reflectors use mirrors</li><li>Radio telescopes detect radio waves</li><li>Space telescopes overcome Earth's atmosphere</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember that telescopes are powerful tools that extend our vision into the cosmos. Whether using lenses, mirrors, or radio dishes, they all help us unravel the mysteries of the universe.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Summary</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>! Keep Looking Up!</h2>
+          <ul><li>Hope you enjoyed learning about telescopes!</li><li>Continue exploring the wonders of space!</li><li>Ask questions and stay curious!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on telescopes. I hope you feel inspired to learn more about space and perhaps even look through a telescope yourself one day. Keep that curiosity alive!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

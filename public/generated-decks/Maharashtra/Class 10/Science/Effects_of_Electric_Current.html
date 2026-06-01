@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Effects of Electric Current — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to 'Effects of Electric Current'</h2>
+          <ul><li>Explore how electricity influences the world around us.</li><li>Understand the various effects produced by electric current.</li><li>Discover real-life applications of these effects.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of electricity. We'll uncover the fascinating ways electric current impacts our daily lives and the principles behind these effects. Let's begin!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Electric Current</span>?</h2>
+          <ul><li>It's the flow of electric charges (electrons) through a conductor.</li><li>Measured in Amperes (A).</li><li>It needs a closed path, called a circuit, to flow.</li></ul>
+          <p class="notes">🎙️ Remember from previous classes that electric current is essentially the movement of tiny charged particles, electrons, through materials that allow them to pass easily. Think of it like water flowing through a pipe. This flow is what powers most of our devices.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="⚡" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Main <span class="hl">Effects</span> of Electric Current</h2>
+          <ul><li>Heating Effect: Current generates heat.</li><li>Magnetic Effect: Current creates magnetic fields.</li><li>Chemical Effect: Current causes chemical changes (not in focus for this chapter).</li></ul>
+          <p class="notes">🎙️ Electric current isn't just about lighting up bulbs; it has several profound effects. Today, we'll focus on the two most significant ones for Class 10: the heating effect and the magnetic effect. These form the basis for countless technologies.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Joule_heating.svg?width=500" data-fb="✨" alt="Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i"/><div class="vcap">Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Heating Effect</span> of Electric Current</h2>
+          <ul><li>When current flows through a resistor, electrical energy is converted into heat energy.</li><li>This happens due to collisions between electrons and atoms of the conductor.</li><li>The conductor gets warm or even hot.</li></ul>
+          <p class="notes">🎙️ Imagine pushing many people through a narrow doorway. There will be friction and warmth generated. Similarly, as electrons move through a conductor, they collide with its atoms, transferring energy and causing the conductor to heat up. This is the heating effect.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat Generation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Joule's Law</span> of Heating</h2>
+          <ul><li>Heat produced (H) is directly proportional to:</li><li>Square of current (I²)</li><li>Resistance of conductor (R)</li><li>Time for which current flows (t)</li><li>Formula: H = I²Rt</li></ul>
+          <p class="notes">🎙️ James Prescott Joule formulated this law, which precisely describes how much heat is generated. It tells us that if you double the current, the heat produced becomes four times! This law is fundamental to understanding how many heating appliances work.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Heat Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Electric Iron</span></h2>
+          <ul><li>Uses a heating element (e.g., nichrome wire) with high resistance.</li><li>When current passes through, it generates significant heat.</li><li>This heat is used to press clothes.</li></ul>
+          <p class="notes">🎙️ Think about your electric iron at home. Its soleplate gets hot enough to remove wrinkles. This is a direct application of the heating effect. The special wire inside, often nichrome, is designed to have high resistance to produce a lot of heat efficiently.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Pressing Clothes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Factors</span> Affecting Heat Production</h2>
+          <ul><li>Current (I): More current, much more heat.</li><li>Resistance (R): Higher resistance, more heat.</li><li>Time (t): Longer time, more heat.</li></ul>
+          <p class="notes">🎙️ Let's visualize how each factor impacts the heat produced. A small increase in current can lead to a large increase in heat because it's squared in the formula. Similarly, using a material with higher resistance or running the current for longer will also increase the heat.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Current (I)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Resistance (R)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Time (t)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Application: <span class="hl">Electric Fuse</span></h2>
+          <ul><li>A safety device that protects circuits and appliances from high current.</li><li>Contains a low melting point wire.</li><li>Melts and breaks the circuit if current exceeds a safe limit.</li></ul>
+          <p class="notes">🎙️ The electric fuse is a crucial safety component in our homes. It works on the heating effect. If too much current flows, the fuse wire heats up, melts, and breaks the circuit, preventing damage to expensive appliances or even fire hazards. It's like a guardian for your electrical system.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Circuit Protection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Incandescent Bulb</span></h2>
+          <ul><li>A thin tungsten filament has very high resistance.</li><li>When current passes, it heats up to extremely high temperatures.</li><li>It glows brightly, emitting light, due to incandescence.</li></ul>
+          <p class="notes">🎙️ Before LEDs, incandescent bulbs were common. The tiny filament inside, made of tungsten, heats up so much when current passes through it that it starts glowing white-hot, producing light. This is another excellent example of converting electrical energy into heat and then light.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light from Heat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Quick <span class="hl">Check 1</span></h2>
+          <ul><li>Which of the following devices does NOT primarily work on the heating effect of electric current?</li><li>a) Electric kettle</li><li>b) Electric toaster</li><li>c) Electric fan</li><li>d) Electric geyser</li></ul>
+          <p class="notes">🎙️ Take a moment to think about the primary function of each device listed. Which one uses the electric current mainly to create motion rather than heat? The answer is 'c) Electric fan'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Magnetic Effect</span> of Electric Current</h2>
+          <ul><li>An electric current produces a magnetic field around the conductor.</li><li>This effect was discovered by Hans Christian Oersted.</li><li>It forms the basis for motors, generators, and electromagnets.</li></ul>
+          <p class="notes">🎙️ Now, let's shift our focus to another incredible effect: magnetism. It was a groundbreaking discovery that electricity and magnetism are not separate phenomena but are intimately linked. Wherever there's a moving charge, there's a magnetic field.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Earths_magnetosphere_and_field.svg?width=500" data-fb="🧲" alt="Earth acts as a giant magnet with a magnetic field extending far into space, protecting li"/><div class="vcap">Earth acts as a giant magnet with a magnetic field extending far into space, protecting li</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Oersted's</span> Experiment</h2>
+          <ul><li>He placed a magnetic compass near a wire.</li><li>When current flowed through the wire, the compass needle deflected.</li><li>When current was switched off, the needle returned to its original position.</li><li>Conclusion: Electric current produces a magnetic field.</li></ul>
+          <p class="notes">🎙️ Oersted's simple experiment in 1820 changed our understanding of physics. He observed that a current-carrying wire behaved like a magnet, influencing a nearby compass. This direct link between electricity and magnetism opened up a whole new field of study.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Compass near wire</span></div><div class="step"><span class="snum">2</span><span>Current ON, needle deflects</span></div><div class="step"><span class="snum">3</span><span>Current OFF, needle returns</span></div><div class="step"><span class="snum">4</span><span>Current creates B-field</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Magnetic Field Lines around a <span class="hl">Straight Conductor</span></h2>
+          <ul><li>The magnetic field lines are concentric circles around the wire.</li><li>Their direction depends on the direction of current.</li><li>Field strength decreases as you move away from the wire.</li></ul>
+          <p class="notes">🎙️ If you sprinkle iron filings around a current-carrying straight wire, they arrange themselves in concentric circles. This shows the pattern of the magnetic field. The closer you are to the wire, the stronger the field lines are, indicated by their density.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Magnet0873.png?width=500" data-fb="🌐" alt="Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet"/><div class="vcap">Magnets have two poles (north and south). Opposite poles attract; like poles repel. Magnet</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Right-Hand <span class="hl">Thumb Rule</span></h2>
+          <ul><li>To find the direction of the magnetic field around a straight conductor.</li><li>Hold the wire with your right hand, thumb pointing in current direction.</li><li>Your curled fingers show the direction of the magnetic field lines.</li></ul>
+          <p class="notes">🎙️ This simple rule helps us easily determine the direction of the magnetic field. If the current is flowing upwards, your thumb points up, and your fingers curl anti-clockwise, indicating the magnetic field direction. It's a very practical rule.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Direction Finder</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Magnetic Field due to a <span class="hl">Circular Loop</span></h2>
+          <ul><li>Each segment of the loop produces concentric circles of magnetic field.</li><li>Inside the loop, all field lines point in the same direction.</li><li>The field at the center is strong and uniform.</li></ul>
+          <p class="notes">🎙️ When current flows through a circular loop, the magnetic field lines from each part of the loop combine. Inside the loop, they all add up, creating a strong and relatively uniform magnetic field, much like a bar magnet.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Loop's Field</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Magnetic Field due to a <span class="hl">Solenoid</span></h2>
+          <ul><li>A coil of many circular turns of insulated copper wire.</li><li>Behaves like a bar magnet when current flows.</li><li>Field lines inside are parallel and uniform, similar to a bar magnet.</li></ul>
+          <p class="notes">🎙️ A solenoid is essentially many circular loops stacked together. When current passes through it, it creates a powerful and uniform magnetic field inside, almost identical to that of a permanent bar magnet. This makes solenoids very useful for creating controlled magnetic fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗼</div><div class="vcap">Coil Magnet</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Electromagnet</span></h2>
+          <ul><li>A solenoid with a soft iron core inserted inside.</li><li>The soft iron core gets magnetized when current flows.</li><li>Can be switched ON/OFF, used in cranes, doorbells, MRI machines.</li></ul>
+          <p class="notes">🎙️ Electromagnets are powerful temporary magnets. By placing a soft iron core inside a solenoid, its magnetic strength is hugely increased. The best part is you can turn its magnetism on and off just by controlling the current, making them indispensable in various technologies like lifting heavy scrap metal or in medical imaging.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Switchable Magnet</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Force</span> on a Current-Carrying Conductor in a Magnetic Field</h2>
+          <ul><li>A current-carrying conductor placed in a magnetic field experiences a force.</li><li>This force can cause the conductor to move.</li><li>The direction of force depends on current direction and field direction.</li></ul>
+          <p class="notes">🎙️ This is another crucial aspect of the magnetic effect. Not only does current create a magnetic field, but a current-carrying wire itself experiences a force when placed in an external magnetic field. This principle is fundamental to how electric motors work.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Movement from Force</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Fleming's <span class="hl">Left-Hand Rule</span></h2>
+          <ul><li>Used to determine the direction of force on a current-carrying conductor.</li><li>Thumb: Direction of Force (Motion)</li><li>Forefinger: Direction of Magnetic Field</li><li>Middle Finger: Direction of Current</li></ul>
+          <p class="notes">🎙️ Fleming's Left-Hand Rule is a handy mnemonic to remember the relationship between these three directions. Point your forefinger in the direction of the magnetic field, your middle finger in the direction of the current, and your thumb will automatically point in the direction of the force or motion experienced by the conductor.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Motion Direction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Electric Motor</span></h2>
+          <ul><li>Converts electrical energy into mechanical energy (rotation).</li><li>Uses the principle of force on a current-carrying conductor.</li><li>Found in fans, washing machines, pumps, and many appliances.</li></ul>
+          <p class="notes">🎙️ The electric motor is a marvel of engineering, directly applying the force principle we just discussed. It uses magnetic fields to make a coil rotate continuously when current passes through it. From small toys to industrial machinery, motors are everywhere, making things move.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Electric_motor_of_an_electric_vehicle.svg?width=500" data-fb="⚙️" alt="An electric motor converts electrical energy to mechanical energy by rotating a current-ca"/><div class="vcap">An electric motor converts electrical energy to mechanical energy by rotating a current-ca</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check 2</span></h2>
+          <ul><li>Which rule helps determine the direction of the magnetic field produced by a straight current-carrying wire?</li><li>a) Fleming's Left-Hand Rule</li><li>b) Right-Hand Thumb Rule</li><li>c) Ohm's Law</li><li>d) Joule's Law</li></ul>
+          <p class="notes">🎙️ Recall the rules we just learned. One helps with the direction of the magnetic field, and the other with the direction of force. The correct answer is 'b) Right-Hand Thumb Rule'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Electromagnetic <span class="hl">Induction</span></h2>
+          <ul><li>The phenomenon of producing an induced electric current in a conductor.</li><li>This happens by changing the magnetic field around it.</li><li>Discovered by Michael Faraday.</li></ul>
+          <p class="notes">🎙️ So far, we've seen how electricity can produce magnetism. Now, let's explore the reverse: how magnetism can produce electricity! This incredible phenomenon, electromagnetic induction, is how most of the electricity we use is generated.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Electromagnetic_induction_-_solenoid_to_solenoid.svg?width=500" data-fb="🔄" alt="Electromagnetic induction is the generation of electric current by a changing magnetic fie"/><div class="vcap">Electromagnetic induction is the generation of electric current by a changing magnetic fie</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Faraday's</span> Experiment</h2>
+          <ul><li>Moved a magnet near a coil connected to a galvanometer.</li><li>Galvanometer showed deflection when the magnet moved.</li><li>No deflection when the magnet was stationary.</li><li>Conclusion: Changing magnetic field induces current.</li></ul>
+          <p class="notes">🎙️ Michael Faraday, a brilliant scientist, showed that simply moving a magnet near a coil of wire could generate an electric current. This 'induced current' only flows as long as there is a change in the magnetic field linking with the coil. This discovery was revolutionary.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Coil &amp; Galvanometer</span></div><div class="step"><span class="snum">2</span><span>Magnet moves, current flows</span></div><div class="step"><span class="snum">3</span><span>Magnet stops, current stops</span></div><div class="step"><span class="snum">4</span><span>Changing B-field induces current</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Electric Generator</span></h2>
+          <ul><li>Converts mechanical energy into electrical energy.</li><li>Works on the principle of electromagnetic induction.</li><li>Rotates a coil in a magnetic field to produce current.</li><li>Powers our homes and industries.</li></ul>
+          <p class="notes">🎙️ The electric generator is the heart of our power plants. Whether it's driven by steam, water, or wind, its core function is to rotate coils within strong magnetic fields, continuously changing the magnetic flux and inducing a massive amount of electric current that powers our entire world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electricity Source</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Effects of Electric Current</h2>
+          <ul><li>Heating Effect: Current generates heat (H=I²Rt).</li><li>Magnetic Effect: Current creates magnetic fields (Oersted's discovery).</li><li>Force Effect: Current in B-field experiences force (Fleming's Left-Hand Rule).</li><li>Induction Effect: Changing B-field induces current (Faraday's discovery).</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From the warmth of an electric iron to the spinning of a fan, and how electricity is even generated, all these phenomena are governed by the fundamental effects of electric current. Keep exploring and observing these effects around you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Areas Related to Circles — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Areas</span> Related to Circles</h2>
+          <ul><li>Class 10 Mathematics</li><li>MP Board Syllabus</li><li>Understanding shapes and spaces</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're diving into an exciting chapter: Areas Related to Circles. We'll explore how to measure different parts of a circle and combine them with other shapes.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Revisiting <span class="hl">Circle Basics</span></h2>
+          <ul><li>What is a circle?</li><li>Radius (r) and Diameter (d)</li><li>Circumference (C) = 2πr</li></ul>
+          <p class="notes">🎙️ Before we go further, let's quickly recall what you already know about circles. Remember, a circle is a set of points equidistant from a central point, and its circumference is the distance around it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⭕</div><div class="vcap">Parts of a Circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Area</span> of a Circle</h2>
+          <ul><li>The space enclosed by a circle</li><li>Formula: Area (A) = πr²</li><li>π (pi) ≈ 22/7 or 3.14</li></ul>
+          <p class="notes">🎙️ The area of a circle tells us how much flat space it covers. This fundamental formula, A = πr², will be crucial throughout our chapter. Make sure you remember it well!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Area in <span class="hl">Real Life</span></h2>
+          <ul><li>Calculating the surface of a CD</li><li>Finding space covered by a round table</li><li>How much pizza is there?</li></ul>
+          <p class="notes">🎙️ Think about everyday objects! If you want to know how much material is needed to make a circular placemat or how much space a CD occupies, you'd use the area of a circle formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">Pizza Slice</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">New Concepts</span>: Sectors and Segments</h2>
+          <ul><li>Parts of a circle, like slices</li><li>Beyond the full circle</li><li>Important for complex designs</li></ul>
+          <p class="notes">🎙️ Now, let's explore parts of a circle that are more specific than just the whole. Imagine cutting a cake – you get slices, right? Those are similar to what we call sectors and segments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍰</div><div class="vcap">Cake Slices</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>What is a <span class="hl">Sector</span>?</h2>
+          <ul><li>Region bounded by two radii and an arc</li><li>Like a 'slice' of pizza or cake</li><li>Defined by a central angle (θ)</li></ul>
+          <p class="notes">🎙️ A sector is essentially a 'slice' of the circle. It's formed by two radii extending from the center and the arc connecting their endpoints. The angle at the center is key to defining its size.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Angle Measurement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Sectors</span> Around Us</h2>
+          <ul><li>A clock's hands form a sector</li><li>Windshield wipers clear a sector</li><li>Fan blades sweep out a sector</li></ul>
+          <p class="notes">🎙️ Look around! The movement of a clock's hands, the area cleaned by a windshield wiper, or even the shape of a fan blade are all examples of sectors in our daily lives.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏰</div><div class="vcap">Clock Face</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Area of a Sector <span class="hl">Formula</span></h2>
+          <ul><li>Proportional to the central angle</li><li>Fraction of the total circle area</li><li>Area = (θ/360°) × πr²</li></ul>
+          <p class="notes">🎙️ The area of a sector is a fraction of the total area of the circle. This fraction is determined by the central angle (θ) out of the total 360 degrees in a circle. It's a simple proportion!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Division</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Calculate <span class="hl">Sector Area</span></h2>
+          <ul><li>Radius = 7 cm</li><li>Central angle = 60°</li><li>Find the area of the sector</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. We substitute the given radius and angle into the formula, perform the calculations, and remember to include the correct units for area, which are square centimeters.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Formula</span></div><div class="step"><span class="snum">2</span><span>Substitute</span></div><div class="step"><span class="snum">3</span><span>Simplify</span></div><div class="step"><span class="snum">4</span><span>Result</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Length of an <span class="hl">Arc</span></h2>
+          <ul><li>The curved boundary of the sector</li><li>Part of the circle's circumference</li><li>Measured along the curve</li></ul>
+          <p class="notes">🎙️ Just as a sector has an area, it also has a curved edge called an arc. This arc is a part of the circle's total circumference, and its length depends on the central angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">〰️</div><div class="vcap">Curved Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Arc Length <span class="hl">Formula</span></h2>
+          <ul><li>Proportional to the central angle</li><li>Fraction of the total circumference</li><li>Length = (θ/360°) × 2πr</li></ul>
+          <p class="notes">🎙️ Similar to the area, the length of an arc is also a fraction of the circle's total circumference. The same central angle (θ) determines this fraction. It's another proportional relationship!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Length</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Calculate <span class="hl">Arc Length</span></h2>
+          <ul><li>Radius = 14 cm</li><li>Central angle = 90°</li><li>Find the length of the arc</li></ul>
+          <p class="notes">🎙️ Let's practice finding the arc length. We'll plug in the given values for radius and angle into our arc length formula and simplify to get our final answer in centimeters.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Formula</span></div><div class="step"><span class="snum">2</span><span>Substitute</span></div><div class="step"><span class="snum">3</span><span>Simplify</span></div><div class="step"><span class="snum">4</span><span>Result</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>A sector has radius 10 cm and angle 72°.</li><li>What is its area? (Use π=3.14)</li></ul>
+          <p class="notes">🎙️ Time for a quick mental calculation or a rapid scribble! Take a moment to apply the area of a sector formula with these new numbers. What do you get?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>What is a <span class="hl">Segment</span>?</h2>
+          <ul><li>Region bounded by a chord and an arc</li><li>The 'crust' part of a pizza slice</li><li>Minor and Major segments</li></ul>
+          <p class="notes">🎙️ Now, let's look at another part of a circle called a segment. Unlike a sector, which uses radii, a segment is formed by a chord and the arc it cuts off. Think of it as a piece of a circular cookie!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔪</div><div class="vcap">Cutting a Circle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Segments</span> in Daily Life</h2>
+          <ul><li>The shape of a crescent moon</li><li>A part of a pie cut by a straight line</li><li>The 'window' of a circular design</li></ul>
+          <p class="notes">🎙️ Segments are also common. Imagine a half-eaten cookie or the shape of a window in a circular frame. These are good examples of segments, showing parts of a circle cut by a straight line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍪</div><div class="vcap">Cookie Bite</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Area of a Segment <span class="hl">Formula</span></h2>
+          <ul><li>Area of Sector - Area of Triangle</li><li>Triangle formed by radii and chord</li><li>Requires trigonometry for triangle area</li></ul>
+          <p class="notes">🎙️ To find the area of a segment, we take the area of the entire sector and subtract the area of the triangle formed by the two radii and the chord. This often involves using trigonometric formulas for the triangle's area.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Subtraction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Calculate <span class="hl">Segment Area</span></h2>
+          <ul><li>Radius = 10 cm, Angle = 90°</li><li>Area of sector = (90/360) * π * 10²</li><li>Area of triangle = (1/2) * base * height</li></ul>
+          <p class="notes">🎙️ Here’s a step-by-step example. First, calculate the sector area. Then, find the area of the isosceles triangle using the radii. Finally, subtract the triangle's area from the sector's area to get the segment's area.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sector Area</span></div><div class="step"><span class="snum">2</span><span>Triangle Area</span></div><div class="step"><span class="snum">3</span><span>Subtract</span></div><div class="step"><span class="snum">4</span><span>Result</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Combining</span> Shapes</h2>
+          <ul><li>Finding areas of complex figures</li><li>Involving circles, squares, triangles</li><li>Breaking down into simpler shapes</li></ul>
+          <p class="notes">🎙️ Often, designs or objects aren't just one simple shape. We need to find the area of figures that are combinations of circles, squares, triangles, and other shapes. The trick is to break them down!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Puzzle Pieces</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Combined Areas in <span class="hl">Design</span></h2>
+          <ul><li>Floor patterns with circular inserts</li><li>Garden layouts with curved paths</li><li>Logos and artistic creations</li></ul>
+          <p class="notes">🎙️ From intricate floor tiles to beautiful garden designs, combined areas are everywhere. Architects and designers use these concepts to calculate materials needed and create visually appealing spaces.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🖼️</span><span>🖼️</span><span>🖼️</span><span>🖼️</span><span>🖼️</span></div><div class="vcap">Artistic Designs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Combined Area</span> Problem</h2>
+          <ul><li>Square of side 14 cm</li><li>Four equal circles touch each other</li><li>Find area of shaded region</li></ul>
+          <p class="notes">🎙️ Let's solve a problem involving combined areas. We'll find the area of the square, then the area of the four circles. The shaded area will be the square's area minus the total area of the circles.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Square Area</span></div><div class="step"><span class="snum">2</span><span>Circle Area</span></div><div class="step"><span class="snum">3</span><span>Subtract</span></div><div class="step"><span class="snum">4</span><span>Result</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>Radius = 21 cm, Angle = 120°</li><li>What is the length of the arc?</li></ul>
+          <p class="notes">🎙️ Another quick practice question! Use the arc length formula with these values. Remember to use π as 22/7 for easier calculation if possible.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>A segment with radius 5 cm, angle 90°.</li><li>What is its area?</li></ul>
+          <p class="notes">🎙️ This one requires two steps: area of the sector and area of the triangle. Think carefully about how to find the area of the right-angled triangle formed by the radii.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>A circle is inscribed in a square of side 10 cm.</li><li>What is the area of the region outside the circle but inside the square?</li></ul>
+          <p class="notes">🎙️ This is a combined area problem. Visualize the square and the largest possible circle fitting inside it. How would you find the area of the leftover space?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Summary</span></h2>
+          <ul><li>Area of Circle: πr²</li><li>Area of Sector: (θ/360)πr²</li><li>Length of Arc: (θ/360)2πr</li><li>Area of Segment: Area of Sector - Area of Triangle</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember these key formulas. They are the building blocks for solving problems related to areas of circles, sectors, and segments.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Circle</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Sector</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Arc</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Segment</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Practicing</span>!</h2>
+          <ul><li>Review formulas and concepts</li><li>Solve more problems from your textbook</li><li>Practice makes perfect!</li></ul>
+          <p class="notes">🎙️ Mathematics is all about practice. The more you solve different types of problems, the better you'll understand these concepts and remember the formulas. Keep up the good work!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

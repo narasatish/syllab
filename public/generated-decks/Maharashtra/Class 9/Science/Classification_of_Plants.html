@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Classification of Plants — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter: <span class="hl">Classification</span> of Plants</h2>
+          <ul><li>Welcome to the world of plants!</li><li>Today, we will learn how scientists group plants.</li><li>Understanding classification helps us study diversity.</li></ul>
+          <p class="notes">🎙️ Hello students! I'm excited to start our journey into the fascinating world of plants. In this chapter, we'll discover how plants are organized and categorized. This systematic approach makes it easier to understand their vast diversity and unique characteristics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Why</span> do we Classify Plants?</h2>
+          <ul><li>To organize a vast number of plant species.</li><li>To understand relationships between different plants.</li><li>To identify new plants easily.</li><li>To study their evolution and adaptations.</li></ul>
+          <p class="notes">🎙️ Imagine a library without any organization – it would be impossible to find a book! Similarly, with millions of plant species, we need a system to organize them. Classification helps us bring order to this natural diversity, making it simpler to study and understand each plant's role and history.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Organizing Nature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Early</span> Attempts at Classification</h2>
+          <ul><li>Ancient Greek philosophers like Aristotle and Theophrastus.</li><li>Based on simple characteristics: size, habitat, lifespan.</li><li>Theophrastus classified plants into trees, shrubs, and herbs.</li><li>These systems were basic and lacked detailed biological insights.</li></ul>
+          <p class="notes">🎙️ Humans have always tried to make sense of the world around them. Early classification attempts were quite basic, often grouping plants by practical uses or obvious physical traits. While simple, these early efforts laid the groundwork for more sophisticated systems to come.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Records</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Modern</span> Basis: Carl Linnaeus</h2>
+          <ul><li>Developed a hierarchical system.</li><li>Introduced Binomial Nomenclature (two-name system).</li><li>Based on morphological (external) characteristics.</li><li>His work forms the foundation of modern taxonomy.</li></ul>
+          <p class="notes">🎙️ Carl Linnaeus, an 18th-century Swedish botanist, revolutionized plant classification. He introduced a standardized system that is still widely used today, giving every known species a unique two-part scientific name. This brought much-needed clarity and consistency to biology.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🔬</div><div class="vcap">Father of Taxonomy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Hierarchy</span> of Plant Classification</h2>
+          <ul><li>Plants are grouped into different ranks.</li><li>From broad to specific: Kingdom to Species.</li><li>Each level includes organisms with shared characteristics.</li></ul>
+          <p class="notes">🎙️ The classification system is like a set of nested boxes, starting with a very large box (Kingdom) that contains many different types of plants, and getting smaller and more specific until we reach a single type of plant (Species). This hierarchy helps us see relationships at various levels.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Kingdom</span></div><div class="step"><span class="snum">2</span><span>Phylum (Division for plants)</span></div><div class="step"><span class="snum">3</span><span>Class</span></div><div class="step"><span class="snum">4</span><span>Order</span></div><div class="step"><span class="snum">5</span><span>Family</span></div><div class="step"><span class="snum">6</span><span>Genus</span></div><div class="step"><span class="snum">7</span><span>Species</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>The <span class="hl">Plant Kingdom</span>: An Overview</h2>
+          <ul><li>Multicellular organisms.</li><li>Primarily autotrophic (make their own food via photosynthesis).</li><li>Have cell walls made of cellulose.</li><li>Mainly terrestrial, but some are aquatic.</li></ul>
+          <p class="notes">🎙️ The Plant Kingdom, or Kingdom Plantae, includes all the green, multicellular organisms we commonly recognize as plants. Their ability to produce their own food through photosynthesis is a defining characteristic, making them the base of most food chains on Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Life in Green</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Main Divisions</span>: Cryptogams vs. Phanerogams</h2>
+          <ul><li>Plants are broadly divided into two subkingdoms.</li><li>Based on whether their reproductive organs are visible or hidden.</li><li>This is a fundamental division in plant classification.</li></ul>
+          <p class="notes">🎙️ Our first major division in the Plant Kingdom is into Cryptogams and Phanerogams. The key difference lies in how they reproduce. Cryptogams have 'hidden' reproductive parts and reproduce using spores, while Phanerogams have 'visible' reproductive parts and reproduce using seeds.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Cryptogams (Hidden Reproduction)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Phanerogams (Visible Reproduction)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Cryptogams</span>: 'Hidden' Reproduction</h2>
+          <ul><li>Plants with inconspicuous or 'hidden' reproductive organs.</li><li>Reproduce by spores, not seeds.</li><li>Include Thallophyta, Bryophyta, and Pteridophyta.</li><li>These are considered lower plants.</li></ul>
+          <p class="notes">🎙️ Cryptogams, meaning 'hidden marriage', are plants that do not produce flowers or seeds. Their reproductive structures are often microscopic or less obvious. They represent the earlier evolutionary forms of plants, relying on spores for propagation, often requiring water for fertilization.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_Reproduction.png?width=500" data-fb="🤫" alt="Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part"/><div class="vcap">Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Division 1: <span class="hl">Thallophyta</span> (Algae)</h2>
+          <ul><li>Simplest form of plant body, called a thallus.</li><li>No true roots, stems, or leaves.</li><li>Mostly aquatic (freshwater and marine).</li><li>Example: Spirogyra, Chlamydomonas.</li></ul>
+          <p class="notes">🎙️ Thallophyta includes algae, which are very simple plants. Their body is not differentiated into distinct parts like roots or leaves. They are primarily found in water and range from microscopic single-celled organisms to large seaweeds, playing a crucial role in aquatic ecosystems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌊</span><span>🌊</span><span>🌊</span><span>🌊</span><span>🌊</span></div><div class="vcap">Aquatic Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Example: <span class="hl">Spirogyra</span> (Algae)</h2>
+          <ul><li>A common freshwater green algae.</li><li>Filamentous body, often forming 'pond scum'.</li><li>Known for its spiral chloroplasts.</li><li>Reproduces both sexually and asexually.</li></ul>
+          <p class="notes">🎙️ Spirogyra is a fantastic example of Thallophyta. If you've ever seen green, slimy mats floating on ponds, you've likely encountered Spirogyra. Its unique spiral-shaped chloroplasts are a beautiful sight under a microscope, making it a classic organism studied in biology.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Under the Microscope</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Division 2: <span class="hl">Bryophyta</span> (Amphibians of Plant Kingdom)</h2>
+          <ul><li>First plants to adapt to land, but need water for reproduction.</li><li>No true roots, but have rhizoids for anchorage.</li><li>Body differentiated into stem-like and leaf-like structures.</li><li>Example: Mosses, Liverworts.</li></ul>
+          <p class="notes">🎙️ Bryophytes are often called the 'amphibians' of the plant kingdom because, like frogs, they live on land but require water for reproduction. They are small, non-vascular plants found in moist, shady places, forming dense green carpets on rocks and tree trunks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐸</div><div class="vcap">Land-Water Link</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Example: <span class="hl">Moss</span> (Funaria)</h2>
+          <ul><li>A common example of Bryophyta.</li><li>Has a simple stem-like axis and small leaf-like structures.</li><li>Reproduces by spores formed in a capsule.</li><li>Helps prevent soil erosion.</li></ul>
+          <p class="notes">🎙️ Funaria, or common moss, is a typical bryophyte. You'll often find it growing in damp, shady spots, creating a soft, green mat. Mosses play an important ecological role by retaining moisture and contributing to soil formation, especially in harsh environments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Green Carpets</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Division 3: <span class="hl">Pteridophyta</span> (First Vascular Plants)</h2>
+          <ul><li>First land plants with true roots, stems, and leaves.</li><li>Possess vascular tissues (xylem and phloem) for transport.</li><li>Reproduce by spores, typically found on the underside of leaves.</li><li>Example: Ferns, Horsetails.</li></ul>
+          <p class="notes">🎙️ Pteridophytes, like ferns, represent a significant evolutionary step. They were the first plants to develop a proper vascular system, allowing them to grow taller and transport water and nutrients more efficiently. This made them truly independent of water for physical support, though still needing it for reproduction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌿</div><div class="vcap">Vascular Pioneers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Example: <span class="hl">Fern</span> (Nephrolepis)</h2>
+          <ul><li>A popular ornamental plant.</li><li>Has large, feathery leaves called fronds.</li><li>Spores are produced in structures called sori on the fronds.</li><li>Found in moist, shaded areas.</li></ul>
+          <p class="notes">🎙️ Ferns are beautiful and graceful plants, often seen in gardens and forests. Nephrolepis, or the Boston fern, is a common example. Their distinctive fronds and the way they unfurl are quite captivating. Look closely, and you might spot the tiny sori on the underside, where their spores are produced.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌴</div><div class="vcap">Elegant Fronds</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Cryptogams</h2>
+          <ul><li>Which division of Cryptogams lacks true roots, stems, and leaves?</li><li>Why are Bryophytes called the 'amphibians of the plant kingdom'?</li><li>What is the main difference between Pteridophyta and Bryophyta?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding of Cryptogams. Think about the key characteristics of each division we've discussed. These questions will help you consolidate the information before we move on to the next major group of plants.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Phanerogams</span>: Seed-Bearing Plants</h2>
+          <ul><li>Plants with well-differentiated reproductive organs.</li><li>Reproduce by seeds, which contain an embryo and stored food.</li><li>Include Gymnosperms and Angiosperms.</li><li>These are considered higher plants.</li></ul>
+          <p class="notes">🎙️ Phanerogams, meaning 'visible marriage', are the seed-bearing plants. Seeds are a significant evolutionary advantage, as they provide protection and nourishment to the developing embryo, allowing plants to colonize drier environments more effectively. This group includes most of the plants we see around us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎁</div><div class="vcap">Seeds of Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Subdivision 1: <span class="hl">Gymnosperms</span> ('Naked Seeds')</h2>
+          <ul><li>Seeds are not enclosed within a fruit or ovary wall.</li><li>Often woody, perennial, and evergreen plants.</li><li>Have well-developed vascular tissues.</li><li>Example: Pines, Cycas, Deodar.</li></ul>
+          <p class="notes">🎙️ Gymnosperms, meaning 'naked seeds', are plants whose seeds are exposed, typically on the surface of cone scales. These include many familiar trees like pines and firs, known for their needle-like leaves and ability to thrive in colder climates. They represent an older lineage of seed plants.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌲</div><div class="vcap">Cones and Needles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Example: <span class="hl">Cycas</span> (Sago Palm)</h2>
+          <ul><li>Looks like a palm tree, but is a gymnosperm.</li><li>Has a thick, unbranched stem and large, pinnate leaves.</li><li>Produces large cones for reproduction.</li><li>A 'living fossil' - ancient plant lineage.</li></ul>
+          <p class="notes">🎙️ Cycas, often mistaken for a palm, is a classic example of a gymnosperm. It's a very ancient plant, sometimes called a 'living fossil', and gives us a glimpse into the plant life of prehistoric times. Its large, prominent cones are where its 'naked' seeds are developed.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌰</div><div class="vcap">Ancient Seeds</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Subdivision 2: <span class="hl">Angiosperms</span> ('Covered Seeds')</h2>
+          <ul><li>Seeds are enclosed within a fruit (formed from the ovary).</li><li>The most diverse and dominant group of plants.</li><li>Produce flowers for reproduction.</li><li>Example: Mango, Rose, Rice, Banyan.</li></ul>
+          <p class="notes">🎙️ Angiosperms, or flowering plants, are the most successful and widespread group of plants on Earth. Their defining characteristic is the production of flowers, which are specialized reproductive structures, and fruits, which protect the seeds. From tiny herbs to giant trees, they are all around us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌸</div><div class="vcap">Flowering Wonders</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Angiosperms: <span class="hl">Monocotyledons</span> vs. Dicotyledons</h2>
+          <ul><li>Angiosperms are further divided based on cotyledons.</li><li>Cotyledons are embryonic leaves within the seed.</li><li>This is a key characteristic for classification.</li></ul>
+          <p class="notes">🎙️ Within Angiosperms, we have two major classes: Monocotyledons and Dicotyledons. This division is based on the number of cotyledons, or seed leaves, present in the embryo. This single feature correlates with many other distinct characteristics of the plant.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Monocotyledons (1 cotyledon)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Dicotyledons (2 cotyledons)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Monocotyledons</span>: Single Cotyledon</h2>
+          <ul><li>Embryo has only one cotyledon.</li><li>Leaves typically have parallel venation (veins run parallel).</li><li>Fibrous root system (many thin roots).</li><li>Flowers usually trimerous (parts in multiples of 3).</li><li>Example: Rice, Wheat, Maize, Onion.</li></ul>
+          <p class="notes">🎙️ Monocotyledons, or monocots, are easily recognized by a few distinct features. Besides having a single cotyledon in their seed, they often have long, narrow leaves with parallel veins and a fibrous root system. Think of grasses, corn, or lilies as common examples.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌾</div><div class="vcap">Single Seed Leaf</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Dicotyledons</span>: Two Cotyledons</h2>
+          <ul><li>Embryo has two cotyledons.</li><li>Leaves typically have reticulate venation (net-like veins).</li><li>Tap root system (a main, central root).</li><li>Flowers usually tetramerous or pentamerous (multiples of 4 or 5).</li><li>Example: Mango, Rose, Bean, Sunflower.</li></ul>
+          <p class="notes">🎙️ Dicotyledons, or dicots, are the other large group of flowering plants. They have two cotyledons in their seeds, broader leaves with net-like veins, and a strong taproot system. Most trees, shrubs, and many garden flowers like roses and sunflowers are dicots.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Two Seed Leaves</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Phanerogams</h2>
+          <ul><li>What is the key difference between Gymnosperms and Angiosperms?</li><li>Name two features that distinguish a monocot from a dicot.</li><li>Give an example of a plant from each of the two Angiosperm classes.</li></ul>
+          <p class="notes">🎙️ Now that we've explored the Phanerogams, let's see how well you've grasped their characteristics. These questions will help you review the distinctions between naked and covered seeds, and the differences between monocots and dicots, which are crucial for understanding plant diversity.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Plant Classification Journey</h2>
+          <ul><li>Plants are classified into Cryptogams (spore-bearing) and Phanerogams (seed-bearing).</li><li>Cryptogams: Thallophyta, Bryophyta, Pteridophyta.</li><li>Phanerogams: Gymnosperms (naked seeds) and Angiosperms (covered seeds).</li><li>Angiosperms further divided into Monocots and Dicots.</li></ul>
+          <p class="notes">🎙️ We've covered a lot of ground today! From the simplest algae to the complex flowering plants, we've seen how plants are organized into a hierarchical system. Understanding these divisions helps us appreciate the incredible diversity and evolutionary journey of the plant kingdom.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Keep <span class="hl">Exploring</span> the Plant World!</h2>
+          <ul><li>Plants are essential for all life on Earth.</li><li>Every plant has a unique story and role.</li><li>Continue observing and learning about plants around you.</li></ul>
+          <p class="notes">🎙️ Thank you for joining me on this journey through plant classification. I hope you now have a clearer understanding of how plants are grouped and why it's so important. Remember to keep observing the plants around you; there's always something new to discover!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

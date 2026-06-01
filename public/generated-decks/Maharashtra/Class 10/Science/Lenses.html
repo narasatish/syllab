@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Lenses: Our Optical Tools! — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Lenses</span>: Our Optical Tools!</h2>
+          <ul><li>Discover how lenses shape light.</li><li>Explore their magic in daily life.</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we're going to embark on an exciting journey into the world of lenses. These simple yet powerful devices are all around us, helping us see the world in new ways.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Lens</span>?</h2>
+          <ul><li>A transparent material.</li><li>Bound by two spherical surfaces or one spherical and one plane surface.</li><li>Refracts light to form images.</li></ul>
+          <p class="notes">🎙️ Imagine a piece of clear glass or plastic shaped in a special way. That's essentially a lens! It's designed to bend or refract light in a predictable manner, which allows us to create images.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Light Bender</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Two Main <span class="hl">Types</span> of Lenses</h2>
+          <ul><li>Convex Lens (Converging Lens)</li><li>Concave Lens (Diverging Lens)</li></ul>
+          <p class="notes">🎙️ Just like we have different types of mirrors, lenses also come in two main categories: convex and concave. Each type has unique properties in how it handles light.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Lens1.svg?width=500" data-fb="🔬" alt="A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima"/><div class="vcap">A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Introducing the <span class="hl">Convex Lens</span></h2>
+          <ul><li>Thicker in the middle, thinner at the edges.</li><li>Converges parallel rays of light to a single point.</li><li>Also called a 'Converging Lens'.</li></ul>
+          <p class="notes">🎙️ A convex lens is like a magnifying glass. If you feel its surface, you'll notice it bulges outwards in the center. Its main job is to bring parallel light rays together at a point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Light Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Introducing the <span class="hl">Concave Lens</span></h2>
+          <ul><li>Thinner in the middle, thicker at the edges.</li><li>Diverges parallel rays of light away from each other.</li><li>Also called a 'Diverging Lens'.</li></ul>
+          <p class="notes">🎙️ On the other hand, a concave lens curves inwards in the middle, like a cave. Instead of bringing light together, it spreads it out, making it a 'diverging' lens.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Light Apart</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Convex Lens in Action: <span class="hl">Magnifying Glass</span></h2>
+          <ul><li>Used to enlarge small objects.</li><li>Creates a virtual, erect, and magnified image.</li><li>Helps read fine print or examine details.</li></ul>
+          <p class="notes">🎙️ One of the most common examples of a convex lens is a magnifying glass. When you hold it over something small, it makes it appear much larger, allowing us to see details we might otherwise miss.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">See Closer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Concave Lens in Action: Door <span class="hl">Peephole</span></h2>
+          <ul><li>Widens the field of view.</li><li>Creates a virtual, erect, and diminished image.</li><li>Helps see a broader area outside the door.</li></ul>
+          <p class="notes">🎙️ Have you ever looked through a door peephole? It uses a concave lens to let you see a wide area outside, even though the hole itself is small. It makes things look smaller but shows more.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚪</div><div class="vcap">Wider View</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Lens Terminology: <span class="hl">Optical Centre</span> (O) &amp; Principal Axis</h2>
+          <ul><li>Optical Centre (O): Central point of the lens.</li><li>Principal Axis: Imaginary line passing through O and perpendicular to the lens.</li></ul>
+          <p class="notes">🎙️ To understand how lenses work, we need to know some key terms. The optical centre is the very middle of the lens. The principal axis is like an imaginary straight line that goes right through this centre.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Lens Center</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Lens Terminology: <span class="hl">Principal Focus</span> (F) &amp; Focal Length (f)</h2>
+          <ul><li>Principal Focus (F): Point where parallel rays converge (convex) or appear to diverge from (concave).</li><li>Focal Length (f): Distance between the optical centre (O) and the principal focus (F).</li></ul>
+          <p class="notes">🎙️ When parallel light rays hit a lens, they either meet at a point or appear to spread out from a point. This special point is called the principal focus. The distance from the lens's center to this point is the focal length.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Focus Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Convex Lens Ray <span class="hl">Rule 1</span></h2>
+          <ul><li>A ray parallel to the principal axis,</li><li>after refraction, passes through the principal focus (F) on the other side.</li></ul>
+          <p class="notes">🎙️ Now, let's learn how to draw ray diagrams for convex lenses. The first rule is simple: any light ray that comes in parallel to the main axis will bend and go through the focal point on the other side of the lens.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parallel Ray</span></div><div class="step"><span class="snum">2</span><span>Refracts</span></div><div class="step"><span class="snum">3</span><span>Passes through F</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Convex Lens Ray <span class="hl">Rule 2</span></h2>
+          <ul><li>A ray passing through the principal focus (F),</li><li>after refraction, emerges parallel to the principal axis.</li></ul>
+          <p class="notes">🎙️ The second rule is the opposite of the first. If a light ray goes through the focal point before hitting the lens, it will bend and come out parallel to the main axis after passing through the lens.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Through F</span></div><div class="step"><span class="snum">2</span><span>Refracts</span></div><div class="step"><span class="snum">3</span><span>Emerges Parallel</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Convex Lens Ray <span class="hl">Rule 3</span></h2>
+          <ul><li>A ray passing through the optical centre (O),</li><li>goes undeviated (straight) after refraction.</li></ul>
+          <p class="notes">🎙️ This is the easiest rule! Any light ray that passes directly through the optical centre of the lens will not bend at all. It just goes straight through without changing direction.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Through O</span></div><div class="step"><span class="snum">2</span><span>No Deviation</span></div><div class="step"><span class="snum">3</span><span>Continues Straight</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Convex Lens: Object at <span class="hl">Infinity</span></h2>
+          <ul><li>Image formed at F2 (second principal focus).</li><li>Real, inverted, and highly diminished (point-sized).</li></ul>
+          <p class="notes">🎙️ When an object is very far away, like the sun, the light rays coming from it are almost parallel. A convex lens brings these parallel rays to a sharp focus at its focal point, forming a tiny, inverted image.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Distant View</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Convex Lens: Object <span class="hl">Beyond 2F</span></h2>
+          <ul><li>Image formed between F2 and 2F2.</li><li>Real, inverted, and diminished.</li></ul>
+          <p class="notes">🎙️ If you place an object a bit further than twice the focal length from a convex lens, the image formed will be smaller than the object, upside down, and can be projected onto a screen.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Smaller Image</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Convex Lens: Object at <span class="hl">Principal Focus</span> (F)</h2>
+          <ul><li>Image formed at infinity.</li><li>Real, inverted, and highly magnified.</li></ul>
+          <p class="notes">🎙️ Now, what if we place the object exactly at the principal focus? The rays, after refraction, become parallel to each other, meaning the image is formed at a very, very far distance and is extremely large.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌌</div><div class="vcap">Infinite Image</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Practical <span class="hl">Uses</span> of Convex Lenses</h2>
+          <ul><li>Spectacles (for hypermetropia - farsightedness).</li><li>Cameras and Projectors.</li><li>Telescopes and Microscopes.</li></ul>
+          <p class="notes">🎙️ Convex lenses are incredibly versatile! They are crucial components in many optical instruments, from correcting vision problems to helping us capture images, view distant stars, or tiny microbes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>📸</span><span>📸</span><span>📸</span><span>📸</span></div><div class="vcap">Everyday Optics</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Concave Lens Ray <span class="hl">Rule 1</span></h2>
+          <ul><li>A ray parallel to the principal axis,</li><li>after refraction, appears to diverge from the principal focus (F) on the same side.</li></ul>
+          <p class="notes">🎙️ Now for concave lenses. The first rule states that a ray of light coming parallel to the principal axis will bend outwards after hitting the lens. However, if you trace it backward, it seems to come from the focal point on the same side.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parallel Ray</span></div><div class="step"><span class="snum">2</span><span>Refracts Outward</span></div><div class="step"><span class="snum">3</span><span>Appears from F</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Concave Lens Ray <span class="hl">Rule 2</span></h2>
+          <ul><li>A ray directed towards the principal focus (F) on the other side,</li><li>after refraction, emerges parallel to the principal axis.</li></ul>
+          <p class="notes">🎙️ For the second rule, if a ray is heading towards the focal point on the far side of the lens, it will bend and exit the lens parallel to the principal axis. It's like the reverse of the first rule for a convex lens.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Towards F</span></div><div class="step"><span class="snum">2</span><span>Refracts</span></div><div class="step"><span class="snum">3</span><span>Emerges Parallel</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Concave Lens: Object at <span class="hl">Infinity</span></h2>
+          <ul><li>Image formed at F1 (first principal focus).</li><li>Virtual, erect, and highly diminished (point-sized).</li></ul>
+          <p class="notes">🎙️ When parallel rays from a very distant object hit a concave lens, they diverge. But if we trace them backward, they appear to originate from the principal focus on the same side as the object, forming a tiny, upright image.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Distant &amp; Small</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Practical <span class="hl">Uses</span> of Concave Lenses</h2>
+          <ul><li>Spectacles (for myopia - nearsightedness).</li><li>Flashlights and Binoculars.</li><li>Peepholes in doors.</li></ul>
+          <p class="notes">🎙️ Concave lenses are also very important! They are used to correct nearsightedness, spread light in flashlights, and provide a wider field of view in binoculars and door peepholes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👓</span><span>👓</span><span>👓</span></div><div class="vcap">Spreading Light</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>The Lens <span class="hl">Formula</span></h2>
+          <ul><li>Relates object distance (u), image distance (v), and focal length (f).</li><li>1/v - 1/u = 1/f</li><li>Remember the sign convention for u, v, and f!</li></ul>
+          <p class="notes">🎙️ Just like with mirrors, we have a formula to calculate image and object distances for lenses. This 'lens formula' helps us predict where an image will form if we know the object's position and the lens's focal length. Always be careful with the signs!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Lens Math</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Understanding <span class="hl">Magnification</span> (m)</h2>
+          <ul><li>Ratio of image height (h') to object height (h).</li><li>m = h'/h = v/u</li><li>Indicates how much larger or smaller the image is.</li></ul>
+          <p class="notes">🎙️ Magnification tells us how much an image is enlarged or reduced compared to the actual object. If 'm' is greater than 1, the image is magnified; if less than 1, it's diminished. A positive 'm' means an erect image, negative means inverted.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Image Size</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Power</span> of a Lens (P)</h2>
+          <ul><li>The ability of a lens to converge or diverge light rays.</li><li>P = 1/f (where f is in meters).</li><li>Unit is Dioptre (D).</li></ul>
+          <p class="notes">🎙️ The 'power' of a lens describes how strongly it can bend light. A lens with a shorter focal length bends light more, so it has higher power. We measure power in 'Dioptres', which is commonly seen in spectacle prescriptions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Lens Strength</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Test Your Knowledge!</h2>
+          <ul><li>1. Which lens converges parallel rays?</li><li>2. What is the unit of power of a lens?</li><li>3. What type of image does a door peephole form?</li></ul>
+          <p class="notes">🎙️ Alright, let's see how much you've understood! Take a moment to think about these questions. They cover some of the core concepts we discussed today.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Lenses - Shaping Light!</h2>
+          <ul><li>Defined lenses and their types (convex, concave).</li><li>Learned key terms: O, F, f.</li><li>Understood ray tracing and image formation.</li><li>Explored uses of both lens types.</li><li>Introduced Lens Formula, Magnification, and Power.</li></ul>
+          <p class="notes">🎙️ So, to sum up, we started with the basics of lenses, explored their properties, how they form images, and their many applications in our daily lives. We also touched upon the mathematical tools to describe them. Keep observing the world around you for more examples of lenses!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

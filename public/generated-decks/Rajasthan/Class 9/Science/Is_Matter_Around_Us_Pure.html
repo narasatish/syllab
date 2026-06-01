@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Is Matter Around Us Pure? — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Is Matter Around Us <span class="hl">Pure</span>?</h2>
+          <ul><li>Let's explore the world of substances around us!</li><li>Are they always what they seem?</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to understand the matter that surrounds us. We'll find out if everything we see is truly 'pure' or if there's more to it.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Matter</span>?</h2>
+          <ul><li>Anything that has mass and occupies space.</li><li>Exists in solid, liquid, and gas states.</li><li>Made up of tiny particles.</li></ul>
+          <p class="notes">🎙️ Remember from our last chapter, matter is everything around us – from the air we breathe to the books we read. It's composed of incredibly small particles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Tiny Particles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Pure Substances <span class="hl">vs.</span> Mixtures</h2>
+          <ul><li>Matter can be classified into two main types.</li><li>Pure substances have a uniform composition.</li><li>Mixtures contain two or more pure substances.</li></ul>
+          <p class="notes">🎙️ Today, we'll dive deeper into how matter is classified. We'll learn about pure substances, which are very specific, and mixtures, which are combinations of different things.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Pure Substance</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mixture</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Pure Substances: <span class="hl">Elements</span></h2>
+          <ul><li>Cannot be broken down into simpler substances.</li><li>Made of only one type of atom.</li><li>Examples: Gold, Oxygen, Iron.</li></ul>
+          <p class="notes">🎙️ Elements are the basic building blocks of all matter. Think of them as the simplest forms, like individual LEGO bricks that cannot be broken down further.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Single Type</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Pure Substances: <span class="hl">Compounds</span></h2>
+          <ul><li>Formed when two or more elements combine chemically.</li><li>Have a fixed composition.</li><li>Properties are different from their constituent elements.</li><li>Example: Water (H₂O), Salt (NaCl).</li></ul>
+          <p class="notes">🎙️ Compounds are like LEGO models built from different types of bricks. When elements join chemically, they form a compound with entirely new properties, different from the original elements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Chemically Joined</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Mixtures</span>: Definition &amp; Types</h2>
+          <ul><li>Contain two or more pure substances physically combined.</li><li>Components retain their original properties.</li><li>Can be separated by physical methods.</li></ul>
+          <p class="notes">🎙️ Unlike compounds, in a mixture, the substances just mix together without chemical change. They keep their own properties and can often be separated easily.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥣</div><div class="vcap">Combined</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Homogeneous</span> Mixtures</h2>
+          <ul><li>Have a uniform composition throughout.</li><li>Particles are evenly distributed and indistinguishable.</li><li>Example: Salt solution, air.</li></ul>
+          <p class="notes">🎙️ Imagine dissolving sugar in water. The sugar disappears, and the entire solution looks the same everywhere. That's a homogeneous mixture – perfectly blended!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Uniform Mix</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Heterogeneous</span> Mixtures</h2>
+          <ul><li>Have a non-uniform composition.</li><li>Particles are visibly distinct and unevenly distributed.</li><li>Example: Sand and salt mixture, oil and water.</li></ul>
+          <p class="notes">🎙️ Now, think about mixing sand and pebbles. You can clearly see the different parts. That's a heterogeneous mixture, where components are visible and not uniformly spread.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span><span>🪨</span></div><div class="vcap">Uneven Mix</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Real-Life <span class="hl">Examples</span> of Mixtures</h2>
+          <ul><li>Air: A mixture of gases (Nitrogen, Oxygen, etc.).</li><li>Lemonade: Water, sugar, lemon juice.</li><li>Soil: Clay, sand, humus, water.</li></ul>
+          <p class="notes">🎙️ Mixtures are everywhere! From the air we breathe to the food we eat, understanding them helps us appreciate the complexity of our surroundings.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥗</div><div class="vcap">Everyday Mixes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Quick <span class="hl">Check</span>: Pure or Mixture?</h2>
+          <ul><li>Is milk a pure substance or a mixture?</li><li>Is gold a pure substance or a mixture?</li><li>Is sugar a pure substance or a mixture?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding so far! Think about the definitions we just discussed and classify these common items.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Solutions</span>: Homogeneous Mixtures</h2>
+          <ul><li>A homogeneous mixture of two or more substances.</li><li>Particles are very small and cannot be seen.</li><li>Example: Sugar solution, vinegar.</li></ul>
+          <p class="notes">🎙️ Solutions are a very important type of homogeneous mixture. They are so well mixed that you cannot distinguish the individual components, even under a microscope.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Perfectly Mixed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Solute <span class="hl">&amp;</span> Solvent</h2>
+          <ul><li>Solute: The substance dissolved (usually smaller amount).</li><li>Solvent: The substance that dissolves the solute (usually larger amount).</li><li>Example: In sugar solution, sugar is solute, water is solvent.</li></ul>
+          <p class="notes">🎙️ Every solution has two main parts. The solute is what gets dissolved, and the solvent is what does the dissolving. Water is often called the 'universal solvent'.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Solute</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Solvent</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Properties</span> of a Solution</h2>
+          <ul><li>Particles are smaller than 1 nm (nanometer).</li><li>Cannot be seen by naked eye.</li><li>Do not scatter a beam of light (no Tyndall effect).</li><li>Stable: particles do not settle down.</li></ul>
+          <p class="notes">🎙️ Solutions have distinct characteristics. Their particles are incredibly tiny, making them transparent and stable. You can't see the path of light through them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Tiny Particles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Concentration</span> of a Solution</h2>
+          <ul><li>Amount of solute present in a given amount of solvent or solution.</li><li>Can be expressed as mass by mass percentage or mass by volume percentage.</li><li>Helps describe how much solute is dissolved.</li></ul>
+          <p class="notes">🎙️ Concentration tells us how 'strong' a solution is. A highly concentrated solution has a lot of solute dissolved, while a dilute one has less.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Amount of Solute</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Concentration</h2>
+          <ul><li>Problem: A solution contains 40g of common salt in 320g of water.</li><li>Calculate the mass by mass percentage concentration.</li></ul>
+          <p class="notes">🎙️ Let's apply what we just learned. To find the percentage concentration, we divide the mass of the solute by the total mass of the solution and multiply by 100.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Mass of Solute = 40g</span></div><div class="step"><span class="snum">2</span><span>Mass of Solvent = 320g</span></div><div class="step"><span class="snum">3</span><span>Total Mass = 360g</span></div><div class="step"><span class="snum">4</span><span>% Concentration = (40/360) * 100</span></div><div class="step"><span class="snum">5</span><span>Result = 11.1%</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Suspensions</span>: Heterogeneous</h2>
+          <ul><li>A heterogeneous mixture where solute particles do not dissolve.</li><li>Particles remain suspended throughout the bulk of the medium.</li><li>Example: Muddy water, chalk powder in water.</li></ul>
+          <p class="notes">🎙️ Suspensions are mixtures where particles are large enough to be seen and don't dissolve. Think of muddy water – the mud particles eventually settle down.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Cloudy Mix</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Properties</span> of Suspensions</h2>
+          <ul><li>Particles are visible to the naked eye.</li><li>Particles scatter a beam of light (Tyndall effect).</li><li>Unstable: particles settle down when left undisturbed.</li><li>Can be separated by filtration.</li></ul>
+          <p class="notes">🎙️ Unlike solutions, suspensions are opaque or translucent. Their larger particles can scatter light, and they are not stable – the particles will eventually settle at the bottom.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="💡" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Colloids</span>: In-Between</h2>
+          <ul><li>Particles are larger than solutions but smaller than suspensions.</li><li>Appear homogeneous but are actually heterogeneous.</li><li>Example: Milk, fog, smoke.</li></ul>
+          <p class="notes">🎙️ Colloids are fascinating because they seem homogeneous but behave differently. Their particle size is intermediate, giving them unique properties.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Tiny, Yet Visible</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Properties</span> of Colloids</h2>
+          <ul><li>Particles cannot be seen by naked eye, but visible under microscope.</li><li>Particles scatter a beam of light (Tyndall effect).</li><li>Stable: particles do not settle down.</li><li>Cannot be separated by filtration.</li></ul>
+          <p class="notes">🎙️ Colloids are stable and don't settle like suspensions. However, their particles are large enough to scatter light, which is a key characteristic.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👁️</div><div class="vcap">Scatters Light</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>The <span class="hl">Tyndall</span> Effect</h2>
+          <ul><li>The scattering of a beam of light by colloidal particles.</li><li>Also seen in suspensions, but not in true solutions.</li><li>Example: Sunlight passing through a dusty room.</li></ul>
+          <p class="notes">🎙️ The Tyndall effect is a cool phenomenon. When you see dust particles dancing in a sunbeam, or fog scattering car headlights, you're witnessing the Tyndall effect in action.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Tyndall_effect.jpg?width=500" data-fb="🔦" alt="The Tyndall effect is the scattering of light by colloidal particles, visible as a beam pa"/><div class="vcap">The Tyndall effect is the scattering of light by colloidal particles, visible as a beam pa</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Separating</span> Mixtures</h2>
+          <ul><li>Most mixtures can be separated into their individual components.</li><li>Various physical methods are used, depending on properties.</li><li>Important for obtaining pure substances.</li></ul>
+          <p class="notes">🎙️ Now that we know about different types of mixtures, how do we get the pure substances back? There are many clever techniques to separate them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚙️</div><div class="vcap">Tools for Separation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Separation by <span class="hl">Evaporation</span></h2>
+          <ul><li>Used to separate a volatile solvent from a non-volatile solute.</li><li>Liquid changes to gas, leaving solid behind.</li><li>Example: Separating salt from water.</li></ul>
+          <p class="notes">🎙️ Evaporation is a simple method. When you boil saltwater, the water turns into steam, leaving the salt behind. This is commonly used to produce salt.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Saltwater in dish</span></div><div class="step"><span class="snum">2</span><span>Heat applied</span></div><div class="step"><span class="snum">3</span><span>Water evaporates</span></div><div class="step"><span class="snum">4</span><span>Salt crystals remain</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Separation by <span class="hl">Centrifugation</span></h2>
+          <ul><li>Used to separate denser particles from lighter liquid.</li><li>Mixture is rotated rapidly, forcing heavier particles to bottom.</li><li>Example: Separating cream from milk, blood tests.</li></ul>
+          <p class="notes">🎙️ Centrifugation uses centrifugal force. When milk is spun, the denser cream separates from the lighter skim milk. It's also used in labs to separate blood components.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌀</div><div class="vcap">Spinning Apart</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check: Mixture <span class="hl">Types</span></h2>
+          <ul><li>What type of mixture is lemonade?</li><li>What type of mixture is muddy water?</li><li>What type of mixture is fog?</li></ul>
+          <p class="notes">🎙️ Let's quickly check if you can differentiate between solutions, suspensions, and colloids based on our discussion.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Concepts</h2>
+          <ul><li>Matter: Pure Substances (Elements, Compounds) and Mixtures.</li><li>Mixtures: Homogeneous (Solutions) and Heterogeneous (Suspensions, Colloids).</li><li>Properties help differentiate mixtures (particle size, Tyndall effect, stability).</li><li>Common separation techniques (Evaporation, Centrifugation).</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the main classifications of matter, the differences between various mixtures, and some basic ways to separate them. Keep exploring and observing the world around you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

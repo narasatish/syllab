@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>The Human Eye and the Colourful World — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>The <span class="hl">Human Eye</span> and the Colourful World</h2>
+          <ul><li>Explore how our eyes work.</li><li>Understand common vision defects.</li><li>Discover why the world appears so colourful.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we're embarking on an exciting journey to understand one of our most precious organs, the human eye, and unravel the mysteries behind the beautiful colours we see all around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>The Human Eye: Our <span class="hl">Window</span> to the World</h2>
+          <ul><li>A complex and vital sensory organ.</li><li>Enables us to see objects, colours, and light.</li><li>Works like a natural camera.</li></ul>
+          <p class="notes">🎙️ Our eyes are truly incredible! They continuously send information to our brain, allowing us to perceive our surroundings. Think of them as high-tech cameras, constantly capturing images.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="👁️" alt="The human eye is a complex optical instrument that captures light and converts it into ele"/><div class="vcap">The human eye is a complex optical instrument that captures light and converts it into ele</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Cornea</span>: The Transparent Front Window</h2>
+          <ul><li>Outermost transparent front part.</li><li>Protects the eye from dust and germs.</li><li>Refracts light entering the eye first.</li></ul>
+          <p class="notes">🎙️ The cornea is like the clear glass of a watch, protecting the delicate parts inside. It's the first place where light bends as it enters our eye, starting the process of vision.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Transparent Layer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Iris and Pupil: <span class="hl">Controlling Light</span> Entry</h2>
+          <ul><li>Iris: Coloured part, muscles control pupil size.</li><li>Pupil: Black opening in the centre of the iris.</li><li>Regulates the amount of light entering the eye.</li></ul>
+          <p class="notes">🎙️ The iris gives our eyes their unique colour. Its main job, along with the pupil, is to adjust how much light gets into our eye, just like the aperture of a camera. In bright light, the pupil shrinks; in dim light, it expands.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔆</div><div class="vcap">Light Control</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Eye Lens: <span class="hl">Focusing Light</span> Accurately</h2>
+          <ul><li>Transparent, biconvex structure.</li><li>Further refracts light to focus it.</li><li>Forms a real, inverted image on the retina.</li></ul>
+          <p class="notes">🎙️ The eye lens is flexible and can change its shape, allowing us to focus on objects at different distances. It's crucial for getting a clear image onto the back of our eye.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Focusing Lens</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Retina: The <span class="hl">Image Screen</span></h2>
+          <ul><li>Light-sensitive screen at the back of the eye.</li><li>Contains photoreceptor cells (rods and cones).</li><li>Converts light into electrical signals.</li></ul>
+          <p class="notes">🎙️ The retina is like the film in an old camera or the sensor in a digital one. Rods help us see in dim light, and cones help us see colours and fine details. This is where the magic of image formation happens.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Image Formation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Optic Nerve: The <span class="hl">Signal Carrier</span></h2>
+          <ul><li>Bundle of nerve fibres.</li><li>Transmits electrical signals from retina to brain.</li><li>Brain interprets these signals as vision.</li></ul>
+          <p class="notes">🎙️ Once the retina converts light into electrical signals, the optic nerve acts as a high-speed cable, sending these messages directly to our brain. Our brain then processes these signals, allowing us to understand what we are seeing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Signal Transmission</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Power of <span class="hl">Accommodation</span>: Eye's Focusing Ability</h2>
+          <ul><li>Ability of the eye lens to change its focal length.</li><li>Allows us to see objects at varying distances clearly.</li><li>Achieved by ciliary muscles changing lens curvature.</li></ul>
+          <p class="notes">🎙️ This is an amazing feature of our eye! Whether you're looking at a distant mountain or a tiny insect on your hand, your eye lens adjusts its shape automatically to keep the image sharp on your retina. This flexibility is called accommodation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Adjusting Focus</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Real Example: Focusing While <span class="hl">Reading</span></h2>
+          <ul><li>When reading, ciliary muscles contract.</li><li>Lens becomes thicker and its focal length decreases.</li><li>This allows clear focus on nearby text.</li></ul>
+          <p class="notes">🎙️ Think about reading a book. Your eyes constantly adjust focus between words and lines. The ciliary muscles are working hard to make the lens thicker, bringing the focal point closer so you can see the small print clearly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Reading a Book</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Myopia</span> (Nearsightedness): Seeing Near, Not Far</h2>
+          <ul><li>Person can see nearby objects clearly.</li><li>Distant objects appear blurred.</li><li>Image forms in front of the retina.</li></ul>
+          <p class="notes">🎙️ Myopia is a common vision defect where the eyeball might be too long, or the lens too curved. This causes light to focus too early. It's corrected using a concave lens, which diverges the light before it enters the eye.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👓</div><div class="vcap">Corrective Lenses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Hypermetropia</span> (Farsightedness): Seeing Far, Not Near</h2>
+          <ul><li>Person can see distant objects clearly.</li><li>Nearby objects appear blurred.</li><li>Image forms behind the retina.</li></ul>
+          <p class="notes">🎙️ In hypermetropia, the eyeball might be too short, or the lens not curved enough. This causes light to focus behind the retina. It's corrected using a convex lens, which converges the light more strongly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👓</div><div class="vcap">Corrective Lenses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Presbyopia</span>: Age-Related Vision Loss</h2>
+          <ul><li>Loss of power of accommodation with age.</li><li>Difficulty in seeing nearby objects clearly.</li><li>Caused by weakening ciliary muscles and rigid lens.</li></ul>
+          <p class="notes">🎙️ Presbyopia commonly affects older adults. As we age, our ciliary muscles become weaker, and the eye lens loses its flexibility. This makes it harder to focus on close-up items, often requiring bifocal lenses for correction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👵</div><div class="vcap">Elderly Vision</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick Check: <span class="hl">Parts</span> of the Eye</h2>
+          <ul><li>Which part of the eye controls the amount of light entering?</li><li>Where is the image formed in the eye?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Take a moment to recall the functions of the different parts of the eye we just discussed. Think about how light is regulated and where the image is actually created.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick Check: Eye's <span class="hl">Focusing Power</span></h2>
+          <ul><li>What is the ability of the eye lens to change its focal length called?</li><li>Which muscles help the eye lens to change its shape?</li></ul>
+          <p class="notes">🎙️ Now, let's think about the eye's incredible ability to focus. What is the scientific term for this adjustment, and which tiny muscles are responsible for making it happen?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Refraction through a Glass <span class="hl">Prism</span></h2>
+          <ul><li>Light bends when passing from one medium to another.</li><li>A prism has two triangular bases and three rectangular lateral surfaces.</li><li>Incident ray bends towards the base of the prism.</li></ul>
+          <p class="notes">🎙️ Just like light bends when it enters water, it also bends when it enters and exits a glass prism. The unique shape of the prism causes the light to bend in a specific way, which is key to understanding how colours are separated.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Snells_law2.svg?width=500" data-fb="🌈" alt="Refraction is bending of light when passing between materials of different density. Occurs"/><div class="vcap">Refraction is bending of light when passing between materials of different density. Occurs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Dispersion</span>: Splitting of White Light</h2>
+          <ul><li>White light consists of seven different colours.</li><li>When white light passes through a prism, it splits.</li><li>This splitting into its constituent colours is called dispersion.</li></ul>
+          <p class="notes">🎙️ Sir Isaac Newton was the first to show that white light is actually a mixture of seven colours: Violet, Indigo, Blue, Green, Yellow, Orange, and Red (VIBGYOR). Each colour bends at a slightly different angle, causing them to separate.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Light_dispersion_conceptual_waves.gif?width=500" data-fb="🔬" alt="Dispersion is the separation of white light into its component colours by refraction. Diff"/><div class="vcap">Dispersion is the separation of white light into its component colours by refraction. Diff</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Real Example: The Beautiful <span class="hl">Rainbow</span></h2>
+          <ul><li>A natural spectrum appearing after rainfall.</li><li>Caused by dispersion of sunlight by tiny water droplets.</li><li>Each droplet acts like a tiny prism.</li></ul>
+          <p class="notes">🎙️ Rainbows are a stunning example of dispersion in nature. When sunlight hits water droplets in the air after rain, each droplet disperses the white light into its spectrum of colours, creating that magnificent arc we see.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌧️</div><div class="vcap">Rainy Day</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Atmospheric</span> Refraction: Bending in Air</h2>
+          <ul><li>Refraction caused by Earth's atmosphere.</li><li>Atmosphere has varying optical densities.</li><li>Light bends as it passes through these layers.</li></ul>
+          <p class="notes">🎙️ Our atmosphere isn't uniform; its density changes with height and temperature. This means light bends slightly as it travels through different layers of air, leading to some interesting phenomena we observe.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Air Layers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real Example: Why Do Stars <span class="hl">Twinkle</span>?</h2>
+          <ul><li>Stars are very distant point sources of light.</li><li>Light from stars refracts continuously due to atmospheric turbulence.</li><li>This continuous change in apparent position causes twinkling.</li></ul>
+          <p class="notes">🎙️ Stars appear to twinkle because their light has to travel through many layers of turbulent air in our atmosphere. As the air moves, the path of light changes slightly, making the star appear to flicker or twinkle to our eyes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Twinkling Star</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Real Example: Early Sunrise, Late Sunset</h2>
+          <ul><li>Sun visible about 2 minutes before actual sunrise.</li><li>Sun visible about 2 minutes after actual sunset.</li><li>Due to atmospheric refraction bending sunlight towards Earth.</li></ul>
+          <p class="notes">🎙️ This is another cool effect of atmospheric refraction! Even when the sun is below the horizon, its light bends as it passes through the denser atmosphere, making it visible to us earlier in the morning and later in the evening.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌅</div><div class="vcap">Sunrise/Sunset</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Scattering</span> of Light: Light Bouncing Off</h2>
+          <ul><li>Light interacts with tiny particles in its path.</li><li>Particles absorb and re-emit light in different directions.</li><li>Amount of scattering depends on wavelength and particle size.</li></ul>
+          <p class="notes">🎙️ Scattering is when light hits tiny particles, like dust or air molecules, and gets redirected in various directions. The size of these particles compared to the wavelength of light determines which colours are scattered more effectively.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Light Scattering</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Real Example: Why is the Sky Blue?</h2>
+          <ul><li>Air molecules are much smaller than visible light wavelengths.</li><li>They scatter shorter (blue) wavelengths more effectively.</li><li>Less scattered longer (red) wavelengths pass through.</li></ul>
+          <p class="notes">🎙️ This is a classic example of scattering! The tiny nitrogen and oxygen molecules in our atmosphere scatter blue light much more than red light. So, when you look up, you see the scattered blue light from all directions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔵</div><div class="vcap">Blue Sky</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Real Example: <span class="hl">Red Sun</span> at Horizon</h2>
+          <ul><li>Sunlight travels a longer path through the atmosphere.</li><li>Most blue light is scattered away.</li><li>Only longer (red and orange) wavelengths reach our eyes.</li></ul>
+          <p class="notes">🎙️ At sunrise or sunset, the sun's rays travel through a much thicker layer of the atmosphere. This means almost all the blue light is scattered away, leaving primarily the red and orange light to reach our eyes, giving the sun that beautiful reddish hue.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟠</div><div class="vcap">Reddish Sun</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check: <span class="hl">Colourful World</span></h2>
+          <ul><li>What phenomenon causes the blue colour of the sky?</li><li>Name the seven colours of white light in order of dispersion.</li></ul>
+          <p class="notes">🎙️ Let's consolidate our understanding of the colourful world. Can you recall the phenomenon responsible for the sky's colour and list the spectrum of colours produced when white light splits?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Our Amazing Eyes and World</h2>
+          <ul><li>Human eye: complex organ, forms real inverted images.</li><li>Vision defects: Myopia, Hypermetropia, Presbyopia corrected by lenses.</li><li>Dispersion: White light splits into VIBGYOR.</li><li>Atmospheric refraction causes twinkling and advanced sunrise.</li><li>Scattering: Explains blue sky and red sun at horizon.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From the intricate workings of our eyes to the fascinating phenomena that paint our world with colours. Remember how light behaves and interacts with matter to create the visual experiences we cherish.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Control and Coordination (Class 10 Science, UP Board) — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Control</span> and Coordination!</h2>
+          <ul><li>How do our bodies know what to do?</li><li>How do plants respond to light?</li><li>Let's explore the amazing systems that manage life!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a fascinating journey into 'Control and Coordination'. This chapter helps us understand how living beings, both animals and plants, manage their internal and external activities efficiently. It's about how everything works together perfectly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is Control and <span class="hl">Coordination</span>?</h2>
+          <ul><li>Control: Regulating actions and processes.</li><li>Coordination: Different parts working together smoothly.</li><li>Ensures proper functioning of an organism.</li></ul>
+          <p class="notes">🎙️ Think of control as setting the rules and coordination as making sure everyone follows them in harmony. For example, when you decide to pick up a pen, your brain controls the action, and your eyes, hand, and muscles coordinate to achieve it smoothly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain at work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Why is it <span class="hl">Important</span>?</h2>
+          <ul><li>Survival: Responding to dangers.</li><li>Growth: Regulating development.</li><li>Reproduction: Ensuring continuation of species.</li></ul>
+          <p class="notes">🎙️ Imagine touching a hot plate. Without control and coordination, you wouldn't pull your hand back immediately, leading to injury. It's crucial for our safety and for all life processes to happen correctly, from a tiny seed growing to a tall tree, to a complex animal hunting for food.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏃‍♂️</span><span>🏃‍♂️</span><span>🏃‍♂️</span></div><div class="vcap">Responding to danger</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>How is it <span class="hl">Controlled</span>?</h2>
+          <ul><li>Animals use two main systems.</li><li>Nervous System: Quick electrical signals.</li><li>Endocrine System: Slow chemical messages (hormones).</li></ul>
+          <p class="notes">🎙️ In animals, we have two powerful systems. The nervous system is like a super-fast internet, sending messages instantly. The endocrine system is more like traditional mail, sending chemical messengers called hormones that take a bit longer but have long-lasting effects.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Nervous System</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Endocrine System</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The <span class="hl">Nervous</span> System</h2>
+          <ul><li>Network of specialized cells called neurons.</li><li>Transmits information rapidly.</li><li>Helps us think, feel, move, and react.</li></ul>
+          <p class="notes">🎙️ The nervous system is our body's electrical wiring. It's an incredibly complex network that allows us to perceive the world around us, process information, and respond appropriately. Every thought, every movement, every sensation involves this system.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Fast signals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Parts</span> of the Nervous System</h2>
+          <ul><li>Central Nervous System (CNS): Brain and Spinal Cord.</li><li>Peripheral Nervous System (PNS): Nerves outside CNS.</li><li>PNS connects CNS to limbs and organs.</li></ul>
+          <p class="notes">🎙️ The CNS is the command center, like the CPU of a computer. The PNS acts as the messengers, carrying information to and from the CNS. Together, they form a complete communication network throughout the body.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Brain</span></div><div class="step"><span class="snum">2</span><span>Spinal Cord</span></div><div class="step"><span class="snum">3</span><span>Nerves</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Neurons</span>: The Building Blocks</h2>
+          <ul><li>Basic functional unit of the nervous system.</li><li>Specialized to transmit electrical signals (nerve impulses).</li><li>Cannot divide after maturity.</li></ul>
+          <p class="notes">🎙️ Neurons are truly amazing cells. They are uniquely designed to send and receive messages very quickly. Imagine them as tiny wires carrying electrical impulses, allowing different parts of your body to talk to each other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Idea/Signal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Structure</span> of a Neuron</h2>
+          <ul><li>Dendrite: Receives signals.</li><li>Cell Body (Cyton): Processes signals.</li><li>Axon: Transmits signals away from cell body.</li><li>Nerve Endings: Releases chemical signals.</li></ul>
+          <p class="notes">🎙️ Each part of the neuron has a specific role. Dendrites are like antennas, picking up signals. The cell body is the central processing unit. The axon is the long cable that carries the signal, and the nerve endings are like the transmitting stations, passing the message on.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Blausen_0657_MultipolarNeuron.png?width=500" data-fb="🔬" alt="A neuron (nerve cell) is the basic unit of the nervous system. It receives, processes, and"/><div class="vcap">A neuron (nerve cell) is the basic unit of the nervous system. It receives, processes, and</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>How Nerves <span class="hl">Communicate</span> (Synapse)</h2>
+          <ul><li>Signals travel electrically within a neuron.</li><li>At the synapse, chemicals called neurotransmitters are released.</li><li>These chemicals cross the gap to the next neuron.</li></ul>
+          <p class="notes">🎙️ When an electrical signal reaches the end of an axon, it can't jump directly to the next neuron. Instead, it triggers the release of special chemicals called neurotransmitters into a tiny gap called the synapse. These chemicals then bind to the next neuron, starting a new electrical signal.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Signal transfer</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Types</span> of Neurons</h2>
+          <ul><li>Sensory Neurons: Carry signals from senses to CNS.</li><li>Motor Neurons: Carry signals from CNS to muscles/glands.</li><li>Relay Neurons (Interneurons): Connect sensory and motor neurons.</li></ul>
+          <p class="notes">🎙️ Think of sensory neurons as input wires, bringing information from your eyes, ears, skin, etc., to the brain. Motor neurons are output wires, telling your muscles to move or glands to secrete. Relay neurons are like the internal communication lines within the brain and spinal cord, connecting the input and output.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Sensory</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Motor</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Relay</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Reflex</span> Action</h2>
+          <ul><li>Sudden, involuntary response to a stimulus.</li><li>Occurs without conscious thought.</li><li>Protective mechanism, e.g., pulling hand from hot object.</li></ul>
+          <p class="notes">🎙️ A reflex action is like an automatic emergency response. It's incredibly fast because the signal doesn't need to travel all the way to the brain for processing. This quick response helps protect us from harm, like blinking when something comes close to your eye.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Hot object reaction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>The Reflex <span class="hl">Arc</span></h2>
+          <ul><li>Pathway of nerve impulses in a reflex action.</li><li>Involves sensory neuron, relay neuron, and motor neuron.</li><li>Often bypasses the brain for speed.</li></ul>
+          <p class="notes">🎙️ The reflex arc is the specific route a nerve impulse takes during a reflex. For instance, when you touch something hot, receptors in your skin send a signal via a sensory neuron to the spinal cord. The spinal cord quickly sends a signal back via a motor neuron to your hand muscles, telling them to pull away, even before your brain fully registers the pain.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Patellar_tendon_reflex_arc.png?width=500" data-fb="🔬" alt="A reflex arc is the neural pathway that controls a reflex action — an automatic, rapid res"/><div class="vcap">A reflex arc is the neural pathway that controls a reflex action — an automatic, rapid res</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>The Human <span class="hl">Brain</span></h2>
+          <ul><li>Main coordinating center of the body.</li><li>Protected by the cranium (skull).</li><li>Responsible for thought, memory, emotion, movement.</li></ul>
+          <p class="notes">🎙️ Our brain is an extraordinary organ, often called the most complex structure in the known universe. It's where all our conscious thoughts, memories, and emotions reside, and it orchestrates every voluntary and involuntary action our body performs.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Skull_and_brain_normal_human.svg?width=500" data-fb="🧠" alt="The human brain is the central organ of the nervous system. It is protected by the skull a"/><div class="vcap">The human brain is the central organ of the nervous system. It is protected by the skull a</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Parts of the Brain: <span class="hl">Forebrain</span></h2>
+          <ul><li>Largest part, includes Cerebrum.</li><li>Responsible for thinking, memory, speech, voluntary actions.</li><li>Processes sensory information (sight, hearing, touch).</li></ul>
+          <p class="notes">🎙️ The forebrain is the 'thinking' part of our brain. When you're solving a math problem, remembering a friend's name, or deciding what to eat, your forebrain is actively involved. It's also where we interpret all the sensations we receive from the outside world.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Thinking and learning</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Parts of the Brain: Midbrain &amp; <span class="hl">Hindbrain</span></h2>
+          <ul><li>Midbrain: Connects forebrain and hindbrain, controls reflexes.</li><li>Hindbrain: Includes Cerebellum, Pons, Medulla.</li><li>Cerebellum: Balance, posture, fine motor skills.</li><li>Pons &amp; Medulla: Breathing, heartbeat, blood pressure, sleep.</li></ul>
+          <p class="notes">🎙️ While the forebrain handles complex thought, the midbrain and hindbrain are crucial for basic survival functions. The cerebellum ensures you can walk straight and perform precise movements. The pons and medulla keep your heart beating, you breathing, and your blood pressure stable, all without you having to think about it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♀️</div><div class="vcap">Balance and movement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Control and Coordination in <span class="hl">Plants</span></h2>
+          <ul><li>Plants lack a nervous system.</li><li>They respond to stimuli using chemical signals (hormones).</li><li>Responses are slower but effective.</li></ul>
+          <p class="notes">🎙️ Just like animals, plants also need to control and coordinate their activities, but they do it very differently. They don't have brains or nerves. Instead, they rely on chemical messengers called hormones to guide their growth, development, and responses to the environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Plant growth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Plant <span class="hl">Hormones</span> (Phytohormones)</h2>
+          <ul><li>Chemical substances produced by plants.</li><li>Regulate growth, development, and responses to environment.</li><li>Act in very small concentrations.</li></ul>
+          <p class="notes">🎙️ Plant hormones are fascinating. They are like tiny chemical messengers that tell different parts of the plant what to do. For example, some hormones tell a stem to grow taller, while others tell fruits to ripen. They are potent even in very minute quantities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span></div><div class="vcap">Plant growth regulators</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Growth</span>-Promoting Hormones</h2>
+          <ul><li>Auxins: Cell elongation, root formation, phototropism.</li><li>Gibberellins: Stem elongation, seed germination, flowering.</li><li>Both promote growth in various ways.</li></ul>
+          <p class="notes">🎙️ Auxins are famous for making plant cells grow longer, especially in shoots towards light. Gibberellins play a big role in making stems tall and breaking seed dormancy. These two hormones are key players in a plant's overall growth and development.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🔬" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Other <span class="hl">Important</span> Plant Hormones</h2>
+          <ul><li>Cytokinins: Promote cell division, delay aging in leaves.</li><li>Abscisic Acid (ABA): Growth inhibitor, causes dormancy, wilting.</li><li>Ethylene: Promotes fruit ripening.</li></ul>
+          <p class="notes">🎙️ Cytokinins are like the 'youth hormones' for plants, keeping leaves fresh. Abscisic acid is a 'stress hormone' that helps plants cope with drought or cold by promoting dormancy. And ethylene, a gaseous hormone, is what makes fruits ripen, turning green bananas yellow.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_structure.svg?width=500" data-fb="🔬" alt="A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts."/><div class="vcap">A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Plant Movements: <span class="hl">Tropism</span></h2>
+          <ul><li>Directional growth movement in response to a stimulus.</li><li>Phototropism: Growth towards light (e.g., sunflower).</li><li>Geotropism: Growth in response to gravity (roots grow down).</li></ul>
+          <p class="notes">🎙️ Tropism means 'turning' or 'direction.' Plants don't just grow randomly; they grow in specific directions based on external cues. Phototropism ensures leaves get enough sunlight, and geotropism makes sure roots grow into the soil to find water and nutrients.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_hormones.svg?width=500" data-fb="☀️" alt="Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel"/><div class="vcap">Plant growth regulators (hormones) are organic compounds that modulate plant growth, devel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Nastic</span> Movements</h2>
+          <ul><li>Non-directional movement, independent of stimulus direction.</li><li>Thigmonasty: Response to touch (e.g., 'touch-me-not' plant).</li><li>Nyctinasty: Sleep movements (leaves folding at night).</li></ul>
+          <p class="notes">🎙️ Unlike tropism, nastic movements don't depend on the direction of the stimulus. A famous example is the 'touch-me-not' plant (Mimosa pudica), whose leaves fold up instantly when touched, regardless of where they were touched. This is a rapid, non-directional response.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Shrinking leaves</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
+          <ul><li>Which part of the neuron receives signals?</li><li>A) Axon</li><li>B) Cell Body</li><li>C) Dendrite</li><li>D) Nerve Ending</li></ul>
+          <p class="notes">🎙️ Alright students, let's quickly test our understanding. Think back to the structure of a neuron. Which specific part is designed to pick up incoming messages from other neurons or sensory receptors?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
+          <ul><li>Which plant hormone is responsible for fruit ripening?</li><li>A) Auxin</li><li>B) Gibberellin</li><li>C) Abscisic Acid</li><li>D) Ethylene</li></ul>
+          <p class="notes">🎙️ Now, let's shift our focus to plants. We discussed several plant hormones and their specific functions. Can you recall which one plays a key role in the process of fruits becoming ripe and ready to eat?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
+          <ul><li>What is the main function of the Cerebellum?</li><li>A) Thinking and memory</li><li>B) Regulating heartbeat and breathing</li><li>C) Maintaining balance and posture</li><li>D) Processing sensory information</li></ul>
+          <p class="notes">🎙️ Finally, let's revisit the human brain. We talked about different parts and their roles. What is the primary job of the cerebellum, located at the back of the brain?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> and Conclusion</h2>
+          <ul><li>Control and coordination are vital for all living organisms.</li><li>Animals use nervous and endocrine systems.</li><li>Plants use hormones for growth and movement.</li><li>Understanding these systems helps us appreciate life's complexity.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From the intricate workings of the human brain and nervous system to the subtle yet powerful chemical signals in plants, control and coordination are fundamental to life. Keep exploring, keep questioning, and you'll uncover even more wonders of biology. Thank you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

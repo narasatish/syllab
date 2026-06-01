@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Polynomials - Class 10 Mathematics — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter 2: <span class="hl">Polynomials</span> - A Journey into Algebraic Expressions</h2>
+          <ul><li>Welcome to the world of Polynomials!</li><li>Understand what polynomials are and why they are important.</li><li>Learn about their types, properties, and applications.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter on Polynomials. This topic is a fundamental building block in mathematics and has many real-world applications. Get ready to explore!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is an <span class="hl">Algebraic Expression</span>?</h2>
+          <ul><li>A combination of variables and constants.</li><li>Connected by mathematical operations (+, -, ×, ÷).</li><li>Example: 3x + 5, 2y² - 7.</li></ul>
+          <p class="notes">🎙️ An algebraic expression is like a mathematical sentence using letters for unknown values and numbers for fixed values. They are combined using basic operations to form meaningful statements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔠</div><div class="vcap">Symbols and Numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Terms</span> in an Algebraic Expression</h2>
+          <ul><li>Parts of an expression separated by '+' or '-'.</li><li>Each term is a product of factors.</li><li>Example: In 4x² + 5x - 7, the terms are 4x², 5x, and -7.</li></ul>
+          <p class="notes">🎙️ Think of terms as individual components of an algebraic expression. They are distinct pieces that are added or subtracted together to form the whole expression.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Separated by operations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Understanding <span class="hl">Variables</span></h2>
+          <ul><li>Symbols (usually letters) that represent unknown values.</li><li>Their value can change.</li><li>Commonly used: x, y, z, a, b, c.</li></ul>
+          <p class="notes">🎙️ Variables are like placeholders for numbers that can change. Imagine you don't know the exact number of sweets in a box; you can use 'x' to represent that unknown quantity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Unknown Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Understanding <span class="hl">Constants</span></h2>
+          <ul><li>Symbols or numbers with a fixed value.</li><li>Their value does not change.</li><li>Examples: 5, -10, 0, π (pi).</li></ul>
+          <p class="notes">🎙️ Constants are the opposite of variables; they are numbers whose values are always the same. For instance, in the expression 'x + 5', '5' is a constant because its value never changes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Fixed Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>What is a <span class="hl">Polynomial</span>?</h2>
+          <ul><li>An algebraic expression where exponents of variables are non-negative integers.</li><li>No variables in the denominator or under a radical sign.</li><li>Examples: 3x + 2, 5x² - 7x + 1, y³ + 4.</li></ul>
+          <p class="notes">🎙️ A polynomial is a special type of algebraic expression that follows specific rules for its exponents. It's a fundamental building block for many higher-level mathematical concepts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Building Block</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Why Study Polynomials? <span class="hl">Real-Life Application</span></h2>
+          <ul><li>Used to model real-world situations.</li><li>Example: Calculating trajectory of a thrown ball.</li><li>Designing roller coasters, bridges, and buildings.</li></ul>
+          <p class="notes">🎙️ Polynomials aren't just abstract math! Engineers use them to design safe bridges, architects use them to create beautiful curves in buildings, and even game developers use them for character movements.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Engineering &amp; Design</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Degree</span> of a Polynomial</h2>
+          <ul><li>The highest power of the variable in a polynomial.</li><li>Determines the type and behavior of the polynomial.</li><li>Example: In 5x³ + 2x² - 7, the degree is 3.</li></ul>
+          <p class="notes">🎙️ The degree is a very important characteristic of a polynomial. It tells us about the 'strength' or 'complexity' of the polynomial and helps us classify it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Highest Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Types of Polynomials by Degree: <span class="hl">Linear Polynomial</span></h2>
+          <ul><li>A polynomial with degree 1.</li><li>General form: ax + b, where a ≠ 0.</li><li>Example: 2x + 3, y - 5.</li></ul>
+          <p class="notes">🎙️ Linear polynomials are the simplest type. When you graph them, they always form a straight line. Think of a simple equation like y = 2x + 3.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Types of Polynomials by Degree: <span class="hl">Quadratic Polynomial</span></h2>
+          <ul><li>A polynomial with degree 2.</li><li>General form: ax² + bx + c, where a ≠ 0.</li><li>Example: x² - 4x + 4, 3y² + 2y.</li></ul>
+          <p class="notes">🎙️ Quadratic polynomials are very common. Their graphs are parabolas, which are U-shaped curves. You'll see these curves in many natural phenomena, like the path of a thrown ball.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Parabolic Curve</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Types of Polynomials by Degree: <span class="hl">Cubic Polynomial</span></h2>
+          <ul><li>A polynomial with degree 3.</li><li>General form: ax³ + bx² + cx + d, where a ≠ 0.</li><li>Example: x³ - 2x² + x - 1, 4y³ + 7.</li></ul>
+          <p class="notes">🎙️ Cubic polynomials have a degree of three. Their graphs can have more complex curves than linear or quadratic polynomials, often showing two turns.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Complex Shape</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Area of a Field</span> (Quadratic)</h2>
+          <ul><li>A farmer wants to fence a rectangular field.</li><li>If length is 'x' and width is 'x-2', area is x(x-2) = x² - 2x.</li><li>This is a quadratic polynomial, helping calculate area.</li></ul>
+          <p class="notes">🎙️ Imagine a farmer needing to calculate the area of his field. If the dimensions involve a variable, the area calculation often results in a polynomial. Here, it's a quadratic one, useful for planning.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Field Measurement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Types of Polynomials by <span class="hl">Number of Terms</span></h2>
+          <ul><li>Monomial: One term (e.g., 5x²).</li><li>Binomial: Two terms (e.g., 3x + 7).</li><li>Trinomial: Three terms (e.g., x² - 2x + 1).</li></ul>
+          <p class="notes">🎙️ Just as we classify polynomials by their degree, we can also classify them by how many terms they have. This helps us describe them more precisely.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Monomial</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Binomial</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Trinomial</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Zeroes</span> of a Polynomial</h2>
+          <ul><li>A real number 'k' is a zero if P(k) = 0.</li><li>It's the value of the variable that makes the polynomial equal to zero.</li><li>Also called 'roots' of the polynomial equation.</li></ul>
+          <p class="notes">🎙️ Finding the zeroes of a polynomial is like finding the 'solution' or 'answer' to the polynomial equation. It's a very important concept with many applications.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Target Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Finding Zeroes of a Linear Polynomial (<span class="hl">Worked Example</span>)</h2>
+          <ul><li>Consider P(x) = 2x - 6.</li><li>To find zero, set P(x) = 0.</li><li>2x - 6 = 0  =&gt;  2x = 6  =&gt;  x = 3.</li></ul>
+          <p class="notes">🎙️ For a linear polynomial, finding the zero is quite straightforward. You simply set the expression equal to zero and solve for the variable, just like solving a simple linear equation.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Set P(x) = 0</span></div><div class="step"><span class="snum">2</span><span>Isolate the variable</span></div><div class="step"><span class="snum">3</span><span>Solve for x</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Geometric Meaning of Zeroes: <span class="hl">Linear Polynomial</span></h2>
+          <ul><li>For a linear polynomial ax + b, its graph is a straight line.</li><li>The zero is the x-coordinate where the line intersects the x-axis.</li><li>A linear polynomial has exactly one zero.</li></ul>
+          <p class="notes">🎙️ Visually, the zero of a linear polynomial is where its graph crosses the horizontal x-axis. Since a straight line can cross the x-axis at most once, a linear polynomial has only one zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↗️</div><div class="vcap">X-axis Intercept</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Geometric Meaning of Zeroes: <span class="hl">Quadratic Polynomial</span></h2>
+          <ul><li>For a quadratic polynomial ax² + bx + c, its graph is a parabola.</li><li>The zeroes are the x-coordinates where the parabola intersects the x-axis.</li><li>A quadratic polynomial can have 0, 1, or 2 distinct zeroes.</li></ul>
+          <p class="notes">🎙️ A quadratic polynomial's graph, a parabola, can intersect the x-axis at two points, one point (if it just touches), or no points at all. This means it can have two, one, or no real zeroes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Parabola Intercepts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Geometric Meaning of Zeroes: <span class="hl">Cubic Polynomial</span></h2>
+          <ul><li>For a cubic polynomial, its graph is a curve with up to two turns.</li><li>The zeroes are the x-coordinates where the curve intersects the x-axis.</li><li>A cubic polynomial can have 1, 2, or 3 distinct zeroes.</li></ul>
+          <p class="notes">🎙️ The graph of a cubic polynomial can cross the x-axis up to three times. So, a cubic polynomial can have one, two, or three real zeroes, corresponding to these intersection points.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Curve Intercepts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Relationship between Zeroes and Coefficients: <span class="hl">Linear Polynomial</span></h2>
+          <ul><li>For P(x) = ax + b (a ≠ 0), the zero is x = -b/a.</li><li>Zero = -(Constant Term) / (Coefficient of x).</li><li>Example: For 2x + 6, zero = -6/2 = -3.</li></ul>
+          <p class="notes">🎙️ There's a direct and simple relationship between the zero of a linear polynomial and its coefficients. You can find the zero just by looking at the constant term and the coefficient of x.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Direct Connection</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Relationship between Zeroes and Coefficients: <span class="hl">Quadratic Polynomial</span></h2>
+          <ul><li>For P(x) = ax² + bx + c (a ≠ 0), let zeroes be α and β.</li><li>Sum of zeroes (α + β) = -b/a.</li><li>Product of zeroes (αβ) = c/a.</li></ul>
+          <p class="notes">🎙️ For quadratic polynomials, the relationship is a bit more complex but equally powerful. The sum and product of the zeroes can be directly found from the coefficients a, b, and c.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Interlinked Properties</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Worked Example</span>: Zeroes and Coefficients (Quadratic)</h2>
+          <ul><li>Polynomial: x² + 5x + 6.</li><li>Zeroes are -2 and -3 (by factorization).</li><li>Sum: -2 + (-3) = -5. From formula: -b/a = -5/1 = -5. (Verified!)</li></ul>
+          <p class="notes">🎙️ Let's put the relationship to the test. If we find the zeroes of x² + 5x + 6 by factoring, we get -2 and -3. When we compare their sum and product to the formulas, they match perfectly!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Find Zeroes (Factorize)</span></div><div class="step"><span class="snum">2</span><span>Calculate Sum/Product</span></div><div class="step"><span class="snum">3</span><span>Verify with Formulas</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check 1: <span class="hl">Identify</span> the Polynomial Type</h2>
+          <ul><li>Is 3x² - 7x + 5 a polynomial?</li><li>What is its degree?</li><li>Is it a monomial, binomial, or trinomial?</li></ul>
+          <p class="notes">🎙️ Think carefully about the definitions we've covered. Does this expression meet all the criteria to be a polynomial? What is the highest power of the variable?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check 2: <span class="hl">Degree and Zeroes</span></h2>
+          <ul><li>What is the degree of the polynomial 5 - 2y³?</li><li>How many zeroes can a linear polynomial have?</li><li>Can a quadratic polynomial have 3 zeroes?</li></ul>
+          <p class="notes">🎙️ Recall the definitions of degree and the geometric meaning of zeroes for different types of polynomials. This will help you answer these questions quickly.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check 3: <span class="hl">Zeroes and Coefficients</span></h2>
+          <ul><li>For P(x) = 3x - 9, what is its zero?</li><li>If zeroes of a quadratic are 2 and 3, what is their sum?</li><li>What is the product of zeroes for x² - 7x + 10?</li></ul>
+          <p class="notes">🎙️ Apply the formulas we just learned for the relationship between zeroes and coefficients. For the linear polynomial, directly find the zero. For the quadratic, use the sum and product formulas.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Recap: <span class="hl">Key Takeaways</span> from Polynomials</h2>
+          <ul><li>Polynomials are algebraic expressions with non-negative integer exponents.</li><li>Classified by degree (linear, quadratic, cubic) and terms (monomial, binomial, trinomial).</li><li>Zeroes are values that make the polynomial zero; they are x-intercepts on a graph.</li><li>Relationships exist between zeroes and coefficients for different polynomial types.</li></ul>
+          <p class="notes">🎙️ Today, we've covered the fundamental concepts of polynomials. Remember these key ideas, as they will be crucial for understanding more advanced topics in algebra. Keep practicing!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Summary of Learning</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

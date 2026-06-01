@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Acids, Bases and Salts — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to Acids, Bases and Salts!</h2>
+          <ul><li>Get ready to explore the world of chemistry!</li><li>Learn about the substances that are all around us.</li><li>Understand how they affect our daily lives.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the fundamental concepts of chemistry: Acids, Bases, and Salts. These are not just terms in a textbook; they are everywhere, from the food we eat to the medicines we take. Let's dive in and discover their amazing properties together!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Acids</span>?</h2>
+          <ul><li>Sour in taste.</li><li>Turn blue litmus red.</li><li>Corrosive in nature.</li><li>Release H⁺ ions in water (Arrhenius concept).</li></ul>
+          <p class="notes">🎙️ Acids are substances that have a distinct sour taste, like lemon juice. They are known for their ability to change the color of certain indicators, for example, turning blue litmus paper red. Many acids are corrosive, meaning they can cause damage, and chemically, they release hydrogen ions when dissolved in water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍋</div><div class="vcap">Sour Taste</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Strong vs. Weak</span> Acids</h2>
+          <ul><li>Strong acids dissociate completely in water.</li><li>Weak acids dissociate partially in water.</li><li>Strong acids are highly corrosive.</li><li>Weak acids are less corrosive, often found in food.</li></ul>
+          <p class="notes">🎙️ Acids can be classified as strong or weak based on how much they ionize in water. Strong acids, like hydrochloric acid, completely break apart into ions, making them very reactive. Weak acids, such as acetic acid in vinegar, only partially ionize, which is why we can consume them in moderation.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Strong Acid</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Weak Acid</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Acids</span> All Around Us!</h2>
+          <ul><li>Lemon juice (Citric acid)</li><li>Vinegar (Acetic acid)</li><li>Curd (Lactic acid)</li><li>Ant sting (Formic acid)</li></ul>
+          <p class="notes">🎙️ You encounter acids every day! The sour taste of a lemon is due to citric acid, and the tangy flavor of vinegar comes from acetic acid. Even the sting of an ant contains formic acid. These everyday examples show how prevalent acids are in our environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍊</span><span>🍊</span><span>🍊</span><span>🍊</span></div><div class="vcap">Common Acids</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>What are <span class="hl">Bases</span>?</h2>
+          <ul><li>Bitter in taste.</li><li>Soapy to touch.</li><li>Turn red litmus blue.</li><li>Release OH⁻ ions in water (Arrhenius concept).</li></ul>
+          <p class="notes">🎙️ Now let's talk about bases. Bases have a bitter taste, like bitter gourd, and feel slippery or soapy to the touch. They are the opposite of acids in terms of litmus paper, turning red litmus blue. Chemically, bases release hydroxide ions when dissolved in water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧼</div><div class="vcap">Soapy Feel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Strong vs. Weak</span> Bases</h2>
+          <ul><li>Strong bases dissociate completely in water.</li><li>Weak bases dissociate partially in water.</li><li>Strong bases are corrosive.</li><li>Weak bases are less corrosive, used in antacids.</li></ul>
+          <p class="notes">🎙️ Similar to acids, bases can also be strong or weak. Strong bases, like sodium hydroxide, fully ionize in water and are very reactive. Weak bases, such as ammonium hydroxide, only partially ionize and are found in common household products like cleaning agents and some antacids.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Strong Base</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Weak Base</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Bases</span> in Our Daily Lives</h2>
+          <ul><li>Soap (Sodium hydroxide)</li><li>Baking soda (Sodium bicarbonate)</li><li>Antacids (Magnesium hydroxide)</li><li>Toothpaste (Mild bases)</li></ul>
+          <p class="notes">🎙️ Bases are also integral to our daily lives. The soap we use for bathing contains sodium hydroxide, and baking soda, a common kitchen ingredient, is a mild base. Antacids, used to relieve indigestion, contain bases like magnesium hydroxide. Even toothpaste contains mild bases to neutralize acids in our mouth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧴</span><span>🧴</span><span>🧴</span><span>🧴</span></div><div class="vcap">Common Bases</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>What are <span class="hl">Indicators</span>?</h2>
+          <ul><li>Substances that show different colors in acidic and basic mediums.</li><li>Used to test whether a substance is an acid or a base.</li><li>Help us avoid tasting or touching chemicals.</li><li>Can be natural or synthetic.</li></ul>
+          <p class="notes">🎙️ Since we cannot taste or touch acids and bases due to their corrosive nature, we use special substances called indicators. These indicators change color when they come into contact with an acid or a base, providing a safe way to identify them. We have both natural and man-made indicators.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Color Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Natural</span> Indicators</h2>
+          <ul><li>Litmus: most common, extracted from lichens.</li><li>Turmeric: yellow in acid, red-brown in base.</li><li>China Rose (Hibiscus): dark pink in acid, green in base.</li></ul>
+          <p class="notes">🎙️ Nature provides us with several excellent indicators. Litmus paper is perhaps the most well-known, turning red in acid and blue in base. Turmeric, a common spice, turns reddish-brown in basic solutions. Even the petals of a China rose flower can be used to make an indicator that changes color dramatically.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Litmus</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Turmeric</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">China Rose</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Synthetic</span> Indicators</h2>
+          <ul><li>Phenolphthalein: colorless in acid, pink in base.</li><li>Methyl Orange: red in acid, yellow in base.</li><li>Man-made chemical substances.</li><li>Widely used in laboratories.</li></ul>
+          <p class="notes">🎙️ Besides natural indicators, chemists have developed synthetic indicators. Phenolphthalein is a popular choice; it remains colorless in acidic solutions but turns vibrant pink in basic solutions. Methyl Orange is another example, showing a red color in acids and a yellow color in bases. These are very precise for laboratory work.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/PH_paper_color_scale.png?width=500" data-fb="🔬" alt="Indicators are substances that change colour in acidic or basic solutions. Common indicato"/><div class="vcap">Indicators are substances that change colour in acidic or basic solutions. Common indicato</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Olfactory</span> Indicators</h2>
+          <ul><li>Substances whose smell changes in acidic or basic solutions.</li><li>Used by visually impaired students.</li><li>Examples: Onion, Vanilla essence, Clove oil.</li></ul>
+          <p class="notes">🎙️ There's another interesting class of indicators called olfactory indicators. These are substances whose smell changes depending on whether they are in an acidic or basic medium. Onion, vanilla essence, and clove oil are common examples. They are particularly helpful for students who are visually impaired.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👃</div><div class="vcap">Smell Test</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>The <span class="hl">pH Scale</span>: Measuring Acidity &amp; Basicity</h2>
+          <ul><li>A scale to measure the strength of acids and bases.</li><li>Ranges from 0 to 14.</li><li>pH &lt; 7 indicates acidic solution.</li><li>pH &gt; 7 indicates basic solution.</li><li>pH = 7 indicates neutral solution.</li></ul>
+          <p class="notes">🎙️ The pH scale is a crucial tool in chemistry that quantifies how acidic or basic a solution is. It ranges from 0 to 14. A pH value below 7 indicates an acidic solution, while a value above 7 signifies a basic solution. A pH of exactly 7 represents a perfectly neutral solution, like pure water.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/PH_scale-en.svg?width=500" data-fb="📏" alt="The pH scale measures the acidity or basicity of a solution. It ranges from 0 to 14, with "/><div class="vcap">The pH scale measures the acidity or basicity of a solution. It ranges from 0 to 14, with </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Understanding <span class="hl">pH Values</span></h2>
+          <ul><li>Lower pH (0-6) means stronger acid.</li><li>Higher pH (8-14) means stronger base.</li><li>pH 7 is neutral (e.g., pure water).</li><li>Universal indicator shows a range of colors for different pH values.</li></ul>
+          <p class="notes">🎙️ Let's visualize the pH scale. Solutions with pH values close to 0 are very strong acids, like battery acid. As the pH increases towards 7, acidity decreases. Similarly, as pH moves from 7 towards 14, the basicity increases, with values near 14 representing strong bases like drain cleaner. Pure water is right in the middle at pH 7.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Strong Acid</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Neutral</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Strong Base</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>pH in Our <span class="hl">Daily Lives</span></h2>
+          <ul><li>Digestive system: Stomach acid (pH 1.5-3.5) aids digestion.</li><li>Soil pH: Affects plant growth (needs specific pH range).</li><li>Tooth decay: Caused by acid production (pH &lt; 5.5) in mouth.</li><li>Aquatic life: pH of water bodies affects survival.</li></ul>
+          <p class="notes">🎙️ The pH balance is vital for many biological and environmental processes. Our stomach acid, with its very low pH, is essential for digestion. The pH of soil directly impacts how well crops grow. Even the health of our teeth depends on maintaining a balanced oral pH, and the survival of aquatic life relies on the correct pH of water.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=500" data-fb="🔬" alt="The digestive system breaks down food into nutrients that the body can absorb and use. It "/><div class="vcap">The digestive system breaks down food into nutrients that the body can absorb and use. It </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Neutralization</span> Reaction</h2>
+          <ul><li>Acid + Base → Salt + Water</li><li>Process where an acid and a base react to form a salt and water.</li><li>Heat is usually released (exothermic reaction).</li><li>Example: HCl + NaOH → NaCl + H₂O</li></ul>
+          <p class="notes">🎙️ One of the most important reactions involving acids and bases is neutralization. In this reaction, an acid and a base combine to form a salt and water. This reaction typically releases heat, making it an exothermic process. A classic example is hydrochloric acid reacting with sodium hydroxide to produce common salt and water.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Acid</span></div><div class="step"><span class="snum">2</span><span>Base</span></div><div class="step"><span class="snum">3</span><span>Salt</span></div><div class="step"><span class="snum">4</span><span>Water</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>What are <span class="hl">Salts</span>?</h2>
+          <ul><li>Ionic compounds formed from the reaction of an acid and a base.</li><li>Consist of a cation (from base) and an anion (from acid).</li><li>Often crystalline solids at room temperature.</li><li>Many are soluble in water.</li></ul>
+          <p class="notes">🎙️ After discussing acids and bases, let's understand salts. Salts are ionic compounds formed when an acid reacts with a base during neutralization. They are composed of a positively charged ion from the base and a negatively charged ion from the acid. Most salts are crystalline solids and dissolve well in water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧂</div><div class="vcap">Crystalline Structure</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Families</span> of Salts</h2>
+          <ul><li>Salts can be acidic, basic, or neutral.</li><li>Neutral salts: formed from strong acid + strong base (e.g., NaCl).</li><li>Acidic salts: formed from strong acid + weak base (e.g., NH₄Cl).</li><li>Basic salts: formed from weak acid + strong base (e.g., Na₂CO₃).</li></ul>
+          <p class="notes">🎙️ Just like acids and bases, salts themselves can exhibit acidic, basic, or neutral properties depending on the strength of the acid and base they are derived from. For instance, common salt, NaCl, is neutral because it comes from a strong acid and a strong base. Ammonium chloride is acidic, and sodium carbonate is basic.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Neutral Salt</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Acidic Salt</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Basic Salt</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Common Salt</span>: Sodium Chloride (NaCl)</h2>
+          <ul><li>Chemically known as Sodium Chloride.</li><li>Obtained from seawater evaporation and rock salt mines.</li><li>Essential component of our diet.</li><li>Raw material for many important chemicals.</li></ul>
+          <p class="notes">🎙️ Common salt, or sodium chloride, is perhaps the most familiar salt. We obtain it from evaporating seawater or by mining it as rock salt. It's not just a seasoning for our food; it's also vital for our body's functions. More importantly, it serves as the starting material for producing a wide range of other useful chemicals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Salt Crystals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Chemicals from Common Salt: <span class="hl">Sodium Hydroxide</span> (NaOH)</h2>
+          <ul><li>Also known as Caustic Soda.</li><li>Produced by chlor-alkali process.</li><li>Electrolysis of aqueous NaCl solution.</li><li>Uses: soaps, detergents, paper making, artificial fibers.</li></ul>
+          <p class="notes">🎙️ One crucial chemical derived from common salt is sodium hydroxide, or caustic soda. It's produced through a process called chlor-alkali, where an electric current is passed through a salt solution. This yields not only NaOH but also chlorine gas and hydrogen gas, all of which have numerous industrial applications, like making soap and paper.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>NaCl Solution</span></div><div class="step"><span class="snum">2</span><span>Electrolysis</span></div><div class="step"><span class="snum">3</span><span>NaOH, Cl₂, H₂</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Chemicals from Common Salt: <span class="hl">Bleaching Powder</span> (CaOCl₂)</h2>
+          <ul><li>Chemical name: Calcium Oxychloride.</li><li>Produced by passing chlorine gas over dry slaked lime (Ca(OH)₂).</li><li>Chlorine is a byproduct of chlor-alkali process.</li><li>Uses: bleaching cotton, disinfectant, oxidizing agent.</li></ul>
+          <p class="notes">🎙️ Another important chemical is bleaching powder. It's made by reacting chlorine gas, which is obtained from the chlor-alkali process, with dry slaked lime. Bleaching powder is widely used in textile industries for bleaching clothes, as a disinfectant for water, and as an oxidizing agent in many chemical reactions.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Slaked Lime</span></div><div class="step"><span class="snum">2</span><span>Chlorine Gas</span></div><div class="step"><span class="snum">3</span><span>Bleaching Powder</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Chemicals from Common Salt: <span class="hl">Baking Soda</span> (NaHCO₃)</h2>
+          <ul><li>Chemical name: Sodium Hydrogen Carbonate.</li><li>Mild non-corrosive basic salt.</li><li>Used in baking for quick rising.</li><li>Also used as an antacid and in fire extinguishers.</li></ul>
+          <p class="notes">🎙️ Baking soda, or sodium hydrogen carbonate, is a common household chemical. It's a mild base and is crucial in baking, as it releases carbon dioxide gas upon heating, making cakes and bread fluffy. It also acts as an antacid to relieve stomach acidity and is used in some types of fire extinguishers.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>NaCl + H₂O + CO₂ + NH₃</span></div><div class="step"><span class="snum">2</span><span>Reaction</span></div><div class="step"><span class="snum">3</span><span>NaHCO₃</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Chemicals from Common Salt: <span class="hl">Washing Soda</span> (Na₂CO₃·10H₂O)</h2>
+          <ul><li>Chemical name: Sodium Carbonate decahydrate.</li><li>Obtained by heating baking soda and then recrystallizing.</li><li>Removes permanent hardness of water.</li><li>Uses: glass, soap, paper industries, cleaning agent.</li></ul>
+          <p class="notes">🎙️ Washing soda is another derivative, chemically known as sodium carbonate decahydrate. It's produced by heating baking soda to get sodium carbonate, then recrystallizing it. Washing soda is excellent for removing the permanent hardness of water and is extensively used in the glass, soap, and paper industries, as well as a general cleaning agent.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Baking Soda Heat</span></div><div class="step"><span class="snum">2</span><span>Na₂CO₃ + H₂O + CO₂</span></div><div class="step"><span class="snum">3</span><span>Recrystallization</span></div><div class="step"><span class="snum">4</span><span>Washing Soda</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span>!</h2>
+          <ul><li>1. Which indicator turns red in acidic solution?</li><li>2. What is the pH of a neutral solution?</li><li>3. Name a strong acid and a strong base.</li><li>4. What are the products of a neutralization reaction?</li></ul>
+          <p class="notes">🎙️ Alright class, let's quickly test your understanding. Take a moment to think about the answers to these questions. This will help us reinforce the key concepts we've covered today. Don't worry if you don't get all of them, we'll discuss them together!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Applications &amp; <span class="hl">Recap</span></h2>
+          <ul><li>Acids are sour, bases are bitter/soapy.</li><li>Indicators help identify acids/bases.</li><li>pH scale measures strength (0-14).</li><li>Neutralization forms salt and water.</li><li>Common salt is a source for many useful chemicals.</li></ul>
+          <p class="notes">🎙️ Today, we've covered a lot! We learned about the distinct properties of acids and bases, how indicators help us identify them safely, and the importance of the pH scale. We also explored the fundamental neutralization reaction and saw how common salt is a valuable resource for producing essential chemicals for our daily lives and industries.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/PH_scale_2.svg?width=500" data-fb="✅" alt="pH scale (0-14) measures acidity and alkalinity. Acids &lt; 7 (H+ ions), bases &gt; 7 (OH− ions)"/><div class="vcap">pH scale (0-14) measures acidity and alkalinity. Acids &lt; 7 (H+ ions), bases &gt; 7 (OH− ions)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>! Any Questions?</h2>
+          <ul><li>Hope you enjoyed learning about Acids, Bases and Salts.</li><li>Feel free to ask any doubts you may have.</li><li>Keep exploring the wonders of chemistry!</li></ul>
+          <p class="notes">🎙️ Thank you for your active participation and attention today, students! I hope this session has made the concepts of acids, bases, and salts clearer and more interesting for you. Don't hesitate to ask if you have any questions or need further clarification on any topic. Keep up the curiosity!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/PH_scale.svg?width=500" data-fb="🔬" alt="Acids donate protons (H⁺), bases accept protons (or provide OH⁻). Neutralization of acid +"/><div class="vcap">Acids donate protons (H⁺), bases accept protons (or provide OH⁻). Neutralization of acid +</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

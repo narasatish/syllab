@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Useful and Harmful Microbes — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Useful and Harmful <span class="hl">Microbes</span></h2>
+          <ul><li>Understanding the microscopic world around us.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we embark on an exciting journey into the invisible world of microbes. These tiny organisms are all around us, and they play a huge role in our lives, sometimes helpful, sometimes harmful.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Microbes</span>?</h2>
+          <ul><li>Tiny living organisms, invisible to the naked eye.</li><li>Require a microscope to be seen.</li><li>Found almost everywhere on Earth.</li></ul>
+          <p class="notes">🎙️ Microbes, also known as microorganisms, are incredibly small living things. You can't see them without a special tool called a microscope. They are truly ubiquitous, meaning they live in nearly every environment, from the air we breathe to the soil beneath our feet, and even inside our bodies.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="🔬" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Major <span class="hl">Types</span> of Microbes</h2>
+          <ul><li>Bacteria: Single-celled, diverse shapes.</li><li>Fungi: Yeast, molds, mushrooms (some microscopic).</li><li>Protozoa: Animal-like, single-celled.</li><li>Viruses: Non-living, require a host to multiply.</li></ul>
+          <p class="notes">🎙️ There are several main categories of microbes. We have bacteria, which are simple single-celled organisms, and fungi like yeast and molds. Protozoa are another group, often found in water. And then there are viruses, which are unique because they aren't considered truly 'living' outside a host cell.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">Different Microbes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Microbes are <span class="hl">Everywhere</span>!</h2>
+          <ul><li>In soil, water, and air.</li><li>On and inside plants and animals.</li><li>Even in extreme environments like hot springs and deep oceans.</li></ul>
+          <p class="notes">🎙️ It's hard to imagine, but microbes are truly everywhere! They thrive in the soil, in every drop of water, and even float in the air. They live on our skin, inside our bodies, and on almost every surface around us. Some can even survive in conditions that are too hot, too cold, or too salty for most other life forms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Global Presence</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The Good Side: <span class="hl">Useful</span> Microbes</h2>
+          <ul><li>Many microbes perform essential functions.</li><li>Beneficial in food production, medicine, and agriculture.</li><li>Crucial for maintaining ecological balance.</li></ul>
+          <p class="notes">🎙️ While we often hear about harmful germs, it's important to remember that a vast number of microbes are incredibly beneficial. They are vital for many processes that sustain life and improve human well-being. Let's explore some of their positive contributions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Helpful Organisms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Food Production: <span class="hl">Curd</span> and Yogurt</h2>
+          <ul><li>Lactic acid bacteria convert milk into curd.</li><li>Lactobacillus multiplies in milk.</li><li>Adds flavor and aids digestion.</li></ul>
+          <p class="notes">🎙️ One common example is the making of curd or yogurt. Specific bacteria, like Lactobacillus, are added to milk. These bacteria ferment the lactose sugar in milk, producing lactic acid, which causes the milk proteins to coagulate and thicken, forming curd. This process not only preserves milk but also makes it more digestible.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🔬" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Food Production: <span class="hl">Bread</span> Making</h2>
+          <ul><li>Yeast (a fungus) helps dough rise.</li><li>Ferments sugars, producing carbon dioxide gas.</li><li>Gas bubbles make bread soft and fluffy.</li></ul>
+          <p class="notes">🎙️ Another wonderful use of microbes in food is in baking bread. Yeast, which is a type of single-celled fungus, is mixed with flour and water. It feeds on the sugars in the dough and releases carbon dioxide gas. These gas bubbles get trapped in the dough, causing it to rise and giving bread its characteristic light and airy texture.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍞</div><div class="vcap">Rising Dough</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Food Production: <span class="hl">Cheese</span></h2>
+          <ul><li>Bacteria and fungi are used to ripen cheese.</li><li>Contribute to unique flavors and textures.</li><li>Example: Penicillium roqueforti for blue cheese.</li></ul>
+          <p class="notes">🎙️ Cheese making is another fascinating process involving microbes. After milk is curdled, specific bacteria and fungi are introduced to ripen the cheese. These microbes break down fats and proteins, developing the distinctive aromas, flavors, and textures we associate with different types of cheese, like the blue veins in Roquefort cheese, which are from a specific mold.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧀</span><span>🧀</span><span>🧀</span></div><div class="vcap">Variety of Cheeses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Medicine: <span class="hl">Antibiotics</span></h2>
+          <ul><li>Substances produced by microbes to kill or inhibit other microbes.</li><li>Revolutionized treatment of bacterial infections.</li><li>Example: Penicillin from Penicillium mold.</li></ul>
+          <p class="notes">🎙️ Microbes have given us some of our most powerful medicines. Antibiotics are compounds produced by certain fungi or bacteria that can destroy or stop the growth of harmful bacteria. Penicillin, discovered by Alexander Fleming from a mold called Penicillium, was the first antibiotic and saved millions of lives.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💊</div><div class="vcap">Medicine</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Medicine: <span class="hl">Vaccines</span></h2>
+          <ul><li>Weakened or dead microbes stimulate immunity.</li><li>Body learns to fight future infections.</li><li>Protects against diseases like polio and measles.</li></ul>
+          <p class="notes">🎙️ Vaccines are another crucial medical application. They contain weakened or inactive forms of disease-causing microbes, or parts of them. When introduced into the body, they trigger our immune system to produce antibodies, preparing it to fight off actual infections without causing the disease itself. This provides long-term protection against many dangerous diseases.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💉</div><div class="vcap">Immunity Booster</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Agriculture: <span class="hl">Nitrogen Fixation</span></h2>
+          <ul><li>Bacteria convert atmospheric nitrogen into usable forms.</li><li>Essential for plant growth and soil fertility.</li><li>Example: Rhizobium in legume root nodules.</li></ul>
+          <p class="notes">🎙️ In agriculture, microbes are indispensable. A prime example is nitrogen fixation. Certain bacteria, like Rhizobium, live in the root nodules of leguminous plants such as peas and beans. They take nitrogen gas from the atmosphere and convert it into compounds that plants can absorb, enriching the soil naturally and reducing the need for chemical fertilizers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Healthy Plants</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Agriculture: <span class="hl">Decomposers</span></h2>
+          <ul><li>Bacteria and fungi break down dead organic matter.</li><li>Return nutrients to the soil.</li><li>Crucial for nutrient cycling and waste disposal.</li></ul>
+          <p class="notes">🎙️ Microbes also act as nature's recyclers. Decomposer bacteria and fungi break down dead plants, animals, and their waste products. This process releases essential nutrients back into the soil, making them available for new plant growth. Without decomposers, our planet would be buried in waste, and nutrient cycles would halt.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Recycling Nutrients</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Environmental Clean-up: <span class="hl">Bioremediation</span></h2>
+          <ul><li>Microbes break down pollutants in soil and water.</li><li>Used to clean up oil spills and industrial waste.</li><li>A natural and eco-friendly solution.</li></ul>
+          <p class="notes">🎙️ Microbes are even used to clean up pollution! This process is called bioremediation. Certain bacteria have the ability to break down harmful substances like oil, pesticides, and industrial chemicals into less toxic forms. This offers an environmentally friendly way to restore contaminated sites, like cleaning up oil spills in oceans or polluted land.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Clean Water</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which microbe helps in making bread rise?</li><li>A) Lactobacillus</li><li>B) Yeast</li><li>C) Rhizobium</li><li>D) Penicillium</li></ul>
+          <p class="notes">🎙️ Time for a quick check of your understanding! Think about what we just learned about useful microbes in food production. Which of these options is responsible for making bread dough rise?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>The Other Side: <span class="hl">Harmful</span> Microbes</h2>
+          <ul><li>Some microbes cause diseases (pathogens).</li><li>Can spoil food and damage crops.</li><li>Impact human health, agriculture, and economy.</li></ul>
+          <p class="notes">🎙️ Now, let's turn our attention to the 'other side' of microbes – those that can cause harm. These are often called pathogens. They can lead to diseases in humans, animals, and plants, and also cause significant economic losses by spoiling food and damaging crops.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👎</div><div class="vcap">Unwanted Guests</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Human Diseases: <span class="hl">Bacteria</span></h2>
+          <ul><li>Many bacterial species are pathogenic.</li><li>Cause infections like tuberculosis, cholera, typhoid.</li><li>Example: Mycobacterium tuberculosis causes TB.</li></ul>
+          <p class="notes">🎙️ Bacteria are a major group of disease-causing microbes. They can infect various parts of the body, leading to illnesses like tuberculosis, which primarily affects the lungs, or cholera, which causes severe dehydration. These diseases can be very serious if not treated properly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤒</span><span>🤒</span><span>🤒</span></div><div class="vcap">Feeling Sick</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Human Diseases: <span class="hl">Viruses</span></h2>
+          <ul><li>Viruses hijack host cells to multiply.</li><li>Cause common cold, flu, measles, COVID-19.</li><li>Example: Influenza virus causes flu.</li></ul>
+          <p class="notes">🎙️ Viruses are even smaller than bacteria and are unique because they can only reproduce inside living cells. They are responsible for a wide range of human diseases, from the everyday common cold to more severe illnesses like the flu, measles, and more recently, COVID-19. They are very difficult to treat directly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤧</div><div class="vcap">Cold Symptoms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Human Diseases: <span class="hl">Fungi</span></h2>
+          <ul><li>Some fungi cause skin infections and respiratory issues.</li><li>Often thrive in warm, moist environments.</li><li>Example: Ringworm and Athlete's Foot.</li></ul>
+          <p class="notes">🎙️ Fungi can also be pathogenic, especially causing skin infections. Conditions like ringworm and athlete's foot are common fungal infections that thrive in warm and moist conditions. Some fungi can also cause more serious internal infections, especially in individuals with weakened immune systems.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Respiratory_system_complete_en.svg?width=500" data-fb="🦶" alt="The respiratory system facilitates gas exchange — taking in oxygen for cellular respiratio"/><div class="vcap">The respiratory system facilitates gas exchange — taking in oxygen for cellular respiratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Plant Diseases</span></h2>
+          <ul><li>Microbes cause significant damage to crops.</li><li>Reduce yield and economic loss for farmers.</li><li>Example: Citrus Canker (bacteria) in citrus fruits.</li></ul>
+          <p class="notes">🎙️ It's not just humans and animals that suffer from harmful microbes; plants are also vulnerable. Many bacterial, fungal, and viral diseases can devastate crops, leading to huge losses for farmers. Citrus Canker, caused by bacteria, creates unsightly lesions on citrus fruits and leaves, making them unmarketable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍋</div><div class="vcap">Diseased Fruit</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Food <span class="hl">Spoilage</span></h2>
+          <ul><li>Microbes grow on food, causing it to rot.</li><li>Produce toxins, change taste, smell, and appearance.</li><li>Example: Mold growth on stale bread.</li></ul>
+          <p class="notes">🎙️ Harmful microbes are also responsible for food spoilage. When bacteria and fungi grow on food, they break down its components, producing unpleasant odors, tastes, and textures. You've probably seen mold growing on old bread or fruits, which is a clear sign of microbial spoilage. Consuming spoiled food can also lead to food poisoning.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤢</span><span>🤢</span><span>🤢</span></div><div class="vcap">Spoiled Food</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>How Microbes <span class="hl">Spread</span></h2>
+          <ul><li>Air: Coughing, sneezing (e.g., cold).</li><li>Water: Contaminated drinking water (e.g., cholera).</li><li>Direct Contact: Touching infected surfaces/people (e.g., skin infections).</li><li>Vectors: Insects carrying pathogens (e.g., malaria by mosquitoes).</li></ul>
+          <p class="notes">🎙️ Understanding how microbes spread is crucial for preventing diseases. They can travel through the air in tiny droplets when someone coughs or sneezes. Contaminated water is a common source of many infections. Direct contact with an infected person or surface can also transmit microbes. And sometimes, insects like mosquitoes act as vectors, carrying pathogens from one host to another.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Air</span></div><div class="step"><span class="snum">2</span><span>Water</span></div><div class="step"><span class="snum">3</span><span>Contact</span></div><div class="step"><span class="snum">4</span><span>Vectors</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Preventing</span> Microbial Diseases</h2>
+          <ul><li>Maintaining personal hygiene (handwashing).</li><li>Proper food handling and storage.</li><li>Vaccination and sanitation.</li><li>Clean drinking water.</li></ul>
+          <p class="notes">🎙️ Fortunately, we can take many steps to protect ourselves from harmful microbes. Simple acts like regular handwashing are incredibly effective. Ensuring food is cooked and stored properly prevents spoilage. Vaccination programs are vital for community immunity, and access to clean drinking water and proper sanitation facilities are fundamental for public health.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧼</div><div class="vcap">Hygiene</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which of these diseases is caused by a virus?</li><li>A) Tuberculosis</li><li>B) Cholera</li><li>C) Common Cold</li><li>D) Ringworm</li></ul>
+          <p class="notes">🎙️ Another quick question! Based on what we discussed about harmful microbes and human diseases, can you identify which of these common illnesses is caused by a virus?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Useful vs. Harmful Microbes</h2>
+          <ul><li>Useful: Food production, medicine, agriculture, environment.</li><li>Harmful: Cause diseases, food spoilage, crop damage.</li><li>Balance is key: Many more useful than harmful.</li></ul>
+          <p class="notes">🎙️ To summarize, we've seen that microbes are a double-edged sword. Many are incredibly beneficial, contributing to our food, health, and environment. However, a smaller but significant number can cause harm. It's about understanding this balance and leveraging the good while mitigating the bad.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Useful</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Harmful</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>The Invisible World: A Big <span class="hl">Impact</span></h2>
+          <ul><li>Microbes are essential for life on Earth.</li><li>Understanding them helps us harness benefits and prevent harm.</li><li>Be aware, stay healthy!</li></ul>
+          <p class="notes">🎙️ In conclusion, the invisible world of microbes has a profound and undeniable impact on our lives and planet. By studying them, we can continue to develop new medicines, improve food production, and protect our environment. It's a fascinating field, and remember, good hygiene is your first line of defense!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

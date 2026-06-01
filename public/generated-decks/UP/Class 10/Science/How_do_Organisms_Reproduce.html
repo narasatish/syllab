@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>How do Organisms Reproduce? — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to 'How do Organisms <span class="hl">Reproduce?</span>'</h2>
+          <ul><li>Explore the amazing ways life continues.</li><li>Understand why reproduction is vital for species.</li><li>Discover different methods plants and animals use.</li></ul>
+          <p class="notes">🎙️ Hello students! Today we embark on a fascinating journey to understand one of the most fundamental processes of life: reproduction. We'll learn why it's so important and how diverse organisms ensure their survival.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Why</span> do Organisms Reproduce?</h2>
+          <ul><li>Ensures continuation of species.</li><li>Replaces old or dead individuals.</li><li>Maintains population numbers.</li></ul>
+          <p class="notes">🎙️ Reproduction is not essential for an individual organism to survive, but it is absolutely crucial for the survival of the species. Without reproduction, life on Earth would eventually cease to exist as organisms die without leaving offspring.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Life Cycle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Basic <span class="hl">Modes</span> of Reproduction</h2>
+          <ul><li>Asexual Reproduction: Single parent involved.</li><li>Sexual Reproduction: Two parents involved.</li><li>Each mode has unique characteristics and benefits.</li></ul>
+          <p class="notes">🎙️ We broadly classify reproduction into two main categories: asexual and sexual. Asexual reproduction involves only one parent, while sexual reproduction typically involves two parents contributing genetic material.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Genetic Material</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>What is <span class="hl">Asexual</span> Reproduction?</h2>
+          <ul><li>Involves a single parent organism.</li><li>Offspring are genetically identical to the parent.</li><li>Common in simpler organisms like bacteria and fungi.</li></ul>
+          <p class="notes">🎙️ Asexual reproduction is a simpler and faster method. The key feature is that the offspring produced are exact copies, or clones, of the parent, meaning there is no genetic variation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👤</div><div class="vcap">Single Parent</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Asexual Method 1: <span class="hl">Fission</span> (Binary)</h2>
+          <ul><li>Parent cell divides into two equal halves.</li><li>Each half grows into a new individual.</li><li>Example: Amoeba and Paramecium.</li></ul>
+          <p class="notes">🎙️ Binary fission is like a simple cell division. The parent cell first duplicates its genetic material, then the nucleus divides, followed by the cytoplasm, resulting in two identical daughter cells. Think of it as splitting in two.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🔬" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Asexual Method 2: Fission (<span class="hl">Multiple</span>)</h2>
+          <ul><li>Parent cell divides into many daughter cells simultaneously.</li><li>Occurs under unfavorable conditions, often by forming a cyst.</li><li>Example: Plasmodium (malaria parasite).</li></ul>
+          <p class="notes">🎙️ In multiple fission, the parent cell's nucleus divides repeatedly to form many nuclei. Each nucleus then gets a bit of cytoplasm and forms a new cell. This often happens inside a protective cyst, especially when conditions are harsh.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">Many cells from one</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Asexual Method 3: <span class="hl">Fragmentation</span></h2>
+          <ul><li>Body breaks into two or more pieces.</li><li>Each fragment develops into a new complete organism.</li><li>Example: Spirogyra (a type of algae).</li></ul>
+          <p class="notes">🎙️ Fragmentation is a simple method where an organism breaks into smaller pieces, and each piece has the ability to grow into a new, complete individual. This is common in some simpler multicellular organisms.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent Body</span></div><div class="step"><span class="snum">2</span><span>Breaks Apart</span></div><div class="step"><span class="snum">3</span><span>Fragments Grow</span></div><div class="step"><span class="snum">4</span><span>New Organisms</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Asexual Method 4: <span class="hl">Regeneration</span></h2>
+          <ul><li>Ability of an organism to regrow lost body parts.</li><li>Can lead to new individuals if cut into pieces.</li><li>Example: Planaria (flatworm), Hydra, starfish.</li></ul>
+          <p class="notes">🎙️ Regeneration is an amazing power! While many organisms can regenerate lost parts, some, like Planaria, can regenerate a whole new body from a small cut piece. This is a form of asexual reproduction.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cut Organism</span></div><div class="step"><span class="snum">2</span><span>Missing Parts</span></div><div class="step"><span class="snum">3</span><span>Cells Divide</span></div><div class="step"><span class="snum">4</span><span>New Body Parts</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Asexual Method 5: <span class="hl">Budding</span></h2>
+          <ul><li>A small outgrowth (bud) forms on the parent body.</li><li>Bud detaches and develops into a new organism.</li><li>Example: Hydra and Yeast.</li></ul>
+          <p class="notes">🎙️ In budding, a small, bulb-like projection, called a bud, grows out from the parent body. This bud eventually develops into a miniature adult and then detaches from the parent, becoming an independent organism.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent Organism</span></div><div class="step"><span class="snum">2</span><span>Bud Forms</span></div><div class="step"><span class="snum">3</span><span>Bud Grows</span></div><div class="step"><span class="snum">4</span><span>Bud Detaches</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Asexual Method 6: <span class="hl">Spore</span> Formation</h2>
+          <ul><li>Organism produces tiny, resistant spores.</li><li>Spores are released and germinate under favorable conditions.</li><li>Example: Rhizopus (bread mould) and fungi.</li></ul>
+          <p class="notes">🎙️ Spores are microscopic, asexual reproductive bodies that can withstand harsh conditions. When conditions are right, they germinate and grow into new organisms. This is how many fungi reproduce.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sporangium</span></div><div class="step"><span class="snum">2</span><span>Spores Form</span></div><div class="step"><span class="snum">3</span><span>Spores Release</span></div><div class="step"><span class="snum">4</span><span>New Hyphae</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Asexual Method 7: <span class="hl">Vegetative</span> Propagation</h2>
+          <ul><li>New plants grow from vegetative parts of the parent plant.</li><li>Parts include stems, roots, and leaves.</li><li>Important for agriculture to produce identical plants.</li></ul>
+          <p class="notes">🎙️ Vegetative propagation is a special type of asexual reproduction found in plants. Instead of seeds, new plants arise from parts like stems, roots, or leaves of the parent plant. This is very useful for gardeners and farmers.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_anatomy_root_en.png?width=500" data-fb="🌱" alt="A plant has distinct parts, each with specialized functions: roots absorb water, stems tra"/><div class="vcap">A plant has distinct parts, each with specialized functions: roots absorb water, stems tra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Natural</span> Vegetative Propagation</h2>
+          <ul><li>Occurs naturally without human intervention.</li><li>Examples: Potatoes (tubers), Bryophyllum (leaves), ginger (rhizomes).</li><li>New plants sprout directly from these parts.</li></ul>
+          <p class="notes">🎙️ Think of a potato with 'eyes' sprouting new shoots – that's natural vegetative propagation. Similarly, the leaves of Bryophyllum can grow new plantlets along their margins. It's nature's way of cloning plants.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥔</span><span>🥔</span><span>🥔</span></div><div class="vcap">New plants from a potato</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Artificial</span> Vegetative Propagation</h2>
+          <ul><li>Methods developed by humans for plant reproduction.</li><li>Includes cutting, layering, and grafting.</li><li>Used to grow plants with desired traits quickly.</li></ul>
+          <p class="notes">🎙️ These are techniques gardeners and farmers use to produce many plants with identical characteristics. For example, 'cutting' involves planting a piece of stem, 'layering' involves rooting a branch while still attached to the parent, and 'grafting' joins parts of two plants.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Cutting</span></div><div class="step"><span class="snum">2</span><span>Layering</span></div><div class="step"><span class="snum">3</span><span>Grafting</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span>: Asexual Reproduction</h2>
+          <ul><li>Which organism reproduces by multiple fission?</li><li>Name two methods of vegetative propagation.</li><li>What is the main advantage of asexual reproduction?</li></ul>
+          <p class="notes">🎙️ Let's quickly review what we've learned about asexual reproduction. Think about the different examples and the key characteristics of each method. This will help solidify your understanding.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>What is <span class="hl">Sexual</span> Reproduction?</h2>
+          <ul><li>Involves two parents (male and female).</li><li>Offspring inherit genetic material from both parents.</li><li>Leads to genetic variation in the offspring.</li></ul>
+          <p class="notes">🎙️ Sexual reproduction is more complex and involves the fusion of specialized reproductive cells, called gametes, from two parents. This mixing of genetic material from two individuals creates offspring that are not identical to either parent, leading to diversity.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Adolescent_hormones.svg?width=500" data-fb="🤝" alt="Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation "/><div class="vcap">Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Sexual Reproduction in <span class="hl">Plants</span></h2>
+          <ul><li>Flowers are the reproductive organs of plants.</li><li>Involves pollination and fertilization.</li><li>Results in the formation of seeds and fruits.</li></ul>
+          <p class="notes">🎙️ For flowering plants, the flower is where all the reproductive action happens. It's a beautifully designed structure that facilitates the transfer of pollen and the fusion of gametes, ultimately leading to new life.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_Reproduction.png?width=500" data-fb="🌸" alt="Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part"/><div class="vcap">Plants reproduce both sexually (via seeds from flowers) and asexually (via vegetative part</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Parts</span> of a Flower</h2>
+          <ul><li>Sepals: Protect the bud.</li><li>Petals: Attract pollinators.</li><li>Stamen: Male reproductive part (anther, filament).</li><li>Pistil/Carpel: Female reproductive part (stigma, style, ovary).</li></ul>
+          <p class="notes">🎙️ Each part of the flower has a specific role. The sepals and petals are often protective or attractive, while the stamens produce pollen and the pistil contains the ovules, which develop into seeds.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Mature_flower_diagram.svg?width=500" data-fb="🔬" alt="A flower is the reproductive organ of an angiosperm (flowering plant). It contains both ma"/><div class="vcap">A flower is the reproductive organ of an angiosperm (flowering plant). It contains both ma</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Pollination</span>: Transfer of Pollen</h2>
+          <ul><li>Transfer of pollen grains from anther to stigma.</li><li>Self-pollination: Pollen transferred within the same flower or plant.</li><li>Cross-pollination: Pollen transferred between different plants of same species.</li></ul>
+          <p class="notes">🎙️ Pollination is the crucial first step in plant sexual reproduction. It can happen within the same flower or plant, or it can involve transferring pollen from one plant to another, often with the help of wind, water, or animals like bees.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐝</div><div class="vcap">Pollinator</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Fertilization</span> in Plants</h2>
+          <ul><li>Pollen grain germinates on the stigma, forming a pollen tube.</li><li>Male gametes travel down the pollen tube to the ovule.</li><li>Fusion of male gamete with female gamete (egg cell) in the ovary.</li></ul>
+          <p class="notes">🎙️ After pollination, the male gametes from the pollen need to reach the female gamete inside the ovule. This happens through the growth of a pollen tube. The fusion of these gametes is called fertilization, leading to the formation of a zygote.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Pollen on Stigma</span></div><div class="step"><span class="snum">2</span><span>Pollen Tube Grows</span></div><div class="step"><span class="snum">3</span><span>Gametes Reach Ovule</span></div><div class="step"><span class="snum">4</span><span>Fusion (Zygote)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Sexual Reproduction in <span class="hl">Humans</span></h2>
+          <ul><li>Involves male and female reproductive systems.</li><li>Produces specialized sex cells (sperms and eggs).</li><li>Leads to internal fertilization and development of embryo.</li></ul>
+          <p class="notes">🎙️ Human reproduction is a complex process involving distinct male and female reproductive organs. It's an internal process that ensures the protection and development of the new individual within the mother's body.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧‍👦</div><div class="vcap">Family</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Male</span> Reproductive System</h2>
+          <ul><li>Testes: Produce sperm and male hormones (testosterone).</li><li>Scrotum: Sac that holds the testes outside the body.</li><li>Vas Deferens: Tube that carries sperm.</li><li>Urethra: Carries both urine and semen out of the body.</li></ul>
+          <p class="notes">🎙️ The male reproductive system is designed to produce and deliver sperm. The testes are crucial for both sperm production and hormone secretion, while the other structures facilitate the transport and release of sperm.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/MaleReproductiveAnatomy.svg?width=500" data-fb="♂️" alt="The male reproductive system produces sperm and delivers it to the female reproductive sys"/><div class="vcap">The male reproductive system produces sperm and delivers it to the female reproductive sys</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Female</span> Reproductive System</h2>
+          <ul><li>Ovaries: Produce egg cells (ova) and female hormones (estrogen, progesterone).</li><li>Oviducts (Fallopian Tubes): Transport eggs from ovary to uterus; site of fertilization.</li><li>Uterus: Site of embryo implantation and development.</li><li>Vagina: Receives sperm and serves as birth canal.</li></ul>
+          <p class="notes">🎙️ The female reproductive system is designed to produce eggs, receive sperm, and provide a nurturing environment for the developing embryo and fetus. Each organ plays a vital role in this intricate process.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Uterus_and_fallopian_tube.svg?width=500" data-fb="♀️" alt="The female reproductive system produces eggs and provides the site for fertilization and f"/><div class="vcap">The female reproductive system produces eggs and provides the site for fertilization and f</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Fertilization and <span class="hl">Development</span> in Humans</h2>
+          <ul><li>Sperm fuses with an egg in the oviduct (fertilization).</li><li>Forms a zygote, which divides to become an embryo.</li><li>Embryo implants in the uterus and develops into a fetus.</li><li>Gestation period: ~9 months until birth.</li></ul>
+          <p class="notes">🎙️ Human fertilization typically occurs in the fallopian tube. The resulting zygote travels to the uterus, implants, and begins the remarkable journey of development, growing from a single cell into a complex human baby over approximately nine months.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sperm + Egg</span></div><div class="step"><span class="snum">2</span><span>Zygote Forms</span></div><div class="step"><span class="snum">3</span><span>Embryo Implants</span></div><div class="step"><span class="snum">4</span><span>Fetus Develops</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Reproductive <span class="hl">Health</span></h2>
+          <ul><li>Importance of personal hygiene.</li><li>Awareness of Sexually Transmitted Infections (STIs).</li><li>Role of contraception in family planning.</li></ul>
+          <p class="notes">🎙️ Understanding reproduction also means understanding reproductive health. Maintaining hygiene, being aware of STIs, and making informed choices about family planning are crucial for individual and societal well-being.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️‍🩹</div><div class="vcap">Well-being</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: How Organisms Reproduce</h2>
+          <ul><li>Reproduction ensures species survival.</li><li>Asexual: Single parent, identical offspring (fission, budding, etc.).</li><li>Sexual: Two parents, genetic variation (plants, humans).</li><li>Reproductive health is vital for all.</li></ul>
+          <p class="notes">🎙️ We've covered a vast topic today! Remember the two main modes of reproduction and their examples. Also, understand the importance of sexual reproduction for genetic diversity and the significance of reproductive health.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

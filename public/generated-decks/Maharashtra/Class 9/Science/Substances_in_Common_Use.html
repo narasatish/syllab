@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Substances in Common Use — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Substances in <span class="hl">Common Use</span></h2>
+          <ul><li>Science - Class 9</li><li>Maharashtra Board</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter on 'Substances in Common Use'. We'll explore materials we encounter every day, understanding their science and significance.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Substances</span> in Common Use?</h2>
+          <ul><li>Materials around us with specific properties.</li><li>Used in daily life for various purposes.</li><li>From construction to medicine, essential everywhere.</li></ul>
+          <p class="notes">🎙️ Think about everything around you – your phone, clothes, utensils, buildings. Each is made of specific substances, chosen for their unique properties that make them useful to us.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Our Daily World</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Unveiling <span class="hl">Radioactive</span> Substances</h2>
+          <ul><li>Substances with unstable atomic nuclei.</li><li>They spontaneously emit radiation.</li><li>Process called radioactivity.</li></ul>
+          <p class="notes">🎙️ Some elements have very heavy and unstable atoms. To become stable, these atoms release energy and particles, a phenomenon we call radioactivity. This process happens naturally.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☢️</div><div class="vcap">Radioactivity Symbol</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Key <span class="hl">Properties</span> of Radioactive Substances</h2>
+          <ul><li>Unstable atomic nuclei.</li><li>Emit alpha, beta, or gamma radiation.</li><li>Undergo radioactive decay to become stable.</li></ul>
+          <p class="notes">🎙️ The core of these atoms, the nucleus, is not stable. It's like a wobbly tower. To gain stability, it sheds off parts, releasing energy in the form of radiation. This decay changes the element over time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Atomic Nucleus</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Alpha</span> (α) Radiation</h2>
+          <ul><li>Consists of two protons and two neutrons (helium nucleus).</li><li>Positively charged (+2).</li><li>Least penetrating power; stopped by paper.</li></ul>
+          <p class="notes">🎙️ Alpha particles are relatively heavy and slow. Imagine a small cannonball. They can't travel far and are easily blocked, even by a sheet of paper or our skin's outer layer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Positive Charge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Beta</span> (β) Radiation</h2>
+          <ul><li>Consists of high-speed electrons or positrons.</li><li>Negatively charged (-1) or positively charged (+1).</li><li>More penetrating than alpha; stopped by thin metal.</li></ul>
+          <p class="notes">🎙️ Beta particles are much lighter and faster than alpha particles. They can penetrate a bit deeper, like a fast-moving pebble. A thin sheet of aluminum can usually stop them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Negative Charge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Gamma</span> (γ) Radiation</h2>
+          <ul><li>High-energy electromagnetic waves (photons).</li><li>No charge, no mass.</li><li>Most penetrating; requires thick lead or concrete to stop.</li></ul>
+          <p class="notes">🎙️ Gamma rays are pure energy, like very powerful X-rays. They are the most dangerous because they can pass through most materials easily. Special heavy shielding is needed to block them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Energy Wave</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Practical <span class="hl">Uses</span> of Radioactive Substances</h2>
+          <ul><li>Medical diagnosis and treatment (e.g., cancer therapy).</li><li>Power generation (nuclear reactors).</li><li>Sterilization of medical equipment and food.</li></ul>
+          <p class="notes">🎙️ Despite their dangers, radioactive substances have incredible benefits. In medicine, they help detect diseases and kill cancer cells. They also provide a powerful source of energy and help keep things sterile.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏥</span><span>🏥</span><span>🏥</span></div><div class="vcap">Medical Applications</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Hazards</span> and Safety with Radioactive Substances</h2>
+          <ul><li>Can cause cell damage, mutations, and cancer.</li><li>Proper shielding (lead, concrete) is essential.</li><li>Minimize exposure time and maximize distance.</li></ul>
+          <p class="notes">🎙️ Exposure to radiation can be very harmful to living organisms. That's why strict safety protocols are followed, including using protective barriers and limiting the time people spend near radioactive sources.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="⚠️" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Radioactive Substances</h2>
+          <ul><li>Which type of radiation has the highest penetrating power?</li><li>Name two practical uses of radioactive substances.</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think about what we just learned. Discuss these questions with your benchmate or jot down your answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Exploring <span class="hl">Ceramic</span> Substances</h2>
+          <ul><li>Inorganic, non-metallic solids.</li><li>Often crystalline in structure.</li><li>Formed by heating raw materials at high temperatures.</li></ul>
+          <p class="notes">🎙️ Ceramics are ancient materials, dating back to pottery made thousands of years ago. They are made from earth materials like clay, shaped, and then hardened by firing at intense heat.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏺</div><div class="vcap">Traditional Pottery</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Key <span class="hl">Properties</span> of Ceramics</h2>
+          <ul><li>Hard and brittle.</li><li>High melting points and heat resistance.</li><li>Good electrical and thermal insulators.</li></ul>
+          <p class="notes">🎙️ Ceramics are incredibly tough and can withstand very high temperatures without melting. However, they are also brittle, meaning they can break easily if dropped or hit hard, unlike metals.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hardness</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Heat Resistance</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Everyday <span class="hl">Examples</span> of Ceramics</h2>
+          <ul><li>Pottery (cups, plates, vases).</li><li>Building materials (bricks, tiles).</li><li>Sanitary ware (toilets, sinks).</li></ul>
+          <p class="notes">🎙️ Look around your home! Many items like your coffee mug, floor tiles, and even spark plugs in engines are made from ceramics. They are everywhere, from simple household items to advanced industrial components.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Bricks and Tiles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Advanced</span> Ceramics: Beyond Traditional Uses</h2>
+          <ul><li>Developed for specific engineering applications.</li><li>Used in aerospace, electronics, and biomedicine.</li><li>Examples: ceramic engine parts, dental implants.</li></ul>
+          <p class="notes">🎙️ Modern science has pushed the boundaries of ceramics. These 'advanced ceramics' are engineered to have superior strength, wear resistance, or specific electrical properties, making them vital in high-tech industries.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Aerospace Application</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Understanding <span class="hl">Glass</span></h2>
+          <ul><li>An amorphous solid.</li><li>Made primarily from sand (silica).</li><li>Transparent, hard, and brittle.</li></ul>
+          <p class="notes">🎙️ Glass is a fascinating material. Unlike most solids, its atoms are not arranged in a regular, repeating pattern; it's like a 'frozen liquid.' This unique structure gives it its transparency.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥃</div><div class="vcap">Clear Glass</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>How Glass is <span class="hl">Made</span></h2>
+          <ul><li>Raw materials (sand, soda ash, limestone) are mixed.</li><li>Melted in a furnace at very high temperatures.</li><li>Cooled and shaped into desired forms.</li></ul>
+          <p class="notes">🎙️ The process starts with simple ingredients, mainly sand. These are heated until they become a molten liquid, which can then be molded, blown, or drawn into various shapes before cooling and solidifying.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Mix Raw Materials</span></div><div class="step"><span class="snum">2</span><span>Melt in Furnace</span></div><div class="step"><span class="snum">3</span><span>Shape &amp; Cool</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Distinctive <span class="hl">Properties</span> of Glass</h2>
+          <ul><li>Transparent and allows light to pass through.</li><li>Good electrical insulator.</li><li>Brittle and relatively strong in compression.</li></ul>
+          <p class="notes">🎙️ Glass is unique because it's transparent, letting us see through it. It doesn't conduct electricity well, making it useful for insulation. While strong when pressed, it shatters easily when struck or bent.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Transparency</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Brittleness</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Different <span class="hl">Types</span> of Glass</h2>
+          <ul><li>Soda-lime glass (windows, bottles).</li><li>Borosilicate glass (labware, ovenware, heat resistant).</li><li>Optical glass (lenses, prisms).</li></ul>
+          <p class="notes">🎙️ Not all glass is the same! Soda-lime glass is common and inexpensive. Borosilicate glass, like Pyrex, is designed to withstand temperature changes. Optical glass is very pure and used in precision instruments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Laboratory Glassware</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Quick Check</span>: Ceramics &amp; Glass</h2>
+          <ul><li>What is one key difference between ceramics and metals?</li><li>Why is borosilicate glass preferred for laboratory use?</li></ul>
+          <p class="notes">🎙️ Let's test our understanding of ceramics and glass. Think about their properties and uses. How do they compare to other materials you know?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Introducing <span class="hl">Rubber</span>: Elastic Wonders</h2>
+          <ul><li>An elastic polymer.</li><li>Can be natural or synthetic.</li><li>Known for its flexibility and waterproofing.</li></ul>
+          <p class="notes">🎙️ Rubber is a remarkable material that can stretch and return to its original shape. We use it for everything from tires to erasers, thanks to its unique elasticity and resistance to water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Rubber Tire</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Natural</span> Rubber: From Tree to Tire</h2>
+          <ul><li>Obtained from latex of rubber trees.</li><li>Mainly cis-1,4-polyisoprene.</li><li>Soft, sticky, and less durable in its natural form.</li></ul>
+          <p class="notes">🎙️ Natural rubber comes from the milky sap, called latex, of rubber trees. In its raw form, it's quite soft and sticky, which isn't ideal for most applications. It also tends to become brittle in cold and soft in heat.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Rubber Tree</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Vulcanization</span>: Enhancing Rubber</h2>
+          <ul><li>Process of heating natural rubber with sulfur.</li><li>Forms cross-links between polymer chains.</li><li>Increases strength, elasticity, and durability.</li></ul>
+          <p class="notes">🎙️ Charles Goodyear discovered that adding sulfur and heating rubber dramatically improves its properties. This process, vulcanization, makes rubber much stronger, more elastic, and resistant to temperature changes, making it suitable for tires and other products.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heating Process</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Understanding <span class="hl">Cement</span>: The Building Block</h2>
+          <ul><li>A fine powder that acts as a binding agent.</li><li>Hardens when mixed with water.</li><li>Essential component of concrete and mortar.</li></ul>
+          <p class="notes">🎙️ Cement is one of the most important materials in construction. It's a powder that, when mixed with water, undergoes a chemical reaction and hardens, binding other materials together to form strong structures.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Construction Site</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>How Cement is <span class="hl">Manufactured</span></h2>
+          <ul><li>Raw materials: limestone and clay.</li><li>Crushed, ground, and heated in a rotary kiln.</li><li>Clinker is ground with gypsum to make cement.</li></ul>
+          <p class="notes">🎙️ Cement production is a multi-step process. Limestone provides calcium, and clay provides silica and alumina. These are heated to extremely high temperatures to form 'clinker,' which is then finely ground to make cement powder.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Crush Raw Materials</span></div><div class="step"><span class="snum">2</span><span>Heat in Kiln</span></div><div class="step"><span class="snum">3</span><span>Grind Clinker</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Substances in Common Use</h2>
+          <ul><li>Radioactive: Unstable atoms, radiation, uses, hazards.</li><li>Ceramics: Hard, brittle, heat resistant, traditional &amp; advanced.</li><li>Glass: Amorphous, transparent, types, manufacturing.</li><li>Rubber: Natural, synthetic, vulcanization for strength.</li><li>Cement: Binder, concrete component, manufacturing.</li></ul>
+          <p class="notes">🎙️ Today, we've covered a wide range of common substances, understanding their unique properties, how they are made, and their diverse uses in our world. Keep observing these materials around you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Periodic Classification of Elements — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Elements</span>!</h2>
+          <ul><li>Over 118 different elements exist!</li><li>Imagine trying to remember properties of each one individually.</li><li>How do scientists make sense of them all?</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we're going to explore how scientists organized the fundamental building blocks of our universe: elements. With so many elements, it's like having a huge library without any shelves or categories!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Why Do We Need to <span class="hl">Classify</span> Elements?</h2>
+          <ul><li>To study their properties easily.</li><li>To understand relationships between different elements.</li><li>To predict properties of new or undiscovered elements.</li></ul>
+          <p class="notes">🎙️ Just like we organize books in a library by subject, or clothes in a wardrobe by type, classifying elements helps us bring order to the vast amount of information about them. It simplifies learning and research.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Organize Knowledge</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>The First Steps: <span class="hl">Early Classifications</span></h2>
+          <ul><li>Scientists noticed patterns in element properties.</li><li>They tried to group elements based on similarities.</li><li>Many attempts were made before the modern table.</li></ul>
+          <p class="notes">🎙️ For centuries, scientists observed elements, noticing some were metals, others gases, some reacted strongly, others not. This led to the idea of grouping them, much like ancient scholars tried to categorize everything they knew.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Old Scrolls of Science</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Dobereiner's <span class="hl">Triads</span> (1817)</h2>
+          <ul><li>Proposed by Johann Dobereiner.</li><li>Grouped elements in sets of three, called 'triads'.</li><li>The atomic mass of the middle element was roughly the average of the other two.</li></ul>
+          <p class="notes">🎙️ Dobereiner was one of the first to notice a numerical pattern. He found that if you took three elements with similar properties, the one in the middle had an atomic mass that was almost the average of the first and third. This was a clever observation!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧪</span><span>🧪</span><span>🧪</span></div><div class="vcap">Groups of Three</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Example: <span class="hl">Lithium, Sodium, Potassium</span> Triad</h2>
+          <ul><li>Lithium (Li) - Atomic Mass ≈ 7</li><li>Sodium (Na) - Atomic Mass ≈ 23</li><li>Potassium (K) - Atomic Mass ≈ 39</li></ul>
+          <p class="notes">🎙️ Let's look at an example. Lithium, Sodium, and Potassium all react similarly. If we average the atomic masses of Lithium (7) and Potassium (39), we get (7+39)/2 = 46/2 = 23. This is very close to Sodium's atomic mass of 23! This pattern was very exciting for scientists.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚛️</span><span>⚛️</span><span>⚛️</span></div><div class="vcap">Li, Na, K</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Limitations</span> of Dobereiner's Triads</h2>
+          <ul><li>Could identify only a few triads.</li><li>Many known elements could not be grouped into triads.</li><li>Not all elements fit this pattern accurately.</li></ul>
+          <p class="notes">🎙️ While Dobereiner's triads were a good start, they weren't comprehensive. He could only find a handful of these groups, leaving many elements unclassified. It was like having a few perfect shelves in a huge library, but most books were still on the floor.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Roadblock Ahead</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Newlands' Law of <span class="hl">Octaves</span> (1866)</h2>
+          <ul><li>Proposed by John Newlands.</li><li>Arranged elements in increasing order of atomic mass.</li><li>Found that every eighth element had similar properties to the first.</li></ul>
+          <p class="notes">🎙️ Newlands drew an interesting parallel between elements and musical notes. Just as in music, where the eighth note repeats the first, he observed a similar periodicity in chemical properties when elements were arranged by increasing atomic mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎶</div><div class="vcap">Musical Harmony</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Example</span>: Newlands' Octaves</h2>
+          <ul><li>Li, Be, B, C, N, O, F, Na</li><li>Properties of Sodium (Na) are similar to Lithium (Li).</li><li>Just like 'Do, Re, Mi, Fa, So, La, Ti, Do' repeats.</li></ul>
+          <p class="notes">🎙️ If you start with Lithium, count eight elements, you land on Sodium. Both are highly reactive metals. This pattern was quite striking, and it showed a stronger sense of periodicity than Dobereiner's triads.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Li</span></div><div class="step"><span class="snum">2</span><span>Be</span></div><div class="step"><span class="snum">3</span><span>B</span></div><div class="step"><span class="snum">4</span><span>C</span></div><div class="step"><span class="snum">5</span><span>N</span></div><div class="step"><span class="snum">6</span><span>O</span></div><div class="step"><span class="snum">7</span><span>F</span></div><div class="step"><span class="snum">8</span><span>Na</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Limitations</span> of Newlands' Law of Octaves</h2>
+          <ul><li>Only applicable up to Calcium.</li><li>New elements discovered later did not fit the octave rule.</li><li>Newlands assumed only 56 elements would ever exist.</li></ul>
+          <p class="notes">🎙️ Unfortunately, Newlands' law had its own set of problems. It worked well for lighter elements but failed for heavier ones. Also, he made a big mistake by assuming no more elements would be found, which proved to be incorrect as many new elements were discovered.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">Rule Broken</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Who proposed the concept of 'triads' for classifying elements?</li><li>What was the basis for Newlands' Law of Octaves?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Take a moment to recall the scientists and their ideas we just discussed. Think about the key principle behind each classification.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Mendeleev</span>'s Periodic Table (1869)</h2>
+          <ul><li>Proposed by Dmitri Mendeleev.</li><li>Considered the 'Father of the Periodic Table'.</li><li>Arranged elements in increasing order of atomic mass.</li></ul>
+          <p class="notes">🎙️ Mendeleev's work was a huge leap forward. He systematically organized all known elements, not just a few. His genius lay in not just arranging them, but also in leaving gaps and making bold predictions.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Periodic_table2.svg?width=500" data-fb="👨‍🔬" alt="The periodic table organizes elements by atomic number and electron configuration. Similar"/><div class="vcap">The periodic table organizes elements by atomic number and electron configuration. Similar</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Mendeleev's Periodic <span class="hl">Law</span></h2>
+          <ul><li>The properties of elements are a periodic function of their atomic masses.</li><li>Elements with similar properties were grouped together.</li><li>Vertical columns (groups), horizontal rows (periods).</li></ul>
+          <p class="notes">🎙️ This law was the foundation of his table. It meant that as you go through the elements by increasing atomic mass, properties repeat after certain intervals. He was very careful to group elements with similar chemical behaviors, even if it meant adjusting the atomic mass order slightly.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Raoult%27s_Law.svg?width=500" data-fb="⭐" alt="Raoult law relates vapor pressure to solute concentration. Colligative properties (boiling"/><div class="vcap">Raoult law relates vapor pressure to solute concentration. Colligative properties (boiling</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Achievements</span> of Mendeleev's Periodic Table</h2>
+          <ul><li>Systematic study of elements.</li><li>Prediction of new elements and their properties.</li><li>Correction of doubtful atomic masses of some elements.</li></ul>
+          <p class="notes">🎙️ Mendeleev's table was incredibly powerful. It provided a logical framework for studying chemistry. His most famous achievement was predicting elements that hadn't even been discovered yet, like 'Eka-Aluminium' and 'Eka-Silicon'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Success Stories</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Prediction</span> of New Elements</h2>
+          <ul><li>Mendeleev left gaps for undiscovered elements.</li><li>Predicted properties of 'Eka-Aluminium' (Gallium).</li><li>When Gallium was discovered, its properties matched perfectly!</li></ul>
+          <p class="notes">🎙️ Imagine finding a puzzle with missing pieces, and you can describe exactly what those missing pieces will look like! Mendeleev did just that. He left blank spaces in his table, predicting elements like Gallium (Eka-Aluminium) and Germanium (Eka-Silicon) based on their neighbors.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>❓</span><span>❓</span><span>❓</span></div><div class="vcap">Empty Spaces</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Limitations</span> of Mendeleev's Periodic Table</h2>
+          <ul><li>Position of Hydrogen was not clear.</li><li>Isotopes posed a challenge (same element, different atomic mass).</li><li>Anomalous pairs of elements (e.g., Argon and Potassium).</li></ul>
+          <p class="notes">🎙️ Despite its brilliance, Mendeleev's table wasn't perfect. Hydrogen, being unique, didn't fit neatly. The discovery of isotopes, which have different atomic masses but are the same element, also created confusion, as his table was based purely on atomic mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Challenges Remain</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Who is known as the 'Father of the Periodic Table'?</li><li>Name one achievement of Mendeleev's Periodic Table.</li></ul>
+          <p class="notes">🎙️ Let's see if you remember the key contributions of Mendeleev. His work truly revolutionized how we understand elements. Think about what made his table so special and impactful.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>The <span class="hl">Modern</span> Periodic Table (Henry Moseley, 1913)</h2>
+          <ul><li>Based on Atomic Number, not Atomic Mass.</li><li>Proposed by Henry Moseley.</li><li>Atomic Number (Z) is the number of protons in an atom.</li></ul>
+          <p class="notes">🎙️ The biggest breakthrough came with Henry Moseley's work. He discovered that a more fundamental property than atomic mass was the atomic number, which is unique to each element. This resolved many of the anomalies in Mendeleev's table.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">Protons are Key</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Modern Periodic <span class="hl">Law</span></h2>
+          <ul><li>The properties of elements are a periodic function of their atomic numbers.</li><li>This law forms the basis of the Modern Periodic Table.</li><li>Elements are arranged in increasing order of atomic number.</li></ul>
+          <p class="notes">🎙️ This revised law is the cornerstone of our current understanding. By arranging elements according to their atomic number, the periodicity of chemical properties becomes much clearer and more consistent, resolving issues like the position of isotopes and anomalous pairs.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">New Rulebook</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Structure: <span class="hl">Periods</span> (Horizontal Rows)</h2>
+          <ul><li>There are 7 periods in the Modern Periodic Table.</li><li>Elements in a period have the same number of electron shells.</li><li>Atomic number increases from left to right in a period.</li></ul>
+          <p class="notes">🎙️ Imagine walking across a period from left to right. The number of electron shells remains the same for all elements in that row. However, the number of electrons in the outermost shell gradually increases, leading to changes in chemical properties.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Across the Table</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Structure: <span class="hl">Groups</span> (Vertical Columns)</h2>
+          <ul><li>There are 18 groups in the Modern Periodic Table.</li><li>Elements in a group have similar chemical properties.</li><li>They have the same number of valence electrons.</li></ul>
+          <p class="notes">🎙️ Now, imagine moving down a group. These elements share similar chemical properties because they have the same number of valence electrons, which are the electrons involved in chemical reactions. This is why Group 1 elements are all highly reactive metals!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↕️</div><div class="vcap">Down the Column</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Periodic Trends: <span class="hl">Valency</span></h2>
+          <ul><li>Valency is the combining capacity of an element.</li><li>It depends on the number of valence electrons.</li><li>Trend: First increases, then decreases across a period.</li></ul>
+          <p class="notes">🎙️ Valency tells us how many bonds an atom can form. It's related to how many electrons an atom needs to gain, lose, or share to achieve a stable electron configuration. Across a period, valency generally increases to 4 and then decreases to 0.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚪</span><span>⚪</span><span>⚪</span><span>⚪</span></div><div class="vcap">Valence Electrons</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Periodic Trends: <span class="hl">Atomic Size</span></h2>
+          <ul><li>Atomic size is the radius of an atom.</li><li>Trend: Decreases across a period (due to increased nuclear charge).</li><li>Trend: Increases down a group (due to new shells).</li></ul>
+          <p class="notes">🎙️ Think of atomic size as the space an atom occupies. Across a period, atoms get smaller because the increased nuclear charge pulls the electrons closer. Down a group, atoms get larger because new electron shells are added, increasing the distance from the nucleus.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Left</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Right</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Top</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Bottom</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Periodic Trends: Metallic &amp; Non-metallic <span class="hl">Character</span></h2>
+          <ul><li>Metallic character: Tendency to lose electrons.</li><li>Non-metallic character: Tendency to gain electrons.</li><li>Trend: Metallic character decreases across a period, increases down a group.</li></ul>
+          <p class="notes">🎙️ Metals are typically found on the left side of the periodic table and tend to lose electrons easily. Non-metals are on the right and tend to gain electrons. This trend explains why elements on the left are shiny, good conductors, and ductile, while those on the right are often brittle and poor conductors.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Metals</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Non-metals</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the basis for the Modern Periodic Law?</li><li>How does atomic size change as you move down a group in the periodic table?</li></ul>
+          <p class="notes">🎙️ Let's consolidate our understanding of the Modern Periodic Table and its trends. These are fundamental concepts for understanding how elements behave. Take a moment to formulate your answers.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Journey of Classification</h2>
+          <ul><li>Early attempts: Dobereiner's Triads &amp; Newlands' Octaves.</li><li>Mendeleev's Periodic Table: Based on atomic mass, predicted elements.</li><li>Modern Periodic Table: Based on atomic number, consistent trends.</li></ul>
+          <p class="notes">🎙️ We've traveled a long way from simple triads to the sophisticated Modern Periodic Table. Remember, each step, even with its limitations, built upon the previous one, leading us to our current comprehensive understanding of elemental classification. This table is an indispensable tool for chemists worldwide.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

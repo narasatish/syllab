@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Atoms and Molecules — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Atoms</span> and Molecules!</h2>
+          <ul><li>Understanding the building blocks of matter.</li><li>Exploring fundamental laws of chemistry.</li><li>Learning to write chemical formulas.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into the microscopic world of Atoms and Molecules, the very foundation of everything around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Atoms</span>?</h2>
+          <ul><li>Smallest particle of an element.</li><li>Cannot be seen with naked eye.</li><li>Retains chemical identity.</li></ul>
+          <p class="notes">🎙️ Imagine breaking down a piece of gold into smaller and smaller pieces. Eventually, you'd reach a point where you have the smallest possible piece that is still gold. That's an atom!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">The basic unit</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>How <span class="hl">Small</span> are Atoms?</h2>
+          <ul><li>Extremely tiny, even smaller than dust.</li><li>Measured in nanometers (10⁻⁹ meters).</li><li>Millions of atoms form a single drop of water.</li></ul>
+          <p class="notes">🎙️ Atoms are incredibly tiny. To give you an idea, if you line up millions of atoms, they would barely be visible as a dot. They are truly the fundamental building blocks.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Human Hair</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Dust Particle</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Atom</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Are Atoms <span class="hl">Divisible</span>?</h2>
+          <ul><li>Dalton believed atoms were indivisible.</li><li>Modern science shows atoms have subatomic particles.</li><li>Protons, Neutrons, Electrons are inside atoms.</li></ul>
+          <p class="notes">🎙️ Early scientists like John Dalton thought atoms were the ultimate, unbreakable units. However, we now know that atoms themselves are made of even smaller particles: protons, neutrons, and electrons.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Pieces within</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>What are <span class="hl">Molecules</span>?</h2>
+          <ul><li>Two or more atoms chemically bonded.</li><li>Can be same type of atoms (O₂).</li><li>Can be different types (H₂O).</li><li>Exist independently.</li></ul>
+          <p class="notes">🎙️ When two or more atoms decide to join hands and form a stable group, they create a molecule. For example, two hydrogen atoms and one oxygen atom combine to form a water molecule.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water molecules (H₂O)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Atoms <span class="hl">vs.</span> Molecules</h2>
+          <ul><li>Atom: Smallest unit of an element.</li><li>Molecule: Smallest unit of a compound or element that can exist independently.</li><li>Atoms are building blocks, molecules are structures.</li></ul>
+          <p class="notes">🎙️ Think of it like this: an atom is like a single LEGO brick. A molecule is like two or more LEGO bricks joined together to make a small structure. Both are important, but serve different roles.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Single Atom</div></div><div class="ccard"><div class="cbar" style="width:67%"></div><div class="clabel">Oxygen Molecule (O₂)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Water Molecule (H₂O)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Law of <span class="hl">Conservation of Mass</span></h2>
+          <ul><li>Mass is neither created nor destroyed.</li><li>During a chemical reaction.</li><li>Total mass of reactants equals total mass of products.</li></ul>
+          <p class="notes">🎙️ This fundamental law, given by Antoine Lavoisier, states that in any chemical reaction, the total mass of the substances you start with will always be equal to the total mass of the substances you end up with. Nothing is lost, nothing is gained.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance of mass</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Example</span>: Conservation of Mass</h2>
+          <ul><li>Burning wood: Appears to lose mass.</li><li>Ash is lighter, but gases are produced.</li><li>Total mass of wood + oxygen = ash + smoke (gases).</li></ul>
+          <p class="notes">🎙️ When you burn wood, it seems like the mass decreases because the ash is much lighter. But remember, smoke and gases are also produced. If you could collect all the products, including the gases, their total mass would equal the original wood and the oxygen used.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Wood + Oxygen</span></div><div class="step"><span class="snum">2</span><span>Burning</span></div><div class="step"><span class="snum">3</span><span>Ash + Smoke</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Law of <span class="hl">Constant Proportions</span></h2>
+          <ul><li>Also known as Law of Definite Proportions.</li><li>A chemical compound always contains exactly the same proportion of elements by mass.</li><li>Regardless of source or method of preparation.</li></ul>
+          <p class="notes">🎙️ This law, given by Joseph Proust, means that pure water, whether it's from a river in Bihar or a lab in America, will always have hydrogen and oxygen combined in the same fixed ratio by mass.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Fixed ratios</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Example: Constant Proportions (<span class="hl">Water</span>)</h2>
+          <ul><li>Water (H₂O) always has Hydrogen and Oxygen.</li><li>Mass ratio of H:O is always 1:8.</li><li>1 gram of Hydrogen combines with 8 grams of Oxygen.</li></ul>
+          <p class="notes">🎙️ Let's take water as an example. No matter where you get it from, pure water will always consist of hydrogen and oxygen in a fixed mass ratio of 1:8. This means for every 1 gram of hydrogen, there are 8 grams of oxygen.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">H₂O: 1 part H, 8 parts O by mass</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Dalton's</span> Atomic Theory: Postulates 1-3</h2>
+          <ul><li>1. All matter is made of tiny particles called atoms.</li><li>2. Atoms are indivisible particles.</li><li>3. Atoms of a given element are identical in mass and properties.</li></ul>
+          <p class="notes">🎙️ John Dalton proposed his atomic theory in 1808. His first three postulates laid the groundwork, stating that all matter is made of atoms, which are indivisible, and that all atoms of a particular element are exactly alike.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Matter = Atoms</span></div><div class="step"><span class="snum">2</span><span>Atoms Indivisible</span></div><div class="step"><span class="snum">3</span><span>Same Element = Same Atoms</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Dalton's Atomic Theory: <span class="hl">Postulates</span> 4-6</h2>
+          <ul><li>4. Atoms of different elements have different masses and properties.</li><li>5. Atoms combine in simple whole-number ratios to form compounds.</li><li>6. Atoms are neither created nor destroyed in chemical reactions.</li></ul>
+          <p class="notes">🎙️ The remaining postulates explain how different elements have different atoms, how atoms combine to form compounds in simple ratios, and reinforce the law of conservation of mass by stating atoms are neither created nor destroyed.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Different Elements = Different Atoms</span></div><div class="step"><span class="snum">2</span><span>Atoms Combine in Ratios</span></div><div class="step"><span class="snum">3</span><span>Atoms Conserved in Reactions</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1</h2>
+          <ul><li>Which law states that mass is conserved in a chemical reaction?</li><li>According to Dalton, are atoms divisible?</li><li>What is the mass ratio of Hydrogen to Oxygen in water?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Think about the laws and Dalton's theory we just discussed. Take a moment to recall the answers to these questions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Atomic Mass</span></h2>
+          <ul><li>Mass of a single atom.</li><li>Too small to measure directly.</li><li>Expressed in Atomic Mass Units (amu or u).</li></ul>
+          <p class="notes">🎙️ Since atoms are incredibly small, their individual masses are also tiny. We can't weigh them on a regular balance. So, we use a special unit called the atomic mass unit to express their masses.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass of an atom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>How to find Atomic Mass?</h2>
+          <ul><li>Relative atomic mass is used.</li><li>Compared to a standard reference atom.</li><li>Carbon-12 isotope is the standard (12 u).</li></ul>
+          <p class="notes">🎙️ We determine the mass of an atom by comparing it to a standard. For a long time, hydrogen was used, but now Carbon-12 is the universally accepted standard. One atomic mass unit is defined as exactly one-twelfth the mass of one atom of carbon-12.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Carbon-12 (12u)</div></div><div class="ccard"><div class="cbar" style="width:18%"></div><div class="clabel">Hydrogen (1u)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Oxygen (16u)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>What is a <span class="hl">Mole</span>?</h2>
+          <ul><li>A unit to measure amount of substance.</li><li>Like a 'dozen' for eggs, but much larger.</li><li>Contains a specific number of particles.</li></ul>
+          <p class="notes">🎙️ Just as we use 'dozen' to count 12 eggs, chemists use 'mole' to count a huge number of atoms or molecules. It's a convenient way to deal with the extremely large number of particles in even a small amount of substance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">A 'package' of particles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Avogadro's</span> Number</h2>
+          <ul><li>The number of particles in one mole.</li><li>Value: 6.022 × 10²³ particles.</li><li>Can be atoms, molecules, or ions.</li></ul>
+          <p class="notes">🎙️ This incredibly large number, 6.022 × 10²³, is known as Avogadro's number. It's the number of atoms in 12 grams of Carbon-12, and it represents one mole of any substance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">6.022 x 10²³ particles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Molar Mass</span></h2>
+          <ul><li>Mass of one mole of a substance.</li><li>Numerically equal to atomic/molecular mass.</li><li>Expressed in grams per mole (g/mol).</li></ul>
+          <p class="notes">🎙️ Molar mass is simply the mass of one mole of a substance. If the atomic mass of an element is 'X' atomic mass units, then its molar mass is 'X' grams per mole. It connects the microscopic world of atoms to the macroscopic world we can measure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass of one mole</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: Molar Mass of <span class="hl">Water</span> (H₂O)</h2>
+          <ul><li>Atomic mass of H = 1 u</li><li>Atomic mass of O = 16 u</li><li>Molecular mass of H₂O = (2 × 1 u) + (1 × 16 u) = 18 u</li><li>Molar mass of H₂O = 18 g/mol</li></ul>
+          <p class="notes">🎙️ Let's calculate the molar mass of water. We know hydrogen has an atomic mass of 1 u and oxygen has 16 u. So, a water molecule (H₂O) has a molecular mass of 18 u. Therefore, one mole of water weighs 18 grams.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>H: 1u, O: 16u</span></div><div class="step"><span class="snum">2</span><span>H₂O = (2x1) + 16</span></div><div class="step"><span class="snum">3</span><span>Molecular Mass = 18u</span></div><div class="step"><span class="snum">4</span><span>Molar Mass = 18 g/mol</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 2</h2>
+          <ul><li>What is the value of Avogadro's number?</li><li>If the atomic mass of Sodium (Na) is 23 u, what is its molar mass?</li><li>How many moles are in 36 grams of water (H₂O)?</li></ul>
+          <p class="notes">🎙️ Time for another quick check. Try to answer these questions based on what we've learned about moles and molar mass. Remember the relationship between molecular mass and molar mass.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Ions</span></h2>
+          <ul><li>Atoms or groups of atoms with an electric charge.</li><li>Formed by gaining or losing electrons.</li><li>Cations: Positively charged (lose electrons).</li><li>Anions: Negatively charged (gain electrons).</li></ul>
+          <p class="notes">🎙️ Sometimes, atoms don't remain neutral. They can either lose electrons to become positively charged ions, called cations, or gain electrons to become negatively charged ions, called anions. These charged particles are crucial for forming many compounds.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Charged particles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Writing Chemical <span class="hl">Formulae</span>: Simple Ions</h2>
+          <ul><li>Identify ions and their charges (e.g., Na⁺, Cl⁻).</li><li>Criss-cross the numerical values of charges.</li><li>Write symbols with subscript numbers.</li></ul>
+          <p class="notes">🎙️ To write a chemical formula, we first identify the ions and their charges. For example, sodium is Na⁺ and chloride is Cl⁻. We then criss-cross the numerical values of the charges to get the subscripts, resulting in NaCl for sodium chloride.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Na⁺, Cl⁻</span></div><div class="step"><span class="snum">2</span><span>Charges: 1, 1</span></div><div class="step"><span class="snum">3</span><span>Criss-cross (simplify)</span></div><div class="step"><span class="snum">4</span><span>Formula: NaCl</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Writing Chemical Formulae: <span class="hl">Polyatomic Ions</span></h2>
+          <ul><li>Polyatomic ions are groups of atoms with a charge (e.g., SO₄²⁻, NH₄⁺).</li><li>Treat polyatomic ion as a single unit.</li><li>Use parentheses if more than one polyatomic ion is needed.</li></ul>
+          <p class="notes">🎙️ Polyatomic ions are groups of atoms that carry a charge, like the sulfate ion (SO₄²⁻). When writing formulas with them, treat them as a single unit. If you need more than one, put the polyatomic ion in parentheses before adding the subscript.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Mg²⁺, SO₄²⁻</span></div><div class="step"><span class="snum">2</span><span>Charges: 2, 2</span></div><div class="step"><span class="snum">3</span><span>Simplify (1,1)</span></div><div class="step"><span class="snum">4</span><span>Formula: MgSO₄</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Atoms and Molecules</h2>
+          <ul><li>Atoms are fundamental building blocks.</li><li>Molecules are combinations of atoms.</li><li>Laws of Conservation of Mass &amp; Constant Proportions.</li><li>Dalton's Atomic Theory explains observations.</li><li>Mole concept links mass to number of particles.</li><li>Ions are charged atoms/molecules.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! From the tiny atoms to how they combine into molecules, the fundamental laws governing reactions, Dalton's theory, the concept of a mole, and how to write chemical formulas. These are crucial concepts for your chemistry journey.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep exploring the world of chemistry!</li><li>Practice writing formulas and solving mole problems.</li><li>Feel free to ask any remaining questions.</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on Atoms and Molecules. I hope you found it insightful and engaging. Remember to revise these concepts and practice regularly. If you have any questions, please ask now!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

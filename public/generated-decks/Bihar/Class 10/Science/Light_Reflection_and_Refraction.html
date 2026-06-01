@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Light — Reflection and Refraction — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to '<span class="hl">Light</span> — Reflection and Refraction'</h2>
+          <ul><li>What is Light?</li><li>How do we see the world around us?</li><li>Exploring the fascinating phenomena of light.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to understand 'Light'. Light is fundamental to how we perceive our world, allowing us to see everything from tiny ants to distant stars. Get ready to explore its amazing properties!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Understanding <span class="hl">Light</span>: The Source of Sight</h2>
+          <ul><li>Light is a form of energy.</li><li>It enables us to see objects.</li><li>Travels in straight lines (rectilinear propagation).</li></ul>
+          <p class="notes">🎙️ Light is not something we can touch, but it's a powerful form of energy. Without light, our eyes would be useless. Think about how sunlight helps plants grow, or how a lamp lights up a room – that's light energy in action, always moving in a straight path.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Key <span class="hl">Properties</span> of Light</h2>
+          <ul><li>Travels at an incredible speed.</li><li>Forms shadows when blocked.</li><li>Can bounce off surfaces (reflection).</li><li>Can bend when passing through different materials (refraction).</li></ul>
+          <p class="notes">🎙️ Light has several amazing properties that we will study. It's the fastest thing we know, and its ability to reflect and refract creates many of the visual effects we see daily. These properties are key to understanding the chapter.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Straight Path</span></div><div class="step"><span class="snum">2</span><span>High Speed</span></div><div class="step"><span class="snum">3</span><span>Reflects</span></div><div class="step"><span class="snum">4</span><span>Refracts</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Reflection</span> of Light: Bouncing Back</h2>
+          <ul><li>The phenomenon of light bouncing back.</li><li>Occurs when light hits a surface.</li><li>Enables us to see objects that don't produce their own light.</li></ul>
+          <p class="notes">🎙️ Imagine throwing a ball against a wall; it bounces back. Light does something similar when it hits a surface. This 'bouncing back' is called reflection. It's how we see the moon, which doesn't produce its own light but reflects sunlight.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=500" data-fb="🪞" alt="Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra"/><div class="vcap">Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Laws</span> of Reflection: Angle of Incidence</h2>
+          <ul><li>First Law: The angle of incidence is equal to the angle of reflection.</li><li>Angle of incidence (∠i) is between the incident ray and the normal.</li><li>Angle of reflection (∠r) is between the reflected ray and the normal.</li></ul>
+          <p class="notes">🎙️ The reflection of light isn't random; it follows specific rules. The first law states that if a light ray hits a surface at a certain angle, it will bounce off at the exact same angle. Think of it like a perfectly aimed shot in billiards!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_in_plane_mirror.svg?width=500" data-fb="📐" alt="Light reflects off surfaces following two laws: angle of incidence equals angle of reflect"/><div class="vcap">Light reflects off surfaces following two laws: angle of incidence equals angle of reflect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Laws of Reflection: The <span class="hl">Plane</span></h2>
+          <ul><li>Second Law: The incident ray, the reflected ray, and the normal to the surface all lie in the same plane.</li><li>The 'normal' is an imaginary line perpendicular to the surface.</li><li>This ensures reflection happens in a predictable, consistent way.</li></ul>
+          <p class="notes">🎙️ The second law tells us that all these important lines – the incoming light, the outgoing light, and the imaginary perpendicular line – are flat on the same surface. This means you can draw them all on a single piece of paper, making them easy to visualize.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Same Plane</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Reflection in Everyday Life: <span class="hl">Mirrors</span></h2>
+          <ul><li>Seeing your reflection in a plane mirror.</li><li>Periscopes use mirrors to see over obstacles.</li><li>Reflecting telescopes use large mirrors to gather light from distant stars.</li></ul>
+          <p class="notes">🎙️ Mirrors are the most common example of reflection. When you look into a mirror, you are seeing light reflected back to your eyes. Beyond just seeing ourselves, mirrors are crucial in many instruments, from simple periscopes to powerful telescopes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Mirror Image</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Types</span> of Reflection: Regular vs. Diffused</h2>
+          <ul><li>Regular Reflection: From smooth, polished surfaces (e.g., mirror).</li><li>Diffused Reflection: From rough, uneven surfaces (e.g., wall, paper).</li><li>Most objects we see reflect light diffusely.</li></ul>
+          <p class="notes">🎙️ Reflection isn't always perfectly clear. If a surface is very smooth, like a mirror, light reflects in an organized way, creating a clear image – this is regular reflection. But if the surface is rough, like a painted wall, light scatters in many directions, which is diffused reflection. This is why you can't see your reflection in a wall!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Regular</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Diffused</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Images Formed by <span class="hl">Plane Mirrors</span></h2>
+          <ul><li>Virtual: Image cannot be projected on a screen.</li><li>Erect: Appears upright, not inverted.</li><li>Same size as the object.</li><li>Laterally inverted: Left appears right, right appears left.</li><li>Formed as far behind the mirror as the object is in front.</li></ul>
+          <p class="notes">🎙️ When you look in a plane mirror, the image you see has specific characteristics. It seems to be behind the mirror (virtual), it's upright (erect), and exactly your size. However, your left hand appears as the right hand of your image – that's lateral inversion. The image also appears to be as far behind the mirror as you are in front.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Mirror Image Properties</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>If a light ray strikes a plane mirror at an angle of incidence of 30 degrees, what will be the angle of reflection?</li><li>Why is it important for the angle of incidence to equal the angle of reflection?</li></ul>
+          <p class="notes">🎙️ Time for a quick question to test your understanding of the laws of reflection! Think back to our discussion about the first law. What did we say about the relationship between the angle of incidence and the angle of reflection? Take a moment to recall.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Spherical</span> Mirrors: Curved Surfaces</h2>
+          <ul><li>Mirrors with curved reflecting surfaces.</li><li>They are part of a hollow sphere.</li><li>Two main types: Concave mirrors and Convex mirrors.</li></ul>
+          <p class="notes">🎙️ Beyond flat mirrors, we have spherical mirrors, which are curved. Imagine cutting out a piece from a hollow glass ball and silvering one side – that's a spherical mirror. These curves give them special properties, leading to two distinct types.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Curved Mirrors</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Concave</span> Mirrors: Converging Light</h2>
+          <ul><li>Reflecting surface curves inwards, like the inside of a spoon.</li><li>They converge (bring together) parallel rays of light.</li><li>Used in torches, headlights, and shaving mirrors.</li></ul>
+          <p class="notes">🎙️ A concave mirror is like the inside of a bowl or spoon. When parallel light rays hit its surface, it directs them all to a single point. This 'gathering' ability makes them useful for focusing light, like in a flashlight to create a strong beam.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥣</div><div class="vcap">Inward Curve</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Convex</span> Mirrors: Diverging Light</h2>
+          <ul><li>Reflecting surface curves outwards, like the back of a spoon.</li><li>They diverge (spread out) parallel rays of light.</li><li>Commonly used as rear-view mirrors in vehicles.</li></ul>
+          <p class="notes">🎙️ Conversely, a convex mirror has its reflecting surface bulging outwards. Instead of bringing light rays together, it spreads them out. This spreading effect gives them a wider field of view, which is why they are perfect for car side mirrors.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Outward Curve</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Key <span class="hl">Terms</span> for Spherical Mirrors</h2>
+          <ul><li>Pole (P): The center of the mirror's reflecting surface.</li><li>Centre of Curvature (C): The center of the sphere from which the mirror is cut.</li><li>Radius of Curvature (R): The distance between P and C.</li><li>Principal Axis: The straight line passing through P and C.</li></ul>
+          <p class="notes">🎙️ To understand how spherical mirrors form images, we need to know some key terms. The pole is the mirror's central point. The center of curvature is the center of the imaginary sphere the mirror comes from. The principal axis connects these points, acting as a reference line.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Mirror Anatomy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Focus</span> (F) and Focal Length (f)</h2>
+          <ul><li>Principal Focus (F): A point on the principal axis where parallel rays actually meet (concave) or appear to meet (convex) after reflection.</li><li>Focal Length (f): The distance between the pole (P) and the principal focus (F).</li><li>For spherical mirrors, f = R/2.</li></ul>
+          <p class="notes">🎙️ The principal focus is a very important point for spherical mirrors. For a concave mirror, parallel rays converge at this point. For a convex mirror, they appear to spread out from this point. The distance from the pole to this focus is the focal length, which is always half of the radius of curvature.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Focal Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Rules</span> for Ray Diagrams</h2>
+          <ul><li>Rule 1: A ray parallel to the principal axis passes through F (concave) or appears to diverge from F (convex).</li><li>Rule 2: A ray passing through F (concave) or directed towards F (convex) becomes parallel to the principal axis after reflection.</li><li>Rule 3: A ray passing through C (concave) or directed towards C (convex) reflects back along the same path.</li></ul>
+          <p class="notes">🎙️ To draw ray diagrams and understand image formation, we follow three simple rules. These rules help us trace the path of light rays after reflection from spherical mirrors. By using just two of these rays, we can find the position and nature of the image formed.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Lens1.svg?width=500" data-fb="🔬" alt="A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima"/><div class="vcap">A convex lens converges parallel rays of light to a focal point. Ray diagrams show how ima</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Image by <span class="hl">Concave</span> Mirror: Object Beyond C</h2>
+          <ul><li>When an object is placed beyond the Centre of Curvature (C).</li><li>The image formed is real, inverted, and diminished (smaller).</li><li>The image is located between F and C.</li></ul>
+          <p class="notes">🎙️ Let's take an example for a concave mirror. If you place an object far away, beyond C, the concave mirror forms a smaller, upside-down image between its focal point and center of curvature. This image is 'real' because it can actually be projected onto a screen.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Concave_mirror.svg?width=500" data-fb="🖼️" alt="A concave mirror (converging mirror) reflects light inward toward a focal point. The type "/><div class="vcap">A concave mirror (converging mirror) reflects light inward toward a focal point. The type </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Image by <span class="hl">Convex</span> Mirror: Any Position</h2>
+          <ul><li>A convex mirror always forms a virtual, erect, and diminished image.</li><li>The image is always formed behind the mirror, between P and F.</li><li>This is true regardless of the object's position in front of the mirror.</li></ul>
+          <p class="notes">🎙️ Convex mirrors are simpler because they always form the same type of image. No matter where you place an object in front of a convex mirror, the image will always be upright, smaller, and appear to be behind the mirror. This consistent behavior makes them very useful.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Virtual, Erect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Convex Mirrors in <span class="hl">Vehicles</span></h2>
+          <ul><li>Used as rear-view mirrors in cars and bikes.</li><li>They provide a wider field of view.</li><li>Always form virtual, erect, and diminished images of objects behind.</li></ul>
+          <p class="notes">🎙️ This is a great real-life example of convex mirrors. The curved surface allows drivers to see a much larger area behind their vehicle than a flat mirror would, even though the objects appear smaller and further away. This helps in safe driving.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚗</div><div class="vcap">Rear-view Mirror</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Another Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which type of spherical mirror is used as a shaving mirror?</li><li>Why is that particular mirror preferred for shaving?</li></ul>
+          <p class="notes">🎙️ Here's another quick question for you! Think about what kind of image you'd want to see when shaving or applying makeup – do you want a smaller image or a magnified one? Which mirror property helps achieve that? Discuss with your benchmate!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Refraction</span> of Light: Light Bending</h2>
+          <ul><li>The bending of light as it passes from one transparent medium to another.</li><li>Light changes direction due to a change in its speed.</li><li>Occurs at the boundary between the two media.</li></ul>
+          <p class="notes">🎙️ Now, let's shift our focus to refraction. Unlike reflection, where light bounces back, refraction is when light passes through a surface and bends. This bending happens because light changes its speed as it moves from one material, like air, into another, like water or glass.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Snells_law2.svg?width=500" data-fb="💧" alt="Refraction is bending of light when passing between materials of different density. Occurs"/><div class="vcap">Refraction is bending of light when passing between materials of different density. Occurs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Why</span> Does Light Bend?</h2>
+          <ul><li>Light travels at different speeds in different media.</li><li>It slows down when entering a denser medium (e.g., from air to water).</li><li>It speeds up when entering a rarer medium (e.g., from water to air).</li><li>This change in speed causes the change in direction.</li></ul>
+          <p class="notes">🎙️ The core reason for refraction is the change in the speed of light. Imagine running on a smooth road and then suddenly stepping into mud – you'd slow down and change direction! Similarly, light slows down in denser materials, causing it to bend.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Speed Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Laws of Refraction: <span class="hl">Snell's Law</span></h2>
+          <ul><li>First Law: The incident ray, the refracted ray, and the normal all lie in the same plane (similar to reflection).</li><li>Second Law (Snell's Law): The ratio of the sine of the angle of incidence to the sine of the angle of refraction is constant for a given pair of media.</li><li>This constant is called the refractive index.</li></ul>
+          <p class="notes">🎙️ Just like reflection, refraction also follows specific laws. The first law is similar to reflection, stating that all rays and the normal are in the same plane. The second, more famous, is Snell's Law, which mathematically describes how much light bends based on the properties of the two materials it's passing through, using the concept of refractive index.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Sine Ratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Refraction in Everyday Life: <span class="hl">Apparent Depth</span></h2>
+          <ul><li>A pencil appears bent when partially immersed in water.</li><li>A swimming pool appears shallower than it actually is.</li><li>Fish in water appear to be closer and larger than they really are.</li></ul>
+          <p class="notes">🎙️ You've probably seen these phenomena! When you put a pencil in water, it looks broken. This is due to refraction; light from the submerged part bends as it exits the water, making it seem like the pencil is in a different position. Similarly, the bottom of a pool or a fish in water appears higher up than it truly is.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐠</div><div class="vcap">Bent Pencil</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Light's Journey</h2>
+          <ul><li>Light is a form of energy that enables vision.</li><li>Reflection: Light bounces off surfaces, following two laws.</li><li>Spherical Mirrors (Concave &amp; Convex) form various images.</li><li>Refraction: Light bends as it passes through different media, explained by Snell's Law.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! We started with what light is, then explored how it bounces back through reflection, understanding both plane and spherical mirrors. Finally, we learned how light bends when passing through different materials, a phenomenon called refraction. Keep practicing these concepts to master them!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

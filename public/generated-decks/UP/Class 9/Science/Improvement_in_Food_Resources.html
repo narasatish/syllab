@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Improvement in Food Resources — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to Class 9 <span class="hl">Science</span>!</h2>
+          <ul><li>Chapter: Improvement in Food Resources</li><li>Subject: Science, Class: 9, Board: UP</li><li>Let's learn how to feed the world!</li></ul>
+          <p class="notes">🎙️ Greetings students! Today, we start a crucial chapter: 'Improvement in Food Resources.' This topic is vital for understanding how we can produce enough food for everyone.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Why Improve</span> Food Resources?</h2>
+          <ul><li>Growing population needs more food</li><li>Ensure food security for all</li><li>Better quality and healthier food</li></ul>
+          <p class="notes">🎙️ The world population is constantly growing, and with more people, the demand for food increases. We need to find ways to produce more food efficiently and sustainably to ensure everyone has access to nutritious meals.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🔬" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>What are <span class="hl">Food Resources</span>?</h2>
+          <ul><li>Sources of food for humans</li><li>Primarily plants (crops) and animals (livestock)</li><li>Essential for survival and health</li></ul>
+          <p class="notes">🎙️ Food resources are basically anything we eat to get energy and nutrients. Our main sources are crops like wheat and rice, and animals like cows, chickens, and fish.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Crops</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Animals</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Improving <span class="hl">Crop Yields</span></h2>
+          <ul><li>Producing more from the same land</li><li>Better quality grains, fruits, and vegetables</li><li>Making crops resistant to diseases</li></ul>
+          <p class="notes">🎙️ Crop improvement focuses on making our plants better. This means getting more produce from each plant, improving its nutritional value, and making it stronger against environmental challenges.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Healthy Crops</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Genetic Improvement &amp; <span class="hl">Hybridization</span></h2>
+          <ul><li>Combining desirable traits from different varieties</li><li>Creating new, superior crop varieties</li><li>Example: High-yielding, disease-resistant plants</li></ul>
+          <p class="notes">🎙️ Genetic improvement, often through hybridization, is like carefully mixing and matching the best qualities of different parent plants. This process helps us create new varieties that are stronger, produce more, or taste better.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Select Parents</span></div><div class="step"><span class="snum">2</span><span>Cross-pollinate</span></div><div class="step"><span class="snum">3</span><span>Select Hybrids</span></div><div class="step"><span class="snum">4</span><span>New Variety</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Better <span class="hl">Crop Varieties</span></h2>
+          <ul><li>Resistance to diseases and pests</li><li>Tolerance to drought or salinity</li><li>Shorter maturation duration</li><li>Wider adaptability to different climates</li></ul>
+          <p class="notes">🎙️ When we talk about improving crop varieties, we're looking for plants that can withstand challenges. This includes resisting common diseases, surviving with less water, or growing well in various regions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Stronger Plants</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Green Revolution</span> Example</h2>
+          <ul><li>Introduction of high-yielding varieties (HYV) of wheat and rice</li><li>Led to a significant increase in food grain production in India</li><li>Saved millions from hunger in the 1960s and 70s</li></ul>
+          <p class="notes">🎙️ A great example of crop improvement is the Green Revolution in India. By introducing new, high-yielding varieties of wheat and rice, our country dramatically increased its food production and became self-sufficient in food grains.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span></div><div class="vcap">Abundant Wheat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Managing Crop Production</h2>
+          <ul><li>Providing optimal conditions for growth</li><li>Includes nutrient management, irrigation, and cropping patterns</li><li>Aims for maximum yield and quality</li></ul>
+          <p class="notes">🎙️ Once we have good crop varieties, the next step is to manage their production effectively. This involves giving them the right food, enough water, and planting them in smart ways to get the best harvest.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Rice_fields.jpg?width=500" data-fb="🧑‍🌾" alt="Growing crops involves multiple stages: preparation, sowing, irrigation, pest control, and"/><div class="vcap">Growing crops involves multiple stages: preparation, sowing, irrigation, pest control, and</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Nutrient</span> Management</h2>
+          <ul><li>Supplying essential nutrients to the soil</li><li>Manure: natural, organic matter (animal waste, plant residue)</li><li>Fertilizers: commercially produced chemical nutrients</li></ul>
+          <p class="notes">🎙️ Just like we need food, plants need nutrients to grow well. We add manure, which is natural, or chemical fertilizers to the soil to provide these essential nutrients.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Soil_life.jpg?width=500" data-fb="🔬" alt="Modern farming combines soil management, crop selection, and sustainable practices to prod"/><div class="vcap">Modern farming combines soil management, crop selection, and sustainable practices to prod</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Organic</span> Farming</h2>
+          <ul><li>Farming without chemical fertilizers, pesticides, or herbicides</li><li>Uses manure, compost, bio-fertilizers, and biological pest control</li><li>Promotes environmental health and sustainable agriculture</li></ul>
+          <p class="notes">🎙️ Organic farming is a method that focuses on natural ways to grow crops. It avoids synthetic chemicals, relying instead on natural inputs to maintain soil fertility and control pests, which is good for both us and the environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Eco-friendly</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Watering Our Crops (<span class="hl">Irrigation</span>)</h2>
+          <ul><li>Supplying water to crops artificially</li><li>Methods: wells, canals, river lift systems, tanks</li><li>Modern methods: drip irrigation, sprinkler systems</li></ul>
+          <p class="notes">🎙️ Irrigation is simply giving water to crops when rainfall isn't enough. Farmers use various methods, from traditional wells and canals to modern, water-saving techniques like drip and sprinkler systems.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Wells</span></div><div class="step"><span class="snum">2</span><span>Canals</span></div><div class="step"><span class="snum">3</span><span>Drip System</span></div><div class="step"><span class="snum">4</span><span>Sprinklers</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Smart <span class="hl">Cropping Patterns</span></h2>
+          <ul><li>Mixed Cropping: Growing two or more crops together on the same land (e.g., wheat + gram)</li><li>Inter-cropping: Growing two or more crops in definite rows (e.g., maize + lobia)</li><li>Reduces risk, increases yield</li></ul>
+          <p class="notes">🎙️ Farmers use clever cropping patterns to make the most of their land. Mixed cropping is planting different crops together, while inter-cropping arranges them in specific rows, both helping to utilize resources better and reduce risk.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱🌾</span><span>🌱🌾</span><span>🌱🌾</span><span>🌱🌾</span><span>🌱🌾</span><span>🌱🌾</span></div><div class="vcap">Diverse Crops</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Crop <span class="hl">Rotation</span></h2>
+          <ul><li>Growing different crops on the same land in a pre-planned succession</li><li>Helps maintain soil fertility</li><li>Controls pests and diseases naturally</li><li>Example: Legumes followed by non-legumes</li></ul>
+          <p class="notes">🎙️ Crop rotation means changing the type of crop grown in a field each season. This practice is excellent for keeping the soil healthy, preventing the build-up of specific pests, and reducing the need for chemical treatments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Changing Crops</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which farming method avoids chemical fertilizers and pesticides?</li><li>What is the main benefit of hybridization?</li><li>Name two methods of irrigation.</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Think about the key terms we just discussed. What were the main ideas behind organic farming, hybridization, and irrigation?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Protecting</span> Our Crops</h2>
+          <ul><li>Safeguarding crops from weeds, pests, and diseases</li><li>Weeds compete for nutrients, pests damage plants, diseases reduce yield</li><li>Essential to ensure a good harvest</li></ul>
+          <p class="notes">🎙️ Growing crops is only half the battle; we also need to protect them. Weeds steal nutrients, insects can destroy plants, and diseases can wipe out an entire field. So, protection is crucial.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Crop Shield</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Crop Protection <span class="hl">Methods</span></h2>
+          <ul><li>Weed control: mechanical removal, herbicides</li><li>Pests control: pesticides, biological control</li><li>Disease control: resistant varieties, fungicides</li><li>Proper seed bed preparation</li></ul>
+          <p class="notes">🎙️ There are many ways to protect crops. We can physically remove weeds, use special chemicals called pesticides or fungicides, or even introduce beneficial insects to control pests naturally.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Weed Control</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Pest Control</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Disease Control</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Storing</span> Harvested Grains</h2>
+          <ul><li>Protecting grains after harvest</li><li>Biotic factors: insects, rodents, fungi, bacteria</li><li>Abiotic factors: moisture, temperature, humidity</li><li>Can lead to significant losses if not managed well</li></ul>
+          <p class="notes">🎙️ After all the hard work of growing and harvesting, storing grains properly is vital. Pests like rats and insects, along with factors like moisture and heat, can spoil huge amounts of food.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐭</span><span>🐭</span><span>🐭</span></div><div class="vcap">Storage Pests</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Safe Grain Storage</h2>
+          <ul><li>Proper drying of grains before storage</li><li>Maintaining hygiene in storage godowns</li><li>Chemical treatment (fumigation) to kill pests</li><li>Storing in airtight containers or silos</li></ul>
+          <p class="notes">🎙️ To prevent spoilage, grains must be thoroughly dried. Storage areas need to be clean, and sometimes fumigation is used to eliminate pests. Large quantities are often stored in specialized silos.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Secure Storage</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Animal Husbandry</span></h2>
+          <ul><li>Scientific management of livestock</li><li>Includes feeding, breeding, and disease control</li><li>Provides milk, meat, eggs, wool, and draught power</li></ul>
+          <p class="notes">🎙️ Animal husbandry is about the careful management of farm animals. This involves providing them with proper food, ensuring they reproduce well, and keeping them healthy so they can provide us with valuable products.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐄🐓🐟</span><span>🐄🐓🐟</span><span>🐄🐓🐟</span><span>🐄🐓🐟</span><span>🐄🐓🐟</span></div><div class="vcap">Farm Animals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Cattle</span> Farming</h2>
+          <ul><li>For milk production (dairy animals like cows, buffaloes)</li><li>For draught purposes (farm work like ploughing, irrigation, carting)</li><li>Proper shelter, feeding, and disease control are important</li></ul>
+          <p class="notes">🎙️ Cattle farming is a major part of animal husbandry. We raise cows and buffaloes for milk, and some breeds are used as draught animals to help with farm work, making agriculture easier.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Milk Production</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Poultry</span> Farming</h2>
+          <ul><li>Raising domesticated birds (chickens, ducks, turkeys) for eggs and meat</li><li>Layers: for egg production</li><li>Broilers: for meat production</li><li>Requires good housing, nutrition, and disease prevention</li></ul>
+          <p class="notes">🎙️ Poultry farming involves raising birds like chickens. Some breeds, called layers, are specialized for producing eggs, while others, known as broilers, are raised for their meat.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Eggs (Layers)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Meat (Broilers)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Fisheries</span></h2>
+          <ul><li>Capture fisheries: catching fish from natural resources (seas, rivers)</li><li>Culture fisheries (Aquaculture): farming fish in ponds, tanks, or enclosures</li><li>Provides a rich source of protein</li></ul>
+          <p class="notes">🎙️ Fisheries are about obtaining fish. Capture fisheries involve catching wild fish, while culture fisheries, or aquaculture, is like farming fish in controlled environments, ensuring a steady supply.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐟</div><div class="vcap">Fish Harvest</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Beekeeping</span> (Apiculture)</h2>
+          <ul><li>Rearing honeybees for honey and beeswax</li><li>Honey is a valuable food source and has medicinal properties</li><li>Bees also help in pollination of crops</li><li>Requires knowledge of bee behaviour and management</li></ul>
+          <p class="notes">🎙️ Beekeeping, also called apiculture, is the practice of raising bees. We get delicious honey and useful beeswax from them, and importantly, bees play a crucial role in pollinating many of our crops.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐝</span><span>🐝</span><span>🐝</span><span>🐝</span><span>🐝</span><span>🐝</span></div><div class="vcap">Busy Bees</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>More Quick <span class="hl">Checks</span>!</h2>
+          <ul><li>Name two biotic factors that damage stored grains.</li><li>What is the primary purpose of broiler chickens?</li><li>Give one example of a draught animal.</li></ul>
+          <p class="notes">🎙️ Let's review some more key points. Think about the threats to stored food and the different uses of farm animals we just discussed.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span></h2>
+          <ul><li>Improved crop varieties and production management increase food</li><li>Animal husbandry provides milk, meat, eggs, and more</li><li>Sustainable practices are key for future food security</li><li>We all play a role in appreciating our food resources</li></ul>
+          <p class="notes">🎙️ We've covered how to improve both crop and animal resources to ensure enough food for everyone. Remember, using sustainable practices is essential for the long-term health of our planet and our food supply. Thank you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

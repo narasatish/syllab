@@ -1,0 +1,356 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Arithmetic Progressions - Class 10 Mathematics — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">1 / 24</span>
+          <h2>What is a <span class="hl">Sequence</span>?</h2>
+          <ul><li>An ordered list of numbers</li><li>Each number is called a 'term'</li><li>Follows a specific rule or pattern</li></ul>
+          <p class="notes">🎙️ Before we dive into Arithmetic Progressions, let's understand what a sequence is. Simply put, it's a list of numbers arranged in a particular order. Think of it like a line of students, each in their designated place.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Ordered Numbers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 24</span>
+          <h2>Finding <span class="hl">Patterns</span> in Sequences</h2>
+          <ul><li>Look for the relationship between consecutive terms</li><li>Is it adding, subtracting, multiplying, or dividing?</li><li>Example: 2, 4, 6, 8, ... (adding 2)</li></ul>
+          <p class="notes">🎙️ Many sequences follow a predictable pattern. To find the pattern, you need to observe how each term relates to the one before it. Once you find the rule, you can predict the next numbers in the sequence.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Observe</span></div><div class="step"><span class="snum">2</span><span>Relate</span></div><div class="step"><span class="snum">3</span><span>Predict</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 24</span>
+          <h2>Introduction to <span class="hl">Arithmetic Progression</span> (AP)</h2>
+          <ul><li>A special type of sequence</li><li>Each term is obtained by adding a fixed number</li><li>The fixed number is called the 'common difference'</li></ul>
+          <p class="notes">🎙️ Now, let's define an Arithmetic Progression, or AP. It's a sequence where the difference between any two consecutive terms is always the same. This constant difference is what makes it an AP.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Adding a Fixed Number</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 24</span>
+          <h2>Understanding the <span class="hl">Common Difference</span> (d)</h2>
+          <ul><li>The fixed number added in an AP</li><li>Can be positive, negative, or zero</li><li>Calculated as: (any term) - (previous term)</li></ul>
+          <p class="notes">🎙️ The common difference, denoted by 'd', is the heart of an AP. It's the constant value you add to get the next term. Remember, you can find 'd' by subtracting any term from its succeeding term.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">2nd - 1st</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">3rd - 2nd</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">4th - 3rd</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 24</span>
+          <h2>Real-Life AP: <span class="hl">Ladder Rungs</span></h2>
+          <ul><li>Length of rungs decrease uniformly</li><li>Top rung: 45cm, Bottom rung: 25cm</li><li>Total 11 rungs, spaced 25cm apart</li></ul>
+          <p class="notes">🎙️ Imagine a ladder where the length of the rungs decreases uniformly from bottom to top. If the bottom rung is 25cm and the top is 45cm, and there are 11 rungs, the lengths form an AP. This is a great real-world example of an AP with a negative common difference.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">Decreasing Lengths</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 24</span>
+          <h2>Is it an Arithmetic Progression?</h2>
+          <ul><li>Check if the difference between consecutive terms is constant</li><li>Example 1: 3, 6, 9, 12, ... (Yes, d=3)</li><li>Example 2: 1, 3, 6, 10, ... (No, differences vary)</li></ul>
+          <p class="notes">🎙️ To identify if a given sequence is an AP, simply calculate the difference between consecutive terms. If this difference remains constant throughout the sequence, then it's an AP. Practice this skill to master it!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✔️</span><span>✔️</span><span>✔️</span></div><div class="vcap">Check the Difference</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 24</span>
+          <h2>The <span class="hl">General Form</span> of an AP</h2>
+          <ul><li>If 'a' is the first term</li><li>And 'd' is the common difference</li><li>The AP is: a, a+d, a+2d, a+3d, ...</li></ul>
+          <p class="notes">🎙️ Any arithmetic progression can be represented using its first term 'a' and common difference 'd'. This general form helps us understand the structure of any AP, making it easier to find any term.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Pattern Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 24</span>
+          <h2>Finding the <span class="hl">nth Term</span> of an AP</h2>
+          <ul><li>What if we want the 100th term?</li><li>Listing all terms can be difficult</li><li>We need a formula!</li></ul>
+          <p class="notes">🎙️ Sometimes, we need to find a specific term far down the sequence, like the 50th or 100th term. Manually listing all terms would be tedious and time-consuming. This is where a powerful formula comes to our rescue.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Specific Term</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 24</span>
+          <h2><span class="hl">Formula</span> for the nth Term (an)</h2>
+          <ul><li>an = a + (n-1)d</li><li>an: the nth term</li><li>a: the first term</li><li>n: the term number (position)</li><li>d: the common difference</li></ul>
+          <p class="notes">🎙️ This is a very important formula. The nth term, denoted by 'an', can be found by adding 'n-1' times the common difference 'd' to the first term 'a'. Memorize this formula well, as it's used frequently.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Term Position</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 24</span>
+          <h2>Worked Example: Finding a <span class="hl">Specific Term</span></h2>
+          <ul><li>Problem: Find the 10th term of the AP: 2, 7, 12, ...</li><li>Solution: a=2, d=5, n=10</li><li>a10 = 2 + (10-1)5 = 2 + 9*5 = 2 + 45 = 47</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. Here, the first term is 2, and the common difference is 5. We want the 10th term, so n=10. Substitute these values into the formula to get the answer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💡</span></div><div class="vcap">Solution Steps</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 24</span>
+          <h2>Worked Example: <span class="hl">Finding 'n' or 'd'</span></h2>
+          <ul><li>Problem: Which term of the AP: 21, 18, 15, ... is -81?</li><li>Solution: a=21, d=-3, an=-81</li><li>-81 = 21 + (n-1)(-3)</li><li>-102 = (n-1)(-3) =&gt; 34 = n-1 =&gt; n=35</li></ul>
+          <p class="notes">🎙️ Sometimes, you might be given the nth term and need to find 'n' or 'd'. This problem shows how to find 'n' when 'an', 'a', and 'd' are known. Just rearrange the formula and solve for the unknown variable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤔</span></div><div class="vcap">Reverse Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 24</span>
+          <h2>Real-Life AP: <span class="hl">Saving Money</span></h2>
+          <ul><li>You save ₹100 in the first month</li><li>Then ₹50 more each subsequent month</li><li>How much will you save in the 12th month?</li></ul>
+          <p class="notes">🎙️ This is a practical application of finding the nth term. Your monthly savings form an AP. The first term 'a' is ₹100, and the common difference 'd' is ₹50. You need to find the 12th term, a12.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💰</div><div class="vcap">Monthly Savings</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 24</span>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>What is the next term in the AP: 5, 10, 15, 20, ...?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Look at this simple AP and tell me what the next number in the sequence would be. Think about the common difference.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 24</span>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Find the common difference for the AP: 100, 90, 80, 70, ...</li></ul>
+          <p class="notes">🎙️ Another quick one! For this decreasing AP, identify the common difference. Remember how 'd' is calculated.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 24</span>
+          <h2><span class="hl">Sum</span> of the First n Terms (Sn)</h2>
+          <ul><li>What if we need to add up all terms?</li><li>Example: Sum of first 10 natural numbers</li><li>This is called the 'sum of an AP'</li></ul>
+          <p class="notes">🎙️ Sometimes, we don't just need a specific term, but the total sum of all terms up to a certain point. Imagine adding all the numbers in a long AP. Thankfully, there's a formula for that too!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Total Sum</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 24</span>
+          <h2><span class="hl">Understanding</span> the Sum Formula</h2>
+          <ul><li>Consider an AP: a, a+d, ..., l-d, l</li><li>Sum Sn = a + (a+d) + ... + (l-d) + l</li><li>Also Sn = l + (l-d) + ... + (a+d) + a</li><li>Adding both: 2Sn = n * (a+l)</li></ul>
+          <p class="notes">🎙️ The formula for the sum of an AP was famously discovered by young Gauss. By writing the sum forwards and backwards and adding them, we can see a pattern emerge where each pair sums to (a+l). This simple trick leads us to the formula.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>List Forward</span></div><div class="step"><span class="snum">2</span><span>List Backward</span></div><div class="step"><span class="snum">3</span><span>Add Pairs</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 24</span>
+          <h2><span class="hl">Formula</span> for the Sum of n Terms (Sn)</h2>
+          <ul><li>Sn = n/2 [2a + (n-1)d]</li><li>OR Sn = n/2 [a + l] (where 'l' is the last term, an)</li><li>Sn: sum of the first n terms</li><li>n: number of terms</li><li>a: first term</li><li>d: common difference</li><li>l: last term</li></ul>
+          <p class="notes">🎙️ Here are the two main formulas for the sum of 'n' terms. The first one uses 'a', 'n', and 'd'. The second one is very useful if you already know the last term 'l'. Choose the formula that best fits the information given in the problem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Total Value</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 24</span>
+          <h2>Worked Example: Calculating the Sum</h2>
+          <ul><li>Problem: Find the sum of the first 20 terms of the AP: 1, 4, 7, 10, ...</li><li>Solution: a=1, d=3, n=20</li><li>S20 = 20/2 [2*1 + (20-1)3]</li><li>S20 = 10 [2 + 19*3] = 10 [2 + 57] = 10 * 59 = 590</li></ul>
+          <p class="notes">🎙️ Let's apply the sum formula. Identify 'a', 'd', and 'n' from the problem. Substitute these values into the formula Sn = n/2 [2a + (n-1)d] and perform the calculations carefully to find the sum.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span></div><div class="vcap">Summing Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 24</span>
+          <h2>Worked Example: <span class="hl">Finding 'n'</span> given the Sum</h2>
+          <ul><li>Problem: How many terms of the AP: 9, 17, 25, ... must be taken to give a sum of 636?</li><li>Solution: a=9, d=8, Sn=636</li><li>636 = n/2 [2*9 + (n-1)8]</li><li>1272 = n [18 + 8n - 8] =&gt; 1272 = n [10 + 8n]</li><li>8n^2 + 10n - 1272 = 0 =&gt; 4n^2 + 5n - 636 = 0 (Solve quadratic for n)</li></ul>
+          <p class="notes">🎙️ This type of problem requires a bit more algebra. When the sum is given, and you need to find 'n', you will often end up with a quadratic equation. Remember to solve the quadratic equation for 'n', and 'n' must be a positive integer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span></div><div class="vcap">Terms Count</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 24</span>
+          <h2>Real-Life AP: <span class="hl">Total Distance</span> Covered</h2>
+          <ul><li>A person walks 1 km on day 1, 1.5 km on day 2, 2 km on day 3, and so on.</li><li>How much total distance is covered in 10 days?</li></ul>
+          <p class="notes">🎙️ Here's another real-world scenario. The distances walked each day form an AP. You need to find the total distance covered over 10 days, which means finding the sum of the first 10 terms of this AP.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶</div><div class="vcap">Increasing Distance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 24</span>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>Find the sum of the first 5 terms of the AP: 1, 2, 3, 4, 5.</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of the sum formula. For this simple AP, calculate the sum of its first five terms. You can do this by direct addition or using the formula.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 24</span>
+          <h2>Quick Check! <span class="hl">Question 4</span></h2>
+          <ul><li>If an AP has a=3, d=2, and n=4, what is the last term 'l' and the sum Sn?</li></ul>
+          <p class="notes">🎙️ One last quick question combining both concepts. Given the first term, common difference, and number of terms, first find the last term, and then calculate the sum of all terms.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 24</span>
+          <h2><span class="hl">Key Takeaways</span>: Arithmetic Progressions</h2>
+          <ul><li>An AP has a constant common difference (d)</li><li>nth term formula: an = a + (n-1)d</li><li>Sum of n terms formula: Sn = n/2 [2a + (n-1)d] or Sn = n/2 [a + l]</li><li>AP concepts are used in many real-life situations</li></ul>
+          <p class="notes">🎙️ Let's quickly recap what we've learned today. Remember the definition of an AP, how to find the common difference, and most importantly, the two key formulas for the nth term and the sum of n terms. These are your essential tools!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Remember These</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 24</span>
+          <h2><span class="hl">Practice</span> Makes Perfect!</h2>
+          <ul><li>Solve more problems from your textbook</li><li>Understand the application of formulas</li><li>Ask questions if you have doubts!</li></ul>
+          <p class="notes">🎙️ Mastering Arithmetic Progressions requires consistent practice. Work through the exercises in your textbook and try to apply these concepts to various problems. Don't hesitate to ask your teacher if you encounter any difficulties.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Keep Learning</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

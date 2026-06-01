@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Tissues: The Building Blocks of Life — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Tissues</span>!</h2>
+          <ul><li>Discover how cells work together.</li><li>Understand the different types of tissues.</li><li>Explore how tissues form organs and systems.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to embark on an exciting journey into the microscopic world of 'Tissues'. Just like bricks build a house, cells build living organisms, and tissues are the next level of organization.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Tissues</span>?</h2>
+          <ul><li>A group of similar cells.</li><li>Perform a specific function.</li><li>Found in multicellular organisms.</li></ul>
+          <p class="notes">🎙️ Think of tissues as a team of cells. All the cells in a particular tissue are similar in structure and work together to perform one particular job, making the organism more efficient. This teamwork is crucial for complex life forms.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Cells working together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Plant Tissues vs. Animal Tissues: A Big <span class="hl">Difference</span></h2>
+          <ul><li>Plants are stationary, animals move.</li><li>Plants have growth regions, animals grow uniformly.</li><li>Structural organization differs significantly.</li></ul>
+          <p class="notes">🎙️ Plants and animals have very different lifestyles, which means their tissues are also designed differently. Plants need support and continuous growth, while animals need mobility and a more uniform growth pattern, leading to distinct tissue types.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Illu_epithelium_types-en.svg?width=500" data-fb="🔬" alt="Animal tissues are groups of cells with similar structure and function. The four main type"/><div class="vcap">Animal tissues are groups of cells with similar structure and function. The four main type</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Plant Tissues: <span class="hl">Meristematic</span> Tissues</h2>
+          <ul><li>Found in actively growing regions.</li><li>Cells divide continuously.</li><li>Responsible for plant growth.</li></ul>
+          <p class="notes">🎙️ Meristematic tissues are like the 'growth engines' of a plant. These tissues contain cells that are constantly dividing, allowing the plant to grow in length and girth. They are crucial for the plant's development throughout its life.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_type_sclerenchyma_fibers.png?width=500" data-fb="🌱" alt="Plant tissues are specialized groups of cells that perform specific functions. They are di"/><div class="vcap">Plant tissues are specialized groups of cells that perform specific functions. They are di</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Types</span> of Meristematic Tissues</h2>
+          <ul><li>Apical Meristem: Tips of roots and stems.</li><li>Lateral Meristem: Girth of stem and root.</li><li>Intercalary Meristem: Base of leaves/internodes.</li></ul>
+          <p class="notes">🎙️ There are three main types, each responsible for growth in different directions. Apical meristem helps the plant grow taller, lateral meristem makes it wider, and intercalary meristem helps parts like grass blades grow back after being cut.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌿</span><span>🌿</span><span>🌿</span></div><div class="vcap">Three growth areas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Permanent</span> Plant Tissues: The Grown-Up Cells</h2>
+          <ul><li>Cells stop dividing after differentiation.</li><li>Formed from meristematic tissues.</li><li>Provide protection, support, and transport.</li></ul>
+          <p class="notes">🎙️ Once meristematic cells mature and specialize for a particular function, they lose their ability to divide and become 'permanent tissues'. These tissues form the bulk of the plant body and perform various vital roles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Mature plant</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Simple Permanent Tissues: <span class="hl">Parenchyma</span></h2>
+          <ul><li>Loosely packed, living cells.</li><li>Store food and water.</li><li>Provide support and buoyancy.</li></ul>
+          <p class="notes">🎙️ Parenchyma is the most common type of simple permanent tissue. Its cells are often found filling spaces between other tissues and are essential for storing nutrients. In aquatic plants, they often have large air cavities for buoyancy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Storage box</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Simple Permanent Tissues: <span class="hl">Collenchyma</span></h2>
+          <ul><li>Thickened corners, living cells.</li><li>Provides flexibility and mechanical support.</li><li>Allows bending without breaking.</li></ul>
+          <p class="notes">🎙️ Collenchyma provides flexible support to plant parts like leaf stalks and young stems. Imagine how a plant stem can bend in the wind without snapping; that's largely due to collenchyma cells, which are thickened at their corners.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤸</div><div class="vcap">Flexible support</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Simple Permanent Tissues: <span class="hl">Sclerenchyma</span></h2>
+          <ul><li>Dead cells with highly thickened walls.</li><li>Provides strength and rigidity.</li><li>Found in fruit husks, seed coats.</li></ul>
+          <p class="notes">🎙️ Sclerenchyma is the 'hardest' of the simple permanent tissues. Its cells have very thick, lignified walls, making them strong and rigid. This tissue gives mechanical strength to the plant, like the tough outer shell of a coconut.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Strong support</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1: Plant Tissues</h2>
+          <ul><li>Which tissue is responsible for plant growth?</li><li>Name two types of simple permanent tissues.</li><li>What is the main function of collenchyma?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think about what we've learned so far about plant tissues. Try to recall the key functions and locations of each type we've discussed. Take a moment to answer these questions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Complex Permanent Tissues: <span class="hl">Xylem</span> - Water Highways</h2>
+          <ul><li>Transports water and minerals.</li><li>Components: Tracheids, vessels, xylem parenchyma, xylem fibres.</li><li>Flow is usually unidirectional (upwards).</li></ul>
+          <p class="notes">🎙️ Xylem is like the plumbing system of a plant, responsible for carrying water and dissolved minerals from the roots up to the leaves. It's a complex tissue because it's made up of more than one type of cell working together.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water transport</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Complex Permanent Tissues: <span class="hl">Phloem</span> - Food Delivery</h2>
+          <ul><li>Transports food (sugars) from leaves.</li><li>Components: Sieve tubes, companion cells, phloem parenchyma, phloem fibres.</li><li>Flow can be bidirectional.</li></ul>
+          <p class="notes">🎙️ Phloem is the other part of the plant's transport system. It carries the food produced during photosynthesis in the leaves to all other parts of the plant where it's needed for energy or storage. Unlike xylem, its flow can go both up and down.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🍎" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Animal</span> Tissues: Introduction</h2>
+          <ul><li>More specialized than plant tissues.</li><li>Four main types: Epithelial, Connective, Muscular, Nervous.</li><li>Adapted for movement, communication, and protection.</li></ul>
+          <p class="notes">🎙️ Now let's shift our focus to animal tissues. Animals have different needs compared to plants, such as movement and quick responses. Therefore, their tissues are highly specialized and are broadly categorized into four major types.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span></div><div class="vcap">Four main types</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Epithelial</span> Tissue: Our Body's Covering</h2>
+          <ul><li>Forms outer covering and inner lining.</li><li>Provides protection, absorption, secretion.</li><li>Cells are tightly packed with little intercellular space.</li></ul>
+          <p class="notes">🎙️ Epithelial tissue acts as a protective barrier, covering the surface of the body and lining internal organs and cavities. Think of your skin – that's epithelial tissue protecting you from the outside world. It also helps in absorption in the intestine and secretion in glands.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Body's shield</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Connective</span> Tissue: Holding Everything Together</h2>
+          <ul><li>Connects and supports other tissues.</li><li>Cells are loosely arranged in an extracellular matrix.</li><li>Includes blood, bone, cartilage, ligaments, tendons.</li></ul>
+          <p class="notes">🎙️ As the name suggests, connective tissue literally connects different parts of the body. It provides support, binds organs together, and fills spaces. It's characterized by cells embedded in a non-living substance called the matrix.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connecting parts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Connective Tissue: <span class="hl">Areolar</span> &amp; Adipose</h2>
+          <ul><li>Areolar: Fills space inside organs, supports internal organs.</li><li>Adipose: Stores fat, acts as an insulator.</li><li>Both are loose connective tissues.</li></ul>
+          <p class="notes">🎙️ Areolar tissue is like the packing material of our body, found between skin and muscles. Adipose tissue is specialized for fat storage, providing energy reserves and insulation. Both play important roles in maintaining body structure and function.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☁️</div><div class="vcap">Padding and storage</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Connective Tissue: <span class="hl">Bone</span> &amp; Cartilage</h2>
+          <ul><li>Bone: Hard, rigid matrix, forms skeleton, provides support.</li><li>Cartilage: Flexible matrix, found in nose, ear, joints.</li><li>Both provide structural support to the body.</li></ul>
+          <p class="notes">🎙️ Bone is the strongest connective tissue, forming our skeleton and protecting vital organs. Cartilage, while also providing support, is much more flexible, allowing movement in joints and shaping parts like your earlobe.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦴</div><div class="vcap">Skeletal support</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Connective Tissue: <span class="hl">Blood</span> - The Fluid Lifeline</h2>
+          <ul><li>Fluid matrix (plasma) with cells (RBCs, WBCs, platelets).</li><li>Transports gases, nutrients, hormones, waste.</li><li>Crucial for immunity and clotting.</li></ul>
+          <p class="notes">🎙️ Blood is a unique type of connective tissue because it has a liquid matrix called plasma. It's constantly circulating, delivering oxygen and nutrients, and removing waste products, making it essential for life.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Red_White_Blood_cells.jpg?width=500" data-fb="❤️" alt="Blood is a connective tissue composed of plasma and three types of formed elements: red bl"/><div class="vcap">Blood is a connective tissue composed of plasma and three types of formed elements: red bl</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Muscular</span> Tissue: For Movement!</h2>
+          <ul><li>Composed of elongated cells called muscle fibres.</li><li>Responsible for all body movements.</li><li>Contains contractile proteins.</li></ul>
+          <p class="notes">🎙️ Muscular tissue is specialized for contraction and relaxation, which generates force and causes movement. Whether you're walking, blinking, or your heart is beating, it's all thanks to the incredible work of muscular tissue.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Movement in action</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Striated</span> (Skeletal) Muscle: Voluntary Movement</h2>
+          <ul><li>Attached to bones, allows voluntary movement.</li><li>Cells are long, cylindrical, multinucleated, with striations.</li><li>Fatigues quickly.</li></ul>
+          <p class="notes">🎙️ Striated muscles are the ones you consciously control, like when you lift your arm. They appear striped under a microscope due to the arrangement of proteins. These muscles are powerful but can get tired if overused.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏋️</div><div class="vcap">Conscious control</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Smooth</span> (Unstriated) Muscle: Involuntary Action</h2>
+          <ul><li>Found in internal organs (e.g., stomach, intestines).</li><li>Cells are spindle-shaped, uninucleated, without striations.</li><li>Involuntary control, slow and sustained contractions.</li></ul>
+          <p class="notes">🎙️ Smooth muscles work automatically, without you having to think about them. They are found in the walls of many internal organs, helping with processes like digestion and blood flow. They contract slowly but can maintain contractions for a long time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧘</div><div class="vcap">Automatic processes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Cardiac</span> Muscle: The Heart's Engine</h2>
+          <ul><li>Found only in the heart.</li><li>Cells are branched, uninucleated, with striations.</li><li>Involuntary and rhythmic contractions throughout life.</li></ul>
+          <p class="notes">🎙️ Cardiac muscle is a very special type of muscle found exclusively in the heart. It's involuntary, like smooth muscle, but has striations like skeletal muscle. Its continuous, rhythmic contractions are what keep our blood pumping throughout our lives.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💓</div><div class="vcap">Heartbeat rhythm</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Nervous</span> Tissue: The Communication Network</h2>
+          <ul><li>Controls and coordinates body functions.</li><li>Composed of neurons (nerve cells) and neuroglia.</li><li>Transmits messages rapidly.</li></ul>
+          <p class="notes">🎙️ Nervous tissue is the communication system of our body. It allows us to think, feel, react, and coordinate all our actions. Neurons are the basic units, specialized to transmit electrical signals quickly across long distances.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Brain and nerves</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 2: Animal Tissues</h2>
+          <ul><li>Which tissue forms the lining of your mouth?</li><li>Name a connective tissue with a fluid matrix.</li><li>What type of muscle is found in the heart?</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of animal tissues. Think about the characteristics and locations of each type we've covered. These questions will help you recall the important details.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Tissues - The Teamwork in Our Bodies</h2>
+          <ul><li>Tissues are groups of cells with specific functions.</li><li>Plants have meristematic and permanent tissues.</li><li>Animals have epithelial, connective, muscular, and nervous tissues.</li><li>Each tissue plays a vital role in life.</li></ul>
+          <p class="notes">🎙️ We've covered a vast topic today, from the growth of plants to the beating of our hearts, all thanks to specialized tissues. Remember, tissues are the amazing teams of cells that enable all living organisms to function and thrive. Keep exploring and learning!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Lesson summary</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

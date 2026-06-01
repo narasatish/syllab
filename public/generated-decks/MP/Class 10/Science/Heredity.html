@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Heredity — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to '<span class="hl">Heredity</span>'</h2>
+          <ul><li>How are we similar to our parents?</li><li>Why are we also different from them?</li><li>Let's explore the science of inheritance!</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we begin a fascinating chapter called 'Heredity'. Have you ever wondered why you have your mother's eyes or your father's height? This chapter will answer all those interesting questions about how traits are passed down.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Heredity</span>?</h2>
+          <ul><li>Passing of traits from parents to offspring.</li><li>Ensures continuity of species.</li><li>The basis of family resemblances.</li></ul>
+          <p class="notes">🎙️ Heredity is simply the process where characteristics or 'traits' are passed from one generation to the next. Think of it like a family recipe that gets passed down, ensuring some features remain consistent across generations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">DNA - Blueprint of Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Variation</span>: Differences within a Species</h2>
+          <ul><li>Offspring are not exact copies of parents.</li><li>Small differences are called variations.</li><li>Crucial for adaptation and survival.</li></ul>
+          <p class="notes">🎙️ Even though we inherit traits, no two individuals (except identical twins) are exactly alike. These small differences, or variations, are what make each of us unique and play a very important role in how species survive and evolve over time.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Same Genes</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Different Traits</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>How Variations <span class="hl">Accumulate</span></h2>
+          <ul><li>Variations arise during DNA copying.</li><li>Sexual reproduction combines variations.</li><li>Leads to greater diversity over generations.</li></ul>
+          <p class="notes">🎙️ Variations don't just appear out of nowhere. They start with tiny errors during DNA copying in asexual reproduction, and in sexual reproduction, they combine traits from two parents, leading to even more unique mixes in the offspring.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent DNA</span></div><div class="step"><span class="snum">2</span><span>Copying Errors</span></div><div class="step"><span class="snum">3</span><span>New Combinations</span></div><div class="step"><span class="snum">4</span><span>Diverse Offspring</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Why Variation is <span class="hl">Important</span></h2>
+          <ul><li>Increases chances of survival.</li><li>Helps species adapt to changing environments.</li><li>Drives evolution over long periods.</li></ul>
+          <p class="notes">🎙️ Imagine a sudden change in climate. If all individuals were identical, they might all be wiped out. Variation ensures that some individuals might have traits that help them survive, thus saving the entire species from extinction. It's nature's way of hedging bets!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Shield of Survival</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Gregor <span class="hl">Mendel</span>: Father of Genetics</h2>
+          <ul><li>Austrian monk and scientist.</li><li>Experimented with pea plants (Pisum sativum).</li><li>Discovered fundamental laws of inheritance.</li></ul>
+          <p class="notes">🎙️ Gregor Mendel, an Austrian monk, is considered the 'Father of Genetics'. Through his meticulous experiments with pea plants, he laid the foundation for understanding how traits are passed down, even before DNA was fully understood.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍🔬</div><div class="vcap">Pioneer of Heredity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Genes</span>: Units of Heredity</h2>
+          <ul><li>Segments of DNA.</li><li>Carry information for specific traits.</li><li>Passed from parents to offspring.</li></ul>
+          <p class="notes">🎙️ Think of genes as tiny instruction manuals within our cells. Each gene contains the code for a particular characteristic, like eye colour or height. They are the fundamental units that determine what we are like.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📖</div><div class="vcap">Instruction Manual</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Chromosomes</span>: Gene Carriers</h2>
+          <ul><li>Thread-like structures in the nucleus.</li><li>Made of DNA tightly coiled around proteins.</li><li>Contain thousands of genes.</li></ul>
+          <p class="notes">🎙️ If genes are the instructions, then chromosomes are like the books that hold these instructions. They are found in the nucleus of our cells and are essentially long strands of DNA packed neatly. Humans have 23 pairs of chromosomes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✖️</div><div class="vcap">X-shaped structures</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Dominant</span> and Recessive Traits</h2>
+          <ul><li>Dominant: Trait that shows up.</li><li>Recessive: Trait that is hidden.</li><li>Example: Tall (dominant) vs. Dwarf (recessive) pea plants.</li></ul>
+          <p class="notes">🎙️ When two different versions of a gene are present, one often 'dominates' and expresses itself, while the other remains 'recessive' or hidden. For instance, in pea plants, the gene for tallness is dominant over the gene for dwarfness.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Dominant</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Recessive</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Monohybrid</span> Cross: One Trait</h2>
+          <ul><li>Study of inheritance of one trait.</li><li>Mendel crossed tall and dwarf pea plants.</li><li>Resulted in all tall F1 generation.</li></ul>
+          <p class="notes">🎙️ Mendel's monohybrid cross involved tracking a single trait, like height. He found that when he crossed pure tall plants with pure dwarf plants, all the offspring in the first generation (F1) were tall, demonstrating the dominant nature of tallness.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Punnett_square.svg?width=500" data-fb="🔬" alt="Monohybrid and dihybrid crosses demonstrate Mendel's laws through Punnett squares showing "/><div class="vcap">Monohybrid and dihybrid crosses demonstrate Mendel's laws through Punnett squares showing </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Phenotype</span> vs. Genotype</h2>
+          <ul><li>Phenotype: Observable characteristics (e.g., Tall).</li><li>Genotype: Genetic makeup (e.g., TT, Tt, tt).</li><li>Genotype determines phenotype.</li></ul>
+          <p class="notes">🎙️ Phenotype is what you can actually see – like someone's blue eyes or their tall stature. Genotype, on the other hand, refers to the actual genetic code or combination of genes responsible for that trait. The genotype is the blueprint, and the phenotype is the final building.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">What you see (Phenotype)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">What genes are (Genotype)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>How Traits are <span class="hl">Expressed</span></h2>
+          <ul><li>Genes provide instructions for making proteins.</li><li>Proteins control cell functions and development.</li><li>This leads to observable traits.</li></ul>
+          <p class="notes">🎙️ Genes don't directly make you tall or have blue eyes. Instead, they carry instructions to make specific proteins. These proteins then perform various functions in the body, ultimately leading to the development and expression of the observable trait.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">From Gene to Trait</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Real Example: Inheriting <span class="hl">Eye Colour</span></h2>
+          <ul><li>Determined by multiple genes.</li><li>Brown eye colour is generally dominant.</li><li>Blue/green eye colours are recessive.</li></ul>
+          <p class="notes">🎙️ Eye colour is a great real-life example of heredity. While it's a bit more complex than a single gene, generally, brown eyes are dominant over blue or green eyes. This means if you inherit a brown eye gene and a blue eye gene, you'll likely have brown eyes.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="🔬" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Dihybrid</span> Cross: Two Traits</h2>
+          <ul><li>Studies inheritance of two traits simultaneously.</li><li>Example: Seed shape (round/wrinkled) and colour (yellow/green).</li><li>Mendel observed independent assortment.</li></ul>
+          <p class="notes">🎙️ A dihybrid cross is when we track two different traits at the same time, like the shape and colour of pea seeds. Mendel found that these traits were inherited independently of each other, meaning the inheritance of one didn't affect the other.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parents (RRYY x rryy)</span></div><div class="step"><span class="snum">2</span><span>F1 Generation (All RrYy)</span></div><div class="step"><span class="snum">3</span><span>F1 Self-pollination</span></div><div class="step"><span class="snum">4</span><span>F2 Generation (9:3:3:1 ratio)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Sex</span> Determination in Humans</h2>
+          <ul><li>Determined by sex chromosomes.</li><li>Females: XX chromosomes.</li><li>Males: XY chromosomes.</li></ul>
+          <p class="notes">🎙️ In humans, our sex (male or female) is determined by a special pair of chromosomes called sex chromosomes. Females have two X chromosomes (XX), while males have one X and one Y chromosome (XY).</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Sex_chromosomes.svg?width=500" data-fb="♂️♀️" alt="Sex determination varies across species using chromosomal systems (XX/XY in mammals, ZW/ZZ"/><div class="vcap">Sex determination varies across species using chromosomal systems (XX/XY in mammals, ZW/ZZ</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>The <span class="hl">Process</span> of Sex Determination</h2>
+          <ul><li>Female produces only X-egg cells.</li><li>Male produces X and Y sperm cells.</li><li>Fertilisation determines offspring's sex.</li></ul>
+          <p class="notes">🎙️ Since females only have X chromosomes, all their egg cells carry an X. Males, however, produce two types of sperm: some carry an X and some carry a Y. It's the sperm that fertilizes the egg that determines if the baby will be a boy or a girl.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Female (XX) -&gt; X eggs</span></div><div class="step"><span class="snum">2</span><span>Male (XY) -&gt; X or Y sperm</span></div><div class="step"><span class="snum">3</span><span>X egg + X sperm = Girl (XX)</span></div><div class="step"><span class="snum">4</span><span>X egg + Y sperm = Boy (XY)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>What is the passing of traits from parents to offspring called?</li><li>A) Evolution</li><li>B) Variation</li><li>C) Heredity</li><li>D) Adaptation</li></ul>
+          <p class="notes">🎙️ Time for a quick check of your understanding! Think back to our very first concept. What is the correct term for the process of traits being passed down?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Who is known as the 'Father of Genetics'?</li><li>A) Charles Darwin</li><li>B) Gregor Mendel</li><li>C) Louis Pasteur</li><li>D) Albert Einstein</li></ul>
+          <p class="notes">🎙️ Another question to test your memory. We discussed a very important scientist who pioneered the study of heredity. Can you recall his name?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Acquired</span> vs. Inherited Traits</h2>
+          <ul><li>Inherited: Traits passed through genes (e.g., eye colour).</li><li>Acquired: Traits developed during lifetime (e.g., learned skills, muscle growth).</li><li>Acquired traits are NOT passed to offspring.</li></ul>
+          <p class="notes">🎙️ It's important to distinguish between traits you're born with (inherited) and traits you develop during your life (acquired). Only inherited traits, those encoded in your genes, can be passed on to your children.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Inherited (Genes)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Acquired (Experience)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Example</span>: Acquired vs. Inherited</h2>
+          <ul><li>Inherited: Natural hair colour, blood group.</li><li>Acquired: A scar from an injury, learning to play a musical instrument.</li><li>Your children will not inherit your scar or musical talent genetically.</li></ul>
+          <p class="notes">🎙️ For instance, if you work out and develop strong muscles, that's an acquired trait. Your children won't automatically be born with strong muscles because you worked out. However, your natural hair colour or blood group *is* inherited.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💪</span><span>💪</span></div><div class="vcap">Strong Muscles (Acquired)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Evolution</span> and Heredity</h2>
+          <ul><li>Variations are the raw material for evolution.</li><li>Natural selection acts on these variations.</li><li>Heredity ensures beneficial traits are passed on.</li></ul>
+          <p class="notes">🎙️ Heredity and variation are crucial for evolution. Variations provide the differences upon which natural selection can act. If a variation gives an organism an advantage, heredity ensures that this beneficial trait is passed to future generations, leading to evolutionary change.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Growth &amp; Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Genetic <span class="hl">Disorders</span></h2>
+          <ul><li>Caused by abnormalities in genes or chromosomes.</li><li>Can be inherited from parents.</li><li>Example: Colour blindness, Sickle Cell Anemia.</li></ul>
+          <p class="notes">🎙️ Sometimes, there can be errors or mutations in genes or chromosomes, leading to genetic disorders. These conditions can be inherited and affect various bodily functions, like colour blindness where a person cannot distinguish certain colours.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏥</div><div class="vcap">Medical Implications</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>Which of these is an acquired trait?</li><li>A) Eye colour</li><li>B) Height</li><li>C) Learning to cycle</li><li>D) Blood group</li></ul>
+          <p class="notes">🎙️ Let's test your understanding of acquired versus inherited traits. Which of these options describes something you learn or gain during your life, rather than being born with?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>!</h2>
+          <ul><li>In humans, which combination of sex chromosomes results in a male?</li><li>A) XX</li><li>B) XY</li><li>C) YY</li><li>D) XO</li></ul>
+          <p class="notes">🎙️ Final quick check! Remember our discussion on sex determination. What is the correct pair of sex chromosomes for a male?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Heredity is trait transmission.</li><li>Variation drives diversity and evolution.</li><li>Genes on chromosomes determine traits.</li><li>Dominant/recessive, phenotype/genotype.</li><li>Sex determination and acquired vs. inherited traits.</li></ul>
+          <p class="notes">🎙️ To summarise, we've learned that heredity is about how traits pass from parents to offspring, leading to both similarities and differences. Genes are the instruction units, carried on chromosomes, and they dictate our observable traits. Understanding these concepts helps us appreciate the amazing complexity of life!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

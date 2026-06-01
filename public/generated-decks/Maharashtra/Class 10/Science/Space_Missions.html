@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Space Missions — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Space Missions</span>: Exploring the Cosmos</h2>
+          <ul><li>Journey beyond Earth!</li><li>Discover the wonders of space.</li><li>Understand India's role in space exploration.</li></ul>
+          <p class="notes">🎙️ Good morning, students! Today, we embark on an exciting journey into the realm of Space Missions. We'll explore how humans venture beyond our planet, what we've discovered, and India's incredible contributions to this field.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are <span class="hl">Space Missions</span>?</h2>
+          <ul><li>Sending objects or people into space.</li><li>To study planets, stars, and the universe.</li><li>For communication, weather, and navigation on Earth.</li></ul>
+          <p class="notes">🎙️ Space missions involve sending rockets, satellites, and spacecraft beyond Earth's atmosphere. The main goals are scientific discovery, like understanding other planets, and practical applications right here on Earth, such as improving our communication systems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Journey to Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>A Glimpse into <span class="hl">History</span></h2>
+          <ul><li>1957: Sputnik 1 (first artificial satellite).</li><li>1961: Yuri Gagarin (first human in space).</li><li>1969: Apollo 11 (first humans on the Moon).</li></ul>
+          <p class="notes">🎙️ The journey to space began in 1957 with Sputnik 1, a small satellite launched by the Soviet Union. Soon after, Yuri Gagarin became the first human in space, followed by the monumental achievement of Apollo 11 landing humans on the Moon. These were truly giant leaps for mankind.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sputnik 1</span></div><div class="step"><span class="snum">2</span><span>Yuri Gagarin</span></div><div class="step"><span class="snum">3</span><span>Apollo 11</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Types of Space Missions: <span class="hl">Unmanned</span></h2>
+          <ul><li>No humans on board.</li><li>Robotic probes, orbiters, landers.</li><li>Explore distant planets and deep space.</li></ul>
+          <p class="notes">🎙️ Unmanned missions are robotic missions without astronauts. They include probes that fly by planets, orbiters that circle them, and landers that touch down on their surfaces. These missions are crucial for exploring places too dangerous or distant for humans.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🤖</span><span>🤖</span><span>🤖</span></div><div class="vcap">Robots in Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Example: Mars Orbiter Mission (<span class="hl">MOM</span>)</h2>
+          <ul><li>India's first interplanetary mission.</li><li>Launched by ISRO in 2013.</li><li>Successfully entered Mars orbit in 2014.</li></ul>
+          <p class="notes">🎙️ A fantastic example of an unmanned mission is India's Mars Orbiter Mission, or Mangalyaan. Launched by ISRO, it successfully reached Mars orbit in 2014, making India the first Asian nation to do so and the first country in the world to succeed on its first attempt.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">India's Mars Mission</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Types of Space Missions: <span class="hl">Manned</span></h2>
+          <ul><li>Astronauts travel into space.</li><li>For research, maintenance, and exploration.</li><li>Requires complex life support systems.</li></ul>
+          <p class="notes">🎙️ Manned missions involve human astronauts traveling into space. These missions allow for hands-on research, direct observation, and complex tasks that robots cannot yet perform. However, they require extensive safety measures and life support.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧑‍🚀</span><span>🧑‍🚀</span><span>🧑‍🚀</span></div><div class="vcap">Astronauts in Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Example: International Space Station (<span class="hl">ISS</span>)</h2>
+          <ul><li>Largest artificial structure in space.</li><li>A habitable research laboratory.</li><li>Collaboration of multiple countries.</li></ul>
+          <p class="notes">🎙️ The International Space Station, or ISS, is a prime example of a manned mission. It's a massive orbiting laboratory where astronauts from various countries live and conduct scientific experiments in microgravity. It's a symbol of global cooperation in space.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛰️</div><div class="vcap">Home in Orbit</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Launch Vehicles</span>: Our Ride to Space</h2>
+          <ul><li>Powerful rockets to overcome Earth's gravity.</li><li>Carry spacecraft and satellites.</li><li>Often multi-stage for efficiency.</li></ul>
+          <p class="notes">🎙️ To reach space, we need powerful launch vehicles, commonly known as rockets. These incredible machines generate immense thrust to overcome Earth's gravity and propel payloads, like satellites and spacecraft, into orbit or beyond. Most rockets are multi-stage, shedding empty fuel tanks as they ascend.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Thrusting Upwards</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>How Rockets Work (<span class="hl">Newton's Third Law</span>)</h2>
+          <ul><li>Expel hot gases downwards.</li><li>Gases push the rocket upwards.</li><li>Action-reaction principle.</li></ul>
+          <p class="notes">🎙️ The fundamental principle behind rocket propulsion is Newton's Third Law of Motion: for every action, there is an equal and opposite reaction. Rockets work by expelling hot gases at high speed downwards, and in reaction, these gases push the rocket upwards with equal force, propelling it into space.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Action-Reaction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Indian Space Research Organisation (<span class="hl">ISRO</span>)</h2>
+          <ul><li>India's national space agency.</li><li>Established in 1969.</li><li>Pioneer in satellite and rocket technology.</li></ul>
+          <p class="notes">🎙️ ISRO, the Indian Space Research Organisation, is India's pride in space exploration. Established in 1969, ISRO has made remarkable progress, developing its own launch vehicles and satellites, and achieving significant milestones in space technology.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🇮🇳</div><div class="vcap">India's Space Agency</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>ISRO's Key <span class="hl">Achievements</span></h2>
+          <ul><li>Aryabhata (1975): First Indian satellite.</li><li>Chandrayaan-1 (2008): India's first lunar mission.</li><li>GSLV Mk-III: Powerful launch vehicle.</li></ul>
+          <p class="notes">🎙️ ISRO has many feathers in its cap. From launching India's first satellite, Aryabhata, to sending missions to the Moon with Chandrayaan-1, and developing powerful rockets like GSLV Mk-III, ISRO has consistently demonstrated its capabilities and innovation on the global stage.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Aryabhata</span></div><div class="step"><span class="snum">2</span><span>Chandrayaan-1</span></div><div class="step"><span class="snum">3</span><span>GSLV Mk-III</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Quick Check: <span class="hl">True or False</span>?</h2>
+          <ul><li>Sputnik 1 was the first human in space.</li><li>Unmanned missions carry astronauts.</li><li>ISRO launched the Mars Orbiter Mission.</li></ul>
+          <p class="notes">🎙️ Let's quickly check your understanding. Read these statements and decide if they are true or false. Think about what we've discussed so far regarding historical milestones and types of missions.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Artificial <span class="hl">Satellites</span>: Eyes in the Sky</h2>
+          <ul><li>Man-made objects orbiting Earth.</li><li>Serve various purposes: communication, weather.</li><li>Remain in orbit due to balance of forces.</li></ul>
+          <p class="notes">🎙️ Artificial satellites are human-made objects that orbit our planet. They are essentially our 'eyes in the sky,' performing critical tasks like relaying phone calls, monitoring weather patterns, and even providing GPS navigation. They stay in orbit because the Earth's gravity pulling them down is balanced by their speed, which tries to make them fly off into space.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛰️</span><span>🛰️</span><span>🛰️</span><span>🛰️</span><span>🛰️</span></div><div class="vcap">Many Satellites</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Types of Orbits: Low Earth Orbit (<span class="hl">LEO</span>)</h2>
+          <ul><li>Altitude: 160 km to 2,000 km.</li><li>Satellites move very fast.</li><li>Used for Earth observation, ISS, communication constellations.</li></ul>
+          <p class="notes">🎙️ Low Earth Orbit, or LEO, is relatively close to Earth, between 160 to 2000 kilometers high. Satellites in LEO travel very fast, completing an orbit in about 90 minutes. This orbit is ideal for Earth observation, the International Space Station, and large communication satellite networks.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Close to Earth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Types of Orbits: Geostationary Orbit (<span class="hl">GEO</span>)</h2>
+          <ul><li>Altitude: ~35,786 km above the equator.</li><li>Appears stationary from Earth.</li><li>Used for communication, weather monitoring.</li></ul>
+          <p class="notes">🎙️ Geostationary Orbit, or GEO, is much higher, at about 35,786 kilometers above the equator. Satellites in GEO orbit at the same speed as Earth's rotation, so they appear to stay in a fixed position in the sky. This makes them perfect for continuous communication and weather monitoring over a large area.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📡</div><div class="vcap">Fixed View</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Applications</span> of Artificial Satellites</h2>
+          <ul><li>Telecommunication (phones, TV).</li><li>Weather forecasting.</li><li>Navigation (GPS).</li><li>Remote sensing (resource mapping).</li></ul>
+          <p class="notes">🎙️ Artificial satellites have revolutionized many aspects of our lives. They enable global telecommunications, provide accurate weather forecasts, power our GPS systems for navigation, and perform remote sensing for mapping Earth's resources and monitoring environmental changes.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Comm</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Weather</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">GPS</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Sense</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Example: India's <span class="hl">INSAT/GSAT</span> Series</h2>
+          <ul><li>Geostationary communication satellites.</li><li>Provide TV broadcast, telecommunication.</li><li>Crucial for India's digital connectivity.</li></ul>
+          <p class="notes">🎙️ India's INSAT and GSAT series of satellites are excellent examples of satellites in geostationary orbit. They are the backbone of India's telecommunication infrastructure, enabling television broadcasting, direct-to-home services, and various other communication needs across the country.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Reactivity_series_of_metals.svg?width=500" data-fb="📞" alt="The reactivity series ranks metals by their tendency to lose electrons and form positive i"/><div class="vcap">The reactivity series ranks metals by their tendency to lose electrons and form positive i</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>The Problem of <span class="hl">Space Debris</span></h2>
+          <ul><li>Junk in Earth's orbit: old satellites, rocket parts.</li><li>Moves at extremely high speeds.</li><li>A growing threat to active spacecraft.</li></ul>
+          <p class="notes">🎙️ As we launch more and more objects into space, we've created a growing problem: space debris. This 'space junk' includes old, defunct satellites, discarded rocket stages, and fragments from collisions. Even tiny pieces can be dangerous because they travel at incredibly high speeds.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span><span>🗑️</span></div><div class="vcap">Orbital Junk</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Impact</span> of Space Debris</h2>
+          <ul><li>Risk of collisions with active satellites.</li><li>Damage to spacecraft and astronauts.</li><li>Makes future space missions more dangerous.</li></ul>
+          <p class="notes">🎙️ The impact of space debris is significant. Collisions with active satellites can cause severe damage or destroy them, leading to costly failures and creating even more debris. This increasing amount of junk makes future space missions riskier and complicates our ability to explore space safely.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Collision Risk</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Check: <span class="hl">Fill in the Blanks</span></h2>
+          <ul><li>Satellites in _______ orbit appear stationary.</li><li>GPS uses _______ satellites.</li><li>_______ is a major concern for future space missions.</li></ul>
+          <p class="notes">🎙️ Let's test your knowledge again. Try to fill in the blanks with the correct terms we just discussed about orbits, applications, and challenges in space.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>The <span class="hl">Future</span> of Space Missions</h2>
+          <ul><li>Return to the Moon (Artemis program).</li><li>Human missions to Mars.</li><li>Space tourism and commercial spaceflight.</li><li>Search for extraterrestrial life.</li></ul>
+          <p class="notes">🎙️ The future of space missions is incredibly exciting! We're planning to return humans to the Moon, with ambitions to send astronauts to Mars. Space tourism is becoming a reality, and the search for life beyond Earth continues. The possibilities are truly boundless.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔭</div><div class="vcap">Looking Ahead</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Benefits</span> of Space Exploration</h2>
+          <ul><li>Technological advancements (e.g., GPS, weather).</li><li>Scientific knowledge about the universe.</li><li>Inspires future generations.</li><li>International cooperation.</li></ul>
+          <p class="notes">🎙️ Space exploration brings immense benefits. It drives technological innovation that improves our daily lives, expands our scientific understanding of the cosmos, and inspires young minds to pursue science and engineering. It also fosters international collaboration on a grand scale.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Tech</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Knowledge</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Inspire</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Coop</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check: <span class="hl">Match</span> the Following</h2>
+          <ul><li>LEO: (a) 35,786 km</li><li>GEO: (b) ISS</li><li>ISRO: (c) Space Debris</li><li>Challenge: (d) India's Space Agency</li></ul>
+          <p class="notes">🎙️ Here's one final quick check. Can you match the terms on the left with their correct descriptions or examples on the right? This will help consolidate your understanding of the key concepts.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Space missions explore the universe and serve Earth.</li><li>Manned and Unmanned missions have different goals.</li><li>Rockets enable space travel using Newton's laws.</li><li>Satellites in LEO and GEO have distinct uses.</li><li>Space debris is a serious challenge.</li></ul>
+          <p class="notes">🎙️ To summarize, we've learned about the different types of space missions, the history of space exploration, how rockets work, and the crucial role of artificial satellites. We also discussed the growing problem of space debris and the exciting future of space exploration. It's truly a fascinating field!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You &amp; Keep <span class="hl">Exploring</span>!</h2>
+          <ul><li>Space is vast and full of wonders.</li><li>India's contribution is significant.</li><li>Stay curious and keep learning!</li></ul>
+          <p class="notes">🎙️ Thank you for your attention today! Remember, the universe is an incredible place, and space missions allow us to unravel its mysteries. India's journey in space is inspiring, and I encourage you all to stay curious and keep exploring the wonders of science.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Endless Wonders</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

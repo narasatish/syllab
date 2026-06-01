@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Matter in Our Surroundings — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Matter</span> in Our Surroundings</h2>
+          <ul><li>Welcome to Class 9 Science!</li><li>Let's explore the world around us.</li><li>Everything is made of something!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Science, specifically focusing on 'Matter in Our Surroundings'. Get ready to discover what everything around us is made of.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Matter</span>?</h2>
+          <ul><li>Anything that has mass</li><li>And occupies space (volume)</li><li>Everything we see and touch is matter.</li></ul>
+          <p class="notes">🎙️ In simple terms, matter is anything that takes up space and has weight. Look around you – your book, your pen, the air you breathe, even your own body – all are examples of matter.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Mass &amp; Volume</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Characteristics of <span class="hl">Particles</span> of Matter</h2>
+          <ul><li>Matter is made of tiny particles.</li><li>These particles are very, very small.</li><li>They have specific properties.</li></ul>
+          <p class="notes">🎙️ Imagine breaking a rock into smaller and smaller pieces. Eventually, you'd reach particles so tiny you can't see them. Matter is fundamentally composed of such minute particles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔬</span><span>🔬</span><span>🔬</span><span>🔬</span><span>🔬</span></div><div class="vcap">Tiny Particles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Particles have <span class="hl">Space</span> Between Them</h2>
+          <ul><li>Particles of matter are not tightly packed.</li><li>There are gaps or spaces between them.</li><li>We can see this when we dissolve sugar in water.</li></ul>
+          <p class="notes">🎙️ When you add sugar to water, the sugar particles disappear into the spaces between water particles. The water level doesn't rise much, proving there's space!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Spaces</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Particles are Constantly <span class="hl">Moving</span></h2>
+          <ul><li>Particles are never at rest.</li><li>They possess kinetic energy.</li><li>Diffusion and Brownian motion show this.</li></ul>
+          <p class="notes">🎙️ Think about how the smell of an incense stick spreads across a room. This happens because its particles are constantly moving and mixing with air particles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃</div><div class="vcap">Always Moving</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Particles <span class="hl">Attract</span> Each Other</h2>
+          <ul><li>Particles hold onto each other.</li><li>This force of attraction varies.</li><li>It's strongest in solids, weakest in gases.</li></ul>
+          <p class="notes">🎙️ Try breaking an iron nail, a piece of chalk, and a rubber band. The iron nail is hardest to break because its particles attract each other very strongly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Holding Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">States</span> of Matter - Introduction</h2>
+          <ul><li>Matter exists in different forms.</li><li>Primarily three common states: Solid, Liquid, Gas.</li><li>These states depend on particle arrangement.</li></ul>
+          <p class="notes">🎙️ Based on how their particles are arranged and how strongly they attract each other, matter generally exists in three main states: solid, liquid, and gas.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/StatesOfMatter.png?width=500" data-fb="🔬" alt="Matter exists in three states: solid, liquid, and gas. Each state has different properties"/><div class="vcap">Matter exists in three states: solid, liquid, and gas. Each state has different properties</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Solid</span> State</h2>
+          <ul><li>Have a definite shape and volume.</li><li>Particles are tightly packed.</li><li>Very little space between particles.</li></ul>
+          <p class="notes">🎙️ A brick is a perfect example of a solid. It keeps its shape and volume, no matter where you put it. The particles are very close and vibrate in fixed positions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span><span>🧱</span></div><div class="vcap">Tightly Packed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Liquid</span> State</h2>
+          <ul><li>Have a definite volume but no definite shape.</li><li>Take the shape of the container.</li><li>Particles can slide past each other.</li></ul>
+          <p class="notes">🎙️ Water is a liquid. If you pour water into a glass, it takes the glass's shape. If you pour it into a bowl, it takes that shape. Its particles are still close but can move around.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Flowing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Gaseous</span> State</h2>
+          <ul><li>No definite shape or volume.</li><li>Particles are far apart and move freely.</li><li>Highly compressible.</li></ul>
+          <p class="notes">🎙️ Air in a balloon is a gas. It fills the entire space of the balloon and can be easily compressed. Gas particles have very weak attractive forces and move randomly at high speeds.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span></div><div class="vcap">Free Moving</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1</h2>
+          <ul><li>Which state has particles tightly packed?</li><li>Which state has definite volume but not shape?</li><li>Give an example of a gas.</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Think about the characteristics we just discussed for solids, liquids, and gases.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Can Matter <span class="hl">Change</span> its State?</h2>
+          <ul><li>Yes, matter can change from one state to another.</li><li>This happens by changing temperature or pressure.</li><li>Ice melting into water is a common example.</li></ul>
+          <p class="notes">🎙️ Have you ever seen ice melt into water, or water turn into steam? These are everyday examples of matter changing its state. Let's see how this happens.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">State Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Effect of <span class="hl">Temperature</span> Change</h2>
+          <ul><li>Increasing temperature adds energy to particles.</li><li>Particles move faster and overcome attraction.</li><li>Leads to melting and boiling.</li></ul>
+          <p class="notes">🎙️ When you heat a substance, its particles gain energy and start vibrating more vigorously. If enough heat is supplied, they can break free from their fixed positions or even escape completely.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Low Temp</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Medium Temp</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">High Temp</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Melting</span> Point &amp; Fusion</h2>
+          <ul><li>Melting is the process of a solid changing to liquid.</li><li>Melting point is the temperature at which this occurs.</li><li>Latent heat of fusion is energy absorbed during melting.</li></ul>
+          <p class="notes">🎙️ At its melting point, a solid starts changing into a liquid. For ice, this is 0°C. The energy required to change 1 kg of solid into liquid at its melting point is called the latent heat of fusion.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Solid Ice</span></div><div class="step"><span class="snum">2</span><span>Melting Ice</span></div><div class="step"><span class="snum">3</span><span>Liquid Water</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Boiling</span> Point &amp; Vaporisation</h2>
+          <ul><li>Boiling is the process of a liquid changing to gas.</li><li>Boiling point is the temperature at which this occurs.</li><li>Latent heat of vaporisation is energy absorbed during boiling.</li></ul>
+          <p class="notes">🎙️ When water reaches 100°C, it starts boiling and turns into steam. This temperature is its boiling point. The latent heat of vaporisation is the energy needed to change 1 kg of liquid into gas at its boiling point.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Liquid Water</span></div><div class="step"><span class="snum">2</span><span>Boiling Water</span></div><div class="step"><span class="snum">3</span><span>Steam Gas</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Sublimation</span></h2>
+          <ul><li>Direct change from solid to gas (or vice-versa).</li><li>Bypasses the liquid state.</li><li>Dry ice (solid CO2) is a common example.</li></ul>
+          <p class="notes">🎙️ Some substances don't melt into a liquid when heated; they go directly from solid to gas. Camphor and naphthalene balls show this property. This process is called sublimation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Solid to Gas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Effect of <span class="hl">Pressure</span> Change</h2>
+          <ul><li>Increasing pressure can bring gas particles closer.</li><li>Can change gases into liquids (liquefaction).</li><li>Example: LPG in gas cylinders.</li></ul>
+          <p class="notes">🎙️ Just as temperature affects state, so does pressure. By increasing pressure and decreasing temperature, we can liquefy gases. Think of LPG cylinders, where gas is stored as a liquid under high pressure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤏</div><div class="vcap">Pressing Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Evaporation</span></h2>
+          <ul><li>Surface phenomenon where liquid changes to vapour.</li><li>Occurs below the boiling point.</li><li>Wet clothes drying is an example.</li></ul>
+          <p class="notes">🎙️ Evaporation is different from boiling. It happens at any temperature below the boiling point, only from the surface of the liquid. This is why puddles dry up without reaching 100°C.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Liquid to Vapour</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Factors</span> Affecting Evaporation</h2>
+          <ul><li>Surface area: Larger area, faster evaporation.</li><li>Temperature: Higher temperature, faster evaporation.</li><li>Humidity: Lower humidity, faster evaporation.</li><li>Wind speed: Higher wind speed, faster evaporation.</li></ul>
+          <p class="notes">🎙️ Ever wondered why clothes dry faster on a sunny, windy day? It's because of these factors. A larger surface area, higher temperature, lower humidity, and higher wind speed all increase the rate of evaporation.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Surface Area</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Temperature</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Humidity</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Wind Speed</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Evaporation Causes <span class="hl">Cooling</span></h2>
+          <ul><li>Particles absorb energy from surroundings.</li><li>This energy is used for phase change.</li><li>Leaves the surroundings cooler.</li></ul>
+          <p class="notes">🎙️ When a liquid evaporates, the particles that escape take energy from the remaining liquid and its surroundings. This removal of energy causes the surroundings to feel cooler. That's why we feel cool after sweating.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Cooling Effect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 2</h2>
+          <ul><li>Name the process of solid directly to gas.</li><li>What is the effect of increased surface area on evaporation?</li><li>Why do we sweat on a hot day?</li></ul>
+          <p class="notes">🎙️ Time for another quick check! Think about the terms and concepts we just covered regarding changes of state and evaporation.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Beyond the Three States: <span class="hl">Plasma</span></h2>
+          <ul><li>Fourth state of matter.</li><li>Consists of super energetic and ionised particles.</li><li>Found in stars, neon signs, and fluorescent tubes.</li></ul>
+          <p class="notes">🎙️ While we focus on solid, liquid, and gas, there are actually other states of matter. Plasma is one such state, often called the 'fourth state'. It's like a superheated, electrically charged gas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Superheated Gas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Beyond the Three States: <span class="hl">Bose-Einstein</span> Condensate</h2>
+          <ul><li>Fifth state of matter.</li><li>Formed by cooling gases to extremely low densities.</li><li>Particles lose individual identity and behave as one.</li></ul>
+          <p class="notes">🎙️ On the other extreme, the Bose-Einstein Condensate is formed at incredibly low temperatures, near absolute zero. It's a state where atoms 'condense' into a single quantum state.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧊</div><div class="vcap">Supercooled Atoms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span></h2>
+          <ul><li>Matter has mass and volume.</li><li>Made of tiny, moving, attractive particles.</li><li>Exists as solid, liquid, or gas.</li><li>States change with temperature/pressure.</li><li>Evaporation causes cooling.</li></ul>
+          <p class="notes">🎙️ We covered a lot today! Remember, everything around us is matter, made of tiny particles with fascinating properties. Its state can change, and processes like evaporation are all around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank <span class="hl">You</span>!</h2>
+          <ul><li>Hope you enjoyed learning about matter!</li><li>Keep observing the world around you.</li><li>Any questions?</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our chapter on 'Matter in Our Surroundings'. I encourage you to keep observing and questioning the phenomena you see every day. Science is everywhere!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

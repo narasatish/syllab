@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Refraction of Light — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Light Bending</span>!</h2>
+          <ul><li>Ever wondered why a pencil looks broken in water?</li><li>Or why stars twinkle at night?</li><li>Today, we explore the fascinating phenomenon of Refraction!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to uncover some amazing secrets of light. Get ready to explore how light behaves when it passes from one material to another.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Light</span>?</h2>
+          <ul><li>Light is a form of energy that helps us see.</li><li>It travels in waves and carries energy.</li><li>Our eyes detect light, allowing us to perceive the world.</li></ul>
+          <p class="notes">🎙️ Before we dive into refraction, let's quickly recall what light is. Remember, light is essential for our vision and understanding our surroundings.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Light Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Light Travels in <span class="hl">Straight Lines</span> (Rectilinear Propagation)</h2>
+          <ul><li>In a uniform medium, light always travels in a straight path.</li><li>This is why shadows are sharp and well-defined.</li><li>Think of a beam of sunlight passing through a small hole.</li></ul>
+          <p class="notes">🎙️ This fundamental property of light, known as rectilinear propagation, is key to understanding many optical phenomena. It's the basis for how lenses and mirrors work.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Straight Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>When Light Meets a Surface: <span class="hl">Reflection vs. Refraction</span></h2>
+          <ul><li>Light can bounce off a surface (Reflection).</li><li>Light can pass through a surface and bend (Refraction).</li><li>It can also be absorbed by the surface.</li></ul>
+          <p class="notes">🎙️ When light encounters a boundary between two different materials, it doesn't always just bounce back. Sometimes, it goes through, and that's where things get interesting!</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_angles.svg?width=500" data-fb="🔬" alt="Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra"/><div class="vcap">Light reflects off surfaces obeying two laws: angle of incidence = angle of reflection; ra</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Introducing Refraction: The <span class="hl">Bending of Light</span></h2>
+          <ul><li>Refraction is the phenomenon of light changing direction.</li><li>It happens when light passes from one transparent medium to another.</li><li>The change in direction occurs at the boundary between the two mediums.</li></ul>
+          <p class="notes">🎙️ Imagine light as a car moving from a smooth road onto a muddy path. It will change its speed and direction. Similarly, light changes its path when it refracts.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Snells_law2.svg?width=500" data-fb="↩️" alt="Refraction is bending of light when passing between materials of different density. Occurs"/><div class="vcap">Refraction is bending of light when passing between materials of different density. Occurs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Why Does Light Bend? <span class="hl">Change in Speed</span></h2>
+          <ul><li>Light travels at different speeds in different materials.</li><li>When light changes speed, its path bends.</li><li>The denser the medium, the slower light travels.</li></ul>
+          <p class="notes">🎙️ The primary reason for refraction is the change in the speed of light. Different materials offer different resistances to light, causing it to slow down or speed up.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Speed Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Optical Density</span>: How 'Thick' a Medium Is for Light</h2>
+          <ul><li>Optical density is a measure of how much a medium slows down light.</li><li>It is different from physical density (mass per volume).</li><li>Air, water, and glass have different optical densities.</li></ul>
+          <p class="notes">🎙️ Think of optical density as how 'sticky' a material is for light. A higher optical density means light travels slower in that medium. This is a crucial concept for understanding refraction.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Air</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Water</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Glass</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Rarer vs. Denser Mediums: The <span class="hl">Bending Rules</span></h2>
+          <ul><li>From Rarer to Denser: Light bends TOWARDS the normal.</li><li>From Denser to Rarer: Light bends AWAY from the normal.</li><li>The 'normal' is an imaginary line perpendicular to the surface.</li></ul>
+          <p class="notes">🎙️ These are the two golden rules for predicting the direction of bending. Always remember to draw the normal first, as it's your reference line for measuring angles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mediums</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Real-Life Example 1: The 'Broken' Pencil</h2>
+          <ul><li>A pencil partially immersed in water appears bent or broken.</li><li>Light from the submerged part bends as it travels from water to air.</li><li>Our brain traces these bent rays back, creating an illusion.</li></ul>
+          <p class="notes">🎙️ This is a classic example you can try at home! The light rays coming from the pencil in water bend, making the pencil appear to shift position. It's a perfect demonstration of refraction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✏️</span></div><div class="vcap">Pencil in Water</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Laws</span> of Refraction: Guiding Principles</h2>
+          <ul><li>Refraction follows specific laws, just like reflection.</li><li>These laws help us predict how light will bend.</li><li>They involve angles of incidence and refraction, and the normal.</li></ul>
+          <p class="notes">🎙️ Just like traffic rules guide cars, laws of refraction guide light. Understanding these laws allows us to design optical instruments like lenses and prisms.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Reflection_in_plane_mirror.svg?width=500" data-fb="📐" alt="Light reflects off surfaces following two laws: angle of incidence equals angle of reflect"/><div class="vcap">Light reflects off surfaces following two laws: angle of incidence equals angle of reflect</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">First Law</span> of Refraction</h2>
+          <ul><li>The incident ray, the refracted ray, and the normal...</li><li>...all lie in the same plane at the point of incidence.</li><li>This means they are all flat on the same surface.</li></ul>
+          <p class="notes">🎙️ This law ensures that the phenomenon of refraction is orderly and predictable. It simply states that all these important lines and rays exist in a single, flat dimension.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Same Plane</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Second Law of Refraction: <span class="hl">Snell's Law</span></h2>
+          <ul><li>The ratio of the sine of the angle of incidence (i) to the sine of the angle of refraction (r)...</li><li>...is constant for a given pair of media and a given color of light.</li><li>Expressed as: sin i / sin r = constant (refractive index).</li></ul>
+          <p class="notes">🎙️ Snell's Law is the mathematical backbone of refraction. It provides a quantitative way to calculate how much light will bend, based on the angles and the properties of the materials.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Ratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Refractive Index</span> (n): The Bending Power</h2>
+          <ul><li>Refractive index is the 'constant' from Snell's Law.</li><li>It measures how much a medium can bend light.</li><li>n = speed of light in vacuum / speed of light in medium.</li></ul>
+          <p class="notes">🎙️ The refractive index is a crucial property of any transparent material. A higher refractive index means the material bends light more effectively. It's a dimensionless quantity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Refractive Index</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Factors</span> Affecting Refractive Index</h2>
+          <ul><li>Nature of the medium (most important).</li><li>Wavelength (color) of light: Different colors bend differently.</li><li>Temperature of the medium (less significant for solids/liquids).</li></ul>
+          <p class="notes">🎙️ While the medium itself is the primary factor, remember that even the color of light plays a role. This is why a prism splits white light into its constituent colors.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Medium</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Wavelength</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Temperature</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Calculating</span> Refractive Index</h2>
+          <ul><li>Given: Speed of light in vacuum = 3 x 10^8 m/s.</li><li>Speed of light in glass = 2 x 10^8 m/s.</li><li>Calculate the refractive index of glass.</li></ul>
+          <p class="notes">🎙️ Let's apply the formula for refractive index. Remember 'c' is the speed of light in vacuum and 'v' is the speed of light in the given medium. The refractive index has no units.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Formula: n = c / v</span></div><div class="step"><span class="snum">2</span><span>Substitute: n = (3 x 10^8) / (2 x 10^8)</span></div><div class="step"><span class="snum">3</span><span>Calculate: n = 1.5</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Refraction Through a Rectangular <span class="hl">Glass Slab</span></h2>
+          <ul><li>Light enters the slab (air to glass) and bends towards the normal.</li><li>Light exits the slab (glass to air) and bends away from the normal.</li><li>The emergent ray is parallel to the incident ray.</li></ul>
+          <p class="notes">🎙️ This setup helps us understand refraction at two parallel surfaces. Notice how the light bends twice, once upon entering and once upon exiting the slab.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔲</div><div class="vcap">Glass Slab</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Lateral Displacement</span>: The Shift in Path</h2>
+          <ul><li>Even though the emergent ray is parallel to the incident ray...</li><li>...it is laterally displaced, meaning it's shifted sideways.</li><li>This shift depends on the thickness of the slab and refractive index.</li></ul>
+          <p class="notes">🎙️ The lateral displacement is the perpendicular distance between the original path of the incident ray and the emergent ray. It's an observable effect of refraction through a parallel-sided slab.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Sideways Shift</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Real-Life Example 2: <span class="hl">Apparent Depth</span></h2>
+          <ul><li>A coin at the bottom of a water tank appears shallower than it is.</li><li>Light from the coin bends away from the normal as it leaves water.</li><li>Our eyes trace back these bent rays, forming a virtual image higher up.</li></ul>
+          <p class="notes">🎙️ This is why swimming pools look shallower than they actually are. The bending of light makes objects submerged in water appear to be closer to the surface.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span></div><div class="vcap">Coin in Water</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real-Life Example 3: Twinkling of Stars</h2>
+          <ul><li>Stars appear to twinkle due to atmospheric refraction.</li><li>Earth's atmosphere has varying optical densities (temperature, air currents).</li><li>Light from stars bends continuously, causing apparent shifts and intensity changes.</li></ul>
+          <p class="notes">🎙️ The constant movement and temperature changes in our atmosphere act like many tiny lenses, causing the starlight to bend and shift rapidly, giving us the 'twinkling' effect.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">Twinkling Stars</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Total Internal Reflection</span> (TIR): When Light Doesn't Escape</h2>
+          <ul><li>TIR is a special case where light reflects entirely within a denser medium.</li><li>It happens when light tries to go from a denser to a rarer medium.</li><li>No light is refracted out; all of it is reflected internally.</li></ul>
+          <p class="notes">🎙️ Imagine light trying to escape from water into air. If it hits the surface at a very steep angle, it might just bounce back into the water instead of coming out. This is TIR.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div><div class="vcap">No Escape</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Conditions</span> for Total Internal Reflection</h2>
+          <ul><li>Light must travel from an optically DENSER medium to a RARER medium.</li><li>The angle of incidence in the denser medium must be GREATER than the critical angle.</li></ul>
+          <p class="notes">🎙️ Both these conditions must be met for TIR to occur. If either condition is not satisfied, then refraction will take place, or partial reflection will happen.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Denser to Rarer Medium</span></div><div class="step"><span class="snum">2</span><span>Angle of Incidence &gt; Critical Angle</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Critical Angle</span>: The Threshold</h2>
+          <ul><li>The critical angle is the angle of incidence in the denser medium...</li><li>...for which the angle of refraction in the rarer medium is 90 degrees.</li><li>Beyond this angle, TIR occurs.</li></ul>
+          <p class="notes">🎙️ Think of the critical angle as the 'point of no return' for light. If the light hits the boundary at an angle greater than this, it's trapped inside the denser medium.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Threshold Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Applications</span> of Total Internal Reflection</h2>
+          <ul><li>Optical Fibers: Used for high-speed internet and medical imaging.</li><li>Prisms in Binoculars/Periscopes: To reflect light without loss.</li><li>Brilliance of Diamonds: Due to their high refractive index and low critical angle.</li></ul>
+          <p class="notes">🎙️ TIR is not just a theoretical concept; it has many practical applications that have revolutionized technology, from communication to medical diagnostics.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Total_internal_reflection.svg?width=500" data-fb="🔬" alt="Total internal reflection occurs when light traveling in a denser medium hits a less dense"/><div class="vcap">Total internal reflection occurs when light traveling in a denser medium hits a less dense</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Quick Check</span>! Are You Ready?</h2>
+          <ul><li>1. What is the main reason for light bending during refraction?</li><li>2. State Snell's Law.</li><li>3. What are the two conditions for Total Internal Reflection?</li><li>4. Give one real-life example of refraction.</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Take a moment to think about these questions. Share your answers with your benchmate!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways from Refraction</h2>
+          <ul><li>Refraction: Bending of light due to change in speed and medium.</li><li>Optical Density: Affects light speed and bending direction.</li><li>Snell's Law &amp; Refractive Index: Quantify the bending.</li><li>TIR: Light reflecting entirely within a denser medium under specific conditions.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today, from why a pencil looks broken to how the internet works! Remember these key concepts as they form the foundation of understanding light.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

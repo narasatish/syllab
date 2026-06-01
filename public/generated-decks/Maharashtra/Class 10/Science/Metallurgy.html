@@ -1,0 +1,380 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Metallurgy: The Science of Metals — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 26</span>
+          <h2>Chapter: <span class="hl">Metallurgy</span></h2>
+          <ul><li>Understanding metals and their extraction</li><li>Exploring properties and applications</li><li>Important for Class 10 Science, Maharashtra Board</li></ul>
+          <p class="notes">🎙️ Hello students! Today, we begin an exciting journey into the world of metallurgy. This chapter will teach us how we get useful metals from nature and how we prepare them for various uses in our daily lives. It's a key topic for your Class 10 Science curriculum.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 26</span>
+          <h2>What is <span class="hl">Metallurgy</span>?</h2>
+          <ul><li>The science and technology of metals</li><li>Covers extraction from ores</li><li>Includes purification and alloying</li><li>Shapes our modern world</li></ul>
+          <p class="notes">🎙️ Metallurgy is a vast field that deals with everything about metals – from finding them in the Earth to making them into useful products. Think of the gold in your jewelry or the iron in a bridge; metallurgy is the process that makes these possible. It's truly fundamental to our technological progress.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛏️</div><div class="vcap">Extracting Metals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 26</span>
+          <h2><span class="hl">Metals</span> vs. Non-metals: A Quick Recap</h2>
+          <ul><li>Metals are generally lustrous, malleable, ductile</li><li>Good conductors of heat and electricity</li><li>Non-metals are opposite in properties</li><li>Example: Copper (metal) vs. Sulphur (non-metal)</li></ul>
+          <p class="notes">🎙️ Before we dive deep, let's quickly recall the basic differences between metals and non-metals. Remember how metals like copper shine and conduct electricity, while non-metals like carbon in charcoal are dull and don't? These distinct properties are why we value metals so much.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Electrical Conductivity: Metals</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Electrical Conductivity: Non-metals</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 26</span>
+          <h2><span class="hl">Occurrence</span> of Metals in Nature</h2>
+          <ul><li>Metals found in Earth's crust</li><li>Can be in free state (native metals)</li><li>Or combined state (compounds)</li><li>Example: Gold (free), Iron (combined as oxide)</li></ul>
+          <p class="notes">🎙️ Where do we find metals? Mostly, they are hidden deep within the Earth's crust. Some unreactive metals like gold and platinum are found as pure elements. However, most metals, like iron and aluminum, are found combined with other elements, forming compounds. These compounds are what we call minerals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Earth's Crust</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 26</span>
+          <h2>Minerals and <span class="hl">Ores</span></h2>
+          <ul><li>Minerals: Naturally occurring chemical substances</li><li>Ores: Minerals from which metals can be profitably extracted</li><li>All ores are minerals, but not all minerals are ores</li><li>Example: Bauxite is an ore of Aluminium, not all clay minerals are</li></ul>
+          <p class="notes">🎙️ It's important to distinguish between minerals and ores. Minerals are any natural compounds found in the Earth. But only those minerals from which we can extract a metal economically and easily are called ores. For example, bauxite is the primary ore for aluminium, as it's rich in aluminium compounds and relatively easy to process.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Minerals (Total)</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Ores (Profitable Subset)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 26</span>
+          <h2><span class="hl">Steps</span> in Metallurgy</h2>
+          <ul><li>1. Concentration of Ore (Enrichment)</li><li>2. Extraction of Metal from Concentrated Ore</li><li>3. Refining of Impure Metal</li><li>A systematic process for obtaining pure metals</li></ul>
+          <p class="notes">🎙️ Metallurgy follows a general sequence of three main steps. First, we clean the ore, then we get the crude metal out, and finally, we purify it. Each step is crucial to ensure we get a high-quality metal suitable for various uses. Let's look at each step in detail.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Concentration</span></div><div class="step"><span class="snum">2</span><span>Extraction</span></div><div class="step"><span class="snum">3</span><span>Refining</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 26</span>
+          <h2>1. <span class="hl">Concentration</span> of Ore (Enrichment)</h2>
+          <ul><li>Removal of unwanted impurities (gangue)</li><li>Methods depend on physical/chemical properties</li><li>Common impurities: soil, sand, rocky material</li><li>Prepares the ore for extraction</li></ul>
+          <p class="notes">🎙️ The first step, concentration, is about cleaning the ore. Ores dug from the earth are mixed with earthy impurities like sand and rock, collectively called 'gangue'. We need to remove this gangue to make the extraction process more efficient. There are several methods, chosen based on the properties of the ore and the gangue.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧹</div><div class="vcap">Removing Impurities</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 26</span>
+          <h2><span class="hl">Gravity</span> Separation Method</h2>
+          <ul><li>Based on difference in specific gravity</li><li>Heavy ore particles, light gangue particles</li><li>Washing with water carries away lighter gangue</li><li>Example: Used for oxide ores like haematite (iron ore)</li></ul>
+          <p class="notes">🎙️ The gravity separation method is quite simple. Imagine shaking a mixture of sand and heavy pebbles in water. The pebbles settle faster, right? Similarly, if the ore particles are much denser than the gangue, we can wash away the lighter gangue using a stream of water. This method is effective for heavy oxide ores like iron ore.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Density Difference</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 26</span>
+          <h2><span class="hl">Magnetic</span> Separation Method</h2>
+          <ul><li>Used when either ore or gangue is magnetic</li><li>Ore passes over a magnetic roller</li><li>Magnetic particles stick, non-magnetic fall off</li><li>Example: Used for iron ores like magnetite</li></ul>
+          <p class="notes">🎙️ If either the ore itself or the impurities are magnetic, we can use magnetic separation. The crushed ore is passed over a conveyor belt that moves over a magnetic roller. The magnetic components, whether ore or gangue, are attracted to the roller and fall in a different pile than the non-magnetic ones. This is commonly used for iron ores, which are magnetic.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Magnetic Attraction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 26</span>
+          <h2><span class="hl">Froth</span> Flotation Method</h2>
+          <ul><li>Used for sulphide ores</li><li>Ore mixed with oil and water, agitated</li><li>Sulphide ore particles stick to oil and float as froth</li><li>Gangue particles settle down</li><li>Example: Used for copper glance (Cu₂S)</li></ul>
+          <p class="notes">🎙️ The froth flotation method is clever! It's mainly used for sulphide ores. The finely powdered ore is mixed with water and a frothing agent like pine oil. Air is blown through the mixture, creating froth. The sulphide ore particles preferentially attach to the oil and rise with the froth, while the gangue settles at the bottom. Think of it like a bubble bath, but for ore!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🫧</div><div class="vcap">Bubbles Carry Ore</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 26</span>
+          <h2><span class="hl">Leaching</span> Method</h2>
+          <ul><li>Chemical method of concentration</li><li>Ore is treated with a suitable chemical solvent</li><li>Ore dissolves, impurities remain insoluble</li><li>Example: Used for bauxite (aluminium ore) and gold ores</li></ul>
+          <p class="notes">🎙️ Leaching is a chemical approach. Here, the ore is crushed and then treated with a specific chemical solution that selectively dissolves the valuable metal compound, leaving the impurities behind. The dissolved metal compound can then be recovered from the solution. This method is vital for ores like bauxite, the main source of aluminium, and also for gold extraction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Chemical Dissolution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 26</span>
+          <h2>2. <span class="hl">Extraction</span> of Metals</h2>
+          <ul><li>Obtaining crude metal from concentrated ore</li><li>Methods depend on metal's reactivity</li><li>Highly reactive metals (K, Na, Ca, Mg, Al)</li><li>Moderately reactive metals (Zn, Fe, Pb, Cu)</li><li>Less reactive metals (Hg, Ag, Au)</li></ul>
+          <p class="notes">🎙️ Once the ore is concentrated, the next big step is to extract the metal from it. The method we choose depends entirely on how reactive the metal is. Some metals are very eager to react, while others are quite lazy. We categorize metals into three groups based on their reactivity to decide the best extraction technique.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Copper_extraction_process.svg?width=500" data-fb="🔥" alt="Metal extraction from ore involves crushing, concentration, smelting, and refining to sepa"/><div class="vcap">Metal extraction from ore involves crushing, concentration, smelting, and refining to sepa</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 26</span>
+          <h2><span class="hl">Reactivity Series</span> of Metals</h2>
+          <ul><li>Arrangement of metals in decreasing order of reactivity</li><li>Potassium (K) is most reactive, Gold (Au) is least reactive</li><li>Helps determine extraction method</li><li>More reactive metals form stable compounds</li></ul>
+          <p class="notes">🎙️ The reactivity series is like a ladder of metals, showing who is most eager to react and who isn't. Potassium is at the top, highly reactive, while gold is at the bottom, very unreactive. This series is our guide for choosing the right extraction process. Metals higher up the series need more powerful methods to separate them from their compounds.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Reactivity_series_of_metals.svg?width=500" data-fb="🔬" alt="The reactivity series ranks metals by their tendency to lose electrons and form positive i"/><div class="vcap">The reactivity series ranks metals by their tendency to lose electrons and form positive i</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 26</span>
+          <h2>Extraction of <span class="hl">Highly Reactive</span> Metals</h2>
+          <ul><li>Cannot be reduced by carbon</li><li>Extracted by electrolytic reduction of their molten chlorides/oxides</li><li>Example: Sodium (Na) from molten NaCl, Aluminium (Al) from molten alumina</li><li>Requires significant electrical energy</li></ul>
+          <p class="notes">🎙️ Metals like sodium, calcium, and aluminium are so reactive that common reducing agents like carbon cannot separate them from their compounds. For these, we use electrolytic reduction. This involves passing electricity through their molten salts or oxides, causing the metal ions to gain electrons and form pure metal. It's an energy-intensive process.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electrolysis</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 26</span>
+          <h2>Extraction of <span class="hl">Moderately Reactive</span> Metals</h2>
+          <ul><li>Found as sulphides or carbonates</li><li>Converted to oxides first (roasting or calcination)</li><li>Then reduced to metal using carbon or other reducing agents</li><li>Example: Zinc (Zn), Iron (Fe), Lead (Pb)</li></ul>
+          <p class="notes">🎙️ Metals in the middle of the reactivity series, like zinc and iron, are often found as sulphide or carbonate ores. We first convert these ores into metal oxides because it's much easier to reduce an oxide to a metal. This conversion involves processes called roasting or calcination, followed by reduction using a substance like carbon.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Industrial Processing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 26</span>
+          <h2><span class="hl">Roasting</span></h2>
+          <ul><li>Heating sulphide ores strongly in presence of excess air</li><li>Converts sulphide ore into metal oxide</li><li>Sulphur dioxide gas is released</li><li>Example: Zinc sulphide (ZnS) + O₂ → Zinc oxide (ZnO) + SO₂</li></ul>
+          <p class="notes">🎙️ Roasting is specifically for sulphide ores. We heat them very strongly in a furnace with plenty of air. This causes the sulphide to react with oxygen, forming the metal oxide and releasing sulphur dioxide gas. For example, zinc sulphide ore is roasted to get zinc oxide, which is then easier to reduce to metallic zinc.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♨️</div><div class="vcap">Heating with Air</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 26</span>
+          <h2><span class="hl">Calcination</span></h2>
+          <ul><li>Heating carbonate or hydroxide ores strongly in limited air</li><li>Converts carbonate/hydroxide ore into metal oxide</li><li>Carbon dioxide or water vapor is released</li><li>Example: Zinc carbonate (ZnCO₃) → Zinc oxide (ZnO) + CO₂</li></ul>
+          <p class="notes">🎙️ Calcination is similar to roasting but is used for carbonate and hydroxide ores, and it's done in limited or no air. The heating breaks down the carbonate or hydroxide, releasing carbon dioxide or water vapor, and leaving behind the metal oxide. For instance, zinc carbonate ore is calcined to produce zinc oxide, ready for the next step of reduction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Controlled Heating</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 26</span>
+          <h2><span class="hl">Reduction</span> of Metal Oxides</h2>
+          <ul><li>Metal oxides are reduced to free metals</li><li>Commonly by heating with carbon (coke)</li><li>Carbon acts as a reducing agent, removing oxygen</li><li>Example: ZnO + C → Zn + CO</li></ul>
+          <p class="notes">🎙️ Once we have the metal oxide, we can reduce it to the pure metal. For moderately reactive metals, this is often done by heating the metal oxide with a reducing agent like carbon (coke). The carbon combines with the oxygen from the metal oxide, leaving the metal behind. This is a very common and cost-effective way to extract metals like iron and zinc.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Oxygen Removal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 26</span>
+          <h2>Extraction of <span class="hl">Less Reactive</span> Metals</h2>
+          <ul><li>Found as sulphides, or sometimes in free state</li><li>Sulphide ores are simply heated in air</li><li>No need for strong reducing agents</li><li>Example: Cinnabar (HgS) heated in air gives Mercury (Hg)</li></ul>
+          <p class="notes">🎙️ Metals at the bottom of the reactivity series, like mercury and copper, are quite unreactive. Their sulphide ores can often be converted directly into the metal by simply heating them in air, without the need for additional reducing agents. For example, cinnabar, which is mercury sulphide, yields mercury metal just by heating.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌡️</div><div class="vcap">Simple Heating</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 26</span>
+          <h2>3. <span class="hl">Refining</span> of Metals</h2>
+          <ul><li>Process of purifying crude metal</li><li>Crude metal often contains impurities</li><li>Impurities affect metal properties</li><li>Different methods based on metal and impurities</li></ul>
+          <p class="notes">🎙️ After extraction, the metal we obtain is usually not 100% pure; it's called crude metal. It contains small amounts of impurities that can significantly alter its properties. Refining is the final and crucial step to remove these impurities and get a metal of desired purity. The choice of refining method depends on the metal and the nature of the impurities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Achieving Purity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 26</span>
+          <h2><span class="hl">Electrolytic</span> Refining</h2>
+          <ul><li>Most important method for many metals (Cu, Zn, Sn, Ni, Ag, Au)</li><li>Impure metal as anode, pure metal as cathode</li><li>Electrolyte is a salt solution of the metal</li><li>Metal dissolves from anode, deposits on cathode</li></ul>
+          <p class="notes">🎙️ Electrolytic refining is widely used for high-purity metals like copper. In this process, the impure metal acts as the anode, and a thin strip of pure metal is the cathode. When electricity passes through the electrolyte (a solution of the metal's salt), the pure metal from the anode dissolves and deposits onto the cathode, leaving impurities behind.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔋</div><div class="vcap">Electrolysis Setup</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 26</span>
+          <h2><span class="hl">Corrosion</span></h2>
+          <ul><li>Deterioration of metal due to reaction with surroundings</li><li>Mainly with air (oxygen, moisture), acids, bases</li><li>Forms undesirable compounds (e.g., rust on iron)</li><li>Example: Rusting of iron, tarnishing of silver</li></ul>
+          <p class="notes">🎙️ Corrosion is a natural enemy of metals. It's the slow eating away of a metal surface when it reacts with substances in its environment, especially oxygen and moisture in the air. Rusting of iron is the most common example, where iron turns into a reddish-brown flaky substance, weakening the metal. Silver also tarnishes, turning black.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦠</div><div class="vcap">Metal Deterioration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 26</span>
+          <h2><span class="hl">Prevention</span> of Corrosion</h2>
+          <ul><li>Painting, oiling, greasing</li><li>Galvanizing (coating with zinc)</li><li>Electroplating (coating with another metal)</li><li>Alloying (mixing with other metals)</li></ul>
+          <p class="notes">🎙️ Fortunately, we have many ways to fight corrosion. We can apply a protective layer like paint or oil, which prevents the metal from contacting air and moisture. Galvanizing, where iron is coated with zinc, is very effective. Alloying, like making stainless steel, also changes the metal's properties to resist corrosion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Protecting Metals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 26</span>
+          <h2><span class="hl">Alloys</span></h2>
+          <ul><li>Homogeneous mixture of two or more metals</li><li>Or a metal and a non-metal</li><li>Made to improve properties (strength, corrosion resistance)</li><li>Example: Brass (Cu + Zn), Bronze (Cu + Sn), Stainless Steel (Fe + Cr + Ni)</li></ul>
+          <p class="notes">🎙️ An alloy is like a special blend of metals, sometimes with a non-metal, to create a material with better properties than the individual components. For instance, pure iron rusts easily and is soft, but when alloyed with chromium and nickel, it becomes stainless steel, which is strong and resists corrosion, making it perfect for utensils and surgical instruments.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔗</span><span>🔗</span><span>🔗</span></div><div class="vcap">Metals Blended</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 26</span>
+          <h2><span class="hl">Quick Check</span> Questions</h2>
+          <ul><li>1. What is the difference between a mineral and an ore?</li><li>2. Name two methods of concentrating ores.</li><li>3. Which method is used to extract highly reactive metals?</li><li>4. Give an example of an alloy and its components.</li></ul>
+          <p class="notes">🎙️ Let's test our understanding with a few quick questions. Think about what we've learned today. What distinguishes a mineral from an ore? Can you recall two ways to clean an ore? How do we get metals like sodium, which are very reactive? And finally, what's an alloy, and can you give an example?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 26</span>
+          <h2>Metallurgy: Key Takeaways</h2>
+          <ul><li>Metallurgy is extraction, purification, and alloying of metals.</li><li>Ores are minerals from which metals are profitably extracted.</li><li>Steps: Concentration → Extraction → Refining.</li><li>Extraction methods depend on metal's reactivity.</li><li>Corrosion is metal deterioration; alloys improve properties.</li></ul>
+          <p class="notes">🎙️ To summarize, metallurgy is the fascinating process of obtaining metals from nature and preparing them for our use. We learned about ores, the different ways to concentrate them, and how the reactivity of a metal dictates its extraction method. We also discussed refining, corrosion, and the importance of alloys. Keep exploring the world of metals!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

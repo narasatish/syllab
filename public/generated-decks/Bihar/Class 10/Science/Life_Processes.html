@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Life Processes — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Life</span> Processes: The Foundation of Life</h2>
+          <ul><li>Welcome to our Science Class!</li><li>Exploring how living beings survive and thrive.</li><li>Bihar Board Class 10 Science Chapter.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting chapter: 'Life Processes'. This chapter helps us understand the amazing ways living organisms, from tiny bacteria to humans, carry out essential functions to stay alive and grow. It's truly the foundation of all life!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are Life <span class="hl">Processes</span>?</h2>
+          <ul><li>Basic functions performed by living organisms.</li><li>Essential for survival and maintenance of life.</li><li>Include nutrition, respiration, transport, and excretion.</li></ul>
+          <p class="notes">🎙️ Life processes are simply all the fundamental activities that living things do continuously to live and maintain their bodies. Think of them as the 'to-do list' for every living organism. Without these processes, life as we know it would not be possible.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Living Organism</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>The <span class="hl">Four</span> Pillars of Life</h2>
+          <ul><li>Nutrition: Getting and using food.</li><li>Respiration: Releasing energy from food.</li><li>Transportation: Moving substances within the body.</li><li>Excretion: Removing waste products.</li></ul>
+          <p class="notes">🎙️ These four processes are interconnected and vital. Imagine a house with four strong pillars – remove one, and the house collapses. Similarly, if any of these life processes stop, the organism cannot survive for long. We will explore each one in detail.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🔬" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Nutrition</span>: Fueling Life</h2>
+          <ul><li>Process of taking in food and utilizing it.</li><li>Provides energy for growth, repair, and daily activities.</li><li>Raw materials for body building and maintenance.</li></ul>
+          <p class="notes">🎙️ Just like a car needs fuel to run, our bodies need food to function. Nutrition is all about how organisms obtain and use this fuel. It's not just about eating; it's about how the body breaks down food and uses its components.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍎</div><div class="vcap">Food for Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Two</span> Main Ways to Get Food</h2>
+          <ul><li>Autotrophic Nutrition: Organisms make their own food.</li><li>Heterotrophic Nutrition: Organisms depend on others for food.</li></ul>
+          <p class="notes">🎙️ Nature has devised two primary strategies for obtaining food. Plants, for example, are self-sufficient, while animals rely on consuming other organisms. Understanding these modes helps us classify and understand different life forms.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Autotrophic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Heterotrophic</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Autotrophic</span> Nutrition: Self-Feeders</h2>
+          <ul><li>Organisms synthesize their own organic food.</li><li>Use simple inorganic substances like CO2 and water.</li><li>Example: Green plants, some bacteria perform photosynthesis.</li></ul>
+          <p class="notes">🎙️ Autotrophs are truly amazing! They are the primary producers in almost all ecosystems. They convert light energy into chemical energy stored in food. Without them, most other life forms would not exist.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Sunlight Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Photosynthesis</span>: Plant's Food Factory</h2>
+          <ul><li>Process by which green plants make food.</li><li>Uses sunlight, carbon dioxide, and water.</li><li>Produces glucose (food) and oxygen.</li></ul>
+          <p class="notes">🎙️ Photosynthesis is the most important chemical reaction on Earth for life. It's a complex process that happens mainly in the leaves of plants. Remember the equation: 6CO2 + 6H2O + Light Energy → C6H12O6 + 6O2.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Photosynthesis_en.svg?width=500" data-fb="🔬" alt="Photosynthesis is the process by which plants convert light energy into chemical energy (g"/><div class="vcap">Photosynthesis is the process by which plants convert light energy into chemical energy (g</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Essential <span class="hl">Ingredients</span> for Photosynthesis</h2>
+          <ul><li>Chlorophyll: Green pigment, absorbs sunlight.</li><li>Sunlight: Energy source.</li><li>Carbon Dioxide: From air, enters through stomata.</li><li>Water: From soil, absorbed by roots.</li></ul>
+          <p class="notes">🎙️ Each of these components plays a crucial role. Chlorophyll acts like a solar panel, capturing energy. Stomata are tiny pores on leaves that allow gas exchange, and roots are like straws, drawing water up from the soil.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span><span>🌿</span></div><div class="vcap">Chlorophyll in Leaves</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Heterotrophic</span> Nutrition: Dependent Feeders</h2>
+          <ul><li>Organisms obtain food from other organisms.</li><li>Cannot synthesize their own food.</li><li>Examples: Animals, fungi, most bacteria.</li></ul>
+          <p class="notes">🎙️ Unlike autotrophs, heterotrophs need to consume pre-made organic food. This can be plants, other animals, or decaying matter. We humans are heterotrophs, and our diet includes both plant and animal products.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍔</div><div class="vcap">Consuming Food</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Different <span class="hl">Styles</span> of Heterotrophic Feeding</h2>
+          <ul><li>Saprotrophic: Feed on dead and decaying matter.</li><li>Parasitic: Live on or in another organism (host) and derive food.</li><li>Holozoic: Ingest food, digest it, and absorb nutrients.</li></ul>
+          <p class="notes">🎙️ Each type has unique adaptations. Fungi are classic saprotrophs, helping in decomposition. Ticks are parasites, feeding on blood. And we, along with most animals, are holozoic, having a complex digestive system.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Saprotrophic</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Parasitic</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Holozoic</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Holozoic Nutrition in <span class="hl">Humans</span>: A Journey of Food</h2>
+          <ul><li>Ingestion: Taking food into the body.</li><li>Digestion: Breaking down complex food into simpler substances.</li><li>Absorption: Nutrients pass into the blood.</li><li>Assimilation: Utilized by cells.</li><li>Egestion: Removal of undigested food.</li></ul>
+          <p class="notes">🎙️ Our digestive system is a marvel of engineering! It's a long tube with specialized organs that work together to process food. Each step is crucial for extracting the maximum nutrition from what we eat.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♀️</div><div class="vcap">Food's Journey</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>The Human Digestive <span class="hl">Pathway</span></h2>
+          <ul><li>Mouth, Pharynx, Esophagus, Stomach.</li><li>Small Intestine, Large Intestine, Anus.</li><li>Accessory organs: Liver, Pancreas, Gallbladder.</li></ul>
+          <p class="notes">🎙️ Food begins its journey in the mouth, where mechanical and chemical digestion starts. It then travels through a series of organs, each playing a specific role in breaking down and absorbing nutrients, before waste is expelled.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Digestive_system_diagram_en.svg?width=500" data-fb="🔬" alt="The digestive system breaks down food into nutrients that the body can absorb and use. It "/><div class="vcap">The digestive system breaks down food into nutrients that the body can absorb and use. It </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Respiration</span>: Releasing Energy</h2>
+          <ul><li>Process of breaking down food to release energy.</li><li>Energy is used for all life activities.</li><li>Occurs in all living cells, day and night.</li></ul>
+          <p class="notes">🎙️ While nutrition provides the food, respiration is what unlocks the energy from it. This energy, in the form of ATP, powers everything from muscle movement to thinking. It's a continuous process essential for survival.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy Release</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Two</span> Ways to Release Energy</h2>
+          <ul><li>Aerobic Respiration: Requires oxygen.</li><li>Anaerobic Respiration: Occurs without oxygen.</li></ul>
+          <p class="notes">🎙️ The presence or absence of oxygen defines these two main types. Aerobic respiration is far more efficient in producing energy, while anaerobic respiration is a quick, less efficient alternative when oxygen is scarce.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Aerobic</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Anaerobic</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Aerobic</span> Respiration: With Oxygen</h2>
+          <ul><li>Glucose is completely broken down.</li><li>Produces carbon dioxide, water, and a large amount of energy (ATP).</li><li>Occurs in most organisms, including humans.</li></ul>
+          <p class="notes">🎙️ This is the primary way our bodies generate energy. It involves several steps, starting in the cytoplasm and ending in the mitochondria. The efficiency of aerobic respiration allows complex organisms to sustain high energy demands.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Oxygen Present</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Anaerobic</span> Respiration: Without Oxygen</h2>
+          <ul><li>Glucose is partially broken down.</li><li>Produces ethanol (in yeast) or lactic acid (in muscles) and less energy.</li><li>Occurs in some microorganisms and during intense exercise in humans.</li></ul>
+          <p class="notes">🎙️ When you sprint, your muscles might not get enough oxygen, leading to anaerobic respiration and lactic acid buildup, causing muscle pain. Yeast uses anaerobic respiration to produce alcohol and carbon dioxide, a process called fermentation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💪</div><div class="vcap">Muscle Fatigue</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Transportation</span>: The Delivery System</h2>
+          <ul><li>Movement of substances from one part of the body to another.</li><li>Ensures nutrients, oxygen, and hormones reach all cells.</li><li>Removes waste products from cells.</li></ul>
+          <p class="notes">🎙️ Imagine a city without roads or a postal service. That's what an organism would be like without transportation. It's a vital system that connects all parts of the body, ensuring every cell gets what it needs and waste is cleared.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚚</div><div class="vcap">Internal Delivery</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Human <span class="hl">Circulatory</span> System: The Blood Network</h2>
+          <ul><li>Blood: Carries oxygen, nutrients, hormones, and waste.</li><li>Heart: Pumps blood throughout the body.</li><li>Blood Vessels: Arteries, veins, and capillaries form the network.</li></ul>
+          <p class="notes">🎙️ Our circulatory system is a closed network, efficiently moving blood. The heart is the powerful pump, and blood vessels are the pipes. Understanding this system is key to understanding how our bodies function and stay healthy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❤️</div><div class="vcap">Pumping Heart</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Plant</span> Transport: Xylem and Phloem</h2>
+          <ul><li>Xylem: Transports water and minerals from roots to leaves.</li><li>Phloem: Transports food (sugars) from leaves to other parts.</li><li>Root pressure and transpiration pull are key forces.</li></ul>
+          <p class="notes">🎙️ Plants also have sophisticated transport systems. Xylem is like their water pipeline, and phloem is their food delivery service. These tissues ensure that water reaches the leaves for photosynthesis and food reaches growing parts and storage organs.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Xylem (Water)</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Phloem (Food)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Excretion</span>: Waste Management</h2>
+          <ul><li>Removal of harmful metabolic waste products from the body.</li><li>Waste products can be toxic if accumulated.</li><li>Maintains internal balance (homeostasis).</li></ul>
+          <p class="notes">🎙️ Just like a factory needs to dispose of its waste, living organisms need to remove metabolic byproducts. If these wastes build up, they can become poisonous. Excretion is crucial for keeping the internal environment stable.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗑️</div><div class="vcap">Waste Removal</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Human Excretory System: The <span class="hl">Kidneys</span></h2>
+          <ul><li>Kidneys: Filter blood and produce urine.</li><li>Ureters: Tubes carrying urine from kidneys to bladder.</li><li>Urinary Bladder: Stores urine.</li><li>Urethra: Tube for expelling urine.</li></ul>
+          <p class="notes">🎙️ Our kidneys are highly efficient filters, removing excess water, salts, and nitrogenous wastes like urea from our blood. They play a vital role in maintaining blood pressure and overall body fluid balance.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Urinary_system.svg?width=500" data-fb="💧" alt="The excretory system removes nitrogenous wastes and excess water from the body. Key organs"/><div class="vcap">The excretory system removes nitrogenous wastes and excess water from the body. Key organs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Plant</span> Excretion: Simpler Methods</h2>
+          <ul><li>Gaseous wastes (CO2, O2) removed through stomata.</li><li>Solid/liquid wastes stored in vacuoles or leaves that fall off.</li><li>Some wastes excreted into the soil around roots.</li></ul>
+          <p class="notes">🎙️ Plants don't have complex excretory organs like animals. They rely on simpler mechanisms. For example, old leaves often accumulate waste products, and shedding them helps the plant get rid of these substances.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍂</span><span>🍂</span><span>🍂</span></div><div class="vcap">Falling Leaves</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! (Part 1)</h2>
+          <ul><li>1. What is the primary role of chlorophyll in photosynthesis?</li><li>2. Name the two main types of respiration.</li><li>3. Give one example of a saprotrophic organism.</li></ul>
+          <p class="notes">🎙️ Alright class, let's see how much you've absorbed so far! Take a moment to think about these questions. We've covered these concepts, so you should be able to answer them easily.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! (Part 2)</h2>
+          <ul><li>1. Which plant tissue transports water?</li><li>2. What are the main filtering organs in the human excretory system?</li><li>3. What is the end product of anaerobic respiration in human muscles?</li></ul>
+          <p class="notes">🎙️ Great job with the first set! Here are a few more questions to reinforce your understanding of transportation and excretion. These quick checks help us consolidate our learning.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Recap: The <span class="hl">Interconnected</span> Life Processes</h2>
+          <ul><li>Nutrition: Obtaining energy and materials.</li><li>Respiration: Releasing energy from food.</li><li>Transportation: Moving substances around.</li><li>Excretion: Removing waste products.</li></ul>
+          <p class="notes">🎙️ Today, we've explored the incredible symphony of life processes that keep organisms alive and thriving. Remember, these processes don't work in isolation; they are all connected, forming the beautiful cycle of life.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

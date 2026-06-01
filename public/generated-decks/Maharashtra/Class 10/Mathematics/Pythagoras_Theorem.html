@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Pythagoras Theorem — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>The Amazing <span class="hl">Pythagoras</span> Theorem</h2>
+          <ul><li>A fundamental concept in Geometry.</li><li>Helps us understand right-angled triangles.</li><li>Has countless real-world applications.</li></ul>
+          <p class="notes">🎙️ Welcome, Class 10! Today, we embark on an exciting journey to explore one of the most famous and useful theorems in mathematics: the Pythagoras Theorem. This theorem is not just a formula; it's a powerful tool that helps us understand shapes and distances around us.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Understanding the <span class="hl">Right-Angled</span> Triangle</h2>
+          <ul><li>A triangle with one angle exactly 90 degrees.</li><li>The side opposite the 90-degree angle is the 'hypotenuse'.</li><li>The other two sides are called 'legs' or 'perpendicular sides'.</li></ul>
+          <p class="notes">🎙️ Before diving into the theorem, let's quickly review the star of our show: the right-angled triangle. Remember, its defining feature is that one of its angles measures exactly 90 degrees. Identify the hypotenuse, which is always the longest side and opposite the right angle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">90-degree angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Meet <span class="hl">Pythagoras</span>: The Greek Mathematician</h2>
+          <ul><li>An ancient Greek mathematician and philosopher.</li><li>Lived around 570 – 495 BC.</li><li>Founded the Pythagorean school, known for its contributions to mathematics.</li></ul>
+          <p class="notes">🎙️ The theorem is named after Pythagoras, a brilliant mind from ancient Greece. His work laid foundational stones for much of modern mathematics. He wasn't just a mathematician; he also delved into philosophy and music!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Ancient Greece</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The Famous Pythagoras <span class="hl">Theorem</span></h2>
+          <ul><li>Applies ONLY to right-angled triangles.</li><li>Statement: 'The square of the hypotenuse is equal to the sum of the squares of the other two sides'.</li><li>Formula: a² + b² = c² (where c is the hypotenuse).</li></ul>
+          <p class="notes">🎙️ Here it is, the core of our lesson! The Pythagoras Theorem. It's crucial to remember that this theorem is exclusive to right-angled triangles. The formula a² + b² = c² is your key to solving many problems involving these triangles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">a² + b² = c²</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Hypotenuse</span>: Always the Longest Side!</h2>
+          <ul><li>It is always opposite the 90-degree angle.</li><li>It is the longest side of any right-angled triangle.</li><li>The other two sides are shorter and form the right angle.</li></ul>
+          <p class="notes">🎙️ Always identify the hypotenuse first! It's your 'c' in the formula. Knowing it's the longest side can help you check your calculations. If your hypotenuse turns out shorter than a leg, you know something went wrong!</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Leg 1</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Leg 2</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Hypotenuse</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Visualizing</span> Pythagoras' Idea</h2>
+          <ul><li>Imagine squares built on each side of the triangle.</li><li>The area of the square on the hypotenuse...</li><li>...is equal to the sum of the areas of the squares on the two legs.</li></ul>
+          <p class="notes">🎙️ Think of it visually! If you were to draw squares on each side of a right-angled triangle, the area of the largest square (on the hypotenuse) would perfectly fit the combined areas of the two smaller squares (on the legs). This is what a² + b² = c² really means!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span><span>🟩</span></div><div class="vcap">Area of 3x3 square</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>How to <span class="hl">Apply</span> the Theorem</h2>
+          <ul><li>Step 1: Identify the hypotenuse (c) and the legs (a, b).</li><li>Step 2: Write down the formula: a² + b² = c².</li><li>Step 3: Substitute the known values into the formula.</li><li>Step 4: Solve the equation to find the unknown side.</li></ul>
+          <p class="notes">🎙️ Applying the theorem is straightforward if you follow these steps. Always start by correctly identifying which side is the hypotenuse and which are the legs. This prevents common errors in setting up the equation.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify sides</span></div><div class="step"><span class="snum">2</span><span>Write formula</span></div><div class="step"><span class="snum">3</span><span>Substitute values</span></div><div class="step"><span class="snum">4</span><span>Solve for unknown</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Example 1: Finding the <span class="hl">Hypotenuse</span></h2>
+          <ul><li>Given legs: a = 3 units, b = 4 units.</li><li>We need to find the hypotenuse 'c'.</li><li>Using a² + b² = c², we get 3² + 4² = c².</li><li>Calculation: 9 + 16 = c² =&gt; 25 = c² =&gt; c = 5 units.</li></ul>
+          <p class="notes">🎙️ Let's work through a classic example. If the two shorter sides of a right-angled triangle are 3 and 4 units, what is the length of its hypotenuse? By substituting these values into our formula, we quickly find the answer to be 5 units.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a=3, b=4</span></div><div class="step"><span class="snum">2</span><span>3²+4²=c²</span></div><div class="step"><span class="snum">3</span><span>9+16=c²</span></div><div class="step"><span class="snum">4</span><span>25=c², c=5</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Example 2: Finding a <span class="hl">Missing Leg</span></h2>
+          <ul><li>Given hypotenuse: c = 13 units, one leg: a = 5 units.</li><li>We need to find the other leg 'b'.</li><li>Using a² + b² = c², we get 5² + b² = 13².</li><li>Calculation: 25 + b² = 169 =&gt; b² = 144 =&gt; b = 12 units.</li></ul>
+          <p class="notes">🎙️ Sometimes, you might know the hypotenuse and one leg, and need to find the other leg. The process is similar: plug in the known values and solve for the unknown. Here, with a hypotenuse of 13 and one leg of 5, the other leg is 12 units.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>a=5, c=13</span></div><div class="step"><span class="snum">2</span><span>5²+b²=13²</span></div><div class="step"><span class="snum">3</span><span>25+b²=169</span></div><div class="step"><span class="snum">4</span><span>b²=144, b=12</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Real Life: <span class="hl">Ladder</span> Against a Wall</h2>
+          <ul><li>A ladder leans against a vertical wall.</li><li>The wall and the ground form a right angle.</li><li>The ladder is the hypotenuse, wall height and ground distance are legs.</li></ul>
+          <p class="notes">🎙️ Imagine a ladder propped against a wall. This setup perfectly forms a right-angled triangle! If you know the ladder's length and how far its base is from the wall, you can calculate how high it reaches up the wall using Pythagoras Theorem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🪜</div><div class="vcap">Ladder, Wall, Ground</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Real Life: Designing a <span class="hl">Ramp</span></h2>
+          <ul><li>Engineers design ramps for accessibility or vehicles.</li><li>The ramp's length, its height, and the ground distance form a right triangle.</li><li>Pythagoras helps calculate the required ramp length for a given height and slope.</li></ul>
+          <p class="notes">🎙️ From wheelchair ramps to highway exits, ramps are everywhere! Architects and engineers use Pythagoras Theorem to ensure ramps are built correctly. They calculate the exact length of the ramp needed to achieve a certain height over a horizontal distance, making them safe and functional.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛣️</div><div class="vcap">Ramp for access</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>What are Pythagorean <span class="hl">Triplets</span>?</h2>
+          <ul><li>A set of three positive integers (a, b, c).</li><li>They satisfy the Pythagoras Theorem: a² + b² = c².</li><li>These integers represent the sides of a right-angled triangle.</li></ul>
+          <p class="notes">🎙️ Pythagorean Triplets are special sets of whole numbers that perfectly fit the theorem. They are like 'pre-calculated' sides of right-angled triangles, making some problems quicker to solve. The most famous one is (3, 4, 5).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">(a, b, c)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Exploring <span class="hl">Common</span> Triplets</h2>
+          <ul><li>The most basic triplet: (3, 4, 5).</li><li>Other common triplets: (5, 12, 13), (8, 15, 17), (7, 24, 25).</li><li>Any multiple of a Pythagorean triplet is also a triplet (e.g., (6, 8, 10)).</li></ul>
+          <p class="notes">🎙️ It's good to recognize some common Pythagorean Triplets. Knowing them can save you time in calculations. Also, remember that if you multiply each number in a triplet by the same integer, you get another valid Pythagorean Triplet!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">(3, 4, 5) is one!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Example 3: Is it a <span class="hl">Triplet</span>?</h2>
+          <ul><li>Given numbers: 6, 8, 10.</li><li>Assume the longest side (10) is 'c'.</li><li>Check if 6² + 8² = 10².</li><li>36 + 64 = 100. Since 100 = 100, YES, it's a triplet!</li></ul>
+          <p class="notes">🎙️ Let's test if a set of numbers forms a Pythagorean Triplet. Always square the two smaller numbers and add them. Then, square the largest number. If these results are equal, then congratulations, you've found a triplet!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sides: 6, 8, 10</span></div><div class="step"><span class="snum">2</span><span>Check 6²+8²</span></div><div class="step"><span class="snum">3</span><span>36+64=100</span></div><div class="step"><span class="snum">4</span><span>10²=100. Yes!</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>The <span class="hl">Converse</span> of Pythagoras Theorem</h2>
+          <ul><li>It's the reverse logic of the original theorem.</li><li>Statement: 'If in a triangle, the square of one side is equal to the sum of the squares of the other two sides, then the angle opposite the first side is a right angle.'</li><li>Helps us identify if a triangle is right-angled.</li></ul>
+          <p class="notes">🎙️ The Converse of Pythagoras Theorem is equally important. While the original theorem tells us a property of right-angled triangles, the converse tells us how to identify if a triangle *is* right-angled, just by knowing its side lengths.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Reverse the logic</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Using the Converse to <span class="hl">Identify</span> Right Angles</h2>
+          <ul><li>Step 1: Identify the longest side of the triangle (potential hypotenuse).</li><li>Step 2: Square all three side lengths.</li><li>Step 3: Check if the square of the longest side equals the sum of the squares of the other two sides.</li><li>Step 4: If they are equal, the angle opposite the longest side is 90 degrees.</li></ul>
+          <p class="notes">🎙️ This is how you apply the converse. It's a powerful tool for verifying if a given triangle is a right-angled triangle, without needing to measure any angles directly. Just compare the squares of its sides!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Identify longest side</span></div><div class="step"><span class="snum">2</span><span>Square all sides</span></div><div class="step"><span class="snum">3</span><span>Check if a²+b²=c²</span></div><div class="step"><span class="snum">4</span><span>If yes, it's right-angled</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Example 4: Is this a <span class="hl">Right Triangle</span>?</h2>
+          <ul><li>Given sides: 7 cm, 24 cm, 25 cm.</li><li>Longest side is 25 cm (potential hypotenuse).</li><li>Check: 7² + 24² = 49 + 576 = 625.</li><li>Compare with 25² = 625. Since 625 = 625, YES, it's a right triangle!</li></ul>
+          <p class="notes">🎙️ Let's apply the converse. If a triangle has sides 7, 24, and 25 cm, is it a right-angled triangle? By performing the calculations, we find that the sum of the squares of the two shorter sides equals the square of the longest side, confirming it is indeed a right triangle.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Sides: 7, 24, 25</span></div><div class="step"><span class="snum">2</span><span>7²+24² = 49+576 = 625</span></div><div class="step"><span class="snum">3</span><span>25² = 625</span></div><div class="step"><span class="snum">4</span><span>Since 625=625, Yes!</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Practical Use: Checking for <span class="hl">Square Corners</span></h2>
+          <ul><li>Carpenters and builders need perfectly square (90°) corners.</li><li>They use the 3-4-5 rule (a Pythagorean Triplet).</li><li>Measure 3 units along one side, 4 units along the other.</li><li>If the diagonal distance between these points is 5 units, the corner is square.</li></ul>
+          <p class="notes">🎙️ This is a fantastic real-world application! When carpenters build, they need to make sure walls meet at a perfect 90-degree angle. They use the 3-4-5 rule, which is directly derived from the converse of Pythagoras, to quickly and accurately check if their corners are 'square'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✔️</div><div class="vcap">Perfect 90 degrees</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>In a right-angled triangle, the lengths of the legs are 6 cm and 8 cm.</li><li>What is the length of the hypotenuse?</li><li>Think: a² + b² = c².</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Grab your pen and paper. For the first question, if the two shorter sides of a right-angled triangle are 6 cm and 8 cm, can you find the length of the hypotenuse?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>The hypotenuse of a right-angled triangle is 15 cm.</li><li>One of its legs is 9 cm.</li><li>Find the length of the other leg.</li></ul>
+          <p class="notes">🎙️ Here's the second question. This time, you know the hypotenuse and one leg. If the hypotenuse is 15 cm and one leg is 9 cm, what is the length of the other leg? Remember to rearrange your formula if needed.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>Do the numbers (10, 24, 26) form a Pythagorean Triplet?</li><li>Show your work to prove your answer.</li><li>Remember the definition of a triplet.</li></ul>
+          <p class="notes">🎙️ Next up, let's test your understanding of Pythagorean Triplets. Take the numbers 10, 24, and 26. Do they form a Pythagorean Triplet? Show your calculations to justify your answer.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 4</span></h2>
+          <ul><li>A triangle has sides of length 8 m, 10 m, and 12 m.</li><li>Is it a right-angled triangle?</li><li>Apply the Converse of Pythagoras Theorem.</li></ul>
+          <p class="notes">🎙️ For our final quick check, we'll use the converse. If a triangle has sides measuring 8 meters, 10 meters, and 12 meters, can you determine if it is a right-angled triangle? Think about which side would be the hypotenuse if it were.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Let's <span class="hl">Recap</span>: What We Learned</h2>
+          <ul><li>Pythagoras Theorem applies to right-angled triangles.</li><li>Hypotenuse is the longest side, opposite the 90° angle.</li><li>Formula: (Leg 1)² + (Leg 2)² = (Hypotenuse)² or a² + b² = c².</li></ul>
+          <p class="notes">🎙️ Great job everyone! Let's quickly review the core concepts we've covered today. We started by understanding what a right-angled triangle is and identifying its special sides, especially the hypotenuse. Then, we learned the powerful statement of Pythagoras Theorem and its formula.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Main Ideas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Let's Recap: <span class="hl">Formulas</span> and Applications</h2>
+          <ul><li>We can find any missing side if two sides are known.</li><li>Pythagorean Triplets are sets of integers satisfying a² + b² = c².</li><li>The Converse helps determine if a triangle is right-angled by its sides.</li></ul>
+          <p class="notes">🎙️ We also practiced applying the theorem to find missing sides and explored Pythagorean Triplets. Crucially, we understood the Converse of Pythagoras Theorem, which allows us to verify if a triangle is right-angled. These concepts have widespread applications in various fields.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Remember these!</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>You've <span class="hl">Mastered</span> Pythagoras!</h2>
+          <ul><li>Keep practicing problems to strengthen your understanding.</li><li>Look for right-angled triangles in your surroundings.</li><li>Pythagoras Theorem is a gateway to more advanced geometry!</li></ul>
+          <p class="notes">🎙️ Excellent work today, Class 10! You've taken a significant step in mastering the Pythagoras Theorem. Remember, practice is key. Keep an eye out for how these concepts appear in the real world, and you'll see just how amazing mathematics truly is. Thank you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>The Fundamental Unit of Life — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Cells</span>!</h2>
+          <ul><li>Chapter: The Fundamental Unit of Life</li><li>Subject: Science</li><li>Class: 9</li><li>Board: Rajasthan</li></ul>
+          <p class="notes">🎙️ Welcome to our exciting journey into the world of cells! Today, we'll explore what makes up all living things, from the smallest bacteria to the largest trees. Get ready to discover the secrets of life!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">Building Blocks</span> of Life</h2>
+          <ul><li>All living things are made of tiny units.</li><li>These units are too small to see with our eyes.</li><li>They are the basic structures that perform all life functions.</li></ul>
+          <p class="notes">🎙️ Just like a house is built from many bricks, all living organisms are built from tiny units. These units are fundamental to life, meaning they are absolutely essential for existence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Building Block</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Robert Hooke</span> and the Cork</h2>
+          <ul><li>In 1665, Robert Hooke observed a thin slice of cork.</li><li>He saw small, empty box-like compartments.</li><li>He named these 'cells' (from Latin 'cella' meaning a small room).</li></ul>
+          <p class="notes">🎙️ Robert Hooke's simple microscope allowed him to make this groundbreaking discovery. He didn't see living cells, but rather the cell walls of dead plant cells, which reminded him of monastery cells.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔬</div><div class="vcap">Early Microscope</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Seeing the <span class="hl">Unseen World</span></h2>
+          <ul><li>Cells are microscopic, meaning they can only be seen with a microscope.</li><li>The invention of the microscope opened up a whole new world.</li><li>It allowed scientists to study the intricate structures of living things.</li></ul>
+          <p class="notes">🎙️ Before the microscope, people had no idea about these tiny building blocks. This invention was a game-changer, revealing a universe of life previously invisible to the human eye.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Magnification</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>What is a <span class="hl">Cell</span>?</h2>
+          <ul><li>A cell is the structural and functional unit of all living organisms.</li><li>It is capable of independent existence.</li><li>All life processes occur within cells.</li></ul>
+          <p class="notes">🎙️ Think of a cell as the smallest complete unit that can perform all the activities necessary for life. It's like a tiny, self-contained factory or a mini-house where everything happens.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🏠" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Observing Plant Cells: <span class="hl">Onion Peel</span></h2>
+          <ul><li>Take a thin peel from an onion.</li><li>Stain it with a drop of iodine solution.</li><li>Observe under a microscope to see many rectangular cells arranged neatly.</li></ul>
+          <p class="notes">🎙️ This is a common experiment to see plant cells. The iodine stains the nucleus and cytoplasm, making them more visible. You can clearly see the distinct cell walls forming the structure.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧅</div><div class="vcap">Onion Cell</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Life in a <span class="hl">Single Cell</span>: Unicellular Organisms</h2>
+          <ul><li>Organisms made up of only one cell.</li><li>All life functions are performed by that single cell.</li><li>Examples: Amoeba, Paramecium, Bacteria.</li></ul>
+          <p class="notes">🎙️ Even though they are just one cell, these organisms are complete living beings. They eat, move, reproduce, and respond to their environment, all within that single cellular boundary.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🦠</span><span>🦠</span><span>🦠</span></div><div class="vcap">One-Celled Wonders</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Many Cells</span> Working Together: Multicellular Organisms</h2>
+          <ul><li>Organisms made up of more than one cell.</li><li>Cells specialize to perform different functions.</li><li>Examples: Humans, Animals, Plants, Fungi.</li></ul>
+          <p class="notes">🎙️ In multicellular organisms, different groups of cells form tissues, organs, and organ systems. This division of labor allows for much greater complexity and efficiency in carrying out life processes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span><span>👨‍👩‍👧‍👦</span></div><div class="vcap">Complex Life Forms</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Quick Question 1: <span class="hl">Classify</span>!</h2>
+          <ul><li>Which type of organism is a cat?</li><li>(A) Unicellular</li><li>(B) Multicellular</li><li>(C) Both</li><li>(D) Neither</li></ul>
+          <p class="notes">🎙️ Think about what you just learned. Does a cat consist of just one cell, or many different types of cells working together? The answer should be quite clear!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Variety</span> in Cell Form and Size</h2>
+          <ul><li>Cells vary greatly in shape and size.</li><li>Shape and size are related to the specific function a cell performs.</li><li>Examples: Nerve cells are long, Red blood cells are round.</li></ul>
+          <p class="notes">🎙️ A nerve cell needs to transmit signals over long distances, so its elongated shape is perfect. Red blood cells need to squeeze through tiny capillaries, so their biconcave disc shape is ideal.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Bacteria (small)</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">RBC (medium)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Nerve Cell (long)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Simple and Ancient: <span class="hl">Prokaryotic</span> Cells</h2>
+          <ul><li>Lack a true nucleus and membrane-bound organelles.</li><li>Genetic material is free in the cytoplasm.</li><li>Generally smaller and simpler in structure. Example: Bacteria.</li></ul>
+          <p class="notes">🎙️ 'Pro' means before, and 'karyon' means nucleus. So, prokaryotic means 'before nucleus.' These cells are thought to be the earliest forms of life on Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔵</div><div class="vcap">Prokaryote</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Complex and Organized: <span class="hl">Eukaryotic</span> Cells</h2>
+          <ul><li>Possess a true nucleus with a nuclear membrane.</li><li>Contain many membrane-bound organelles.</li><li>Generally larger and more complex. Examples: Plant cells, Animal cells.</li></ul>
+          <p class="notes">🎙️ 'Eu' means true, so eukaryotic means 'true nucleus.' These cells have a highly organized internal structure, with specialized compartments for different functions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🟢</div><div class="vcap">Eukaryote</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Comparing</span> Prokaryotic vs. Eukaryotic Cells</h2>
+          <ul><li>Prokaryotic: No true nucleus, no membrane organelles, smaller.</li><li>Eukaryotic: True nucleus, membrane organelles, larger.</li></ul>
+          <p class="notes">🎙️ Understanding these fundamental differences helps us classify and understand the vast diversity of life forms on our planet. Eukaryotic cells developed later and allowed for the evolution of complex multicellular organisms.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Prokaryotic Complexity</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Eukaryotic Complexity</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick Question 2: <span class="hl">Cell Type ID</span></h2>
+          <ul><li>A cell observed under a microscope has a distinct nucleus and mitochondria.</li><li>Is it a prokaryotic or eukaryotic cell?</li></ul>
+          <p class="notes">🎙️ Remember the key features we just discussed for each cell type. The presence or absence of certain structures is a big clue!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Cell Components: The <span class="hl">Cell Membrane</span></h2>
+          <ul><li>Also called the plasma membrane.</li><li>It's a thin, flexible outer covering of the cell.</li><li>Controls what enters and leaves the cell (selectively permeable).</li><li>Present in both plant and animal cells.</li></ul>
+          <p class="notes">🎙️ Think of the cell membrane as the security guard of the cell. It decides which substances are allowed in and which must stay out, maintaining the cell's internal environment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛡️</div><div class="vcap">Cell's Protector</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Cell Wall</span>: Extra Protection for Plants</h2>
+          <ul><li>A rigid outer layer found only in plant cells, fungi, and bacteria.</li><li>Provides structural support and protection.</li><li>Prevents the cell from bursting when absorbing water.</li></ul>
+          <p class="notes">🎙️ The cell wall is like an additional, sturdy outer layer for plant cells. It gives plants their stiffness and allows them to stand upright, resisting gravity and environmental stresses.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Plant_cell_structure.svg?width=500" data-fb="🧱" alt="A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts."/><div class="vcap">A plant cell is a eukaryotic cell with a rigid cell wall, large vacuole, and chloroplasts.</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Cytoplasm</span>: The Cell's Jelly</h2>
+          <ul><li>The jelly-like substance filling the cell, between the cell membrane and the nucleus.</li><li>Many cell organelles are suspended in it.</li><li>Site of many metabolic reactions.</li></ul>
+          <p class="notes">🎙️ Imagine the cytoplasm as a busy factory floor, where all the machinery (organelles) are located. It's where a lot of the cell's work, like breaking down food, takes place.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Internal Sea</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>The <span class="hl">Nucleus</span>: The Control Center</h2>
+          <ul><li>Contains the cell's genetic material (DNA) in chromosomes.</li><li>Controls all cell activities, including growth and reproduction.</li><li>Enclosed by a double-layered nuclear membrane.</li></ul>
+          <p class="notes">🎙️ The nucleus is often called the 'brain' of the cell because it directs everything. It holds the blueprint for the entire organism and ensures all cellular processes run smoothly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Cell's Brain</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real Example: Function Dictates <span class="hl">Form</span></h2>
+          <ul><li>Red Blood Cells (RBCs) are small, biconcave discs to carry oxygen efficiently.</li><li>Nerve cells are long and branched to transmit electrical signals over distances.</li></ul>
+          <p class="notes">🎙️ This slide highlights how a cell's structure is perfectly adapted to its specific job. Different functions require different shapes and internal arrangements to be efficient.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Red_White_Blood_cells.jpg?width=500" data-fb="🔄" alt="Blood is a connective tissue composed of plasma and three types of formed elements: red bl"/><div class="vcap">Blood is a connective tissue composed of plasma and three types of formed elements: red bl</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Organelles: <span class="hl">Mitochondria</span> - Powerhouses</h2>
+          <ul><li>Site of cellular respiration.</li><li>Produce energy (ATP) for the cell's activities.</li><li>Often called the 'power plant' of the cell.</li></ul>
+          <p class="notes">🎙️ Mitochondria are crucial for providing the cell with the energy it needs to grow, move, and perform all its functions. Without them, the cell would simply run out of power.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Energy Factory</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Organelles: <span class="hl">Endoplasmic Reticulum</span> - Transport Network</h2>
+          <ul><li>A network of membranes that extends throughout the cytoplasm.</li><li>Involved in synthesis, storage, and transport of proteins and lipids.</li><li>Two types: Rough ER (with ribosomes) and Smooth ER.</li></ul>
+          <p class="notes">🎙️ Think of the ER as the cell's internal highway system. It helps move materials around the cell and is involved in making important substances like fats and proteins.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌐</div><div class="vcap">Internal Highway</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Organelles: <span class="hl">Ribosomes &amp; Golgi</span> Apparatus</h2>
+          <ul><li>Ribosomes: Site of protein synthesis.</li><li>Golgi Apparatus: Modifies, packages, and transports proteins and lipids.</li><li>Prepares materials for secretion or delivery to other organelles.</li></ul>
+          <p class="notes">🎙️ Ribosomes are like tiny workshops building proteins, while the Golgi apparatus is like the post office, sorting and sending these proteins to their correct destinations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📦</div><div class="vcap">Production &amp; Delivery</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Organelles: <span class="hl">Vacuoles &amp; Lysosomes</span></h2>
+          <ul><li>Vacuoles: Storage sacs for water, nutrients, and waste. Large in plant cells.</li><li>Lysosomes: Contain digestive enzymes to break down waste and cellular debris.</li><li>Often called 'suicide bags' due to their role in cell self-digestion.</li></ul>
+          <p class="notes">🎙️ Vacuoles help maintain turgor pressure in plant cells and store vital substances. Lysosomes act as the cell's recycling and waste disposal units, breaking down old organelles and foreign invaders.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗑️</div><div class="vcap">Storage &amp; Recycling</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Question 3: Match the <span class="hl">Function</span></h2>
+          <ul><li>Match the organelle with its primary function:</li><li>1. Mitochondria (A) Waste disposal</li><li>2. Nucleus (B) Energy production</li><li>3. Lysosomes (C) Control center</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the main roles of these important cell parts. Each organelle has a specific job that contributes to the overall functioning of the cell.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Recap: The <span class="hl">Amazing Cell</span>!</h2>
+          <ul><li>Cells are the basic structural and functional units of all living things.</li><li>They can be prokaryotic or eukaryotic, unicellular or multicellular.</li><li>Each part of a cell has a specific, vital role.</li></ul>
+          <p class="notes">🎙️ Today, we've explored the incredible world of cells, from their discovery to their intricate internal structures. Remember, every living thing, including you, is a testament to the power and complexity of these tiny units!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

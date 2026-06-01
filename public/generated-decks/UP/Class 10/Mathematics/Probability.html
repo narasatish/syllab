@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>प्रायिकता (Probability) - कक्षा 10 गणित — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">प्रायिकता</span> (Probability)</h2>
+          <ul><li>कक्षा 10 गणित</li><li>यूपी बोर्ड पाठ्यक्रम</li></ul>
+          <p class="notes">🎙️ नमस्ते बच्चों! आज हम गणित का एक बहुत ही दिलचस्प और महत्वपूर्ण अध्याय शुरू करने जा रहे हैं - प्रायिकता, जिसे अंग्रेजी में Probability कहते हैं। यह आपके यूपी बोर्ड पाठ्यक्रम का हिस्सा है।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">प्रायिकता</span> क्या है?</h2>
+          <ul><li>किसी घटना के घटित होने की संभावना का माप।</li><li>यह एक संख्यात्मक मान है।</li></ul>
+          <p class="notes">🎙️ प्रायिकता हमें बताती है कि कोई घटना कितनी संभावित है। यह एक संख्या होती है जो 0 से 1 के बीच होती है। 0 का मतलब असंभव और 1 का मतलब निश्चित।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>प्रायिकता <span class="hl">क्यों</span> सीखें?</h2>
+          <ul><li>दैनिक जीवन में निर्णय लेने में मदद करती है।</li><li>मौसम का पूर्वानुमान, खेल के परिणाम, बीमा आदि में उपयोग।</li></ul>
+          <p class="notes">🎙️ प्रायिकता सिर्फ गणित का विषय नहीं है, यह हमारे रोजमर्रा के जीवन में भी बहुत उपयोगी है। मौसम विभाग से लेकर शेयर बाजार तक, हर जगह इसका इस्तेमाल होता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎲</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>मुख्य शब्द: <span class="hl">प्रयोग</span> और परिणाम</h2>
+          <ul><li>प्रयोग: एक क्रिया जिसका परिणाम निश्चित नहीं होता।</li><li>परिणाम: प्रयोग का संभावित नतीजा।</li></ul>
+          <p class="notes">🎙️ जब हम कोई क्रिया करते हैं जैसे सिक्का उछालना या पासा फेंकना, तो उसे 'प्रयोग' कहते हैं। और इस प्रयोग से हमें जो मिल सकता है, जैसे हेड या टेल, उसे 'परिणाम' कहते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>मुख्य शब्द: <span class="hl">घटना</span></h2>
+          <ul><li>घटना: किसी प्रयोग के एक या अधिक परिणामों का संग्रह।</li><li>उदाहरण: पासा फेंकने पर सम संख्या आना।</li></ul>
+          <p class="notes">🎙️ एक घटना वह होती है जिसमें हम कुछ खास परिणामों की बात करते हैं। जैसे, पासा फेंकने पर 2, 4, या 6 आना एक 'सम संख्या आने की घटना' है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>मुख्य शब्द: <span class="hl">प्रतिदर्श समष्टि</span></h2>
+          <ul><li>प्रतिदर्श समष्टि: किसी प्रयोग के सभी संभावित परिणामों का समूह।</li><li>इसे 'S' से दर्शाते हैं।</li></ul>
+          <p class="notes">🎙️ प्रतिदर्श समष्टि का मतलब है कि एक प्रयोग में जितने भी अलग-अलग परिणाम आ सकते हैं, उन सबको एक साथ लिख देना। जैसे, सिक्का उछालने पर {हेड, टेल} प्रतिदर्श समष्टि है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌌</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>प्रायिकता का <span class="hl">सूत्र</span></h2>
+          <ul><li>P(E) = (अनुकूल परिणामों की संख्या) / (कुल संभावित परिणामों की संख्या)</li><li>P(E) = n(E) / n(S)</li></ul>
+          <p class="notes">🎙️ यह प्रायिकता का सबसे महत्वपूर्ण सूत्र है। अनुकूल परिणाम वे होते हैं जो हम चाहते हैं, और कुल परिणाम वे होते हैं जो आ सकते हैं। इस सूत्र को याद रखना बहुत ज़रूरी है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✍️</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>उदाहरण 1: <span class="hl">सिक्का</span> उछालना</h2>
+          <ul><li>एक सिक्का उछालने पर हेड आने की प्रायिकता ज्ञात करें।</li><li>कुल परिणाम (S) = {हेड, टेल} = 2</li><li>अनुकूल परिणाम (हेड) = 1</li></ul>
+          <p class="notes">🎙️ अगर हम एक सिक्का उछालते हैं, तो या तो हेड आएगा या टेल। कुल दो परिणाम हैं। हमें हेड चाहिए, जो एक ही बार आ सकता है। तो प्रायिकता 1/2 होगी।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🪙</span><span>🪙</span></div><div class="vcap">सिक्का</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>उदाहरण 2: <span class="hl">पासा</span> फेंकना</h2>
+          <ul><li>एक पासा फेंकने पर सम संख्या आने की प्रायिकता ज्ञात करें।</li><li>कुल परिणाम (S) = {1, 2, 3, 4, 5, 6} = 6</li><li>अनुकूल परिणाम (सम संख्या) = {2, 4, 6} = 3</li></ul>
+          <p class="notes">🎙️ एक पासे पर 1 से 6 तक संख्याएँ होती हैं। सम संख्याएँ 2, 4, 6 हैं। कुल 6 परिणामों में से 3 परिणाम हमारे अनुकूल हैं। तो प्रायिकता 3/6 यानी 1/2 होगी।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span><span>🎲</span></div><div class="vcap">पासा</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>घटनाओं के प्रकार: <span class="hl">निश्चित घटना</span></h2>
+          <ul><li>जो घटना निश्चित रूप से घटित होगी।</li><li>इसकी प्रायिकता हमेशा 1 होती है।</li></ul>
+          <p class="notes">🎙️ निश्चित घटना वह होती है जिसके होने की 100% संभावना हो। जैसे, सूरज का पूरब से निकलना एक निश्चित घटना है, इसकी प्रायिकता 1 है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>घटनाओं के प्रकार: <span class="hl">असंभव घटना</span></h2>
+          <ul><li>जो घटना कभी घटित नहीं हो सकती।</li><li>इसकी प्रायिकता हमेशा 0 होती है।</li></ul>
+          <p class="notes">🎙️ असंभव घटना वह होती है जो कभी नहीं हो सकती। जैसे, एक पासा फेंकने पर 7 आना असंभव घटना है, क्योंकि पासे पर 7 होता ही नहीं है। इसकी प्रायिकता 0 है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚫</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>प्रायिकता का <span class="hl">मान</span></h2>
+          <ul><li>किसी भी घटना की प्रायिकता 0 और 1 के बीच होती है।</li><li>0 ≤ P(E) ≤ 1</li></ul>
+          <p class="notes">🎙️ यह बहुत महत्वपूर्ण नियम है। प्रायिकता कभी भी 0 से कम या 1 से ज़्यादा नहीं हो सकती। अगर आपका उत्तर ऐसा आता है, तो आपने कहीं गलती की है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">पूरक</span> घटनाएँ</h2>
+          <ul><li>घटना E के न होने की घटना को E का पूरक कहते हैं (E' या E̅)।</li><li>P(E) + P(E') = 1</li></ul>
+          <p class="notes">🎙️ अगर किसी घटना के होने की प्रायिकता P(E) है, तो उसके न होने की प्रायिकता P(E') होती है। इन दोनों का जोड़ हमेशा 1 होता है। यह सूत्र कई समस्याओं को हल करने में मदद करता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>उदाहरण 3: <span class="hl">ताश</span> के पत्ते</h2>
+          <ul><li>52 पत्तों की गड्डी से एक इक्का निकालने की प्रायिकता।</li><li>कुल पत्ते = 52</li><li>इक्के = 4</li></ul>
+          <p class="notes">🎙️ ताश की एक गड्डी में 52 पत्ते होते हैं, जिनमें 4 इक्के होते हैं। तो इक्का निकालने की प्रायिकता 4/52 होगी, जिसे सरल करके 1/13 लिख सकते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>♠️</span><span>♠️</span><span>♠️</span><span>♠️</span><span>♠️</span><span>♠️</span><span>♠️</span><span>♠️</span><span>♠️</span><span>♠️</span></div><div class="vcap">ताश के पत्ते</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>उदाहरण 4: थैले में <span class="hl">कंचे</span></h2>
+          <ul><li>एक थैले में 3 लाल और 2 नीले कंचे हैं। लाल कंचा निकालने की प्रायिकता।</li><li>कुल कंचे = 3 + 2 = 5</li><li>लाल कंचे = 3</li></ul>
+          <p class="notes">🎙️ यहाँ कुल 5 कंचे हैं। हमें लाल कंचा चाहिए, जो 3 हैं। तो लाल कंचा निकालने की प्रायिकता 3/5 होगी।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔴</span><span>🔴</span><span>🔴</span><span>🔴</span><span>🔴</span></div><div class="vcap">कंचे</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>त्वरित <span class="hl">प्रश्न</span> 1</h2>
+          <ul><li>एक सिक्का उछालने पर टेल आने की प्रायिकता क्या है?</li></ul>
+          <p class="notes">🎙️ सोचिए, एक सिक्का उछालने पर कितने कुल परिणाम हो सकते हैं और उनमें से कितने टेल के अनुकूल हैं? फिर सूत्र लगाइए।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>त्वरित <span class="hl">प्रश्न</span> 2</h2>
+          <ul><li>एक पासा फेंकने पर अभाज्य संख्या आने की प्रायिकता क्या है?</li></ul>
+          <p class="notes">🎙️ याद करिए, 1 से 6 तक कौन-कौन सी संख्याएँ अभाज्य होती हैं? कुल परिणाम और अनुकूल परिणाम गिनिए।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>त्वरित <span class="hl">प्रश्न</span> 3</h2>
+          <ul><li>एक थैले में 5 लाल, 3 नीली और 2 हरी गेंदें हैं। नीली गेंद न होने की प्रायिकता क्या है?</li></ul>
+          <p class="notes">🎙️ पहले नीली गेंद होने की प्रायिकता निकालिए, फिर पूरक घटना वाले सूत्र का उपयोग करें। यह थोड़ा ट्रिकी है, ध्यान से करें।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>ताश की गड्डी की <span class="hl">मूल बातें</span></h2>
+          <ul><li>कुल पत्ते: 52 (26 लाल, 26 काले)</li><li>सूट: हुकुम (♠️), चिड़ी (♣️), पान (♥️), ईंट (♦️) - प्रत्येक 13 पत्ते</li><li>फेस कार्ड (चित्र वाले पत्ते): 12 (गुलाम, बेगम, बादशाह - प्रत्येक सूट में 3)</li></ul>
+          <p class="notes">🎙️ ताश के पत्तों से जुड़े सवाल अक्सर आते हैं। इन मूल बातों को समझना ज़रूरी है। याद रखें कि हर सूट में 13 पत्ते होते हैं और हर सूट में एक इक्का, एक बादशाह, एक बेगम और एक गुलाम होता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🃏</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>हल किया गया <span class="hl">उदाहरण</span> 5: ताश</h2>
+          <ul><li>52 पत्तों की गड्डी से लाल रंग का बादशाह निकालने की प्रायिकता।</li><li>कुल पत्ते = 52</li><li>लाल रंग के बादशाह = 2 (पान का बादशाह, ईंट का बादशाह)</li></ul>
+          <p class="notes">🎙️ ताश की गड्डी में कुल दो लाल बादशाह होते हैं - एक पान का और एक ईंट का। तो लाल बादशाह निकालने की प्रायिकता 2/52 होगी, जिसे सरल करके 1/26 लिख सकते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>👑</span><span>👑</span></div><div class="vcap">लाल बादशाह</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>हल किया गया उदाहरण 6: <span class="hl">दो पासे</span></h2>
+          <ul><li>दो पासे एक साथ फेंकने पर अंकों का योग 7 आने की प्रायिकता।</li><li>कुल परिणाम = 6 × 6 = 36</li><li>योग 7 के अनुकूल परिणाम: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) = 6</li></ul>
+          <p class="notes">🎙️ जब दो पासे एक साथ फेंकते हैं, तो कुल 36 संभावित परिणाम होते हैं। हमें उन जोड़ियों को खोजना है जिनका योग 7 हो। ये 6 जोड़ियाँ हैं। तो प्रायिकता 6/36 यानी 1/6 होगी।</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>(1,1) से (1,6)</span></div><div class="step"><span class="snum">2</span><span>(2,1) से (2,6)</span></div><div class="step"><span class="snum">3</span><span>...तक...</span></div><div class="step"><span class="snum">4</span><span>(6,1) से (6,6)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">दैनिक जीवन</span> में प्रायिकता</h2>
+          <ul><li>मौसम का पूर्वानुमान (कल बारिश की 70% संभावना है)।</li><li>खेल के परिणाम (भारत के जीतने की प्रायिकता 80% है)।</li><li>बीमा (दुर्घटना की संभावना पर आधारित)।</li></ul>
+          <p class="notes">🎙️ आप हर दिन प्रायिकता का सामना करते हैं। जब मौसम विभाग कहता है कि बारिश की संभावना है, या जब आप अपनी पसंदीदा टीम के जीतने की उम्मीद करते हैं, तो आप प्रायिकता के बारे में ही सोच रहे होते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☔</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>सामान्य <span class="hl">भ्रांतियाँ</span></h2>
+          <ul><li>गलतफहमी: 'अगर हेड बहुत बार आया है, तो अगली बार टेल आने की संभावना ज़्यादा है।'</li><li>सच्चाई: हर उछाल स्वतंत्र होता है; प्रायिकता वही रहती है।</li></ul>
+          <p class="notes">🎙️ यह एक आम गलतफहमी है जिसे 'जुआरी की भ्रांति' कहते हैं। याद रखें, एक सिक्के को जितनी बार भी उछालें, हेड या टेल आने की प्रायिकता हमेशा 1/2 ही रहती है, पिछली घटनाओं का इस पर कोई असर नहीं पड़ता।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">पुनरावृत्ति</span> (Recap)</h2>
+          <ul><li>प्रायिकता = अनुकूल परिणाम / कुल परिणाम</li><li>0 ≤ P(E) ≤ 1</li><li>P(E) + P(E') = 1</li></ul>
+          <p class="notes">🎙️ आज हमने प्रायिकता के मूल सिद्धांतों को समझा। मुख्य सूत्र, प्रायिकता की सीमा और पूरक घटनाओं के बारे में जाना। इन सभी अवधारणाओं को याद रखना बहुत ज़रूरी है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">धन्यवाद!</span></h2>
+          <ul><li>अभ्यास करते रहें!</li><li>कोई प्रश्न हो तो पूछें।</li></ul>
+          <p class="notes">🎙️ मुझे उम्मीद है कि आपको प्रायिकता की अवधारणा स्पष्ट हो गई होगी। अब घर जाकर इन अवधारणाओं का अभ्यास करें और यदि कोई संदेह हो तो अगली कक्षा में पूछें।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🙏</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

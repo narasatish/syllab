@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Coordinate Geometry — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Coordinate</span> Geometry!</h2>
+          <ul><li>Let's explore how to locate points and shapes.</li><li>A fun way to map positions in mathematics.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey into the world of Coordinate Geometry. Get ready to learn how we can describe exact locations using numbers!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Coordinate</span> Geometry?</h2>
+          <ul><li>A branch of mathematics that uses coordinates to study geometric figures.</li><li>It helps us specify the position of a point on a plane.</li><li>Combines algebra and geometry.</li></ul>
+          <p class="notes">🎙️ Imagine you want to tell someone exactly where something is. Coordinate geometry gives us a powerful system to do just that, linking numbers to positions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Locating points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Real-Life Use: Finding <span class="hl">Locations</span></h2>
+          <ul><li>Maps and GPS systems use coordinates.</li><li>Finding a seat in a cinema hall.</li><li>Planning city layouts.</li></ul>
+          <p class="notes">🎙️ Think about how Google Maps works. It uses a coordinate system to pinpoint your exact location or a destination. This concept is everywhere around us!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🗺️</span><span>🗺️</span><span>🗺️</span></div><div class="vcap">Maps use coordinates</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The <span class="hl">Cartesian System</span>: The Foundation</h2>
+          <ul><li>Invented by René Descartes.</li><li>Uses two perpendicular lines to define a plane.</li><li>Forms the basis of coordinate geometry.</li></ul>
+          <p class="notes">🎙️ The entire system is named after the French mathematician René Descartes. He came up with this brilliant idea of using a grid to locate points, which is super helpful!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Two perpendicular lines</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The <span class="hl">Axes</span>: X-axis and Y-axis</h2>
+          <ul><li>The horizontal line is the X-axis.</li><li>The vertical line is the Y-axis.</li><li>They intersect at the origin.</li></ul>
+          <p class="notes">🎙️ Think of the X-axis as moving left and right, and the Y-axis as moving up and down. These two lines are our main reference points.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">X-axis (Horizontal)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Y-axis (Vertical)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>The <span class="hl">Origin</span>: The Starting Point (0,0)</h2>
+          <ul><li>The point where the X-axis and Y-axis intersect.</li><li>Its coordinates are always (0, 0).</li><li>It's our main reference point for all other locations.</li></ul>
+          <p class="notes">🎙️ The origin is like the 'home base' or 'starting line' for all our measurements. Every point's location is described relative to this origin.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">The central point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Quadrants</span>: Dividing the Plane</h2>
+          <ul><li>The axes divide the plane into four regions.</li><li>Each region is called a quadrant.</li><li>They are numbered counter-clockwise.</li></ul>
+          <p class="notes">🎙️ When the X and Y axes cross, they create four distinct sections. We call these quadrants, and they are always numbered starting from the top-right and moving anti-clockwise.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Quadrant I (+,+)</span></div><div class="step"><span class="snum">2</span><span>Quadrant II (-,+)</span></div><div class="step"><span class="snum">3</span><span>Quadrant III (-,-)</span></div><div class="step"><span class="snum">4</span><span>Quadrant IV (+,-)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Coordinates</span>: (x, y) - How to write them</h2>
+          <ul><li>A pair of numbers (x, y) that specifies a point's location.</li><li>The first number, 'x', is the x-coordinate (abscissa).</li><li>The second number, 'y', is the y-coordinate (ordinate).</li></ul>
+          <p class="notes">🎙️ This (x, y) pair is like a unique address for every point. The 'x' tells us how far left or right, and the 'y' tells us how far up or down from the origin.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">(x,y)</div><div class="vcap">Ordered Pair</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Plotting</span> Points: Step-by-step</h2>
+          <ul><li>Start at the origin (0,0).</li><li>Move horizontally along the X-axis (x-coordinate).</li><li>Then, move vertically along the Y-axis (y-coordinate).</li><li>Mark the point.</li></ul>
+          <p class="notes">🎙️ Plotting points is like following directions on a map. Always remember to move horizontally first (along X) and then vertically (along Y).</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Start at (0,0)</span></div><div class="step"><span class="snum">2</span><span>Move X-units</span></div><div class="step"><span class="snum">3</span><span>Move Y-units</span></div><div class="step"><span class="snum">4</span><span>Mark Point</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Real-Life Example: Cinema <span class="hl">Seating</span></h2>
+          <ul><li>Your ticket says 'Row 5, Seat 8'.</li><li>Row 5 could be your y-coordinate, Seat 8 your x-coordinate.</li><li>Helps others find your exact spot.</li></ul>
+          <p class="notes">🎙️ Imagine you're at a cinema. Your seat number is a perfect example of coordinates! You find your row (Y) and then your seat within that row (X).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💺</span><span>💺</span><span>💺</span><span>💺</span><span>💺</span></div><div class="vcap">Finding your seat</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Worked Example 1: Plotting <span class="hl">A(3, 2)</span></h2>
+          <ul><li>Start at (0,0).</li><li>Move 3 units right along the X-axis.</li><li>Then, move 2 units up parallel to the Y-axis.</li><li>Mark the point A.</li></ul>
+          <p class="notes">🎙️ For A(3, 2), both numbers are positive. This means we move right on the X-axis and up on the Y-axis, placing the point in Quadrant I.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Positive coordinates</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked Example 2: Plotting <span class="hl">B(-4, 1)</span></h2>
+          <ul><li>Start at (0,0).</li><li>Move 4 units left along the X-axis (negative X).</li><li>Then, move 1 unit up parallel to the Y-axis (positive Y).</li><li>Mark the point B.</li></ul>
+          <p class="notes">🎙️ Here, the x-coordinate is negative, so we move left. The y-coordinate is positive, so we move up. This point will be in Quadrant II.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Negative X, Positive Y</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example 3: Plotting <span class="hl">C(-2, -3)</span> and D(5, -1)</h2>
+          <ul><li>For C(-2, -3): Move 2 left, then 3 down.</li><li>For D(5, -1): Move 5 right, then 1 down.</li><li>Practice plotting these on your graph paper!</li></ul>
+          <p class="notes">🎙️ C is in Quadrant III (both negative), and D is in Quadrant IV (positive X, negative Y). It's important to be careful with the signs!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Mixed coordinates</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Points on <span class="hl">X-axis</span>: (x, 0)</h2>
+          <ul><li>Any point on the X-axis has its y-coordinate as 0.</li><li>Examples: (3, 0), (-5, 0).</li><li>They don't move up or down from the X-axis.</li></ul>
+          <p class="notes">🎙️ If the y-coordinate is zero, it means the point lies directly on the X-axis. There's no vertical movement from the origin.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Only horizontal movement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Points on <span class="hl">Y-axis</span>: (0, y)</h2>
+          <ul><li>Any point on the Y-axis has its x-coordinate as 0.</li><li>Examples: (0, 4), (0, -2).</li><li>They don't move left or right from the Y-axis.</li></ul>
+          <p class="notes">🎙️ Similarly, if the x-coordinate is zero, the point lies directly on the Y-axis. There's no horizontal movement from the origin.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Only vertical movement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Signs</span> of Coordinates in Quadrants</h2>
+          <ul><li>Quadrant I: (+, +)</li><li>Quadrant II: (-, +)</li><li>Quadrant III: (-, -)</li><li>Quadrant IV: (+, -)</li></ul>
+          <p class="notes">🎙️ This table is super important! Knowing the signs instantly tells you which quadrant a point belongs to, even before plotting.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q1 (+,+)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q2 (-,+)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q3 (-,-)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Q4 (+,-)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick Question 1: Identify the <span class="hl">Quadrant</span></h2>
+          <ul><li>In which quadrant does the point (-5, 7) lie?</li><li>Think about the signs of x and y.</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the signs we just discussed. Is the x-coordinate positive or negative? What about the y-coordinate?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Quick Question 2: Identify <span class="hl">Coordinates</span></h2>
+          <ul><li>What are the coordinates of the origin?</li><li>This is a fundamental point.</li></ul>
+          <p class="notes">🎙️ This is a basic but crucial concept. Every measurement starts from this specific point.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick Question 3: Point on <span class="hl">Axis</span></h2>
+          <ul><li>A point has coordinates (0, -6). On which axis does it lie?</li><li>Remember the special cases for x=0 or y=0.</li></ul>
+          <p class="notes">🎙️ If one of the coordinates is zero, the point isn't in a quadrant, but directly on one of the axes. Which one is it?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Forming <span class="hl">Shapes</span>: Connecting the Dots</h2>
+          <ul><li>We can plot multiple points and connect them.</li><li>This allows us to draw geometric shapes.</li><li>Examples: triangles, squares, rectangles.</li></ul>
+          <p class="notes">🎙️ Coordinate geometry isn't just about single points. We can use it to define and draw entire shapes by plotting their vertices and joining them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">△</div><div class="vcap">Geometric figures</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Real-Life Example: Drawing a <span class="hl">House Plan</span></h2>
+          <ul><li>Architects use coordinates to design buildings.</li><li>Each corner of a room can be a point.</li><li>Ensures precise measurements and layout.</li></ul>
+          <p class="notes">🎙️ Architects use coordinate systems all the time! They plot the corners of rooms, walls, and windows to create accurate blueprints and ensure everything fits perfectly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span><span>🏠</span><span>🏠</span><span>🏠</span></div><div class="vcap">Designing spaces</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Worked Example 4: Plotting Vertices of a <span class="hl">Rectangle</span></h2>
+          <ul><li>Plot the points A(1,1), B(5,1), C(5,3), D(1,3).</li><li>Connect the points in order.</li><li>What shape do you get?</li></ul>
+          <p class="notes">🎙️ Let's try plotting these four points. If you connect A to B, B to C, C to D, and D back to A, you will form a rectangle. This shows how coordinates define shapes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">▭</div><div class="vcap">Plotting a rectangle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Recap: <span class="hl">Key Learnings</span></h2>
+          <ul><li>The Cartesian system uses X and Y axes.</li><li>The origin is (0,0).</li><li>Points are written as (x, y) - abscissa and ordinate.</li><li>Quadrants are defined by the signs of x and y.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the main components: the axes, the origin, how to write coordinates, and the four quadrants.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Recap: Key Learnings (<span class="hl">Continued</span>)</h2>
+          <ul><li>How to plot points step-by-step.</li><li>Points on X-axis have y=0; on Y-axis have x=0.</li><li>Coordinate geometry helps locate points and draw shapes.</li><li>It has many real-world applications.</li></ul>
+          <p class="notes">🎙️ We also learned the practical skill of plotting points and saw how this simple system is used in maps, cinema halls, and even architecture.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Keep <span class="hl">Practicing!</span></h2>
+          <ul><li>Practice plotting different points.</li><li>Try drawing various shapes.</li><li>Coordinate geometry is fun and useful!</li></ul>
+          <p class="notes">🎙️ Keep practicing on graph paper, students! The more you practice, the better you'll become at understanding and using coordinate geometry. See you next time!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Well done!</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

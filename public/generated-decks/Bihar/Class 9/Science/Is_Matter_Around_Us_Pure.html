@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Is Matter Around Us Pure? — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Is Matter Around Us <span class="hl">Pure</span>?</h2>
+          <ul><li>Everything we see and touch is matter.</li><li>But is all matter around us truly 'pure'?</li><li>Let's explore the world of pure substances and mixtures!</li></ul>
+          <p class="notes">🎙️ Hello students! Today we begin an exciting chapter. We interact with matter every day, from the air we breathe to the food we eat. We'll learn how to classify matter based on its purity.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Matter</span>? (A Quick Recap)</h2>
+          <ul><li>Anything that has mass and occupies space.</li><li>Exists in different states: solid, liquid, gas.</li><li>Made up of tiny particles.</li></ul>
+          <p class="notes">🎙️ Remember from our previous chapter that matter is anything that takes up space and has weight. It's the fundamental stuff of the universe, and it can be found in various forms like solids, liquids, and gases.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧱</div><div class="vcap">Building Blocks</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Pure</span> Substances vs. Mixtures</h2>
+          <ul><li>Matter can be broadly classified into two main types.</li><li>Pure substances have a uniform composition.</li><li>Mixtures have varying compositions.</li></ul>
+          <p class="notes">🎙️ The big question we're tackling today is how pure is the matter around us. We'll learn that matter falls into two main categories: pure substances and mixtures, each with distinct characteristics.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Pure Substance</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Mixture</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>What are <span class="hl">Pure Substances</span>?</h2>
+          <ul><li>Consist of a single type of particle.</li><li>Have a uniform composition throughout.</li><li>Cannot be separated into other kinds of matter by physical processes.</li></ul>
+          <p class="notes">🎙️ A pure substance is like a perfect recipe with only one ingredient. Every part of it is exactly the same, and you can't easily break it down into simpler things using simple methods.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">Uniform &amp; Pristine</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Elements</span>: Simplest Pure Form</h2>
+          <ul><li>Cannot be broken down into simpler substances by chemical reactions.</li><li>Made up of only one type of atom.</li><li>Examples: Gold, Oxygen, Iron.</li></ul>
+          <p class="notes">🎙️ Elements are the fundamental building blocks of all matter. Think of them as the basic colours on a painter's palette; you can't create them from other colours, but you can mix them to make new ones.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Chemical_reaction.svg?width=500" data-fb="⚛️" alt="Chemical reactions can be classified by the types of chemical changes involved. Five main "/><div class="vcap">Chemical reactions can be classified by the types of chemical changes involved. Five main </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Examples</span> of Elements</h2>
+          <ul><li>Gold (Au): Used in jewellery, very unreactive.</li><li>Oxygen (O): Essential for breathing, a gas.</li><li>Iron (Fe): Used in construction, a strong metal.</li></ul>
+          <p class="notes">🎙️ Gold, oxygen, and iron are perfect examples of elements. Gold is a precious metal, oxygen is vital for life, and iron is a common metal used everywhere. Each is a pure substance made of only one type of atom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥇</span><span>🥇</span><span>🥇</span><span>🥇</span><span>🥇</span></div><div class="vcap">Shiny Gold</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Compounds</span>: Pure Substances from Elements</h2>
+          <ul><li>Formed when two or more elements chemically combine.</li><li>Combined in a fixed ratio by mass.</li><li>Properties are different from their constituent elements.</li></ul>
+          <p class="notes">🎙️ Compounds are like new dishes created by combining different ingredients in a specific way. Once combined, the new substance has entirely different properties from its original elements, like water from hydrogen and oxygen.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Chemical Combination</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Examples</span> of Compounds</h2>
+          <ul><li>Water (H₂O): Hydrogen and Oxygen combined.</li><li>Common Salt (NaCl): Sodium and Chlorine combined.</li><li>Carbon Dioxide (CO₂): Carbon and Oxygen combined.</li></ul>
+          <p class="notes">🎙️ Water is a compound we all know well. It's formed when hydrogen and oxygen atoms chemically bond. Similarly, the salt we use daily is a compound of sodium and chlorine, having very different properties than sodium metal or chlorine gas.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Pure Water</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Quick Check</span> 1: Pure Substances</h2>
+          <ul><li>Which of these is a pure substance?</li><li>A) Air</li><li>B) Sugar solution</li><li>C) Diamond</li></ul>
+          <p class="notes">🎙️ Take a moment to think about the definitions we just covered. Remember that pure substances have a uniform composition and consist of only one type of particle. Which option fits this description best?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>What are <span class="hl">Mixtures</span>?</h2>
+          <ul><li>Contain two or more pure substances physically mixed together.</li><li>Components retain their individual properties.</li><li>Can be separated by physical methods.</li></ul>
+          <p class="notes">🎙️ Unlike compounds, mixtures are like a fruit salad where each fruit keeps its own taste and identity. The ingredients are just put together, not chemically bonded, so they can be separated fairly easily.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥣</div><div class="vcap">Mixed Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Homogeneous</span> Mixtures: Uniform Blend</h2>
+          <ul><li>Have a uniform composition throughout.</li><li>Components are indistinguishable from each other.</li><li>Examples: Salt solution, Air.</li></ul>
+          <p class="notes">🎙️ In a homogeneous mixture, everything is so well mixed that you can't tell the different parts apart. Imagine dissolving sugar in water; the sweetness is uniform throughout, and you can't see the sugar particles anymore.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Blended Perfectly</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Examples</span> of Homogeneous Mixtures</h2>
+          <ul><li>Sugar solution: Sugar dissolved in water.</li><li>Air: A mixture of gases like nitrogen, oxygen, argon.</li><li>Brass: An alloy of copper and zinc.</li></ul>
+          <p class="notes">🎙️ Think about a cup of sweetened tea. The sugar is completely dissolved, and every sip tastes the same. Similarly, the air we breathe is a homogeneous mixture of various gases, perfectly blended.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>☕</span><span>☕</span><span>☕</span><span>☕</span></div><div class="vcap">Sweet Tea</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Heterogeneous</span> Mixtures: Non-Uniform Blend</h2>
+          <ul><li>Have a non-uniform composition.</li><li>Components can be seen as distinct parts.</li><li>Examples: Sand and water, Oil and water.</li></ul>
+          <p class="notes">🎙️ In contrast, heterogeneous mixtures have visible boundaries between their components. If you mix sand and water, you can clearly see the sand settling at the bottom. The mixture isn't the same throughout.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Separate Layers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Examples</span> of Heterogeneous Mixtures</h2>
+          <ul><li>Sand and water: Sand particles settle down.</li><li>Oil and water: Form separate layers.</li><li>Muddy water: Dirt particles suspended in water.</li></ul>
+          <p class="notes">🎙️ A salad is a great everyday example of a heterogeneous mixture; you can easily see the individual vegetables. In the lab, mixing oil and water clearly shows two distinct layers, demonstrating their non-uniform nature.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥗</span><span>🥗</span><span>🥗</span></div><div class="vcap">Salad Bowl</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Comparing</span> Homogeneous &amp; Heterogeneous Mixtures</h2>
+          <ul><li>Homogeneous: Uniform composition, indistinguishable parts.</li><li>Heterogeneous: Non-uniform composition, distinguishable parts.</li><li>Key difference lies in uniformity.</li></ul>
+          <p class="notes">🎙️ The main distinction is whether the mixture looks and behaves uniformly throughout. Homogeneous mixtures are perfectly blended, while heterogeneous mixtures clearly show their different components.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Homogeneous</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Heterogeneous</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Quick Check</span> 2: Mixtures</h2>
+          <ul><li>Which of these is a heterogeneous mixture?</li><li>A) Bronze</li><li>B) Air</li><li>C) Blood</li></ul>
+          <p class="notes">🎙️ Consider the properties of each type of mixture. Remember, a heterogeneous mixture has components that are visible and not uniformly distributed. Think carefully about which option fits this description.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Solutions</span>: A Special Homogeneous Mixture</h2>
+          <ul><li>A homogeneous mixture of two or more substances.</li><li>The particles are very small and uniformly distributed.</li><li>Consists of a solute (substance dissolved) and a solvent (substance doing the dissolving).</li></ul>
+          <p class="notes">🎙️ A solution is the most common type of homogeneous mixture. It's when one substance completely disappears into another, like sugar in water. The substance that dissolves is the solute, and the one that dissolves it is the solvent.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Perfectly Dissolved</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Properties</span> of a Solution</h2>
+          <ul><li>Particles are smaller than 1 nm in diameter.</li><li>Cannot be seen by the naked eye.</li><li>Does not scatter a beam of light (Tyndall effect absent).</li><li>Stable: Solute particles do not settle down.</li></ul>
+          <p class="notes">🎙️ Solutions have unique characteristics due to their tiny particles. They are transparent, meaning light passes straight through, and the dissolved particles will never separate or settle at the bottom, making them very stable.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Tiny Particles</span></div><div class="step"><span class="snum">2</span><span>Transparent</span></div><div class="step"><span class="snum">3</span><span>Stable</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real-life Solution: <span class="hl">Lemonade</span></h2>
+          <ul><li>Sugar and lemon juice (solutes) dissolved in water (solvent).</li><li>A refreshing, uniformly mixed drink.</li><li>The particles are so small, you can't see them.</li></ul>
+          <p class="notes">🎙️ Lemonade is a perfect everyday example of a solution. When you mix sugar, lemon juice, and water, they blend perfectly to form a uniform drink. You can't see the individual sugar crystals or lemon pulp, making it a true solution.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍋</span><span>🍋</span><span>🍋</span><span>🍋</span><span>🍋</span></div><div class="vcap">Fresh Lemonade</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Suspensions</span>: Heterogeneous &amp; Settling</h2>
+          <ul><li>A heterogeneous mixture.</li><li>Solid particles are dispersed in a liquid.</li><li>Particles are large enough to be seen and settle over time.</li></ul>
+          <p class="notes">🎙️ Suspensions are like a temporary mix, where solid particles are floating around in a liquid. If you leave it undisturbed, gravity will eventually pull the particles down, and they will settle at the bottom.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌪️</div><div class="vcap">Particles in Motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Properties</span> of a Suspension</h2>
+          <ul><li>Particles are large (greater than 100 nm).</li><li>Can be seen with the naked eye.</li><li>Scatters a beam of light (Tyndall effect).</li><li>Unstable: Particles settle down on their own.</li></ul>
+          <p class="notes">🎙️ The large particle size in suspensions gives them distinct properties. They appear cloudy, scatter light, and are unstable, meaning the particles will eventually separate and settle if left alone.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Large Particles</span></div><div class="step"><span class="snum">2</span><span>Opaque</span></div><div class="step"><span class="snum">3</span><span>Unstable</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Real-life Suspension: <span class="hl">Muddy Water</span></h2>
+          <ul><li>Soil particles dispersed in water.</li><li>Particles are visible and make the water cloudy.</li><li>Given time, the mud will settle at the bottom.</li></ul>
+          <p class="notes">🎙️ Muddy water is a classic example of a suspension. You can clearly see the dirt particles floating in the water, and if you let it sit, the mud will slowly sink to the bottom, leaving clearer water above.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏞️</span><span>🏞️</span><span>🏞️</span></div><div class="vcap">Cloudy River</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Colloids</span>: The In-Between Mixture</h2>
+          <ul><li>A heterogeneous mixture, but appears homogeneous.</li><li>Particle size is intermediate (1-100 nm).</li><li>Particles are uniformly spread throughout the solution.</li></ul>
+          <p class="notes">🎙️ Colloids are fascinating because they trick your eyes! They look uniform, but they are actually heterogeneous. Their particle size is bigger than solutions but smaller than suspensions, giving them unique properties.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🥛</div><div class="vcap">Appears Uniform</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Properties</span> of a Colloid</h2>
+          <ul><li>Particles are intermediate in size (1-100 nm).</li><li>Cannot be seen by the naked eye.</li><li>Scatters a beam of light (Tyndall effect present).</li><li>Stable: Particles do not settle down.</li></ul>
+          <p class="notes">🎙️ Colloids are stable and don't settle, similar to solutions, but unlike solutions, they scatter light, a phenomenon called the Tyndall effect. This means you can see the path of a light beam through them.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Medium Particles</span></div><div class="step"><span class="snum">2</span><span>Translucent</span></div><div class="step"><span class="snum">3</span><span>Stable</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Real-life Colloid: <span class="hl">Milk</span></h2>
+          <ul><li>Tiny fat and protein particles dispersed in water.</li><li>Appears uniform, but is actually a colloid.</li><li>Exhibits the Tyndall effect (light scattering).</li></ul>
+          <p class="notes">🎙️ Milk is a perfect example of a colloid. It looks uniform and white, but it's actually tiny fat globules and protein particles suspended in water. If you shine a flashlight through it, you can observe the Tyndall effect.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span><span>🥛</span></div><div class="vcap">White Milk</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Motion: Understanding How Things Move — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Motion</span>: An Introduction to How Things Move</h2>
+          <ul><li>Welcome to the fascinating world of Motion!</li><li>We will explore how objects change their position.</li><li>From tiny particles to giant planets, everything moves!</li></ul>
+          <p class="notes">🎙️ Welcome, students! Today, we're starting an exciting new chapter in Science: 'Motion'. We'll learn about the fundamental principles that govern how objects move around us every single day.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Motion</span>?</h2>
+          <ul><li>An object is in motion if its position changes.</li><li>This change happens relative to its surroundings.</li><li>The change in position occurs over a period of time.</li></ul>
+          <p class="notes">🎙️ Look around you. You might see a fan rotating, a car moving on the road, or a bird flying. All these are examples of motion, where an object's location is continuously changing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♂️</div><div class="vcap">Changing Position</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Rest</span> vs. Motion</h2>
+          <ul><li>An object is at rest if its position does not change relative to its surroundings.</li><li>Motion and rest are relative terms, meaning they depend on the observer.</li><li>An object can be at rest for one person and in motion for another.</li></ul>
+          <p class="notes">🎙️ Think about a passenger sitting inside a moving bus. For another passenger inside, they are at rest. But for someone standing outside the bus, the passenger is definitely in motion. This illustrates the relative nature of rest and motion.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:33%"></div><div class="clabel">Rest</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Motion</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Describing Motion: The Need for a <span class="hl">Reference Point</span></h2>
+          <ul><li>To describe an object's position, we need a fixed point.</li><li>This fixed point is called the reference point or origin.</li><li>It helps us determine if an object is moving or at rest.</li></ul>
+          <p class="notes">🎙️ Imagine giving directions to a friend. You always start from a known place, right? That known place is your reference point. Without it, describing where something is or how it's moving becomes difficult.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Starting Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Types of Motion: <span class="hl">Linear Motion</span></h2>
+          <ul><li>Motion along a straight line path.</li><li>Also known as Rectilinear or Translatory motion.</li><li>Examples include a car on a straight road or a falling apple.</li></ul>
+          <p class="notes">🎙️ When an object moves from one point to another in a straight line, we call it linear motion. Think of a soldier marching straight ahead or a stone dropped from a height falling directly downwards.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Straight Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Types of Motion: <span class="hl">Circular Motion</span></h2>
+          <ul><li>Motion along a circular path.</li><li>The object maintains a constant distance from the center.</li><li>Examples include a spinning top or the hands of a clock.</li></ul>
+          <p class="notes">🎙️ If you tie a stone to a string and whirl it around, it performs circular motion. The Earth revolving around the Sun is another grand example of circular motion, though it's an ellipse, it's often approximated as circular.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Centripetal_force.svg?width=500" data-fb="🔄" alt="Circular motion occurs when an object moves in a circular path at constant speed. Velocity"/><div class="vcap">Circular motion occurs when an object moves in a circular path at constant speed. Velocity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Types of Motion: <span class="hl">Oscillatory</span> Motion</h2>
+          <ul><li>Motion that repeats back and forth about a fixed mean position.</li><li>Also known as Vibratory motion.</li><li>Examples include a swinging pendulum or the strings of a guitar.</li></ul>
+          <p class="notes">🎙️ A child on a swing moves back and forth around its lowest point. This rhythmic, repetitive motion is called oscillatory motion. It's a very common type of motion seen in many systems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Back and Forth</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Distance</span>: How Far We Travel</h2>
+          <ul><li>The actual length of the path covered by an object.</li><li>It is a scalar quantity, meaning it only has magnitude.</li><li>Distance is always positive or zero; it cannot be negative.</li></ul>
+          <p class="notes">🎙️ If you walk from your home to school, the total length of the path you take, even if you take detours, is the distance you covered. It doesn't matter which direction you went, only how much you moved.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Path Length</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Displacement</span>: Straight Line Change</h2>
+          <ul><li>The shortest straight-line distance between the initial and final positions.</li><li>It is a vector quantity, having both magnitude and direction.</li><li>Displacement can be positive, negative, or even zero.</li></ul>
+          <p class="notes">🎙️ Consider the home-to-school example again. Displacement would be the straight line drawn directly from your home to your school, along with the specific direction. If you return home after school, your total displacement is zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Start to End</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Distance vs. <span class="hl">Displacement</span></h2>
+          <ul><li>Distance depends on the path taken; Displacement is path-independent.</li><li>Distance is always greater than or equal to displacement magnitude.</li><li>Distance is scalar; Displacement is vector.</li></ul>
+          <p class="notes">🎙️ If you walk 5 meters east, then 5 meters west, your distance covered is 10 meters. However, your displacement is zero because you ended up at your starting point. This highlights their key difference.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Distance</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">Displacement</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Uniform Motion</span>: Constant Pace</h2>
+          <ul><li>An object covers equal distances in equal intervals of time.</li><li>The speed of the object remains constant throughout the motion.</li><li>Represented by a straight line on a distance-time graph.</li></ul>
+          <p class="notes">🎙️ Imagine a car moving on a perfectly empty highway at exactly 60 km/h without changing its speed or direction. This is a classic example of uniform motion, where the pace is constant.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚶‍♀️</div><div class="vcap">Steady Walk</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Non-Uniform</span> Motion: Changing Pace</h2>
+          <ul><li>An object covers unequal distances in equal intervals of time.</li><li>The speed of the object changes during the motion.</li><li>Represented by a curved line on a distance-time graph.</li></ul>
+          <p class="notes">🎙️ A car moving in city traffic is a perfect example of non-uniform motion. It frequently speeds up, slows down, or stops due to traffic lights and other vehicles, meaning its speed is constantly changing.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏎️</div><div class="vcap">Changing Speed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Speed</span>: How Fast an Object Moves</h2>
+          <ul><li>The rate at which an object covers distance.</li><li>Formula: Speed = Distance / Time.</li><li>It is a scalar quantity, only having magnitude. SI Unit: meters per second (m/s).</li></ul>
+          <p class="notes">🎙️ Speed tells us how quickly an object is moving, regardless of its direction. The speedometer in a car measures its instantaneous speed, showing you how fast you are going at that exact moment.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⏱️</div><div class="vcap">Distance per Time</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Velocity</span>: Speed with Direction</h2>
+          <ul><li>The rate of change of displacement.</li><li>Formula: Velocity = Displacement / Time.</li><li>It is a vector quantity, having both magnitude and direction. SI Unit: meters per second (m/s).</li></ul>
+          <p class="notes">🎙️ Velocity is crucial when direction matters. For example, a storm moving at 20 km/h North has a specific velocity. If it changes direction to East, its velocity changes even if its speed remains 20 km/h.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Speed &amp; Direction</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Speed vs. <span class="hl">Velocity</span></h2>
+          <ul><li>Speed is a scalar quantity; Velocity is a vector quantity.</li><li>Speed measures the rate of covering distance; Velocity measures the rate of change of displacement.</li><li>Speed is always positive; Velocity can be positive, negative, or zero.</li></ul>
+          <p class="notes">🎙️ While both speed and velocity are measured in meters per second, remember that velocity provides more complete information by including the direction of motion. This distinction is very important in physics.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Speed</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Velocity</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Acceleration</span>: Change in Velocity</h2>
+          <ul><li>The rate of change of velocity.</li><li>Formula: Acceleration = (Final Velocity - Initial Velocity) / Time.</li><li>It is a vector quantity. SI Unit: meters per second squared (m/s²).</li></ul>
+          <p class="notes">🎙️ When you press the accelerator pedal in a car, you are causing the car to accelerate, meaning its velocity is changing. This change can be in magnitude (speeding up or slowing down) or in direction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Speeding Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Positive &amp; <span class="hl">Negative</span> Acceleration</h2>
+          <ul><li>Positive acceleration: Velocity is increasing in the direction of motion.</li><li>Negative acceleration (Deceleration/Retardation): Velocity is decreasing.</li><li>A change in direction also causes acceleration, even if speed is constant.</li></ul>
+          <p class="notes">🎙️ When a car speeds up from a traffic light, it experiences positive acceleration. When the driver applies brakes and the car slows down, it experiences negative acceleration, also known as deceleration or retardation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️⬇️</div><div class="vcap">Increasing/Decreasing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked <span class="hl">Example</span> 1: Distance &amp; Displacement</h2>
+          <ul><li>Problem: A person walks 4 km East, then 3 km North.</li><li>Question 1: What is the total distance covered?</li><li>Question 2: What is the magnitude of their displacement?</li></ul>
+          <p class="notes">🎙️ For distance, we simply add the lengths of all the paths taken. For displacement, we find the shortest straight-line distance from the starting point to the final point, often using the Pythagorean theorem for perpendicular movements.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Distance = 4 km + 3 km = 7 km</span></div><div class="step"><span class="snum">2</span><span>Displacement = √(4² + 3²) = √25 = 5 km (North-East)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked <span class="hl">Example</span> 2: Speed &amp; Velocity</h2>
+          <ul><li>Problem: A car travels 100 km in 2 hours.</li><li>Question 1: What is its average speed?</li><li>Question 2: If it travels from city A to city B (100 km East) in 2 hours, what is its average velocity?</li></ul>
+          <p class="notes">🎙️ Notice how the calculation for magnitude is the same, but for velocity, we must include the direction. Speed only gives the magnitude, while velocity gives both magnitude and direction.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Average Speed = Distance/Time = 100 km / 2 h = 50 km/h</span></div><div class="step"><span class="snum">2</span><span>Average Velocity = Displacement/Time = 100 km East / 2 h = 50 km/h East</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Worked <span class="hl">Example</span> 3: Acceleration</h2>
+          <ul><li>Problem: A bike's velocity changes from 10 m/s to 20 m/s in 5 seconds.</li><li>Question: Calculate its acceleration.</li></ul>
+          <p class="notes">🎙️ This calculation shows us that the bike's velocity is increasing by 2 meters per second every second. This is a positive acceleration, indicating it is speeding up.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Change in Velocity (Δv) = Final V - Initial V = 20 m/s - 10 m/s = 10 m/s</span></div><div class="step"><span class="snum">2</span><span>Acceleration (a) = Δv / Time = 10 m/s / 5 s = 2 m/s²</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
+          <ul><li>When is an object considered to be in motion?</li><li>a) When it is stationary relative to the ground.</li><li>b) When its position changes with respect to a reference point.</li><li>c) When it is not visible.</li></ul>
+          <p class="notes">🎙️ Take a moment to recall our very first definition of motion. Remember, it's all about how an object's position relates to its surroundings and time.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
+          <ul><li>Can displacement be zero even if distance is not zero?</li><li>If yes, provide a simple example.</li></ul>
+          <p class="notes">🎙️ Think about the definitions of distance and displacement, especially their dependence on the path taken and the initial/final positions. The example we discussed earlier might help.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
+          <ul><li>What is the SI unit of acceleration?</li><li>a) m/s</li><li>b) km/h</li><li>c) m/s²</li><li>d) km/s</li></ul>
+          <p class="notes">🎙️ Recall the formula for acceleration, which involves a change in velocity over time. The units will reflect this relationship. Pay attention to the 'squared' part!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Motion Fundamentals</h2>
+          <ul><li>Motion is relative, defined by a reference point.</li><li>Distance is the total path length; Displacement is the shortest path from start to end.</li><li>Speed is scalar (magnitude only); Velocity is vector (magnitude and direction).</li><li>Acceleration is the rate of change of velocity.</li></ul>
+          <p class="notes">🎙️ We've covered the fundamental building blocks of understanding motion today. These concepts are crucial for further studies in physics and for understanding the world around us. Keep observing and questioning!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Any <span class="hl">Questions</span>?</h2>
+          <ul><li>Keep exploring the world around you to observe motion in action!</li><li>Practice solving problems to strengthen your understanding.</li><li>Your curiosity is the key to learning!</li></ul>
+          <p class="notes">🎙️ I hope this lesson has clarified the fundamental concepts of motion for you. Remember to apply these concepts to real-life situations. Feel free to ask any questions you have now or later!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

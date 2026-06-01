@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Energy Flow in an Ecosystem — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Energy Flow</span> in an Ecosystem</h2>
+          <ul><li>Understanding how energy moves</li><li>Connecting living and non-living things</li><li>Class 9 Science - Maharashtra Board</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on a fascinating journey to understand one of the most fundamental processes in nature: the flow of energy within an ecosystem. This chapter, 'Energy Flow in an Ecosystem,' is crucial for understanding how life on Earth sustains itself.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is an <span class="hl">Ecosystem</span>?</h2>
+          <ul><li>A community of living organisms</li><li>Interacting with their non-living environment</li><li>Example: A forest, a pond, even a small garden</li></ul>
+          <p class="notes">🎙️ An ecosystem is like a big family where all living things, from tiny bacteria to giant trees and animals, live together and interact with their surroundings. This includes things like sunlight, water, and soil. Think of a forest – it's a perfect example of an ecosystem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌳</div><div class="vcap">Interconnected Nature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Components of an Ecosystem: <span class="hl">Biotic</span></h2>
+          <ul><li>All living organisms</li><li>Plants, animals, microorganisms</li><li>They need energy to survive</li></ul>
+          <p class="notes">🎙️ The 'biotic' components are all the living parts of an ecosystem. This includes everything that breathes, grows, and reproduces – from the smallest bacteria and fungi to the largest animals and plants. They are the actors in our energy flow story.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦁</div><div class="vcap">Living Parts</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Components of an Ecosystem: <span class="hl">Abiotic</span></h2>
+          <ul><li>Non-living physical and chemical factors</li><li>Sunlight, water, soil, temperature, air</li><li>Crucial for supporting life</li></ul>
+          <p class="notes">🎙️ On the other hand, 'abiotic' components are the non-living elements. These are things like the sun's energy, the water in a pond, the soil where plants grow, and the air we breathe. They provide the necessary conditions and resources for biotic components to thrive.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Combustion_reaction.svg?width=500" data-fb="☀️" alt="Physical changes alter properties without changing identity; chemical changes create new s"/><div class="vcap">Physical changes alter properties without changing identity; chemical changes create new s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Introduction to <span class="hl">Energy Flow</span></h2>
+          <ul><li>Energy is essential for all life processes</li><li>It moves from one organism to another</li><li>Starts primarily from the sun</li></ul>
+          <p class="notes">🎙️ Just like our cars need fuel, all living organisms need energy to perform their daily activities – growing, moving, reproducing. In an ecosystem, this energy isn't created or destroyed, but it flows from one organism to another in a specific direction, mostly originating from the sun.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Life's Fuel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Producers</span> (Autotrophs)</h2>
+          <ul><li>Organisms that make their own food</li><li>Mainly green plants and algae</li><li>Use sunlight through photosynthesis</li></ul>
+          <p class="notes">🎙️ Producers are the superheroes of the ecosystem! They are also called autotrophs, meaning 'self-feeders'. They capture energy, usually from the sun, and convert it into food through a process called photosynthesis. Think of all the green plants around us.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🌱" alt="A food chain shows the flow of energy through organisms, from producers to consumers. A fo"/><div class="vcap">A food chain shows the flow of energy through organisms, from producers to consumers. A fo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Consumers</span> (Heterotrophs)</h2>
+          <ul><li>Organisms that obtain energy by eating others</li><li>Cannot make their own food</li><li>Depend directly or indirectly on producers</li></ul>
+          <p class="notes">🎙️ Consumers, or heterotrophs, are the organisms that cannot produce their own food. They must consume other organisms to get the energy they need. This means they either eat plants directly, or they eat other animals that have eaten plants, linking them to producers.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐰</div><div class="vcap">Food Eaters</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Types of Consumers: <span class="hl">Primary</span> (Herbivores)</h2>
+          <ul><li>Eat only producers (plants)</li><li>First level of consumers</li><li>Example: Cow, deer, rabbit</li></ul>
+          <p class="notes">🎙️ Primary consumers are the first level of consumers, also known as herbivores. They feed exclusively on plants. Imagine a cow grazing in a field – it's directly getting energy from the grass, which is a producer. They are a crucial link in the energy chain.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐄</div><div class="vcap">Plant Eaters</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Types of Consumers: <span class="hl">Secondary</span> (Carnivores/Omnivores)</h2>
+          <ul><li>Eat primary consumers (herbivores)</li><li>Can also be omnivores (eat plants &amp; animals)</li><li>Example: Fox eating a rabbit, human eating chicken</li></ul>
+          <p class="notes">🎙️ Secondary consumers are organisms that feed on primary consumers. If they only eat meat, they are carnivores. If they eat both plants and animals, they are omnivores. A fox hunting a rabbit is a classic example of a secondary consumer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🐺</div><div class="vcap">Meat Eaters / Mixed</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Types of Consumers: <span class="hl">Tertiary</span> (Top Carnivores)</h2>
+          <ul><li>Eat secondary consumers</li><li>Often at the top of the food chain</li><li>Example: Lion eating a fox, eagle eating a snake</li></ul>
+          <p class="notes">🎙️ Tertiary consumers are even higher up the food chain, feeding on secondary consumers. These are often the 'top' predators in an ecosystem, with few natural enemies. A large eagle preying on a snake, which might have eaten a mouse, is a good illustration.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦅</div><div class="vcap">Apex Predators</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Decomposers</span></h2>
+          <ul><li>Break down dead organic matter</li><li>Bacteria and fungi are main decomposers</li><li>Return nutrients to the soil</li></ul>
+          <p class="notes">🎙️ Decomposers are the unsung heroes of the ecosystem! They break down dead plants and animals, as well as waste products. This process, called decomposition, returns vital nutrients back into the soil, making them available for producers again. Without them, the Earth would be covered in dead things!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍄</div><div class="vcap">Recyclers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Food Chain</span>: Who Eats Whom?</h2>
+          <ul><li>A simple sequence of who eats whom</li><li>Shows how energy moves in one direction</li><li>Starts with producers and ends with top consumers</li></ul>
+          <p class="notes">🎙️ A food chain is a simple, linear pathway showing how energy is transferred from one organism to another. It always begins with a producer, then moves to primary consumers, then secondary, and so on. It's like a direct line of energy transfer.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Producer</span></div><div class="step"><span class="snum">2</span><span>Primary Consumer</span></div><div class="step"><span class="snum">3</span><span>Secondary Consumer</span></div><div class="step"><span class="snum">4</span><span>Tertiary Consumer</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Example</span> of a Food Chain</h2>
+          <ul><li>Grass → Deer → Tiger</li><li>Sun's energy captured by grass</li><li>Deer eats grass, tiger eats deer</li></ul>
+          <p class="notes">🎙️ Let's look at a common example: Grass is the producer. A deer, being a herbivore, eats the grass. Then, a tiger, a carnivore, hunts and eats the deer. Here, energy flows from the sun to grass, then to deer, and finally to the tiger.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Grass (Producer)</span></div><div class="step"><span class="snum">2</span><span>Deer (Primary Consumer)</span></div><div class="step"><span class="snum">3</span><span>Tiger (Secondary Consumer)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Food Web</span>: Interconnected Chains</h2>
+          <ul><li>Many interconnected food chains</li><li>Shows more realistic energy flow</li><li>Organisms often eat multiple types of food</li></ul>
+          <p class="notes">🎙️ In reality, ecosystems are much more complex than a single food chain. A food web represents all the possible feeding relationships within an ecosystem. It shows that most organisms have multiple food sources and are eaten by multiple predators, creating a complex 'web' of energy transfer.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Complex Connections</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Energy Transfer: The <span class="hl">10% Law</span></h2>
+          <ul><li>Only about 10% of energy is transferred</li><li>From one trophic level to the next</li><li>The rest is lost as heat or used by the organism</li></ul>
+          <p class="notes">🎙️ This is a very important concept! As energy moves from one level to the next in a food chain, only about 10% of that energy is actually transferred and stored. The remaining 90% is used by the organism for its life processes or lost as heat to the environment.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Producer</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Primary Consumer</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Secondary Consumer</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>The 10% Law <span class="hl">Explained</span></h2>
+          <ul><li>Less energy available at higher levels</li><li>Limits the number of trophic levels</li><li>Explains why there are fewer top predators</li></ul>
+          <p class="notes">🎙️ Because so much energy is lost at each step, there's less and less energy available as you go up the food chain. This is why food chains typically have only 3 to 5 trophic levels, and why there are always fewer top predators compared to producers in an ecosystem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📉</div><div class="vcap">Energy Loss</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Energy Pyramid</span>: Visualizing Transfer</h2>
+          <ul><li>Graphical representation of energy at each level</li><li>Broad base (producers), narrow top (top consumers)</li><li>Always upright due to energy loss</li></ul>
+          <p class="notes">🎙️ An energy pyramid is a powerful visual tool that shows the amount of energy available at each trophic level. The base is always widest, representing the large amount of energy in producers, and it gets progressively narrower towards the top, illustrating the decreasing energy at higher levels.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Tertiary Consumers</span></div><div class="step"><span class="snum">2</span><span>Secondary Consumers</span></div><div class="step"><span class="snum">3</span><span>Primary Consumers</span></div><div class="step"><span class="snum">4</span><span>Producers</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Example</span> of an Energy Pyramid</h2>
+          <ul><li>Producers (high energy) -&gt; Primary (medium)</li><li>Secondary (low) -&gt; Tertiary (very low)</li><li>Each level has significantly less energy</li></ul>
+          <p class="notes">🎙️ Imagine if producers start with a large amount of energy. Primary consumers only get a fraction from them. Secondary consumers get even less, and tertiary consumers get only a tiny portion. This clearly demonstrates the drastic reduction in energy at successive trophic levels.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Producers</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Primary Consumers</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Secondary Consumers</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Tertiary Consumers</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Quick Check</span>! Question 1</h2>
+          <ul><li>Which of these organisms is a producer?</li><li>A) Lion</li><li>B) Grass</li><li>C) Deer</li><li>D) Mushroom</li></ul>
+          <p class="notes">🎙️ Time for a quick check to see how well we're following along! Think about our definitions of producers. Which option best fits that description? The correct answer is B) Grass.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Quick Check</span>! Question 2</h2>
+          <ul><li>What is the approximate percentage of energy transferred?</li><li>From one trophic level to the next?</li><li>A) 1%</li><li>B) 10%</li><li>C) 50%</li><li>D) 90%</li></ul>
+          <p class="notes">🎙️ Another quick question for you. Recall the important law we just discussed about energy transfer. What percentage of energy typically moves up the food chain? The correct answer is B) 10%.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Role of <span class="hl">Decomposers</span>: Completing the Cycle</h2>
+          <ul><li>Break down dead organisms and waste</li><li>Release nutrients back into the ecosystem</li><li>Essential for nutrient cycling, not just energy flow</li></ul>
+          <p class="notes">🎙️ While producers capture energy and consumers transfer it, decomposers play a vital role in recycling matter. They ensure that the chemical nutrients locked in dead organic material are returned to the soil, making them available for producers to use again. This completes the nutrient cycle.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Nutrient Recycling</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Impact of <span class="hl">Disturbances</span></h2>
+          <ul><li>Changes can disrupt energy flow</li><li>Pollution, deforestation, species extinction</li><li>Can lead to imbalance in the ecosystem</li></ul>
+          <p class="notes">🎙️ Any disturbance, like pollution, deforestation, or the extinction of a species, can have a ripple effect on the entire energy flow. If a producer population declines, it affects all the consumers that depend on it, potentially leading to a collapse of the ecosystem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Ecosystem Risk</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Importance</span> of Energy Flow</h2>
+          <ul><li>Maintains balance and stability</li><li>Supports all life on Earth</li><li>Crucial for survival of every organism</li></ul>
+          <p class="notes">🎙️ Understanding energy flow is fundamental because it explains how ecosystems function and sustain life. It highlights the interconnectedness of all living things and their environment, showing how the health of one part affects the whole system. It's the very foundation of life on our planet.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Life's Foundation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Ecosystems have biotic and abiotic parts</li><li>Energy flows from producers to consumers</li><li>Food chains and webs show energy paths</li><li>10% Law and energy pyramids explain energy loss</li></ul>
+          <p class="notes">🎙️ Let's quickly review what we've learned today. We started with the components of an ecosystem, then traced the path of energy through producers, consumers, and decomposers. We also understood the crucial 10% law and visualized it with energy pyramids.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You! Any <span class="hl">Questions</span>?</h2>
+          <ul><li>Feel free to ask any doubts you have</li><li>Continue exploring the wonders of nature</li><li>Stay curious and keep learning!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on Energy Flow in an Ecosystem. I hope you found it insightful and clear. Please don't hesitate to ask if you have any questions or need further clarification on any topic.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

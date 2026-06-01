@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Geometric Constructions — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to Geometric <span class="hl">Constructions</span>!</h2>
+          <ul><li>Mathematics - Class 10</li><li>Maharashtra Board</li><li>Building Shapes with Tools</li></ul>
+          <p class="notes">🎙️ Welcome, students! Today, we're diving into the fascinating world of Geometric Constructions. This chapter will teach you how to draw precise geometric figures using just a few simple tools, which is a fundamental skill in mathematics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What are Geometric <span class="hl">Constructions</span>?</h2>
+          <ul><li>Drawing geometric figures accurately.</li><li>Using only a compass and a straightedge (ruler).</li><li>No freehand drawing allowed!</li></ul>
+          <p class="notes">🎙️ Geometric constructions are all about precision. We learn to create shapes like angles, lines, and triangles with exact measurements and properties, strictly using a compass for arcs and circles, and a straightedge for lines. It's like being a geometric architect!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Precision Drawing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Basic <span class="hl">Tools</span> for Construction</h2>
+          <ul><li>Straightedge (Ruler): For drawing straight lines.</li><li>Compass: For drawing arcs and circles, measuring distances.</li><li>Pencil: For making clear, fine marks.</li></ul>
+          <p class="notes">🎙️ Our main tools for this chapter are very simple: a straightedge, which is just a ruler without markings for measuring, and a compass, which helps us draw perfect circles and transfer distances. Always use a sharp pencil for accuracy in your drawings.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Ruler &amp; Compass</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Constructing an Angle <span class="hl">Bisector</span></h2>
+          <ul><li>Divides an angle into two equal angles.</li><li>Each new angle has half the measure of the original.</li><li>A fundamental construction for symmetry.</li></ul>
+          <p class="notes">🎙️ An angle bisector is a ray that cuts a given angle into two perfectly equal halves. For example, if you bisect a 60-degree angle, you'll get two 30-degree angles. This is a crucial construction for creating symmetrical figures.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Arc from vertex</span></div><div class="step"><span class="snum">2</span><span>Arcs from intersections</span></div><div class="step"><span class="snum">3</span><span>Draw bisector ray</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Real-life</span> Example: Angle Bisector</h2>
+          <ul><li>Dividing a piece of cake equally for two people.</li><li>Designing a corner shelf to fit perfectly.</li><li>Creating symmetrical patterns in art and architecture.</li></ul>
+          <p class="notes">🎙️ Think about cutting a slice of cake exactly in half to share with a friend – that's an angle bisector in action! Architects and designers also use this concept to ensure symmetry and balance in their creations, from furniture to buildings.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎂</div><div class="vcap">Sharing Cake</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Worked Example: <span class="hl">Bisecting</span> a 60° Angle</h2>
+          <ul><li>Draw an angle ABC of 60°.</li><li>With B as center, draw an arc intersecting BA and BC.</li><li>From these intersection points, draw two more arcs meeting at D.</li><li>Draw ray BD. Ray BD is the angle bisector.</li></ul>
+          <p class="notes">🎙️ Let's put this into practice. First, draw a 60-degree angle using your protractor. Then, follow the steps: use your compass to draw the initial arc, then two more arcs from the intersection points, and finally, draw the ray that bisects the angle.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Constructing a <span class="hl">Perpendicular</span> Bisector</h2>
+          <ul><li>A line that cuts a segment at its midpoint.</li><li>Forms a 90-degree angle with the segment.</li><li>Every point on the bisector is equidistant from the segment's endpoints.</li></ul>
+          <p class="notes">🎙️ A perpendicular bisector is a powerful construction that does two things: it cuts a line segment exactly in the middle, and it crosses it at a perfect right angle, or 90 degrees. This line is special because any point on it is equally far from both ends of the segment.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Arcs from endpoints</span></div><div class="step"><span class="snum">2</span><span>Connect intersections</span></div><div class="step"><span class="snum">3</span><span>Verify 90°</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Real-life</span> Example: Perpendicular Bisector</h2>
+          <ul><li>Finding the center of a circular table or wheel.</li><li>Dividing a rectangular field into two equal halves.</li><li>Locating the equidistant point for a common resource.</li></ul>
+          <p class="notes">🎙️ Imagine you need to find the exact center of a round object, like a pizza or a car wheel. A perpendicular bisector helps you do that! It's also used in surveying to divide land or place a shared facility equidistant from two locations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Finding the Center</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example: Perpendicular <span class="hl">Bisector</span> of a Line Segment</h2>
+          <ul><li>Draw a line segment AB of length 8 cm.</li><li>With A as center, draw arcs above and below AB (radius &gt; half AB).</li><li>With B as center, draw arcs intersecting the previous ones.</li><li>Draw the line connecting the intersection points. This is the perpendicular bisector.</li></ul>
+          <p class="notes">🎙️ Let's construct a perpendicular bisector for an 8 cm line segment. Remember to open your compass to a radius greater than half the segment's length. Draw arcs from both endpoints, then connect where they cross to form the bisector.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Constructing a Perpendicular to a Line from a Point <span class="hl">ON the Line</span></h2>
+          <ul><li>Draw a perpendicular line that passes through a specific point.</li><li>The point must lie directly on the given line.</li><li>Creates a 90-degree angle at that point.</li></ul>
+          <p class="notes">🎙️ Sometimes, you need to draw a line that makes a perfect right angle with another line, and it has to pass through a specific point that is already on that line. This construction helps us achieve that precise 90-degree angle right at the desired spot.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Arcs from point on line</span></div><div class="step"><span class="snum">2</span><span>Arcs from intersections</span></div><div class="step"><span class="snum">3</span><span>Draw perpendicular</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Constructing a Perpendicular to a Line from a Point <span class="hl">OUTSIDE the Line</span></h2>
+          <ul><li>Draw a perpendicular line from a point not on the line.</li><li>The shortest distance from a point to a line.</li><li>Essential for calculating distances.</li></ul>
+          <p class="notes">🎙️ What if the point isn't on the line? We can still 'drop' a perpendicular from that external point to the line. This construction is very important because this perpendicular line represents the shortest possible distance from the point to the line.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Arc from external point</span></div><div class="step"><span class="snum">2</span><span>Arcs from intersections</span></div><div class="step"><span class="snum">3</span><span>Draw perpendicular</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Real-life</span> Example: Perpendicular Lines</h2>
+          <ul><li>Building a wall exactly straight up from the floor.</li><li>Road intersections forming perfect right angles.</li><li>Setting up a tent pole perpendicular to the ground.</li></ul>
+          <p class="notes">🎙️ Perpendicular lines are everywhere in our daily lives! Think about the walls of a room meeting the floor, or perfectly straight roads intersecting. These constructions are fundamental to building stable structures and ensuring things are aligned correctly.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Building Straight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example: Perpendicular from <span class="hl">External Point</span></h2>
+          <ul><li>Draw a line 'l' and a point P not on 'l'.</li><li>With P as center, draw an arc intersecting 'l' at two points A and B.</li><li>With A and B as centers, draw arcs intersecting below 'l' at Q.</li><li>Draw line PQ. PQ is perpendicular to 'l'.</li></ul>
+          <p class="notes">🎙️ Let's practice drawing a perpendicular from a point outside the line. First, mark your line and an external point. Then, use your compass from the external point to create two intersection points on the line. These two points are key for the next step.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Constructing an Angle <span class="hl">Congruent</span> to a Given Angle</h2>
+          <ul><li>Creating an exact copy of a given angle.</li><li>The new angle will have the same measure.</li><li>Important for duplicating shapes and designs.</li></ul>
+          <p class="notes">🎙️ Sometimes, you need to copy an angle precisely without using a protractor to measure it. This construction allows you to create an identical angle, or a congruent angle, anywhere you need it. It's like making a perfect photocopy of an angle!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw arc on given angle</span></div><div class="step"><span class="snum">2</span><span>Transfer arc to new line</span></div><div class="step"><span class="snum">3</span><span>Measure arc distance</span></div><div class="step"><span class="snum">4</span><span>Transfer distance, draw ray</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Real-life</span> Example: Congruent Angles</h2>
+          <ul><li>Duplicating patterns in fabric design or tiling.</li><li>Ensuring identical angles in architectural drawings.</li><li>Creating symmetrical parts for machinery.</li></ul>
+          <p class="notes">🎙️ Think about repeating patterns in wallpaper or floor tiles; the angles within these patterns must be congruent. Engineers and designers use this construction to ensure parts fit perfectly together and designs are consistent across multiple copies.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖼️</div><div class="vcap">Copying Designs</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example: <span class="hl">Copying</span> a 45° Angle</h2>
+          <ul><li>Draw a 45° angle ABC.</li><li>Draw a ray PQ.</li><li>With B as center, draw an arc intersecting BA and BC.</li><li>With P as center and same radius, draw an arc intersecting PQ at R.</li><li>Measure distance between arc intersections on original angle.</li><li>With R as center and this distance, draw an arc intersecting the previous arc at S.</li><li>Draw ray PS. Angle SPQ is congruent to ABC.</li></ul>
+          <p class="notes">🎙️ Let's try copying a 45-degree angle. The crucial step is accurately transferring the arc length from the original angle to your new working ray. This ensures that the 'opening' of your new angle is exactly the same as the original.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Dividing a Line Segment in a Given <span class="hl">Ratio</span></h2>
+          <ul><li>Splitting a line segment into parts with a specific proportion.</li><li>Uses the concept of similar triangles or parallel lines.</li><li>Very useful in scale drawings and geometry problems.</li></ul>
+          <p class="notes">🎙️ This construction allows us to divide a line segment into parts that have a specific ratio, for example, 2:3 or 1:4. It cleverly uses the properties of parallel lines to ensure the segments are divided proportionally. This is like scaling a map or blueprint!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw ray at angle</span></div><div class="step"><span class="snum">2</span><span>Mark equal divisions</span></div><div class="step"><span class="snum">3</span><span>Connect last mark to end</span></div><div class="step"><span class="snum">4</span><span>Draw parallel lines</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Real-life</span> Example: Dividing a Line Segment</h2>
+          <ul><li>Dividing a plot of land among heirs in a specific ratio.</li><li>Scaling down a building plan to fit on a smaller paper.</li><li>Creating proportional elements in graphic design.</li></ul>
+          <p class="notes">🎙️ Imagine you need to divide a piece of land into two sections, where one section is, say, twice as large as the other. This construction helps you do that accurately. It's also vital in creating scale models, maps, and even in graphic design for proportional layouts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Scaling Maps</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: Divide 7cm in Ratio <span class="hl">2:3</span></h2>
+          <ul><li>Draw line segment AB = 7 cm.</li><li>Draw a ray AX making an acute angle with AB.</li><li>Mark 2+3=5 equal points A1, A2, A3, A4, A5 on AX.</li><li>Join B to A5.</li><li>Draw a line through A2 parallel to BA5, intersecting AB at P.</li><li>Point P divides AB in the ratio 2:3.</li></ul>
+          <p class="notes">🎙️ Let's divide a 7 cm line segment in the ratio 2:3. This means we need a total of 5 equal parts along our helper ray AX. Remember, the key is accurately drawing the parallel line from the correct division point to ensure the main segment is divided proportionally.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Constructing a Triangle <span class="hl">Similar</span> to a Given Triangle</h2>
+          <ul><li>Creating a triangle with the same shape but different size.</li><li>Corresponding angles are equal, corresponding sides are proportional.</li><li>Uses a specific scale factor (m/n).</li></ul>
+          <p class="notes">🎙️ Similar triangles have the exact same shape but can be different sizes – one is an enlargement or reduction of the other. This construction allows you to create a new triangle that maintains all the angles of the original but has sides scaled by a specific factor.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Draw given triangle</span></div><div class="step"><span class="snum">2</span><span>Draw ray for divisions</span></div><div class="step"><span class="snum">3</span><span>Mark divisions (m+n)</span></div><div class="step"><span class="snum">4</span><span>Connect and draw parallel</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Real-life</span> Example: Similar Triangles</h2>
+          <ul><li>Architects using scale models of buildings.</li><li>Photographers resizing images without distortion.</li><li>Mapping and surveying land features.</li></ul>
+          <p class="notes">🎙️ Architects frequently use similar triangles when creating blueprints or scale models of buildings. Photographers rely on this concept when resizing images, ensuring that shapes and proportions remain consistent and undistorted. It's all about maintaining the original shape!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Scale Models</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Question</span>: Angle Bisector</h2>
+          <ul><li>If an angle measures 70 degrees, what will be the measure of each angle formed by its bisector?</li><li>A) 30 degrees</li><li>B) 35 degrees</li><li>C) 70 degrees</li><li>D) 140 degrees</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Remember what an angle bisector does: it divides an angle into two equal parts. So, if you have a 70-degree angle, how big will each of the two new angles be after it's bisected?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Question</span>: Perpendicular Bisector</h2>
+          <ul><li>A perpendicular bisector of a line segment always forms what angle with the segment?</li><li>A) Acute angle</li><li>B) Obtuse angle</li><li>C) Right angle</li><li>D) Straight angle</li></ul>
+          <p class="notes">🎙️ Next question! What kind of angle does a perpendicular bisector always make with the line segment it bisects? Think carefully about the meaning of the word 'perpendicular' in geometry.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick <span class="hl">Question</span>: Dividing a Line Segment</h2>
+          <ul><li>To divide a line segment in the ratio 3:4, how many equal divisions should be marked on the ray?</li><li>A) 3</li><li>B) 4</li><li>C) 7</li><li>D) 12</li></ul>
+          <p class="notes">🎙️ Last question for now! If you want to divide a line segment in the ratio 3:4 using the construction method, how many total equal parts do you need to mark on your auxiliary ray?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Geometric Constructions</h2>
+          <ul><li>Angle Bisector: Divides angle into two equal parts.</li><li>Perpendicular Bisector: Cuts segment at 90° and midpoint.</li><li>Perpendicular to Line: From point on/off the line.</li><li>Congruent Angle: Exact copy of an angle.</li><li>Dividing Line Segment: Splitting in a given ratio.</li><li>Similar Triangles: Same shape, different size.</li></ul>
+          <p class="notes">🎙️ Great job everyone! Today, we've explored several fundamental geometric constructions. Remember the purpose of each: bisecting angles, creating perpendiculars, copying angles, and scaling shapes. These skills are essential building blocks for advanced geometry and real-world applications.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Angle Bisector</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Perpendicular Bisector</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Similar Triangles</div></div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

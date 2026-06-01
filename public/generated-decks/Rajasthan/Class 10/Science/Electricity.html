@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Electricity: Understanding the Flow of Energy — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter 12: <span class="hl">Electricity</span></h2>
+          <ul><li>Welcome, Class 10 students!</li><li>Today, we begin our journey into the fascinating world of Electricity.</li><li>This chapter is crucial for understanding modern technology.</li></ul>
+          <p class="notes">🎙️ Good morning, everyone! I'm excited to start our new chapter on Electricity. This topic is fundamental to our daily lives and connects to many things we use, from our phones to streetlights.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Electricity</span>?</h2>
+          <ul><li>Electricity is a form of energy.</li><li>It is due to the flow of electric charges.</li><li>It powers most of our devices and appliances.</li></ul>
+          <p class="notes">🎙️ Think of electricity as the movement of tiny particles, much like water flowing in a river. This flow carries energy, which we can harness to do work, like lighting up a bulb or running a fan.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡️</div><div class="vcap">Electric Spark</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Electric <span class="hl">Charge</span></h2>
+          <ul><li>Electric charge is a fundamental property of matter.</li><li>There are two types: positive (+) and negative (-).</li><li>Like charges repel, unlike charges attract.</li><li>Its SI unit is Coulomb (C).</li></ul>
+          <p class="notes">🎙️ All matter is made of atoms, which contain protons (positive charge) and electrons (negative charge). The interaction between these charges is what creates electrical phenomena. A Coulomb is a very large amount of charge.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>➕</span><span>➕</span><span>➕</span><span>➕</span><span>➕</span></div><div class="vcap">Positive and Negative Charges</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Electric <span class="hl">Current</span></h2>
+          <ul><li>Electric current is the rate of flow of electric charges.</li><li>Formula: I = Q/t (Charge / Time).</li><li>Its SI unit is Ampere (A).</li><li>Conventionally, current flows from positive to negative terminal.</li></ul>
+          <p class="notes">🎙️ Imagine a highway where cars are electric charges. The rate at which these cars pass a certain point is like the electric current. One Ampere means one Coulomb of charge flows per second.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="➡️" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Measuring</span> Electric Current</h2>
+          <ul><li>An Ammeter is used to measure electric current.</li><li>It is always connected in series in a circuit.</li><li>It has very low resistance to avoid affecting the current.</li></ul>
+          <p class="notes">🎙️ To measure the current flowing through a component, you must place the ammeter directly in the path of the current, like breaking a circuit and inserting the ammeter. This ensures all the current passes through it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Ammeter Symbol</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Electric Potential and <span class="hl">Potential Difference</span></h2>
+          <ul><li>Potential difference (V) is the work done to move a unit charge.</li><li>Formula: V = W/Q (Work / Charge).</li><li>Its SI unit is Volt (V).</li><li>It's like pressure pushing water through a pipe.</li></ul>
+          <p class="notes">🎙️ For current to flow, there must be a difference in electrical 'pressure' or potential. Just as water flows from a higher level to a lower level, charge flows from higher potential to lower potential. A battery provides this potential difference.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💧</div><div class="vcap">Water Flow Analogy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Measuring</span> Potential Difference</h2>
+          <ul><li>A Voltmeter is used to measure potential difference.</li><li>It is always connected in parallel across the component.</li><li>It has very high resistance to draw negligible current.</li></ul>
+          <p class="notes">🎙️ Unlike an ammeter, a voltmeter is connected across the two points where you want to measure the potential difference. It's like measuring the pressure difference between two points in a pipe without stopping the flow.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Voltmeter Symbol</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Electric <span class="hl">Circuit</span>: The Path of Current</h2>
+          <ul><li>An electric circuit is a continuous and closed path.</li><li>It allows electric current to flow.</li><li>It consists of components like cells, wires, and bulbs.</li></ul>
+          <p class="notes">🎙️ For electricity to do work, it needs a complete path. If the path is broken, the circuit is open, and no current flows. Think of it like a train track – if there's a gap, the train cannot complete its journey.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_circuit.png?width=500" data-fb="🔄" alt="An electric circuit is a closed path through which electric current flows. It requires a s"/><div class="vcap">An electric circuit is a closed path through which electric current flows. It requires a s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Common Circuit Diagram <span class="hl">Symbols</span></h2>
+          <ul><li>Standard symbols simplify drawing circuits.</li><li>They represent various components.</li><li>Essential for universal understanding.</li></ul>
+          <p class="notes">🎙️ Using standard symbols helps engineers and scientists worldwide understand circuit diagrams easily. These are some of the most basic and frequently used symbols you will encounter.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Electric Cell: 🔋</span></div><div class="step"><span class="snum">2</span><span>Battery: 🔋🔋</span></div><div class="step"><span class="snum">3</span><span>Switch (Open): 🎚️</span></div><div class="step"><span class="snum">4</span><span>Bulb: 💡</span></div><div class="step"><span class="snum">5</span><span>Resistor: 〰️</span></div><div class="step"><span class="snum">6</span><span>Ammeter: 🅰️</span></div><div class="step"><span class="snum">7</span><span>Voltmeter: 🆅</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Ohm's Law</span></h2>
+          <ul><li>States that V ∝ I (Voltage is proportional to Current).</li><li>Provided temperature and physical conditions remain constant.</li><li>Formula: V = IR, where R is the Resistance.</li><li>Discovered by Georg Simon Ohm.</li></ul>
+          <p class="notes">🎙️ Ohm's Law is a cornerstone of electricity. It tells us that if you increase the voltage across a resistor, the current flowing through it will increase proportionally, as long as the resistance stays the same.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Ohm%27s_law_-_VI_diagram.svg?width=500" data-fb="⚖️" alt="Ohm's Law states that current through a conductor is directly proportional to voltage and "/><div class="vcap">Ohm's Law states that current through a conductor is directly proportional to voltage and </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Resistance</span></h2>
+          <ul><li>Resistance is the opposition to the flow of current.</li><li>Its SI unit is Ohm (Ω).</li><li>Factors: Length (L), Area (A), Material (ρ), Temperature.</li><li>R = ρL/A (where ρ is resistivity).</li></ul>
+          <p class="notes">🎙️ Think of resistance as a narrow or bumpy road for the electric charges. A longer wire has more resistance, a thicker wire has less resistance. Different materials also offer different levels of resistance.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Obstruction to Flow</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Ohm's Law</span></h2>
+          <ul><li>Question: A 12V battery is connected across a 2Ω resistor.</li><li>Calculate the current flowing through the resistor.</li><li>Given: V = 12V, R = 2Ω.</li><li>Using Ohm's Law: I = V/R = 12V / 2Ω = 6A.</li></ul>
+          <p class="notes">🎙️ This is a straightforward application of Ohm's Law. Always write down the given values and the formula you intend to use. Remember to include the correct units in your final answer.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Resistors in <span class="hl">Series</span></h2>
+          <ul><li>Resistors are connected end-to-end.</li><li>Total resistance (Rs) is the sum of individual resistances.</li><li>Rs = R1 + R2 + R3 + ...</li><li>Current is the same through each resistor.</li></ul>
+          <p class="notes">🎙️ When resistors are in series, there's only one path for the current to flow. It's like adding more obstacles one after another in a single lane. The total opposition to current increases.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Reactivity_series_of_metals.svg?width=500" data-fb="🔬" alt="The reactivity series ranks metals by their tendency to lose electrons and form positive i"/><div class="vcap">The reactivity series ranks metals by their tendency to lose electrons and form positive i</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Series</span> Resistance</h2>
+          <ul><li>Question: Three resistors of 2Ω, 3Ω, and 5Ω are connected in series.</li><li>What is the total equivalent resistance?</li><li>Given: R1=2Ω, R2=3Ω, R3=5Ω.</li><li>Rs = R1 + R2 + R3 = 2Ω + 3Ω + 5Ω = 10Ω.</li></ul>
+          <p class="notes">🎙️ This example shows how simple it is to calculate total resistance in a series circuit. Just add them up! This equivalent resistance can then be used with Ohm's Law for the entire circuit.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Resistors in <span class="hl">Parallel</span></h2>
+          <ul><li>Resistors are connected across the same two points.</li><li>Total resistance (Rp) is given by 1/Rp = 1/R1 + 1/R2 + ...</li><li>Voltage is the same across each resistor.</li><li>Current divides among the branches.</li></ul>
+          <p class="notes">🎙️ In a parallel connection, there are multiple paths for the current. It's like having several lanes on a highway. Adding more paths actually decreases the total resistance, making it easier for current to flow.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>R1 || R2</span></div><div class="step"><span class="snum">2</span><span>R3</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example 3: <span class="hl">Parallel</span> Resistance</h2>
+          <ul><li>Question: Two resistors of 6Ω and 3Ω are connected in parallel.</li><li>Calculate their equivalent resistance.</li><li>Given: R1=6Ω, R2=3Ω.</li><li>1/Rp = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2. So, Rp = 2Ω.</li></ul>
+          <p class="notes">🎙️ Notice that the equivalent resistance in parallel (2Ω) is less than the smallest individual resistance (3Ω). This is a key characteristic of parallel circuits and a good way to check your calculations.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1</h2>
+          <ul><li>In which connection (series/parallel) does current remain the same?</li><li>If you add more resistors in series, does total resistance increase or decrease?</li><li>How is a voltmeter connected in a circuit?</li></ul>
+          <p class="notes">🎙️ Take a moment to recall the properties of series and parallel circuits. These are fundamental concepts that you must understand before moving forward.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Resistors_in_series_and_parallel.svg?width=500" data-fb="🔬" alt="Series and parallel are two ways to connect electrical components. Each has different effe"/><div class="vcap">Series and parallel are two ways to connect electrical components. Each has different effe</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Heating Effect</span> of Electric Current</h2>
+          <ul><li>When current flows through a resistor, electrical energy converts to heat.</li><li>This is due to collisions between electrons and atoms.</li><li>Joule's Law of Heating: H = I²Rt.</li><li>H is heat produced, I is current, R is resistance, t is time.</li></ul>
+          <p class="notes">🎙️ You experience the heating effect every day. When you use an electric heater or even your phone for a long time, they get warm. This is because some electrical energy is 'lost' as heat due to the resistance of the components.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔥</div><div class="vcap">Heat Generation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real-Life <span class="hl">Example</span>: Heating Effect</h2>
+          <ul><li>Electric Iron: Uses a high resistance heating element.</li><li>Electric Bulb: Filament heats up and glows.</li><li>Electric Heater: Converts electrical energy to heat for warmth.</li></ul>
+          <p class="notes">🎙️ The heating effect is not always undesirable. Many appliances are specifically designed to utilize this effect. The filament in an old incandescent bulb gets so hot it emits light.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Joule_heating.svg?width=500" data-fb="💡" alt="Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i"/><div class="vcap">Electric power is the rate of energy consumption. Joule heating (P = I²R) generates heat i</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Electric <span class="hl">Power</span></h2>
+          <ul><li>Electric power is the rate at which electrical energy is consumed or dissipated.</li><li>Formula: P = VI (Voltage × Current).</li><li>Other formulas: P = I²R and P = V²/R.</li><li>Its SI unit is Watt (W).</li></ul>
+          <p class="notes">🎙️ Power tells us how quickly an appliance uses energy. A 100-Watt bulb consumes energy twice as fast as a 50-Watt bulb. Understanding power helps us choose efficient appliances.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Energy_transformation.svg?width=500" data-fb="💪" alt="Work is done when force causes displacement. Energy is the capacity to do work. Power is t"/><div class="vcap">Work is done when force causes displacement. Energy is the capacity to do work. Power is t</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Commercial Unit</span> of Electrical Energy</h2>
+          <ul><li>The SI unit of energy is Joule (J).</li><li>For commercial purposes, Kilowatt-hour (kWh) is used.</li><li>1 kWh = 3.6 × 10⁶ Joules.</li><li>This is what your electricity meter measures.</li></ul>
+          <p class="notes">🎙️ Your electricity bill is calculated based on the number of kilowatt-hours you consume. One kilowatt-hour means using 1000 Watts of power for one hour. This unit is more practical for large amounts of energy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏡</div><div class="vcap">Household Energy</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Worked Example 4: <span class="hl">Power</span> and Energy</h2>
+          <ul><li>Question: A bulb is rated 60W, 220V. Find the current it draws.</li><li>Given: P = 60W, V = 220V.</li><li>Using P = VI, so I = P/V = 60W / 220V ≈ 0.27A.</li><li>How much energy does it consume in 5 hours? E = P × t = 60W × 5h = 300Wh = 0.3kWh.</li></ul>
+          <p class="notes">🎙️ This example combines power and energy calculations. Remember to convert units if necessary, especially for energy in kilowatt-hours, which requires power in kilowatts and time in hours.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 2</h2>
+          <ul><li>What is the formula for Joule's Law of Heating?</li><li>What is the commercial unit of electrical energy?</li><li>Which appliance uses the heating effect of current?</li></ul>
+          <p class="notes">🎙️ Let's quickly review these important concepts. Understanding these will help you apply them in various problems and real-life scenarios.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Applications</span> of Electricity</h2>
+          <ul><li>Lighting: Homes, streets, offices.</li><li>Heating: Water heaters, room heaters, ovens.</li><li>Motors: Fans, refrigerators, washing machines.</li><li>Communication: Phones, computers, internet.</li></ul>
+          <p class="notes">🎙️ Electricity is indispensable in our modern world. From basic illumination to complex computing, almost every aspect of our lives is touched by electrical applications. It's truly a transformative force.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span><span>🏡</span></div><div class="vcap">Daily Uses of Electricity</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span></h2>
+          <ul><li>Electric charge, current, potential difference, and resistance.</li><li>Ohm's Law: V = IR.</li><li>Resistors in series (Rs = R1+R2+...) and parallel (1/Rp = 1/R1+1/R2+...).</li><li>Heating effect (H = I²Rt) and Electric Power (P = VI).</li></ul>
+          <p class="notes">🎙️ We've covered a lot of ground today! Remember the definitions, units, formulas, and the difference between series and parallel connections. This knowledge forms the foundation for higher studies in physics and engineering.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Rajasthan Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Triangles: A Comprehensive Study for Class 10 — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to the World of <span class="hl">Triangles</span>!</h2>
+          <ul><li>Explore shapes all around us.</li><li>Understand their properties and importance.</li><li>Prepare for your Class 10 Board exams!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting journey into the world of triangles, a fundamental shape in mathematics. We'll discover how these three-sided figures are everywhere around us and learn their special rules.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is a <span class="hl">Triangle</span>?</h2>
+          <ul><li>A polygon with three sides.</li><li>Has three vertices and three angles.</li><li>Sum of angles is always 180 degrees.</li></ul>
+          <p class="notes">🎙️ A triangle is one of the most basic and important geometric shapes. It's a closed figure made of three line segments, forming three corners called vertices and three angles inside. Remember, a key property is that all its interior angles add up to 180 degrees.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">△</div><div class="vcap">The basic triangle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Types of Triangles by <span class="hl">Sides</span></h2>
+          <ul><li>Equilateral: All 3 sides equal.</li><li>Isosceles: 2 sides equal.</li><li>Scalene: No sides equal.</li></ul>
+          <p class="notes">🎙️ We can classify triangles based on the lengths of their sides. An equilateral triangle is perfectly balanced with all sides equal. An isosceles triangle has two equal sides, while a scalene triangle has all sides of different lengths.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Equilateral</div></div><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Isosceles</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Scalene</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Types of Triangles by <span class="hl">Angles</span></h2>
+          <ul><li>Acute-angled: All angles &lt; 90°.</li><li>Right-angled: One angle = 90°.</li><li>Obtuse-angled: One angle &gt; 90°.</li></ul>
+          <p class="notes">🎙️ Triangles can also be grouped by their angles. An acute-angled triangle has all angles less than 90 degrees. A right-angled triangle has exactly one 90-degree angle, and an obtuse-angled triangle has one angle greater than 90 degrees.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Acute</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Right</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Obtuse</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Triangles All <span class="hl">Around Us</span>!</h2>
+          <ul><li>Pyramids, roof trusses, bridges.</li><li>Sandwiches, road signs.</li><li>Musical instruments like triangles.</li></ul>
+          <p class="notes">🎙️ Look closely, and you'll find triangles everywhere! From the strong structures of bridges and roofs to everyday objects like sandwiches and road signs, their stable shape makes them useful in many designs and constructions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔺</span><span>🔺</span><span>🔺</span><span>🔺</span><span>🔺</span></div><div class="vcap">Everyday triangles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>What are <span class="hl">Congruent</span> Figures?</h2>
+          <ul><li>Same shape AND same size.</li><li>One can be placed exactly over the other.</li><li>They are identical copies.</li></ul>
+          <p class="notes">🎙️ Congruent figures are like identical twins in geometry. If you have two figures that are congruent, it means they have exactly the same shape and the same size. You could pick one up and place it perfectly on top of the other.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Identical Twins</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Congruent</span> Triangles</h2>
+          <ul><li>Corresponding sides are equal.</li><li>Corresponding angles are equal.</li><li>Written as △ABC ≅ △PQR.</li></ul>
+          <p class="notes">🎙️ For triangles, congruence means all three corresponding sides are equal in length, and all three corresponding angles are equal in measure. If two triangles are congruent, they are essentially the same triangle, just possibly in a different orientation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Perfect Match</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">SSS</span> Congruence Rule</h2>
+          <ul><li>Side-Side-Side.</li><li>If all three sides of one triangle are equal to the three corresponding sides of another triangle, then the triangles are congruent.</li></ul>
+          <p class="notes">🎙️ The SSS rule is a powerful way to prove congruence. If you can show that all three sides of one triangle match exactly with the three corresponding sides of another triangle, you don't need to check the angles – the triangles must be congruent.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Side 1 = Side 1</span></div><div class="step"><span class="snum">2</span><span>Side 2 = Side 2</span></div><div class="step"><span class="snum">3</span><span>Side 3 = Side 3</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">SAS</span> Congruence Rule</h2>
+          <ul><li>Side-Angle-Side.</li><li>If two sides and the included angle of one triangle are equal to the two corresponding sides and the included angle of another triangle, then the triangles are congruent.</li></ul>
+          <p class="notes">🎙️ The SAS rule tells us that if two sides and the angle *between* them in one triangle are equal to the corresponding parts in another triangle, then the triangles are congruent. The 'included angle' part is very important here!</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Side = Side</span></div><div class="step"><span class="snum">2</span><span>Included Angle = Included Angle</span></div><div class="step"><span class="snum">3</span><span>Side = Side</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">ASA and AAS</span> Congruence Rules</h2>
+          <ul><li>ASA: Angle-Side-Angle.</li><li>AAS: Angle-Angle-Side.</li><li>If two angles and one side of one triangle are equal to the corresponding parts of another triangle, then the triangles are congruent.</li></ul>
+          <p class="notes">🎙️ These two rules are closely related. ASA means two angles and the side *between* them. AAS means two angles and a non-included side. In both cases, if these parts match, the triangles are congruent. Remember to correctly identify the corresponding parts.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Angle = Angle</span></div><div class="step"><span class="snum">2</span><span>Side = Side</span></div><div class="step"><span class="snum">3</span><span>Angle = Angle</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Quick Check: <span class="hl">Congruence</span></h2>
+          <ul><li>When are two triangles congruent?</li><li>What does SSS stand for?</li><li>Can two triangles be congruent if their angles are equal but sides are different?</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about the conditions for congruence we just discussed. When are two triangles considered identical, and what are the rules we use to prove it? Discuss with your classmates.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>What are <span class="hl">Similar</span> Figures?</h2>
+          <ul><li>Same shape, but not necessarily same size.</li><li>One is an enlargement or reduction of the other.</li><li>Corresponding angles are equal, corresponding sides are proportional.</li></ul>
+          <p class="notes">🎙️ Similar figures are like photographs of the same object, but one might be zoomed in or out. They maintain the same shape but can be different in size. This means their angles are identical, but their sides are in proportion.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔍</div><div class="vcap">Magnified View</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Similar</span> Triangles</h2>
+          <ul><li>Corresponding angles are equal.</li><li>Ratio of corresponding sides is equal (proportional).</li><li>Written as △ABC ~ △PQR.</li></ul>
+          <p class="notes">🎙️ For triangles to be similar, two conditions must be met: first, all their corresponding angles must be equal. Second, the lengths of their corresponding sides must be in the same ratio. This ratio is called the scale factor.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Scaled Version</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">AAA / AA</span> Similarity Rule</h2>
+          <ul><li>Angle-Angle-Angle.</li><li>If all three corresponding angles of two triangles are equal, then the triangles are similar.</li><li>Since sum of angles is 180°, if two angles are equal, the third must also be equal (AA Similarity).</li></ul>
+          <p class="notes">🎙️ This is the most straightforward similarity rule. If you can show that all three angles of one triangle are equal to the three angles of another, then they are similar. In fact, if just two pairs of corresponding angles are equal, the triangles are already similar (AA rule).</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Angle 1 = Angle 1</span></div><div class="step"><span class="snum">2</span><span>Angle 2 = Angle 2</span></div><div class="step"><span class="snum">3</span><span>Angle 3 = Angle 3</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">SSS</span> Similarity Rule</h2>
+          <ul><li>Side-Side-Side Proportionality.</li><li>If the ratio of the corresponding sides of two triangles is equal, then the triangles are similar.</li></ul>
+          <p class="notes">🎙️ The SSS similarity rule is about proportionality, not equality. If the ratios of all three pairs of corresponding sides are the same, meaning one triangle is a scaled version of the other, then the triangles are similar.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Side A / Side P = k</span></div><div class="step"><span class="snum">2</span><span>Side B / Side Q = k</span></div><div class="step"><span class="snum">3</span><span>Side C / Side R = k</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">SAS</span> Similarity Rule</h2>
+          <ul><li>Side-Angle-Side Proportionality.</li><li>If one angle of a triangle is equal to one angle of another triangle, AND the sides including these angles are proportional, then the triangles are similar.</li></ul>
+          <p class="notes">🎙️ Similar to the congruence rule, but with proportionality. If an angle in one triangle matches an angle in another, and the sides *forming* that angle are in proportion, then the triangles are similar. Again, the 'included angle' is key.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Side A / Side P = k</span></div><div class="step"><span class="snum">2</span><span>Included Angle = Included Angle</span></div><div class="step"><span class="snum">3</span><span>Side B / Side Q = k</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Measuring <span class="hl">Heights</span> with Similarity</h2>
+          <ul><li>Shadows of objects at the same time are proportional.</li><li>We can find the height of a tall building or tree.</li><li>Uses the concept of similar triangles formed by objects and their shadows.</li></ul>
+          <p class="notes">🎙️ Imagine you want to find the height of a tall tree without climbing it. You can use similar triangles! By comparing the length of the tree's shadow to your own shadow, and knowing your height, you can calculate the tree's height because the triangles formed are similar.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">☀️</div><div class="vcap">Shadow Play</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example: Finding <span class="hl">Unknown Sides</span></h2>
+          <ul><li>Given △ABC ~ △PQR.</li><li>If AB=4, BC=6, CA=8 and PQ=2, find QR and RP.</li><li>Solution: Since triangles are similar, corresponding sides are proportional.</li></ul>
+          <p class="notes">🎙️ Let's apply what we've learned. If we know two triangles are similar, we can set up ratios of their corresponding sides. This allows us to find unknown side lengths easily, as shown in this example where we found QR and RP.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>AB/PQ = BC/QR = CA/RP</span></div><div class="step"><span class="snum">2</span><span>4/2 = 6/QR = 8/RP</span></div><div class="step"><span class="snum">3</span><span>2 = 6/QR =&gt; QR = 3</span></div><div class="step"><span class="snum">4</span><span>2 = 8/RP =&gt; RP = 4</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Basic <span class="hl">Proportionality Theorem</span> (BPT)</h2>
+          <ul><li>Also known as Thales Theorem.</li><li>If a line is drawn parallel to one side of a triangle to intersect the other two sides in distinct points, then the other two sides are divided in the same ratio.</li></ul>
+          <p class="notes">🎙️ The BPT is a foundational theorem for similar triangles. It states that if you draw a line inside a triangle parallel to one of its sides, it will cut the other two sides proportionally. This creates a smaller triangle similar to the original one.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balanced Ratios</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Converse</span> of Basic Proportionality Theorem</h2>
+          <ul><li>If a line divides any two sides of a triangle in the same ratio, then the line is parallel to the third side.</li></ul>
+          <p class="notes">🎙️ The converse of BPT is equally important. It's the reverse statement: if you observe that a line divides two sides of a triangle in the same ratio, you can conclude that this line must be parallel to the third side. This is useful for proving lines are parallel.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Reverse Logic</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Area</span> of Similar Triangles</h2>
+          <ul><li>The ratio of the areas of two similar triangles is equal to the square of the ratio of their corresponding sides.</li></ul>
+          <p class="notes">🎙️ This theorem connects the areas of similar triangles to their side lengths. If one triangle has sides twice as long as a similar triangle, its area will be four times larger (2 squared). This relationship is very useful in many problems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Area vs. Side Ratio</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Pythagoras</span> Theorem (Recap)</h2>
+          <ul><li>For a right-angled triangle.</li><li>The square of the hypotenuse is equal to the sum of the squares of the other two sides.</li><li>a² + b² = c²</li></ul>
+          <p class="notes">🎙️ You've learned about Pythagoras Theorem in earlier classes. It's crucial for right-angled triangles. It provides a fundamental relationship between the lengths of the three sides, allowing us to find an unknown side if two are known.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Right Angle Rule</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Converse</span> of Pythagoras Theorem</h2>
+          <ul><li>If in a triangle, the square of one side is equal to the sum of the squares of the other two sides, then the angle opposite the first side is a right angle.</li></ul>
+          <p class="notes">🎙️ Just like with BPT, there's a converse to Pythagoras Theorem. If you find that the sides of a triangle satisfy the a² + b² = c² relationship, you can confidently say that the triangle is a right-angled triangle, with the right angle opposite side 'c'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔙</div><div class="vcap">Proving Right Angle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check: <span class="hl">Similarity &amp; Theorems</span></h2>
+          <ul><li>What are the conditions for similar triangles?</li><li>State the Basic Proportionality Theorem.</li><li>Can Pythagoras Theorem be applied to any triangle?</li></ul>
+          <p class="notes">🎙️ Time for another quick review! Think about the main ideas of similarity and the key theorems we've covered today. These concepts are vital for solving problems related to triangles in your exams and future studies.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span> &amp; Conclusion</h2>
+          <ul><li>Understood types of triangles.</li><li>Learned about congruent and similar triangles.</li><li>Explored key theorems: BPT, Pythagoras.</li><li>Triangles are fundamental in geometry and real life!</li></ul>
+          <p class="notes">🎙️ Excellent work today, students! We've covered a lot, from basic definitions to advanced theorems. Remember the difference between congruence and similarity, and how these rules help us understand and solve problems involving triangles. Keep practicing!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

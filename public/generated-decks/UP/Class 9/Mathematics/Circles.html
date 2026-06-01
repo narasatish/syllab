@@ -1,0 +1,380 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>वृत्त (Circles) - Class 9 Mathematics — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 26</span>
+          <h2>नमस्ते! वृत्तों की दुनिया में आपका <span class="hl">स्वागत</span> है।</h2>
+          <ul><li>गणित के सबसे महत्वपूर्ण आकारों में से एक</li><li>अपने आस-पास वृत्तों को देखें!</li><li>आज हम वृत्तों के बारे में गहराई से जानेंगे</li></ul>
+          <p class="notes">🎙️ नमस्ते बच्चों! आज हम गणित के एक बहुत ही दिलचस्प और महत्वपूर्ण आकार - वृत्त (Circles) के बारे में पढ़ने जा रहे हैं। अपने आस-पास देखें, आपको हर जगह वृत्त मिलेंगे। चलिए, इस रोमांचक यात्रा की शुरुआत करते हैं!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 26</span>
+          <h2><span class="hl">वृत्त</span> क्या है? (What is a Circle?)</h2>
+          <ul><li>एक निश्चित बिंदु से समान दूरी पर स्थित बिंदुओं का समूह</li><li>यह एक बंद वक्र है</li><li>कोई शुरुआत या अंत नहीं</li></ul>
+          <p class="notes">🎙️ एक वृत्त उन सभी बिंदुओं का संग्रह है जो एक निश्चित बिंदु से हमेशा एक ही दूरी पर रहते हैं। यह एक बंद आकृति है जिसमें कोई शुरुआत या अंत नहीं होता। जैसे एक पहिया या एक कंगन।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⭕</span><span>⭕</span><span>⭕</span><span>⭕</span><span>⭕</span></div><div class="vcap">समान दूरी पर स्थित बिंदु</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 26</span>
+          <h2>वृत्त की <span class="hl">परिभाषा</span> (Definition of a Circle)</h2>
+          <ul><li>किसी समतल में एक स्थिर बिंदु से समान दूरी पर स्थित सभी बिंदुओं का बिंदुपथ</li><li>स्थिर बिंदु को केंद्र (Centre) कहते हैं</li><li>स्थिर दूरी को त्रिज्या (Radius) कहते हैं</li></ul>
+          <p class="notes">🎙️ गणितीय रूप से, वृत्त एक समतल में स्थित उन सभी बिंदुओं का समूह है जिनकी एक निश्चित बिंदु से दूरी हमेशा समान रहती है। इस निश्चित बिंदु को वृत्त का केंद्र कहते हैं और इस निश्चित दूरी को वृत्त की त्रिज्या कहते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">निश्चित बिंदु और दूरी</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 26</span>
+          <h2><span class="hl">केंद्र</span> (Centre)</h2>
+          <ul><li>वृत्त के ठीक बीच का बिंदु</li><li>इससे वृत्त के प्रत्येक बिंदु की दूरी समान होती है</li><li>इसे अक्सर 'O' अक्षर से दर्शाया जाता है</li></ul>
+          <p class="notes">🎙️ केंद्र वृत्त का सबसे महत्वपूर्ण बिंदु होता है। यह वह बिंदु है जिससे वृत्त की परिधि पर स्थित प्रत्येक बिंदु की दूरी हमेशा बराबर होती है। हम इसे आमतौर पर 'O' से दिखाते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">वृत्त का मध्य बिंदु</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 26</span>
+          <h2><span class="hl">त्रिज्या</span> (Radius)</h2>
+          <ul><li>केंद्र से वृत्त पर किसी बिंदु तक की दूरी</li><li>इसे 'r' से दर्शाया जाता है</li><li>एक वृत्त की सभी त्रिज्याएँ समान लंबाई की होती हैं</li></ul>
+          <p class="notes">🎙️ त्रिज्या वह रेखाखंड है जो वृत्त के केंद्र को वृत्त पर स्थित किसी भी बिंदु से जोड़ता है। एक ही वृत्त की सभी त्रिज्याएँ लंबाई में बराबर होती हैं। इसे हम छोटे अक्षर 'r' से दिखाते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">केंद्र से परिधि तक</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 26</span>
+          <h2><span class="hl">व्यास</span> (Diameter)</h2>
+          <ul><li>एक रेखाखंड जो वृत्त के केंद्र से होकर गुजरता है</li><li>इसके दोनों सिरे वृत्त पर स्थित होते हैं</li><li>व्यास = 2 × त्रिज्या (d = 2r)</li></ul>
+          <p class="notes">🎙️ व्यास एक ऐसा रेखाखंड है जो वृत्त के केंद्र से होकर गुजरता है और जिसके दोनों सिरे वृत्त पर स्थित होते हैं। यह वृत्त की सबसे लंबी जीवा होती है। व्यास, त्रिज्या का दोगुना होता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">वृत्त की सबसे लंबी जीवा</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 26</span>
+          <h2><span class="hl">जीवा</span> (Chord)</h2>
+          <ul><li>एक रेखाखंड जिसके दोनों सिरे वृत्त पर स्थित हों</li><li>जीवा केंद्र से होकर नहीं भी गुजर सकती है</li><li>व्यास एक विशेष प्रकार की जीवा है</li></ul>
+          <p class="notes">🎙️ जीवा एक रेखाखंड है जिसके दोनों अंतिम बिंदु वृत्त पर स्थित होते हैं। यह केंद्र से होकर गुजर भी सकती है और नहीं भी। व्यास भी एक जीवा है, लेकिन यह सबसे लंबी जीवा होती है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎸</div><div class="vcap">वृत्त के दो बिंदुओं को जोड़ने वाली रेखा</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 26</span>
+          <h2><span class="hl">चाप</span> (Arc)</h2>
+          <ul><li>वृत्त की परिधि का एक टुकड़ा</li><li>दो बिंदुओं के बीच का हिस्सा</li><li>लघु चाप (Minor Arc) और दीर्घ चाप (Major Arc)</li></ul>
+          <p class="notes">🎙️ चाप वृत्त की परिधि का एक छोटा या बड़ा हिस्सा होता है। जब आप वृत्त पर दो बिंदु लेते हैं, तो उनके बीच का घुमावदार रास्ता चाप कहलाता है। यह लघु चाप या दीर्घ चाप हो सकता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⌒</div><div class="vcap">वृत्त का मुड़ा हुआ हिस्सा</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 26</span>
+          <h2><span class="hl">वृत्तखंड</span> (Segment)</h2>
+          <ul><li>एक जीवा और उसके संगत चाप के बीच का क्षेत्र</li><li>लघु वृत्तखंड (Minor Segment) और दीर्घ वृत्तखंड (Major Segment)</li><li>यह एक वृत्त को दो भागों में बांटता है</li></ul>
+          <p class="notes">🎙️ वृत्तखंड वह क्षेत्र होता है जो एक जीवा और उसके संगत चाप के बीच बनता है। एक जीवा वृत्त को दो वृत्तखंडों में बांटती है - एक छोटा (लघु) और एक बड़ा (दीर्घ)।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔪</div><div class="vcap">जीवा से कटा हुआ भाग</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 26</span>
+          <h2><span class="hl">त्रिज्यखंड</span> (Sector)</h2>
+          <ul><li>दो त्रिज्याओं और उनके संगत चाप के बीच का क्षेत्र</li><li>यह एक वृत्त को दो भागों में बांटता है</li><li>एक पिज्जा के स्लाइस जैसा दिखता है</li></ul>
+          <p class="notes">🎙️ त्रिज्यखंड वह क्षेत्र होता है जो दो त्रिज्याओं और उनके संगत चाप के बीच बनता है। यह एक पिज्जा के स्लाइस जैसा दिखता है। यह भी वृत्त को दो भागों में बांटता है - लघु त्रिज्यखंड और दीर्घ त्रिज्यखंड।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">दो त्रिज्याओं से कटा भाग</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 26</span>
+          <h2><span class="hl">परिधि</span> (Circumference)</h2>
+          <ul><li>वृत्त की बाहरी सीमा की कुल लंबाई</li><li>यह वृत्त के चारों ओर की दूरी है</li><li>परिधि = 2πr या πd</li></ul>
+          <p class="notes">🎙️ परिधि वृत्त के चारों ओर की कुल दूरी होती है। यह वृत्त की बाहरी सीमा की लंबाई है। इसकी गणना 2πr या πd सूत्र का उपयोग करके की जाती है, जहाँ π एक स्थिरांक है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏃‍♀️</div><div class="vcap">वृत्त के चारों ओर की दूरी</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 26</span>
+          <h2>वृत्त के वास्तविक जीवन के <span class="hl">उदाहरण</span></h2>
+          <ul><li>पहिए (Wheels) - केंद्र, त्रिज्या, व्यास</li><li>घड़ी (Clock) - केंद्र, सुइयाँ त्रिज्याएँ</li><li>सिक्के (Coins) - परिधि, व्यास</li><li>कंगन (Bangles) - परिधि</li></ul>
+          <p class="notes">🎙️ वृत्त हमारे दैनिक जीवन में हर जगह मौजूद हैं। पहिए, घड़ी, सिक्के, कंगन, थालियाँ - ये सभी वृत्त के आकार के होते हैं और हम इनमें वृत्त के विभिन्न भागों को देख सकते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>⚙️</span><span>⚙️</span><span>⚙️</span><span>⚙️</span></div><div class="vcap">हमारे चारों ओर वृत्त</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 26</span>
+          <h2>प्रश्न 1: वृत्त के भागों को <span class="hl">पहचानें</span></h2>
+          <ul><li>एक वृत्त बनाएँ और उसके केंद्र को O से नामांकित करें।</li><li>केंद्र O से वृत्त पर एक बिंदु P तक एक रेखाखंड खींचें। यह क्या है?</li><li>वृत्त पर दो बिंदु A और B को एक रेखाखंड से जोड़ें। यह क्या है?</li><li>एक रेखाखंड खींचें जो केंद्र O से होकर गुजरता है और जिसके सिरे वृत्त पर स्थित हों। यह क्या है?</li></ul>
+          <p class="notes">🎙️ बच्चों, अब अपनी कॉपी में एक वृत्त बनाएँ और इन सवालों के जवाब दें। इससे आपको वृत्त के विभिन्न भागों को पहचानने में मदद मिलेगी। सोचिए और सही जवाब दीजिए।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 26</span>
+          <h2>जीवा द्वारा केंद्र पर अंतरित <span class="hl">कोण</span> (Angles Subtended by a Chord at the Centre)</h2>
+          <ul><li>जब एक जीवा को केंद्र से जोड़ा जाता है, तो एक कोण बनता है</li><li>यह कोण जीवा द्वारा केंद्र पर अंतरित कोण कहलाता है</li><li>इसकी माप जीवा की लंबाई पर निर्भर करती है</li></ul>
+          <p class="notes">🎙️ जब हम एक वृत्त की जीवा के सिरों को केंद्र से जोड़ते हैं, तो केंद्र पर एक कोण बनता है। इस कोण को जीवा द्वारा केंद्र पर अंतरित कोण कहते हैं। यह कोण जीवा की लंबाई पर निर्भर करता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">केंद्र पर कोण</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 26</span>
+          <h2>प्रमेय 1: समान जीवाएँ केंद्र पर <span class="hl">समान कोण</span> अंतरित करती हैं</h2>
+          <ul><li>यदि एक वृत्त की दो जीवाएँ समान लंबाई की हों</li><li>तो वे वृत्त के केंद्र पर समान कोण बनाती हैं</li><li>सिद्ध करने के लिए सर्वांगसमता का उपयोग किया जाता है</li></ul>
+          <p class="notes">🎙️ यह एक बहुत ही महत्वपूर्ण प्रमेय है। यह कहता है कि यदि आपके पास एक वृत्त में दो जीवाएँ हैं जिनकी लंबाई बराबर है, तो वे केंद्र पर जो कोण बनाएंगी, वे भी बराबर होंगे। इसे त्रिभुजों की सर्वांगसमता से सिद्ध किया जा सकता है।</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">जीवा AB द्वारा कोण</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">जीवा CD द्वारा कोण</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">16 / 26</span>
+          <h2><span class="hl">उदाहरण</span> 1: समान जीवाएँ</h2>
+          <ul><li>एक वृत्त में, जीवा AB = 5 सेमी और जीवा CD = 5 सेमी है।</li><li>यदि जीवा AB द्वारा केंद्र पर अंतरित कोण 60° है।</li><li>तो जीवा CD द्वारा केंद्र पर अंतरित कोण कितना होगा?</li><li>हल: प्रमेय 1 के अनुसार, यह भी 60° होगा।</li></ul>
+          <p class="notes">🎙️ इस उदाहरण को देखें। हमारे पास दो जीवाएँ हैं जिनकी लंबाई समान है। यदि एक जीवा केंद्र पर 60 डिग्री का कोण बनाती है, तो दूसरी जीवा भी केंद्र पर 60 डिग्री का कोण ही बनाएगी, प्रमेय 1 के अनुसार।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 26</span>
+          <h2>प्रमेय 2: यदि जीवाएँ केंद्र पर समान कोण अंतरित करें</h2>
+          <ul><li>यदि एक वृत्त की जीवाएँ केंद्र पर समान कोण अंतरित करती हैं</li><li>तो वे जीवाएँ समान लंबाई की होती हैं</li><li>यह प्रमेय 1 का विलोम (Converse) है</li></ul>
+          <p class="notes">🎙️ यह प्रमेय 1 का उल्टा है। यदि आपको पता है कि दो जीवाएँ केंद्र पर समान कोण बना रही हैं, तो आप तुरंत कह सकते हैं कि उन जीवाओं की लंबाई भी समान होगी। यह भी सर्वांगसमता से सिद्ध होता है।</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">∠AOB</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">∠COD</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 26</span>
+          <h2>प्रश्न 2: <span class="hl">जीवा</span> और कोण</h2>
+          <ul><li>एक वृत्त में, जीवा PQ केंद्र पर 70° का कोण बनाती है।</li><li>यदि एक अन्य जीवा RS केंद्र पर भी 70° का कोण बनाती है।</li><li>तो जीवा PQ और RS की लंबाई के बारे में आप क्या कह सकते हैं?</li><li>क्या वे बराबर हैं या अलग-अलग?</li></ul>
+          <p class="notes">🎙️ बच्चों, अब इस प्रश्न का उत्तर दीजिए। हमने अभी-अभी प्रमेय 1 और 2 पढ़े हैं। उनका उपयोग करके सोचिए कि जीवा PQ और RS की लंबाई कैसी होगी। यह बहुत सीधा सवाल है।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 26</span>
+          <h2>केंद्र से जीवा पर <span class="hl">लम्ब</span> (Perpendicular from Centre to a Chord)</h2>
+          <ul><li>केंद्र से जीवा पर खींचा गया लम्ब</li><li>यह जीवा को दो बराबर भागों में बांटता है</li><li>यह एक महत्वपूर्ण ज्यामितीय गुण है</li></ul>
+          <p class="notes">🎙️ जब हम वृत्त के केंद्र से किसी जीवा पर एक सीधी रेखा (लम्ब) खींचते हैं, तो क्या होता है? यह रेखा जीवा को दो बराबर हिस्सों में बांट देती है। यह एक बहुत ही उपयोगी गुण है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">सीधी रेखा</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 26</span>
+          <h2>प्रमेय 3: केंद्र से जीवा पर डाला गया लम्ब जीवा को <span class="hl">समद्विभाजित</span> करता है</h2>
+          <ul><li>एक वृत्त के केंद्र से जीवा पर खींचा गया लम्ब</li><li>जीवा को दो बराबर भागों में विभाजित करता है</li><li>यह प्रमेय पाइथागोरस प्रमेय से भी संबंधित है</li></ul>
+          <p class="notes">🎙️ यह प्रमेय बताता है कि यदि आप केंद्र से जीवा पर लम्ब डालते हैं, तो वह जीवा को ठीक बीच में से काटता है, यानी दो बराबर हिस्सों में बांट देता है। यह गुण हमें कई समस्याओं को हल करने में मदद करता है।</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">जीवा का पहला भाग</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">जीवा का दूसरा भाग</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 26</span>
+          <h2>उदाहरण 2: जीवा की <span class="hl">लंबाई</span> ज्ञात करना</h2>
+          <ul><li>एक वृत्त की त्रिज्या 5 सेमी है।</li><li>केंद्र से एक जीवा की दूरी 3 सेमी है।</li><li>जीवा की लंबाई ज्ञात कीजिए।</li><li>हल: पाइथागोरस प्रमेय से, जीवा का आधा भाग = √(5² - 3²) = √16 = 4 सेमी।</li><li>अतः, जीवा की लंबाई = 2 × 4 = 8 सेमी।</li></ul>
+          <p class="notes">🎙️ इस उदाहरण में हम प्रमेय 3 और पाइथागोरस प्रमेय का उपयोग करके जीवा की लंबाई ज्ञात कर सकते हैं। केंद्र से जीवा पर लम्ब डालने से एक समकोण त्रिभुज बनता है।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 26</span>
+          <h2>प्रमेय 4: यदि एक रेखा केंद्र से जीवा को समद्विभाजित करती है</h2>
+          <ul><li>यदि वृत्त के केंद्र से एक जीवा को समद्विभाजित करने के लिए एक रेखा खींची जाए</li><li>तो वह रेखा जीवा पर लम्ब होती है</li><li>यह प्रमेय 3 का विलोम है</li></ul>
+          <p class="notes">🎙️ यह प्रमेय 3 का विलोम है। यदि आपको पता है कि केंद्र से खींची गई कोई रेखा जीवा को दो बराबर भागों में बांटती है, तो आप निश्चित रूप से कह सकते हैं कि वह रेखा जीवा पर लम्ब होगी। यह भी एक बहुत उपयोगी गुण है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">सही कोण</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 26</span>
+          <h2>प्रश्न 3: <span class="hl">लम्ब</span> और जीवा</h2>
+          <ul><li>एक वृत्त की जीवा AB की लंबाई 10 सेमी है।</li><li>केंद्र O से जीवा AB पर OM लम्ब है।</li><li>तो AM की लंबाई क्या होगी?</li><li>यदि OM = 4 सेमी है, तो वृत्त की त्रिज्या क्या होगी?</li></ul>
+          <p class="notes">🎙️ बच्चों, अब इस प्रश्न को हल करें। इसमें आपको प्रमेय 3 और पाइथागोरस प्रमेय दोनों का उपयोग करना होगा। ध्यान से सोचिए और सही उत्तर निकालिए।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 26</span>
+          <h2>तीन <span class="hl">असरेखीय</span> बिंदुओं से गुजरने वाला वृत्त</h2>
+          <ul><li>तीन असरेखीय (जो एक सीधी रेखा में न हों) बिंदुओं से</li><li>केवल एक और केवल एक ही वृत्त खींचा जा सकता है</li><li>यह वृत्त की एक अद्वितीय विशेषता है</li></ul>
+          <p class="notes">🎙️ यह एक बहुत ही दिलचस्प तथ्य है। यदि आपके पास तीन ऐसे बिंदु हैं जो एक सीधी रेखा में नहीं हैं, तो आप उन तीनों बिंदुओं से होकर जाने वाला केवल एक ही वृत्त खींच सकते हैं। यह वृत्त की एक अद्वितीय संपत्ति है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">अद्वितीय वृत्त</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 26</span>
+          <h2><span class="hl">संकेन्द्री</span> वृत्त (Concentric Circles)</h2>
+          <ul><li>ऐसे वृत्त जिनका केंद्र एक ही हो</li><li>लेकिन उनकी त्रिज्याएँ अलग-अलग हों</li><li>जैसे निशाना लगाने वाला बोर्ड (Target Board)</li></ul>
+          <p class="notes">🎙️ संकेन्द्री वृत्त वे होते हैं जिनका केंद्र तो एक ही होता है, लेकिन उनकी त्रिज्याएँ अलग-अलग होती हैं। एक निशाना लगाने वाला बोर्ड इसका एक अच्छा उदाहरण है, जहाँ सभी वृत्त एक ही केंद्र साझा करते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>◎</span><span>◎</span><span>◎</span></div><div class="vcap">एक ही केंद्र, अलग त्रिज्याएँ</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">26 / 26</span>
+          <h2>आज हमने क्या सीखा? (Recap)</h2>
+          <ul><li>वृत्त की परिभाषा और उसके विभिन्न भाग (केंद्र, त्रिज्या, व्यास, जीवा, चाप, वृत्तखंड, त्रिज्यखंड, परिधि)</li><li>जीवा द्वारा केंद्र पर अंतरित कोणों के गुण</li><li>केंद्र से जीवा पर लम्ब के गुण</li><li>तीन असरेखीय बिंदुओं से गुजरने वाला अद्वितीय वृत्त और संकेन्द्री वृत्त</li></ul>
+          <p class="notes">🎙️ आज हमने वृत्त के बारे में बहुत कुछ सीखा। हमने उसकी परिभाषा, विभिन्न भाग, जीवाओं और केंद्र से संबंधित महत्वपूर्ण प्रमेय देखे। हमें उम्मीद है कि आपको यह अध्याय समझ आया होगा। अभ्यास करते रहें!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

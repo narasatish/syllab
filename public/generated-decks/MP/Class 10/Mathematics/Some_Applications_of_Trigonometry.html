@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Some Applications of Trigonometry — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Applications</span> of Trigonometry!</h2>
+          <ul><li>Discover how trigonometry helps us measure the world.</li><li>Solve real-life problems using mathematical skills.</li><li>See the practical side of triangles and angles.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to explore how the trigonometry we've learned is used in the real world. Get ready to see mathematics in action, helping us solve everyday mysteries of height and distance.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Trigonometry</span>, Anyway?</h2>
+          <ul><li>Study of relationships between sides and angles of triangles.</li><li>Especially useful for right-angled triangles.</li><li>Helps us find unknown lengths or angles.</li></ul>
+          <p class="notes">🎙️ Before we dive into applications, let's quickly recall what trigonometry is. It's all about understanding how the angles in a triangle relate to the lengths of its sides, particularly in right-angled triangles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Measuring with Triangles</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>The Foundation: <span class="hl">Right-Angled</span> Triangles</h2>
+          <ul><li>One angle is exactly 90 degrees.</li><li>Hypotenuse: Longest side, opposite the right angle.</li><li>Opposite and Adjacent sides depend on the reference angle.</li></ul>
+          <p class="notes">🎙️ Remember, the core of our study lies in the right-angled triangle. Its unique properties, especially the 90-degree angle, allow us to apply trigonometric ratios effectively. Identify the hypotenuse, opposite, and adjacent sides carefully.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">The Right Triangle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Revisiting Trigonometric <span class="hl">Ratios</span></h2>
+          <ul><li>Sine (sin): Opposite / Hypotenuse</li><li>Cosine (cos): Adjacent / Hypotenuse</li><li>Tangent (tan): Opposite / Adjacent</li></ul>
+          <p class="notes">🎙️ These three fundamental ratios are our tools. They link angles to side lengths. Make sure you remember SOH CAH TOA, as we will be using these ratios extensively today.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>SOH (Sin = Opp/Hyp)</span></div><div class="step"><span class="snum">2</span><span>CAH (Cos = Adj/Hyp)</span></div><div class="step"><span class="snum">3</span><span>TOA (Tan = Opp/Adj)</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Why Do We Need <span class="hl">Applications</span>?</h2>
+          <ul><li>Measure heights of tall buildings or mountains.</li><li>Calculate distances across rivers or oceans.</li><li>Determine positions in navigation and surveying.</li></ul>
+          <p class="notes">🎙️ Imagine wanting to know the height of the Qutub Minar or the distance to a ship at sea without actually climbing or swimming. Trigonometry makes these seemingly impossible measurements possible, without direct physical measurement.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">❓</div><div class="vcap">Why apply?</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Key Concept 1: The <span class="hl">Line of Sight</span></h2>
+          <ul><li>Imaginary line from observer's eye to the object.</li><li>Forms the basis for measuring angles.</li><li>Crucial for setting up your trigonometric problem.</li></ul>
+          <p class="notes">🎙️ The line of sight is simply the direct path your eyes take when looking at an object. It's the hypotenuse of our imaginary right-angled triangle and is fundamental to understanding the angles we'll discuss next.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👁️</div><div class="vcap">Eye to Object</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Line of Sight: An <span class="hl">Example</span></h2>
+          <ul><li>You (observer) are looking at a bird (object).</li><li>The line from your eye to the bird is the line of sight.</li><li>It helps define our triangle in real scenarios.</li></ul>
+          <p class="notes">🎙️ Think of yourself standing on the ground, watching a bird fly high above. The invisible line connecting your eye to that bird is your line of sight. This is the first step in visualizing any problem.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚶</span><span>🚶</span></div><div class="vcap">Observer and Object</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Key Concept 2: Angle of <span class="hl">Elevation</span></h2>
+          <ul><li>Angle between the horizontal level and the line of sight.</li><li>Formed when the observer looks UP at an object.</li><li>The object is above the horizontal level.</li></ul>
+          <p class="notes">🎙️ When you look up at something, like a skyscraper or an airplane, the angle your line of sight makes with the horizontal ground is called the angle of elevation. Remember, 'elevation' means going higher.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬆️</div><div class="vcap">Looking Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Angle of Elevation: <span class="hl">Real-Life</span></h2>
+          <ul><li>Looking up at a kite flying in the sky.</li><li>Gazing at the top of a tall monument.</li><li>An air traffic controller looking at an incoming plane.</li></ul>
+          <p class="notes">🎙️ Imagine you're holding a balloon string and looking up at your balloon. The angle formed between your horizontal gaze and your line of sight to the balloon is the angle of elevation. It's a common everyday occurrence.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎈</span></div><div class="vcap">Looking at a balloon</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Key Concept 3: Angle of <span class="hl">Depression</span></h2>
+          <ul><li>Angle between the horizontal level and the line of sight.</li><li>Formed when the observer looks DOWN at an object.</li><li>The object is below the horizontal level.</li></ul>
+          <p class="notes">🎙️ Conversely, when you're at a height and look down at an object, the angle formed with the horizontal is the angle of depression. Think of 'depression' as looking downwards from a higher point.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬇️</div><div class="vcap">Looking Down</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Angle of Depression: <span class="hl">Real-Life</span></h2>
+          <ul><li>Looking down from a lighthouse at a ship.</li><li>Observing a car from a balcony.</li><li>A pilot looking at the runway during landing.</li></ul>
+          <p class="notes">🎙️ Picture yourself in a helicopter, looking down at a small boat in the water. The angle your gaze makes with the perfectly horizontal line of the horizon is the angle of depression. This is vital for navigation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚁</span></div><div class="vcap">Looking down from helicopter</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Important Terms <span class="hl">Summary</span></h2>
+          <ul><li>Line of Sight: Observer's eye to object.</li><li>Angle of Elevation: Looking up from horizontal.</li><li>Angle of Depression: Looking down from horizontal.</li></ul>
+          <p class="notes">🎙️ To summarize, these three terms are the cornerstone of solving problems in this chapter. Understanding them clearly will help you set up your diagrams correctly and apply the right trigonometric ratios.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Line of Sight</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Angle of Elevation</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Angle of Depression</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Application 1: Finding <span class="hl">Heights</span> of Objects</h2>
+          <ul><li>Measure distance from base and angle of elevation.</li><li>Use tangent ratio (Opposite/Adjacent).</li><li>Common for towers, trees, buildings.</li></ul>
+          <p class="notes">🎙️ One of the most common applications is finding the height of objects that are too tall to measure directly. By knowing your distance from the base and the angle you look up, you can calculate the height using trigonometry.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Height</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Tower Height</span></h2>
+          <ul><li>A man stands 15m from a tower's base.</li><li>Angle of elevation to tower top is 60°.</li><li>Find the height of the tower.</li></ul>
+          <p class="notes">🎙️ Let's solve this problem. We have the adjacent side (distance to tower) and the angle of elevation. We need to find the opposite side (height of tower). Which trigonometric ratio connects opposite and adjacent sides?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏗️</div><div class="vcap">Tower Problem</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Application 2: Finding <span class="hl">Distances</span> to Objects</h2>
+          <ul><li>Measure height of observer and angle of depression.</li><li>Use tangent ratio (Opposite/Adjacent) or cosine.</li><li>Useful for ships, cars, objects on ground.</li></ul>
+          <p class="notes">🎙️ Another practical use is determining how far away an object is. If you're observing from a known height, like a cliff or a lighthouse, the angle of depression can help you find the horizontal distance to the object.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Measuring Distance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Boat Distance</span></h2>
+          <ul><li>From a 75m high lighthouse, angle of depression to a boat is 30°.</li><li>Find the distance of the boat from the lighthouse base.</li><li>Remember, angle of depression = angle of elevation (alternate interior angles).</li></ul>
+          <p class="notes">🎙️ In this scenario, we know the height of the lighthouse (opposite side) and the angle of depression. We need to find the distance to the boat (adjacent side). Remember the relationship between angles of depression and elevation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚤</div><div class="vcap">Boat Problem</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Application 3: <span class="hl">Complex</span> Scenarios</h2>
+          <ul><li>Problems involving two angles of elevation/depression.</li><li>Objects observed from different points.</li><li>Requires forming two right-angled triangles and solving them together.</li></ul>
+          <p class="notes">🎙️ Not all problems are straightforward. Sometimes, you'll have two observers, or an object observed from two different angles. These problems usually involve creating and solving two related right triangles.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Putting Pieces Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example 3: <span class="hl">Two Observers</span></h2>
+          <ul><li>Two men on opposite sides of a 50m wide road.</li><li>Angles of elevation to top of a pole are 30° and 60°.</li><li>Find the height of the pole.</li></ul>
+          <p class="notes">🎙️ Here, the pole's height is common to both triangles. We'll set up equations for each observer using the tangent ratio and then solve them simultaneously to find the pole's height. This requires careful algebraic manipulation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🤝‍🧑</div><div class="vcap">Observing a Pole</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example 4: <span class="hl">Building &amp; Tower</span></h2>
+          <ul><li>From a 7m high building, angle of elevation to top of a tower is 60°.</li><li>Angle of depression to foot of tower is 45°.</li><li>Find the height of the tower.</li></ul>
+          <p class="notes">🎙️ This problem combines both elevation and depression. We can use the angle of depression to find the distance to the tower, and then use the angle of elevation with that distance to find the remaining height of the tower above the building.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏢</div><div class="vcap">Building to Tower</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 1</h2>
+          <ul><li>If you look up at a bird, what angle is formed?</li><li>A) Angle of Depression</li><li>B) Angle of Elevation</li><li>C) Right Angle</li></ul>
+          <p class="notes">🎙️ Let's quickly test your understanding. Think about the direction of your gaze relative to the horizontal. Is it upwards or downwards?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 2</h2>
+          <ul><li>A lighthouse is 100m tall. A ship is 100m away from its base.</li><li>What is the angle of depression from the top of the lighthouse to the ship?</li><li>A) 30°</li><li>B) 45°</li><li>C) 60°</li></ul>
+          <p class="notes">🎙️ For this problem, consider the right-angled triangle formed. The height of the lighthouse is the opposite side, and the distance to the ship is the adjacent side. Which trigonometric ratio relates these two?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 3</h2>
+          <ul><li>A ladder 10m long rests against a wall.</li><li>It makes an angle of 60° with the ground.</li><li>How high up the wall does the ladder reach?</li></ul>
+          <p class="notes">🎙️ Draw a diagram for this one. The ladder is the hypotenuse, and the height it reaches on the wall is the opposite side to the angle with the ground. Which ratio should you use?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span> 4</h2>
+          <ul><li>If the angle of elevation of the sun is 30°, what is the length of the shadow cast by a 15m high pole?</li><li>A) 15√3 m</li><li>B) 15/√3 m</li><li>C) 30 m</li></ul>
+          <p class="notes">🎙️ Here, the pole's height is the opposite side, and the shadow length is the adjacent side. Use the tangent ratio to solve for the shadow length. Remember your special angle values!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Trigonometry helps measure inaccessible heights and distances.</li><li>Line of Sight connects observer to object.</li><li>Angle of Elevation (looking up), Angle of Depression (looking down).</li><li>Always draw a clear diagram to set up your problem.</li></ul>
+          <p class="notes">🎙️ We've covered the essential concepts of applications of trigonometry today. Remember the definitions of line of sight, angle of elevation, and angle of depression, as they are crucial for solving problems. Always start by drawing a good diagram.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Exploring</span>! Practice Makes Perfect</h2>
+          <ul><li>Practice more problems from your textbook.</li><li>Look for real-life examples around you.</li><li>Understand why each step in a solution is taken.</li></ul>
+          <p class="notes">🎙️ Trigonometry is a powerful tool with many practical uses. The more you practice, the better you'll become at identifying the correct ratios and solving complex problems. Keep observing the world around you through a mathematical lens!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Learn &amp; Practice</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

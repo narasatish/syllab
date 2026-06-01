@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Force and Laws of Motion — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Force</span> and Laws of Motion</h2>
+          <ul><li>Class 9 Science</li><li>Chapter Overview</li><li>MP Board Curriculum</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to explore one of the most fundamental concepts in physics: Force and the Laws that govern motion. This chapter will help us understand why things move, stop, or change direction.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Force</span>?</h2>
+          <ul><li>A push or a pull</li><li>Interaction between two objects</li><li>Measured in Newtons (N)</li></ul>
+          <p class="notes">🎙️ Imagine opening a door, kicking a football, or lifting your school bag. All these actions involve a 'force'. Force is simply a push or a pull that one object exerts on another.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🖐️</div><div class="vcap">Push or Pull</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Visualizing Force: <span class="hl">Push and Pull</span></h2>
+          <ul><li>Push: Moving away from you</li><li>Pull: Moving towards you</li><li>Always has direction and magnitude</li></ul>
+          <p class="notes">🎙️ Think about how you push a shopping cart or pull a rope. These are everyday examples of forces. Forces always have a direction – you push in one direction, and pull in another – and a strength, or magnitude.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Push</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Pull</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Effects</span> of Force: What Can Force Do?</h2>
+          <ul><li>Change speed (start/stop/slow down)</li><li>Change direction of motion</li><li>Change shape or size of an object</li></ul>
+          <p class="notes">🎙️ Force isn't just about making things move. It can do many things! It can make a stationary object move, stop a moving object, change its speed, alter its direction, or even deform its shape, like squeezing a sponge.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💥</div><div class="vcap">Impact of Force</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Balanced</span> vs. Unbalanced Forces</h2>
+          <ul><li>Balanced: Net force is zero</li><li>Unbalanced: Net force is not zero</li><li>Unbalanced forces cause motion</li></ul>
+          <p class="notes">🎙️ When multiple forces act on an object, we look at the 'net force'. If all forces cancel each other out, it's a balanced force, and the object's motion doesn't change. If there's a leftover force, it's unbalanced, and the object will accelerate.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Balanced</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Unbalanced</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Example: <span class="hl">Tug-of-War</span></h2>
+          <ul><li>Teams pull with equal force: Balanced</li><li>One team pulls stronger: Unbalanced</li><li>Unbalanced force causes movement</li></ul>
+          <p class="notes">🎙️ A perfect example is a tug-of-war. If both teams pull with equal strength, the rope doesn't move – balanced forces. But if one team pulls harder, they exert an unbalanced force, and the rope (and the other team) moves in their direction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💪</span><span>💪</span></div><div class="vcap">Two teams pulling</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Newton's First Law: The Law of <span class="hl">Inertia</span></h2>
+          <ul><li>Object at rest stays at rest</li><li>Object in motion stays in motion</li><li>Unless acted upon by an external force</li></ul>
+          <p class="notes">🎙️ Sir Isaac Newton gave us three fundamental laws of motion. The first law, also known as the Law of Inertia, states that an object will continue in its state of rest or uniform motion in a straight line, unless an external unbalanced force acts on it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🛑</div><div class="vcap">Resistance to Change</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Inertia in <span class="hl">Daily Life</span></h2>
+          <ul><li>Jerking forward when a bus stops</li><li>Dusting a carpet by beating it</li><li>Removing coins from a stack</li></ul>
+          <p class="notes">🎙️ We experience inertia all the time! When you're standing in a bus and it suddenly brakes, your body tends to continue moving forward due to inertia. Similarly, when you beat a carpet, the dust particles, due to inertia, tend to remain at rest and fall off.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚌</div><div class="vcap">Bus Ride</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Worked Example: <span class="hl">Car Braking</span></h2>
+          <ul><li>Scenario: Car suddenly applies brakes</li><li>Body continues forward due to inertia</li><li>Seatbelts counteract inertia</li></ul>
+          <p class="notes">🎙️ Imagine you're in a car moving at a good speed. When the driver suddenly hits the brakes, the car slows down, but your body, due to its inertia, tries to maintain its forward motion. This is why seatbelts are crucial – they provide the external force needed to stop your body safely.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Car moves</span></div><div class="step"><span class="snum">2</span><span>Brakes applied</span></div><div class="step"><span class="snum">3</span><span>Body moves forward</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Momentum</span>: Quantity of Motion</h2>
+          <ul><li>Measure of motion of an object</li><li>Depends on mass and velocity</li><li>Formula: p = m × v</li></ul>
+          <p class="notes">🎙️ Momentum is a very important concept in physics. It's essentially the 'quantity of motion' an object possesses. A heavy object moving slowly can have the same momentum as a light object moving very fast. It's calculated by multiplying mass and velocity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💨</div><div class="vcap">Moving Object</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Factors</span> Affecting Momentum</h2>
+          <ul><li>Mass (m): More mass, more momentum</li><li>Velocity (v): More velocity, more momentum</li><li>Both are directly proportional to momentum</li></ul>
+          <p class="notes">🎙️ From the formula p = m × v, it's clear that both mass and velocity play a role. A bowling ball has more momentum than a tennis ball moving at the same speed. A fast-moving car has more momentum than a slow-moving car of the same mass.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Mass</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Velocity</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked Example: <span class="hl">Calculating</span> Momentum</h2>
+          <ul><li>Problem: A 5 kg ball moves at 10 m/s</li><li>Mass (m) = 5 kg</li><li>Velocity (v) = 10 m/s</li><li>p = m × v = 5 kg × 10 m/s = 50 kg m/s</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. If we have a 5-kilogram ball rolling at 10 meters per second, its momentum would be 5 kilograms multiplied by 10 meters per second, giving us 50 kilogram-meters per second. Remember the units!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚽</div><div class="vcap">Ball in Motion</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Quick <span class="hl">Check 1</span>: Force &amp; Inertia</h2>
+          <ul><li>What is the SI unit of force?</li><li>What is inertia?</li><li>Why do we feel a jerk when a moving bus stops suddenly?</li></ul>
+          <p class="notes">🎙️ Time for a quick check to see if you've grasped the initial concepts. Think about these questions, and we'll discuss the answers briefly. These are fundamental ideas for understanding the rest of the chapter.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Quick <span class="hl">Check 2</span>: Momentum</h2>
+          <ul><li>What factors determine an object's momentum?</li><li>A heavy truck and a small car are moving at the same speed. Which has more momentum?</li><li>What is the unit of momentum?</li></ul>
+          <p class="notes">🎙️ Now, let's test your understanding of momentum. Remember the formula and the quantities involved. These questions will help reinforce your knowledge before we move on to Newton's Second Law.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Newton's <span class="hl">Second Law</span>: Force and Acceleration</h2>
+          <ul><li>Rate of change of momentum is proportional to applied force</li><li>Force (F) = mass (m) × acceleration (a)</li><li>F = ma is the famous formula</li></ul>
+          <p class="notes">🎙️ Newton's Second Law is incredibly powerful. It directly relates force to the change in an object's motion. It tells us that the greater the force applied, the greater the acceleration, and that a heavier object requires more force to accelerate it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚀</div><div class="vcap">Acceleration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Derivation</span> of F=ma (Simplified)</h2>
+          <ul><li>Force ∝ change in momentum / time</li><li>Change in momentum = m(v-u)</li><li>F ∝ m(v-u)/t</li><li>Since a = (v-u)/t, F ∝ ma</li><li>F = kma (k=1 in SI units) =&gt; F = ma</li></ul>
+          <p class="notes">🎙️ While the full derivation involves calculus, we can understand its essence. Force is proportional to how quickly momentum changes. Since momentum change depends on mass and velocity change, and velocity change over time is acceleration, we arrive at the simple and elegant relation F=ma.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>F ∝ Δp/Δt</span></div><div class="step"><span class="snum">2</span><span>Δp = mΔv</span></div><div class="step"><span class="snum">3</span><span>F ∝ mΔv/Δt</span></div><div class="step"><span class="snum">4</span><span>F = ma</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example: <span class="hl">Applying F=ma</span></h2>
+          <ul><li>Problem: A 2 kg object accelerates at 3 m/s²</li><li>Mass (m) = 2 kg</li><li>Acceleration (a) = 3 m/s²</li><li>F = m × a = 2 kg × 3 m/s² = 6 N</li></ul>
+          <p class="notes">🎙️ Let's use F=ma. If you have a 2-kilogram object and you want it to accelerate at 3 meters per second squared, you would need to apply a force of 2 times 3, which is 6 Newtons. This formula is used constantly in engineering and physics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏋️</div><div class="vcap">Lifting Weight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Newton's Third Law: <span class="hl">Action and Reaction</span></h2>
+          <ul><li>Every action has an equal and opposite reaction</li><li>Forces always occur in pairs</li><li>Act on different objects</li></ul>
+          <p class="notes">🎙️ Newton's Third Law is all about interactions. When you push on something, it pushes back on you with the same amount of force, but in the opposite direction. These forces are always equal in magnitude and opposite in direction, and they always act on different objects.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Opposite Directions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Examples</span> of Third Law</h2>
+          <ul><li>Rocket propulsion (gas pushes down, rocket pushes up)</li><li>Swimming (push water back, water pushes you forward)</li><li>Walking (push ground back, ground pushes you forward)</li></ul>
+          <p class="notes">🎙️ Think about a rocket launching. The rocket expels hot gases downwards (action), and the gases push the rocket upwards (reaction). When you swim, you push the water backward, and the water pushes you forward. These are all perfect examples of action-reaction pairs.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Ideal_gas_law.svg?width=500" data-fb="🔬" alt="The ideal gas law (PV = nRT) relates pressure, volume, temperature, and moles of gas. Deri"/><div class="vcap">The ideal gas law (PV = nRT) relates pressure, volume, temperature, and moles of gas. Deri</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Law of <span class="hl">Conservation</span> of Momentum</h2>
+          <ul><li>Total momentum of an isolated system remains constant</li><li>Before collision = After collision</li><li>No external force acting on the system</li></ul>
+          <p class="notes">🎙️ This law is incredibly important for understanding collisions and explosions. It states that in a closed system, where no external forces are acting, the total momentum before an interaction (like a collision) is exactly equal to the total momentum after the interaction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Balance</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Example: Collision of <span class="hl">Billiard Balls</span></h2>
+          <ul><li>Ball 1 hits Ball 2</li><li>Momentum transferred from Ball 1 to Ball 2</li><li>Total momentum of both balls stays the same</li></ul>
+          <p class="notes">🎙️ Imagine two billiard balls colliding. Before the collision, each ball has its own momentum. During the collision, momentum is exchanged between them, but the sum of their momenta before the collision will be equal to the sum of their momenta after the collision, assuming no friction.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🎱</span><span>🎱</span></div><div class="vcap">Two billiard balls</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check 3</span>: Newton's Laws</h2>
+          <ul><li>State Newton's Second Law of Motion.</li><li>Give one example of Newton's Third Law.</li><li>If F=10N and m=2kg, what is 'a'?</li></ul>
+          <p class="notes">🎙️ Let's quickly review Newton's Laws. These are the pillars of classical mechanics. Make sure you can state them and apply them to simple scenarios. The calculation should be straightforward using F=ma.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Newton%27s_laws_in_latin.jpg?width=500" data-fb="🔬" alt="Newton's three laws of motion describe how objects move and interact through forces. They "/><div class="vcap">Newton's three laws of motion describe how objects move and interact through forces. They </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check 4</span>: Conservation of Momentum</h2>
+          <ul><li>What does the Law of Conservation of Momentum state?</li><li>When does the law apply (condition)?</li><li>Why do recoil guns kick back?</li></ul>
+          <p class="notes">🎙️ Finally, let's test your understanding of momentum conservation. This law explains many phenomena, from rocket propulsion to the recoil of a gun. Think about the conditions under which it holds true.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Key Concepts</h2>
+          <ul><li>Force: Push or pull, causes change in motion/shape</li><li>Newton's 1st Law: Inertia (resistance to change)</li><li>Newton's 2nd Law: F=ma (force causes acceleration)</li><li>Newton's 3rd Law: Action-Reaction pairs</li><li>Conservation of Momentum: Total momentum constant in isolated system</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember, force is the interaction that causes changes. Newton's three laws explain how forces lead to motion, and the conservation of momentum helps us understand interactions like collisions. These concepts are fundamental to physics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>! Any Questions?</h2>
+          <ul><li>Keep exploring the world around you!</li><li>Science is everywhere!</li><li>Stay curious!</li></ul>
+          <p class="notes">🎙️ That brings us to the end of our lesson on Force and Laws of Motion. I hope you found it engaging and clear. Physics is all about understanding the world around us, so keep observing and asking questions. Thank you!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

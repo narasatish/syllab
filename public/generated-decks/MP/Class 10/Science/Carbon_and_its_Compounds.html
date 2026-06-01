@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Carbon and its Compounds — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Chapter: <span class="hl">Carbon</span> and its Compounds</h2>
+          <ul><li>The amazing element that makes up life!</li><li>Let's explore its unique properties and compounds.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we embark on an exciting journey to understand one of the most fundamental elements on Earth – Carbon. It's truly amazing!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Meet <span class="hl">Carbon</span>: The Versatile Element</h2>
+          <ul><li>Atomic Number 6, Symbol C.</li><li>Found in all living things.</li><li>Forms millions of compounds.</li></ul>
+          <p class="notes">🎙️ Carbon is everywhere! From the air we breathe (CO2) to the food we eat, from the clothes we wear to the fuel we use. It's the backbone of life itself.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💎</div><div class="vcap">Diamond (Pure Carbon)</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Where Do We <span class="hl">Find</span> Carbon?</h2>
+          <ul><li>Earth's crust (0.02% as minerals like carbonates).</li><li>Atmosphere (0.03% as Carbon Dioxide).</li><li>All organic matter (plants, animals, fossil fuels).</li></ul>
+          <p class="notes">🎙️ Though a small percentage in the Earth's crust and atmosphere, Carbon's impact is immense. It's the core component of all organic compounds, which means everything living!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌍</span><span>🌍</span><span>🌍</span></div><div class="vcap">Carbon in nature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The Power of <span class="hl">Sharing</span>: Covalent Bonds</h2>
+          <ul><li>Carbon achieves stability by sharing electrons.</li><li>Forms strong bonds with other atoms.</li><li>Unlike ionic bonds, no transfer of electrons.</li></ul>
+          <p class="notes">🎙️ Carbon is unique because it doesn't usually gain or lose electrons to form ions. Instead, it shares its electrons with other atoms, forming very stable covalent bonds. This sharing is key to its versatility.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Shared Electrons</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Carbon's Special Number: <span class="hl">Tetravalency</span></h2>
+          <ul><li>Carbon has 4 valence electrons.</li><li>It needs 4 more electrons to complete its octet.</li><li>Forms 4 covalent bonds.</li></ul>
+          <p class="notes">🎙️ The word 'tetra' means four. Carbon's ability to form four bonds makes it incredibly versatile. Think of it like a central hub that can connect to four other things simultaneously.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">4️⃣</div><div class="vcap">Four Bonds</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Chains and Rings: <span class="hl">Catenation</span></h2>
+          <ul><li>Carbon atoms can link with other Carbon atoms.</li><li>Forms long chains, branched chains, and rings.</li><li>Results in a huge variety of compounds.</li></ul>
+          <p class="notes">🎙️ Catenation is a unique property of carbon. Imagine building with LEGO blocks – carbon atoms can connect endlessly with each other, creating incredibly complex structures. This is why there are so many carbon compounds!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⛓️</div><div class="vcap">Carbon Chains</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Why is Carbon So <span class="hl">Special</span>?</h2>
+          <ul><li>Tetravalency (forms 4 bonds).</li><li>Catenation (self-linking property).</li><li>Ability to form multiple bonds (single, double, triple).</li></ul>
+          <p class="notes">🎙️ These three properties – tetravalency, catenation, and forming multiple bonds – are the 'superpowers' that make carbon the most versatile element. They allow it to form millions of different compounds.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌟</div><div class="vcap">Carbon's Superpowers</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Introducing <span class="hl">Hydrocarbons</span>: Carbon's Best Friends</h2>
+          <ul><li>Compounds made only of Carbon and Hydrogen.</li><li>Simplest organic compounds.</li><li>Found in fossil fuels like petrol and natural gas.</li></ul>
+          <p class="notes">🎙️ Hydrocarbons are the fundamental building blocks of many organic compounds. As their name suggests, they contain only hydrogen and carbon atoms. They are crucial to our energy needs.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Alkane_homologous_series.svg?width=500" data-fb="⛽" alt="Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a"/><div class="vcap">Carbon forms diverse compounds through different bonding patterns. Alkanes, alkenes, and a</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Saturated</span> Hydrocarbons: All Single Bonds (Alkanes)</h2>
+          <ul><li>Carbon atoms are linked by only single bonds.</li><li>They are very stable and less reactive.</li><li>General formula: CnH2n+2.</li></ul>
+          <p class="notes">🎙️ In saturated hydrocarbons, every carbon atom is 'saturated' with hydrogen atoms, meaning it has the maximum possible number of single bonds. Alkanes are a prime example of saturated hydrocarbons.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Single Bond</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Unsaturated</span> Hydrocarbons: Double &amp; Triple Bonds</h2>
+          <ul><li>Contain at least one double or triple bond.</li><li>More reactive than saturated hydrocarbons.</li><li>Alkenes (double bond): CnH2n; Alkynes (triple bond): CnH2n-2.</li></ul>
+          <p class="notes">🎙️ Unsaturated hydrocarbons have 'room' for more hydrogen atoms because of their double or triple bonds. This makes them more reactive and useful for various chemical reactions.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Single Bond</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Double Bond</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Triple Bond</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Example: <span class="hl">Methane</span> (CH4) - The Simplest Alkane</h2>
+          <ul><li>One carbon atom bonded to four hydrogen atoms.</li><li>Main component of natural gas.</li><li>Used as a fuel and in chemical synthesis.</li></ul>
+          <p class="notes">🎙️ Methane is the simplest hydrocarbon and a very common example of an alkane. It's a powerful greenhouse gas and a vital energy source for homes and industries.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💨</span></div><div class="vcap">Natural Gas</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Example: <span class="hl">Ethene</span> (C2H4) - An Alkene</h2>
+          <ul><li>Two carbon atoms with a double bond between them.</li><li>Each carbon is also bonded to two hydrogen atoms.</li><li>Used for ripening fruits and making plastics (polyethene).</li></ul>
+          <p class="notes">🎙️ Ethene is a crucial alkene. It's naturally produced by plants and is used commercially to ripen fruits like bananas. It's also the building block for many common plastics.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍌</span><span>🍌</span></div><div class="vcap">Fruit Ripening</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Example: <span class="hl">Ethyne</span> (C2H2) - An Alkyne</h2>
+          <ul><li>Two carbon atoms with a triple bond between them.</li><li>Each carbon is also bonded to one hydrogen atom.</li><li>Commonly known as acetylene, used in welding torches.</li></ul>
+          <p class="notes">🎙️ Ethyne, or acetylene, is an important alkyne. When mixed with oxygen, it produces an extremely hot flame, making it ideal for welding and cutting metals.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔥</span></div><div class="vcap">Welding Flame</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Functional Groups</span>: The Deciders of Properties</h2>
+          <ul><li>Specific atoms or groups of atoms.</li><li>Determine the chemical properties of organic compounds.</li><li>Attach to the hydrocarbon chain.</li></ul>
+          <p class="notes">🎙️ Imagine a hydrocarbon chain as a car chassis. A functional group is like the engine – it dictates how the car will behave. These groups are responsible for the distinct chemical reactions of different organic compounds.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Organic_functional_groups.svg?width=500" data-fb="🎯" alt="Functional groups are specific atom groups (-OH, -CHO, -CO-, -COOH, -NH₂) that determine r"/><div class="vcap">Functional groups are specific atom groups (-OH, -CHO, -CO-, -COOH, -NH₂) that determine r</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Meet the <span class="hl">Common</span> Functional Groups</h2>
+          <ul><li>Halogen (-Cl, -Br)</li><li>Alcohol (-OH)</li><li>Aldehyde (-CHO)</li><li>Ketone (C=O)</li><li>Carboxylic Acid (-COOH)</li></ul>
+          <p class="notes">🎙️ Each of these groups imparts specific chemical characteristics to the carbon compound it's attached to. For example, the -OH group makes a compound an alcohol.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Halogen</span></div><div class="step"><span class="snum">2</span><span>Alcohol</span></div><div class="step"><span class="snum">3</span><span>Aldehyde</span></div><div class="step"><span class="snum">4</span><span>Ketone</span></div><div class="step"><span class="snum">5</span><span>Carboxylic Acid</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Homologous Series: A <span class="hl">Family</span> of Compounds</h2>
+          <ul><li>Series of compounds with the same functional group.</li><li>Differ by a -CH2- unit.</li><li>Show similar chemical properties, gradual change in physical properties.</li></ul>
+          <p class="notes">🎙️ Think of a homologous series as a family where all members share the same last name (functional group) and have similar traits. As you go down the series, the size increases by a fixed unit, leading to predictable changes in properties.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Straight-chain_alkanes.svg?width=500" data-fb="👨‍👩‍👧‍👦" alt="A homologous series is a group of compounds with similar chemical properties differing by "/><div class="vcap">A homologous series is a group of compounds with similar chemical properties differing by </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Isomerism</span>: Same Formula, Different Structure</h2>
+          <ul><li>Compounds with the same molecular formula.</li><li>But different structural arrangements of atoms.</li><li>Leads to different physical and chemical properties.</li></ul>
+          <p class="notes">🎙️ Isomers are like twins who look different even though they share the same genetic code. In chemistry, the same atoms can be arranged in different ways, creating entirely different compounds with distinct properties.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👯</div><div class="vcap">Structural Twins</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Chemical Properties: <span class="hl">Combustion</span> (Burning)</h2>
+          <ul><li>Carbon compounds burn in oxygen.</li><li>Produce carbon dioxide, water, heat, and light.</li><li>Example: CH4 + 2O2 → CO2 + 2H2O + Heat + Light.</li></ul>
+          <p class="notes">🎙️ Combustion is a common reaction for many carbon compounds, especially hydrocarbons. It's how we get energy from fuels like petrol, LPG, and natural gas. Remember the products: CO2 and water.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Periodic_table_of_elements.svg?width=500" data-fb="🔥" alt="Metals form positively charged ions by losing electrons. Reactive metals react with oxygen"/><div class="vcap">Metals form positively charged ions by losing electrons. Reactive metals react with oxygen</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Chemical Properties: <span class="hl">Oxidation</span> (Adding Oxygen)</h2>
+          <ul><li>Addition of oxygen to a substance.</li><li>Can be achieved by oxidizing agents (e.g., alkaline KMnO4).</li><li>Example: Ethanol (alcohol) can be oxidized to Ethanoic acid (carboxylic acid).</li></ul>
+          <p class="notes">🎙️ Oxidation is a fundamental chemical process. In organic chemistry, it often involves converting an alcohol into an aldehyde or a carboxylic acid. Oxidizing agents help facilitate this process.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Oxygen Addition</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Chemical Properties: <span class="hl">Addition</span> Reaction (Unsaturated Compounds)</h2>
+          <ul><li>Unsaturated hydrocarbons (alkenes, alkynes) undergo this.</li><li>Atoms are added across the double or triple bond.</li><li>Example: Hydrogenation of vegetable oil (adding H2).</li></ul>
+          <p class="notes">🎙️ Addition reactions are characteristic of compounds with double or triple bonds. The bonds 'open up' to accommodate new atoms. A common example is converting liquid vegetable oils into solid fats by adding hydrogen.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Joining Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Chemical Properties: <span class="hl">Substitution</span> Reaction (Saturated Compounds)</h2>
+          <ul><li>Saturated hydrocarbons (alkanes) undergo this.</li><li>One atom or group is replaced by another.</li><li>Example: Methane reacts with chlorine in sunlight to form chloromethane.</li></ul>
+          <p class="notes">🎙️ Unlike unsaturated compounds, alkanes are quite stable due to their single bonds. They react by substitution, where one atom is swapped out for another. This usually requires specific conditions like sunlight.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Replacing</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check: <span class="hl">Question</span> 1</h2>
+          <ul><li>Which unique property of carbon allows it to form long chains and rings?</li></ul>
+          <p class="notes">🎙️ Think back to the special bonding properties of carbon we discussed. This property is key to the vast number of carbon compounds.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check: <span class="hl">Question</span> 2</h2>
+          <ul><li>What is the main difference between saturated and unsaturated hydrocarbons?</li></ul>
+          <p class="notes">🎙️ Remember the types of bonds present in each. This difference also impacts their reactivity.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Quick Check: <span class="hl">Question</span> 3</h2>
+          <ul><li>Identify the functional group in ethanol (CH3CH2OH).</li></ul>
+          <p class="notes">🎙️ Recall the common functional groups we listed. Look for the specific atom or group attached to the hydrocarbon chain.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Chapter <span class="hl">Recap</span>: Carbon and its Compounds</h2>
+          <ul><li>Carbon is versatile due to tetravalency and catenation.</li><li>Hydrocarbons are compounds of C and H (saturated/unsaturated).</li><li>Functional groups determine chemical properties.</li><li>Key reactions: combustion, oxidation, addition, substitution.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember carbon's unique ability to bond, the different types of hydrocarbons, and how functional groups and reactions shape the world of organic chemistry. Keep exploring!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

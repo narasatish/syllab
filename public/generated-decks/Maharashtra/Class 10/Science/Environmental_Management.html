@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Environmental Management — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Environmental Management: <span class="hl">Protecting</span> Our Planet</h2>
+          <ul><li>Understand what makes up our environment.</li><li>Learn about ecosystems and how life connects.</li><li>Discover different types of pollution and their effects.</li><li>Explore ways to manage and protect our environment.</li></ul>
+          <p class="notes">🎙️ Welcome, students! Today, we embark on an important journey into Environmental Management. This chapter will help us understand the world around us and how we can protect it for future generations.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Our <span class="hl">Environment</span>: Everything Around Us</h2>
+          <ul><li>The environment is the sum total of all conditions and influences affecting the development and life of an organism.</li><li>It includes both living (biotic) and non-living (abiotic) components.</li><li>Everything from the air we breathe to the soil we walk on is part of our environment.</li></ul>
+          <p class="notes">🎙️ Think about everything that surrounds you right now – the air, the light, the plants, the people. All these elements together form your environment. It’s a vast and complex system that supports all life on Earth.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌍</div><div class="vcap">Our World</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Living</span> Parts of Our Environment: Biotic Components</h2>
+          <ul><li>Biotic components are all the living organisms in an environment.</li><li>This includes plants, animals, fungi, and microorganisms.</li><li>They interact with each other and with the non-living parts of their surroundings.</li></ul>
+          <p class="notes">🎙️ From tiny bacteria to giant trees and mighty elephants, all living things are biotic components. They play crucial roles, like producing food, consuming other organisms, or breaking down dead matter, ensuring the cycle of life continues.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Plants, Animals, Microbes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Non-Living</span> Parts of Our Environment: Abiotic Components</h2>
+          <ul><li>Abiotic components are the non-living physical and chemical factors in an environment.</li><li>Examples include sunlight, water, soil, air, temperature, and minerals.</li><li>These factors directly influence the survival and distribution of living organisms.</li></ul>
+          <p class="notes">🎙️ Imagine a desert: the extreme heat, scarce water, and sandy soil are all abiotic factors that determine which plants and animals can survive there. These non-living elements are just as vital as the living ones for an ecosystem to function.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Combustion_reaction.svg?width=500" data-fb="🔬" alt="Physical changes alter properties without changing identity; chemical changes create new s"/><div class="vcap">Physical changes alter properties without changing identity; chemical changes create new s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Ecosystems</span>: Interconnected Communities</h2>
+          <ul><li>An ecosystem is a community of living organisms interacting with their non-living environment.</li><li>It can be as small as a pond or as large as an ocean or a forest.</li><li>Energy flows and nutrients cycle within an ecosystem.</li></ul>
+          <p class="notes">🎙️ Think of an ecosystem as a giant puzzle where every piece, living or non-living, fits together. For example, in a forest ecosystem, trees provide shelter, animals eat plants, and decomposers break down dead matter, returning nutrients to the soil.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕸️</div><div class="vcap">Interconnected Web</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Different <span class="hl">Types</span> of Ecosystems</h2>
+          <ul><li>Ecosystems can be natural (forests, deserts, oceans) or artificial (aquariums, crop fields).</li><li>They are also classified as terrestrial (land-based) or aquatic (water-based).</li><li>Each type has unique biotic and abiotic characteristics.</li></ul>
+          <p class="notes">🎙️ We see ecosystems all around us. A small garden is an ecosystem, and so is the vast Arabian Sea. Understanding these different types helps us appreciate the diversity of life and the specific challenges each faces.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Terrestrial (Forest)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Aquatic (Ocean)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Food Chains</span>: Who Eats Whom?</h2>
+          <ul><li>A food chain shows how energy is transferred from one living organism to another.</li><li>It starts with producers (plants) and moves through consumers (animals).</li><li>Each step in a food chain is called a trophic level.</li></ul>
+          <p class="notes">🎙️ Food chains illustrate a simple flow of energy. For example, grass makes its own food using sunlight (producer), a deer eats the grass (primary consumer), and a tiger hunts and eats the deer (secondary consumer). This shows how energy moves up the chain.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Food_chain.svg?width=500" data-fb="🔬" alt="Food chain shows linear flow of energy through organisms: producers (plants) → consumers ("/><div class="vcap">Food chain shows linear flow of energy through organisms: producers (plants) → consumers (</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2><span class="hl">Food Webs</span>: Complex Connections</h2>
+          <ul><li>A food web consists of many interconnected food chains in an ecosystem.</li><li>Most organisms eat, and are eaten by, more than one type of organism.</li><li>Food webs show a more realistic picture of energy flow than simple food chains.</li></ul>
+          <p class="notes">🎙️ In reality, animals rarely rely on just one food source. A fox might eat rabbits, mice, and berries, while a rabbit might eat several types of plants. A food web captures these complex relationships, showing how stable an ecosystem is.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Interconnected</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Environmental <span class="hl">Pollution</span>: Harming Our Environment</h2>
+          <ul><li>Pollution is the introduction of harmful substances or products into the environment.</li><li>These substances, called pollutants, can be natural or man-made.</li><li>Pollution negatively affects living organisms and the overall health of the planet.</li></ul>
+          <p class="notes">🎙️ Pollution is a major threat to our environment. It's like adding unwanted, harmful ingredients to a healthy recipe, which spoils the whole dish. We need to understand its forms and sources to tackle it effectively.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏭</div><div class="vcap">Factory Smoke</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Different <span class="hl">Kinds</span> of Pollution</h2>
+          <ul><li>Pollution can take many forms, affecting different parts of our environment.</li><li>Major types include air pollution, water pollution, and soil pollution.</li><li>Other forms are noise pollution, thermal pollution, and light pollution.</li></ul>
+          <p class="notes">🎙️ Just as there are different parts to our environment, there are different ways it can be polluted. Each type of pollution has its own sources, effects, and specific solutions, which we will explore further.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💨</span><span>💨</span><span>💨</span><span>💨</span></div><div class="vcap">Air, Water, Soil, Noise</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Air Pollution</span>: Dirtying Our Breath</h2>
+          <ul><li>Air pollution is the presence of harmful substances in the air, making it impure.</li><li>Sources include vehicle exhaust, factory emissions, burning fossil fuels, and dust.</li><li>It causes respiratory problems, acid rain, and contributes to climate change.</li></ul>
+          <p class="notes">🎙️ Imagine breathing in smoke and dust every day. That's what air pollution does to our lungs and the environment. Smog in cities like Delhi or Mumbai is a clear example of how vehicle emissions significantly degrade air quality.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌬️</div><div class="vcap">Unclean Air</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Water Pollution</span>: Spoiling Our Water</h2>
+          <ul><li>Water pollution is the contamination of water bodies like rivers, lakes, and oceans.</li><li>It's caused by industrial waste, sewage, agricultural runoff, and plastic dumping.</li><li>Polluted water harms aquatic life and can cause diseases in humans.</li></ul>
+          <p class="notes">🎙️ Water is essential for life, but pollution makes it unusable and dangerous. The discharge of untreated industrial waste into rivers, like the Ganga or Yamuna, is a severe example of water pollution affecting millions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌊</div><div class="vcap">Contaminated Water</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Soil Pollution</span>: Damaging Our Land</h2>
+          <ul><li>Soil pollution is the contamination of soil with harmful chemicals and substances.</li><li>Causes include excessive use of pesticides and fertilizers, industrial waste, and plastic waste.</li><li>It reduces soil fertility, harms plants, and can contaminate groundwater.</li></ul>
+          <p class="notes">🎙️ Our soil is vital for growing food, but it's being damaged by pollution. For instance, farmers using too many chemical pesticides can harm beneficial soil organisms and make the land less fertile over time.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗑️</div><div class="vcap">Waste in Soil</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Noise Pollution</span>: Too Much Sound</h2>
+          <ul><li>Noise pollution is excessive or unwanted sound that can disrupt human or animal life.</li><li>Sources include traffic, construction, industrial machinery, and loud music.</li><li>It can lead to stress, hearing loss, and disturbances in wildlife behavior.</li></ul>
+          <p class="notes">🎙️ Imagine trying to study or sleep in a very noisy area. That's the impact of noise pollution. The constant honking of vehicles and blaring loudspeakers during festivals in crowded Indian cities are common examples.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📢</div><div class="vcap">Loud Noise</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>How Pollution <span class="hl">Harms</span> Us and Nature</h2>
+          <ul><li>Pollution directly impacts human health, causing various diseases.</li><li>It degrades ecosystems, leading to loss of biodiversity and habitat destruction.</li><li>Pollution can also affect climate patterns and natural cycles.</li><li>Ultimately, it threatens the sustainability of our planet.</li></ul>
+          <p class="notes">🎙️ The effects of pollution are far-reaching. For example, plastic waste choking marine animals in our oceans is a tragic consequence, while air pollution causes millions of premature deaths globally each year. It's a serious threat to all life.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Healthy Environment</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Polluted Environment</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Biodiversity</span>: Variety of Life</h2>
+          <ul><li>Biodiversity refers to the variety of life on Earth at all its levels.</li><li>It includes diversity within species, between species, and of ecosystems.</li><li>High biodiversity is crucial for healthy and stable ecosystems.</li></ul>
+          <p class="notes">🎙️ Think of the incredible range of plants, animals, and microorganisms around us, from the smallest insect to the largest whale. This rich variety is biodiversity, and it's like a safety net for our planet, making ecosystems resilient.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🦋</div><div class="vcap">Diverse Life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Dangers</span> to Our Rich Biodiversity</h2>
+          <ul><li>Habitat loss and destruction due to human activities like deforestation.</li><li>Pollution of air, water, and soil directly harms species.</li><li>Climate change alters habitats and challenges species' survival.</li><li>Over-exploitation of resources (hunting, fishing) and invasive species.</li></ul>
+          <p class="notes">🎙️ Many human actions are putting our biodiversity at risk. For example, the cutting down of forests for agriculture or housing destroys the homes of countless species, pushing them towards extinction. The Western Ghats in India, a biodiversity hotspot, faces such threats.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔥</span><span>🔥</span><span>🔥</span></div><div class="vcap">Threats to Nature</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Why</span> We Need Environmental Management</h2>
+          <ul><li>To protect natural resources like water, air, and soil.</li><li>To conserve biodiversity and prevent species extinction.</li><li>To mitigate pollution and its harmful effects on health and ecosystems.</li><li>To ensure a healthy and sustainable future for all living beings.</li></ul>
+          <p class="notes">🎙️ Environmental management is about taking proactive steps to safeguard our planet. It's like managing a household budget – we need to manage our natural resources wisely so that they don't run out and our environment remains healthy.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Soil_life.jpg?width=500" data-fb="🛡️" alt="Modern farming combines soil management, crop selection, and sustainable practices to prod"/><div class="vcap">Modern farming combines soil management, crop selection, and sustainable practices to prod</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Sustainable</span> Development: Meeting Needs Wisely</h2>
+          <ul><li>Sustainable development means meeting the needs of the present without compromising the ability of future generations to meet their own needs.</li><li>It balances economic growth, social equity, and environmental protection.</li><li>This approach ensures long-term well-being for both humans and nature.</li></ul>
+          <p class="notes">🎙️ Sustainable development is key to our future. For example, instead of just chopping down forests for wood, we can practice sustainable forestry where new trees are planted to replace those harvested, ensuring resources for future use.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">♻️</div><div class="vcap">Balance for Future</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>The <span class="hl">3 R's</span>: Simple Steps for a Better Planet</h2>
+          <ul><li>Reduce: Decrease the amount of waste generated.</li><li>Reuse: Use items multiple times instead of discarding them.</li><li>Recycle: Convert waste materials into new products.</li><li>These practices minimize resource consumption and pollution.</li></ul>
+          <p class="notes">🎙️ The 3 R's are practical ways we can all contribute to environmental management. For instance, carrying a reusable cloth bag (Reduce/Reuse) instead of taking plastic bags, or sending old newspapers for recycling, makes a big difference.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Reduce</span></div><div class="step"><span class="snum">2</span><span>Reuse</span></div><div class="step"><span class="snum">3</span><span>Recycle</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 1</h2>
+          <ul><li>What are the two main components of our environment?</li></ul>
+          <p class="notes">🎙️ Let's quickly test our understanding. Think back to our initial slides. What two broad categories did we use to classify everything in our environment?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 2</h2>
+          <ul><li>Name one major source of air pollution.</li></ul>
+          <p class="notes">🎙️ Consider what you see around cities or industrial areas. What common activities release harmful substances into the air?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Check</span>! Question 3</h2>
+          <ul><li>Explain the 'Reduce' principle of the 3 R's with an example.</li></ul>
+          <p class="notes">🎙️ Remember the three Rs. Can you describe what 'Reduce' means and give a simple, everyday example of how you can practice it?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Our <span class="hl">Role</span> in Protecting the Environment</h2>
+          <ul><li>Individuals can practice the 3 R's, conserve energy, and support eco-friendly products.</li><li>Communities can organize clean-up drives and advocate for local environmental policies.</li><li>Governments establish laws and policies for pollution control and conservation.</li><li>International cooperation is vital for addressing global environmental challenges.</li></ul>
+          <p class="notes">🎙️ Environmental management isn't just for scientists or governments; it's a collective responsibility. Every small action, from turning off lights when leaving a room to participating in a tree-planting drive, contributes to a healthier planet.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤝</div><div class="vcap">Working Together</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Environmental Management: Our Shared <span class="hl">Responsibility</span></h2>
+          <ul><li>Our environment consists of biotic and abiotic components, forming interconnected ecosystems.</li><li>Pollution in its various forms harms life and degrades natural resources.</li><li>Biodiversity is crucial and faces many threats from human activities.</li><li>Sustainable development and the 3 R's are key to a healthy future.</li></ul>
+          <p class="notes">🎙️ Today, we've learned that our planet is a delicate balance of life and non-life. It's our shared duty to understand these connections, prevent harm, and actively work towards a sustainable future where both humans and nature can thrive. Let's be responsible stewards of our Earth.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

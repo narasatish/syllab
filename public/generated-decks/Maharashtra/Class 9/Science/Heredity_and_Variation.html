@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Unlocking Life's Code: Heredity &amp; Variation — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Welcome</span> to Heredity &amp; Variation!</h2>
+          <ul><li>Explore how traits pass from parents to children.</li><li>Understand why we are similar yet unique.</li><li>Discover the building blocks of life's blueprint.</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we begin an exciting journey into the world of heredity and variation. We'll learn how you inherited your features from your parents and why you are still unique from your siblings. Get ready to unlock the secrets of life's code!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Heredity</span>?</h2>
+          <ul><li>The passing of traits from parents to offspring.</li><li>It explains why children resemble their parents.</li><li>Also known as inheritance.</li></ul>
+          <p class="notes">🎙️ Heredity is the fundamental process that ensures the continuity of life, making sure that each new generation carries characteristics from the previous one. Think of it as a biological hand-me-down of features. It's why you might have your mother's eyes or your father's hair.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👨‍👩‍👧</div><div class="vcap">Traits passed down</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Real Example: Heredity in <span class="hl">Humans</span></h2>
+          <ul><li>Eye color (blue, brown, green) is inherited.</li><li>Hair texture (straight, wavy, curly) is passed on.</li><li>Height and skin tone also show hereditary patterns.</li></ul>
+          <p class="notes">🎙️ Look around your family! You might notice how siblings often share similar eye colors or hair types. For instance, if both parents have brown eyes, their children are very likely to have brown eyes too, demonstrating the clear pattern of heredity.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="🔬" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>What is <span class="hl">Variation</span>?</h2>
+          <ul><li>Differences among individuals of the same species.</li><li>No two individuals are exactly identical, even siblings.</li><li>It drives evolution and adaptation.</li></ul>
+          <p class="notes">🎙️ While heredity makes us similar to our parents, variation is what makes each of us unique. Even identical twins, though genetically very similar, show slight differences. Variation is essential for species to adapt and survive in changing environments over long periods.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">Diversity of life</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>Real Example: Variation in <span class="hl">Humans</span></h2>
+          <ul><li>Fingerprints: Each person has unique fingerprints.</li><li>Height: People of the same age and gender have varying heights.</li><li>Blood groups: A, B, AB, O are different types within humans.</li></ul>
+          <p class="notes">🎙️ Think about your classmates. Even if you're all the same age, you'll see a range of heights, different facial features, and unique personalities. These observable differences are all examples of variation within the human species. Your unique fingerprints are a perfect example, as no two people share the exact same pattern.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:80%"></div><div class="clabel">Person A</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Person B</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Person C</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Where is Hereditary Information <span class="hl">Stored</span>?</h2>
+          <ul><li>Inside the nucleus of every cell.</li><li>It's organized into structures called chromosomes.</li><li>These structures contain DNA.</li></ul>
+          <p class="notes">🎙️ Every living cell in your body, except for red blood cells, contains a nucleus. This nucleus acts like the control center of the cell and holds all the genetic instructions. It's like the main library where all the blueprints for building and operating your body are kept.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="🔬" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Chromosomes</span>: The Carriers of Genes</h2>
+          <ul><li>Thread-like structures found in the nucleus.</li><li>Composed of DNA tightly coiled around proteins.</li><li>They carry genetic information in the form of genes.</li></ul>
+          <p class="notes">🎙️ Imagine a very long thread that is carefully wound up into compact bundles – those are chromosomes. These structures become visible during cell division. They are crucial because they ensure that genetic information is accurately copied and distributed to new cells.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧬</div><div class="vcap">Packed DNA structures</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Chromosome <span class="hl">Number</span></h2>
+          <ul><li>Each species has a characteristic number of chromosomes.</li><li>Humans typically have 46 chromosomes (23 pairs).</li><li>These pairs include 22 pairs of autosomes and 1 pair of sex chromosomes.</li></ul>
+          <p class="notes">🎙️ The number of chromosomes is fixed for a species. For example, a fruit fly has 8 chromosomes, and a pea plant has 14. In humans, we have 46 chromosomes in almost all our body cells, arranged in 23 pairs. One set of 23 comes from your mother and the other set from your father.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span><span>🔢</span></div><div class="vcap">Human chromosome count</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">DNA</span>: The Blueprint of Life</h2>
+          <ul><li>Deoxyribonucleic Acid, the genetic material.</li><li>Has a famous double helix structure, like a twisted ladder.</li><li>Contains instructions for building and operating an organism.</li></ul>
+          <p class="notes">🎙️ DNA is often called the 'blueprint of life' because it contains all the instructions needed for an organism to develop, survive, and reproduce. Its unique double helix shape allows it to store vast amounts of information in a very compact form, and also allows for accurate copying.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Double helix structure</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Genes</span>: Units of Heredity</h2>
+          <ul><li>Specific segments of DNA on chromosomes.</li><li>Each gene codes for a particular trait or characteristic.</li><li>They determine features like eye color, blood type, and height.</li></ul>
+          <p class="notes">🎙️ Think of genes as individual instruction manuals within the vast DNA blueprint. Each gene is responsible for a specific job, like making a certain protein that determines a trait. You inherit two copies of each gene, one from each parent, which together influence your traits.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧩</div><div class="vcap">Pieces of the blueprint</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Quick Check</span> 1: Test Your Knowledge!</h2>
+          <ul><li>What is the term for passing traits from parents to offspring?</li><li>Name one example of variation in humans.</li><li>How many chromosomes do typical human body cells have?</li></ul>
+          <p class="notes">🎙️ Let's quickly review what we've learned so far. Take a moment to think about the answers to these questions. This helps reinforce the basic concepts of heredity, variation, and the structures involved in carrying genetic information.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>How Traits are <span class="hl">Inherited</span></h2>
+          <ul><li>Offspring receive one set of chromosomes from each parent.</li><li>This means two copies of each gene, one from mother, one from father.</li><li>These gene copies interact to determine the final trait.</li></ul>
+          <p class="notes">🎙️ During reproduction, specialized cells called gametes (sperm and egg) carry half the genetic information. When these fuse, the offspring receives a complete set of genes, half from each parent. This combination is what determines the characteristics of the new individual.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Parent 1 Genes</span></div><div class="step"><span class="snum">2</span><span>Parent 2 Genes</span></div><div class="step"><span class="snum">3</span><span>Combine in Offspring</span></div><div class="step"><span class="snum">4</span><span>Express Trait</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2><span class="hl">Dominant and Recessive</span> Traits</h2>
+          <ul><li>Dominant traits are expressed even if only one copy of the gene is present.</li><li>Recessive traits are only expressed if two copies of the gene are present (no dominant copy).</li><li>This interaction determines which version of a trait appears.</li></ul>
+          <p class="notes">🎙️ Imagine a competition between two versions of a gene. The dominant gene is like a strong voice that always gets heard, while the recessive gene is a softer voice that only gets heard if the strong voice is absent. This principle is key to understanding many inherited traits.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Dominant Gene</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Recessive Gene</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Real <span class="hl">Example</span>: Dominant/Recessive Traits</h2>
+          <ul><li>Free earlobes are dominant over attached earlobes.</li><li>If you have at least one gene for free earlobes, you will have them.</li><li>You need two genes for attached earlobes to have attached earlobes.</li></ul>
+          <p class="notes">🎙️ This is a classic example often used to illustrate dominant and recessive inheritance. Observe your family and friends; you'll notice both types of earlobes. If both your parents have free earlobes, but you have attached earlobes, it means both your parents carried the recessive gene for attached earlobes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👂</div><div class="vcap">Earlobe type</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Sexual Reproduction</span> and Variation</h2>
+          <ul><li>Involves two parents contributing genetic material.</li><li>Leads to a mixing of genes from both parents.</li><li>Results in significant variation among offspring.</li></ul>
+          <p class="notes">🎙️ Sexual reproduction is a major source of variation because it shuffles the genetic deck with each new generation. The combination of genes from two different individuals creates unique combinations, ensuring that no two offspring are genetically identical, except for identical twins.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Adolescent_hormones.svg?width=500" data-fb="🚻" alt="Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation "/><div class="vcap">Sexual reproduction requires two parents producing gametes (sperm and egg). Fertilisation </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Asexual Reproduction</span> and Variation</h2>
+          <ul><li>Involves only one parent, no mixing of genetic material.</li><li>Offspring are genetically identical clones of the parent.</li><li>Leads to very little variation, mainly from mutations.</li></ul>
+          <p class="notes">🎙️ In asexual reproduction, like in many plants or single-celled organisms, the parent essentially makes exact copies of itself. This method is efficient for rapid population growth in stable environments, but the lack of variation can be a disadvantage if the environment changes drastically.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span><span>🌱</span></div><div class="vcap">Identical offspring</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Sources</span> of Variation</h2>
+          <ul><li>Genetic recombination during sexual reproduction.</li><li>Random fertilization of gametes.</li><li>Mutations: sudden changes in genetic material.</li></ul>
+          <p class="notes">🎙️ Variation doesn't just happen; it arises from several key processes. The shuffling of genes during sexual reproduction and the chance encounter of sperm and egg create unique combinations. Additionally, unexpected changes in the DNA itself, called mutations, are another important source of new variations.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔄</div><div class="vcap">Continuous changes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2><span class="hl">Mutations</span>: Changes in Genetic Material</h2>
+          <ul><li>A sudden, heritable change in the DNA sequence.</li><li>Can occur spontaneously or be induced by external factors.</li><li>Can be beneficial, harmful, or have no effect.</li></ul>
+          <p class="notes">🎙️ Mutations are like typos in the genetic code. While many mutations are repaired by the cell, some persist and can be passed on to offspring. They are the ultimate source of all new genetic variation, providing the raw material for evolution, even if most are neutral or harmful.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚠️</div><div class="vcap">Genetic alteration</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Real <span class="hl">Example</span>: Mutation</h2>
+          <ul><li>Albinism: A mutation affecting pigment production.</li><li>Causes lack of pigment in skin, hair, and eyes.</li><li>It's a rare genetic condition, showing a clear change from typical traits.</li></ul>
+          <p class="notes">🎙️ Albinism in humans is a striking example of a mutation's effect. A change in a specific gene prevents the body from producing melanin, the pigment responsible for color. This results in very pale skin, white hair, and often light-colored eyes, clearly demonstrating a significant deviation from typical pigmentation.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎨</div><div class="vcap">Change in color/trait</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2><span class="hl">Genetic Disorders</span> (Brief Introduction)</h2>
+          <ul><li>Diseases caused by abnormalities in an individual's DNA.</li><li>Can be due to gene mutations or chromosome problems.</li><li>Examples: Sickle cell anemia, Down syndrome (due to chromosome count).</li></ul>
+          <p class="notes">🎙️ Sometimes, mutations or errors in chromosome numbers can lead to genetic disorders. These conditions can range from mild to severe and often have a hereditary component. Understanding heredity helps in diagnosing, treating, and sometimes even preventing such disorders through genetic counseling.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏥</div><div class="vcap">Health conditions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Applications</span> of Understanding Heredity</h2>
+          <ul><li>Agriculture: Selective breeding for better crops and livestock.</li><li>Medicine: Genetic counseling, gene therapy, disease diagnosis.</li><li>Forensics: DNA fingerprinting for crime investigation.</li></ul>
+          <p class="notes">🎙️ The knowledge of heredity isn't just for textbooks; it has profound practical applications that impact our daily lives. From developing disease-resistant crops to understanding human health and solving crimes, genetics plays a crucial role in many fields, constantly advancing our capabilities.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💡</div><div class="vcap">Practical uses</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Real Example: <span class="hl">Selective Breeding</span></h2>
+          <ul><li>Farmers choose plants/animals with desired traits to breed.</li><li>Over generations, this enhances specific characteristics.</li><li>Example: Breeding cows for higher milk production.</li></ul>
+          <p class="notes">🎙️ Consider the vast variety of dog breeds, from tiny Chihuahuas to giant Great Danes. All originated from a common wolf ancestor. Through thousands of years of selective breeding, humans have chosen specific traits to create breeds with desired characteristics, proving the power of applied heredity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🐕</span><span>🐕</span><span>🐕</span></div><div class="vcap">Different dog breeds</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Quick Check</span> 2: How Much Do You Remember?</h2>
+          <ul><li>What is the main difference in variation between sexual and asexual reproduction?</li><li>What is a mutation?</li><li>Name one application of understanding heredity.</li></ul>
+          <p class="notes">🎙️ Let's do another quick check to see how well you've grasped the concepts of reproduction, mutation, and the practical uses of genetics. These questions cover some of the more advanced topics we've discussed today. Think carefully before answering.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Takeaways</h2>
+          <ul><li>Heredity: Traits pass from parents to offspring.</li><li>Variation: Differences among individuals.</li><li>Chromosomes, DNA, Genes: Store and carry genetic info.</li><li>Mutations: Changes in DNA, source of new variation.</li></ul>
+          <p class="notes">🎙️ To summarize, we've covered how heredity makes us similar to our families, while variation makes us unique. We learned about the key players like chromosomes, DNA, and genes, and how mutations can introduce new traits. This understanding forms the basis of modern biology and medicine.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Thank You &amp; Keep <span class="hl">Exploring</span>!</h2>
+          <ul><li>Heredity and Variation are fundamental to life.</li><li>They explain diversity and continuity of species.</li><li>Continue to observe, question, and learn!</li></ul>
+          <p class="notes">🎙️ Thank you for your attention and participation today! I hope this lesson has sparked your curiosity about the incredible mechanisms that govern life. Remember, the world of genetics is vast and constantly evolving, so keep exploring and asking questions!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Maharashtra Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

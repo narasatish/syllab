@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Atoms and Molecules — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Atoms and Molecules</span>: The Building Blocks of Matter</h2>
+          <ul><li>Welcome to Class 9 Science!</li><li>Discover the tiny particles that make up everything.</li><li>Learn how they combine to form different substances.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into the microscopic world of 'Atoms and Molecules'. This chapter is fundamental to understanding all of chemistry and the world around us. Let's explore the tiny building blocks that make up everything we see and touch.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Matter</span> Made Of?</h2>
+          <ul><li>Everything around us is matter.</li><li>Matter has mass and occupies space.</li><li>But what is matter itself composed of?</li></ul>
+          <p class="notes">🎙️ From the air we breathe to the food we eat, the chair you're sitting on, and even yourself – everything is matter. We know matter has mass and takes up space, but if we keep breaking it down, what's the smallest particle we'd find?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌎</div><div class="vcap">Our World</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Ancient Indian Wisdom: 'Panchtatva' and '<span class="hl">Parmanu</span>'</h2>
+          <ul><li>Ancient Indian thinkers proposed 'Panchtatva' (five elements).</li><li>Maharishi Kanad introduced 'Parmanu' (indivisible particle).</li><li>He believed matter is composed of these ultimate, indivisible particles.</li></ul>
+          <p class="notes">🎙️ Long, long ago, even before Western philosophers, Indian sages contemplated the nature of matter. Maharishi Kanad, around 6th century BCE, gave us the concept of 'Parmanu', suggesting that matter is made of tiny, indestructible particles that cannot be divided further. This was a remarkable insight!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🕉️</div><div class="vcap">Ancient India</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Greek Philosophers: The Idea of '<span class="hl">Atomos</span>'</h2>
+          <ul><li>Democritus and Leucippus (5th-4th century BCE) proposed 'atomos'.</li><li>'Atomos' means 'uncuttable' or 'indivisible'.</li><li>They suggested matter is made of tiny, indivisible particles.</li></ul>
+          <p class="notes">🎙️ Across the world, at a similar time, Greek philosophers like Democritus and Leucippus also arrived at a similar conclusion. They coined the term 'atomos', from which our modern word 'atom' comes. They believed these 'atomos' were solid, uniform, and could not be further divided.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏛️</div><div class="vcap">Ancient Greece</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The <span class="hl">Atom</span>: A Modern Definition</h2>
+          <ul><li>An atom is the smallest particle of an element.</li><li>It may or may not exist independently.</li><li>It always takes part in a chemical reaction.</li></ul>
+          <p class="notes">🎙️ So, bringing it to modern science, an atom is defined as the smallest particle of an element. While some atoms can exist on their own, many prefer to combine with other atoms. Crucially, atoms are the fundamental units that participate in all chemical changes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚛️</div><div class="vcap">The Atom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Atoms: Incredibly <span class="hl">Tiny</span>!</h2>
+          <ul><li>Atoms are extremely small, much smaller than anything we can imagine.</li><li>Their size is measured in nanometers (nm).</li><li>1 nanometer = 10^-9 meters (one billionth of a meter).</li></ul>
+          <p class="notes">🎙️ To give you an idea of just how small atoms are, imagine a stack of a million atoms. It would be no thicker than a single sheet of paper! We use a special unit called the nanometer to measure their size, which is incredibly small.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Watermelon</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">Grain of Sand</div></div><div class="ccard"><div class="cbar" style="width:40%"></div><div class="clabel">Virus</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">Atom</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Can We <span class="hl">See Atoms</span>?</h2>
+          <ul><li>No, atoms cannot be seen with the naked eye.</li><li>Even powerful optical microscopes cannot resolve them.</li><li>Specialized instruments like Scanning Electron Microscopes (SEM) can image surfaces where atoms are present.</li></ul>
+          <p class="notes">🎙️ Due to their minuscule size, it's impossible to see individual atoms with our eyes or even with regular optical microscopes. Scientists use advanced tools like Scanning Electron Microscopes (SEM) to get an idea of atomic arrangements on surfaces, but we don't 'see' them like we see a ball.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Schematic_diagram_of_the_human_eye_en.svg?width=500" data-fb="🔬" alt="The eye is sensory organ detecting light and converting to electrical signals sent to brai"/><div class="vcap">The eye is sensory organ detecting light and converting to electrical signals sent to brai</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Early Symbols: <span class="hl">Dalton's</span> Atomic Theory</h2>
+          <ul><li>John Dalton (early 19th century) proposed symbols for elements.</li><li>He used specific shapes and patterns for each element.</li><li>These symbols were unique but difficult to draw and remember.</li></ul>
+          <p class="notes">🎙️ When John Dalton developed his atomic theory, he also came up with symbols for elements. For example, a circle with a dot in the middle represented Oxygen, and a simple circle for Hydrogen. While innovative, these symbols were not practical for widespread use due to their complexity.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Old Symbols</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Modern Symbols: The <span class="hl">IUPAC System</span></h2>
+          <ul><li>Berzelius suggested using one or two letters of the element's name.</li><li>The International Union of Pure and Applied Chemistry (IUPAC) approves symbols.</li><li>The first letter is always capital, the second (if any) is small.</li></ul>
+          <p class="notes">🎙️ To make things simpler and universal, a Swedish chemist named Berzelius proposed using letters. Today, the IUPAC is responsible for approving these symbols. For example, 'H' for Hydrogen, 'O' for Oxygen, 'Na' for Sodium (from its Latin name Natrium), and 'Cl' for Chlorine.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧪</div><div class="vcap">Chemical Symbols</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Atomic Mass</span>: The Weight of an Atom</h2>
+          <ul><li>Atoms are extremely light, so we use a relative atomic mass scale.</li><li>One atomic mass unit (amu) is defined as 1/12th the mass of a Carbon-12 atom.</li><li>This helps us compare the masses of different atoms easily.</li></ul>
+          <p class="notes">🎙️ Since atoms are so tiny, their actual masses are incredibly small and inconvenient to work with. So, scientists developed a relative scale. They decided to use the mass of a Carbon-12 atom as a standard and assigned it 12 atomic mass units. All other atomic masses are compared to this standard.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Measuring Mass</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>How Do Atoms Usually <span class="hl">Exist</span>?</h2>
+          <ul><li>Most atoms do not exist independently.</li><li>They combine with other atoms to form molecules.</li><li>They can also form ions by gaining or losing electrons.</li></ul>
+          <p class="notes">🎙️ While some noble gases like Helium or Neon exist as single atoms, most atoms are reactive. They achieve stability by either joining together to form larger units called molecules, or by gaining or losing electrons to become charged particles called ions.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Atom</span></div><div class="step"><span class="snum">2</span><span>Combine</span></div><div class="step"><span class="snum">3</span><span>Molecule / Ion</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Molecules</span>: Group of Atoms</h2>
+          <ul><li>A molecule is a group of two or more atoms.</li><li>These atoms are chemically bonded together.</li><li>Molecules can exist independently and show the properties of the substance.</li></ul>
+          <p class="notes">🎙️ Imagine several friends holding hands – that's similar to how atoms bond to form a molecule! A molecule is the smallest particle of a substance that can exist independently and retain all the chemical properties of that substance. For example, a single water molecule still behaves like water.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🔗</span><span>🔗</span><span>🔗</span></div><div class="vcap">Atoms Bonding</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Molecules of <span class="hl">Elements</span>: Same Atoms</h2>
+          <ul><li>Composed of two or more identical atoms.</li><li>Examples: Oxygen (O2), Nitrogen (N2), Ozone (O3).</li><li>Can be mono-, di-, or poly-atomic based on the number of atoms.</li></ul>
+          <p class="notes">🎙️ When atoms of the *same* element combine, they form molecules of an element. A single Helium atom is a molecule (monoatomic). Two oxygen atoms form an Oxygen molecule (diatomic). Three oxygen atoms form Ozone (triatomic), and four phosphorus atoms form a phosphorus molecule (polyatomic).</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:25%"></div><div class="clabel">He (Mono)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">O2 (Di)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">O3 (Tri)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">P4 (Poly)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Molecules of <span class="hl">Compounds</span>: Different Atoms</h2>
+          <ul><li>Composed of two or more different types of atoms.</li><li>These atoms are joined in a fixed ratio.</li><li>Examples: Water (H2O), Carbon Dioxide (CO2), Ammonia (NH3).</li></ul>
+          <p class="notes">🎙️ Now, if atoms of *different* elements combine in a fixed proportion, they form molecules of a compound. Think of water, H2O, where two hydrogen atoms are always bonded to one oxygen atom. Or carbon dioxide, CO2, with one carbon and two oxygen atoms. These ratios are constant.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>💧</span><span>💧</span><span>💧</span><span>💧</span><span>💧</span></div><div class="vcap">Water Molecules</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2><span class="hl">Ions</span>: Charged Particles</h2>
+          <ul><li>An ion is an atom or group of atoms that has a net electrical charge.</li><li>Formed by losing (cation, positive charge) or gaining (anion, negative charge) electrons.</li><li>Example: Na+ (Sodium ion), Cl- (Chloride ion).</li></ul>
+          <p class="notes">🎙️ Sometimes, atoms can become electrically charged. If an atom loses one or more electrons, it becomes positively charged, called a cation. If it gains one or more electrons, it becomes negatively charged, called an anion. These charged particles are known as ions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Charged Atom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Ionic</span> Compounds: Held by Charge</h2>
+          <ul><li>Compounds formed by the transfer of electrons between atoms.</li><li>Consist of oppositely charged ions held together by electrostatic forces.</li><li>Example: Sodium Chloride (NaCl) – Na+ and Cl- ions.</li></ul>
+          <p class="notes">🎙️ When cations and anions attract each other due to their opposite charges, they form ionic compounds. Common table salt, Sodium Chloride, is a perfect example. Sodium atoms lose an electron to become Na+ ions, and chlorine atoms gain an electron to become Cl- ions, and then they attract each other to form NaCl.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🧂</span><span>🧂</span><span>🧂</span><span>🧂</span><span>🧂</span><span>🧂</span></div><div class="vcap">Salt Crystals</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Writing <span class="hl">Chemical Formulae</span>: The Language of Chemistry</h2>
+          <ul><li>A chemical formula represents the composition of a molecule or ionic compound.</li><li>It uses symbols of elements and subscripts to show the number of atoms.</li><li>We use the 'criss-cross' method for ionic compounds.</li></ul>
+          <p class="notes">🎙️ Chemical formulae are like short-hand notes for chemists. They tell us exactly what atoms are present in a compound and in what ratio. For ionic compounds, we often use a simple 'criss-cross' method involving the valencies (combining power) of the elements to derive the formula.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Write symbols</span></div><div class="step"><span class="snum">2</span><span>Write valencies</span></div><div class="step"><span class="snum">3</span><span>Criss-cross</span></div><div class="step"><span class="snum">4</span><span>Simplify ratio</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example: Formula of Water</h2>
+          <ul><li>Elements: Hydrogen (H), Oxygen (O)</li><li>Valency of H = 1</li><li>Valency of O = 2</li><li>Criss-cross valencies: H1 O2 becomes H2O</li></ul>
+          <p class="notes">🎙️ Let's apply the criss-cross method for water. Hydrogen has a valency of 1, and Oxygen has a valency of 2. We write the symbols, then their valencies below them. Then, we criss-cross the valencies, giving Oxygen's valency to Hydrogen and Hydrogen's to Oxygen. This gives us H2O.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>H O</span></div><div class="step"><span class="snum">2</span><span>1 2</span></div><div class="step"><span class="snum">3</span><span>H2O</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Worked Example: Formula of Sodium Chloride</h2>
+          <ul><li>Elements: Sodium (Na), Chlorine (Cl)</li><li>Valency of Na = 1</li><li>Valency of Cl = 1</li><li>Criss-cross valencies: Na1 Cl1 becomes NaCl</li></ul>
+          <p class="notes">🎙️ Now for Sodium Chloride. Sodium has a valency of 1, and Chlorine also has a valency of 1. When we criss-cross these valencies, we get Na1Cl1, which is simply written as NaCl. This shows us that one sodium atom combines with one chlorine atom.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Na Cl</span></div><div class="step"><span class="snum">2</span><span>1 1</span></div><div class="step"><span class="snum">3</span><span>NaCl</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>What is the smallest particle of an element that may or may not exist independently?</li></ul>
+          <p class="notes">🎙️ Time for a quick check of your understanding! Think back to our initial definitions. What do we call that fundamental, smallest particle of an element that can participate in chemical reactions?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>Give an example of a polyatomic molecule of an element.</li></ul>
+          <p class="notes">🎙️ Remember when we discussed molecules made of the same type of atoms? Can you recall an example where more than two atoms of the same element combine to form a molecule?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>What is an ion, and how is it formed?</li></ul>
+          <p class="notes">🎙️ Finally, what about those charged particles we discussed? What are they called, and what process leads to their formation?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>The <span class="hl">Mole Concept</span>: Counting Atoms</h2>
+          <ul><li>Atoms and molecules are too small to count individually.</li><li>The 'mole' is a unit to count a large number of particles (atoms, molecules, ions).</li><li>One mole contains Avogadro's number (6.022 x 10^23) of particles.</li></ul>
+          <p class="notes">🎙️ Since atoms are incredibly tiny, counting them one by one is impossible. So, chemists use a special unit called the 'mole'. Just like a 'dozen' means 12, a 'mole' represents a specific, very large number of particles – Avogadro's number, which is 6.022 x 10^23.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Mole_concept.svg?width=500" data-fb="🔢" alt="The mole is a unit of amount of substance. One mole contains Avogadro's number of particle"/><div class="vcap">The mole is a unit of amount of substance. One mole contains Avogadro's number of particle</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Molar Mass</span>: Mass of One Mole</h2>
+          <ul><li>The molar mass is the mass of one mole of a substance.</li><li>It is numerically equal to the atomic/molecular mass in grams.</li><li>Example: Molar mass of Water (H2O) = 18 g/mol.</li></ul>
+          <p class="notes">🎙️ Molar mass is simply the mass of one mole of a substance. If an atom has an atomic mass of 'x' amu, then one mole of that atom will have a molar mass of 'x' grams. For example, the atomic mass of Oxygen is 16 amu, so its molar mass is 16 grams per mole.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Mass of a Mole</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Recap</span>: Atoms and Molecules</h2>
+          <ul><li>Atoms are the smallest indivisible particles of an element.</li><li>Molecules are groups of atoms bonded together.</li><li>Ions are charged atoms or groups of atoms.</li><li>Chemical formulae represent composition, and the mole concept helps count tiny particles.</li></ul>
+          <p class="notes">🎙️ Alright, let's quickly review what we've learned today. We started with the idea of atoms as the fundamental building blocks. We then saw how they combine to form molecules, or become charged ions. We also learned about writing their chemical formulae and the importance of the mole concept for calculations. Keep exploring the wonders of chemistry!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · UP Class 9 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

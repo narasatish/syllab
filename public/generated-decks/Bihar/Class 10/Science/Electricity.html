@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Electricity: Powering Our World — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style><script>function syllabImgFail(im){var b=im.closest(".vbox");if(b&&!b.classList.contains("dashed")){b.classList.remove("imgbox");b.classList.add("dashed");b.innerHTML="<div class='bigicon'>"+(im.getAttribute("data-fb")||"📘")+"</div>";}}</script></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Electricity</span>: Powering Our World</h2>
+          <ul><li>Understanding the basics of electric current.</li><li>Exploring circuits, resistance, and their applications.</li><li>Learning how electricity works around us.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today we embark on an exciting journey into the world of Electricity. It's a fundamental force that powers almost everything we use, from our lights to our phones. By the end of this chapter, you'll understand how it all works!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Electricity</span>?</h2>
+          <ul><li>It's the flow of electric charge.</li><li>Often called 'electric current'.</li><li>Powers our homes, schools, and industries.</li></ul>
+          <p class="notes">🎙️ Simply put, electricity is the movement of tiny particles called electric charges. This flow of charge is what we call electric current. Think about how important it is – without it, our modern world would stop!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚡</div><div class="vcap">Electric Spark</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Electric <span class="hl">Charge</span>: The Basics</h2>
+          <ul><li>Fundamental property of matter.</li><li>Can be positive or negative.</li><li>Measured in Coulombs (C).</li></ul>
+          <p class="notes">🎙️ Every object is made of tiny particles, and some of these particles have a property called electric charge. There are two types: positive and negative. The unit for measuring charge is the Coulomb, named after Charles-Augustin de Coulomb.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕➖</div><div class="vcap">Positive &amp; Negative</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2><span class="hl">Types</span> of Charge</h2>
+          <ul><li>Positive charge (protons).</li><li>Negative charge (electrons).</li><li>Neutral objects have equal positive and negative charges.</li></ul>
+          <p class="notes">🎙️ Remember, atoms have protons (positive) and electrons (negative). When an object has more protons, it's positively charged. When it has more electrons, it's negatively charged. If they are equal, the object is neutral.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Positive</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Negative</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Properties</span> of Charge</h2>
+          <ul><li>Like charges repel each other.</li><li>Unlike charges attract each other.</li><li>Charge is conserved (cannot be created or destroyed).</li></ul>
+          <p class="notes">🎙️ This is a key rule: positive charges push away other positive charges, and negative charges push away other negative charges. But a positive charge and a negative charge will pull towards each other. This force is what makes things happen!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧲</div><div class="vcap">Attract &amp; Repel</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Conductors</span>: Allowing Flow</h2>
+          <ul><li>Materials that allow electric charge to flow easily.</li><li>Have 'free electrons' to move.</li><li>Examples: Metals like copper, aluminum, silver.</li></ul>
+          <p class="notes">🎙️ Imagine a highway for charges. Conductors are like those highways – they have pathways for charges to move freely. Metals are great conductors because they have electrons that aren't tightly bound and can move around easily.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔌</div><div class="vcap">Copper Wire</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2><span class="hl">Insulators</span>: Blocking Flow</h2>
+          <ul><li>Materials that do NOT allow electric charge to flow easily.</li><li>Electrons are tightly bound.</li><li>Examples: Rubber, plastic, wood, glass.</li></ul>
+          <p class="notes">🎙️ On the other hand, insulators are like blocked roads for charges. Their electrons are held very tightly and cannot move freely. This is why we use rubber or plastic coatings on electric wires to keep us safe.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧤</div><div class="vcap">Rubber Gloves</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Electric <span class="hl">Current</span>: The Flow</h2>
+          <ul><li>Rate of flow of electric charge.</li><li>Charge (Q) flowing per unit time (t).</li><li>Formula: I = Q/t.</li></ul>
+          <p class="notes">🎙️ Think of current like water flowing in a river. The more water that passes a point in a given time, the stronger the current. Similarly, electric current is how much charge passes through a point in a circuit every second.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Current_types.svg?width=500" data-fb="🌊" alt="Electric current flowing through human body can cause injury or death. Path of current, vo"/><div class="vcap">Electric current flowing through human body can cause injury or death. Path of current, vo</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Measuring</span> Electric Current</h2>
+          <ul><li>Unit of current is Ampere (A).</li><li>1 Ampere = 1 Coulomb/second.</li><li>Measured using an Ammeter.</li></ul>
+          <p class="notes">🎙️ The unit 'Ampere' is named after André-Marie Ampère, a French physicist. An Ammeter is a special device that we connect in a circuit to find out how much current is flowing through it. It's like a speedometer for electricity!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Ammeter</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Calculating Current</h2>
+          <ul><li>Question: A current of 0.5 A is drawn by a filament of an electric bulb for 10 minutes. Find the amount of electric charge that flows through the circuit.</li><li>Given: I = 0.5 A, t = 10 minutes = 600 seconds.</li><li>Formula: Q = I x t = 0.5 A x 600 s = 300 C.</li><li>Answer: The amount of electric charge is 300 Coulombs.</li></ul>
+          <p class="notes">🎙️ Let's apply our formula! First, convert time to seconds. Then, multiply the current by the time to get the total charge. This tells us how many Coulombs of charge passed through the bulb in those 10 minutes.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Simple_circuit.png?width=500" data-fb="🔬" alt="An electric circuit is a closed path through which electric current flows. It requires a s"/><div class="vcap">An electric circuit is a closed path through which electric current flows. It requires a s</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Electric Potential &amp; <span class="hl">Potential Difference</span></h2>
+          <ul><li>Potential: Work done to move a unit charge from infinity to a point.</li><li>Potential Difference (V): Work done to move a unit charge between two points.</li><li>Formula: V = W/Q (Work/Charge).</li></ul>
+          <p class="notes">🎙️ Imagine moving a ball uphill – you need to do work. Electric potential is similar; it's the 'electrical pressure' or energy level at a point. Potential difference is the difference in this pressure between two points, which drives the current.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Energy Hill</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2><span class="hl">Measuring</span> Potential Difference</h2>
+          <ul><li>Unit of potential difference is Volt (V).</li><li>1 Volt = 1 Joule/Coulomb.</li><li>Measured using a Voltmeter.</li></ul>
+          <p class="notes">🎙️ The unit 'Volt' is named after Alessandro Volta, who invented the first electric battery. A Voltmeter is used to measure the potential difference across two points in a circuit. It tells us how much 'push' is available to move the charges.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">Voltmeter</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Calculating Potential Difference</h2>
+          <ul><li>Question: How much work is done in moving a charge of 2 C across two points having a potential difference of 12 V?</li><li>Given: Q = 2 C, V = 12 V.</li><li>Formula: W = V x Q = 12 V x 2 C = 24 J.</li><li>Answer: The work done is 24 Joules.</li></ul>
+          <p class="notes">🎙️ Here, we use the potential difference formula to find the work done. Remember, work is measured in Joules. This means 24 Joules of energy are needed to move 2 Coulombs of charge across a 12 Volt potential difference.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Electric <span class="hl">Circuit</span>: The Path</h2>
+          <ul><li>A continuous and closed path for electric current.</li><li>Consists of a source, conductor, load, and switch.</li><li>Essential for current to flow.</li></ul>
+          <p class="notes">🎙️ An electric circuit is like a complete loop or road for electricity to travel. It needs a source to provide the push, wires to carry the current, a device to use the electricity, and a switch to turn it on or off.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Power Source</span></div><div class="step"><span class="snum">2</span><span>Conductor</span></div><div class="step"><span class="snum">3</span><span>Load</span></div><div class="step"><span class="snum">4</span><span>Switch</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Circuit Diagram <span class="hl">Symbols</span></h2>
+          <ul><li>Cell: 🔋</li><li>Battery: 🔋🔋</li><li>Switch (open): ⎕</li><li>Resistor: 〰️</li><li>Bulb: 💡</li><li>Ammeter: Ⓐ</li><li>Voltmeter: Ⓥ</li></ul>
+          <p class="notes">🎙️ Instead of drawing actual components, we use standard symbols to represent them in a circuit diagram. This makes it easier for engineers and scientists to understand and design circuits universally. These are some common ones you'll encounter.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Galvanic_cell_labeled.svg?width=500" data-fb="📜" alt="A galvanic cell converts chemical energy into electrical energy through redox reactions. T"/><div class="vcap">A galvanic cell converts chemical energy into electrical energy through redox reactions. T</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2><span class="hl">Ohm's Law</span>: V = IR</h2>
+          <ul><li>States that current (I) is directly proportional to potential difference (V).</li><li>Inversely proportional to resistance (R).</li><li>Formula: V = I x R (Voltage = Current x Resistance).</li></ul>
+          <p class="notes">🎙️ Ohm's Law is one of the most important laws in electricity, named after Georg Simon Ohm. It tells us how voltage, current, and resistance are related. Think of voltage as the 'push', current as the 'flow', and resistance as the 'obstacle'.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Ohm%27s_law_-_VI_diagram.svg?width=500" data-fb="💡" alt="Ohm's Law states that current through a conductor is directly proportional to voltage and "/><div class="vcap">Ohm's Law states that current through a conductor is directly proportional to voltage and </div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Resistance</span>: The Obstacle</h2>
+          <ul><li>Property of a conductor to oppose the flow of current.</li><li>Unit: Ohm (Ω).</li><li>Depends on length, area of cross-section, and material.</li></ul>
+          <p class="notes">🎙️ Resistance is like a roadblock for the electric current. Some materials offer more resistance than others. A longer, thinner wire has more resistance than a short, thick one. Different materials also have different resistances.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🚧</div><div class="vcap">Roadblock</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Applying Ohm's Law</h2>
+          <ul><li>Question: An electric heater draws a current of 5 A from a 220 V supply. What is the resistance of the heater element?</li><li>Given: I = 5 A, V = 220 V.</li><li>Formula: R = V/I = 220 V / 5 A = 44 Ω.</li><li>Answer: The resistance of the heater element is 44 Ohms.</li></ul>
+          <p class="notes">🎙️ Using Ohm's Law, we can easily find the resistance of the heater. Just divide the voltage by the current. This resistance is what makes the heater get hot, converting electrical energy into heat energy.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Quick Check: Electric <span class="hl">Current</span></h2>
+          <ul><li>What is the unit of electric current?</li><li>Which device is used to measure current?</li><li>What is the formula for current in terms of charge and time?</li></ul>
+          <p class="notes">🎙️ Let's test our understanding! Take a moment to think about these questions. Can you recall the unit, the measuring device, and the basic formula for electric current? These are fundamental concepts.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Check: <span class="hl">Ohm's Law</span></h2>
+          <ul><li>State Ohm's Law.</li><li>If voltage increases, what happens to current (assuming resistance is constant)?</li><li>What is the unit of resistance?</li></ul>
+          <p class="notes">🎙️ Now, let's check your grasp of Ohm's Law. Remember the relationship between voltage, current, and resistance. How does changing one affect the others? And what is the special unit for resistance?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2><span class="hl">Series</span> Circuits: One Path</h2>
+          <ul><li>Components are connected end-to-end.</li><li>Only one path for current to flow.</li><li>Current is the same through all components.</li><li>Total resistance is the sum of individual resistances (Rs = R1 + R2 + ...).</li></ul>
+          <p class="notes">🎙️ In a series circuit, all components are connected one after another, forming a single loop. If one component breaks, the entire circuit breaks. Think of old Christmas tree lights where if one bulb fused, the whole string went out.</p>
+        </div>
+        <div class="visual"><div class="vbox imgbox"><img class="rimg" onerror="syllabImgFail(this)" src="https://en.wikipedia.org/wiki/Special:FilePath/Resistors_in_series_and_parallel.svg?width=500" data-fb="🔬" alt="Series and parallel are two ways to connect electrical components. Each has different effe"/><div class="vcap">Series and parallel are two ways to connect electrical components. Each has different effe</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Parallel</span> Circuits: Multiple Paths</h2>
+          <ul><li>Components are connected across the same two points.</li><li>Multiple paths for current to flow.</li><li>Potential difference is the same across all components.</li><li>Total resistance is less than the smallest individual resistance.</li></ul>
+          <p class="notes">🎙️ Parallel circuits offer multiple branches for current. If one component breaks, the others can still work. This is how household wiring is done, ensuring that if one appliance fails, others continue to function.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🛣️</span><span>🛣️</span><span>🛣️</span></div><div class="vcap">Multiple Roads</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Real-Life Application: <span class="hl">Household Wiring</span></h2>
+          <ul><li>Appliances are connected in parallel.</li><li>Each appliance gets the same voltage.</li><li>Independent operation of devices.</li><li>Uses fuses/circuit breakers for safety.</li></ul>
+          <p class="notes">🎙️ Our homes use parallel circuits. This is important because every appliance needs the standard 220V supply, and they need to operate independently. Safety devices like fuses protect us from overcurrents.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏠</div><div class="vcap">Home Power</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: Key Concepts</h2>
+          <ul><li>Electric Charge (Coulomb).</li><li>Electric Current (Ampere).</li><li>Potential Difference (Volt).</li><li>Ohm's Law (V=IR).</li><li>Resistance (Ohm).</li><li>Conductors vs. Insulators.</li><li>Series vs. Parallel Circuits.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! We started with the basic idea of charge and its flow, then learned how to measure it. We explored the relationship between voltage, current, and resistance through Ohm's Law, and finally, looked at different circuit types.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Revise today's concepts.</li><li>Practice numerical problems.</li><li>Read your textbook for more details.</li><li>Ask questions in the next class!</li></ul>
+          <p class="notes">🎙️ Excellent work today, students! Electricity is a vast and fascinating topic. Keep practicing the formulas and understanding the concepts. Don't hesitate to ask if you have any questions. See you in the next class!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 10 · Science</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

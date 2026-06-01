@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Quadratic Equations: Unlocking the Power of 'x' — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Quadratic</span> Equations: Unlocking the Power of 'x'</h2>
+          <ul><li>Class 10 Mathematics</li><li>Bihar Board Syllabus</li><li>Let's explore equations with degree 2!</li></ul>
+          <p class="notes">🎙️ Namaste students! Today we embark on an exciting journey into the world of Quadratic Equations. This chapter is very important for your Class 10 board exams and future studies in mathematics.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is an <span class="hl">Equation</span>?</h2>
+          <ul><li>A mathematical statement showing two expressions are equal.</li><li>It contains an 'equals to' sign (=).</li><li>Helps us find unknown values.</li></ul>
+          <p class="notes">🎙️ Before we dive into quadratic equations, let's quickly recall what an equation is. Remember, it's like a balance scale, where both sides must be equal.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">=</div><div class="vcap">Equality</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Revisiting <span class="hl">Linear</span> Equations</h2>
+          <ul><li>Equations with the highest power of the variable as 1.</li><li>General form: ax + b = 0 (where a ≠ 0).</li><li>They represent a straight line when graphed.</li></ul>
+          <p class="notes">🎙️ You've already studied linear equations in one variable. For example, 2x + 5 = 0 is a linear equation. The variable 'x' has a power of 1.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➡️</div><div class="vcap">Straight Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>What are <span class="hl">Quadratic</span> Equations?</h2>
+          <ul><li>Equations where the highest power of the variable is 2.</li><li>Standard form: ax² + bx + c = 0.</li><li>Here, 'a' cannot be zero (a ≠ 0).</li></ul>
+          <p class="notes">🎙️ Now, let's meet our main topic! When the highest power of the variable, say 'x', is 2, we call it a Quadratic Equation. The 'a' term is crucial; if 'a' were zero, it would become a linear equation!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📈</div><div class="vcap">Curved Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The Meaning of '<span class="hl">Quadratic</span>'</h2>
+          <ul><li>Comes from the Latin word 'quadratus', meaning square.</li><li>Refers to the term with x² (x-squared).</li><li>Degree of the polynomial is 2.</li></ul>
+          <p class="notes">🎙️ The word 'quadratic' might sound fancy, but it simply points to the 'square' term, x². This means our variable is raised to the power of two, making it a polynomial of degree 2.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">2️⃣</div><div class="vcap">Power of Two</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Real-Life Scenario: Designing a <span class="hl">Room</span></h2>
+          <ul><li>Imagine you want to design a rectangular room.</li><li>Its length is 2 meters more than its width.</li><li>The area of the room is 48 square meters.</li></ul>
+          <p class="notes">🎙️ Let's see how quadratic equations appear in our daily lives. If we let the width be 'x' meters, then the length would be 'x + 2' meters. Can you think of how to set up an equation for its area?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🏠</span></div><div class="vcap">Room Design</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Real-Life Scenario: Throwing a <span class="hl">Ball</span></h2>
+          <ul><li>When you throw a ball upwards, its path is not straight.</li><li>It follows a curved path, called a parabola.</li><li>Quadratic equations describe this motion.</li></ul>
+          <p class="notes">🎙️ Have you ever wondered why a ball thrown up comes down? The height of the ball at any given time can often be described by a quadratic equation. This shows how they model natural phenomena.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚾</div><div class="vcap">Ball's Path</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Is it a Quadratic Equation?</h2>
+          <ul><li>Check if the highest power of the variable is exactly 2.</li><li>Ensure the coefficient of x² (a) is not zero.</li><li>Simplify the equation first if needed.</li></ul>
+          <p class="notes">🎙️ It's important to be able to quickly identify a quadratic equation. Remember, it must have an x² term, and no higher power of x. Look at these examples and see which ones fit the definition.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">x² + 3x - 4 = 0</div></div><div class="ccard"><div class="cbar" style="width:20%"></div><div class="clabel">2x + 1 = 0</div></div><div class="ccard"><div class="cbar" style="width:60%"></div><div class="clabel">x³ - 2x² + 5 = 0</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Quick Check: <span class="hl">Spot</span> the Quadratic!</h2>
+          <ul><li>1. 5x² - 2x + 1 = 0</li><li>2. (x+1)² = 2x - 3</li><li>3. x - 1/x = 3</li><li>4. x³ - 4 = 0</li></ul>
+          <p class="notes">🎙️ Alright, students, time for a quick activity! Look at these four expressions. Which of them, after simplification, are quadratic equations? Think carefully about the highest power of 'x'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>What are the <span class="hl">Roots</span> (or Zeros)?</h2>
+          <ul><li>The values of the variable 'x' that satisfy the equation.</li><li>These are the solutions to the quadratic equation.</li><li>A quadratic equation can have at most two roots.</li></ul>
+          <p class="notes">🎙️ Just like linear equations have one solution, quadratic equations can have up to two solutions. We call these solutions 'roots' or 'zeros' because they are the values of 'x' that make the equation true, or make the polynomial equal to zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌱</div><div class="vcap">Finding Solutions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Finding Roots: Method 1 - <span class="hl">Factorisation</span></h2>
+          <ul><li>Break down the quadratic expression into two linear factors.</li><li>Set each factor equal to zero to find the roots.</li><li>This method is often quick if factors are easily found.</li></ul>
+          <p class="notes">🎙️ The first method we'll learn is factorisation. It involves rewriting the quadratic expression as a product of two simpler linear expressions. Once factored, finding the roots becomes straightforward.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Standard Form</span></div><div class="step"><span class="snum">2</span><span>Split Middle Term</span></div><div class="step"><span class="snum">3</span><span>Factor by Grouping</span></div><div class="step"><span class="snum">4</span><span>Set Factors to Zero</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Example: Solving by <span class="hl">Factorisation</span></h2>
+          <ul><li>Solve: x² - 5x + 6 = 0</li><li>Split the middle term: x² - 2x - 3x + 6 = 0</li><li>Factor by grouping: x(x-2) - 3(x-2) = 0</li><li>(x-2)(x-3) = 0 =&gt; x=2 or x=3</li></ul>
+          <p class="notes">🎙️ Let's walk through an example. Here, we split -5x into -2x and -3x because -2 * -3 = 6 (the product of the first and last terms' coefficients) and -2 + -3 = -5. This allows us to group and factor.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>x² - 5x + 6 = 0</span></div><div class="step"><span class="snum">2</span><span>(x-2)(x-3) = 0</span></div><div class="step"><span class="snum">3</span><span>x-2=0 or x-3=0</span></div><div class="step"><span class="snum">4</span><span>x=2, x=3</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Real-Life: <span class="hl">Garden</span> Dimensions</h2>
+          <ul><li>A rectangular garden has an area of 120 m².</li><li>Its length is 7 meters more than its width.</li><li>Find the dimensions of the garden.</li></ul>
+          <p class="notes">🎙️ This is a classic problem! If we let the width be 'x', the length is 'x + 7'. The area is length times width, so x(x+7) = 120. This gives us x² + 7x - 120 = 0, which we can solve by factorisation!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Dimensions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Finding Roots: Method 2 - <span class="hl">Completing the Square</span></h2>
+          <ul><li>Transform the equation into the form (x + k)² = d.</li><li>This involves adding a specific constant to both sides.</li><li>It helps convert any quadratic equation into a perfect square.</li></ul>
+          <p class="notes">🎙️ Completing the square is a powerful method that works for all quadratic equations. The idea is to manipulate the equation so that one side becomes a perfect square trinomial, making it easy to isolate 'x'.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬜</div><div class="vcap">Making a Perfect Square</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Example: Solving by <span class="hl">Completing the Square</span></h2>
+          <ul><li>Solve: x² + 6x + 5 = 0</li><li>Move constant: x² + 6x = -5</li><li>Add (6/2)² = 9 to both sides: x² + 6x + 9 = -5 + 9</li><li>(x+3)² = 4 =&gt; x+3 = ±2 =&gt; x = -3 ± 2</li></ul>
+          <p class="notes">🎙️ Here, we first move the constant term. Then, we add (half of the coefficient of x, squared) to both sides to complete the square. This transforms the left side into a perfect square, (x+3)², allowing us to take the square root.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>x² + 6x + 5 = 0</span></div><div class="step"><span class="snum">2</span><span>(x+3)² = 4</span></div><div class="step"><span class="snum">3</span><span>x+3 = ±2</span></div><div class="step"><span class="snum">4</span><span>x = -1, x = -5</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Finding Roots: Method 3 - <span class="hl">Quadratic Formula</span></h2>
+          <ul><li>A universal formula to find roots of any quadratic equation.</li><li>For ax² + bx + c = 0, roots are x = [-b ± √(b²-4ac)] / 2a.</li><li>This method always works, even when factorisation is difficult.</li></ul>
+          <p class="notes">🎙️ The quadratic formula is your best friend when other methods seem too complex or don't work easily. It's a direct formula that gives you the roots of any quadratic equation, provided 'a' is not zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Universal Solution</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>How the <span class="hl">Formula</span> Comes From</h2>
+          <ul><li>The quadratic formula is derived by applying the 'completing the square' method.</li><li>It's applied to the general form ax² + bx + c = 0.</li><li>It saves us from repeating the 'completing the square' steps every time.</li></ul>
+          <p class="notes">🎙️ You don't need to memorize the derivation for now, but it's good to know that this powerful formula isn't magic! It comes directly from applying the completing the square method to the general quadratic equation ax² + bx + c = 0.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧠</div><div class="vcap">Mathematical Insight</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Example: Solving using <span class="hl">Quadratic Formula</span></h2>
+          <ul><li>Solve: 2x² + 5x - 3 = 0</li><li>Identify a=2, b=5, c=-3.</li><li>Substitute into formula: x = [-5 ± √(5²-4*2*-3)] / (2*2)</li><li>x = [-5 ± √(25+24)] / 4 = [-5 ± √49] / 4</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. First, identify the values of a, b, and c from the equation. Then, carefully substitute them into the formula and simplify. Remember the ± sign gives us two potential roots.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>2x² + 5x - 3 = 0</span></div><div class="step"><span class="snum">2</span><span>a=2, b=5, c=-3</span></div><div class="step"><span class="snum">3</span><span>x = [-5 ± √49] / 4</span></div><div class="step"><span class="snum">4</span><span>x = 1/2, x = -3</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Nature of Roots: The <span class="hl">Discriminant</span></h2>
+          <ul><li>The term b² - 4ac is called the Discriminant (D).</li><li>It tells us about the nature of the roots without actually solving.</li><li>It's a crucial part of the quadratic formula.</li></ul>
+          <p class="notes">🎙️ Before even solving, we can know what kind of roots a quadratic equation will have by looking at a special part of the quadratic formula: b² - 4ac. This term, called the Discriminant, is very powerful!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">Root Predictor</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>What <span class="hl">Discriminant</span> Tells Us</h2>
+          <ul><li>If D &gt; 0: Two distinct real roots.</li><li>If D = 0: Two equal real roots.</li><li>If D &lt; 0: No real roots (roots are imaginary).</li></ul>
+          <p class="notes">🎙️ The value of the discriminant determines the nature of the roots. If it's positive, you get two different real numbers. If it's zero, you get two identical real numbers. If it's negative, there are no real number solutions.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">D &gt; 0 (Distinct Real)</div></div><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">D = 0 (Equal Real)</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">D &lt; 0 (No Real Roots)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick <span class="hl">Question 1</span></h2>
+          <ul><li>Is (x+2)³ = x³ - 4 a quadratic equation?</li><li>A) Yes</li><li>B) No</li><li>C) Can't say</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Expand the left side and simplify the equation. What is the highest power of 'x' that remains? Does it fit the definition of a quadratic equation?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick <span class="hl">Question 2</span></h2>
+          <ul><li>Find the roots of x² - 7x + 10 = 0 by factorisation.</li><li>A) 2, 5</li><li>B) -2, -5</li><li>C) 1, 10</li></ul>
+          <p class="notes">🎙️ Try to factorize this equation quickly. Think of two numbers that multiply to 10 and add up to -7. This will give you your factors and then your roots.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick <span class="hl">Question 3</span></h2>
+          <ul><li>For 3x² - 4x + k = 0, if roots are equal, what is 'k'?</li><li>A) 4/3</li><li>B) -4/3</li><li>C) 3/4</li></ul>
+          <p class="notes">🎙️ Remember the discriminant! If the roots are equal, what must be the value of b² - 4ac? Set it to that value and solve for 'k'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Key <span class="hl">Takeaways</span> from Quadratic Equations</h2>
+          <ul><li>Standard form: ax² + bx + c = 0 (a≠0).</li><li>Roots are solutions (up to two).</li><li>Methods: Factorisation, Completing the Square, Quadratic Formula.</li><li>Discriminant (b²-4ac) tells nature of roots.</li></ul>
+          <p class="notes">🎙️ We've covered a lot today! Remember the standard form, the three main methods to find roots, and how the discriminant helps us understand the nature of these roots. These are the core concepts.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Important Points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Practicing</span>!</h2>
+          <ul><li>Regular practice is key to mastering quadratic equations.</li><li>Solve problems from your Bihar Board textbook.</li><li>Don't hesitate to ask questions!</li></ul>
+          <p class="notes">🎙️ Mathematics is all about practice. The more problems you solve, the more confident you'll become. Make sure to review your textbook exercises and ask your teacher if you have any doubts. Dhanyawad!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

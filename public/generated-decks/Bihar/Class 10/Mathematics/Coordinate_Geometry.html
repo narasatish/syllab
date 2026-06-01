@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Coordinate Geometry: Locating Points and Shapes — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2>Welcome to <span class="hl">Coordinate Geometry</span>!</h2>
+          <ul><li>Explore the world of points and lines!</li><li>Learn to locate, measure, and divide.</li><li>Understand how geometry meets algebra.</li></ul>
+          <p class="notes">🎙️ Namaste, students! Today, we're embarking on an exciting journey into a branch of mathematics called Coordinate Geometry. It's where numbers meet shapes, and we learn to describe geometric figures using algebraic equations.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>What is <span class="hl">Coordinate Geometry</span>?</h2>
+          <ul><li>A branch of mathematics.</li><li>Uses coordinates to locate points.</li><li>Connects algebra and geometry.</li></ul>
+          <p class="notes">🎙️ Imagine you're trying to tell someone exactly where something is. Coordinate geometry gives us a powerful system to do just that, using numbers to pinpoint locations on a plane. It helps us understand shapes and positions numerically.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🗺️</div><div class="vcap">Locating Points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Map Reading</span></h2>
+          <ul><li>Finding locations on a map.</li><li>Using latitude and longitude.</li><li>GPS systems rely on coordinates.</li></ul>
+          <p class="notes">🎙️ Think about how you find places on a map or use Google Maps. You're using a form of coordinate geometry! Latitude and longitude are coordinates that help us pinpoint any spot on Earth, just like how we'll use x and y coordinates on a plane.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">Pinpointing Locations</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>The <span class="hl">Cartesian Plane</span></h2>
+          <ul><li>Two perpendicular number lines.</li><li>X-axis (horizontal), Y-axis (vertical).</li><li>Origin: where axes intersect (0,0).</li></ul>
+          <p class="notes">🎙️ The foundation of coordinate geometry is the Cartesian Plane, named after René Descartes. It's simply two number lines crossing each other at a right angle. The horizontal line is the X-axis, the vertical is the Y-axis, and their meeting point is the Origin.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Axes and Origin</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2><span class="hl">Quadrants</span></h2>
+          <ul><li>The plane is divided into four regions.</li><li>Numbered I, II, III, IV counter-clockwise.</li><li>Signs of (x,y) vary in each quadrant.</li></ul>
+          <p class="notes">🎙️ These two axes divide the entire plane into four distinct regions, which we call quadrants. We number them counter-clockwise, starting from the top-right. The signs of the x and y coordinates tell us which quadrant a point lies in.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧭</div><div class="vcap">Four Regions</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2><span class="hl">Plotting Points</span> (x,y)</h2>
+          <ul><li>First coordinate (x) is horizontal distance.</li><li>Second coordinate (y) is vertical distance.</li><li>Start from the Origin (0,0).</li></ul>
+          <p class="notes">🎙️ To plot a point (x,y), we always start from the Origin. The 'x' value tells us how many units to move horizontally (right for positive, left for negative), and the 'y' value tells us how many units to move vertically (up for positive, down for negative).</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Move X-units horizontally</span></div><div class="step"><span class="snum">2</span><span>Move Y-units vertically</span></div><div class="step"><span class="snum">3</span><span>Mark the point</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Example: Plotting (3,2) and (-2,4)</h2>
+          <ul><li>For (3,2): 3 units right, 2 units up.</li><li>For (-2,4): 2 units left, 4 units up.</li><li>Practice makes perfect!</li></ul>
+          <p class="notes">🎙️ Let's try plotting a couple of points. For (3,2), we go 3 steps right from the origin, then 2 steps up. For (-2,4), we go 2 steps left, then 4 steps up. It's like giving precise directions on a grid.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📌</div><div class="vcap">Locating on Grid</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Quick Check: <span class="hl">Quadrants</span></h2>
+          <ul><li>In which quadrant does (-5, -3) lie?</li><li>What are the coordinates of the Origin?</li><li>If x &gt; 0 and y &lt; 0, which quadrant?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Think about the signs of the coordinates. Where would a point with both negative coordinates be? And what about the special point where the axes meet?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2><span class="hl">Distance</span> Formula Introduction</h2>
+          <ul><li>How far are two points from each other?</li><li>Essential for measuring lengths.</li><li>Connects two points in the plane.</li></ul>
+          <p class="notes">🎙️ Now that we know how to locate points, the next natural question is: how do we find the distance between any two given points? The distance formula helps us calculate the length of the line segment joining them.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Length</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2><span class="hl">Deriving</span> the Distance Formula</h2>
+          <ul><li>Uses the Pythagorean Theorem.</li><li>Form a right-angled triangle.</li><li>Hypotenuse is the distance between points.</li></ul>
+          <p class="notes">🎙️ The distance formula isn't magic; it comes directly from the famous Pythagorean Theorem! We imagine a right-angled triangle where the line segment connecting our two points is the hypotenuse, and the legs are parallel to the axes.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Pythagoras at Work</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>Distance <span class="hl">Formula</span>: The Formula!</h2>
+          <ul><li>Distance between (x1, y1) and (x2, y2).</li><li>d = √[(x2 - x1)² + (y2 - y1)²].</li><li>Remember the square root!</li></ul>
+          <p class="notes">🎙️ Here it is, the distance formula! If you have two points, (x1, y1) and (x2, y2), you just plug their coordinates into this equation. Make sure you subtract the x-coordinates, square it, do the same for y, add them, and then take the square root.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">The Magic Formula</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Distance between (2,3) and (5,7)</h2>
+          <ul><li>Let (x1,y1) = (2,3) and (x2,y2) = (5,7).</li><li>x2 - x1 = 5 - 2 = 3.</li><li>y2 - y1 = 7 - 3 = 4.</li><li>d = √[3² + 4²] = √[9 + 16] = √25 = 5 units.</li></ul>
+          <p class="notes">🎙️ Let's apply the formula. For points (2,3) and (5,7), the difference in x is 3, and in y is 4. Squaring and adding gives us 25. The square root of 25 is 5. So, the distance is 5 units.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔢</div><div class="vcap">Step-by-step</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Real-Life Example: Measuring <span class="hl">Field Length</span></h2>
+          <ul><li>A farmer wants to measure a diagonal path.</li><li>Coordinates of corners: (10,20) and (50,80).</li><li>Use distance formula to find path length.</li></ul>
+          <p class="notes">🎙️ Imagine a farmer wants to put a fence along a diagonal path in his field. If he knows the coordinates of the path's start and end points, he can use our distance formula to accurately calculate how much fencing material he needs. This saves time and money!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🏞️</div><div class="vcap">Farm Measurement</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2><span class="hl">Section</span> Formula Introduction</h2>
+          <ul><li>Dividing a line segment.</li><li>Finding a point between two others.</li><li>Ratio of division is key.</li></ul>
+          <p class="notes">🎙️ Sometimes, we don't just want to find the distance between two points, but a specific point that lies *on* the line segment connecting them and divides it in a certain ratio. That's where the Section Formula comes in handy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">Dividing a Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Section Formula (<span class="hl">Internal</span>)</h2>
+          <ul><li>Divides line segment AB in ratio m1:m2.</li><li>Point P(x,y) lies between A and B.</li><li>x = (m1x2 + m2x1) / (m1 + m2).</li><li>y = (m1y2 + m2y1) / (m1 + m2).</li></ul>
+          <p class="notes">🎙️ If a point P divides the line segment joining A(x1, y1) and B(x2, y2) internally in the ratio m1:m2, then its coordinates are given by these two formulas. Notice how m1 multiplies the coordinates of the *second* point (x2, y2) and vice versa.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔗</div><div class="vcap">Connecting Points</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Dividing a Line Segment</h2>
+          <ul><li>Points A(1,7) and B(4,-3).</li><li>Ratio m1:m2 = 2:3.</li><li>x = (2*4 + 3*1) / (2+3) = (8+3)/5 = 11/5.</li><li>y = (2*-3 + 3*7) / (2+3) = (-6+21)/5 = 15/5 = 3.</li><li>Point is (11/5, 3).</li></ul>
+          <p class="notes">🎙️ Let's find the point that divides the segment joining (1,7) and (4,-3) in the ratio 2:3. We substitute the values into the formula. Remember to be careful with signs and fractions. The resulting point is (11/5, 3).</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➖</div><div class="vcap">Calculating the Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2><span class="hl">Midpoint</span> Formula</h2>
+          <ul><li>Special case of Section Formula.</li><li>Divides a line segment into two equal parts.</li><li>Ratio is 1:1 (m1=1, m2=1).</li><li>Midpoint M = ((x1+x2)/2, (y1+y2)/2).</li></ul>
+          <p class="notes">🎙️ The Midpoint Formula is a very common and simpler application of the Section Formula. It finds the exact middle point of a line segment. Since it divides the segment into two equal parts, the ratio is simply 1:1, which simplifies the formula nicely.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">Center Point</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Finding Midpoint</h2>
+          <ul><li>Find midpoint of A(4, -6) and B(-2, 4).</li><li>x-coordinate = (4 + (-2))/2 = 2/2 = 1.</li><li>y-coordinate = (-6 + 4)/2 = -2/2 = -1.</li><li>Midpoint is (1, -1).</li></ul>
+          <p class="notes">🎙️ Let's quickly find the midpoint of (4, -6) and (-2, 4). We just average the x-coordinates and average the y-coordinates. It's a straightforward calculation that gives us the point (1, -1) as the exact center.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🧑‍🤝‍🧑</div><div class="vcap">Sharing Equally</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2><span class="hl">Area</span> of a Triangle Introduction</h2>
+          <ul><li>Finding the area of a triangle.</li><li>Using the coordinates of its vertices.</li><li>No need for base and height!</li></ul>
+          <p class="notes">🎙️ Traditionally, you calculate the area of a triangle using base and height. But what if you only have the coordinates of its three vertices? Coordinate geometry provides a powerful formula to calculate the area directly from these coordinates.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Triangle Shape</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Area of a Triangle <span class="hl">Formula</span></h2>
+          <ul><li>Vertices (x1, y1), (x2, y2), (x3, y3).</li><li>Area = 1/2 |x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2)|</li><li>Remember the absolute value, area is always positive!</li></ul>
+          <p class="notes">🎙️ This formula might look a bit long, but it's very systematic. Just remember to cycle through the x and y values correctly. The absolute value ensures that our area is always positive, as area cannot be negative.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">Complex Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Worked <span class="hl">Example</span>: Area of Triangle with Vertices</h2>
+          <ul><li>Vertices A(1, -1), B(-4, 6), C(-3, -5).</li><li>Plug into formula carefully.</li><li>Area = 1/2 |1(6 - (-5)) + (-4)(-5 - (-1)) + (-3)(-1 - 6)|</li><li>Area = 1/2 |1(11) - 4(-4) - 3(-7)|</li><li>Area = 1/2 |11 + 16 + 21| = 1/2 |48| = 24 sq units.</li></ul>
+          <p class="notes">🎙️ Let's apply this formula to a triangle with given vertices. It involves careful substitution and arithmetic, especially with negative numbers. After calculation, we find the area of this triangle is 24 square units.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📊</div><div class="vcap">Calculating Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">Collinearity</span> of Points</h2>
+          <ul><li>Three or more points lie on the same straight line.</li><li>If points are collinear, they cannot form a triangle.</li><li>Area of triangle formed by collinear points is ZERO.</li></ul>
+          <p class="notes">🎙️ An important concept is collinearity: when three or more points lie on the same straight line. If points are collinear, they can't form a triangle. This means if you use the area of a triangle formula for collinear points, the result will always be zero.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">Straight Line</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2>Quick Check: <span class="hl">Formulas</span></h2>
+          <ul><li>What is the midpoint of (0,0) and (6,8)?</li><li>If the area of a triangle is 0, what does it mean?</li><li>Which formula finds the length of a line segment?</li></ul>
+          <p class="notes">🎙️ Let's test our understanding again. Can you quickly find the midpoint of two points? What's the significance of a zero area for a triangle? And which formula is used to measure the distance between two points?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>Recap: <span class="hl">Key Concepts</span></h2>
+          <ul><li>Cartesian Plane &amp; Quadrants</li><li>Distance Formula</li><li>Section Formula &amp; Midpoint</li><li>Area of a Triangle</li></ul>
+          <p class="notes">🎙️ Today, we've covered the fundamental concepts of Coordinate Geometry. We learned about the Cartesian plane, how to find the distance between two points, how to divide a line segment, and how to calculate the area of a triangle using coordinates.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">Thank You</span>!</h2>
+          <ul><li>Keep practicing!</li><li>Coordinate Geometry is powerful.</li><li>See you next time!</li></ul>
+          <p class="notes">🎙️ Thank you for your attention and participation today! Coordinate Geometry is a very powerful tool in mathematics and has many real-world applications. Keep practicing these concepts, and you'll master them in no time. See you in the next class!</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

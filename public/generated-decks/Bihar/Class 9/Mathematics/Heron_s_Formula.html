@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Heron's Formula — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">Heron's Formula</span>: Area of a Triangle</h2>
+          <ul><li>For Class 9 Mathematics</li><li>Subject: Mathematics</li><li>Board: Bihar</li></ul>
+          <p class="notes">🎙️ Namaste students! Today, we're going to learn a very interesting and useful formula in geometry called Heron's Formula. It helps us find the area of triangles in a special way.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2>Why Do We Need to Calculate <span class="hl">Area</span>?</h2>
+          <ul><li>To find space occupied by a shape</li><li>Useful in construction, farming, design</li></ul>
+          <p class="notes">🎙️ Calculating area is a fundamental skill in mathematics. Imagine you need to paint a wall, or buy carpet for a room, or even sow seeds in a field – you need to know the area!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">Measuring Space</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2><span class="hl">Recap</span>: Area of Rectangles and Squares</h2>
+          <ul><li>Rectangle: Length × Breadth</li><li>Square: Side × Side</li></ul>
+          <p class="notes">🎙️ We've already learned how to find the area of simple shapes like rectangles and squares. These are straightforward because their sides are perpendicular.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⬛</div><div class="vcap">Familiar Shapes</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>Recap: Area of a <span class="hl">Triangle</span> (Half Base x Height)</h2>
+          <ul><li>Formula: ½ × Base × Height</li><li>Requires perpendicular height</li></ul>
+          <p class="notes">🎙️ For triangles, we usually use the formula half times base times height. But what if we don't know the height directly? What if it's hard to measure?</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔺</div><div class="vcap">Base and Height</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>The Challenge: Finding Area <span class="hl">Without Height</span></h2>
+          <ul><li>What if the height is unknown?</li><li>What if it's difficult to measure?</li></ul>
+          <p class="notes">🎙️ Sometimes, we might know all three sides of a triangle, but not its height. Or, measuring the height might be impractical, like for an irregularly shaped field. This is where our new formula comes in handy!</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🤔</div><div class="vcap">A Tricky Problem</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>Meet <span class="hl">Heron</span> of Alexandria</h2>
+          <ul><li>Ancient Greek mathematician</li><li>Lived around 1st century AD</li><li>Developed many formulas and inventions</li></ul>
+          <p class="notes">🎙️ Heron's Formula is named after a brilliant ancient Greek mathematician, Heron of Alexandria. He contributed significantly to various fields including mathematics and engineering.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📜</div><div class="vcap">Ancient Wisdom</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>Heron's Formula: The <span class="hl">Big Idea</span></h2>
+          <ul><li>Finds area using only side lengths</li><li>No need for perpendicular height</li><li>Works for ALL types of triangles</li></ul>
+          <p class="notes">🎙️ The amazing thing about Heron's Formula is that it allows us to calculate the area of any triangle, whether it's equilateral, isosceles, or scalene, simply by knowing the lengths of its three sides.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✨</div><div class="vcap">A Powerful Tool</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>Key Term 1: <span class="hl">Perimeter</span> of a Triangle</h2>
+          <ul><li>Sum of all three sides</li><li>Let sides be a, b, c</li><li>Perimeter = a + b + c</li></ul>
+          <p class="notes">🎙️ Before we dive into the formula, let's quickly review some terms. The perimeter of any shape is the total length of its boundary. For a triangle, it's just the sum of its three sides.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Total Boundary</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>Key Term 2: <span class="hl">Semi-Perimeter</span> (s)</h2>
+          <ul><li>Half of the perimeter</li><li>Denoted by 's'</li><li>s = (a + b + c) / 2</li></ul>
+          <p class="notes">🎙️ Heron's Formula uses a special term called the 'semi-perimeter'. 'Semi' means half, so the semi-perimeter is simply half of the triangle's total perimeter. We use the letter 's' to represent it.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➗</div><div class="vcap">Half the Sum</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>Heron's Formula: The <span class="hl">Magic Equation</span></h2>
+          <ul><li>Area = √[s(s-a)(s-b)(s-c)]</li><li>Where a, b, c are side lengths</li><li>And s is the semi-perimeter</li></ul>
+          <p class="notes">🎙️ And here it is! Heron's Formula. It might look a bit complex at first, but it's very logical. You multiply the semi-perimeter by the differences of the semi-perimeter and each side, then take the square root.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📝</div><div class="vcap">The Formula Itself</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2><span class="hl">Steps</span> to Apply Heron's Formula</h2>
+          <ul><li>1. Find the perimeter (a+b+c)</li><li>2. Calculate the semi-perimeter (s)</li><li>3. Substitute values into the formula</li><li>4. Calculate the final area</li></ul>
+          <p class="notes">🎙️ Using Heron's Formula is a step-by-step process. First, find the total length of the sides. Then, calculate half of that. After that, plug these values into the formula and solve for the area.</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>Perimeter</span></div><div class="step"><span class="snum">2</span><span>Semi-Perimeter</span></div><div class="step"><span class="snum">3</span><span>Formula</span></div><div class="step"><span class="snum">4</span><span>Area</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Farmer's Field</span></h2>
+          <ul><li>A farmer has a triangular field</li><li>Sides are 50m, 80m, 120m</li><li>He needs to know the area for fertilizer</li></ul>
+          <p class="notes">🎙️ Imagine a farmer in Bihar has a triangular field. He knows the lengths of all three sides but can't easily measure the height. He needs to calculate the area to know how much fertilizer to buy.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span><span>🌾</span></div><div class="vcap">Triangular Field</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>Worked Example 1: Calculating <span class="hl">Semi-Perimeter</span></h2>
+          <ul><li>Sides: a=50m, b=80m, c=120m</li><li>Perimeter = 50 + 80 + 120 = 250m</li><li>Semi-perimeter (s) = 250 / 2 = 125m</li></ul>
+          <p class="notes">🎙️ First, let's find the perimeter by adding all the side lengths. 50 plus 80 plus 120 gives us 250 meters. Then, we divide this by two to get the semi-perimeter, which is 125 meters.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">➕</div><div class="vcap">Summing Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>Worked Example 1: <span class="hl">Applying Heron's Formula</span></h2>
+          <ul><li>s = 125m, a=50m, b=80m, c=120m</li><li>Area = √[125(125-50)(125-80)(125-120)]</li><li>Area = √[125 × 75 × 45 × 5]</li><li>Area ≈ 1452.37 sq m</li></ul>
+          <p class="notes">🎙️ Now, we substitute these values into Heron's Formula. After performing the subtractions and multiplications under the square root, we find the area of the field to be approximately 1452.37 square meters.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✅</div><div class="vcap">Final Calculation</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 1</span></h2>
+          <ul><li>What is the semi-perimeter of a triangle with sides 3cm, 4cm, 5cm?</li></ul>
+          <p class="notes">🎙️ Time for a quick check! Can you quickly calculate the semi-perimeter for a triangle with sides 3, 4, and 5 centimeters? Remember, it's half the perimeter.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>Real-Life Example: <span class="hl">Designing a Park</span></h2>
+          <ul><li>A park designer needs to turf a triangular area</li><li>Sides are 26m, 28m, 30m</li><li>How much turf is needed?</li></ul>
+          <p class="notes">🎙️ Here's another scenario. A city planner wants to design a small triangular park. They know the dimensions of the sides and need to calculate the area to order the correct amount of grass turf.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🌳</span><span>🌳</span><span>🌳</span></div><div class="vcap">Triangular Park</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>Worked Example 2: Calculating <span class="hl">Semi-Perimeter</span></h2>
+          <ul><li>Sides: a=26m, b=28m, c=30m</li><li>Perimeter = 26 + 28 + 30 = 84m</li><li>Semi-perimeter (s) = 84 / 2 = 42m</li></ul>
+          <p class="notes">🎙️ Let's follow the steps again. Add the sides: 26 plus 28 plus 30 equals 84 meters. Divide by two to get the semi-perimeter, which is 42 meters.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">Measuring Up</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>Worked Example 2: <span class="hl">Applying Heron's Formula</span></h2>
+          <ul><li>s = 42m, a=26m, b=28m, c=30m</li><li>Area = √[42(42-26)(42-28)(42-30)]</li><li>Area = √[42 × 16 × 14 × 12]</li><li>Area = 336 sq m</li></ul>
+          <p class="notes">🎙️ Now, substitute these values into Heron's Formula: s is 42, and then we subtract each side. Multiply all the terms under the square root and find the square root. The area comes out to exactly 336 square meters.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">💯</div><div class="vcap">Precise Area</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>Comparing Triangles: Same Perimeter, <span class="hl">Different Area?</span></h2>
+          <ul><li>Two triangles can have the same perimeter</li><li>But their areas can be very different</li><li>Heron's Formula helps find exact area</li></ul>
+          <p class="notes">🎙️ It's interesting to note that two triangles can have the same perimeter but vastly different areas. Heron's Formula gives us the exact area, highlighting how shape affects the space enclosed, not just the boundary length.</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:75%"></div><div class="clabel">Triangle A (sides 6,8,10)</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">Triangle B (sides 7,7,10)</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 2</span></h2>
+          <ul><li>A triangle has sides 13cm, 14cm, 15cm. What is (s-a)?</li></ul>
+          <p class="notes">🎙️ Another quick question! For a triangle with sides 13, 14, and 15 centimeters, can you calculate the value of (s-a)? Remember to first find 's'.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 3</span></h2>
+          <ul><li>If s=10 and sides are 6, 8, c. What is c?</li></ul>
+          <p class="notes">🎙️ Here's a slightly different one. If the semi-perimeter 's' is 10 and two sides are 6 and 8, can you find the third side 'c'?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2>Quick Check! <span class="hl">Question 4</span></h2>
+          <ul><li>Which of these is Heron's Formula for Area?</li><li>A) ½ × Base × Height</li><li>B) √[s(s-a)(s-b)(s-c)]</li><li>C) a + b + c</li></ul>
+          <p class="notes">🎙️ Last quick question! Which of the given options correctly represents Heron's Formula for the area of a triangle?</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">Advantages</span> of Using Heron's Formula</h2>
+          <ul><li>No need for height measurement</li><li>Works for all types of triangles</li><li>Very useful in practical situations</li></ul>
+          <p class="notes">🎙️ Heron's Formula is incredibly powerful because it frees us from the often difficult task of measuring perpendicular height. It's a versatile tool for any triangular shape, making it very practical in real-world problems.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👍</div><div class="vcap">Benefits</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2><span class="hl">Recap</span>: What We Learned Today</h2>
+          <ul><li>Heron's Formula finds area using only sides</li><li>Semi-perimeter 's' = (a+b+c)/2</li><li>Area = √[s(s-a)(s-b)(s-c)]</li></ul>
+          <p class="notes">🎙️ To summarize, we learned about Heron's Formula, a method to calculate the area of any triangle when only its side lengths are known. Remember the key terms: perimeter and semi-perimeter, and the formula itself.</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2>Keep <span class="hl">Practicing!</span></h2>
+          <ul><li>Solve more problems from your textbook</li><li>Practice makes perfect!</li><li>Ask questions if you have doubts</li></ul>
+          <p class="notes">🎙️ Mathematics is all about practice! I encourage you to solve more problems from your Class 9 Bihar Board textbook. The more you practice, the more confident you'll become. Don't hesitate to ask if you have any questions.</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📚</div><div class="vcap">Your Textbook</div></div></div>
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · Bihar Class 9 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

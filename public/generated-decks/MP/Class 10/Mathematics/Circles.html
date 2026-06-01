@@ -1,0 +1,368 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,follow"/>
+<title>कक्षा 10 गणित: वृत्त (Circles) — Syllab.in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Nunito',system-ui,sans-serif;background:#0b1220;overflow:hidden}
+.slide{display:none;height:100vh;width:100vw;padding:3.5vh 4vw;background:linear-gradient(135deg,#0d9488,#6366f1)}
+.slide.active{display:flex;align-items:center}
+.card{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:auto;background:#fff;border-radius:32px;padding:54px 56px;min-height:66vh;display:flex;align-items:center;box-shadow:0 30px 90px rgba(0,0,0,.3)}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;top:-90px;right:-70px;background:#fff7ed}
+.b2{width:200px;height:200px;bottom:-80px;left:-70px;background:#ccfbf1}
+.content{position:relative;z-index:1;width:100%}
+.content.split{display:flex;gap:4vw;align-items:center}
+.txt{flex:1}
+.num{font-family:'Fredoka';font-size:13px;font-weight:600;letter-spacing:2px;color:#14b8a6;text-transform:uppercase}
+h2{font-family:'Fredoka';font-weight:700;font-size:clamp(28px,3.8vw,46px);color:#0f766e;line-height:1.08;margin:10px 0 24px}
+.hl{color:#f97316}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:#1f2937;padding-left:16px;position:relative}
+li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:#14b8a6}
+.notes{margin-top:24px;font-size:14px;color:#64748b;font-style:italic;border-left:3px solid #5eead4;padding-left:14px}
+.visual{flex:1;max-width:46%;display:flex;justify-content:center}
+.vbox{width:100%;border-radius:24px;overflow:hidden}
+.vbox img{width:100%;display:block;border-radius:24px}
+.vbox.dashed{border:3px dashed #99f6e4;background:#f0fdfa;padding:42px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px}
+.vbox.imgbox{display:flex;flex-direction:column;align-items:center}
+.rimg{width:100%;max-height:52vh;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.bigicon{font-size:clamp(90px,12vw,150px);line-height:1}
+.scene{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;max-width:360px}
+.scene span{font-size:clamp(40px,6vw,64px);line-height:1}
+.vcap{font-family:'Fredoka';font-weight:600;color:#0f766e;font-size:20px;margin-top:18px;text-align:center}
+.compare{display:flex;gap:18px;width:100%}
+.ccard{flex:1;border:2px solid #ccfbf1;border-radius:18px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px;justify-content:flex-end;min-height:160px}
+.cbar{height:14px;border-radius:8px;background:#0d9488}
+.clabel{font-family:'Fredoka';font-weight:600;color:#0f766e}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;align-items:center;gap:14px;background:#f0fdfa;border-radius:16px;padding:14px 18px;font-size:18px;color:#1f2937}
+.snum{flex:none;width:34px;height:34px;border-radius:50%;background:#0d9488;color:#fff;font-family:'Fredoka';font-weight:700;display:flex;align-items:center;justify-content:center}
+.card.solo .txt{text-align:center}.card.solo ul{align-items:flex-start;max-width:640px;margin:0 auto}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(11,18,32,.92)}
+button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radius:14px;padding:10px 20px;font-weight:600;cursor:pointer}
+.brand{color:#94a3b8;font-family:'Fredoka';font-weight:600;letter-spacing:1px;font-size:13px}
+.pdfbtn{background:#f97316;color:#fff}
+/* ---- Print / Save-as-PDF: show every slide, one per page, with a syllab.in watermark ---- */
+@media print{
+  @page{size:landscape;margin:0}
+  body{background:#fff;overflow:visible}
+  .bar{display:none!important}
+  .slide{display:flex!important;page-break-after:always;break-after:page;height:100vh;width:100vw;background:linear-gradient(135deg,#0d9488,#6366f1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide:last-child{page-break-after:auto}
+  .card{min-height:0;height:86vh}
+  /* diagonal repeating watermark on every printed page */
+  .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
+}
+</style></head><body>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">1 / 25</span>
+          <h2><span class="hl">वृत्त</span> (Circles)</h2>
+          <ul><li>कक्षा 10 गणित</li><li>मध्य प्रदेश बोर्ड</li></ul>
+          <p class="notes">🎙️ नमस्ते बच्चों! आज हम गणित का एक बहुत ही दिलचस्प अध्याय 'वृत्त' शुरू करने जा रहे हैं। वृत्त हमारे चारों ओर हर जगह मौजूद हैं।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">2 / 25</span>
+          <h2><span class="hl">वृत्त</span> क्या है?</h2>
+          <ul><li>एक निश्चित बिंदु से समान दूरी पर स्थित सभी बिंदुओं का समूह।</li><li>निश्चित बिंदु 'केंद्र' कहलाता है।</li><li>समान दूरी 'त्रिज्या' कहलाती है।</li></ul>
+          <p class="notes">🎙️ कल्पना कीजिए कि आपके पास एक धागा है। धागे के एक सिरे को एक जगह पर पिन कर दें और दूसरे सिरे पर पेंसिल बांध लें। अब पेंसिल को घुमाएं। जो आकृति बनेगी, वही वृत्त है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔵</div><div class="vcap">एक वृत्त</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">3 / 25</span>
+          <h2>मुख्य पद: <span class="hl">त्रिज्या</span> (Radius) और व्यास (Diameter)</h2>
+          <ul><li>त्रिज्या (r): केंद्र से वृत्त पर किसी बिंदु तक की दूरी।</li><li>व्यास (d): वृत्त के केंद्र से होकर जाने वाली जीवा।</li><li>व्यास = 2 × त्रिज्या (d = 2r)</li></ul>
+          <p class="notes">🎙️ त्रिज्या वृत्त के केंद्र से उसकी परिधि तक की दूरी होती है। व्यास वृत्त के आर-पार जाने वाली सबसे लंबी जीवा होती है और यह हमेशा केंद्र से गुजरती है। व्यास त्रिज्या का दोगुना होता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📏</div><div class="vcap">माप की रेखाएँ</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">4 / 25</span>
+          <h2>मुख्य पद: <span class="hl">जीवा</span> (Chord) और चाप (Arc)</h2>
+          <ul><li>जीवा: वृत्त पर किन्हीं दो बिंदुओं को जोड़ने वाला रेखाखंड।</li><li>चाप: वृत्त के परिधि का एक टुकड़ा।</li><li>व्यास सबसे लंबी जीवा होती है।</li></ul>
+          <p class="notes">🎙️ जीवा वृत्त के अंदर दो बिंदुओं को जोड़ती है। चाप वृत्त की परिधि का एक हिस्सा होता है, जैसे इंद्रधनुष का एक टुकड़ा। एक वृत्त में अनगिनत जीवाएँ और चाप हो सकते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🌈</div><div class="vcap">वृत्त के भाग</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">5 / 25</span>
+          <h2>मुख्य पद: <span class="hl">त्रिज्यखंड</span> (Sector) और वृत्तखंड (Segment)</h2>
+          <ul><li>त्रिज्यखंड: दो त्रिज्याओं और एक चाप से घिरा क्षेत्र (पिज्जा का टुकड़ा)।</li><li>वृत्तखंड: एक जीवा और एक चाप से घिरा क्षेत्र।</li><li>ये वृत्त के अंदर के क्षेत्र के भाग हैं।</li></ul>
+          <p class="notes">🎙️ त्रिज्यखंड एक पिज्जा के टुकड़े जैसा होता है, जो केंद्र से दो त्रिज्याओं और एक चाप से बनता है। वृत्तखंड एक जीवा और चाप के बीच का क्षेत्र होता है, जैसे एक गोल बिस्किट का एक कटा हुआ हिस्सा।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🍕</div><div class="vcap">वृत्त के क्षेत्र</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">6 / 25</span>
+          <h2>वास्तविक जीवन में वृत्त के <span class="hl">उदाहरण</span></h2>
+          <ul><li>घड़ी का डायल</li><li>साइकिल का पहिया</li><li>चूड़ी या कंगन</li><li>सिक्के</li></ul>
+          <p class="notes">🎙️ हमारे आसपास वृत्ताकार वस्तुएँ बहुत आम हैं। एक घड़ी का डायल, साइकिल का पहिया या एक सिक्का - ये सभी वृत्त के आकार के होते हैं। ये हमें वृत्त की अवधारणा को समझने में मदद करते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🍩</span><span>🍩</span><span>🍩</span><span>🍩</span><span>🍩</span></div><div class="vcap">वृत्ताकार वस्तुएँ</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">7 / 25</span>
+          <h2>वृत्त के सापेक्ष एक बिंदु की <span class="hl">स्थिति</span></h2>
+          <ul><li>बिंदु वृत्त के अंदर हो सकता है।</li><li>बिंदु वृत्त पर हो सकता है।</li><li>बिंदु वृत्त के बाहर हो सकता है।</li></ul>
+          <p class="notes">🎙️ एक वृत्त और एक बिंदु के बीच तीन तरह के संबंध हो सकते हैं। बिंदु या तो वृत्त के अंदर होगा, या वृत्त की परिधि पर होगा, या फिर वृत्त के बाहर होगा। यह दूरी पर निर्भर करता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📍</div><div class="vcap">बिंदु की स्थिति</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">8 / 25</span>
+          <h2>रेखा और वृत्त: <span class="hl">प्रतिच्छेद न करने वाली</span> रेखा</h2>
+          <ul><li>रेखा वृत्त को किसी भी बिंदु पर नहीं काटती।</li><li>रेखा और वृत्त के बीच कोई उभयनिष्ठ बिंदु नहीं होता।</li><li>रेखा वृत्त से दूर रहती है।</li></ul>
+          <p class="notes">🎙️ कल्पना कीजिए एक सीधी सड़क और एक गोल तालाब। अगर सड़क तालाब से दूर है और उसे नहीं छूती, तो वह एक प्रतिच्छेद न करने वाली रेखा का उदाहरण है। उनके बीच कोई साझा बिंदु नहीं होता।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">↔️</div><div class="vcap">कोई संपर्क नहीं</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">9 / 25</span>
+          <h2>रेखा और वृत्त: <span class="hl">छेदक रेखा</span> (Secant)</h2>
+          <ul><li>रेखा वृत्त को दो अलग-अलग बिंदुओं पर प्रतिच्छेद करती है।</li><li>इसके दो उभयनिष्ठ बिंदु होते हैं।</li><li>छेदक रेखा वृत्त के अंदर से होकर गुजरती है।</li></ul>
+          <p class="notes">🎙️ जब एक रेखा वृत्त को दो जगहों पर काटती हुई निकल जाती है, तो उसे छेदक रेखा कहते हैं। यह वृत्त के अंदर से गुजरती है, जैसे आप एक सेब को चाकू से दो टुकड़ों में काटते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">✂️</div><div class="vcap">दो कट</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">10 / 25</span>
+          <h2>रेखा और वृत्त: <span class="hl">स्पर्श रेखा</span> (Tangent)</h2>
+          <ul><li>रेखा वृत्त को ठीक एक बिंदु पर स्पर्श करती है।</li><li>यह वृत्त का केवल एक उभयनिष्ठ बिंदु होता है, जिसे स्पर्श बिंदु कहते हैं।</li><li>स्पर्श रेखा वृत्त को छूकर निकल जाती है।</li></ul>
+          <p class="notes">🎙️ स्पर्श रेखा वह होती है जो वृत्त को केवल एक बिंदु पर छूती है और फिर आगे बढ़ जाती है। यह वृत्त को छेदती नहीं है। जैसे एक गेंद जब जमीन को छूती हुई आगे बढ़ती है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">👆</div><div class="vcap">एक स्पर्श</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">11 / 25</span>
+          <h2>वास्तविक जीवन में स्पर्श रेखा के <span class="hl">उदाहरण</span></h2>
+          <ul><li>साइकिल का पहिया और सड़क।</li><li>एक धागा जो चरखी पर लिपटा हो।</li><li>एक गेंद का जमीन को छूना।</li></ul>
+          <p class="notes">🎙️ जब साइकिल का पहिया सड़क पर चलता है, तो सड़क पहिए को एक बिंदु पर स्पर्श करती है, यह एक स्पर्श रेखा का उदाहरण है। इसी तरह, चरखी पर लिपटा धागा भी स्पर्श रेखा बनाता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>🚴</span><span>🚴</span><span>🚴</span></div><div class="vcap">स्पर्श करते हुए</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">12 / 25</span>
+          <h2>प्रमेय 1: स्पर्श रेखा और त्रिज्या के बीच संबंध</h2>
+          <ul><li>वृत्त के किसी भी बिंदु पर स्पर्श रेखा, स्पर्श बिंदु से होकर जाने वाली त्रिज्या पर लंब होती है।</li><li>अर्थात, स्पर्श रेखा और त्रिज्या 90° का कोण बनाती हैं।</li></ul>
+          <p class="notes">🎙️ यह एक बहुत ही महत्वपूर्ण प्रमेय है। यह बताता है कि जहाँ स्पर्श रेखा वृत्त को छूती है, वहाँ से केंद्र तक खींची गई त्रिज्या हमेशा स्पर्श रेखा पर लंब होती है। यह हमें कई समस्याओं को हल करने में मदद करता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">📐</div><div class="vcap">समकोण</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">13 / 25</span>
+          <h2>उदाहरण 1: प्रमेय 1 का <span class="hl">अनुप्रयोग</span></h2>
+          <ul><li>एक वृत्त की त्रिज्या 5 cm है। केंद्र से 13 cm दूर एक बिंदु Q से वृत्त पर खींची गई स्पर्श रेखा PQ की लंबाई ज्ञात कीजिए।</li></ul>
+          <p class="notes">🎙️ इस उदाहरण में हमने देखा कि कैसे प्रमेय 1 का उपयोग करके हम स्पर्श रेखा की लंबाई ज्ञात कर सकते हैं। हमें बस एक समकोण त्रिभुज की पहचान करनी होती है और पाइथागोरस प्रमेय लागू करना होता है।</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>चित्र बनाएँ: O केंद्र, P स्पर्श बिंदु, Q बाहरी बिंदु।</span></div><div class="step"><span class="snum">2</span><span>OP ⊥ PQ (प्रमेय 1 से)।</span></div><div class="step"><span class="snum">3</span><span>∆OPQ एक समकोण त्रिभुज है।</span></div><div class="step"><span class="snum">4</span><span>पाइथागोरस प्रमेय: OQ² = OP² + PQ²।</span></div><div class="step"><span class="snum">5</span><span>13² = 5² + PQ² =&gt; 169 = 25 + PQ²।</span></div><div class="step"><span class="snum">6</span><span>PQ² = 144 =&gt; PQ = 12 cm।</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">14 / 25</span>
+          <h2>वृत्त पर स्थित बिंदु से स्पर्श रेखाएँ</h2>
+          <ul><li>वृत्त पर स्थित किसी बिंदु से, वृत्त पर केवल एक ही स्पर्श रेखा खींची जा सकती है।</li><li>यह स्पर्श रेखा उस बिंदु से होकर जाती है।</li></ul>
+          <p class="notes">🎙️ अगर आपके पास वृत्त पर एक बिंदु है, तो आप उस बिंदु से केवल एक ही सीधी रेखा खींच सकते हैं जो वृत्त को केवल वहीं छूती है। यह एक अद्वितीय स्पर्श रेखा होती है।</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">अंदर</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">पर</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">बाहर</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">15 / 25</span>
+          <h2>वृत्त के बाहर स्थित बिंदु से स्पर्श रेखाएँ</h2>
+          <ul><li>वृत्त के बाहर स्थित किसी बिंदु से, वृत्त पर दो स्पर्श रेखाएँ खींची जा सकती हैं।</li><li>ये दोनों स्पर्श रेखाएँ लंबाई में बराबर होती हैं।</li></ul>
+          <p class="notes">🎙️ अगर कोई बिंदु वृत्त के बाहर है, तो आप उस बिंदु से वृत्त को छूती हुई दो अलग-अलग रेखाएँ खींच सकते हैं। ये दोनों स्पर्श रेखाएँ हमेशा समान लंबाई की होती हैं।</p>
+        </div>
+        <div class="visual"><div class="compare"><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">अंदर</div></div><div class="ccard"><div class="cbar" style="width:50%"></div><div class="clabel">पर</div></div><div class="ccard"><div class="cbar" style="width:100%"></div><div class="clabel">बाहर</div></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">16 / 25</span>
+          <h2>प्रमेय 2: बाहरी बिंदु से स्पर्श रेखाओं की लंबाई</h2>
+          <ul><li>किसी बाहरी बिंदु से वृत्त पर खींची गई स्पर्श रेखाओं की लंबाई बराबर होती है।</li><li>यह प्रमेय हमें कई ज्यामितीय समस्याओं को हल करने में मदद करता है।</li></ul>
+          <p class="notes">🎙️ यह दूसरा महत्वपूर्ण प्रमेय है। यह बताता है कि जब आप वृत्त के बाहर किसी एक बिंदु से दो स्पर्श रेखाएँ खींचते हैं, तो उन दोनों स्पर्श रेखाओं की लंबाई हमेशा एक जैसी होती है। यह एक बहुत ही उपयोगी गुण है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">⚖️</div><div class="vcap">समान लंबाई</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">17 / 25</span>
+          <h2>उदाहरण 2: प्रमेय 2 का <span class="hl">अनुप्रयोग</span></h2>
+          <ul><li>एक बाहरी बिंदु A से वृत्त पर AB और AC दो स्पर्श रेखाएँ हैं। यदि AB = 7 cm है, तो AC की लंबाई ज्ञात कीजिए।</li></ul>
+          <p class="notes">🎙️ इस उदाहरण में, हमने प्रमेय 2 का सीधा उपयोग किया। क्योंकि AB और AC एक ही बाहरी बिंदु A से खींची गई स्पर्श रेखाएँ हैं, उनकी लंबाई समान होगी। यह प्रमेय कई सवालों में सीधा लागू होता है।</p>
+        </div>
+        <div class="visual"><div class="steps"><div class="step"><span class="snum">1</span><span>दिया है: AB और AC स्पर्श रेखाएँ हैं।</span></div><div class="step"><span class="snum">2</span><span>बिंदु A बाहरी बिंदु है।</span></div><div class="step"><span class="snum">3</span><span>प्रमेय 2 के अनुसार, AB = AC।</span></div><div class="step"><span class="snum">4</span><span>चूंकि AB = 7 cm, तो AC = 7 cm।</span></div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">18 / 25</span>
+          <h2>त्वरित प्रश्न 1: वृत्त के <span class="hl">भाग</span></h2>
+          <ul><li>केंद्र से परिधि तक की दूरी क्या कहलाती है?</li><li>वृत्त पर दो बिंदुओं को जोड़ने वाला रेखाखंड क्या कहलाता है?</li><li>वृत्त के परिधि के एक टुकड़े को क्या कहते हैं?</li></ul>
+          <p class="notes">🎙️ चलिए देखते हैं कि आपने वृत्त के मूल पदों को कितना समझा है। इन आसान सवालों के जवाब सोचिए। सही उत्तर हैं: त्रिज्या, जीवा, चाप।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">19 / 25</span>
+          <h2>त्वरित प्रश्न 2: <span class="hl">रेखा</span> और वृत्त</h2>
+          <ul><li>एक रेखा जो वृत्त को ठीक एक बिंदु पर स्पर्श करती है, क्या कहलाती है?</li><li>एक रेखा जो वृत्त को दो बिंदुओं पर काटती है, क्या कहलाती है?</li><li>एक रेखा जो वृत्त को नहीं काटती, क्या कहलाती है?</li></ul>
+          <p class="notes">🎙️ अब रेखाओं और वृत्त के संबंधों के बारे में। याद है हमने तीन प्रकार की रेखाएँ पढ़ी थीं? उनके नाम बताइए। सही उत्तर हैं: स्पर्श रेखा, छेदक रेखा, प्रतिच्छेद न करने वाली रेखा।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">20 / 25</span>
+          <h2>त्वरित प्रश्न 3: <span class="hl">प्रमेय 1</span> पर आधारित</h2>
+          <ul><li>यदि एक स्पर्श रेखा वृत्त की त्रिज्या के साथ स्पर्श बिंदु पर 90° का कोण बनाती है, तो यह कौन सा प्रमेय है?</li><li>एक वृत्त की त्रिज्या 6 cm है। स्पर्श रेखा और त्रिज्या के बीच स्पर्श बिंदु पर कितना कोण होगा?</li></ul>
+          <p class="notes">🎙️ प्रमेय 1 को याद कीजिए। यह हमें स्पर्श रेखा और त्रिज्या के बीच के संबंध के बारे में बताता है। पहला उत्तर 'प्रमेय 1' है, और दूसरा उत्तर '90°' है।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">21 / 25</span>
+          <h2>त्वरित प्रश्न 4: <span class="hl">प्रमेय 2</span> पर आधारित</h2>
+          <ul><li>एक बाहरी बिंदु P से वृत्त पर खींची गई स्पर्श रेखाएँ PA और PB हैं। यदि PA = 10 cm है, तो PB की लंबाई क्या होगी?</li><li>यह किस प्रमेय पर आधारित है?</li></ul>
+          <p class="notes">🎙️ प्रमेय 2 के अनुसार, बाहरी बिंदु से खींची गई स्पर्श रेखाओं की लंबाई समान होती है। तो PB की लंबाई 10 cm होगी। यह 'प्रमेय 2' पर आधारित है।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">22 / 25</span>
+          <h2><span class="hl">संकेन्द्रीय</span> वृत्त (Concentric Circles)</h2>
+          <ul><li>वे वृत्त जिनका केंद्र एक ही होता है, लेकिन त्रिज्याएँ अलग-अलग होती हैं।</li><li>जैसे तीरंदाजी का लक्ष्य या पेड़ों के तने में वलय।</li></ul>
+          <p class="notes">🎙️ संकेन्द्रीय वृत्त ऐसे वृत्त होते हैं जिनका केंद्र एक ही होता है, लेकिन उनकी त्रिज्याएँ अलग-अलग होती हैं। जैसे तीरंदाजी के लक्ष्य में कई वृत्त एक ही केंद्र से बने होते हैं।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🎯</div><div class="vcap">एक ही केंद्र</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">23 / 25</span>
+          <h2><span class="hl">चक्रीय</span> चतुर्भुज (Cyclic Quadrilateral)</h2>
+          <ul><li>एक चतुर्भुज जिसके सभी शीर्ष एक वृत्त पर स्थित होते हैं।</li><li>चक्रीय चतुर्भुज के सम्मुख कोणों का योग 180° होता है।</li></ul>
+          <p class="notes">🎙️ चक्रीय चतुर्भुज एक विशेष प्रकार का चतुर्भुज होता है जिसके चारों कोने एक वृत्त की परिधि पर होते हैं। इसकी एक खास बात यह है कि इसके आमने-सामने के कोणों का योग हमेशा 180 डिग्री होता है।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="bigicon">🔲</div><div class="vcap">वृत्त के अंदर</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card ">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content split">
+        <div class="txt">
+          <span class="num">24 / 25</span>
+          <h2>मुख्य अवधारणाओं का <span class="hl">पुनरावलोकन</span></h2>
+          <ul><li>वृत्त की परिभाषा और उसके भाग (त्रिज्या, व्यास, जीवा, चाप, त्रिज्यखंड, वृत्तखंड)।</li><li>रेखा और वृत्त के संबंध (छेदक रेखा, स्पर्श रेखा)।</li><li>प्रमेय 1: त्रिज्या स्पर्श रेखा पर लंब होती है।</li><li>प्रमेय 2: बाहरी बिंदु से स्पर्श रेखाओं की लंबाई बराबर होती है।</li></ul>
+          <p class="notes">🎙️ आज हमने वृत्त से संबंधित कई महत्वपूर्ण अवधारणाएँ सीखीं। हमने वृत्त के विभिन्न भागों को समझा, रेखाओं के साथ उसके संबंधों को देखा और दो महत्वपूर्ण प्रमेयों का अध्ययन किया।</p>
+        </div>
+        <div class="visual"><div class="vbox dashed"><div class="scene"><span>✨</span><span>✨</span><span>✨</span><span>✨</span></div><div class="vcap">मुख्य बिंदु</div></div></div>
+      </div>
+    </div></section>
+<section class="slide"><div class="card solo">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="content ">
+        <div class="txt">
+          <span class="num">25 / 25</span>
+          <h2><span class="hl">धन्यवाद</span>!</h2>
+          <ul><li>अभ्यास करते रहें।</li><li>कोई प्रश्न है?</li><li>अगली कक्षा में मिलते हैं।</li></ul>
+          <p class="notes">🎙️ मुझे उम्मीद है कि आज की कक्षा आपको वृत्त की अवधारणाओं को समझने में सहायक रही होगी। घर पर इन अवधारणाओं का अभ्यास करें और यदि कोई संदेह हो तो अगली कक्षा में पूछें।</p>
+        </div>
+        
+      </div>
+    </div></section>
+<div class="bar"><button onclick="go(-1)">‹ Back</button>
+<span class="brand">Syllab.in · MP Class 10 · Mathematics</span>
+<button class="pdfbtn" onclick="window.print()">⬇ PDF</button>
+<button onclick="go(1)">Next ›</button></div>
+<script>let i=0;const s=[...document.querySelectorAll('.slide')];
+function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
+function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+// If a curated image fails to load, fall back to a clean emoji box (never empty).
+document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+show(0);</script></body></html>

@@ -117,7 +117,9 @@ DESIGN RULES (IMPORTANT — use ONLY these free visuals, never request photos):
 
 // A curated real image (from the vetted free libraries) with an emoji fallback.
 function renderRealImage(url: string, caption: string, fallback: string): string {
-  return `<div class="vbox imgbox"><img class="rimg" src="${esc(url)}" data-fb="${esc(fallback)}" alt="${esc(caption)}"/>${caption ? `<div class="vcap">${esc(caption)}</div>` : ''}</div>`;
+  // Inline onerror so the fallback is registered at PARSE time — a 404 that
+  // errors before the end-of-body script runs is still caught (no broken icon).
+  return `<div class="vbox imgbox"><img class="rimg" src="${esc(url)}" data-fb="${esc(fallback)}" alt="${esc(caption)}" loading="lazy" onerror="syllabImgFail(this)"/>${caption ? `<div class="vcap">${esc(caption)}</div>` : ''}</div>`;
 }
 
 function renderVisual(v: any): string {
@@ -240,7 +242,13 @@ button{font-family:'Fredoka';background:#fff;color:#0f172a;border:0;border-radiu
   /* diagonal repeating watermark on every printed page */
   .slide::before{content:"syllab.in";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-32deg);font-family:'Fredoka',sans-serif;font-weight:700;font-size:7vw;color:rgba(15,118,110,.10);letter-spacing:6px;z-index:5;pointer-events:none;white-space:nowrap}
 }
-</style></head><body>
+</style>
+<script>
+// Defined in <head> so it exists before any <img> parses — a curated image that
+// 404s falls back to a clean emoji box instead of a broken-image icon.
+function syllabImgFail(im){var b=im.closest('.vbox');if(b&&!b.classList.contains('dashed')){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.getAttribute('data-fb')||'📘')+'</div>';}}
+</script>
+</head><body>
 ${slides}
 <div class="bar"><button onclick="go(-1)">‹ Back</button>
 <span class="brand">Syllab.in · ${esc(ch.board || 'CBSE')} Class ${ch.classLevel} · ${esc(ch.subject)}</span>
@@ -250,8 +258,9 @@ ${slides}
 function show(n){s.forEach((x,k)=>x.classList.toggle('active',k===n))}
 function go(d){i=Math.max(0,Math.min(s.length-1,i+d));show(i)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
-// If a curated image fails to load, fall back to a clean emoji box (never empty).
-document.querySelectorAll('img.rimg').forEach(im=>{im.onerror=()=>{const b=im.closest('.vbox');if(b){b.classList.remove('imgbox');b.classList.add('dashed');b.innerHTML='<div class="bigicon">'+(im.dataset.fb||'📘')+'</div>';}};});
+// Sweep: any image that ALREADY failed before this script ran (complete but no
+// pixels) gets the emoji fallback too. Inline onerror handles the rest.
+document.querySelectorAll('img.rimg').forEach(im=>{if(im.complete&&im.naturalWidth===0)syllabImgFail(im);});
 show(0);</script></body></html>`;
 }
 
