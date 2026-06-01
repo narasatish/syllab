@@ -114,16 +114,14 @@ function buildUrls({ languages, topicsByLang }) {
     urls.push({ loc: `/colleges/${c.stateSlug}/${c.slug}`, priority: 0.6, changefreq: 'monthly' });
   }
 
-  // NOTE (SEO): We intentionally DO NOT list the ~700 deep `/coding/<lang>/<topicId>`
-  // topic pages in the sitemap. They are client-side routes only — NOT prerendered —
-  // so to a crawler they return the same SPA shell as every other unknown route.
-  // Submitting them caused Google Search Console to flag hundreds of pages as
-  // "Duplicate without user-selected canonical" / "Alternate page with proper
-  // canonical" and waste crawl budget ("Discovered – currently not indexed").
-  // Google only wants canonical, indexable, unique-content URLs in a sitemap.
-  // These pages remain reachable via in-app navigation; when we prerender them with
-  // unique per-topic meta we can re-add them here. (topicsByLang kept for that step.)
-  void topicsByLang;
+  // Deep coding topic pages are now PRERENDERED with unique titles + a
+  // self-referencing canonical (see generate-prerender.mjs), so they're valid
+  // indexable URLs — list them so Google can discover the long-tail.
+  for (const lang of languages) {
+    for (const topicId of (topicsByLang[lang] || [])) {
+      urls.push({ loc: `/coding/${lang}/${topicId}`, priority: 0.5, changefreq: 'monthly' });
+    }
+  }
 
   return urls;
 }

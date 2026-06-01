@@ -13,7 +13,7 @@
  * Run: node scripts/generate-prerender.mjs  (called by npm run build automatically)
  */
 
-import { promises as fs } from 'node:fs';
+import { promises as fs, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getCollegesManifest } from './collegesData.mjs';
@@ -431,6 +431,51 @@ for (const c of COLLEGES_M) {
       address: { '@type': 'PostalAddress', addressLocality: c.city, addressRegion: c.stateName, addressCountry: 'IN' },
     },
   });
+}
+
+// ─── Coding tutorial pages (/coding/:lang and /coding/:lang/:topic) ──────────
+// These were flagged "Duplicate without user-selected canonical" because the SPA
+// shell served the home canonical. Prerendering each gives a SELF-referencing
+// canonical (buildHeadBlock uses SITE+route.path) + unique title → fixes the
+// duplicate error and makes them indexable long-tail pages.
+function readCodingTopics() {
+  try {
+    const idx = readFileSync(path.join(ROOT, 'src', 'data', 'tutorials', 'index.ts'), 'utf8');
+    const languages = [...new Set([...idx.matchAll(/id:\s*['"]([a-z0-9-]+)['"]/gi)].map(m => m[1]))];
+    const fileMap = { 'ai-learning': 'aiLearning.ts', 'data-analytics': 'dataAnalytics.ts', 'app-dev': 'app-dev.ts', 'game-dev': 'game-dev.ts' };
+    const topicsByLang = {};
+    for (const lang of languages) {
+      try {
+        const content = readFileSync(path.join(ROOT, 'src', 'data', 'tutorials', fileMap[lang] || `${lang}.ts`), 'utf8');
+        topicsByLang[lang] = [...content.matchAll(/^\s*id:\s*['"]([a-z0-9-]+)['"]/gm)].map(m => m[1]);
+      } catch { topicsByLang[lang] = []; }
+    }
+    return { languages, topicsByLang };
+  } catch { return { languages: [], topicsByLang: {} }; }
+}
+const titleCase = (slug) => slug.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+const langLabel = (l) => ({ 'ai-learning': 'AI & ML', 'data-analytics': 'Data Analytics', 'data-mining': 'Data Mining', 'app-dev': 'App Development', 'game-dev': 'Game Development', 'git-github': 'Git & GitHub', 'prompt-engineering': 'Prompt Engineering', 'cloud-computing': 'Cloud Computing', 'cybersecurity': 'Cyber Security', 'ai-agents': 'AI Agents' }[l] || titleCase(l));
+const existingCoding = new Set(ROUTES.map(r => r.path));
+const { languages: CODE_LANGS, topicsByLang: CODE_TOPICS } = readCodingTopics();
+for (const lang of CODE_LANGS) {
+  const L = langLabel(lang);
+  const langPath = `/coding/${lang}`;
+  if (!existingCoding.has(langPath)) {
+    ROUTES.push({
+      path: langPath,
+      title: `Learn ${L} Free — Tutorials & Practice for Students | Syllab.in`,
+      description: `Free ${L} tutorials, examples and coding practice for Indian students. Beginner to advanced, with an in-browser editor and AI feedback — no cost.`,
+      keywords: `learn ${L} free, ${L} tutorial India, ${L} for students, ${L} coding practice free`,
+    });
+  }
+  for (const topic of (CODE_TOPICS[lang] || [])) {
+    ROUTES.push({
+      path: `/coding/${lang}/${topic}`,
+      title: `${titleCase(topic)} — Free ${L} Tutorial | Syllab.in`,
+      description: `Learn ${titleCase(topic)} in ${L} with a free, beginner-friendly tutorial, examples and practice for Indian students on Syllab.in.`,
+      keywords: `${titleCase(topic)}, ${L} ${titleCase(topic)}, learn ${L} free, ${L} tutorial`,
+    });
+  }
 }
 
 // ─── HTML injection helpers ──────────────────────────────────────────────────
