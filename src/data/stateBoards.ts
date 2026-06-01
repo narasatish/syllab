@@ -105,39 +105,10 @@ const SEEDS: BoardSeed[] = [
   ] },
 ];
 
-/* ── NCERT-aligned states (UP/UPMSP, Bihar/BSEB, Rajasthan/RBSE, MP/MPBSE) ──
-   These boards follow the NCERT textbooks for Class 9-10 Maths & Science, so we
-   use the standard NCERT chapter lists (high confidence). */
-const NCERT_10_MATH = [
-  'Real Numbers', 'Polynomials', 'Pair of Linear Equations in Two Variables', 'Quadratic Equations',
-  'Arithmetic Progressions', 'Triangles', 'Coordinate Geometry', 'Introduction to Trigonometry',
-  'Some Applications of Trigonometry', 'Circles', 'Areas Related to Circles', 'Surface Areas and Volumes',
-  'Statistics', 'Probability',
-];
-const NCERT_9_MATH = [
-  'Number Systems', 'Polynomials', 'Coordinate Geometry', 'Linear Equations in Two Variables',
-  "Introduction to Euclid's Geometry", 'Lines and Angles', 'Triangles', 'Quadrilaterals',
-  "Heron's Formula", 'Surface Areas and Volumes', 'Statistics', 'Circles',
-];
-const NCERT_10_SCI = [
-  'Chemical Reactions and Equations', 'Acids, Bases and Salts', 'Metals and Non-metals',
-  'Carbon and its Compounds', 'Life Processes', 'Control and Coordination', 'How do Organisms Reproduce',
-  'Heredity', 'Light — Reflection and Refraction', 'The Human Eye and the Colourful World', 'Electricity',
-  'Magnetic Effects of Electric Current', 'Our Environment',
-];
-const NCERT_9_SCI = [
-  'Matter in Our Surroundings', 'Is Matter Around Us Pure', 'Atoms and Molecules', 'Structure of the Atom',
-  'The Fundamental Unit of Life', 'Tissues', 'Motion', 'Force and Laws of Motion', 'Gravitation',
-  'Work and Energy', 'Sound', 'Improvement in Food Resources',
-];
-for (const board of ['UP', 'Bihar', 'Rajasthan', 'MP'] as Board[]) {
-  SEEDS.push(
-    { board, cls: '10', subject: 'Mathematics', chapters: NCERT_10_MATH },
-    { board, cls: '9', subject: 'Mathematics', chapters: NCERT_9_MATH },
-    { board, cls: '10', subject: 'Science', chapters: NCERT_10_SCI },
-    { board, cls: '9', subject: 'Science', chapters: NCERT_9_SCI },
-  );
-}
+/* NOTE: UP / Bihar / Rajasthan / MP follow the NCERT textbooks, so they REUSE the
+   CBSE syllabus, PPTs and practice MCQs (see BOARD_OPTIONS.ncertAligned below) —
+   we deliberately do NOT create duplicate chapter entries for them. Only boards
+   with genuinely different syllabi (AP/TS/Karnataka/Maharashtra) get their own. */
 
 const BOARD_FULL: Record<Board, string> = {
   AP: 'Andhra Pradesh (SSC)',
@@ -166,6 +137,42 @@ export const STATE_BOARD_SYLLABUS: Chapter[] = SEEDS.flatMap(seed =>
     concepts: [],
   })),
 );
+
+/* ─── App-wide board selection (Profile + Syllabus + Practice + PPTs) ────────
+   ncertAligned boards reuse CBSE content (same chapters → same PPTs & MCQs). */
+export type AppBoard = 'CBSE' | 'UP' | 'Bihar' | 'Rajasthan' | 'MP' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra';
+export const BOARD_OPTIONS: { id: AppBoard; label: string; ncertAligned: boolean }[] = [
+  { id: 'CBSE', label: 'CBSE / NCERT', ncertAligned: true },
+  { id: 'UP', label: 'UP Board (UPMSP)', ncertAligned: true },
+  { id: 'Bihar', label: 'Bihar (BSEB)', ncertAligned: true },
+  { id: 'Rajasthan', label: 'Rajasthan (RBSE)', ncertAligned: true },
+  { id: 'MP', label: 'Madhya Pradesh (MPBSE)', ncertAligned: true },
+  { id: 'AP', label: 'Andhra Pradesh (SSC)', ncertAligned: false },
+  { id: 'TS', label: 'Telangana (SSC)', ncertAligned: false },
+  { id: 'Karnataka', label: 'Karnataka (SSLC)', ncertAligned: false },
+  { id: 'Maharashtra', label: 'Maharashtra (SSC)', ncertAligned: false },
+];
+const NCERT_ALIGNED = new Set<AppBoard>(BOARD_OPTIONS.filter(b => b.ncertAligned).map(b => b.id));
+
+/** The board whose chapters/PPTs/MCQs to actually show — NCERT-aligned boards map to CBSE. */
+export function effectiveContentBoard(board: AppBoard): 'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra' {
+  return NCERT_ALIGNED.has(board) ? 'CBSE' : (board as 'AP' | 'TS' | 'Karnataka' | 'Maharashtra');
+}
+export function boardLabel(board: AppBoard): string {
+  return BOARD_OPTIONS.find(b => b.id === board)?.label ?? board;
+}
+
+const BOARD_PREF_KEY = 'syllab:board';
+export function getPreferredBoard(): AppBoard {
+  try {
+    const v = localStorage.getItem(BOARD_PREF_KEY) as AppBoard | null;
+    if (v && BOARD_OPTIONS.some(b => b.id === v)) return v;
+  } catch { /* SSR / no storage */ }
+  return 'CBSE';
+}
+export function setPreferredBoard(board: AppBoard): void {
+  try { localStorage.setItem(BOARD_PREF_KEY, board); } catch { /* ignore */ }
+}
 
 /** Official sources to re-verify against each year. */
 export const RESEARCH_SOURCES = {

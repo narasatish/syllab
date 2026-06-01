@@ -13,6 +13,7 @@ import RewardsPanel from '../components/RewardsPanel';
 import { UserStats } from '../types';
 import { cn } from '../lib/utils';
 import { logout } from '../lib/firebase';
+import { BOARD_OPTIONS, setPreferredBoard, type AppBoard } from '../data/stateBoards';
 import { FIRESTORE_FEATURES_ENABLED } from '../lib/cloudFeatures';
 import {
   getExtendedProfile, saveExtendedProfile, sendParentRequest,
@@ -323,14 +324,19 @@ export default function StudentProfilePage({ currentUser, stats, setTab, userCla
             </div>
             <p className="mt-1.5 text-xs font-medium text-slate-500">Tick extra ranges to browse Syllabus / Practice content from those classes too.</p>
           </Field>
-          <Field label="Board">
-            <div className="flex flex-wrap gap-2">
-              {['CBSE','ICSE','State Board','Other'].map(b => (
-                <button key={b} type="button" onClick={() => setProfile(p => ({ ...p, learning: { ...p.learning, board: b } }))} className={cn('rounded-xl px-4 py-2 text-xs font-black transition-all', profile.learning.board === b ? 'bg-primary text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200')}>
-                  {b}
-                </button>
+          <Field label="Board / State">
+            <select className={cn(selectCls, 'max-w-xs')}
+              value={BOARD_OPTIONS.some(o => o.id === profile.learning.board) ? profile.learning.board : 'CBSE'}
+              onChange={e => {
+                const b = e.target.value as AppBoard;
+                setProfile(p => ({ ...p, learning: { ...p.learning, board: b } }));
+                setPreferredBoard(b); // drives Syllabus / Practice / PPTs across the app
+              }}>
+              {BOARD_OPTIONS.map(o => (
+                <option key={o.id} value={o.id}>{o.label}{o.ncertAligned && o.id !== 'CBSE' ? ' — NCERT syllabus' : ''}</option>
               ))}
-            </div>
+            </select>
+            <p className="mt-1.5 text-xs font-medium text-emerald-600">✓ Syllabus, lessons &amp; practice across the app follow your board.</p>
           </Field>
           <Field label="Target Exams">
             <div className="flex flex-wrap gap-2">

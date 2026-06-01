@@ -16,6 +16,7 @@ import DeckViewer from '../components/DeckViewer';
 import HtmlDeckViewer from '../components/HtmlDeckViewer';
 import { getDeckUrl } from '../data/chapterDecks';
 import { getGeneratedDeckUrl } from '../data/generatedDecks';
+import { BOARD_OPTIONS, type AppBoard, effectiveContentBoard, getPreferredBoard, setPreferredBoard, boardLabel } from '../data/stateBoards';
 import ClassFilterBanner from '../components/filters/ClassFilterBanner';
 import {
   ClassFilterMode, getSelectedClasses, filterClassContent,
@@ -485,7 +486,12 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   };
 
   const [search, setSearch] = useState(restoredView?.search || '');
-  const [selectedBoard, setSelectedBoard] = useState<'CBSE' | 'AP' | 'TS' | 'Karnataka' | 'Maharashtra' | 'UP' | 'Bihar' | 'Rajasthan' | 'MP'>('CBSE');
+  const [selectedBoard, setSelectedBoardState] = useState<AppBoard>(() => getPreferredBoard());
+  // Persist board choice so it carries across pages (and matches the profile).
+  const setSelectedBoard = React.useCallback((b: AppBoard) => {
+    setSelectedBoardState(b);
+    setPreferredBoard(b);
+  }, []);
   const [selectedSubject, setSelectedSubject] = useState<Subject | 'All'>(restoredView?.selectedSubject || 'All');
   const [selectedClass, setSelectedClass] = useState<ClassLevel | 'All'>(getInitialClass);
   // Track if user has manually tapped a class tab in this session — if so, don't override with Firestore sync
@@ -607,10 +613,12 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
     }
   }, [searchParams, userClass]);
 
-  // A chapter belongs to the selected board (chapters with no board = CBSE).
+  // NCERT-aligned boards (UP/Bihar/Rajasthan/MP) reuse CBSE content; AP/TS/etc.
+  // use their own. effectiveContentBoard() maps the selection to the content set.
+  const effBoard = effectiveContentBoard(selectedBoard);
   const inBoard = React.useCallback(
-    (c: Chapter) => (c.board || 'CBSE') === selectedBoard,
-    [selectedBoard],
+    (c: Chapter) => (c.board || 'CBSE') === effBoard,
+    [effBoard],
   );
 
   const subjects: (Subject | 'All')[] = React.useMemo(() => {
@@ -668,7 +676,7 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
   const filteredChapters = React.useMemo(() => {
     // First: search + subject + manual class-tab filter
     const baseFiltered = syllabus.filter(chapter => {
-      const matchesBoard = (chapter.board || 'CBSE') === selectedBoard;
+      const matchesBoard = (chapter.board || 'CBSE') === effBoard;
       const matchesSearch = chapter.title.toLowerCase().includes(search.toLowerCase()) ||
                            (chapter.topics || []).some(t => t.toLowerCase().includes(search.toLowerCase()));
       const matchesSubject = selectedSubject === 'All' || chapter.subject === selectedSubject;
@@ -990,33 +998,25 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         </div>
       </div>
 
-      {/* ── Board selector ─────────────────────────────────────────────────── */}
+      {/* ── Board selector (clean dropdown) ────────────────────────────────── */}
       <div className="mt-4 flex items-center gap-3">
         <span className="hidden sm:flex items-center shrink-0 w-20 text-[10px] font-black uppercase tracking-widest text-slate-400">Board</span>
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar flex-nowrap">
-          {([
-            { id: 'CBSE', label: 'CBSE / NCERT' },
-            { id: 'UP', label: 'UP Board' },
-            { id: 'Bihar', label: 'Bihar' },
-            { id: 'Rajasthan', label: 'Rajasthan' },
-            { id: 'MP', label: 'MP' },
-            { id: 'AP', label: 'AP' },
-            { id: 'TS', label: 'Telangana' },
-            { id: 'Karnataka', label: 'Karnataka' },
-            { id: 'Maharashtra', label: 'Maharashtra' },
-          ] as const).map(b => (
-            <button
-              key={b.id}
-              onClick={() => { setSelectedBoard(b.id); setSelectedSubject('All'); }}
-              className={cn(
-                'shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-bold transition-all',
-                selectedBoard === b.id ? 'bg-primary text-white shadow-sm' : 'text-slate-500 hover:text-primary'
-              )}
-            >
-              {b.label}
-            </button>
-          ))}
+        <div className="relative">
+          <select
+            value={selectedBoard}
+            onChange={(e) => { setSelectedBoard(e.target.value as AppBoard); setSelectedSubject('All'); }}
+            className="appearance-none cursor-pointer rounded-xl border border-slate-200 bg-white pl-4 pr-10 py-2.5 text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/20 hover:border-primary/30 transition-all min-w-[15rem]"
+            aria-label="Select board"
+          >
+            {BOARD_OPTIONS.map(b => (
+              <option key={b.id} value={b.id}>{b.label}{b.ncertAligned && b.id !== 'CBSE' ? ' — NCERT syllabus' : ''}</option>
+            ))}
+          </select>
+          <ArrowRight size={15} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rotate-90 text-slate-400" />
         </div>
+        {effectiveContentBoard(selectedBoard) === 'CBSE' && selectedBoard !== 'CBSE' && (
+          <span className="hidden sm:inline text-[11px] font-bold text-emerald-600">Same as NCERT — full notes, PPTs &amp; practice ✓</span>
+        )}
       </div>
 
       {/* ── Filters: two clean rows (Class / Subject). Each is a single-line
@@ -1075,10 +1075,15 @@ export default function SyllabusPage({ setTab, openTutor, syllabus, setPracticeC
         </div>
       </div>
 
-      {/* State board info note — verified subjects only (we never guess chapters) */}
+      {/* Board info note — NCERT-aligned boards reuse full CBSE content;
+          distinct-syllabus boards (AP/TS/etc.) show their own verified chapters. */}
       {selectedBoard !== 'CBSE' && (
         <div className="mb-6 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-800">
-          📋 Showing <strong>{selectedBoard === 'AP' ? 'Andhra Pradesh' : selectedBoard === 'TS' ? 'Telangana' : selectedBoard}</strong> board chapters (Maths &amp; Science, verified from official syllabus). More subjects are added as we verify them. Lessons, voice &amp; practice work the same as CBSE.
+          {effectiveContentBoard(selectedBoard) === 'CBSE' ? (
+            <>📋 <strong>{boardLabel(selectedBoard)}</strong> follows the NCERT syllabus — so you get the <strong>full Class 1–12 notes, PPTs, voice lessons &amp; practice</strong>, identical to CBSE.</>
+          ) : (
+            <>📋 Showing <strong>{boardLabel(selectedBoard)}</strong> board chapters (Maths &amp; Science, verified from the official syllabus). More subjects are added as we verify them. Lessons, voice &amp; practice work the same as CBSE.</>
+          )}
         </div>
       )}
 
