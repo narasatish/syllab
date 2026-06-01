@@ -16,7 +16,8 @@ import {
 import SEO from '../components/SEO';
 import {
   COLLEGE_STATE_INFO, COLLEGES, getStateInfo, getCollegesByState,
-  getCollegeBySlug, stateSlugForCollege, getRankings, type CollegeFull,
+  getCollegeBySlug, stateSlugForCollege, getRankings, getStateRank, getNationalRank,
+  TOTAL_COLLEGES, type CollegeFull,
 } from '../data/colleges';
 
 const SITE = 'https://syllab.in';
@@ -172,7 +173,10 @@ function CollegeCard({ college: c, go }: { college: CollegeFull; go: (to: string
       className="text-left rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
-          <h3 className="text-sm font-black text-slate-900 leading-tight">{c.shortName || c.name}</h3>
+          <div className="flex items-center gap-1.5">
+            <span className="rounded-md bg-primary/10 px-1.5 py-0.5 text-[10px] font-black text-primary">#{getStateRank(c.slug)} in state</span>
+            <h3 className="text-sm font-black text-slate-900 leading-tight truncate">{c.shortName || c.name}</h3>
+          </div>
           <p className="mt-0.5 flex items-center gap-1 text-[11px] font-bold text-slate-400"><MapPin size={11} />{c.city}</p>
         </div>
         <div className="flex flex-col items-end gap-1 shrink-0">
@@ -235,6 +239,10 @@ function CollegeDetail({ college: c, go }: { college: CollegeFull; go: (to: stri
           <div>
             <h1 className="text-xl sm:text-2xl font-black">{c.name}</h1>
             <p className="mt-1 flex items-center gap-1 text-xs text-white/70"><MapPin size={12} />{c.city}, {c.state} · Est. {c.established}</p>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-black text-white">🏆 #{getStateRank(c.slug)} in {c.state}</span>
+              <span className="rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-black text-white">🇮🇳 #{getNationalRank(c.slug)} of {TOTAL_COLLEGES} (Syllab rank)</span>
+            </div>
           </div>
           <span className={`rounded-full px-2.5 py-1 text-[10px] font-black ${typeColor[c.type]}`}>{c.type}</span>
         </div>

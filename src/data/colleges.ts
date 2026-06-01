@@ -282,3 +282,19 @@ export function stateSlugForCollege(c: CollegeFull): string {
 export function allCollegePaths(): { state: string; college: string }[] {
   return COLLEGES.map(c => ({ state: stateSlugForCollege(c), college: c.slug }));
 }
+
+/* ─── Rankings (state-wise & nation-wide) ───────────────────────────────────
+   Our indicative ordering: by NIRF where available, then the rest. */
+const NATIONAL_ORDER = [...COLLEGES].sort((a, b) => (a.nirf ?? 9999) - (b.nirf ?? 9999));
+export function getNationalRank(slug: string): number {
+  const i = NATIONAL_ORDER.findIndex(c => c.slug === slug);
+  return i < 0 ? 0 : i + 1;
+}
+export function getStateRank(slug: string): number {
+  const c = getCollegeBySlug(slug);
+  if (!c) return 0;
+  const list = getCollegesByState(stateSlugForCollege(c)); // already sorted by NIRF
+  const i = list.findIndex(x => x.slug === slug);
+  return i < 0 ? 0 : i + 1;
+}
+export const TOTAL_COLLEGES = COLLEGES.length;
