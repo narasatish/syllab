@@ -395,6 +395,79 @@ Chapter-wise MCQ practice, full NEET mocks, a **marks → rank predictor** and a
 
 EAMCET mock tests, a **rank predictor** (marks → rank) and a **college predictor** for AP/TS engineering colleges with cutoffs and fees. All free.`,
   },
+
+  /* ── College guide posts (drive the /colleges pages) ─────────────────────── */
+  {
+    id: 'top-engineering-colleges-tamil-nadu-2026',
+    title: 'Top Engineering Colleges in Tamil Nadu 2026: Fees, Cutoffs & Placements',
+    category: 'Colleges',
+    description: 'The best engineering colleges in Tamil Nadu 2026 — Anna University CEG, PSG Tech, VIT, SSN, Thiagarajar and more. Compare TNEA/JEE cutoffs, fees, NIRF rank and placements free on Syllab.in.',
+    readTime: '6 min read',
+    content: `Tamil Nadu has India's largest engineering ecosystem. Here are the top picks for 2026 with how to get in.
+
+## Government & aided (best value)
+
+- **CEG, Anna University (Chennai)** — the state's #1; CSE cutoff ~199.5/200 via TNEA. Fees ~₹0.5L/yr.
+- **PSG College of Technology (Coimbatore)** — top aided college, strong industry links.
+- **Thiagarajar College of Engineering (Madurai)** and **MIT Chennai** — excellent value.
+
+## Top private
+
+- **VIT Vellore** — via VITEEE; huge recruiter base.
+- **SSN (Chennai)**, **SASTRA (Thanjavur)**, **Amrita (Coimbatore)** — strong CSE placements.
+
+## How admission works
+
+Most government/aided seats are filled by **TNEA** using your Class 12 (PCM) cutoff marks — no separate entrance for many. Private/deemed use VITEEE/AEEE or JEE.
+
+See full fees, cutoffs, NIRF + multi-source rankings and the step-by-step admission process for each on Syllab.in's free college directory.`,
+  },
+  {
+    id: 'top-engineering-colleges-karnataka-2026',
+    title: 'Top Engineering Colleges in Karnataka 2026: KCET & COMEDK Cutoffs',
+    category: 'Colleges',
+    description: 'Best engineering colleges in Karnataka 2026 — RVCE, BMSCE, MSRIT, PES, NITK, Manipal and more. KCET/COMEDK cutoffs, fees, NIRF rank and placements, free on Syllab.in.',
+    readTime: '6 min read',
+    content: `Bengaluru is India's tech capital, and Karnataka's colleges feed it. Top picks for 2026:
+
+## Bengaluru's best
+
+- **RVCE** — the top private college; CSE KCET rank ≤ 500.
+- **BMSCE**, **MSRIT**, **PES University**, **BIT** — all excellent for CSE/ISE.
+- **IIIT-Bangalore** — outstanding placements (₹25 LPA average).
+
+## Beyond Bengaluru
+
+- **NITK Surathkal** — premier NIT (via JEE Main).
+- **Manipal Institute of Technology**, **JSSSTU Mysuru**, **KLE Tech Hubli**.
+
+## Admission
+
+State seats via **KCET**; private seats via **COMEDK** or institute tests (PESSAT, MET). Compare every college's fees, cutoff, NIRF/IIRF rank and placements on Syllab.in's free directory.`,
+  },
+  {
+    id: 'cbse-vs-state-board-which-to-choose',
+    title: 'CBSE vs State Board (UP, Telangana, AP…): Which Should You Choose?',
+    category: 'Guidance',
+    description: 'CBSE vs state boards (UP, Bihar, Rajasthan, MP, Telangana, AP, Karnataka, Maharashtra) — syllabus differences, pros and cons, and how to get free notes, PPTs and practice for any board on Syllab.in.',
+    readTime: '5 min read',
+    content: `Choosing a board confuses many families. Here's a clear, honest comparison.
+
+## The key fact
+
+**UP, Bihar, Rajasthan and MP boards follow the NCERT textbooks** — the same as CBSE. So the academic content is nearly identical; the difference is mostly the exam pattern and medium.
+
+**AP, Telangana, Karnataka and Maharashtra** have their own (different) syllabi for some subjects.
+
+## Quick guide
+
+- **Want national mobility (JEE/NEET alignment)?** CBSE or any NCERT-following board.
+- **Local/state college focus + regional language?** Your state board is perfectly fine.
+
+## Free for every board on Syllab.in
+
+Set your board in your profile and you instantly get notes, slide (PPT) lessons, voice narration and chapter-wise practice — NCERT-aligned boards share the full CBSE content, and AP/TS/Karnataka/Maharashtra get their own. All free.`,
+  },
 ];
 
 /**

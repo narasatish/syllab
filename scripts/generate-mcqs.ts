@@ -77,16 +77,25 @@ async function main() {
   let bank: Record<string, any[]> = {};
   try { bank = JSON.parse(await fs.readFile(OUT, 'utf8')); } catch { /* fresh */ }
 
-  const todo = unique.filter(ch => !bank[`${ch.classLevel}::${ch.subject}::${slug(ch.title)}`]).slice(0, limit);
-  console.log(`MCQ generator: ${todo.length} chapters to do (${Object.keys(bank).length} already done), ${PER} MCQs each.`);
+  // Accumulate toward TARGET MCQs per chapter across repeated runs. Each run adds
+  // up to BATCH_PER_RUN new MCQs to any chapter still below TARGET, then re-run to
+  // keep building (quota-limited, so 300/chapter is reached over many runs).
+  const TARGET = parseInt((args.target as string) || String(PER), 10);
+  const BATCH_PER_RUN = PER;
+  const keyOf = (ch: typeof SYLLABUS[number]) => `${ch.classLevel}::${ch.subject}::${slug(ch.title)}`;
+
+  const todo = unique.filter(ch => (bank[keyOf(ch)]?.length || 0) < TARGET).slice(0, limit);
+  console.log(`MCQ generator: target ${TARGET}/chapter. ${todo.length} chapters below target, adding up to ${BATCH_PER_RUN} each this run.`);
   let ok = 0, fail = 0;
 
   for (const ch of todo) {
-    const key = `${ch.classLevel}::${ch.subject}::${slug(ch.title)}`;
+    const key = keyOf(ch);
+    const existing = bank[key] || [];
     const raw = await gen(ch);
     if (!raw || !raw.length) { console.log(`• C${ch.classLevel} ${ch.subject} — ${ch.title} FAILED`); fail++; continue; }
-    bank[key] = raw.map((q: any, i: number) => ({
-      id: `gen-${key}-${i + 1}`,
+    const seenQ = new Set(existing.map((q: any) => (q.question || '').toLowerCase().trim()));
+    const fresh = raw.map((q: any, i: number) => ({
+      id: `gen-${key}-${existing.length + i + 1}`,
       category: dailyCategory(String(ch.classLevel)),
       subject: ch.subject,
       classLevel: String(ch.classLevel),
@@ -96,10 +105,11 @@ async function main() {
       explanation: String(q.explanation || '').trim(),
       difficulty: ['easy', 'medium', 'hard'].includes(q.difficulty) ? q.difficulty : 'medium',
       chapter: ch.title,
-    })).filter((q: any) => q.question && q.options.length === 4);
+    })).filter((q: any) => q.question && q.options.length === 4 && !seenQ.has(q.question.toLowerCase()));
+    bank[key] = [...existing, ...fresh].slice(0, TARGET);
     ok++;
     if (ok % 10 === 0) await fs.writeFile(OUT, JSON.stringify(bank, null, 0), 'utf8'); // checkpoint
-    console.log(`• C${ch.classLevel} ${ch.subject} — ${ch.title} ✓ (${bank[key].length})`);
+    console.log(`• C${ch.classLevel} ${ch.subject} — ${ch.title} ✓ (${bank[key].length}/${TARGET})`);
   }
 
   await fs.writeFile(OUT, JSON.stringify(bank, null, 0), 'utf8');
