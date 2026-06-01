@@ -85,14 +85,17 @@ async function main() {
   const keyOf = (ch: typeof SYLLABUS[number]) => `${ch.classLevel}::${ch.subject}::${slug(ch.title)}`;
 
   const todo = unique.filter(ch => (bank[keyOf(ch)]?.length || 0) < TARGET).slice(0, limit);
-  console.log(`MCQ generator: target ${TARGET}/chapter. ${todo.length} chapters below target, adding up to ${BATCH_PER_RUN} each this run.`);
-  let ok = 0, fail = 0;
+  // --concurrency N: run N chapters in parallel (use once billing/paid tier is on;
+  // keep at 1 on the free tier to avoid rate-limit errors).
+  const CONC = Math.max(1, parseInt((args.concurrency as string) || '1', 10));
+  console.log(`MCQ generator: target ${TARGET}/chapter. ${todo.length} chapters below target, +${BATCH_PER_RUN} each, concurrency ${CONC}.`);
+  let ok = 0, fail = 0, done = 0;
 
-  for (const ch of todo) {
+  async function processChapter(ch: typeof SYLLABUS[number]) {
     const key = keyOf(ch);
     const existing = bank[key] || [];
     const raw = await gen(ch);
-    if (!raw || !raw.length) { console.log(`• C${ch.classLevel} ${ch.subject} — ${ch.title} FAILED`); fail++; continue; }
+    if (!raw || !raw.length) { console.log(`• C${ch.classLevel} ${ch.subject} — ${ch.title} FAILED`); fail++; return; }
     const seenQ = new Set(existing.map((q: any) => (q.question || '').toLowerCase().trim()));
     const fresh = raw.map((q: any, i: number) => ({
       id: `gen-${key}-${existing.length + i + 1}`,
@@ -108,8 +111,14 @@ async function main() {
     })).filter((q: any) => q.question && q.options.length === 4 && !seenQ.has(q.question.toLowerCase()));
     bank[key] = [...existing, ...fresh].slice(0, TARGET);
     ok++;
-    if (ok % 10 === 0) await fs.writeFile(OUT, JSON.stringify(bank, null, 0), 'utf8'); // checkpoint
     console.log(`• C${ch.classLevel} ${ch.subject} — ${ch.title} ✓ (${bank[key].length}/${TARGET})`);
+  }
+
+  // Simple concurrency pool: run CONC chapters at a time, checkpoint every 10.
+  for (let i = 0; i < todo.length; i += CONC) {
+    await Promise.all(todo.slice(i, i + CONC).map(processChapter));
+    done += Math.min(CONC, todo.length - i);
+    if (done % 10 < CONC) await fs.writeFile(OUT, JSON.stringify(bank, null, 0), 'utf8'); // checkpoint
   }
 
   await fs.writeFile(OUT, JSON.stringify(bank, null, 0), 'utf8');
