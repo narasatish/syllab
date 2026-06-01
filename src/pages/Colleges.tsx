@@ -112,6 +112,10 @@ function CollegesIndex({ go }: { go: (to: string) => void }) {
         })}
       </div>
 
+      <a href="/career-predictor" className="mt-6 flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-4 text-white shadow-md hover:scale-[1.01] transition">
+        <span className="text-sm font-black">🎯 Not sure which college you'll get? Try the free JEE/NEET rank & college predictor →</span>
+      </a>
+
       <h2 className="mt-8 text-sm font-black uppercase tracking-widest text-slate-400 mb-3">Featured top colleges</h2>
       <div className="grid gap-3 sm:grid-cols-2">
         {featured.map(c => <CollegeCard key={c.slug} college={c} go={go} />)}

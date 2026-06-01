@@ -1561,6 +1561,9 @@ export default function App() {
               <li><button onClick={() => navigate('skills_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Coding</button></li>
               <li><button onClick={() => navigate('english_lab')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">English</button></li>
               <li><button onClick={() => navigate('general_knowledge')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">GK Quiz</button></li>
+              {/* Real <a href> so search engines pass link equity to these SEO pages */}
+              <li><a href="/career-predictor" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Career & College Predictor</a></li>
+              <li><a href="/colleges" className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Top Engineering Colleges</a></li>
               <li><button onClick={() => navigate('parent')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Parent Hub</button></li>
               <li><button onClick={() => navigate('sitemap')} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Platform Sitemap</button></li>
             </ul>
@@ -1571,6 +1574,16 @@ export default function App() {
             <ul className="space-y-4">
               {[1,2,3,4,5,6,7,8,9,10,11,12].map((c) => (
                 <li key={c}><button onClick={() => navigate(`class_${c}`)} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">Class {c}</button></li>
+              ))}
+            </ul>
+            <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-5 mt-10">Colleges by State</h4>
+            <ul className="space-y-4">
+              {[
+                ['national', 'IITs & NITs'], ['tamil-nadu', 'Tamil Nadu'], ['karnataka', 'Karnataka'],
+                ['maharashtra', 'Maharashtra'], ['telangana', 'Telangana'], ['andhra-pradesh', 'Andhra Pradesh'],
+                ['delhi-ncr', 'Delhi-NCR'], ['west-bengal', 'West Bengal'],
+              ].map(([slug, label]) => (
+                <li key={slug}><a href={`/colleges/${slug}`} className="text-sm font-bold text-slate-300 hover:text-white transition-colors">{label} Colleges</a></li>
               ))}
             </ul>
           </div>
