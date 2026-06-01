@@ -506,8 +506,11 @@ function CollegeExplorer() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        {list.map(c => (
-          <a key={c.slug} href={`/colleges/${stateSlugForCollege(c)}/${c.slug}`}
+        {list.map(c => {
+          const href = `/colleges/${stateSlugForCollege(c)}/${c.slug}`;
+          return (
+          <a key={c.slug} href={href}
+            onClick={(e) => { e.preventDefault(); window.history.pushState({}, '', href); window.dispatchEvent(new PopStateEvent('popstate')); window.scrollTo({ top: 0 }); }}
             className="block rounded-2xl bg-white border border-slate-100 p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
@@ -537,7 +540,8 @@ function CollegeExplorer() {
             </div>
             <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-black text-primary">View full details →</span>
           </a>
-        ))}
+          );
+        })}
       </div>
       {!list.length && <p className="text-center text-sm text-slate-500 py-8">No colleges match your search.</p>}
       <p className="text-center text-[11px] text-slate-400">Showing {list.length} colleges · click any for its full page.</p>

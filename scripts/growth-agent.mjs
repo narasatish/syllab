@@ -80,9 +80,13 @@ async function gemini(prompt) {
 // ─── SEO audit ────────────────────────────────────────────────────────────────
 async function seoAudit() {
   const findings = [];
-  // 1. Refresh sitemap (fresh lastmod is a safe, positive signal).
+  // 0. Refresh blog content first (new state/exam/college posts → fresh keywords).
+  const b = spawnSync('node', [path.join(ROOT, 'scripts', 'generate-trending-blogs.mjs')], { cwd: ROOT, encoding: 'utf8' });
+  findings.push(b.status === 0 ? '✅ Blog feed regenerated (fresh posts + keywords)' : '⚠️ Blog regeneration failed');
+  // 1. Refresh sitemap (fresh lastmod is a safe, positive signal; picks up new college/blog URLs).
   const r = spawnSync('node', [path.join(ROOT, 'scripts', 'generate-sitemap.mjs')], { cwd: ROOT, encoding: 'utf8' });
   findings.push(r.status === 0 ? '✅ Sitemap regenerated with today\'s lastmod' : '⚠️ Sitemap regeneration failed — check generate-sitemap.mjs');
+  findings.push('ℹ️ Per-page meta/JSON-LD + prerender refresh on the next `npm run build` / deploy (keeps it in lockstep with content).');
 
   // 2. Count indexable URLs.
   let urlCount = 0;
