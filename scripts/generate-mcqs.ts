@@ -14,6 +14,7 @@
  *   npx tsx scripts/generate-mcqs.ts --class 10 --subject Science --per 20
  */
 
+import 'dotenv/config'; // load GEMINI_API_KEY from .env for scheduled/standalone runs
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
