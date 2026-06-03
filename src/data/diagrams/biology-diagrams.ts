@@ -213,7 +213,7 @@ export const biologyDiagrams: Diagram[] = [
     subject: 'biology',
     classRange: 'Class 8',
     classNumber: 8,
-    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chloroplast_(standalone_version)-en.svg?width=500',
+    imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chloroplast_(standalone_version)-en.svg?width=500)-en.svg?width=500',
     fallbackGradient: 'from-emerald-100 to-green-200',
     emoji: '🍃',
     summary: 'A chloroplast is an organelle in plant cells where photosynthesis occurs. It contains stacked thylakoids (grana) and houses the light and dark reactions.',
